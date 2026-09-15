@@ -3,514 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Community — Character Mapping Verification</title>
+<title>Community Character Map</title>
 <style>
-  :root {
-    --fox-orange: #DD8D29;
-    --fox-yellow: #E2D200;
-    --fox-blue: #46ACC8;
-    --fox-rust: #E58601;
-    --fox-red: #B40F20;
-    --bg: #FEFCF0;
-    --card-bg: #fff;
-    --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --border: #e0d8c0;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Georgia', serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.65;
-  }
-  .page-header {
-    background: var(--fox-orange);
-    color: #fff;
-    padding: 2.5rem 2rem 2rem;
-    text-align: center;
-    border-bottom: 6px solid var(--fox-rust);
-  }
-  .page-header h1 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .page-header p {
-    font-size: 1rem;
-    opacity: 0.9;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
-  h2 {
-    font-size: 1.4rem;
-    color: var(--fox-rust);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin: 2rem 0 1rem;
-    border-bottom: 2px solid var(--fox-yellow);
-    padding-bottom: 0.4rem;
-  }
-  /* Score table */
-  .score-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-    font-size: 0.9rem;
-  }
-  .score-table th {
-    background: var(--fox-orange);
-    color: #fff;
-    padding: 0.5rem 0.75rem;
-    text-align: left;
-    letter-spacing: 0.05em;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-  }
-  .score-table td {
-    padding: 0.45rem 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .score-table tr:nth-child(even) td { background: rgba(221,141,41,0.06); }
-  .score-badge {
-    display: inline-block;
-    background: var(--fox-orange);
-    color: #fff;
-    font-weight: bold;
-    padding: 0.1rem 0.5rem;
-    border-radius: 3px;
-    font-size: 0.85rem;
-  }
-  .score-badge.top { background: var(--fox-red); }
-  /* Show cards */
-  .show-card {
-    background: var(--card-bg);
-    border: 2px solid var(--border);
-    border-left: 5px solid var(--fox-orange);
-    border-radius: 6px;
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .show-card.rank1 { border-left-color: var(--fox-red); }
-  .show-card.rank2 { border-left-color: var(--fox-rust); }
-  .show-card.rank3 { border-left-color: var(--fox-orange); }
-  .show-card.rank4 { border-left-color: var(--fox-blue); }
-  .show-title {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .show-title h3 {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text);
-  }
-  .show-score-badge {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background: var(--fox-rust);
-    padding: 0.2rem 0.7rem;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-  /* Character map table */
-  .char-map {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    font-size: 0.88rem;
-  }
-  .char-map th {
-    background: var(--fox-yellow);
-    color: var(--text);
-    font-weight: bold;
-    padding: 0.4rem 0.7rem;
-    text-align: left;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .char-map td {
-    padding: 0.4rem 0.7rem;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .char-map tr:last-child td { border-bottom: none; }
-  .char-name { font-weight: bold; color: var(--fox-rust); }
-  /* Sections within a card */
-  .card-section { margin: 1.2rem 0 0; }
-  .card-section h4 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  .card-section p {
-    font-size: 0.9rem;
-    color: #333;
-  }
-  /* Episode list */
-  .ep-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .ep-list li {
-    padding: 0.3rem 0;
-    font-size: 0.88rem;
-    border-bottom: 1px dotted #ddd;
-  }
-  .ep-list li:last-child { border-bottom: none; }
-  .ep-code {
-    font-family: monospace;
-    font-size: 0.8rem;
-    background: var(--fox-yellow);
-    padding: 0.1rem 0.4rem;
-    border-radius: 2px;
-    margin-right: 0.4rem;
-  }
-  /* Quotes */
-  .quote-block {
-    background: rgba(70,172,200,0.07);
-    border-left: 3px solid var(--fox-blue);
-    padding: 0.6rem 0.9rem;
-    margin: 0.5rem 0;
-    font-size: 0.88rem;
-    font-style: italic;
-    color: #333;
-    border-radius: 0 4px 4px 0;
-  }
-  .quote-ep {
-    font-style: normal;
-    font-size: 0.75rem;
-    color: var(--muted);
-    font-family: 'Helvetica Neue', sans-serif;
-    margin-top: 0.25rem;
-  }
-  /* Not yet / blocked badges */
-  .badge-missing {
-    display: inline-block;
-    background: #eee;
-    color: var(--muted);
-    font-size: 0.75rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 3px;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  /* Footer */
-  footer {
-    text-align: center;
-    font-size: 0.78rem;
-    color: var(--muted);
-    padding: 2rem 1rem;
-    border-top: 1px solid var(--border);
-    margin-top: 2rem;
-  }
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  @media (max-width: 600px) {
-    .two-col { grid-template-columns: 1fr; }
-    .page-header h1 { font-size: 1.6rem; }
-  }
-</style>
-<style id="kidmode-css">
-.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
-body.kids .mode-btn{background:#B4503E}
-body.kids .mode-btn::before{content:"🧒  "}
-#kidpanel{display:none}
-body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
-body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
-body.kids #kidpanel b{color:#B4503E}
-body.kids{font-size:1.04em}
+:root { --bg: #FEFCF0; --ink: #1a1a1a; --muted: #5b554c; --line: #e3dccb;
+  --w1: #9986A5; --w2: #CCBA72; --w3: #D9D0D3; --w4: #8D8680; --w5: #79402E; --w6: #B6854D; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Georgia, 'Times New Roman', serif; }
+header { background: var(--w5); color: #FEFCF0; padding: 2.4rem 1rem 2rem; text-align: center; border-bottom: 8px solid var(--w6); }
+header h1 { margin: 0 0 .4rem; font-size: clamp(1.7rem, 4vw, 2.6rem); letter-spacing: .06em; text-transform: uppercase; }
+header p { margin: .2rem auto; max-width: 720px; }
+.badges { margin-top: 1rem; display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
+.badges span { background: var(--bg); color: var(--ink); border-radius: 999px; padding: .2rem .8rem; font-size: .9rem; }
+nav { background: var(--w3); color: #1a1a1a; padding: .6rem 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1rem; font-size: .92rem; }
+nav a { color: inherit; white-space: nowrap; }
+main { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+section { margin: 2.4rem 0; }
+h2 { font-size: 1.35rem; text-transform: uppercase; letter-spacing: .07em; border-bottom: 3px solid var(--w2); padding-bottom: .3rem; }
+h3 { margin: .2rem 0 .3rem; font-size: 1.05rem; }
+.muted { color: var(--muted); }
+.small { font-size: .8rem; font-weight: normal; white-space: normal; }
+.chips { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .5rem; }
+.chip { display: inline-block; padding: .1rem .55rem; border-radius: 4px; }
+.tag { display: inline-block; font-size: .72rem; border-radius: 3px; padding: 0 .35rem; margin: .1rem .15rem 0 0; font-weight: normal; white-space: nowrap; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { padding: .45rem .6rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+thead th { background: var(--w5); color: #FEFCF0; font-weight: normal; letter-spacing: .04em; }
+tbody th { background: #f6f1e1; }
+td.num { text-align: right; white-space: nowrap; }
+.bar { position: relative; min-width: 120px; height: 1.5rem; background: #f1ecdc; border-radius: 4px; }
+.bar span { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; }
+.bar b { position: relative; padding-left: .4rem; line-height: 1.5rem; }
+.map { font-size: .8rem; min-width: 1100px; }
+.meta { min-width: 880px; }
+.pen { color: var(--w5); font-size: .72rem; }
+.prov { background: #f1ecdc; border-radius: 3px; padding: 0 .35rem; font-size: .8rem; white-space: nowrap; }
+.note { background: #fff; border-left: 6px solid var(--w6); padding: .8rem 1rem; margin: 1rem 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1rem; }
+.type { background: var(--w3); color: #1a1a1a; border-radius: 3px; padding: 0 .4rem; font-size: .8rem; white-space: nowrap; }
+.timeline, .open, .changes { list-style: none; padding: 0; }
+.timeline li, .open li { background: #fff; margin: .6rem 0; padding: .7rem 1rem; border-radius: 4px; }
+.changes li { margin: .4rem 0; }
+td.ep { white-space: nowrap; font-weight: bold; }
+details { background: #fff; border: 1px solid var(--line); border-radius: 6px; margin: .8rem 0; padding: .2rem 1rem; }
+details > summary { cursor: pointer; font-weight: bold; padding: .6rem 0; }
+details[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: .8rem; }
+.sources { columns: 2 300px; font-size: .88rem; }
+footer { text-align: center; color: var(--muted); font-size: .88rem; padding: 1.5rem 1rem 2.5rem; border-top: 3px solid var(--w4); }
+a { color: #5a2f22; }
+@media (max-width: 600px) { td.ep, .type { white-space: normal; } }
 </style>
 </head>
 <body>
-
-<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Community — Character Mapping Verified</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
-
-<header class="page-header">
-  <h1>Community — Character Mapping Verified</h1>
-  <p>Structural DNA match: which shows are Community's sibling, cousin, or ancestor.
-     Scored on character isomorphism, plot engine, mirrored subplots, craft, and emotional load.
-     Verbatim quotes pulled from scraped transcripts.</p>
+<header>
+  <h1>Community Character Map</h1>
+  <p>An ancestry model for Greendale's ensemble, with a working index.</p>
+  <p>Revision 7, September 15, 2026.</p>
+  <div class="badges"><span>Working index, not final</span><span>NewsRadio leads the index at 94</span><span>Buffy rejoins at 92</span><span>New focus: Saved by the Bell and NewsRadio lineage</span><span>Revision 7: Planbee to Ladders</span></div>
 </header>
+<nav>
+  <a href="#premise">Premise</a><a href="#lineage">Lineage</a><a href="#types">Ancestry types</a><a href="#troy">Troy</a><a href="#pairs">NewsRadio pairs</a><a href="#buffy">Buffy</a><a href="#shadows">Shadows and succession</a><a href="#index">Working index</a><a href="#meta">Casting and TV</a><a href="#notes">Working notes</a>
+</nav>
+<main>
+<section id="premise">
+  <h2>The premise</h2>
+  <p>NewsRadio is the organizing premise, the hypothesis that started the project, and it holds the strongest cast-level correspondence in the current scoring. Every show is scored by the same declared method.</p>
+  <ul class="chips"><li><span class='chip' style='background:#9986A5;color:#1a1a1a'>Dave Nelson</span> to <b>Jeff</b></li><li><span class='chip' style='background:#CCBA72;color:#1a1a1a'>Joe Garrelli</span> to <b>Troy</b></li><li><span class='chip' style='background:#D9D0D3;color:#1a1a1a'>Matthew Brock</span> to <b>Abed</b></li><li><span class='chip' style='background:#8D8680;color:#1a1a1a'>Lisa Miller</span> to <b>Annie</b></li><li><span class='chip' style='background:#79402E;color:#FEFCF0'>Beth</span> to <b>Britta</b></li><li><span class='chip' style='background:#B6854D;color:#1a1a1a'>Catherine Duke</span> to <b>Shirley</b></li><li><span class='chip' style='background:#9986A5;color:#1a1a1a'>Bill McNeal and Jimmy James</span> to <b>Pierce</b></li></ul>
+  <p>Every evidence row carries one of six labels. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#CCBA72;color:#1a1a1a'>Commentary heard</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#B6854D;color:#1a1a1a'>Published review</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p>
+  <p class="muted">Commentary heard directly counts as evidence under its own label, with or without a transcript online.</p>
+</section>
 
-<div class="container">
+<section id="lineage">
+  <h2>Saved by the Bell and NewsRadio into Greendale</h2>
+  <p>The current focus is the line from Saved by the Bell and NewsRadio into Community. A commentary confirming that lineage has been found. It is rare, so the page records it as Commentary heard and does not link it. Every link below is new to this project unless its row says otherwise, and each is tied to dialogue, recaps, episode records or credits that the build checks on both sides. <span class='tag' style='background:#CCBA72;color:#1a1a1a'>Commentary heard</span></p>
+  <p class="muted">The earlier finds, including "Jessie's Song", "The Zack Tapes", "Daydream", "Copy Machine" and "Station Sale", are on the <a href="https://7onething1.github.io/community-greendale-lineage/">Greendale Lineage page</a>. The Planbee handoff and the Annie line from Jessie to Frankie are on <a href="https://7onething1.github.io/community-greendale-lineage/#planbee">that page</a> too.</p>
+  <p class="muted">No line of Community dialogue names either show, WNYX, Bayside or their lead characters. In Wikipedia's episode credits, Jeff Melman is the only director or writer on both a Saved by the Bell production and a Community episode, no NewsRadio director or writer is credited on Community, and seven NewsRadio guest stars plus one regular, Andy Dick, turn up at Greendale.</p>
+  <h3>People on both sides</h3>
+  <div class="scroll"><table class="meta">
+    <thead><tr><th scope="col">Who</th><th scope="col">Older show</th><th scope="col">Community</th></tr></thead>
+    <tbody><tr><td><b>Jeff Melman</b></td><td>Directed the TV movie Saved by the Bell: Wedding in Las Vegas (1994).</td><td>Directed "Remedial Chaos Theory" (S3E4). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span></td></tr><tr><td><b>Tiffani-Amber Thiessen</b></td><td>Kelly Kapowski on Saved by the Bell, then Foxy Jackson on NewsRadio, the new assistant Joe is smitten with ("Assistant", February 16, 1999).</td><td>No Community role. She joins the two older shows through Joe, Troy's ancestor. <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td><b>Andy Dick</b></td><td>Matthew Brock on NewsRadio.</td><td>The tiny pilot in Pierce's painkiller visions in season 2, credited as Helicopter Pilot/Tiny Man. The casting table below and the Greendale Lineage page carry this link too. <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>French Stewart</b></td><td>Brent, the "weird" new temp Matthew feels threatened by ("Mistake", May 14, 1997).</td><td>Vinnie, the look-alike agency boss Abed owes three grand ("Contemporary Impressionists", S3E12). The casting table below lists this role through 3rd Rock from the Sun, and the NewsRadio temp is new here. <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td><b>David Cross</b></td><td>Mr. James's nephew Theo ("Houses of the Holy", March 10, 1996) and David from Dave's college a cappella group ("Chock", January 13, 1998).</td><td>Hank Hickey ("Advanced Advanced Dungeons &amp; Dragons", S5E10). The Greendale Lineage page covers him through Arrested Development, and his NewsRadio roles are new here. <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>Patton Oswalt</b></td><td>Guy in "The Trainer" (December 19, 1996).</td><td>Nurse Jackie in "Home Economics" (S1E8) and "The Psychology of Letting Go" (S2E3). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>Paul F. Tompkins</b></td><td>The justice of the peace in "Wedding" (March 2, 1999).</td><td>Robert, the fellow sci-fi fan Abed talks with in "Mixology Certification" (S2E10). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>Brian Posehn</b></td><td>Brian in "Chock" (January 13, 1998) and a fan in "Super Karate Monkey Death Car" (November 4, 1997).</td><td>Bixel in "App Development and Condiments" (S5E8). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>Michael McDonald</b></td><td>A guest star in "Airport" (February 19, 1997).</td><td>Ronald Mohammad in "Basic Story" (S5E12). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td><b>Wayne Federman</b></td><td>Randy Stark in "Freaky Friday" (April 20, 1999).</td><td>The Dad in "Emotional Consequences of Broadcast Television" (S6E13). <span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr></tbody>
+  </table></div>
+  <h3>NewsRadio episodes that reach Greendale</h3>
+  <div class="scroll"><table class="meta">
+    <thead><tr><th scope="col">NewsRadio</th><th scope="col">Community</th><th scope="col">What carries over</th></tr></thead>
+    <tbody><tr><td class='ep'>Super Karate Monkey Death Car<div class='muted small'>November 4, 1997</div></td><td>"Cooperative Polygraphy" (S5E4)</td><td>An outsider puts the whole ensemble through a polygraph. Andrea, the efficiency expert, tests the WNYX staff, Joe steals a copy of the test and Lisa's criminal record comes out. Pierce's will orders a private inquest, and the study group must pass a polygraph to be cleared of his murder before anyone receives a bequest. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Balloon<div class='muted small'>March 25, 1998</div></td><td>"Cooperative Polygraphy" (S5E4) and "Geothermal Escapism" (S5E5)</td><td>A rich man proves himself by circling the globe. Mr. James decides to fly around the world in a hot-air balloon to prove his machismo to the other billionaires, and Pierce's will makes Troy sail around the world alone, the test Pierce's own father set him at 23. Jimmy feeds Pierce in the premise map. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Xmas Story<div class='muted small'>December 19, 1995</div></td><td>"Cooperative Polygraphy" (S5E4)</td><td>The rich man's gifts skip the odd one out. Mr. James buys sports cars for everyone on the staff except Matthew, who gets tapes, and Pierce's will hands Abed, Matthew's descendant, nothing beyond the sperm every member receives. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Bill Moves On<div class='muted small'>September 23, 1998</div></td><td>"Cooperative Polygraphy" (S5E4)</td><td>The ensemble comes back from a funeral for a character whose actor is gone. NewsRadio's staff return from Bill's memorial service after Phil Hartman's death, and the study group returns from Pierce's funeral after Chevy Chase left the show. Bill feeds Pierce in the premise map. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>The Real Deal<div class='muted small'>May 7, 1997</div></td><td>"Pillows and Blankets" (S3E14)</td><td>A radio host brands his show with a rhyme on his own name. Bill hosts The Real Deal with Bill McNeal on WNYX, and Neil, now a campus radio DJ, signs off as "real Neil with pipes of steel." TV Tropes reads the sign-off as a shout-out to Bill's show. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Planbee<div class='muted small'>September 30, 1997</div></td><td>"Ladders" (S6E1)</td><td>A hired outsider arrives to put the place in order. Mr. James brings in Andrea, an efficiency expert, to bring order to WNYX, and the Dean brings in Frankie as an "administrative consultant" after a roof collapses. Frankie proposes cutting classes such as Ladders. Both owners leave the room right after the introduction, Jimmy on a piranha joke and the Dean on a fake phone call. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Rose Bowl<div class='muted small'>February 5, 1997</div></td><td>"App Development and Condiments" (S5E8)</td><td>Coworkers grade each other. Dave agrees to let the staff review each other, and MeowMeowBeenz turns ranking classmates into a class war. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Who's the Boss?<div class='muted small'>January 20 and February 3, 1998</div></td><td>"Competitive Wine Tasting" (S2E20)</td><td>Both shows ask who the boss is. NewsRadio's two-parter makes Bill the boss to punish him and then puts Dave and Lisa to a staff vote, and Abed's class on Who's the Boss? ends with his proof that Angela was the boss. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Catherine Moves On<div class='muted small'>November 25, 1997</div></td><td>"Horror Fiction in Seven Spooky Steps" (S3E5)</td><td>An episode built from each character's version of events. The staff offer their versions of how and why Catherine quit, colored by their own perceptions, and Britta has the study group tell scary stories to see how everyone reacts. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Our Fiftieth Episode<div class='muted small'>April 2, 1997</div></td><td>"Curriculum Unavailable" (S3E19)</td><td>A member of the ensemble is headed for a mental institution. An argument over a traffic ticket gets Bill committed to a mental hospital, and Abed, given the choice between therapy and jail, goes with the whole group to a psychiatrist who decides he should be committed. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Twins<div class='muted small'>March 12, 1997</div></td><td>"Remedial Chaos Theory" (S3E4)</td><td>The oddball gets a double. Matthew's "identical twin" brother Andrew visits, played by Jon Stewart, and the darkest timeline produces Evil Abed in an episode Jeff Melman directed. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Noise<div class='muted small'>October 21, 1998</div></td><td>"Lawnmower Maintenance and Postnatal Care" (S6E2)</td><td>A gadget hooks the boss. Dave and Jimmy get addicted to Joe's white noise box, and the Dean gets lost in a virtual reality system until Jeff finds its inventor, Elroy, who recombines Troy and Abed on the shadows list. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Hair<div class='muted small'>February 9, 1999</div></td><td>"Debate 109" (S1E9)</td><td>Hypnotism as a cure. Joe hypnotizes Jimmy to cure his fear of hippies, and Pierce hypnotizes Britta to stop her smoking. The Greendale Lineage page ties the same scene to the hidden messages of Saved by the Bell's "The Zack Tapes", so the scene has a parent in each older show. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Jail<div class='muted small'>November 4, 1998</div></td><td>"The First Chang Dynasty" (S3E21)</td><td>A usurper takes the institution once its leader is locked away. Jimmy is arrested as the hijacker D. B. Cooper and Johnny Johnson replaces him, looking to make it permanent, and Chang kidnaps the Dean and swaps in a Doppeldeaner. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr></tbody>
+  </table></div>
+  <div class="note"><b>One Community episode gathers five of them.</b> Five older episodes meet in "Cooperative Polygraphy" (S5E4): NewsRadio's polygraph, its around-the-world test, the gifts that skip Matthew and Bill's memorial, plus Saved by the Bell's fight over a bequest. It is also the episode that finalizes Pierce's exit after Chevy Chase left the show. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span></div>
+  <h3>Saved by the Bell episodes that reach Greendale</h3>
+  <div class="scroll"><table class="meta">
+    <thead><tr><th scope="col">Saved by the Bell</th><th scope="col">Community</th><th scope="col">What carries over</th></tr></thead>
+    <tbody><tr><td class='ep'>The Will<div class='muted small'>S4E14</div></td><td>"Cooperative Polygraphy" (S5E4)</td><td>A bequest turns the friends on each other. A beloved alumnus leaves Bayside $10,000 and the boys and girls fight over it, and Pierce's will sets the study group bickering through a polygraph inquest. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Glee Club<div class='muted small'>S2E18, December 23, 1990</div></td><td>"Regional Holiday Music" (S3E10)</td><td>The gang is pulled into the glee club for a big performance. Bayside's gang joins the glee club to reach a competition in Hawaii, and the Dean and Mr. Rad try to get the study group to fill in for Greendale's Glee Club at the Christmas pageant until its members give in one by one. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Clip shows<div class='muted small'>"Isn't It Romantic?", "Best Summer of My Life" and "The Time Capsule", season 4</div></td><td>"Paradigms of Human Memory" (S2E21) and "Curriculum Unavailable" (S3E19)</td><td>The clip show. Saved by the Bell's fourth season runs three, and "Best Summer of My Life" became one after Kelly and Jessie left, which met the show's contract with NBC. Community parodies the form with a clip show made entirely of new footage and spoofs it again a season later. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Rockumentary<div class='muted small'>S3E22, November 30, 1991</div></td><td>"Pillows and Blankets" (S3E14)</td><td>A famous voice narrates the gang's story as a documentary. Casey Kasem tells the rise, fall and rise again of the Zack Attack, which turns out to be Zack's dream, and Keith David narrates the pillow and blanket war as a Ken Burns film. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Day of Detention<div class='muted small'>S4E8, October 3, 1992</div></td><td>"Pilot" (S1E1)</td><td>Saturday detention, the Breakfast Club setup. Zack's radio contest collides with a Saturday detention that ends up holding the whole gang, and in Community's pilot Abed says the study group is kind of like Breakfast Club. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>The Last Dance<div class='muted small'>S3E1, September 14, 1991</div></td><td>"Debate 109" (S1E9) and after</td><td>The younger student falls for a man named Jeff. Kelly takes a waitress job at The Max, falls for its older manager Jeff Hunter and ends her relationship with Zack, and Annie kisses Jeff Winger at the end of their debate, the start of a pull that runs through Community. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>House Party<div class='muted small'>S2E5, October 6, 1990</div></td><td>"Foosball and Nocturnal Vigilantism" (S3E9)</td><td>Something precious breaks and the gang tries to replace it before the owner finds out. Saved by the Bell runs this plot twice in season 2, with Screech's mother's Elvis statue in "House Party" and the school's camera in "Close Encounters of the Nerd Kind". When Annie breaks Abed's autographed Dark Knight DVD, Troy asks her how many sitcoms have done the "secretly replace a broken, priceless item" thing. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Rent-a-Pop<div class='muted small'>S2E7, October 20, 1990</div></td><td>"Intermediate Documentary Filmmaking" (S2E16)</td><td>A fake father works the scheme. Zack hires an actor to play his dad for Mr. Belding, and Pierce pretends to be Jeff's estranged father from inside a limo. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Earthquake!<div class='muted small'>S4E21, November 21, 1992</div></td><td>"Applied Anthropology and Culinary Arts" (S2E22)</td><td>The gang delivers a baby when no help can come, and the baby is named for a helper. Zack and Tori deliver Mrs. Belding's baby in a stuck elevator after an earthquake and the Beldings name him Zack, and with no ambulance available Abed talks Britta through delivering Shirley's son, whom Shirley names Ben for Chang because he helped bring him into the world. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>Close Encounters of the Nerd Kind<div class='muted small'>S2E12, November 23, 1990</div></td><td>"Intro to Political Science" (S2E17)</td><td>A government agent fixes on the group's oddball. A special agent becomes convinced Screech is an alien, and Abed sabotages Greendale's stop on the vice president's tour to seem more dangerous to Agent Vohlers. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td class='ep'>No Hope with Dope<div class='muted small'>S3E21, November 30, 1991</div></td><td>"Digital Exploration of Interior Design" (S3E13) and "Advanced Safety Features" (S6E7)</td><td>The network or the sponsor walks into the plot. NBC chairman Brandon Tartikoff appears as himself to make Bayside's anti-drug commercial, and Greendale's Subway and Honda placements become storylines. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr></tbody>
+  </table></div>
+  <p class="muted">The build confirms 138 anchor phrases behind these 35 rows, from the NewsRadio and Community dialogue, the TV Tropes recaps, the Saved by the Bell Wiki and Wikipedia's episode lists, and it fails if a row loses its evidence on either side.</p>
+</section>
 
-  <h2>Ranked Table (top 22+)</h2>
-  <table class="score-table">
-    <thead>
-      <tr>
-        <th>Show</th><th>CHAR</th><th>ENG</th><th>MIR</th><th>CRAFT</th><th>EM</th><th>Total</th><th>Transcript</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>The Good Place</strong></td><td>5</td><td>5</td><td>4</td><td>5</td><td>5</td><td><span class="score-badge top">24</span></td><td><span class="badge-missing">not on SSP</span></td></tr>
-      <tr><td><strong>NewsRadio</strong></td><td>5</td><td>5</td><td>4</td><td>4</td><td>5</td><td><span class="score-badge top">23</span></td><td><span class="badge-missing">not on SSP</span></td></tr>
-      <tr><td><strong>Parks and Recreation</strong></td><td>5</td><td>5</td><td>4</td><td>3</td><td>5</td><td><span class="score-badge">22</span></td><td>✓ scraped</td></tr>
-      <tr><td><strong>Cheers</strong></td><td>5</td><td>4</td><td>4</td><td>4</td><td>5</td><td><span class="score-badge">22</span></td><td>✓ scraped</td></tr>
-      <tr><td>Taxi</td><td>5</td><td>5</td><td>3</td><td>4</td><td>5</td><td>22</td><td></td></tr>
-      <tr><td>Abbott Elementary</td><td>5</td><td>5</td><td>4</td><td>3</td><td>5</td><td>22</td><td></td></tr>
-      <tr><td>Scrubs</td><td>4</td><td>5</td><td>4</td><td>4</td><td>5</td><td>22</td><td></td></tr>
-      <tr><td>Frasier</td><td>5</td><td>4</td><td>5</td><td>4</td><td>4</td><td>22</td><td></td></tr>
-      <tr><td>Brooklyn Nine-Nine</td><td>5</td><td>5</td><td>4</td><td>3</td><td>4</td><td>21</td><td></td></tr>
-      <tr><td>Sports Night</td><td>4</td><td>4</td><td>4</td><td>5</td><td>4</td><td>21</td><td></td></tr>
-      <tr><td>30 Rock</td><td>4</td><td>4</td><td>5</td><td>5</td><td>3</td><td>21</td><td></td></tr>
-      <tr><td>Arrested Development</td><td>4</td><td>3</td><td>5</td><td>5</td><td>4</td><td>21</td><td></td></tr>
-    </tbody>
-  </table>
+<section id="types">
+  <h2>Five kinds of ancestry</h2>
+  <p>A Greendale character can take personality from one older show, a relationship position from another, a seasonal job from a third, and grow through several roles over the run. The show also keeps shadows of its own characters.</p>
+  <div class="grid"><div class='card' style='border-top:6px solid #9986A5'><h3>Personality ancestry</h3><p>Who a character resembles across the whole run.</p><p class='muted'>Example: Buffy to Britta</p></div><div class='card' style='border-top:6px solid #CCBA72'><h3>Relationship ancestry</h3><p>A position held opposite one other character.</p><p class='muted'>Example: Angel and Buffy to Jeff and Annie, and Dave and Lisa to the same pair</p></div><div class='card' style='border-top:6px solid #D9D0D3'><h3>Seasonal or functional slot</h3><p>A job in the story that changes hands from season to season.</p><p class='muted'>Example: Buffy's rotating Big Bads to Chang</p></div><div class='card' style='border-top:6px solid #8D8680'><h3>Developmental ancestry</h3><p>One character moving through several older roles over time.</p><p class='muted'>Example: Troy, from A.C. Slater to Joe Garrelli, and Annie, from Cordelia to Willow to Dark Willow and from Jessie Spano to Lisa Miller to Frankie Dart</p></div><div class='card' style='border-top:6px solid #79402E'><h3>Shadow</h3><p>An alternate, suppressed, future or replacement version of another character.</p><p class='muted'>Example: Annie Kim to Annie Edison</p></div></div>
+</section>
 
-  <h2>Top 4 Shows — Character Maps + Verified Quotes</h2>
+<section id="troy">
+  <h2>Troy's line</h2>
+  <ul class="timeline"><li style='border-left:6px solid #9986A5'><h3>Slater stage <span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span></h3><p>Troy arrives as the former high school football star. Harmon first pictured a young Woody Harrelson for the part and planned Troy and Pierce as the show's Beavis and Butt-Head pair.</p></li><li style='border-left:6px solid #CCBA72'><h3>Troy and Abed stage <span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></h3><p>Donald Glover and Danny Pudi's real-life friendship turned into comedic chemistry, shown off in the Spanish rap of the series' very first tag, and the show moved Troy from Pierce to Abed. The older models here are J.D. and Turk, and Joe and Matthew.</p></li><li style='border-left:6px solid #D9D0D3'><h3>The repair gift <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></h3><p>"English as a Second Language" (S1E24) reveals Troy's natural plumbing talent. Abed borrows the best-part-of-my-day speech from Good Will Hunting to push him toward plumbing, and Troy refuses and stays in school. On NewsRadio, Joe builds the camera hidden inside a Boba Fett doll himself ("Presence", S2E19, April 14, 1996).</p></li><li style='border-left:6px solid #8D8680'><h3>Repairman stage <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></h3><p>Troy trades his place in the study group for the Air Conditioning Repair Annex's help in "The First Chang Dynasty" (S3E21). In "Introduction to Finality" (S3E22) Vice Dean Laybourne tells him, "The true repairman will repair man."</p></li><li style='border-left:6px solid #79402E'><h3>The fire <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></h3><p>"Intro to Felt Surrogacy" (S4E9) gives Troy the Greendale Fire of '03, 55 acres from one burned anthill. On NewsRadio, Joe starts the station fire by miswiring the new security cameras he meant to sabotage in "Led Zeppelin II" (S2E21, April 28, 1996).</p></li><li style='border-left:6px solid #B6854D'><h3>Exit <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></h3><p>Pierce's will leaves Troy his Hawthorne Wipes shares on the condition that he sail Pierce's boat, the Childish Tycoon, around the world ("Cooperative Polygraphy", S5E4), and in "Geothermal Escapism" (S5E5) Troy sets sail with LeVar Burton, assigned by the will to make sure he doesn't cheat.</p></li></ul>
+</section>
 
-  <!-- THE GOOD PLACE -->
-  <div class="show-card rank1">
-    <div class="show-title">
-      <h3>The Good Place</h3>
-      <span class="show-score-badge">24 / 25 — Highest rated</span>
-    </div>
-    <table class="char-map">
-      <thead><tr><th>Community</th><th>The Good Place</th><th>Why it maps</th></tr></thead>
-      <tbody>
-        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Eleanor Shellstrop</td><td>Reluctant lead arrived under false pretenses; treats moral self-improvement as a con for two seasons before the ensemble teaches them to mean it. Both close every group debate.</td></tr>
-        <tr><td class="char-name">Britta Perry</td><td class="char-name">Tahani Al-Jamil</td><td>Status-anxious almost-leader getting humbled. Name-dropping is the moral-superiority tic Britta's PETA-activism is.</td></tr>
-        <tr><td class="char-name">Annie Edison</td><td class="char-name">Chidi Anagonye</td><td>High-achieving rule-follower whose moral rigidity is the engine of half the comedy. Both freeze on decisions.</td></tr>
-        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Janet</td><td>The non-human ensemble member whose brain runs on a different OS, narrates the structure from inside. Closest to Abed than any character on TV.</td></tr>
-        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Jason Mendoza</td><td>Sweet, dim, loyal. Jacksonville monologues are Troy's "shirts versus skins" in different costume. Friendship with Janet replicates Troy-Abed beat for beat.</td></tr>
-        <tr><td class="char-name">Pierce Hawthorne</td><td class="char-name">Brent Norwalk (S4)</td><td>Wealthy entitled obstacle the ensemble drags into virtue.</td></tr>
-        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Michael</td><td>Institution's chaos-engine authority figure: self-pity, costume changes, reluctant care.</td></tr>
-      </tbody>
-    </table>
-    <div class="card-section">
-      <h4>Plot engine</h4>
-      <p>The architect's deception (S1), the rebuild (S2), the human-test (S3), the new neighborhood (S4). Every season is a workplace assignment from Michael forcing the four humans plus Janet to stay in proximity. The Good Place's weekly engine: "what does Michael's plan require."</p>
-    </div>
-    <div class="card-section">
-      <h4>Best 5 episodes for a Community fan — in watch order</h4>
-      <ul class="ep-list">
-        <li><span class="ep-code">S01E01</span> <strong>Pilot</strong> — Eleanor arrives; the Jeff-hiding-his-credentials parallel is immediate.</li>
-        <li><span class="ep-code">S02E06</span> <strong>The Trolley Problem</strong> — Chidi's ethics class becomes the study-group table equivalent. Annie's season 2 pedagogy-as-power arc, one episode.</li>
-        <li><span class="ep-code">S02E10</span> <strong>Best Self</strong> — Four parallel confession-ritual-send-off beats. Structural DNA of Community's "Remedial Chaos Theory."</li>
-        <li><span class="ep-code">S03E10</span> <strong>Janet(s)</strong> — Every human inhabits Janet's void. Most literal mirrored-subplot move on TV.</li>
-        <li><span class="ep-code">S04E14</span> <strong>Whenever You're Ready</strong> — Four parallel goodbye arcs. The finale Community would have written if it had a clean ending.</li>
-      </ul>
-    </div>
-    <div class="card-section">
-      <h4>Verbatim transcript quotes</h4>
-      <p><em>Transcripts not available on springfieldspringfield.co.uk. The Good Place is a Peacock/Netflix property not archived there.</em></p>
-    </div>
-  </div>
+<section id="pairs">
+  <h2>NewsRadio pairs</h2>
+  <div class="scroll"><table>
+    <thead><tr><th scope="col">NewsRadio</th><th scope="col">Greendale</th><th scope="col">Evidence</th></tr></thead>
+    <tbody><tr><td>Dave and Lisa</td><td><b>Jeff and Annie</b></td><td>NewsRadio's secret, on-and-off workplace romance. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></td></tr><tr><td>Joe and Matthew</td><td><b>Troy and Abed</b></td><td>Joe teaches Matthew gambling until double or nothing leaves him owing $5,120, then $10,240 ("In Through the Out Door", S2E13). In "Space" (May 21, 1997) Joe triggers the self-destruct and Matthew kicks out the life-support cord, and in "The Injury" (June 5, 1997) the two compete to grab a coffee cup off a hallway light fixture until Matthew hurts his hand. Joe casts Matthew "to play the role of Alien" in a scripted show for his 24-hour break room Internet-cam ("Apartment", S5E12), trains him in Joe-jitsu ("Padded Suit", S5E19), and with Beth stages a mock job interview for him that turns into a pretend NASA interview ("Retirement", S5E21). Emily St. James's February 5, 2010 AV Club review of Community's "Romantic Expressionism" called Joe and Matthew "sort of the proto Abed and Troy", pairing the two duos without matching individuals. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#B6854D;color:#1a1a1a'>Published review</span></td></tr><tr><td>Jimmy and Matthew</td><td><b>The Dean's cell</b></td><td>"Freaky Friday" (S5E20, April 20, 1999) has Jimmy and Matthew switch jobs for a day, and the map's Dean cell averages Jimmy at 4 with Matthew at 3.5. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td>Catherine and Joe</td><td><b>Open</b></td><td>Their on-screen flirtation implies a Shirley and Troy counterpart, and the map doesn't place one yet. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td>Jimmy and Andrea</td><td><b>The Dean and Frankie</b></td><td>The owner brings an outside woman into a failing workplace and walks out as soon as the staff start asking questions. Jimmy exits on a piranha joke in "Planbee" (S4E2), and the Dean fakes a phone call in "Ladders" (S6E1). The row records a scene role, and the cast scores stay as declared. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td>Andrea, Lisa and Matthew</td><td><b>Frankie, Annie and Abed</b></td><td>Andrea fires Matthew and gives Lisa Dave's job across S4E2 to S4E5. Frankie wins Abed over and leaves after dismissing him in S6E1, and she later tells Annie to get away from Jeff in S6E12. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr></tbody>
+  </table></div>
+  <div class="note"><b>Troy as Joe and Abed as Matthew already score 5.</b> The NewsRadio cells with room are the Dean at 3.56 and Chang at 2.13 after the reuse penalty.</div>
+</section>
 
-  <!-- NEWSRADIO -->
-  <div class="show-card rank2">
-    <div class="show-title">
-      <h3>NewsRadio</h3>
-      <span class="show-score-badge">23 / 25</span>
-    </div>
-    <table class="char-map">
-      <thead><tr><th>Community</th><th>NewsRadio</th><th>Why it maps</th></tr></thead>
-      <tbody>
-        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Dave Nelson</td><td>Reluctant good-looking lead with a moral spine he denies. Dave's straight-man closing speeches play the same function Jeff's couch-monologues do.</td></tr>
-        <tr><td class="char-name">Britta Perry</td><td class="char-name">Lisa Miller</td><td>The driven sharp woman closest to Jeff's equal and the moral self-correcting voice.</td></tr>
-        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Matthew Brock (Andy Dick)</td><td>The weird ensemble outlier whose brain runs on a non-standard OS. Andy Dick's performance: "behave as if the script is delivered in real time to my surprise" — the closest live-action analogue to Abed's flat-affect reactions.</td></tr>
-        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Joe Garrelli (Joe Rogan)</td><td>Lovable handyman everyman with weird hobbies and emotional sweetness. Joe's conspiracy-theory monologues are Troy's "Air Conditioning Repair School is real."</td></tr>
-        <tr><td class="char-name">Pierce / Dean</td><td class="char-name">Jimmy James (split)</td><td>Stephen Root plays one character containing both functions: the rich eccentric (Pierce) and the impossibly weird authority figure (Dean Pelton).</td></tr>
-        <tr><td class="char-name">Chang/Hickey</td><td class="char-name">Bill McNeal (Phil Hartman)</td><td>Chaos antagonist inside the ensemble. Manic theatricality of Chang plus grumpy-veteran ego of Hickey.</td></tr>
-      </tbody>
-    </table>
-    <div class="card-section">
-      <h4>Plot engine</h4>
-      <p>News cycle plus Jimmy James's whim. Every episode: Jimmy walks in with an order ("we are buying a boat, we are sending Joe to Antarctica, take a personality test"). Structurally identical to Community's class assignment plus Dean Pelton's announcement. The newsroom is the study room with worse furniture.</p>
-    </div>
-    <div class="card-section">
-      <h4>Best 5 episodes for a Community fan — in watch order</h4>
-      <ul class="ep-list">
-        <li><span class="ep-code">S02E01</span> <strong>Airport</strong> — Bottle episode, entire cast stuck in one location. The "Cooperative Calligraphy" equivalent.</li>
-        <li><span class="ep-code">S03E02</span> <strong>Rose Bowl</strong> — Jimmy James subplot runs parallel to Dave-Lisa subplot on the same "pride is the problem" beat.</li>
-        <li><span class="ep-code">S03E17</span> <strong>Bill Moves On</strong> — Three reaction-to-Bill's-departure subplots rhyming on "we don't say goodbye well." "Mixology Certification" structure.</li>
-        <li><span class="ep-code">S04E16</span> <strong>Houses</strong> — Lisa moving in with Dave, Bill buying a car, Joe refurbishing a generator. Three parallel "I am building something that will fall apart" beats.</li>
-        <li><span class="ep-code">S04E20</span> <strong>Sinking Ship</strong> — Titanic-bottle parody. Every ensemble pairing has its own romantic-doomed subplot. Community's genre-episode in 1998.</li>
-      </ul>
-    </div>
-    <div class="card-section">
-      <h4>Verbatim transcript quotes</h4>
-      <p><em>NewsRadio transcripts not available on springfieldspringfield.co.uk. Not currently archived on any headless-fetchable source.</em></p>
-    </div>
-  </div>
+<section id="buffy">
+  <h2>Buffy, corrected</h2>
+  <p>Britta is Buffy. Annie is Willow, starting as Cordelia in the rivalry with Britta, and the slow reveal is Annie as Dark Willow. Jeff starts as Angel in the forbidden romance with Annie and becomes Spike later, so those stages count in sequence. Chang holds the rotating Big Bad slot because his role changes the same way.</p>
+  <div class="scroll"><table>
+    <thead><tr><th scope="col">Slot</th><th scope="col">Mapping</th><th scope="col">Type</th><th scope="col">Value</th></tr></thead>
+    <tbody><tr><td>Jeff</td><td>Angel 5, then Spike 5</td><td><span class='type'>Sequence</span></td><td class='num'>5</td></tr><tr><td>Britta</td><td>Buffy 5</td><td><span class='type'>Personality</span></td><td class='num'>5</td></tr><tr><td>Abed</td><td>Anya 4.25</td><td><span class='type'>Personality</span></td><td class='num'>4.25</td></tr><tr><td>Troy</td><td>Xander 4</td><td><span class='type'>Personality</span></td><td class='num'>4</td></tr><tr><td>Annie</td><td>Cordelia 5 early, rivalling Britta, then Willow 5, with Dark Willow as the slow reveal, plus Buffy's place in the romance opposite Jeff</td><td><span class='type'>Sequence and relationship</span></td><td class='num'>5</td></tr><tr><td>Shirley</td><td>Joyce 4</td><td><span class='type'>Personality</span></td><td class='num'>4</td></tr><tr><td>Pierce</td><td>The Mayor 4.5</td><td><span class='type'>Personality</span></td><td class='num'>4.5</td></tr><tr><td>Dean</td><td>Giles 4</td><td><span class='type'>Personality</span></td><td class='num'>4</td></tr><tr><td>Chang</td><td>The rotating Big Bads 5</td><td><span class='type'>Function slot</span></td><td class='num'>5</td></tr></tbody>
+  </table></div>
+  <div class="note"><b>Community Fit comes to 4.53</b>, and the one-to-one match is also 4.53 with no empty slots, since relationship positions don't count as a second use. <b>Cordelia is rated 5 as Annie's first stage</b>, the same rating as Angel and Spike for Jeff. That puts Buffy's Source Fit at 4.66 and its working index at 92, tied for third with Arrested Development.</div>
+</section>
 
-  <!-- PARKS AND RECREATION -->
-  <div class="show-card rank3">
-    <div class="show-title">
-      <h3>Parks and Recreation</h3>
-      <span class="show-score-badge">22 / 25</span>
-    </div>
-    <table class="char-map">
-      <thead><tr><th>Community</th><th>Parks and Rec</th><th>Why it maps</th></tr></thead>
-      <tbody>
-        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Leslie Knope (inverted)</td><td>Same role, opposite valence. Leslie believes and has to be talked down; Jeff is cynic and has to be talked up. Both close arguments.</td></tr>
-        <tr><td class="char-name">Britta Perry</td><td class="char-name">Ann Perkins</td><td>The best-friend foil whose virtue is being decent in a room full of weirdos. Ann's "is this an okay thing" is Britta's "I'm helping" in nurse scrubs.</td></tr>
-        <tr><td class="char-name">Annie Edison</td><td class="char-name">April Ludgate (inverted)</td><td>Same age slot, opposite affect. Annie over-invested, April performatively uninvested.</td></tr>
-        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Andy Dwyer</td><td>Identical function. Sweet, dim, loyal, secretly artistic, dating the show's most acerbic young woman.</td></tr>
-        <tr><td class="char-name">Shirley Bennett</td><td class="char-name">Donna Meagle</td><td>Dignified Black woman with a strong moral framework. Donna's "Treat Yo Self" certainty is Shirley's "Jesus" certainty in different vocabulary.</td></tr>
-        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Chris Traeger + Tom Haverford</td><td>Chris owns institutional-authority, Tom owns costume-and-vibe. Dean Pelton's "I am wearing a Dalmatian costume" gag goes to Tom in Pawnee.</td></tr>
-        <tr><td class="char-name">Chang/Hickey</td><td class="char-name">Ron Swanson</td><td>The grumpy older man who blocks the protagonist's initiative every week and turns out to love them.</td></tr>
-      </tbody>
-    </table>
-    <div class="card-section">
-      <h4>Plot engine</h4>
-      <p>Weekly parks-department mission: build the park, harvest festival, recall election, sewage merger. Structural identity with Community's Spanish-project engine is exact. Parks runs more goal-driven across seasons; Community runs more cyclical.</p>
-    </div>
-    <div class="card-section">
-      <h4>Best 5 episodes for a Community fan — in watch order</h4>
-      <ul class="ep-list">
-        <li><span class="ep-code">S03E02</span> <strong>Flu Season</strong> — Leslie sick, Andy sick-pretending, Tom sick-overreacting. Three-strand rhyme on "the show must go on."</li>
-        <li><span class="ep-code">S03E07</span> <strong>Harvest Festival</strong> — Season-long project pays off, every ensemble member contributes one moving piece. Community's paintball structure in small-town governance drag.</li>
-        <li><span class="ep-code">S03E13</span> <strong>The Fight</strong> — Leslie-Ann fight, Ron-mustache fight, Andy-test prep fight on the same "you have to stop hiding from a hard conversation" beat.</li>
-        <li><span class="ep-code">S05E05</span> <strong>Halloween Surprise</strong> — Ben's job offer, Ron-Diane meeting kids, Andy's audition: three "the thing you've been working toward arrives and now what" arcs.</li>
-        <li><span class="ep-code">S07E04</span> <strong>Leslie and Ron</strong> — Bottle episode, two characters, one room, three years of unspoken conflict. Community's "Cooperative Polygraphy" without the polygraph.</li>
-      </ul>
-    </div>
-    <div class="card-section">
-      <h4>Verbatim transcript quotes — 123 episodes scraped</h4>
-      <div class="two-col">
-        <div>
-          <strong>Leslie Knope → Jeff Winger (inverted)</strong>
-          <div class="quote-block">
-            "My name is Leslie Knope, and I work for the Parks and Recreation Department. Can I ask you a few questions?"
-            <div class="quote-ep">ParksAndRec-S01E01</div>
-          </div>
-          <div class="quote-block">
-            "LESLIE You know, when I first tell people that I work in the government, they say, 'Oh. The government.'"
-            <div class="quote-ep">ParksAndRec-S01E01</div>
-          </div>
-        </div>
-        <div>
-          <strong>Ron Swanson → Chang/Hickey (inverted)</strong>
-          <div class="quote-block">
-            "I have a hernia. I've had it for a while. I've been ignoring it. My ex-wife Tammy says that I have 'an almost frightening aversion to seeking help.' I say you should walk it off."
-            <div class="quote-ep">ParksAndRec-S02E15</div>
-          </div>
-        </div>
-        <div>
-          <strong>Andy Dwyer → Troy Barnes</strong>
-          <div class="quote-block">
-            "Ann Perkins! Cool cool cool. I'll be your partner!"
-            <div class="quote-ep">ParksAndRec-S03E02</div>
-          </div>
-        </div>
-        <div>
-          <strong>Chris Traeger → Dean Pelton (authority axis)</strong>
-          <div class="quote-block">
-            "It literally doesn't matter what you propose to the public. They might call for a vote, and if they vote you down, then you're done."
-            <div class="quote-ep">ParksAndRec-S01E02</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="shadows">
+  <h2>Shadows and succession</h2>
+  <p>Community keeps doubles, futures and replacements of its own characters. Late regulars count on the Greendale side as a succession layer, so NewsRadio's Max Lewis matches Hickey, who arrives in Pierce's old slot in season 5.</p>
+  <div class="grid"><div class='card' style='border-left:6px solid #CCBA72'><h3>Annie Kim to Annie Edison</h3><p class='muted'>Alternate, then rival, then replacement</p><p>Introduced in "Geography of Global Conflict" (S3E2) as Annie's multicultural evil twin with the same high school GPA, back in "History 101" (S4E1), and in "Queer Studies and Advanced Waxing" (S6E4) she replaces Annie as Daniel in The Karate Kid.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span></p></div><div class='card' style='border-left:6px solid #D9D0D3'><h3>Pierce to Jeff</h3><p class='muted'>Future shadow</p><p>The ending Jeff fears if vanity, manipulation and the fear of becoming irrelevant win out.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p></div><div class='card' style='border-left:6px solid #8D8680'><h3>Frankie to Annie</h3><p class='muted'>Professional endpoint</p><p>Frankie arrives as an administrative consultant in "Ladders" (S6E1) and already holds the list of problems Annie chased through season five. Andrea's arc on NewsRadio is the older model, where an efficiency review hands Lisa her boss's job. In "Basic Crisis Room Decorum" (S6E3) Frankie calls her apparent psychic streak an illusion created by being extremely prepared, and in the same scene she is told she sounds like Jeff, answers that Jeff said she sounds like Abed, and wonders whether Britta hears Chang. The <a href='https://7onething1.github.io/community-greendale-lineage/#planbee'>Greendale Lineage page</a> carries the full line.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p></div><div class='card' style='border-left:6px solid #79402E'><h3>Hickey to Pierce's slot</h3><p class='muted'>Succession</p><p>Buzz Hickey arrives in season 5 after Pierce leaves and appears in 11 of its 13 episodes. On NewsRadio, Max Lewis arrives in season 5 as Bill McNeal's replacement, so Max's reverse match is Hickey, rated 5 for ensemble function, with personality closer to 2.5 to 3.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p></div><div class='card' style='border-left:6px solid #B6854D'><h3>Elroy to Troy and Abed</h3><p class='muted'>Recombination</p><p>Elroy and Jeff pull the Dean out of a 90s VR system in "Lawnmower Maintenance and Postnatal Care" (S6E2), and Elroy and Abed find a birds' nest in the router in S6E4.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p></div><div class='card' style='border-left:6px solid #9986A5'><h3>Chang to The series itself</h3><p class='muted'>Role shadow</p><p>A character whose job changes whenever Greendale needs a new one, from teacher to student, guard, ruler, actor and tolerated outsider.</p><p><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></p></div></div>
+</section>
 
-  <!-- CHEERS -->
-  <div class="show-card rank4">
-    <div class="show-title">
-      <h3>Cheers</h3>
-      <span class="show-score-badge">22 / 25 — The Template</span>
-    </div>
-    <table class="char-map">
-      <thead><tr><th>Community</th><th>Cheers</th><th>Why it maps</th></tr></thead>
-      <tbody>
-        <tr><td class="char-name">Jeff Winger</td><td class="char-name">Sam Malone</td><td>The template. Cocky ex-pro washed up below his stated ambition. Both close bits. Both date the smart woman and deflect through one-liners.</td></tr>
-        <tr><td class="char-name">Britta Perry</td><td class="char-name">Diane Chambers → Rebecca Howe</td><td>Diane is ideological-overcorrector Britta. Rebecca is status-anxious-overcorrector Britta. Sam-Diane-then-Rebecca is Jeff-Britta-then-Annie.</td></tr>
-        <tr><td class="char-name">Abed Nadir</td><td class="char-name">Cliff Clavin</td><td>Non-standard-OS ensemble member through a structural-recognition tic. Trivia-as-personality is Abed's media-literacy-as-personality.</td></tr>
-        <tr><td class="char-name">Troy Barnes</td><td class="char-name">Woody Boyd</td><td>Same character. Sweet, dim, loyal handyman/bartender. Woody's "Mr. Peterson" greetings are Troy's "TROYYY" reactions.</td></tr>
-        <tr><td class="char-name">Pierce Hawthorne</td><td class="char-name">Norm Peterson (partial)</td><td>Ensemble's oldest member, present every week as ambient moral weight. "Drunk-rich-on-bar-tab" energy partial match.</td></tr>
-        <tr><td class="char-name">Shirley Bennett</td><td class="char-name">Carla Tortelli (inverted)</td><td>Dignified-strong-moral-framework slot. Carla's Catholic-Italian morals are Shirley's evangelical-Black morals. "I will hit you for that comment" energy identical.</td></tr>
-        <tr><td class="char-name">Dean Pelton</td><td class="char-name">Frasier Crane (pre-spinoff)</td><td>Pre-spinoff Frasier is the ensemble's pretentious-authority figure whose inappropriate fixations drive half the bits.</td></tr>
-      </tbody>
-    </table>
-    <div class="card-section">
-      <h4>Plot engine</h4>
-      <p>Bar bottle plus the dating-Sam triangle. Every episode opens with bar regulars and adds a guest with a problem. Community's study-room bottle plus a Spanish-class subplot. No school-wide engine to escalate, so the bottle is tighter and the ensemble generates plots from within. Cheers is Community's direct ancestor — the show that proved the ensemble bottle engine works at 22 minutes without a premise beyond "people who know each other."</p>
-    </div>
-    <div class="card-section">
-      <h4>Best 5 episodes for a Community fan — in watch order</h4>
-      <ul class="ep-list">
-        <li><span class="ep-code">S01E01</span> <strong>Pilot</strong> — Sam-Diane dynamic established cold; Jeff-Britta DNA is here in 1982.</li>
-        <li><span class="ep-code">S01E03</span> <strong>Sam's Women</strong> — Diane makes Sam feel guilty about his ex-girlfriends; the Jeff-Britta status-leverage move, original.</li>
-        <li><span class="ep-code">S05E09</span> <strong>Thanksgiving Orphans</strong> — Every ensemble member's "I have nowhere to go" beat rhymes against every other's. The closest Cheers gets to Community's bottle structure.</li>
-        <li><span class="ep-code">S05E21</span> <strong>The Bartender's Tale</strong> — Sam-flashback episode structured as an unreliable-narrator bit. Community's "Abed's Uncontrollable Christmas" narrative-form ancestor.</li>
-        <li><span class="ep-code">S08E25</span> <strong>An Old-Fashioned Wedding</strong> — Three weddings in one episode. Mirrored-subplot construction at its cleanest.</li>
-      </ul>
-    </div>
-    <div class="card-section">
-      <h4>Verbatim transcript quotes — 259 episodes scraped (of 264)</h4>
-      <div class="two-col">
-        <div>
-          <strong>Sam Malone → Jeff Winger</strong>
-          <div class="quote-block">
-            "Wouldn't you love to see Sammy flinging the horsehide? Flinging what? Don't you know who he is? He was one of the best pitchers in baseball. Samuel 'Mayday' Malone."
-            <div class="quote-ep">Cheers-S01E01</div>
-          </div>
-          <div class="quote-block">
-            "Sam once struck out Cash, Kaline and Freehan with a tying run on second."
-            <div class="quote-ep">Cheers-S01E01 — Sam's backstory = Jeff's fake Columbia degree: prestige-through-expired-credential.</div>
-          </div>
-        </div>
-        <div>
-          <strong>Norm Peterson → Pierce Hawthorne</strong>
-          <div class="quote-block">
-            "Afternoon, everybody. / — Norm! — Norm, what do you know? — Not enough. / What do you think of the Patriots' draft? They need linebackers like I need antlers."
-            <div class="quote-ep">Cheers-S01E01 — The ensemble greets the oldest member before he says anything.</div>
-          </div>
-          <div class="quote-block">
-            "Another beer, Norm? Well, yeah, one more quick one. Thanks."
-            <div class="quote-ep">Cheers-S01E01</div>
-          </div>
-        </div>
-        <div>
-          <strong>Cliff Clavin → Abed Nadir</strong>
-          <div class="quote-block">
-            "Cliff, I smell Chinese food. It's a cigar."
-            <div class="quote-ep">Cheers-S01E02 — Cliff corrects the room before being asked.</div>
-          </div>
-        </div>
-        <div>
-          <strong>Diane Chambers → Britta Perry</strong>
-          <div class="quote-block">
-            "I'm Dr Sumner Sloane, Professor of World Literature at the U. He has an article in Harper's."
-            <div class="quote-ep">Cheers-S01E01 — Diane name-drops immediately on arrival. Britta's PETA membership, same move.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="index">
+  <h2>The working index</h2>
+  <p>These are working index scores, rounded to whole numbers because M&#42;A&#42;S&#42;H, South Park, Gilmore Girls and How I Met Your Mother still have reverse ratings the other chat's table doesn't show.</p>
+  <div class="scroll"><table>
+    <thead><tr><th scope="col">Rank</th><th scope="col">Show</th><th scope="col">Working index</th><th scope="col">One-to-one match (rank)</th><th scope="col">Empty slots</th></tr></thead>
+    <tbody><tr><td class='num'>1</td><td>NewsRadio</td><td><div class='bar'><span style='width:80.0%;background:#CCBA72'></span><b>94</b></div></td><td class='num'>4.3 <span class='muted'>#4</span></td><td class='num'>1</td></tr><tr><td class='num'>2</td><td>Scrubs</td><td><div class='bar'><span style='width:76.7%;background:#D9D0D3'></span><b>93</b></div></td><td class='num'>3.7 <span class='muted'>#11</span></td><td class='num'>2</td></tr><tr><td class='num'>3</td><td>Buffy</td><td><div class='bar'><span style='width:73.3%;background:#8D8680'></span><b>92</b></div></td><td class='num'>4.5 <span class='muted'>#2</span></td><td class='num'>0</td></tr><tr><td class='num'>3</td><td>Arrested Development</td><td><div class='bar'><span style='width:73.3%;background:#8D8680'></span><b>92</b></div></td><td class='num'>4.6 <span class='muted'>#1</span></td><td class='num'>0</td></tr><tr><td class='num'>5</td><td>It's Always Sunny</td><td><div class='bar'><span style='width:66.7%;background:#9986A5'></span><b>90</b></div></td><td class='num'>2.7 <span class='muted'>#16</span></td><td class='num'>4</td></tr><tr><td class='num'>6</td><td>Saved by the Bell</td><td><div class='bar'><span style='width:63.3%;background:#CCBA72'></span><b>89</b></div></td><td class='num'>3.2 <span class='muted'>#12</span></td><td class='num'>3</td></tr><tr><td class='num'>6</td><td>M&#42;A&#42;S&#42;H</td><td><div class='bar'><span style='width:63.3%;background:#CCBA72'></span><b>89</b></div></td><td class='num'>4.1 <span class='muted'>#6</span></td><td class='num'>1</td></tr><tr><td class='num'>8</td><td>South Park</td><td><div class='bar'><span style='width:60.0%;background:#8D8680'></span><b>88</b></div></td><td class='num'>4.5 <span class='muted'>#3</span></td><td class='num'>0</td></tr><tr><td class='num'>9</td><td>30 Rock</td><td><div class='bar'><span style='width:56.7%;background:#B6854D'></span><b>87</b></div></td><td class='num'>4.1 <span class='muted'>#6</span></td><td class='num'>1</td></tr><tr><td class='num'>10</td><td>Frasier</td><td><div class='bar'><span style='width:50.0%;background:#9986A5'></span><b>85</b></div></td><td class='num'>2.9 <span class='muted'>#14</span></td><td class='num'>3</td></tr><tr><td class='num'>10</td><td>3rd Rock from the Sun</td><td><div class='bar'><span style='width:50.0%;background:#9986A5'></span><b>85</b></div></td><td class='num'>2.9 <span class='muted'>#13</span></td><td class='num'>3</td></tr><tr><td class='num'>12</td><td>WKRP in Cincinnati</td><td><div class='bar'><span style='width:46.7%;background:#D9D0D3'></span><b>84</b></div></td><td class='num'>3.8 <span class='muted'>#8</span></td><td class='num'>1</td></tr><tr><td class='num'>13</td><td>Taxi</td><td><div class='bar'><span style='width:43.3%;background:#8D8680'></span><b>83</b></div></td><td class='num'>2.6 <span class='muted'>#18</span></td><td class='num'>4</td></tr><tr><td class='num'>13</td><td>Spin City</td><td><div class='bar'><span style='width:43.3%;background:#8D8680'></span><b>83</b></div></td><td class='num'>3.7 <span class='muted'>#9</span></td><td class='num'>1</td></tr><tr><td class='num'>15</td><td>Seinfeld</td><td><div class='bar'><span style='width:40.0%;background:#9986A5'></span><b>82</b></div></td><td class='num'>3.7 <span class='muted'>#9</span></td><td class='num'>1</td></tr><tr><td class='num'>15</td><td>Gilmore Girls</td><td><div class='bar'><span style='width:40.0%;background:#9986A5'></span><b>82</b></div></td><td class='num'>4.2 <span class='muted'>#5</span></td><td class='num'>0</td></tr><tr><td class='num'>15</td><td>How I Met Your Mother</td><td><div class='bar'><span style='width:40.0%;background:#9986A5'></span><b>82</b></div></td><td class='num'>2.6 <span class='muted'>#17</span></td><td class='num'>4</td></tr><tr><td class='num'>18</td><td>Cheers</td><td><div class='bar'><span style='width:33.3%;background:#8D8680'></span><b>80</b></div></td><td class='num'>2.8 <span class='muted'>#15</span></td><td class='num'>3</td></tr><tr><td class='num'>19</td><td>Friends</td><td><div class='bar'><span style='width:20.0%;background:#B6854D'></span><b>76</b></div></td><td class='num'>2.3 <span class='muted'>#19</span></td><td class='num'>4</td></tr></tbody>
+  </table></div>
+  <div class="note"><b>The one-to-one match</b> lets each source character fill at most one Greendale slot and each slot take one character, so it checks concentration on both sides and has no column-order effect. It uses only the names in the map, so a slot with no second candidate counts zero. On this check Arrested Development leads, Buffy is second, South Park third and NewsRadio fourth, and It's Always Sunny, Scrubs and Saved by the Bell fall furthest because their maps reuse characters.</div>
+  <div class="note"><b>Victorious is a chronology comparison.</b> It premiered on March 27, 2010, after Community's pilot, so it can't explain the 2009 designs. The other chat's figure for it is 89.5, which shows the index also picks up a later school sitcom with a similar ensemble shape. Its map isn't on this page, so that figure predates the order-free tie rule.</div>
+</section>
 
-  <div style="background:#f5f0e0;border:1px solid var(--border);border-radius:6px;padding:1rem 1.5rem;margin:1rem 0;font-size:0.85rem;color:var(--muted)">
-    <strong>Sourcing notes.</strong>
-    Cheers (141/264 eps scraped) and Parks and Recreation (123/125 eps) are available on springfieldspringfield.co.uk.
-    The Good Place and NewsRadio are not on SSP and return 404 — quotes for those shows require manual download or a logged-in browser session.
-    Community (110 eps) and Gilmore Girls (153 eps) scraped earlier. Extractor script:
-    <code>~/Projects/tv-scripts/extract_character_quotes.py</code>.
-  </div>
+<section id="meta">
+  <h2>Casting and TV knowledge inside Greendale</h2>
+  <p class="muted">Each row gives the scene, then the layer outside it: the actor's other roles, the network, the production, or a later callback.</p>
+  <div class="scroll"><table class="meta">
+    <thead><tr><th scope="col">Where</th><th scope="col">In the scene</th><th scope="col">The outside layer</th></tr></thead>
+    <tbody><tr><td class='ep'>S1E4 "Social Psychology"</td><td>Abed casts Annie and himself as Chandler and Phoebe, a pair that never really had stories together.</td><td>Abed reads his own friendship through Friends, NBC's biggest sitcom, and the map later sends Phoebe to Abed. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S1E9 "Debate 109"</td><td>Pierce's hypnotherapy to stop Britta smoking uses gorilla as the wake word, and Britta turns out to be pretending.</td><td>Season 6 comes back to the word through Honda's guerrilla marketing, a guerrilla spelling joke, and Britta calling herself a Level 7 Susceptible. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S1E12 "Comparative Religion"</td><td>Jeff fights Mike, a bully played by Anthony Michael Hall.</td><td>Hall played the brain in The Breakfast Club, the film the pilot uses to frame the study group, so eleven episodes later the casting flips his archetype. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S1E13 "Investigative Journalism"</td><td>Jeff plays Hawkeye, Abed asks to be called Radar, calls it a character reboot and gives Jeff a pep talk on leadership, and Jeff turns out never to have watched M&#42;A&#42;S&#42;H.</td><td>The episode itself supplies two cells of the map, Hawkeye to Jeff and Radar to Abed, and both score 5. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S1E17 "Physical Education"</td><td>Abed builds his Jeff impression from Dick Van Dyke, Sam Malone, Zach Braff and Hilary Swank, then practices seduction on Annie as Don Draper.</td><td>Alison Brie was playing Trudy Campbell on Mad Men, Abed repeats the Draper impression in S3E19 with Annie visibly affected, and the Jeff recipe names two map cells, Sam Malone and J.D. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S2E7 "Aerodynamics of Gender"</td><td>Andy Dick turns up as the little man inside Pierce's miniature spy plane.</td><td>Andy Dick played Matthew on NewsRadio, and Emily St. James's AV Club review said the cameo continued her "Community is a secret remake of Newsradio" theory, which she wrote makes no sense and comforts her at night. <span class='tag' style='background:#B6854D;color:#1a1a1a'>Published review</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S2E8 "Cooperative Calligraphy"</td><td>Abed calls the missing-pen lockdown a bottle episode and says he hates them, and Jeff cancels his date by phone because he is doing a bottle episode.</td><td>The group uses a production term for a cheap one-room episode as everyday vocabulary, inside an episode built that way. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S2E12 "Asian Population Studies"</td><td>Jeff compliments Andre's sweater, and Andre says his dad gave it to him.</td><td>Malcolm-Jamal Warner played Theo Huxtable on The Cosby Show, where his TV father's sweaters were the famous costume. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S2E16 "Intermediate Documentary Filmmaking"</td><td>Britta offers LeVar Burton her $261 to change his flight so Troy gets more time with him, and LeVar calls her a very generous friend who is really stupid with her money.</td><td>LeVar plays himself and asks whether he is known from Star Trek or Reading Rainbow. His read on Britta matches S1E3, where she paid for Abed's film class and Shirley praised her follow-through, a scene LeVar never saw. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S2E19 "Critical Film Studies"</td><td>Abed tells Jeff he panicked as a background extra on the Cougar Town set, got through the take by becoming a local he named Chad, and pooped his pants when the scene ended.</td><td>Danny Pudi then turns up in a real Cougar Town episode, Busy Philipps and Dan Byrd appear in Community's season 2 finale, and Bill Lawrence set it up. Lawrence created Scrubs, number two on the index. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S2E20 "Competitive Wine Tasting"</td><td>Garrity excuses an easy resolution by telling the class they are actors and the story matters less than their time in the spotlight, and Abed takes a class on Who's the Boss and answers its central question.</td><td>Kevin Corrigan's drama teacher is back from S2E9, and his speech says out loud what a crowded episode does with its last minutes. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S2E21 "Paradigms of Human Memory"</td><td>In a clip-show flashback, Abed answers Jeff's prediction that The Cape will last three weeks with six seasons and a movie.</td><td>The Cape was a one-season NBC show. The line became the fan slogan, NBCUniversal tied it to the Peacock movie, and Cape regular Keith David later narrates Pillows and Blankets and joins the cast as Elroy. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S2E23 "A Fistful of Paintballs"</td><td>Abed reads the Black Rider as network TV good-looking.</td><td>Josh Holloway was Sawyer on Lost, so Abed describes a casting category as something visible inside Greendale. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S3E12 "Contemporary Impressionists"</td><td>Abed owes three grand to a celebrity impersonator agency, so the group takes impersonator jobs to pay it off.</td><td>The agency boss is a French Stewart look-alike played by French Stewart, Harry on 3rd Rock from the Sun, another show on the index. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S3E13 "Digital Exploration of Interior Design"</td><td>A student named Subway enrolls so Subway can open in the cafeteria.</td><td>Subway paid for the placement, and director Dan Eckman said they had complete freedom in how to put the brand in the story. Season 6 brings Subway back as Rick and warns Britta never to say the name without compensation. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span></td></tr><tr><td class='ep'>S3E14 "Pillows and Blankets"</td><td>Keith David narrates the pillow and blanket war as a Ken Burns documentary, and Jeff asks him whether he was in The Cape.</td><td>He says no. He was a Cape regular, and three seasons later he joins the cast as Elroy, in the same world that once recognized him as Keith David. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S3E17 "Basic Lupine Urology"</td><td>The yam murder plays as Law and Order, and Professor Kane tells Jeff, "A man's gotta have a code."</td><td>Kane is Michael K. Williams, whose code line echoes Omar on The Wire, and the botanist is Leslie Hendrix, Law and Order's medical examiner. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>S5E1 "Repilot"</td><td>Abed explains repiloting and notes Zach Braff was in only the first six episodes of Scrubs season 9, and Troy is furious at Braff for leaving.</td><td>Donald Glover leaves after five episodes that season. The same episode asks how Britta became the group's airhead, tells Troy his entire identity has been consumed by his relationship with another man, and names season 4 the gas leak year. Scrubs' Travis Schuldt and Eliza Coupe had already played Greendale roles, Subway in S3E13 and Special Agent Robin Vohlers in S2E17. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S5E6 and S6E4</td><td>Paget Brewster plays Debra Chambers, the head of I.T., in S5E6, then Frankie, and in S6E4 Frankie complains that her emails to the IT lady bounce back in Aramaic and that calls end in a whistle that makes her nose bleed.</td><td>TV Tropes reads the joke as the show acknowledging that one actress played both women, and nobody on screen names Brewster. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S6E6 "Basic Email Security"</td><td>When Frankie and Elroy learn Chang used to teach at Greendale, Chang says he hasn't been well utilized since.</td><td>The line works as a character complaint and as a verdict on how the show used Chang after his Spanish teacher start. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>S6E7 "Advanced Safety Features"</td><td>Rick, the former Subway, returns to guerrilla market Honda, the Dean is a Level 7 Susceptible, Britta calls herself one about Rick, and when Britta names what Rick is doing he says she isn't allowed to know that.</td><td>The episode is itself paid Honda placement, so Rick explains to Britta what the episode is doing to its viewers, and the guerrilla spelling joke calls back to Britta's S1E9 gorilla wake word. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#9986A5;color:#1a1a1a'>Interpretation</span></td></tr><tr><td class='ep'>Victorious, "Helen Back Again"</td><td>Yvette Nicole Brown plays Helen in her only Victorious episode.</td><td>Helen is the character Brown played on Drake and Josh, carried onto a Nickelodeon show that aired alongside Community. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr><tr><td class='ep'>Pilot and Victorious</td><td>The pilot has Abed comparing the study group to The Breakfast Club and Britta answering that they are in a library, and Dan Harmon's pilot script is dated January 28, 2009.</td><td>Victorious aired its Breakfast Club parody, The Breakfast Bunch, on January 28, 2012, three years to the day after the script's date. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span></td></tr><tr><td class='ep'>Victorious, "April Fools' Blank" (2012)</td><td>Jade speaks her own stage directions, a director hurries André to the next scene by calling his actor's real first name, Leon, and Rex freezes the frame to announce the commercial break.</td><td>BuddyTV's 2012 review said the April Fools episodes of Victorious and iCarly felt more like NBC's Community than typical kids' TV. <span class='tag' style='background:#9986A5;color:#1a1a1a'>Episode</span><span class='tag' style='background:#B6854D;color:#1a1a1a'>Published review</span></td></tr><tr><td class='ep'>Production</td><td>The Russo brothers directed both the Arrested Development pilot and the Community pilot.</td><td>Harmon has described using a 30 Rock style undercut, and Donald Glover came to Troy from the 30 Rock writers' room. <span class='tag' style='background:#D9D0D3;color:#1a1a1a'>Production record</span><span class='tag' style='background:#8D8680;color:#1a1a1a'>Personnel</span></td></tr></tbody>
+  </table></div>
+</section>
 
-</div>
-
+<section id="notes">
+  <h2>Working notes</h2>
+  <details>
+    <summary>Transcript check, September 15, 2026</summary>
+    <p>Every row labeled Episode, and every lineage row, was checked against the Community dialogue for all 110 episodes, the speaker-labeled transcripts, the TV Tropes recaps, the NewsRadio dialogue, saved wiki pages and Wikipedia's episode lists. The build confirms 249 anchor phrases in 114 files across 74 rows, and it fails if a checked row loses its anchor or a phrase stops matching its file.</p>
+    <div class="scroll"><table>
+      <thead><tr><th scope="col">Row</th><th scope="col">The page said</th><th scope="col">The sources show</th></tr></thead>
+      <tbody><tr><td>Troy and Abed stage</td><td>chemistry noticed around the La Biblioteca rap</td><td>a real-life friendship turned comedic chemistry, shown off in the Spanish rap of the first tag</td></tr><tr><td>The repair gift</td><td>Troy turns a plumbing offer down</td><td>Abed's Good Will Hunting speech pushes plumbing, and Troy refuses</td></tr><tr><td>Repairman stage</td><td>the prophecy reads</td><td>Laybourne says it, after Troy's S3E21 deal with the Annex</td></tr><tr><td>Exit</td><td>a trip to claim Pierce's fortune with LeVar as supervisor</td><td>Hawthorne Wipes shares on the will's condition, with LeVar assigned to check Troy doesn't cheat</td></tr><tr><td>Annie Kim</td><td>a sharper overachiever</td><td>the same high school GPA as Annie</td></tr><tr><td>S1E4</td><td>a pair that rarely shared a storyline</td><td>never really had stories together</td></tr><tr><td>S1E13</td><td>Abed takes Radar</td><td>Abed asks to be called Radar</td></tr><tr><td>S1E17</td><td>the Draper voice on Annie in S3E19</td><td>the impression again in S3E19, with Annie visibly affected</td></tr><tr><td>S2E8</td><td>by the end Jeff turns down a date</td><td>Jeff cancels his date by phone during the lockdown</td></tr><tr><td>S2E12</td><td>2011, Andre's sweater</td><td>S2E12, and Jeff gives the compliment</td></tr><tr><td>S2E16</td><td>a generous friend who is bad with money</td><td>a very generous friend who is really stupid with her money</td></tr><tr><td>S2E19</td><td>panicking and running away</td><td>he panicked, became Chad for the take, and pooped his pants</td></tr><tr><td>S2E21</td><td>Abed, in a cape</td><td>a clip-show flashback</td></tr><tr><td>S3E13</td><td>Harmon insisted on full control</td><td>director Dan Eckman said they had complete freedom</td></tr><tr><td>S5E1</td><td>Abed consumed Troy's identity</td><td>Troy's identity consumed by his relationship with another man</td></tr><tr><td>S5E6 and S6E4</td><td>season 6, the IT admin, a nosebleed</td><td>S6E4, the IT lady, a whistle that makes her nose bleed</td></tr><tr><td>S6E6</td><td>Chang hasn't been well used since</td><td>haven't been well utilized since, said when Frankie and Elroy learn he taught</td></tr><tr><td>Pilot</td><td>the draft has the Breakfast Club exchange</td><td>the aired pilot has it, and Harmon's script is dated January 28, 2009</td></tr><tr><td>Planbee</td><td>Frankie is hired as Greendale's CFO</td><td>The Dean says "I have brought her on as an administrative consultant" in "Ladders." The CFO wording comes from TVmaze's episode summary.</td></tr></tbody>
+    </table></div>
+    <p class="muted">Held up under the check: Annie Kim replacing Annie as Daniel, Jeff asking the narrator about The Cape, Abed's network TV line, Britta's Level 7 remark, the guerrilla spelling joke, Garrity's return from S2E9, Hickey in eleven of thirteen episodes, Matthew kicking the life-support cord, and Harmon's 30 Rock undercut.</p>
+  </details>
+  <details>
+    <summary>How the working index is computed</summary>
+    <p><b>Community Fit</b> averages the nine Greendale slots. A cell with several approved names averages them. A source character used in more than one slot keeps its strongest use at full value, its second at 95 percent and its third at 85 percent. Tied uses share the average of their multipliers, so column order has no effect, and relationship positions don't count as a second use.</p>
+    <p><b>Source Fit</b> averages each declared regular's best Greendale match on a separate reverse pass. Late Greendale regulars count through the succession layer, as Hickey does for NewsRadio's Max Lewis, and stage calls count at their stated rating, as Cordelia does for Buffy.</p>
+    <p><b>Working index</b> is the harmonic mean of the two, scaled to 100 and rounded here.</p>
+    <p>Recomputing from the full map reproduces every published Community Fit score except Scrubs, which the tie rule moves from 4.62 to 4.61, and its index stays 93. Buffy's published 4.31 came from its map before the correction, which still reproduces it, and the corrected mapping replaces that row.</p>
+    <p>Each index is rounded once, from its exact harmonic mean, using Source Fit from the reverse roster where it is known. That puts Cheers at 80 from 80.47, where rounding the published 80.5 gave 81.</p>
+  </details>
+  <details>
+    <summary>Reverse Source Fit ratings, fifteen rosters</summary>
+    <div class="scroll"><table>
+      <thead><tr><th scope="col">Show</th><th scope="col">Regular</th><th scope="col">Best Greendale match</th><th scope="col">Rating</th><th scope="col">Where the number comes from</th></tr></thead>
+      <tbody><tr><th scope='row' rowspan='9'>NewsRadio<div class='muted small'>Nine regulars, with Max Lewis matched to Hickey through the succession layer.</div></th><td>Dave</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Beth</td><td>Britta</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Matthew</td><td>Abed</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Joe</td><td>Troy</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Lisa</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Catherine</td><td>Shirley</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Bill</td><td>Pierce</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jimmy</td><td>Pierce</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Max Lewis</td><td>Hickey</td><td class='num'>5</td><td><span class='prov'>succession match</span></td></tr><tr><th scope='row' rowspan='7'>Scrubs<div class='muted small'>Seven regulars.</div></th><td>J.D.</td><td>Jeff or Abed</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Turk</td><td>Troy</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Elliot</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Carla</td><td>Shirley</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Cox</td><td>Dean</td><td class='num'>3.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Kelso</td><td>Pierce</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Janitor</td><td>Chang</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='10'>Arrested Development<div class='muted small'>Maeby's 4.0 only fits the quarter-point scale with the Narrator on the roster.</div></th><td>Michael</td><td>Jeff</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Lindsay</td><td>Britta</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>GOB</td><td>Chang</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Buster</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>George Michael</td><td>Annie</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Maeby</td><td>not in the map</td><td class='num'>4</td><td><span class='prov'>back-solved</span></td></tr><tr><td>Lucille</td><td>Shirley</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>George Sr.</td><td>Pierce</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Tobias</td><td>Dean</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Narrator</td><td>Abed</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='8'>Buffy<div class='muted small'>Cordelia is rated 5 as Annie's first stage, the same as Angel and Spike for Jeff.</div></th><td>Buffy</td><td>Britta</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Willow</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Xander</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Giles</td><td>Dean</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Cordelia</td><td>Annie, first stage</td><td class='num'>5</td><td><span class='prov'>stage call</span></td></tr><tr><td>Angel</td><td>Jeff, first stage</td><td class='num'>5</td><td><span class='prov'>stage call</span></td></tr><tr><td>Spike</td><td>Jeff, later stage</td><td class='num'>5</td><td><span class='prov'>stage call</span></td></tr><tr><td>Anya</td><td>Abed</td><td class='num'>4.25</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='5'>It's Always Sunny<div class='muted small'>Roster inferred: the five regulars reproduce the published score.</div></th><td>Dennis</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Dee</td><td>Britta</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Charlie</td><td>Abed</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Mac</td><td>Dean</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Frank</td><td>Pierce</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='7'>Saved by the Bell<div class='muted small'>Kelly's 3.5 is the only quarter-point value that reproduces the published score.</div></th><td>Zack</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Kelly</td><td>not in the map</td><td class='num'>3.5</td><td><span class='prov'>back-solved</span></td></tr><tr><td>Slater</td><td>Troy</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jessie</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Lisa</td><td>Shirley</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Screech</td><td>Abed</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Belding</td><td>Dean</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='9'>30 Rock<div class='muted small'>Pete, Frank and Cerie come to 10.75 together on the published score.</div></th><td>Liz</td><td>Annie</td><td class='num'>4.75</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jack</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Tracy</td><td>Troy</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jenna</td><td>Dean</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Kenneth</td><td>Abed</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Pete</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><td>Frank</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><td>Toofer</td><td>Annie</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Cerie</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><th scope='row' rowspan='6'>Frasier<div class='muted small'>Roster inferred: the five leads plus Bulldog reproduce the published score.</div></th><td>Frasier</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Niles</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Martin</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Daphne</td><td>Shirley</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Roz</td><td>Britta</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Bulldog</td><td>Chang</td><td class='num'>3.5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='6'>3rd Rock from the Sun<div class='muted small'>Roster inferred: these six regulars reproduce the published score.</div></th><td>Dick</td><td>Jeff</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Sally</td><td>Britta</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Tommy</td><td>Abed</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Harry</td><td>Troy</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Mary</td><td>Annie</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Nina</td><td>Shirley</td><td class='num'>3.5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='8'>WKRP in Cincinnati<div class='muted small'>Roster inferred: the eight regulars reproduce the published score.</div></th><td>Andy</td><td>Jeff</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Johnny Fever</td><td>Britta</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Les</td><td>Abed</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Venus</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Bailey</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jennifer</td><td>Shirley</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Herb</td><td>Pierce</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Carlson</td><td>Dean</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='7'>Taxi<div class='muted small'>Seven regulars, and Bobby and Latka come to 7.0 together on the published score.</div></th><td>Alex</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Elaine</td><td>Britta or Annie</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Jim</td><td>Abed</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Tony</td><td>Troy</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Louie</td><td>Pierce</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Bobby</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><td>Latka</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><th scope='row' rowspan='8'>Spin City<div class='muted small'>Roster inferred: these eight regulars reproduce the published score.</div></th><td>Mike</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Carter</td><td>Britta</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>James</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Nikki</td><td>Annie</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Janelle</td><td>Shirley</td><td class='num'>3.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Mayor Winston</td><td>Pierce</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Paul</td><td>Dean</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Stuart</td><td>Chang</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='4'>Seinfeld<div class='muted small'>Roster inferred: the four leads reproduce the published score, and Estelle, Frank, Peterman and Newman are recurring.</div></th><td>Jerry</td><td>Jeff</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Elaine</td><td>Britta</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Kramer</td><td>Troy</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>George</td><td>Annie</td><td class='num'>3</td><td><span class='prov'>from the map</span></td></tr><tr><th scope='row' rowspan='8'>Cheers<div class='muted small'>Norm and Rebecca come to 6.5 together on the published score.</div></th><td>Sam</td><td>Jeff</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Diane</td><td>Britta or Annie</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Carla</td><td>Shirley</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Norm</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><td>Cliff</td><td>Abed or Chang</td><td class='num'>3.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Coach/Woody</td><td>Troy</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Frasier</td><td>Pierce</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Rebecca</td><td>not in the map</td><td class='num'>hidden</td><td><span class='prov'>not exposed</span></td></tr><tr><th scope='row' rowspan='6'>Friends<div class='muted small'>Rachel's 3.5 is the only quarter-point value that reproduces the published score.</div></th><td>Rachel</td><td>not in the map</td><td class='num'>3.5</td><td><span class='prov'>back-solved</span></td></tr><tr><td>Ross</td><td>Pierce</td><td class='num'>2.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Monica</td><td>Annie</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Chandler</td><td>Jeff or Annie</td><td class='num'>4</td><td><span class='prov'>from the map</span></td></tr><tr><td>Joey</td><td>Troy</td><td class='num'>4.5</td><td><span class='prov'>from the map</span></td></tr><tr><td>Phoebe</td><td>Abed</td><td class='num'>5</td><td><span class='prov'>from the map</span></td></tr></tbody>
+    </table></div>
+    <p class="muted">M&#42;A&#42;S&#42;H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard have no rating in the map, and South Park's four boys and How I Met Your Mother's five leads average above their published Source Fit, so those four rosters need the other chat's per-regular ratings.</p>
+  </details>
+  <details>
+    <summary>The full map with cell math</summary>
+    <p class="muted">Each cell shows names, ratings, any reuse penalty, and the value the working index uses. Darker cells score higher.</p>
+    <div class="scroll"><table class="map">
+      <thead><tr><th scope="col">Show</th><th scope='col'>Jeff</th><th scope='col'>Britta</th><th scope='col'>Abed</th><th scope='col'>Troy</th><th scope='col'>Annie</th><th scope='col'>Shirley</th><th scope='col'>Pierce</th><th scope='col'>Dean</th><th scope='col'>Chang</th><th scope="col">Fit</th></tr></thead>
+      <tbody><tr><th scope='row'>NewsRadio</th><td style='background:rgba(204,186,114,0.55)'>Dave 5</td><td style='background:rgba(204,186,114,0.55)'>Beth 5</td><td style='background:rgba(204,186,114,0.55)'>Matthew 5</td><td style='background:rgba(204,186,114,0.55)'>Joe 5</td><td style='background:rgba(204,186,114,0.55)'>Lisa 5</td><td style='background:rgba(204,186,114,0.55)'>Catherine 5</td><td style='background:rgba(204,186,114,0.51)'>Bill 5 + Jimmy 4.5 = <b>4.75</b></td><td style='background:rgba(204,186,114,0.32)'>Jimmy 4 <span class='pen'>x0.95</span> + Matthew 3.5 <span class='pen'>x0.95</span> = <b>3.56</b></td><td style='background:rgba(204,186,114,0.10)'>Matthew 2.5 <span class='pen'>x0.85</span> = <b>2.13</b></td><td class='num'><b>4.49</b></td></tr><tr><th scope='row'>Scrubs</th><td style='background:rgba(204,186,114,0.53)'>J.D. 5 <span class='pen'>x0.975</span> = <b>4.88</b></td><td style='background:rgba(204,186,114,0.44)'>Elliot 4.5 <span class='pen'>x0.95</span> = <b>4.28</b></td><td style='background:rgba(204,186,114,0.45)'>J.D. 5 <span class='pen'>x0.975</span> + Turk 4 <span class='pen'>x0.95</span> = <b>4.34</b></td><td style='background:rgba(204,186,114,0.55)'>Turk 5</td><td style='background:rgba(204,186,114,0.55)'>Elliot 5</td><td style='background:rgba(204,186,114,0.55)'>Carla 5</td><td style='background:rgba(204,186,114,0.47)'>Kelso 4.5</td><td style='background:rgba(204,186,114,0.32)'>Janitor 4 <span class='pen'>x0.95</span> + Cox 3.5 + Kelso 3.5 <span class='pen'>x0.95</span> = <b>3.54</b></td><td style='background:rgba(204,186,114,0.55)'>Janitor 5</td><td class='num'><b>4.61</b></td></tr><tr><th scope='row'>Buffy</th><td style='background:rgba(204,186,114,0.55)'>Angel 5, then Spike 5 <span class='muted'>(sequence)</span></td><td style='background:rgba(204,186,114,0.55)'>Buffy 5 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.43)'>Anya 4.25 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.39)'>Xander 4 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.55)'>Cordelia 5 early, rivalling Britta, then Willow 5, with Dark Willow as the slow reveal, plus Buffy's place in the romance opposite Jeff <span class='muted'>(sequence and relationship)</span></td><td style='background:rgba(204,186,114,0.39)'>Joyce 4 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.47)'>The Mayor 4.5 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.39)'>Giles 4 <span class='muted'>(personality)</span></td><td style='background:rgba(204,186,114,0.55)'>The rotating Big Bads 5 <span class='muted'>(function slot)</span></td><td class='num'><b>4.53</b></td></tr><tr><th scope='row'>Arrested Development</th><td style='background:rgba(204,186,114,0.39)'>Michael 4</td><td style='background:rgba(204,186,114,0.55)'>Lindsay 5</td><td style='background:rgba(204,186,114,0.55)'>Narrator 5</td><td style='background:rgba(204,186,114,0.39)'>Buster 4</td><td style='background:rgba(204,186,114,0.39)'>George Michael 4</td><td style='background:rgba(204,186,114,0.47)'>Lucille 4.5</td><td style='background:rgba(204,186,114,0.55)'>George Sr. 5</td><td style='background:rgba(204,186,114,0.55)'>Tobias 5</td><td style='background:rgba(204,186,114,0.55)'>GOB 5</td><td class='num'><b>4.61</b></td></tr><tr><th scope='row'>It's Always Sunny</th><td style='background:rgba(204,186,114,0.55)'>Dennis 5</td><td style='background:rgba(204,186,114,0.47)'>Dee 4.5</td><td style='background:rgba(204,186,114,0.47)'>Charlie 4.5</td><td style='background:rgba(204,186,114,0.33)'>Mac 4 <span class='pen'>x0.9</span> = <b>3.60</b></td><td style='background:rgba(204,186,114,0.29)'>Dee 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.33)'>Mac 4 <span class='pen'>x0.9</span> = <b>3.60</b></td><td style='background:rgba(204,186,114,0.55)'>Frank 5</td><td style='background:rgba(204,186,114,0.55)'>Mac 5</td><td style='background:rgba(204,186,114,0.36)'>Charlie 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td class='num'><b>4.26</b></td></tr><tr><th scope='row'>Saved by the Bell</th><td style='background:rgba(204,186,114,0.55)'>Zack 5</td><td style='background:rgba(204,186,114,0.44)'>Jessie 4.5 <span class='pen'>x0.95</span> = <b>4.28</b></td><td style='background:rgba(204,186,114,0.41)'>Zack 4.5 <span class='pen'>x0.95</span> + Screech 4 = <b>4.14</b></td><td style='background:rgba(204,186,114,0.47)'>Slater 4.5</td><td style='background:rgba(204,186,114,0.55)'>Jessie 5</td><td style='background:rgba(204,186,114,0.55)'>Lisa 5</td><td style='background:rgba(204,186,114,0.40)'>Belding 4.25 <span class='pen'>x0.95</span> = <b>4.04</b></td><td style='background:rgba(204,186,114,0.55)'>Belding 5</td><td style='background:rgba(204,186,114,0.08)'>Screech 2 <span class='pen'>x0.95</span> = <b>1.90</b></td><td class='num'><b>4.32</b></td></tr><tr><th scope='row'>M&#42;A&#42;S&#42;H</th><td style='background:rgba(204,186,114,0.55)'>Hawkeye 5</td><td style='background:rgba(204,186,114,0.29)'>Margaret 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.55)'>Radar 5</td><td style='background:rgba(204,186,114,0.39)'>Trapper 4</td><td style='background:rgba(204,186,114,0.47)'>Margaret 4.5</td><td style='background:rgba(204,186,114,0.39)'>Potter 4</td><td style='background:rgba(204,186,114,0.47)'>Winchester 4.5</td><td style='background:rgba(204,186,114,0.47)'>Klinger 4.5</td><td style='background:rgba(204,186,114,0.55)'>Frank 5</td><td class='num'><b>4.43</b></td></tr><tr><th scope='row'>South Park</th><td style='background:rgba(204,186,114,0.31)'>Stan 3.5</td><td style='background:rgba(204,186,114,0.55)'>Kyle 5</td><td style='background:rgba(204,186,114,0.39)'>Kenny 4</td><td style='background:rgba(204,186,114,0.47)'>Butters 4.5</td><td style='background:rgba(204,186,114,0.55)'>Wendy 5</td><td style='background:rgba(204,186,114,0.47)'>Sheila 4.5</td><td style='background:rgba(204,186,114,0.55)'>Cartman 5</td><td style='background:rgba(204,186,114,0.47)'>Garrison 4.5</td><td style='background:rgba(204,186,114,0.47)'>Randy 4.5</td><td class='num'><b>4.50</b></td></tr><tr><th scope='row'>30 Rock</th><td style='background:rgba(204,186,114,0.55)'>Jack 5</td><td style='background:rgba(204,186,114,0.36)'>Liz 4 <span class='pen'>x0.95</span> + Jenna 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.47)'>Kenneth 4.5</td><td style='background:rgba(204,186,114,0.55)'>Tracy 5</td><td style='background:rgba(204,186,114,0.45)'>Liz 4.75 + Toofer 4 = <b>4.38</b></td><td style='background:rgba(204,186,114,0.39)'>Angie 4</td><td style='background:rgba(204,186,114,0.36)'>Jack 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.51)'>Jonathan 5 + Jenna 4.5 = <b>4.75</b></td><td style='background:rgba(204,186,114,0.43)'>Duffy 4.25</td><td class='num'><b>4.39</b></td></tr><tr><th scope='row'>Frasier</th><td style='background:rgba(204,186,114,0.55)'>Frasier 5</td><td style='background:rgba(204,186,114,0.47)'>Roz 4.5</td><td style='background:rgba(204,186,114,0.29)'>Daphne 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.39)'>Martin 4</td><td style='background:rgba(204,186,114,0.55)'>Niles 5</td><td style='background:rgba(204,186,114,0.39)'>Daphne 4</td><td style='background:rgba(204,186,114,0.44)'>Frasier 4.5 <span class='pen'>x0.95</span> = <b>4.28</b></td><td style='background:rgba(204,186,114,0.44)'>Niles 4.5 <span class='pen'>x0.95</span> = <b>4.28</b></td><td style='background:rgba(204,186,114,0.31)'>Bulldog 3.5</td><td class='num'><b>4.21</b></td></tr><tr><th scope='row'>3rd Rock from the Sun</th><td style='background:rgba(204,186,114,0.47)'>Dick 4.5</td><td style='background:rgba(204,186,114,0.55)'>Sally 5</td><td style='background:rgba(204,186,114,0.47)'>Tommy 4.5</td><td style='background:rgba(204,186,114,0.47)'>Harry 4.5</td><td style='background:rgba(204,186,114,0.47)'>Mary 4.5</td><td style='background:rgba(204,186,114,0.31)'>Nina 3.5</td><td style='background:rgba(204,186,114,0.36)'>Dick 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.23)'>Harry 3.5 <span class='pen'>x0.85</span> = <b>2.98</b></td><td style='background:rgba(204,186,114,0.36)'>Harry 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td class='num'><b>4.12</b></td></tr><tr><th scope='row'>WKRP in Cincinnati</th><td style='background:rgba(204,186,114,0.47)'>Andy 4.5</td><td style='background:rgba(204,186,114,0.39)'>Johnny Fever 4</td><td style='background:rgba(204,186,114,0.39)'>Les 4</td><td style='background:rgba(204,186,114,0.39)'>Venus 4</td><td style='background:rgba(204,186,114,0.55)'>Bailey 5</td><td style='background:rgba(204,186,114,0.39)'>Jennifer 4</td><td style='background:rgba(204,186,114,0.47)'>Herb 4.5</td><td style='background:rgba(204,186,114,0.47)'>Carlson 4.5</td><td style='background:rgba(204,186,114,0.14)'>Les 2.5 <span class='pen'>x0.95</span> = <b>2.38</b></td><td class='num'><b>4.10</b></td></tr><tr><th scope='row'>Taxi</th><td style='background:rgba(204,186,114,0.55)'>Alex 5</td><td style='background:rgba(204,186,114,0.38)'>Elaine 4 <span class='pen'>x0.975</span> = <b>3.90</b></td><td style='background:rgba(204,186,114,0.47)'>Jim 4.5</td><td style='background:rgba(204,186,114,0.47)'>Tony 4.5</td><td style='background:rgba(204,186,114,0.38)'>Elaine 4 <span class='pen'>x0.975</span> = <b>3.90</b></td><td style='background:rgba(204,186,114,0.23)'>Elaine 3.5 <span class='pen'>x0.85</span> = <b>2.98</b></td><td style='background:rgba(204,186,114,0.55)'>Louie 5</td><td style='background:rgba(204,186,114,0.23)'>Louie 3.5 <span class='pen'>x0.85</span> = <b>2.98</b></td><td style='background:rgba(204,186,114,0.36)'>Louie 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td class='num'><b>4.06</b></td></tr><tr><th scope='row'>Spin City</th><td style='background:rgba(204,186,114,0.55)'>Mike 5</td><td style='background:rgba(204,186,114,0.47)'>Carter 4.5</td><td style='background:rgba(204,186,114,0.29)'>James 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.39)'>James 4</td><td style='background:rgba(204,186,114,0.39)'>Nikki 4</td><td style='background:rgba(204,186,114,0.31)'>Janelle 3.5</td><td style='background:rgba(204,186,114,0.39)'>Mayor 4</td><td style='background:rgba(204,186,114,0.39)'>Paul 4</td><td style='background:rgba(204,186,114,0.47)'>Stuart 4.5</td><td class='num'><b>4.09</b></td></tr><tr><th scope='row'>Seinfeld</th><td style='background:rgba(204,186,114,0.47)'>Jerry 4.5</td><td style='background:rgba(204,186,114,0.55)'>Elaine 5</td><td style='background:rgba(204,186,114,0.29)'>Kramer 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.39)'>Kramer 4</td><td style='background:rgba(204,186,114,0.24)'>George 3</td><td style='background:rgba(204,186,114,0.39)'>Estelle 4</td><td style='background:rgba(204,186,114,0.47)'>Frank 4.5</td><td style='background:rgba(204,186,114,0.39)'>Peterman 4</td><td style='background:rgba(204,186,114,0.47)'>Newman 4.5</td><td class='num'><b>4.09</b></td></tr><tr><th scope='row'>Gilmore Girls</th><td style='background:rgba(204,186,114,0.39)'>Lorelai 4</td><td style='background:rgba(204,186,114,0.39)'>Jess 4</td><td style='background:rgba(204,186,114,0.31)'>Rory 3.5</td><td style='background:rgba(204,186,114,0.31)'>Lane 3.5</td><td style='background:rgba(204,186,114,0.55)'>Paris 5</td><td style='background:rgba(204,186,114,0.39)'>Mrs. Kim 4</td><td style='background:rgba(204,186,114,0.47)'>Emily 4.5</td><td style='background:rgba(204,186,114,0.47)'>Taylor 4.5</td><td style='background:rgba(204,186,114,0.55)'>Kirk 5</td><td class='num'><b>4.22</b></td></tr><tr><th scope='row'>How I Met Your Mother</th><td style='background:rgba(204,186,114,0.55)'>Barney 5</td><td style='background:rgba(204,186,114,0.55)'>Robin 5</td><td style='background:rgba(204,186,114,0.39)'>Ted 4</td><td style='background:rgba(204,186,114,0.47)'>Marshall 4.5</td><td style='background:rgba(204,186,114,0.51)'>Lily 4.75</td><td style='background:rgba(204,186,114,0.36)'>Lily 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.21)'>Barney 3 <span class='pen'>x0.95</span> = <b>2.85</b></td><td style='background:rgba(204,186,114,0.08)'>Ted 2 <span class='pen'>x0.95</span> = <b>1.90</b></td><td style='background:rgba(204,186,114,0.10)'>Barney 2.5 <span class='pen'>x0.85</span> = <b>2.13</b></td><td class='num'><b>3.77</b></td></tr><tr><th scope='row'>Cheers</th><td style='background:rgba(204,186,114,0.55)'>Sam 5</td><td style='background:rgba(204,186,114,0.45)'>Diane 4.5 <span class='pen'>x0.975</span> = <b>4.39</b></td><td style='background:rgba(204,186,114,0.30)'>Cliff 3.5 <span class='pen'>x0.975</span> = <b>3.41</b></td><td style='background:rgba(204,186,114,0.47)'>Woody 4.5</td><td style='background:rgba(204,186,114,0.45)'>Diane 4.5 <span class='pen'>x0.975</span> = <b>4.39</b></td><td style='background:rgba(204,186,114,0.39)'>Carla 4</td><td style='background:rgba(204,186,114,0.39)'>Frasier 4</td><td style='background:rgba(204,186,114,0.29)'>Frasier 3.5 <span class='pen'>x0.95</span> = <b>3.33</b></td><td style='background:rgba(204,186,114,0.30)'>Cliff 3.5 <span class='pen'>x0.975</span> = <b>3.41</b></td><td class='num'><b>4.05</b></td></tr><tr><th scope='row'>Friends</th><td style='background:rgba(204,186,114,0.37)'>Chandler 4 <span class='pen'>x0.975</span> + Joey 4 <span class='pen'>x0.95</span> = <b>3.85</b></td><td style='background:rgba(204,186,114,0.36)'>Phoebe 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.55)'>Phoebe 5</td><td style='background:rgba(204,186,114,0.47)'>Joey 4.5</td><td style='background:rgba(204,186,114,0.46)'>Monica 5 + Chandler 4 <span class='pen'>x0.975</span> = <b>4.45</b></td><td style='background:rgba(204,186,114,0.36)'>Monica 4 <span class='pen'>x0.95</span> = <b>3.80</b></td><td style='background:rgba(204,186,114,0.16)'>Ross 2.5</td><td style='background:rgba(204,186,114,0.10)'>Phoebe 2.5 <span class='pen'>x0.85</span> = <b>2.13</b></td><td style='background:rgba(204,186,114,0.08)'>Ross 2 <span class='pen'>x0.95</span> = <b>1.90</b></td><td class='num'><b>3.55</b></td></tr></tbody>
+    </table></div>
+  </details>
+  <details>
+    <summary>Resolved in revisions 3 and 4</summary>
+    <ul class="open"><li style='border-left:6px solid #8D8680'><b>Cordelia.</b> Rated 5 as Annie's first stage, rivalling Britta, the same rating as Angel and Spike for Jeff.</li><li style='border-left:6px solid #79402E'><b>Buffy.</b> Back in the working index at 92, tied for third with Arrested Development, with Source Fit 4.66.</li><li style='border-left:6px solid #B6854D'><b>Relationship positions.</b> They describe a pairing and don't count as a second use of a character, so Buffy's Community Fit is 4.53.</li><li style='border-left:6px solid #9986A5'><b>Tie rule.</b> Tied uses of one character share the average reuse multiplier, so column order has no effect. Scrubs moves from 4.62 to 4.61 and stays at 93.</li><li style='border-left:6px solid #CCBA72'><b>Max Lewis.</b> On NewsRadio's roster through the succession match to Hickey, rated 5 for ensemble function, and NewsRadio's Source Fit stays 4.94.</li><li style='border-left:6px solid #D9D0D3'><b>Rounding.</b> Each index is rounded once, from its exact value, so Cheers reads 80 from 80.47, where revision 2 rounded the published 80.5 up to 81.</li><li style='border-left:6px solid #8D8680'><b>Reverse concentration.</b> The one-to-one match is the concentration check on both sides, since no character fills two slots and no slot takes two characters.</li><li style='border-left:6px solid #79402E'><b>Reverse ratings.</b> Exposed for fifteen rosters, seven more than revision 2.</li><li style='border-left:6px solid #B6854D'><b>Documentation.</b> The AV Club line calling Joe and Matthew the proto Abed and Troy, "The Injury", both April Fools' Blank details and the review comparing Victorious and iCarly to Community now carry sources.</li><li style='border-left:6px solid #9986A5'><b>NASA interview plot.</b> Found in the dialogue for "Retirement" (S5E21): Joe and Beth stage a mock job interview for Matthew that turns into a pretend NASA interview.</li><li style='border-left:6px solid #CCBA72'><b>Matthew's debt.</b> The dialogue for "In Through the Out Door" has $5,120, then $10,240, which replaces the wiki's $20,000.</li><li style='border-left:6px solid #D9D0D3'><b>Black Rider line.</b> The S2E23 dialogue reads network TV good-looking.</li><li style='border-left:6px solid #8D8680'><b>Episode numbering.</b> Space and The Injury are cited by air date, since NBC held The Injury until after the season 3 finale.</li><li style='border-left:6px solid #79402E'><b>Proto pair review.</b> Emily St. James wrote it on February 5, 2010, and her sentence pairs the two duos without matching individuals.</li></ul>
+  </details>
+  <details>
+    <summary>Still open</summary>
+    <ul class="open"><li style='border-left:6px solid #D9D0D3'><b>Four shows' reverse ratings.</b> M&#42;A&#42;S&#42;H, South Park, Gilmore Girls and How I Met Your Mother need the other chat's per-regular ratings.</li><li style='border-left:6px solid #8D8680'><b>Catherine and Joe.</b> No Shirley and Troy counterpart is placed.</li></ul>
+  </details>
+  <details>
+    <summary>Change log</summary>
+    <ul class="changes"><li><b>September 15, revision 7.</b> Planbee to Ladders, checked against both shows' dialogue. Frankie's title now reads administrative consultant, the words the Dean uses on screen. Frankie to Annie moves from Future shadow to Professional endpoint, with Andrea's arc as the older model. Two NewsRadio pairs join the table, Jimmy and Andrea to the Dean and Frankie, and Andrea's pull on Lisa and Matthew to Frankie's pull on Annie and Abed. The declared scores stay exactly as published. This revision was applied by hand over the Revision 6 build.</li><li><b>September 15, revision 6.</b> Saved by the Bell and NewsRadio lineage section, the new focus: ten people credited on both sides, fourteen NewsRadio episodes and eleven Saved by the Bell episodes whose machinery reaches Greendale, and the commentary confirming the lineage recorded as Commentary heard. Each row is anchored on both the older show's side and Community's side, and the build fails if either side goes missing.</li><li><b>September 15, revision 5.</b> Transcript audit. Every Episode-labeled row was checked against the Community and NewsRadio transcripts, the TV Tropes recaps and saved wiki pages, 18 details were corrected, and the build now fails when an Episode row has no transcript anchor or an anchor phrase goes missing.</li><li><b>September 14, revision 4.</b> Greendale Lineage handoff, checked against the NewsRadio dialogue files, the AV Club and Wikipedia's episode list. Matthew's debt corrected to $5,120, then $10,240. The Black Rider line corrected to network TV good-looking. Space and The Injury cited by air date. The NASA interview plot found in "Retirement". Emily St. James named on the proto Abed and Troy review, and her secret remake of Newsradio theory added with Andy Dick's cameo. Joe's Boba Fett camera and Internet-cam show, the Freaky Friday job switch, and the Scrubs actors behind Subway and Agent Vohlers added.</li><li><b>September 14, revision 3.</b> Cordelia rated 5 as Annie's first stage and Buffy computed into the index. Order-free tie rule. Each index rounded once from its exact value, which moves Cheers from 81 to 80. Max Lewis added to NewsRadio's roster through the Hickey succession match. Reverse ratings exposed for seven more rosters. Sources added for the AV Club prototype line, "The Injury", April Fools' Blank and the review comparing Victorious and iCarly to Community.</li><li><b>September 14, revision 2.</b> Argument sections moved first. Scores relabeled as a working index and rounded. One-to-one ensemble match added. Reverse Source Fit ratings exposed for eight rosters. The stale Buffy row replaced by the corrected mapping, with Annie mapped from Cordelia to Willow to Dark Willow. Shadow category, succession layer and evidence labels added. Victorious renamed a chronology comparison. Casting and TV table split into the scene and its outside layer.</li><li><b>September 14, revision 1.</b> Two-sided scoring from the other chat, core regulars only, reuse penalty, harmonic mean, and shows that premiered after Community dropped.</li><li><b>August 2.</b> Ranked The Good Place first at 24 of 25 and NewsRadio second at 23 of 25.</li></ul>
+    <p><a href="/community-character-map/v2026-08-02.html">The August 2 version stays available here.</a></p>
+  </details>
+  <details>
+    <summary>Sources</summary>
+    <ul class="sources"><li><a href='https://www.quotes.net/mquote/706754'>quotes.net, Abed's Jeff impression (S1E17)</a></li><li><a href='https://www.quotes.net/show-quote/17309'>quotes.net, Chandler and Phoebe (S1E4)</a></li><li><a href='https://www.imdb.com/title/tt1575766/quotes/'>IMDb, Investigative Journalism quotes</a></li><li><a href='https://www.imdb.com/title/tt1594619/trivia/'>IMDb, Physical Education trivia</a></li><li><a href='https://en.wikipedia.org/wiki/Comparative_Religion_(Community)'>Wikipedia, Comparative Religion</a></li><li><a href='https://www.imdb.com/title/tt1640858/quotes/?item=qt2263446'>IMDb, Intermediate Documentary Filmmaking quotes</a></li><li><a href='https://www.pastemagazine.com/comedy/community/community-cougar-town-crossover-anniversary'>Paste, the Cougar Town crossover</a></li><li><a href='https://www.nbc.com/nbc-insider/the-origin-of-six-seasons-and-a-movie-viral-community-phrase'>NBC Insider, six seasons and a movie</a></li><li><a href='https://collider.com/community-josh-holloway-a-fistfull-of-paintballs/'>Collider, Josh Holloway in A Fistful of Paintballs</a></li><li><a href='https://time.com/7304321/malcolm-jamal-warner-legacy/'>Time, Malcolm-Jamal Warner</a></li><li><a href='https://en.wikipedia.org/wiki/Contemporary_Impressionists'>Wikipedia, Contemporary Impressionists</a></li><li><a href='https://en.wikipedia.org/wiki/Digital_Exploration_of_Interior_Design'>Wikipedia, Digital Exploration of Interior Design</a></li><li><a href='https://www.imdb.com/title/tt2127579/trivia/'>IMDb, Pillows and Blankets trivia</a></li><li><a href='https://www.imdb.com/title/tt2194839/characters/nm0376890/'>IMDb, Leslie Hendrix in Basic Lupine Urology</a></li><li><a href='https://getyarn.io/yarn-clip/3d27246b-c5c2-4aa1-bf37-bec7fc913cc4'>YARN, Repilot Scrubs line</a></li><li><a href='https://screenrant.com/community-paget-brewster-different-characters-debra-frankie-explained/'>ScreenRant, Paget Brewster's two characters</a></li><li><a href='https://en.wikipedia.org/wiki/Basic_Email_Security'>Wikipedia, Basic Email Security</a></li><li><a href='https://en.wikipedia.org/wiki/Advanced_Safety_Features'>Wikipedia, Advanced Safety Features</a></li><li><a href='https://en.wikipedia.org/wiki/English_as_a_Second_Language_(Community)'>Wikipedia, English as a Second Language</a></li><li><a href='https://community-sitcom.fandom.com/wiki/Introduction_to_Finality/Transcript'>Community Wiki, Introduction to Finality transcript</a></li><li><a href='https://en.wikipedia.org/wiki/Intro_to_Felt_Surrogacy'>Wikipedia, Intro to Felt Surrogacy</a></li><li><a href='https://en.wikipedia.org/wiki/Geothermal_Escapism'>Wikipedia, Geothermal Escapism</a></li><li><a href='https://www.slashfilm.com/854323/dan-harmon-originally-wanted-communitys-chevy-chase-and-donald-glover-to-be-like-beavis-and-butt-head/'>SlashFilm, Troy and Pierce as Beavis and Butt-Head</a></li><li><a href='https://tvtropes.org/pmwiki/pmwiki.php/Trivia/Community'>TV Tropes, Community trivia</a></li><li><a href='https://screencraft.org/wp-content/uploads/2016/06/Community_1x01_-_Pilot.pdf'>ScreenCraft, Community pilot script (January 28, 2009)</a></li><li><a href='https://en.wikipedia.org/wiki/Victorious'>Wikipedia, Victorious</a></li><li><a href='https://en.wikipedia.org/wiki/List_of_Victorious_episodes'>Wikipedia, List of Victorious episodes</a></li><li><a href='https://victorious.fandom.com/wiki/Helen_Dubois'>Victorious Wiki, Helen Dubois</a></li><li><a href='https://victorious.fandom.com/wiki/April_Fools%27_Blank'>Victorious Wiki, April Fools' Blank</a></li><li><a href='https://www.buddytv.com/why-adults-should-watch-nickelodeons-victorious-and-icarly/'>BuddyTV, why adults should watch Victorious and iCarly</a></li><li><a href='https://www.looper.com/153780/the-untold-truth-of-the-russo-brothers/'>Looper, the Russo brothers</a></li><li><a href='https://community-sitcom.fandom.com/wiki/Jonathan_Banks'>Community Wiki, Jonathan Banks</a></li><li><a href='https://www.avclub.com/community-romantic-expressionism-1798164289'>AV Club, Emily St. James on Romantic Expressionism</a></li><li><a href='https://www.avclub.com/community-aerodynamics-of-gender-1798166435'>AV Club, Emily St. James on Aerodynamics of Gender</a></li><li><a href='https://en.wikipedia.org/wiki/List_of_NewsRadio_episodes'>Wikipedia, List of NewsRadio episodes</a></li><li><a href='https://www.imdb.com/title/tt0660202/'>IMDb, NewsRadio Led Zeppelin II</a></li><li><a href='https://wnyxnewsradio.fandom.com/wiki/In_Through_the_Out_Door'>WNYX Newsradio Wiki, In Through the Out Door</a></li><li><a href='https://newsradio.fandom.com/wiki/The_Injury'>NewsRadio Wiki, The Injury</a></li><li><a href='https://www.imdb.com/title/tt0660196/'>IMDb, NewsRadio The Injury</a></li><li><a href='https://www.avclub.com/newsradio-padded-suit-freaky-friday-1798169122'>AV Club, NewsRadio Padded Suit</a></li><li><a href='https://www.imdb.com/title/tt0660226/plotsummary/'>IMDb, NewsRadio Space plot</a></li><li><a href='https://newsradio.fandom.com/wiki/Lisa_Miller'>NewsRadio Wiki, Lisa Miller</a></li><li><a href='https://newsradio.fandom.com/wiki/Catherine_Duke'>NewsRadio Wiki, Catherine Duke</a></li><li><a href='https://www.looper.com/753791/whatever-happened-to-the-cast-of-newsradio/'>Looper, the NewsRadio cast and Max Lewis</a></li><li><a href='https://7onething1.github.io/community-greendale-lineage/'>Greendale Lineage, the companion evidence page</a></li><li><a href='https://www.avclub.com/dan-harmon-walks-us-through-community-s-second-season-1798226541'>AV Club, Dan Harmon walks through season 2</a></li><li><a href='https://en.wikipedia.org/wiki/Community_season_5'>Wikipedia, Community season 5</a></li><li><a href='https://community-sitcom.fandom.com/wiki/A_Fistful_of_Paintballs'>Community Wiki, A Fistful of Paintballs</a></li><li><a href='https://community-sitcom.fandom.com/wiki/Pillows_and_Blankets'>Community Wiki, Pillows and Blankets</a></li><li><a href='https://community-sitcom.fandom.com/wiki/Cooperative_Calligraphy'>Community Wiki, Cooperative Calligraphy</a></li><li><a href='https://community-sitcom.fandom.com/wiki/Buzz_Hickey'>Community Wiki, Buzz Hickey</a></li><li><a href='https://en.wikipedia.org/wiki/List_of_Saved_by_the_Bell_episodes'>Wikipedia, List of Saved by the Bell episodes</a></li><li><a href='https://en.wikipedia.org/wiki/NewsRadio'>Wikipedia, NewsRadio</a></li><li><a href='https://en.wikipedia.org/wiki/Community_season_1'>Wikipedia, Community season 1</a></li><li><a href='https://en.wikipedia.org/wiki/Community_season_2'>Wikipedia, Community season 2</a></li><li><a href='https://en.wikipedia.org/wiki/Community_season_3'>Wikipedia, Community season 3</a></li><li><a href='https://en.wikipedia.org/wiki/Community_season_6'>Wikipedia, Community season 6</a></li><li><a href='https://savedbythebell.fandom.com/wiki/Category:Saved_by_the_Bell_episodes'>Saved by the Bell Wiki, episode pages</a></li><li><a href='https://tvtropes.org/pmwiki/pmwiki.php/Series/Community'>TV Tropes, Community series page</a></li></ul>
+    <p class="muted">Local files: dialogue files for all 110 Community episodes in ~/Projects/tv-scripts/text, the speaker-labeled Fandom transcripts and the S1E9 production script in ~/Projects/tv-scripts/text_speakers, the TV Tropes recaps and trivia in ~/Projects/tvtropes-pull/text, dialogue files for all 97 NewsRadio episodes in the Greendale Lineage evidence folder, and saved Community Wiki and NewsRadio Wiki pages in ~/Projects/_outputs/community-character-map/evidence, which also holds 125 Saved by the Bell Wiki episode pages, dialogue for Saved by the Bell's first 14 episodes and Wikipedia's NewsRadio article and episode lists for all three shows. The anchors in the builder name the exact file behind each row.</p>
+  </details>
+</section>
+</main>
 <footer>
-  Palette: Fantastic Mr. Fox (Wes Anderson) &nbsp;|&nbsp;
-  Analysis from <code>~/Projects/tv-scripts/community-character-engine-ranking.md</code> &nbsp;|&nbsp;
-  Transcripts via springfieldspringfield.co.uk
+  Palette: Isle of Dogs (Wes Anderson). Revision 6 built September 15, 2026 by scripts/build_community_character_map.py from the working model. Revision 7 applied by hand the same day, as the change log records.
 </footer>
-
 </body>
 </html>

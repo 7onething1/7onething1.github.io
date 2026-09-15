@@ -1,6 +1,6 @@
 # Greendale Lineage
 
-What Community inherits from NewsRadio, Saved by the Bell and Arrested Development, rebuilt as one argument from the September 14 thread. Checked September 14, 2026 against episode dialogue, scripts, reviews and interviews.
+What Community inherits from NewsRadio, Saved by the Bell and Arrested Development, rebuilt as one argument from the September 14 thread. Checked September 14, 2026 against episode dialogue, scripts, reviews and interviews. The Planbee section was added and checked September 15, 2026.
 
 ## The argument
 
@@ -16,7 +16,7 @@ NewsRadio is the organizing premise of this project. It started the work, and it
 
 The map records who descends from whom. This page follows what travels with those characters. A personality can travel on its own. So can a pairing between two characters, a plot machine, or an actor who brings an earlier series onto the set.
 
-The strongest cases carry several of these together. Troy takes Joe's trade and Joe's fire, and his friendship with Abed repeats Joe's partnership with Matthew. Pierce's pill story borrows its intervention test from Saved by the Bell and casts NewsRadio's Matthew as the voice urging more pills. David Cross walks into a series built partly by the directors who shaped Arrested Development, in the season its creator plays Koogler.
+The strongest cases carry several of these together. Troy takes Joe's trade and Joe's fire, and his friendship with Abed repeats Joe's partnership with Matthew. Pierce's pill story borrows its intervention test from Saved by the Bell and casts NewsRadio's Matthew as the voice urging more pills. David Cross walks into a series built partly by the directors who shaped Arrested Development, in the season its creator plays Koogler. Ladders restages Planbee's consultant handoff, and the Annie line runs straight through that arrival.
 
 ### Evidence labels
 
@@ -84,6 +84,118 @@ Community gives Joe's descendant the climate trade itself. The Air Conditioning 
 Evidence: Episode
 
 "Geothermal Escapism" (S5E5) sends Troy around the world on Pierce's boat with LeVar Burton (Character Map). In the series finale Abed turns that exit into a rule for television: "And it needs to be okay for it to get on a boat with Levar Burton and never come back. Because eventually, it all will" [S06E13:L204].
+
+## The consultant handoff, from Planbee to Ladders
+
+NewsRadio's "Planbee" (S4E2, September 30, 1997) and Community's "Ladders" (S6E1, March 17, 2015) stage the same workplace event. An owner brings an outside woman into a failing institution, leaves the room, and the ensemble has to decide who stays necessary. The match holds across who enters, who introduces her, who asks about rank, who escapes and who hides to plot. Lauren Graham plays Andrea for four episodes, S4E2 through S4E5, and Paget Brewster plays Frankie through season six after a season five turn as Debra Chambers.
+
+### Who stands where
+
+Evidence: Episode, Interpretation
+
+| Position | Planbee | Ladders |
+|---|---|---|
+| The owner who brings her in and leaves | Jimmy James | Dean Pelton |
+| The outside authority | Andrea | Frankie Dart |
+| The leader who presses the owner | Dave | Jeff |
+| The capable young woman | Lisa | Annie |
+| The member the review threatens | Matthew | Abed |
+| The room where the group plots | The bathroom | Shirley's Sandwiches, then its speakeasy |
+
+### 1. The handoff, beat by beat (new find)
+
+Evidence: Episode, Press, Interpretation
+
+| Beat | Planbee (S4E2) | Ladders (S6E1) |
+|---|---|---|
+| The institution is failing. | Jimmy reads that WNYX loses twice what it brings in, and the figure gets corrected to three times. He tried to sell the station, and "no one would buy it." | A cafeteria roof collapses under forty years of Frisbees, right after the opening announcement credits Annie with saving Greendale from "534 critical emergencies." |
+| The owner presents a woman from outside. | Jimmy says "Plan 'A' was a bust" and introduces Plan B, and Matthew greets her as "Andrea Planbee." | The Dean presents Francesca Dart with "I have brought her on as an administrative consultant." Joining the committee is "fun and mandatory." |
+| She sorts the room on sight. | Andrea names each staffer from the question they ask, starting with "You must be Matthew." | Frankie reports her survey of how Greendale is seen, "Weird, passionate and gross." |
+| Someone asks where she ranks. | Dave asks Jimmy for a private word, and Jimmy tells him "whatever this woman says goes." | Britta asks whether Frankie is "above us or below us." The Dean dodges, and Frankie answers for herself that all communication and decisions "will go through me." |
+| The owner leaves the room. | Dave asks where Jimmy is going, and Jimmy answers, "You don't drop a piranha in the kiddie pool then stick around to watch bubbles." | The Dean announces a phone call and asks Frankie to explain her own role. Jeff calls it "the fake phone call move." |
+| The group hides to plot. | The staff strategize in the bathroom, cross-cut with Andrea in Dave's office deciding whom to fire, as Donna Bowman's A.V. Club review describes the scene. | Jeff, Annie and Britta meet at Shirley's Sandwiches and form a secret committee against Frankie. The sandwich shop's back room becomes a speakeasy. |
+| The strange member is tested. | The staff pretend Matthew runs the newsroom, and Andrea spots "one guy people are tryin' to cover up for." Matthew is fired by the end of the episode. | Abed refuses the secret committee and joins Frankie with "I'd like to help and if possible, learn from you." |
+| Someone loses the job. | Matthew leaves WNYX and wins his job back in "Stupid Holiday Charity Talent Show" (S4E8). | Frankie tells Abed he doesn't "know any better," leaves Greendale, and comes back after Jeff and Abed apologize. |
+
+Frankie's arrival also negotiates a chair. Her first seat is refused because "Our friend used to sit there," and the empty place gets Abed's word for Shirley's exit, "She spun off." The shared order of entrances, questions and exits is the evidence this page weighs most, above any single line of dialogue.
+
+### 2. The strange member changes sides (new find)
+
+Evidence: Episode, Press, Interpretation
+
+In "Planbee" the whole staff protects Matthew. Asked whether Matthew edits her work, Lisa says "all the time" and that "nothing goes on here without his go-ahead." In Andrea's staff review Dave calls Matthew "absolutely essential," and the pitch turns on Lisa. Andrea concludes that the two "basically do the same job" and that "Lisa has to go." Later she sees through the act, and Matthew is fired.
+
+After the firing Matthew keeps circling his friends. In "French Diplomacy" (S4E5) he watches them through binoculars from the dentist's office where he now works, and he says dentistry is his skill and A.M. radio is his passion.
+
+Community hands the eccentric to the consultant. Abed lunches with Frankie, refuses the secret committee, and settles into emailing Diane for her. At the speakeasy the group tells him, "We shouldn't have made you choose between Frankie and us." Frankie loses her footing when she tells Abed he doesn't know any better, and she leaves the campus.
+
+NewsRadio's efficiency review removes its strangest member. Community reruns the review with Matthew's descendant, and this time Jeff and Abed have to apologize the consultant back onto campus.
+
+### 3. Lisa's record and Annie's prescription pad
+
+Evidence: Episode, Press, Interpretation
+
+Andrea's polygraph in "Super Karate Monkey Death Car" (S4E4, November 4, 1997) brings out Lisa's record. Between 17 and 19 she was "arrested seven times." She stole a car because hers broke down and she was afraid of being late for the SATs. She broke into a library because her home copy of The Federalist Papers was abridged. Her federal offense is a post office break-in, made to see whether her college acceptance letters had arrived.
+
+Andrea keeps her, praises her honesty, and confides an arson of her own from "just last year."
+
+In "Heroic Origins" (S4E12) Abed sits in a therapist's office and tells the doctor that someone has stolen the prescription pad. The Community Wiki names Annie as the thief, and the episode adds the line "You're the one who got me busted for drugs." The same episode shows the Adderall party where she runs through a glass door.
+
+A 2019 review at The Avocado made the first link in a footnote, comparing Annie to "a young Lisa Miller" who ran into trouble with the law "in the pursuit of academic achievement."
+
+### 4. Andrea hands Lisa the job (new find)
+
+Evidence: Episode
+
+In "The Public Domain" (S4E3) Andrea brings in Steve Johnson to "take over half" of Dave's job. "French Diplomacy" (S4E5) opens after Dave suggests a break with Lisa, because Andrea "has fired six people already" and work should come first. Andrea overhears that they were a couple and takes it personally with "I thought we were friends." She opens a full office romance investigation and questions the staff about the couple.
+
+When Andrea tells Dave that Lisa's talents belong elsewhere, Dave defends her as "very analytical, very intelligent." Andrea agrees and answers, "I think we should give her your job." Dave's praise backfires a second time, and "Pure Evil" (S4E6) opens with Lisa as boss and Dave as Bill's producer.
+
+### 5. Annie's committee year, with Brewster in the room (new find)
+
+Evidence: Episode, Personnel, Interpretation
+
+In "Analysis of Cork-Based Networking" (S5E6) Annie chairs the Save Greendale Committee and hands out thick packets of school problems, according to the Community Wiki. Hanging one bulletin board takes her through the custodians, the parking office and the I.T. department, where Debra Chambers is played by Paget Brewster.
+
+Annie offers Chambers a bribe, and Chambers names her price, a better parking spot than Annex B. Annie's answer to Hickey's doubts is "Annie Edison doesn't get nothing done," and Hickey tells her she reached her goal by compromising her principles.
+
+Adult Annie crosses a line to get the job done, as Lisa did for grades, and the official she bribes is played by the actress who becomes Frankie.
+
+### 6. Frankie has already done the list
+
+Evidence: Episode
+
+"Ladders" opens by crediting Annie with leading the effort that saved Greendale from 534 critical emergencies. Annie then brings Frankie an idea about de-electrifying the pool. Frankie says it has been dealt with and reads down her own list of solved problems, "Done, done, deloused, appraised, defused, rebuilt," through "underway" and "exhumed."
+
+In season five Annie handed out the packets of problems. In season six the consultant holds the list, and its items are already done or underway when Annie arrives with hers.
+
+### 7. Both consultants come between the young woman and the leader
+
+Evidence: Episode, Press, Interpretation
+
+Andrea's investigation follows Dave's break with Lisa and ends with Lisa in Dave's job. In "Wedding Videography" (S6E12) Frankie tells Annie that they share a dragon, and "Its name is Helping Others." Frankie adds, "And then we need to get you away from Jeff," and asks how that is her business.
+
+Joshua Alston's A.V. Club review of May 26, 2015 says the Jeff and Annie flirtation, a thread that "frequently seems like it was abandoned," gains new credibility when Frankie takes notice of it.
+
+Each consultant singles out the younger, capable woman. Andrea turns Lisa's break with Dave into a new chain of command, and Frankie tells Annie she needs distance from Jeff.
+
+### 8. Attachment, and what the scripts say about sexuality
+
+Evidence: Episode, Interpretation
+
+Andrea's attachment to Lisa builds across the arc. She calls the two of them "buddies" and drops Lisa's serious polygraph questions "since we're friends," and Lisa blurts "I stole a car!" anyway. She confides her arson to Lisa alone. In "French Diplomacy" she sobs that she doesn't "know where we stand," and after the breakup she offers herself as the friend Lisa needs, "That's how friendship works."
+
+Lisa names the pattern from her side. Andrea is "not my best friend," and Andrea only "thinks she's my best friend, which is what makes her crazy." No line in the four NewsRadio dialogue files names Andrea's sexuality, so a crush reading rests on Lauren Graham's performance and this page keeps it labeled as a reading.
+
+Season six puts the question into dialogue. In "Basic Email Security" (S6E6) the group runs a betting pool on Frankie's sexual preference, and Jeff has "300 bucks" on "chapstick lesbian." Frankie answers that her sexuality "is of zero concern to my job," and she tells Annie she read her entry too, per the Community Wiki transcript.
+
+### 9. The Annie line, in order
+
+Evidence: Interpretation
+
+Jessie Spano supplies the pills and the pressure. Lisa Miller supplies adult competence and crimes committed for grades and college letters. Andrea's arc supplies the transition, where an efficiency review hands the capable young woman her boss's job. Annie spends season five running the committee and bending rules to finish, and Frankie arrives in season six as the professional form of that work.
+
+On the Character Map this retires Frankie's "future shadow" label. Frankie reads as the endpoint of Annie's developmental line, with Andrea as the older model.
 
 ## Pierce's pills: the intervention Jeff refuses
 
@@ -256,7 +368,7 @@ Abed builds his Jeff impression from "Ten percent Dick Van Dyke, 20 percent Sam 
 
 Evidence: Interpretation
 
-Annie starts from Jessie Spano's pills and pressure, takes on Lisa Miller's competence as her work widens, and on the [Character Map](https://drwu-htmls.vercel.app/community-character-map) also runs a Buffy line from Cordelia to Willow to Dark Willow.
+Annie starts from Jessie Spano's pills and pressure, takes on Lisa Miller's competence as her work widens, and on the [Character Map](https://drwu-htmls.vercel.app/community-character-map) also runs a Buffy line from Cordelia to Willow to Dark Willow. [The Planbee section](#planbee) follows her from Lisa's record through Andrea's arc to Frankie.
 
 ### Britta
 
@@ -360,7 +472,7 @@ Troy wakes in Spider-Man pajamas, a nod to the campaign to cast Donald Glover as
 
 ## New finds
 
-These answer the thread's last request, to find more like the closing list. Each returned NEW from the Community OS canon check.
+These answer the thread's last request, to find more like the closing list. Each returned NEW from the Community OS canon check. The four finds dated September 15 have not been through that check yet.
 
 ### Repilot runs on Scrubs season nine (S5E1)
 
@@ -422,9 +534,33 @@ Evidence: Episode
 
 Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mistake" [S03E22:L101]. NewsRadio's repairman blames himself for a death after modifying the machine.
 
+### Ladders restages the Planbee handoff (S6E1)
+
+Evidence: Episode, Press, Interpretation
+
+The arrivals of Andrea and Frankie follow one order. The owner introduces her, someone asks where she ranks, the owner leaves, the group hides to plot, and the strangest member gets tested.
+
+### Dave's praise backfires twice (NewsRadio S4)
+
+Evidence: Episode
+
+Dave calls Matthew essential, and Andrea marks Lisa for cutting. Dave calls Lisa analytical and intelligent, and Andrea gives Lisa his job.
+
+### Annie bribes the future Frankie (S5E6)
+
+Evidence: Episode, Personnel
+
+To hang one bulletin board, Annie bribes the head of I.T., played by Paget Brewster, who wants a better parking spot.
+
+### The strange member changes sides (S6E1)
+
+Evidence: Episode, Interpretation
+
+NewsRadio's efficiency review fires Matthew. Community puts Abed beside the consultant, and Frankie leaves after telling him he doesn't know any better.
+
 ## Working notes
 
-### Corrections to the thread (19)
+### Corrections to the thread (31)
 
 | The thread said | The record shows |
 |---|---|
@@ -447,6 +583,18 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 | Coverage framed Cross through Tobias. | TV Guide's November 11, 2013 announcement framed Cross and Hurwitz through Arrested Development and did not mention Tobias. |
 | Joe's copier modification was "unauthorized." | Joe's modification is confirmed ("I modified the document feeder"). "Unauthorized" is unconfirmed. |
 | A broken valuable object followed by a fabricated robbery story (Dick Van Dyke Show, Sanford and Son). | The Community episode is "Foosball and Nocturnal Vigilantism" (S3E9) [S03E09:L151], where Troy points at the sitcom convention [S03E09:L55]. Sanford and Son's "We Were Robbed" (1972) matches. No matching Dick Van Dyke Show episode was found. |
+| Lisa broke into a post office because she needed her SAT results. | She broke in to see whether her college acceptance letters had arrived, and the SAT story belongs to the stolen car ("Super Karate Monkey Death Car" dialogue). |
+| Andrea follows Lisa's argument and concludes that Lisa is redundant. | Lisa helps stage Matthew's importance, and the verdict "Lisa has to go" comes in Andrea's review with Dave, after Dave calls Matthew "absolutely essential." The A.V. Club review places Dave in that scene. |
+| Jimmy says, "you don't put a piranha in the kiddie pool and stick around to watch the bubbles." | The dialogue file reads "You don't drop a piranha in the kiddie pool then stick around to watch bubbles." |
+| Jimmy gives Andrea authority without defining it. | Jimmy defines it outright with "whatever this woman says goes" and then leaves. The Dean dodges the rank question, and Frankie settles it herself. |
+| Frankie is hired as Greendale's CFO. | The Dean says "administrative consultant" in "Ladders," and Wikipedia's episode article uses the same title. The CFO wording comes from TVmaze's episode summary, and the Community Wiki infobox says "Efficiency consultant." |
+| Annie opens her binder, and Frankie reads through Annie's own list. | Annie brings one idea about the pool, and Frankie reads from her own list of solved problems, per the Community Wiki. The line "Did you see her binder?" comes after Frankie leaves the room. |
+| A Tumblr character map assigns Annie Edison to Lisa Miller. | The linked Tumblr post is a lolcats image tagged "bees," with no NewsRadio or Community content. The Avocado footnote is the prior link that holds up. |
+| Frankie moves to Pierce's former seat. | The dialogue confirms a refused first chair and an accepted second one. Whose chair the second one was needs the video, so it stays open. |
+| At the later reconciliation Jeff says they should not have made Abed choose. | The line "We shouldn't have made you choose between Frankie and us" comes at the speakeasy, when the group pulls Abed back in, and the dialogue file carries no speaker names. |
+| Frankie tells Abed that everybody could benefit from being more like him. | The line "I think we'd all benefit if we were more like you" is in the scene. The dialogue file carries no speaker names, so the speaker stays open. |
+| The Dean asks the committee to tell him how it goes as he walks out. | The line "Let me know how it goes" follows the Dean's exit line, and the dialogue file carries no speaker names, so the speaker stays open. |
+| The polygraph buzzes when Lisa agrees that Andrea is fun. | The buzz on "Yeah, she is" comes during Dave's test, so it catches Dave. Lisa ducks her own test, and Andrea later gives her "a real fun test" because they are "friends." |
 
 ### Open items closed
 
@@ -507,6 +655,23 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 - [Sanford and Son Wiki, We Were Robbed](https://sanfordandson.fandom.com/wiki/We_Were_Robbed)
 - [Scrubs Wiki, Keith Dudemeister](https://scrubs.fandom.com/wiki/Keith_Dudemeister)
 - [Community Character Map](https://drwu-htmls.vercel.app/community-character-map)
+- [The A.V. Club, Donna Bowman, NewsRadio: Jumper, Planbee review, Jun 1, 2010](https://www.avclub.com/newsradio-jumper-planbee-1798165147)
+- [The A.V. Club, Joshua Alston, Community: Wedding Videography review, May 26, 2015](https://www.avclub.com/community-wedding-videography-1798183904)
+- [The Avocado, hadaking, A Community Notification For This: S1E11, Dec 5, 2019](https://the-avocado.org/2019/12/05/a-community-notification-for-this-s1e11-the-politics-of-human-sexuality/)
+- [Wikipedia, List of NewsRadio episodes (season 4)](https://en.wikipedia.org/wiki/List_of_NewsRadio_episodes)
+- [Wikipedia, Ladders (Community)](https://en.wikipedia.org/wiki/Ladders_(Community))
+- [Wikipedia, Community season 5](https://en.wikipedia.org/wiki/Community_season_5)
+- [Wikipedia, Community season 6](https://en.wikipedia.org/wiki/Community_season_6)
+- [Community Wiki, Ladders](https://community-sitcom.fandom.com/wiki/Ladders)
+- [Community Wiki, Heroic Origins](https://community-sitcom.fandom.com/wiki/Heroic_Origins)
+- [Community Wiki, Analysis of Cork-Based Networking](https://community-sitcom.fandom.com/wiki/Analysis_of_Cork-Based_Networking)
+- [Community Wiki, Debra Chambers](https://community-sitcom.fandom.com/wiki/Debra_Chambers)
+- [Community Wiki, Frankie Dart](https://community-sitcom.fandom.com/wiki/Frankie_Dart)
+- [Community Wiki, Basic Email Security transcript](https://community-sitcom.fandom.com/wiki/Basic_Email_Security/Transcript)
+- [TVmaze, Community 6x01 Ladders (source of the CFO wording)](https://www.tvmaze.com/episodes/117721/community-6x01-ladders)
+- [Springfield! Springfield!, NewsRadio season 4 dialogue, Planbee through Pure Evil](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=newsradio-1995&episode=s04e02)
+- [Springfield! Springfield!, Community dialogue, Heroic Origins, Cork-Based Networking, Ladders, Wedding Videography](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=community&episode=s06e01)
+- [Tumblr, the unicornery post the thread cited (a lolcats image, checked)](https://www.tumblr.com/unicornery/1543179366)
 
 ### Local evidence
 
@@ -516,3 +681,4 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 - ~/Projects/tv-scripts/text/ArrestedDevelopment-S01E03.txt (the one Huzzah)
 - ~/Projects/_outputs/community-os/greendale-lineage/evidence/newsradio/ (all 97 NewsRadio dialogue files pulled September 14, 2026, kept local)
 - ~/Projects/_outputs/community-os/greendale-lineage/evidence/sbtb/ (8 Saved by the Bell Wiki pages, kept local)
+- ~/Projects/_outputs/community-os/greendale-lineage/evidence-2026-09-15-planbee/ (NewsRadio S4E1 to S4E10 dialogue, Community S4E12, S5E1, S5E6, S5E13 and season 6 dialogue, Wikipedia and Community Wiki pages, pulled September 15, 2026 on the MacBook)
