@@ -47,7 +47,7 @@ A critic saw the pairing in the first season. Reviewing "Romantic Expressionism"
 
 Her sentence pairs the two duos and leaves the individual matches open. The premise map matches Joe with Troy and Matthew with Abed on episode evidence. The review also closes the Character Map's open item on a public source for the pairing.
 
-NewsRadio gives the pair side plots of their own. Matthew begs, "Joe, teach me how to gamble," and the lessons leave him owing $5,120 and then $10,240 ("In Through the Out Door," February 4, 1996). Jimmy books them into an Ultimate Fighting bout, where Joe says, "I don't wanna hurt him" ("4:20," April 29, 1998). Joe teaches Matthew and Max "Joe-jitsu" with a padded suit ("Padded Suit," April 13, 1999).
+NewsRadio gives the pair side plots of their own. Matthew begs, "Joe, teach me how to gamble," and the lessons leave him owing $5,120 and then $10,240 ("In Through the Out Door," February 4, 1996). Jimmy books them into an Ultimate Fighting bout, where Joe says, "I don't wanna hurt him" ("4:20," April 29, 1998). Joe teaches Matthew and Max "Joe-jitsu" with a padded suit ("Padded Suit," April 13, 1999). Beth and Joe "set up a little mock-interview situation" for Matthew, and it turns into "This is NASA" ("Retirement," April 27, 1999).
 
 Community moves that side universe to the center of the show, with Inspector Spacetime (S3E1) and the pillow and blanket war narrated by Keith David (S3E14). Scrubs' J.D. and Turk supply the emotional register of the pair on the Character Map.
 
@@ -366,7 +366,7 @@ These answer the thread's last request, to find more like the closing list. Each
 
 Evidence: Episode, Personnel
 
-The reboot gets pitched as "Scrubs season nine, a revamp, a do-over," Abed notes "Zach Braff was only in the first six episodes," and Troy fumes, "After everything Scrubs did for him?" Glover leaves Community five episodes into that season. Two Scrubs season 9 regulars had already played Greendale roles, Travis Schuldt as Subway (S3E13) and Eliza Coupe as Agent Robin Vohlers (S2E17), per the TV Tropes recap. The same episode calls Season 4 "the gas leak year."
+The reboot gets pitched as "Scrubs season nine, a revamp, a do-over," Abed notes "Zach Braff was only in the first six episodes," and Troy fumes, "After everything Scrubs did for him?" Glover leaves Community five episodes into that season. Two Scrubs actors had already played Greendale roles, Travis Schuldt (Keith Dudemeister on Scrubs) as Subway (S3E13) and Eliza Coupe (Denise Mahoney) as Agent Robin Vohlers (S2E17), per the TV Tropes recap. The same episode calls Season 4 "the gas leak year."
 
 ### Cougarton Abbey is invented ancestry (S3E1)
 
@@ -459,6 +459,7 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 | Thread: Zack also manipulates Belding in "The Zack Tapes." | Confirmed: "Zack hoodwinks Mr. Belding into absolving him of his sins with a tricked-up tape" (A Trifle Further recap, April 5, 2014). |
 | Thread: "Save the Max" runs a telethon. | Confirmed: "a Save the Max radio telethon" against "$10,000 in back rent" (KKTY Bayside recap, January 20, 2011). |
 | Thread: Cross and Hurwitz were announced together as Arrested Development figures in one season. | Confirmed as reported: TV Guide covered both Arrested Development guests in one announcement on November 11, 2013. |
+| Character Map open item: the NASA interview plot. | Found by the Character Map chat in the local dialogue files: in "Retirement" (April 27, 1999) Beth and Joe "set up a little mock-interview situation" for Matthew, and it turns into "This is NASA." |
 
 ### Canon check on the new finds
 
@@ -504,6 +505,7 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 - [Community Wiki, Advanced Advanced Dungeons & Dragons](https://community-sitcom.fandom.com/wiki/Advanced_Advanced_Dungeons_%26_Dragons)
 - [Community Wiki, Early 21st Century Romanticism](https://community-sitcom.fandom.com/wiki/Early_21st_Century_Romanticism)
 - [Sanford and Son Wiki, We Were Robbed](https://sanfordandson.fandom.com/wiki/We_Were_Robbed)
+- [Scrubs Wiki, Keith Dudemeister](https://scrubs.fandom.com/wiki/Keith_Dudemeister)
 - [Community Character Map](https://drwu-htmls.vercel.app/community-character-map)
 
 ### Local evidence
