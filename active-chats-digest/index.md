@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-15 05:01 CDT. 21 chats read from transcripts.
+Built 2026-09-15 05:31 CDT. 21 chats read from transcripts.
 
 ## Headline
 
 All 21 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 4,797 assistant replies, 89 MB of transcript.
+Totals: 4,848 assistant replies, 90 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### SNF DraftKings lineups research  (1.4 days quiet, 261 replies)
+### SNF DraftKings lineups research  (1.5 days quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do ito
 
 - Running every check now, read-only: 1. **WARP is disconnected.** 2. **Screen Sharing is off.** 3. **DraftKings and GeoComply traffic goes out over.
@@ -33,7 +33,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (23.6 hours quiet, 456 replies)
+### Twitch links restoration  (1.0 days quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
@@ -43,7 +43,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (15.8 hours quiet, 129 replies)
+### Sound limit at 40%  (16.3 hours quiet, 129 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn off
 
 - 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
@@ -53,7 +53,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community checks scratchpad  (11.7 hours quiet, 19 replies)
+### Community checks scratchpad  (12.2 hours quiet, 19 replies)
 **Goal.** Not summarised by hand yet. Last input on record: open -R /private/tmp/claude-501/-Users-drwu/037b438d-14d8-4da6-b2b0-fd736d118dfc/scratchpad/community_checks.py
 
 - Reveal that script in Finder, after checking it still exists. - **Phase 1:** Check that the file still exists at that path. - **Phase 2:** Run `open.
@@ -63,7 +63,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (9.8 hours quiet, 310 replies)
+### Inbox new docs  (10.3 hours quiet, 310 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make a handoff of this for the other mac
 
 - Goal set: compare my two docs against the `[IRIS-DOCS]` session's latest versions, then take another full pass on mine. I will keep going until every.
@@ -73,7 +73,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (9.8 hours quiet, 248 replies)
+### Inbox new docs  (10.3 hours quiet, 248 replies)
 **Goal.** Not summarised by hand yet. Last input on record: compare with the fork's version
 
 - The measured evidence came back VERIFIED on all four records, and each one could have failed: - **Row titles and rows:** the 15 issue titles and 5.
@@ -83,7 +83,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### whats up with my internet  (8.4 hours quiet, 106 replies)
+### whats up with my internet  (8.9 hours quiet, 106 replies)
 **Goal.** Not summarised by hand yet. Last input on record: use my facebook to find local news posting on the outage, i see some. we can comment our theroy to community.
 
 - Fixing three things before I resend: adding the color markers, verifying the sources directly, and checking the two claims I couldn't confirm.
@@ -93,7 +93,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Internet chat performance  (8.1 hours quiet, 335 replies)
+### Internet chat performance  (8.6 hours quiet, 335 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_49a1066c ("Fix G70 link false match and stuck retry budget") in a separate local session. It is running independently. 
 
 - The loop is going to keep repeating, so I'm checking Brandon's own rules on that override file before I decide anything else.
@@ -103,7 +103,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix G70 link false match and stuck retry budget  (7.6 hours quiet, 213 replies)
+### Fix G70 link false match and stuck retry budget  (8.1 hours quiet, 213 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: fraud-check hard gate: you made a done/ready/shipped claim, so this hook auto-ran session_fraud_check.py --hard-only on the files THIS session authored, and it returned H
 
 - Everything is green on the final files. One claim needs checking before I write it: that the old code is also quiet on the full bef76092 transcript,.
@@ -113,7 +113,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Raytown substation outage analysis  (7.5 hours quiet, 58 replies)
+### Raytown substation outage analysis  (8.0 hours quiet, 58 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - Goal:** turn the Raytown outage passage into slant-rhymed verse, with double rhymes wherever the words allow them. **Phase 1.** Find and load the slant.
@@ -123,7 +123,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix fraud-check quote stripping across lines  (4.6 hours quiet, 154 replies)
+### Fix fraud-check quote stripping across lines  (5.1 hours quiet, 154 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Recording checkable evidence so the completion controller accepts the nine closed outcomes. First I read which check types `adjudicate()` supports.
@@ -133,7 +133,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Model selector pinning in Code tab  (2.5 hours quiet, 107 replies)
+### Model selector pinning in Code tab  (3.0 hours quiet, 107 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: search_before_blocked_gate BLOCK: this reply declares something unreachable ("...s **"tried in order when the primary model is overloaded or unavailable."** - 🟧 **After t
 
 - 🟥 Verdict: 5 out of 10, and its fix would find nothing - 🟥 **The selector showed Opus 5 all session.** Its session record reads `claude-opus-5`,.
@@ -143,7 +143,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Shrink MEMORY.md under its load cap losslessly  (59 minutes quiet, 88 replies)
+### Shrink MEMORY.md under its load cap losslessly  (1.5 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: MEMORY.md at /Users/brandonchavez/.claude/projects/-Users-brandonchavez/memory/MEMORY.md is 46,258 bytes. The loader reads only about the first 24,400 bytes, so every entry past that point n
 
 - Both scripts are written. Next is a dry run: the candidate and the POINTERS.md preview go only to the scratchpad, and then I diff the link sets.
@@ -153,7 +153,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Harmony techniques: Layne and Jerry  (53 minutes quiet, 281 replies)
+### Harmony techniques: Layne and Jerry  (1.4 hours quiet, 281 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make a practice plan for down in a hole harmonies /goal
 
 - 🔵 **Goal met, 3 of 3 checklist items:** your Down in a Hole plan runs 12 sessions of about 25 minutes over three weeks. 🟪 **Week 1 learns Jerry's.
@@ -163,7 +163,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Refuse fraud-check verdicts that scanned zero files  (44 minutes quiet, 150 replies)
+### Refuse fraud-check verdicts that scanned zero files  (1.2 hours quiet, 150 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: chat_color_gate BLOCK: this is a substantive reply but it is not color-coded. Brandon's standing rule (feedback_brandon_format): color-code your sections with colored bul
 
 - The controller now returns `stop_allowed: True`, with all 12 outcomes closed on verified records. I'm grabbing line numbers for the key code before.
@@ -173,7 +173,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix contraction pairing in fifty-gates strip_quoted  (27 minutes quiet, 214 replies)
+### Fix contraction pairing in fifty-gates strip_quoted  (58 minutes quiet, 214 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - The skill says the stop decision comes from `completion_controller.py` and `stop_proof.py`, never from reply text. I'll query them for this session.
@@ -183,7 +183,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit skill volume adjustment  (25 minutes quiet, 172 replies)
+### Sound limit skill volume adjustment  (55 minutes quiet, 172 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/no-quit-shift # no-quit-shift — the executable anti-quit gate ## v2 (2026-06-06): proactive keep-alive + auto-deploy on eve
 
 - The stop gate flagged two gaps in my report, and both are fair: - **G64:** I ran the completion-control script by path without loading its skill. -.
@@ -193,7 +193,7 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop ask_drift_gate scoring skill text as the ask  (12 minutes quiet, 157 replies)
+### Stop ask_drift_gate scoring skill text as the ask  (42 minutes quiet, 157 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/skills/fifty-gates/run_gates.py]: fifty-gates BLOCK: 1 hard gate(s) of 70 fired. G28 literal-ask-unaddressed: the named target never
 
 - Two Stop hooks blocked the close. G64 fired because I ran completion-control's scripts by raw path without loading the skill through the Skill tool..
@@ -203,22 +203,22 @@ Totals: 4,797 assistant replies, 89 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Slant rhymes chats  (10 minutes quiet, 539 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bg7vko9t5</task-id> <summary>Monitor event: "slant-masters transcript pull failures, blocks, or finish"</summary> <event>[Monitor expired after 30m with 5 events
+### Video timestamps and song names  (17 minutes quiet, 592 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: ask_drift_gate BLOCK: Brandon's message pointed at [goal, loop] and your reply never mentions it. This is the failure he corrected four times on 2026-07-18 (slow /ask ins
 
-- A fourth video has captions turned off: the Method Man and Black Thought cypher on Sway. When the main run finishes, one batch check will line up.
-- Common's 8-minute Power 106 freestyle also has captions turned off. That makes 5 failures, and I'm still holding every swap for one batch at the end.
-- The failure watcher timed out after 30 minutes. Next I'll check the pull's progress and re-arm the watcher if the pull is still running.
-- 🟨 **The pull is at 9 of 24 tried: 4 transcripts in, 5 with captions turned off.** All three Method Man freestyles that ran came through, from 471 to.
+- The second agent failed the same way, and the error shows my last message was wrong. Even with Opus named explicitly, it ran on claude-sonnet-5 and hit.
+- Stopping mid-analysis. The system just told me this turn itself is running on Sonnet, the same model that tripped the content filter twice already, and.
+- Real setback on row 3, not a clean run. 🔴 **Model routing is broken past just subagents.** Two Opus agent spawns for row 3, one plain and one with an.
+- Same gate glitch as before, it's reading the injected `/goal /loop` reminder text as if it were your latest message, not what you actually typed. Loop.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names  (0 minutes quiet, 560 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>a54b737892ec403ca</task-id> <tool-use-id>toolu_0153oVZFvHzq9gBWMJrXqsiL</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/b75dc280-b7f6-427
+### Slant rhymes chats  (4 minutes quiet, 558 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b4vnzjixk</task-id> <summary>Monitor event: "slant-masters transcript pull failures, blocks, or finish"</summary> <event>FAIL iyHgYqOVWcU: TranscriptsDisabled</e
 
-- The next check is set for 05:11. If row 3's evidence lands before then, the watcher starts its naming agent right away.
-- Row 3's evidence is ready: 142 takes, no request-log entries (that log ends August 9), 60 minutes of machine time. Reading its header to fill in the.
-- The next check is set for 05:27. When row 3's agent finishes, I check the file and post its list here.
-- The row 3 agent failed, and the failure shows I got something wrong. It ran on Sonnet, not Opus, so my "agents inherit this chat's Opus" line was.
+- 🟨 **18 of 24 videos are tried: 11 transcripts in, 7 with captions turned off.** A caption check on replacement videos for Method Man, Common, Mos Def,.
+- 🟩 **All 7 swaps are logged in `swaps.json`.** Each one records the video removed, the replacement, and proof the replacement has captions. 🟨 **The main.
+- Another failure: Blackalicious's "My Pen & Pad" has captions turned off. Gift of Gab's "Freedom Form Flowing" already passed the caption check, so I'll.
+- 🟩 **8 swaps are now logged.** The main pull still has the four Big Daddy Kane videos to go. This chat picks back up when it finishes.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
