@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-14 20:51 CDT. 12 chats read from transcripts.
+Built 2026-09-14 21:22 CDT. 12 chats read from transcripts.
 
 ## Headline
 
 All 12 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,216 assistant replies, 62 MB of transcript.
+Totals: 2,400 assistant replies, 63 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### IRIS claims review document updates  (17.1 hours quiet, 240 replies)
+### IRIS claims review document updates  (17.6 hours quiet, 240 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Re-attached with no instruction, right after I listed what is still open and queued against this exact file. Reading that as "apply them," so I am.
@@ -33,7 +33,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Twitch links restoration  (15.5 hours quiet, 456 replies)
+### Twitch links restoration  (16.0 hours quiet, 456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [python3 /Users/brandonchavez/.claude/hooks/chat_donelink_gate.py]: No stderr output
 
 - The turn-ceiling gate still sees no handoff, even though the iCloud file exists. I'm reading how G20 detects one.
@@ -43,7 +43,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound limit at 40%  (7.7 hours quiet, 129 replies)
+### Sound limit at 40%  (8.2 hours quiet, 129 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn off
 
 - 🟢 **Your sound limit is back to 40%.** Your Powerbeats Fit went from 65 down to 40. **Goal:** set the sound limit to 40% now. - 🔵 **Phase 1:** check.
@@ -53,7 +53,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community checks scratchpad  (3.5 hours quiet, 19 replies)
+### Community checks scratchpad  (4.0 hours quiet, 19 replies)
 **Goal.** Not summarised by hand yet. Last input on record: open -R /private/tmp/claude-501/-Users-drwu/037b438d-14d8-4da6-b2b0-fd736d118dfc/scratchpad/community_checks.py
 
 - Reveal that script in Finder, after checking it still exists. - **Phase 1:** Check that the file still exists at that path. - **Phase 2:** Run `open.
@@ -63,7 +63,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (1.6 hours quiet, 310 replies)
+### Inbox new docs  (2.1 hours quiet, 310 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make a handoff of this for the other mac
 
 - Goal set: compare my two docs against the `[IRIS-DOCS]` session's latest versions, then take another full pass on mine. I will keep going until every.
@@ -73,7 +73,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Inbox new docs  (1.6 hours quiet, 248 replies)
+### Inbox new docs  (2.1 hours quiet, 248 replies)
 **Goal.** Not summarised by hand yet. Last input on record: compare with the fork's version
 
 - The measured evidence came back VERIFIED on all four records, and each one could have failed: - **Row titles and rows:** the 15 issue titles and 5.
@@ -83,7 +83,7 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### whats up with my internet  (17 minutes quiet, 106 replies)
+### whats up with my internet  (47 minutes quiet, 106 replies)
 **Goal.** Not summarised by hand yet. Last input on record: use my facebook to find local news posting on the outage, i see some. we can comment our theroy to community.
 
 - Fixing three things before I resend: adding the color markers, verifying the sources directly, and checking the two claims I couldn't confirm.
@@ -93,8 +93,28 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Raytown substation outage analysis  (6 minutes quiet, 18 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/lyric-craft # lyric-craft A working reference for writing and fixing lyric in modern rock, pop, prophetic-mode, and band-bo
+### Slant rhymes chats  (29 minutes quiet, 71 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: search_before_blocked_gate BLOCK: this reply declares something unreachable ("...n's transcript. I couldn't recheck them live because Chrome is blocked. - The claude.ai c
+
+- The Claude chat that found them is archived, and twelve of the fourteen chats are in ChatGPT.** ### 🟦 Our Claude session, "Slant rhyme chats" - **It is.
+- The stop gate wants a real web search before I call anything unreachable. I'll run that now, and I'll also check two local copies that skip Chrome.
+- I tried every route I could to confirm the twelve ChatGPT links. Two of them are confirmed, and the only route left needs your signed-in account.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Internet chat performance  (28 minutes quiet, 335 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_49a1066c ("Fix G70 link false match and stuck retry budget") in a separate local session. It is running independently. 
+
+- The loop is going to keep repeating, so I'm checking Brandon's own rules on that override file before I decide anything else.
+- I've done the check G70 asks for, on the flagged text itself.** I looked at each match by eye in the raw transcript and count 3, all inside my 8:18 PM.
+- Checklist for the claims in your message: 1. **The P&Z minutes quote:** find Raytown's official minutes and confirm the exact wording, date and.
+- The minutes quote is real, so the substation theory now has a document behind it. The cause still isn't proven.** I checked all 15 of the 15 claims.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Raytown substation outage analysis  (9 minutes quiet, 20 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Output token limit hit. Resume directly — no apology, no recap of what you were doing. Pick up mid-thought if that is where the cut happened. Break remaining work into smaller pieces.
 
 - Goal:** turn the Raytown outage passage into slant-rhymed verse, with double rhymes wherever the words allow them. **Phase 1.** Find and load the slant.
 - No prose turn recorded for this slot.
@@ -103,32 +123,12 @@ Totals: 2,216 assistant replies, 62 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Internet chat performance  (1 minutes quiet, 326 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_49a1066c ("Fix G70 link false match and stuck retry budget") in a separate local session. It is running independently. 
+### Fix G70 link false match and stuck retry budget  (2 minutes quiet, 205 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/session-fraud-check # Session Fraud Check Scans for 54 known fraud patterns Claude exhibits when generating content. Every 
 
-- Nothing has changed: 4 of 4 sub-asks are done. G70 is still stuck on link text from an earlier message, and its retry budget resets every time it.
-- The loop is going to keep repeating, so I'm checking Brandon's own rules on that override file before I decide anything else.
-- I've done the check G70 asks for, on the flagged text itself.** I looked at each match by eye in the raw transcript and count 3, all inside my 8:18 PM.
-- Checklist for the claims in your message: 1. **The P&Z minutes quote:** find Raytown's official minutes and confirm the exact wording, date and.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix G70 link false match and stuck retry budget  (1 minutes quiet, 42 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
-
-- Goal:** stop the endless Stop-hook loop from session bef76092. I'll fix the G70 false positive and the retry budget that never runs out. **Phase 1:**.
-- Registering the nine checklist items with the scope controller, then backing up the three files before any edit.
-- Backups are in place with matching checksums. Before editing, I'm capturing the failure on truncated copies of bef76092, so the fix has a before and.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Slant rhymes chats  (1 minutes quiet, 61 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: search_before_blocked_gate BLOCK: this reply declares something unreachable ("...n's transcript. I couldn't recheck them live because Chrome is blocked. - The claude.ai c
-
-- Goal: find every chat where we worked on slant rhymes and show where each one lives. **Phase 1.** Search the chat transcripts and your knowledge layers.
-- The Claude chat that found them is archived, and twelve of the fourteen chats are in ChatGPT.** ### 🟦 Our Claude session, "Slant rhyme chats" - **It is.
-- The stop gate wants a real web search before I call anything unreachable. I'll run that now, and I'll also check two local copies that skip Chrome.
-- No prose turn recorded for this slot.
+- Two existing notes cover this ground. Reading them so I update one instead of adding a duplicate.
+- Memory updated. Before the final report, I'm reviewing the complete diff of all four files against their backups.
+- All three match on the finished files. Refreshing the evidence records against the final code and re-checking the controller verdict.
+- Everything is green on the final files. One claim needs checking before I write it: that the old code is also quiet on the full bef76092 transcript,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
