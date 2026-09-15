@@ -308,7 +308,7 @@ Abed describes the format as a way for people to explain themselves to the camer
 
 Evidence: Episode
 
-Annie breaks Abed's "$299 Dark Knight DVD" and fakes a burglary. Troy warns her, "Annie, do you know how many sitcoms have done the 'secretly replace a broken, priceless item' thing?" [S03E09:L55], and she finally confesses, "I stepped on your DVD, and it broke, and I staged a break-in to cover it up" [S03E09:L151]. The thread's older examples, The Dick Van Dyke Show and Sanford and Son, still need their episodes named.
+Annie breaks Abed's "$299 Dark Knight DVD" and fakes a burglary. Troy warns her, "Annie, do you know how many sitcoms have done the 'secretly replace a broken, priceless item' thing?" [S03E09:L55], and she finally confesses, "I stepped on your DVD, and it broke, and I staged a break-in to cover it up" [S03E09:L151]. Sanford and Son ran the same machine in "We Were Robbed" (February 18, 1972), where Fred stages a fake robbery "to cover-up his careless destruction of Lamont's prized porcelain and glass collection" (Sanford and Son Wiki), and the wiki credits that episode as based on a script by Ray Galton and Alan Simpson, the writers of Steptoe and Son. No matching Dick Van Dyke Show episode turned up.
 
 ### Cougarton Abbey to Inspector Spacetime (S3E1)
 
@@ -446,7 +446,7 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 | The cafeteria fire comes right ahead of the confessions. | Garrett's line is [S04E09:L185] and Troy's confession is [S04E09:L231], 46 lines later. |
 | Coverage framed Cross through Tobias. | TV Guide's November 11, 2013 announcement framed Cross and Hurwitz through Arrested Development and did not mention Tobias. |
 | Joe's copier modification was "unauthorized." | Joe's modification is confirmed ("I modified the document feeder"). "Unauthorized" is unconfirmed. |
-| A broken valuable object followed by a fabricated robbery story (Dick Van Dyke Show, Sanford and Son). | The Community episode is "Foosball and Nocturnal Vigilantism" (S3E9) [S03E09:L151], where Troy points at the sitcom convention [S03E09:L55]. Episodes for the two older shows are still unnamed. |
+| A broken valuable object followed by a fabricated robbery story (Dick Van Dyke Show, Sanford and Son). | The Community episode is "Foosball and Nocturnal Vigilantism" (S3E9) [S03E09:L151], where Troy points at the sitcom convention [S03E09:L55]. Sanford and Son's "We Were Robbed" (1972) matches. No matching Dick Van Dyke Show episode was found. |
 
 ### Open items closed
 
@@ -503,6 +503,7 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 - [KKTY Bayside, Save the Max recap, Jan 20, 2011](http://kktybayside.blogspot.com/2011/01/save-max.html)
 - [Community Wiki, Advanced Advanced Dungeons & Dragons](https://community-sitcom.fandom.com/wiki/Advanced_Advanced_Dungeons_%26_Dragons)
 - [Community Wiki, Early 21st Century Romanticism](https://community-sitcom.fandom.com/wiki/Early_21st_Century_Romanticism)
+- [Sanford and Son Wiki, We Were Robbed](https://sanfordandson.fandom.com/wiki/We_Were_Robbed)
 - [Community Character Map](https://drwu-htmls.vercel.app/community-character-map)
 
 ### Local evidence
