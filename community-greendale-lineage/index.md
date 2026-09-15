@@ -105,7 +105,7 @@ Pierce breaks both legs double-bouncing on an illegal trampoline in "Aerodynamic
 
 Evidence: Episode
 
-In "Early 21st Century Romanticism" (S2E15) Annie wants an intervention (TV Tropes recap). The scene opens with "We gotta do something about those painkillers," and the danger gets waved off with "He's recovering from broken legs" and "He's almost through his prescription." Jeff declines, "Count me out." The group puts it back on him: "He listens to you." Jeff decides, "You know what Pierce probably needs more than anything? Some space," and the talk ends in a fight about the Barenaked Ladies.
+In "Early 21st Century Romanticism" (S2E15) the scene opens with "We gotta do something about those painkillers," and Annie keeps asking the room, "Intervention?" (Community Wiki). The danger gets waved off with "He's recovering from broken legs" and "He's almost through his prescription," and Jeff says, "Count me out." The group puts it back on him: "He listens to you." Jeff decides, "You know what Pierce probably needs more than anything? Some space," and the talk ends in a fight about the Barenaked Ladies.
 
 The tiny man returns with a harder pitch, "the prescription is almost done," and "if doctors are so smart, why are there millions of them?" The TV Tropes recap sums up the choice he offers, the pills or his friends. Pierce takes the pills and ends the night alone on a park bench, and Jeff texts the group an apology.
 
@@ -151,7 +151,7 @@ Cross has described the Russos as the directors "who really created that docu st
 
 Evidence: Press, Personnel, Production record, Episode
 
-Coverage of the November 2013 casting led with his old show: "'Arrested Development's' David Cross to Guest Star on 'Community'" (TheWrap). The same season Mitch Hurwitz plays Koogler in "App Development and Condiments" (S5E8), whose tag announces that "Mitchell D. Hurwitz IS Koogler" (TV Tropes recap). The DVD commentary for that episode lists Yvette Nicole Brown, Mitchell Hurwitz, Harmon, Rob Schrab, Jordan Blum and Parker Deay (Community Wiki).
+TV Guide reported both Arrested Development guests in one announcement on November 11, 2013, Hurwitz as "Greendale's ultimate party animal" and Cross as Hank Hickey. Mitch Hurwitz plays Koogler in "App Development and Condiments" (S5E8), whose tag announces that "Mitchell D. Hurwitz IS Koogler" (TV Tropes recap). The DVD commentary for that episode lists Yvette Nicole Brown, Mitchell Hurwitz, Harmon, Rob Schrab, Jordan Blum and Parker Deay (Community Wiki).
 
 ### The sequel audits its original (new find)
 
@@ -177,7 +177,7 @@ The character returns by name after Season 5. "Preston Koogler" appears on a lis
 
 Evidence: Episode, Interpretation
 
-The table answers a speech about fathers and sons with a round of "Huzzah" (S5E10 dialogue file, no speaker names). Across the 53 Arrested Development episodes on disk, "Huzzah!" occurs once, in "Bringing Up Buster" (S1E3), right after Tobias talks his way into directing the school play. The nod is possible, and the evidence for it is one line.
+Annie leads a round of "Huzzah" after a speech about fathers and sons (Community Wiki), calling back Troy's "Huzzah! Is that right?" [S02E14:L140] from the first game. The Community Wiki also reads the word as a Tobias Fünke nod. Across the 53 Arrested Development episodes on disk, "Huzzah!" occurs once, in "Bringing Up Buster" (S1E3), right after Tobias talks his way into directing the school play.
 
 ## Saved by the Bell plot machines
 
@@ -186,9 +186,9 @@ The [Character Map](https://drwu-htmls.vercel.app/community-character-map) score
 | Saved by the Bell | Community | Shared machine | Evidence |
 |---|---|---|---|
 | "The Election" (S1E13, Nov 18, 1989). Zack runs against Jessie for class president to win a trip to Washington, then has to prove he wanted more than the trip. | "Intro to Political Science" (S2E17). Annie declares, and an annoyed Jeff answers with a style-over-substance campaign (TV Tropes recap). | The earnest achiever against the charming opportunist in a school election. | Episode |
-| "The Zack Tapes" (S1E14, Dec 2, 1989). Zack hides subliminal messages on a George Michael tape to get Kelly to the Valentine's dance, and the girls turn the school against him. | "Debate 109" (S1E9). Pierce's hypnotherapy for Britta's smoking uses "gorilla" as the wake word, and Britta reports she lay there "to make him feel like a good hypnotherapist." | A classroom technique aimed at a friend, and the target ends up ahead of the schemer. | Episode |
+| "The Zack Tapes" (S1E14, Dec 2, 1989). Zack first gets Belding to let him off with a doctored tape of "California Girls," then hides subliminal messages on a George Michael tape to get Kelly to the dance, and the girls turn the whole school against him (A Trifle Further recap, Saved by the Bell Wiki). | "Debate 109" (S1E9). Pierce's hypnotherapy for Britta's smoking uses "gorilla" as the wake word, and once he learns she has been faking, he suggests she will find herself attracted to him (TV Tropes recap). In "Romantic Expressionism" (S1E15) Jeff gives Britta a "Crash course in manipulation. You don't actually tell the person what you want them to do. You help them realize they want to do it so it can't be traced back to you." | Covert suggestion aimed at a friend, and the target turns it back on the schemer. | Episode |
 | "The Friendship Business" (S1E11, Nov 4, 1989). Zack names himself boss of a bracelet company, and his friends feel mistreated. | "Contemporary American Poultry" (S1E21). Jeff gets Abed hired as fry cook, Abed runs the chicken fingers like a mafia movie, and Jeff slips from group leader (TV Tropes recap). | A group business that turns friends into a hierarchy. | Episode |
-| "Save the Max" (S2E3, Sep 22, 1990). The gang revives the school radio station and has to raise $10,000 to save the Max. | "Basic Sandwich" (S5E13). The Save Greendale Committee races the moment "the city of Greendale is proud to be selling the school of Greendale to Subway." | Saving the place that holds the group together. | Episode |
+| "Save the Max" (S2E3, Sep 22, 1990). The gang revives the school radio station and runs a "Save the Max radio telethon" to cover $10,000 in back rent (KKTY Bayside recap). | "Basic Sandwich" (S5E13). The Save Greendale Committee races the moment "the city of Greendale is proud to be selling the school of Greendale to Subway." | Saving the place that holds the group together. | Episode |
 | "The Gift" (S1E3, Sep 8, 1989). Lightning lets Screech see the future, and Zack bets on it until the power fades at a history exam. | "Debate 109" (S1E9). Abed's films predict the group, and he explains, "I'm a student of character. I know you all so well I can predict how you'll behave" (production script). | A friend who knows what happens next. Community grounds the power in reading people. | Episode, Production record |
 | "Cut Day" (S3E23, Dec 7, 1991). Zack dodges Belding all day after betting Slater he can ditch class. | Pelton's fixation on Jeff, as in "Granted, Jeffrey looks amazing when he broods" [S04E09:L1]. | The principal whose attention locks onto one student. | Episode, Interpretation |
 | "Save That Tiger" (S1E16, Dec 16, 1989). A prank war with Valley's Clegg cousins, with each side kidnapping a mascot. | "For a Few Paintballs More" (S2E24). "Pistol Patty" proves to be City College's Dean Spreck, and "City College is trying to destroy Greendale." | The rival school as a standing enemy. | Episode |
@@ -216,7 +216,7 @@ In "Basic Human Anatomy" (S4E11) Troy marks "the third anniversary of me and Abe
 
 Evidence: Episode, Interpretation
 
-"Space" (May 21, 1997) opens by asking, "What if NewsRadio took place in outer space?" Joe is woken after "Eighty-three years" to "fix the atomic reactor core," and the station ends up on a self-destruct countdown. "Sinking Ship" (May 12, 1998) sets the staff on the Titanic, with Joe vouching that the "radio station/luxury liner is unsinkable" and Matthew assigned to "iceberg watch." "Daydream" runs its parodies off the broken thermostat.
+"Space" (May 21, 1997) opens by asking, "What if NewsRadio took place in outer space?" Joe is woken after "Eighty-three years" to "fix the atomic reactor core," and the station ends up on a self-destruct countdown. "Sinking Ship" (May 12, 1998) sets the staff on the Titanic, with Joe vouching that the "radio station/luxury liner is unsinkable," Joe taking the order "Joe, engines full stop," and Matthew assigned to "iceberg watch." "Daydream" runs its parodies off the broken thermostat.
 
 Community keeps its people recognizable through the same kind of transplant, in the timelines of "Remedial Chaos Theory" (S3E4), the Ken Burns frame of "Pillows and Blankets" (S3E14) and Abed's laugh-track happy place in "History 101" (S4E1).
 
@@ -226,11 +226,13 @@ Evidence: Episode
 
 In "Zoso" (February 25, 1996) Bill has convinced a date he is British: "Look, she thinks I'm British, okay?" Matthew coaches him that "in England they use pounds, not dollars," and Bill introduces "my mate, Joe." The pair gets pulled into a colleague's scheme as a unit.
 
-### Joe's homemade production
+### Joe's cameras
 
 Evidence: Episode, Interpretation
 
-In "Apartment" (January 12, 1999) Joe launches "the 24-hour break room Internet-cam," the staff start "spicing it up for the camera," and someone recalls, "When Joe first approached me to play the role of Alien, I was skeptical myself, until I read the script."
+Joe keeps building cameras. In "Presence" (April 14, 1996) the staff watch Jimmy's poker game through a camera hidden in a Boba Fett doll, and asked where he found one small enough, Joe says, "I made it," and of the parts, "I made them."
+
+In "Apartment" (January 12, 1999) he launches "the 24-hour break room Internet-cam," and the break room turns into a scripted show. The staff play melodrama because "We're spicing it up for the camera," and Matthew, cast as the alien, explains, "When Joe first approached me to play the role of Alien, I was skeptical myself, until I read the script."
 
 Casting friends in a homemade production is an Abed habit. Traits cross between the two descendants of the pair, so the Joe line and the Matthew line share material.
 
@@ -301,6 +303,12 @@ Abed: "When you guys first came in, we were as wholesome and healthy as the fami
 Evidence: Episode
 
 Abed describes the format as a way for people to explain themselves to the camera and closes on a montage and voice-over that suggest a meaning (TV Tropes recap). Britta admits the camera changed her choice: "if that camera wasn't on me, I would have taken that money right out of the mouths of crippled, starving, malaria-ridden refugee kids."
+
+### The sitcom machine Troy names (S3E9)
+
+Evidence: Episode
+
+Annie breaks Abed's "$299 Dark Knight DVD" and fakes a burglary. Troy warns her, "Annie, do you know how many sitcoms have done the 'secretly replace a broken, priceless item' thing?" [S03E09:L55], and she finally confesses, "I stepped on your DVD, and it broke, and I staged a break-in to cover it up" [S03E09:L151]. The thread's older examples, The Dick Van Dyke Show and Sanford and Son, still need their episodes named.
 
 ### Cougarton Abbey to Inspector Spacetime (S3E1)
 
@@ -416,34 +424,29 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 
 ## Working notes
 
-### Corrections to the thread (24)
+### Corrections to the thread (19)
 
 | The thread said | The record shows |
 |---|---|
 | "The Truest Repairman will repair man." | Laybourne's prophecy reads "The true repairman will repair man" [S03E22:L44]. "The truest repairman" is Troy's own challenge [S03E22:L150]. |
 | Joe confesses, "I started the fire. It was an accident." | Joe's words are "I was trying to sabotage the security cameras and I screwed up, and I wired them the wrong way" (NewsRadio "Led Zeppelin II" dialogue). |
-| Matthew starts a second fire with a cigar late in "Led Zeppelin II." | No cigar line in the dialogue file. A visual gag would not show there, so it stays unconfirmed. |
-| The group draws straws and Jeff loses. | The S2E15 dialogue has the group assign Jeff with "He listens to you." Neither the dialogue file nor the TV Tropes recap records straws, and a silent visual beat would appear in neither. |
+| Matthew starts a second fire with a cigar late in "Led Zeppelin II." | The dialogue has Bill's cigars and Joe telling Matthew, "Dude, don't inhale it," and no second fire. A visual gag would not show in a dialogue file, so it stays unconfirmed. |
+| The group draws straws and Jeff loses. | The dialogue has Annie asking the room "Intervention?" (Community Wiki) and the group assigning Jeff with "He listens to you." Neither the dialogue file, the TV Tropes recap nor the Community Wiki records straws, and a silent visual beat would appear in none of them. |
 | Shirley tells Jeff that Pierce listens to him. | The line exists. The dialogue file carries no speaker names, so the speaker stays open. |
 | Andy Dick acknowledged giving Brynn Hartman cocaine. | Vice (August 3, 2026) reports that Dick has denied ever giving her cocaine. The accusation is Jon Lovitz's (CBS News, July 18, 2007). |
 | Lovitz later said Dick was not responsible. | Lovitz apologized for the comment (Vice, citing CBS News). No source found for a changed view of responsibility. |
-| A critic called Dick "almost painfully apt." | Phrase not found in the S2E15 reviews searched. |
+| A critic called Dick "almost painfully apt." | Phrase not found in the reviews searched, on two separate searches. |
 | In "Jessie's Song" Slater brings the pills to Zack. | Slater confronts Jessie directly ("Jessie, those pills are dangerous"). After her breakdown Zack cancels the performance and calms her down. |
 | NewsRadio's "Freaky Friday" reverses Joe and Matthew. | Jimmy and Matthew switch jobs (Wikipedia episode summary). |
-| Joe hides a camera in a Boba Fett figure in "Presence." | Not in that episode's dialogue, whose plot is Jimmy losing Bill in a poker game. A source for the camera is still missing. |
-| Joe makes a website soap opera starring Matthew, Beth and Max ("Apartment"). | Dialogue confirms "the 24-hour break room Internet-cam" and Joe casting someone "to play the role of Alien." The soap opera and that cast list are unconfirmed. |
-| Joe works the engine room in "Sinking Ship." | Dialogue confirms Matthew on "iceberg watch" and Joe vouching the ship is "unsinkable." The engine room is unconfirmed. |
+| Joe makes a website soap opera starring Matthew, Beth and Max ("Apartment"). | Dialogue confirms a scripted Internet-cam show, "spicing it up for the camera," with Matthew cast "to play the role of Alien." The words "soap opera" appear in none of the 97 NewsRadio dialogue files, and Max's part is unconfirmed. |
 | Matthew ends up owing Joe $20,000. | The dialogue shows $5,120 and then $10,240. The $20,000 figure comes from the wiki summary the Character Map cites. |
-| "Huzzah" is strongly associated with Tobias, and Annie says it. | One "Huzzah!" across 53 Arrested Development episodes (S1E3, beside Tobias's directing pitch). The S5E10 dialogue file has no speaker names. |
-| Pierce hypnotizes Britta to change her sexual associations, treats her as an intelligence asset, and Jeff says the best manipulation feels self-generated. | Keyword searches of all 110 Community dialogue files found none of these. "Debate 109" has Pierce's hypnotherapy for smoking. |
-| In "The Zack Tapes" Zack also manipulates Belding. | The summaries found cover Kelly and the Valentine's dance only. |
-| "Save the Max" is a telethon. | The gang revives the radio station and must raise $10,000 to save the Max. The telethon wording is unconfirmed. |
+| "Huzzah" is strongly associated with Tobias. | Annie says it (Community Wiki), calling back Troy's "Huzzah!" [S02E14:L140]. Arrested Development uses the word once in 53 episodes (S1E3), so "strongly associated" overstates it. |
+| Pierce hypnotizes Britta to change her sexual associations, treats her as an intelligence asset, and Jeff says the best manipulation feels self-generated. | Two of three hold. In "Debate 109" Pierce suggests Britta will find herself attracted to him (TV Tropes recap), and in "Romantic Expressionism" Jeff tells Britta, "You help them realize they want to do it so it can't be traced back to you." The intelligence asset line was not found. |
 | Abed calls the Black Rider "network television handsome." | The dialogue line is "Like network TV good-looking" (S2E23). |
 | The cafeteria fire comes right ahead of the confessions. | Garrett's line is [S04E09:L185] and Troy's confession is [S04E09:L231], 46 lines later. |
-| NBC announced Cross and Hurwitz together. | Coverage found announces Cross in November 2013. A joint announcement was not found. Hurwitz appears the same season. |
-| Coverage framed Cross through Tobias. | Headlines found framed him through Arrested Development as a whole. |
+| Coverage framed Cross through Tobias. | TV Guide's November 11, 2013 announcement framed Cross and Hurwitz through Arrested Development and did not mention Tobias. |
 | Joe's copier modification was "unauthorized." | Joe's modification is confirmed ("I modified the document feeder"). "Unauthorized" is unconfirmed. |
-| A broken valuable object followed by a fabricated robbery story (Dick Van Dyke Show, Sanford and Son). | The thread names no Community episode for it, so it stays off this page until one is named. |
+| A broken valuable object followed by a fabricated robbery story (Dick Van Dyke Show, Sanford and Son). | The Community episode is "Foosball and Nocturnal Vigilantism" (S3E9) [S03E09:L151], where Troy points at the sitcom convention [S03E09:L55]. Episodes for the two older shows are still unnamed. |
 
 ### Open items closed
 
@@ -451,6 +454,11 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 |---|---|
 | Character Map open item: "No public source found yet for reviewers calling Joe and Matthew proto Troy and Abed." | Found. Emily St. James, The A.V. Club, February 5, 2010, review of "Romantic Expressionism": "Joe and Matthew was sort of the proto Abed and Troy." |
 | Thread: Troy gets angry about Zach Braff in "Repilot," and the Character Map says Abed notes the six episodes. | Both happen. The TV Tropes recap gives Troy the anger. |
+| Thread: Joe hides a camera in a Boba Fett figure ("Presence"). | Confirmed: "where in the world did you find a camera small enough to fit inside the Boba Fett doll? I made it." The first pass of this check logged it as missing because a capped search stopped short of the line. |
+| Thread: Joe works the engine room in "Sinking Ship." | Confirmed: "Joe, engines full stop," with an offer to "stoke the boiler." |
+| Thread: Zack also manipulates Belding in "The Zack Tapes." | Confirmed: "Zack hoodwinks Mr. Belding into absolving him of his sins with a tricked-up tape" (A Trifle Further recap, April 5, 2014). |
+| Thread: "Save the Max" runs a telethon. | Confirmed: "a Save the Max radio telethon" against "$10,000 in back rent" (KKTY Bayside recap, January 20, 2011). |
+| Thread: Cross and Hurwitz were announced together as Arrested Development figures in one season. | Confirmed as reported: TV Guide covered both Arrested Development guests in one announcement on November 11, 2013. |
 
 ### Canon check on the new finds
 
@@ -490,13 +498,18 @@ Troy solves Laybourne's murder from craft knowledge: "That's kind of a rookie mi
 - [Wikipedia, Geordi La Forge](https://en.wikipedia.org/wiki/Geordi_La_Forge)
 - [Wikipedia, Community (TV series)](https://en.wikipedia.org/wiki/Community_(TV_series))
 - [Looper, the Russo brothers (via the Character Map)](https://www.looper.com/153780/the-untold-truth-of-the-russo-brothers/)
+- [TV Guide, Arrested Development's David Cross Enrolls at Community, Nov 11, 2013](https://www.tvguide.com/news/community-david-cross-1073241/)
+- [A Trifle Further, The Zack Tapes recap, Apr 5, 2014](https://atriflefurther.wordpress.com/2014/04/05/ridin-low-in-my-chair-the-zack-tapes/)
+- [KKTY Bayside, Save the Max recap, Jan 20, 2011](http://kktybayside.blogspot.com/2011/01/save-max.html)
+- [Community Wiki, Advanced Advanced Dungeons & Dragons](https://community-sitcom.fandom.com/wiki/Advanced_Advanced_Dungeons_%26_Dragons)
+- [Community Wiki, Early 21st Century Romanticism](https://community-sitcom.fandom.com/wiki/Early_21st_Century_Romanticism)
 - [Community Character Map](https://drwu-htmls.vercel.app/community-character-map)
 
 ### Local evidence
 
-- ~/New Desktop/community-agentic-os/evidence/ (S02E19, S02E21, S03E22, S04E09, S06E13 cited here)
+- ~/New Desktop/community-agentic-os/evidence/ (S02E14, S02E21, S03E09, S03E22, S04E09, S06E13 cited here)
 - ~/Projects/tv-scripts/text/Community-S*.txt (110 dialogue files, no speaker names)
 - ~/Projects/tvtropes-pull/text/Recap__Community*.txt (recaps with character names)
 - ~/Projects/tv-scripts/text/ArrestedDevelopment-S01E03.txt (the one Huzzah)
-- ~/Projects/_outputs/community-os/greendale-lineage/evidence/newsradio/ (13 NewsRadio dialogue files pulled September 14, 2026, kept local)
+- ~/Projects/_outputs/community-os/greendale-lineage/evidence/newsradio/ (all 97 NewsRadio dialogue files pulled September 14, 2026, kept local)
 - ~/Projects/_outputs/community-os/greendale-lineage/evidence/sbtb/ (8 Saved by the Bell Wiki pages, kept local)
