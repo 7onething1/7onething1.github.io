@@ -1,6 +1,6 @@
 # Community Character Map
 
-An ancestry model for Greendale's ensemble, with a working index. Revision 7, September 15, 2026.
+An ancestry model for Greendale's ensemble, with a working index. September 15, 2026.
 
 ## The premise
 
@@ -12,19 +12,20 @@ NewsRadio is the organizing premise, the hypothesis that started the project, an
 - Lisa Miller to Annie
 - Beth to Britta
 - Catherine Duke to Shirley
-- Bill McNeal and Jimmy James to Pierce
+- Bill McNeal to Pierce
+- Jimmy James to Pierce and Dean Pelton
 
 Evidence labels: Episode, Commentary heard, Production record, Personnel, Published review, Interpretation. Commentary heard directly counts as evidence under its own label, with or without a transcript online.
 
 ## Saved by the Bell and NewsRadio into Greendale
 
-The current focus is the line from Saved by the Bell and NewsRadio into Community. A commentary confirming that lineage has been found. It is rare, so the page records it as Commentary heard and does not link it. Every link below is new to this project unless its row says otherwise, and each is tied to dialogue, recaps, episode records or credits that the build checks on both sides. (Commentary heard)
+The current focus is the line from Saved by the Bell and NewsRadio into Community. A commentary heard directly confirms one point of that lineage. It is recorded under Commentary heard, it is not linked, and it anchors that single point rather than the whole argument, which the rows below carry on their own evidence. Every link below is new to this project unless its row says otherwise, and each is tied to dialogue, recaps, episode records or credits that the build checks on both sides. (Commentary heard)
 
 The earlier finds, including "Jessie's Song", "The Zack Tapes", "Daydream", "Copy Machine" and "Station Sale", are on the [Greendale Lineage page](https://7onething1.github.io/community-greendale-lineage/). The Planbee handoff and the Annie line from Jessie to Frankie are on [that page](https://7onething1.github.io/community-greendale-lineage/#planbee) too.
 
 No line of Community dialogue names either show, WNYX, Bayside or their lead characters. In Wikipedia's episode credits, Jeff Melman is the only director or writer on both a Saved by the Bell production and a Community episode, no NewsRadio director or writer is credited on Community, and seven NewsRadio guest stars plus one regular, Andy Dick, turn up at Greendale.
 
-### People on both sides
+### Shared performers and production bridges
 
 | Who | Older show | Community |
 |---|---|---|
@@ -44,7 +45,7 @@ No line of Community dialogue names either show, WNYX, Bayside or their lead cha
 | NewsRadio | Community | What carries over |
 |---|---|---|
 | Super Karate Monkey Death Car (November 4, 1997) | "Cooperative Polygraphy" (S5E4) | An outsider puts the whole ensemble through a polygraph. Andrea, the efficiency expert, tests the WNYX staff, Joe steals a copy of the test and Lisa's criminal record comes out. Pierce's will orders a private inquest, and the study group must pass a polygraph to be cleared of his murder before anyone receives a bequest. (Episode) |
-| Balloon (March 25, 1998) | "Cooperative Polygraphy" (S5E4) and "Geothermal Escapism" (S5E5) | A rich man proves himself by circling the globe. Mr. James decides to fly around the world in a hot-air balloon to prove his machismo to the other billionaires, and Pierce's will makes Troy sail around the world alone, the test Pierce's own father set him at 23. Jimmy feeds Pierce in the premise map. (Episode, Interpretation) |
+| Balloon (March 25, 1998) | "Cooperative Polygraphy" (S5E4) and "Geothermal Escapism" (S5E5) | A rich man fakes the voyage, and the next generation is made to do it for real. Mr. James announces he will circle the world in a hot-air balloon to prove his machismo to the other billionaires, then fakes the flight from a soundstage on the tenth floor, with Joe, his flight technician, running the deception and Dave sworn to secrecy. Pierce's will sets Troy the same voyage, the test Pierce's own father set him at 23, and Pierce says outright that he cheated it, so the will assigns someone to travel with Troy to verify that he does not. Significance: the inheritance is the fraud and its correction. Both shows tie wealth to a masculinity test the patron failed in private, both hand the technical work to the practical member of the ensemble, and Community closes the loop by making the younger man perform, under supervision, the journey the older man faked. Jimmy feeds Pierce in the premise map, and Joe feeds Troy. (Episode, Interpretation) |
 | Xmas Story (December 19, 1995) | "Cooperative Polygraphy" (S5E4) | The rich man's gifts skip the odd one out. Mr. James buys sports cars for everyone on the staff except Matthew, who gets tapes, and Pierce's will hands Abed, Matthew's descendant, nothing beyond the sperm every member receives. (Episode, Interpretation) |
 | Bill Moves On (September 23, 1998) | "Cooperative Polygraphy" (S5E4) | The ensemble comes back from a funeral for a character whose actor is gone. NewsRadio's staff return from Bill's memorial service after Phil Hartman's death, and the study group returns from Pierce's funeral after Chevy Chase left the show. Bill feeds Pierce in the premise map. (Episode, Personnel) |
 | The Real Deal (May 7, 1997) | "Pillows and Blankets" (S3E14) | A radio host brands his show with a rhyme on his own name. Bill hosts The Real Deal with Bill McNeal on WNYX, and Neil, now a campus radio DJ, signs off as "real Neil with pipes of steel." TV Tropes reads the sign-off as a shout-out to Bill's show. (Episode, Interpretation) |
@@ -76,7 +77,7 @@ No line of Community dialogue names either show, WNYX, Bayside or their lead cha
 | Close Encounters of the Nerd Kind (S2E12, November 23, 1990) | "Intro to Political Science" (S2E17) | A government agent fixes on the group's oddball. A special agent becomes convinced Screech is an alien, and Abed sabotages Greendale's stop on the vice president's tour to seem more dangerous to Agent Vohlers. (Episode) |
 | No Hope with Dope (S3E21, November 30, 1991) | "Digital Exploration of Interior Design" (S3E13) and "Advanced Safety Features" (S6E7) | The network or the sponsor walks into the plot. NBC chairman Brandon Tartikoff appears as himself to make Bayside's anti-drug commercial, and Greendale's Subway and Honda placements become storylines. (Episode, Production record, Interpretation) |
 
-The build confirms 142 anchor phrases behind these 35 rows, from the NewsRadio and Community dialogue, the TV Tropes recaps, the Saved by the Bell Wiki and Wikipedia's episode lists, and it fails if a row loses its evidence on either side.
+The build confirms 146 anchor phrases behind these 35 rows, from the NewsRadio and Community dialogue, the TV Tropes recaps, the Saved by the Bell Wiki and Wikipedia's episode lists, and it fails if a row loses its evidence on either side.
 
 ## Five kinds of ancestry
 
@@ -99,7 +100,7 @@ The build confirms 142 anchor phrases behind these 35 rows, from the NewsRadio a
 
 | NewsRadio | Greendale | Evidence |
 |---|---|---|
-| Dave and Lisa | Jeff and Annie | NewsRadio's secret, on-and-off workplace romance. (Episode) |
+| Dave and Lisa | Jeff and Britta | The concealed workplace relationship travels here. Dave and Lisa keep the affair off the record, "what if we just decided to keep this a secret," then apologize to the staff "for lying about our affair," and Community hides its own version until the reveal that "Jeff and Britta are having secret sex" [S02E21:L77]. Significance: the secrecy is the inherited machine, not the couple. It carries the same costs in both shows, a colleague who learns first, a staff that feels lied to, and a pairing that never becomes public. Lisa's own line runs to Annie through competence, achievement and rule-breaking for grades, and Dave's runs to Jeff, so one NewsRadio pair feeds three Greendale characters along two different routes. (Episode, Interpretation) |
 | Joe and Matthew | Troy and Abed | Joe teaches Matthew gambling until double or nothing leaves him owing $5,120, then $10,240 ("In Through the Out Door", S2E13). In "Space" (May 21, 1997) Joe triggers the self-destruct and Matthew kicks out the life-support cord, and in "The Injury" (June 5, 1997) the two compete to grab a coffee cup off a hallway light fixture until Matthew hurts his hand. Joe casts Matthew "to play the role of Alien" in a scripted show for his 24-hour break room Internet-cam ("Apartment", S5E12), trains him in Joe-jitsu ("Padded Suit", S5E19), and with Beth stages a mock job interview for him that turns into a pretend NASA interview ("Retirement", S5E21). Emily St. James's February 5, 2010 AV Club review of Community's "Romantic Expressionism" called Joe and Matthew "sort of the proto Abed and Troy", pairing the two duos without matching individuals. (Episode, Published review) |
 | Jimmy and Matthew | The Dean's cell | "Freaky Friday" (S5E20, April 20, 1999) has Jimmy and Matthew switch jobs for a day, and the map's Dean cell averages Jimmy at 4 with Matthew at 3.5. (Episode, Interpretation) |
 | Catherine and Joe | Open | Their on-screen flirtation implies a Shirley and Troy counterpart, and the map doesn't place one yet. (Episode, Interpretation) |
@@ -131,6 +132,7 @@ Community Fit comes to 4.53, and the one-to-one match is also 4.53 with no empty
 Community keeps doubles, futures and replacements of its own characters. Late regulars count on the Greendale side as a succession layer, so NewsRadio's Max Lewis matches Hickey, who arrives in Pierce's old slot in season 5.
 
 - Annie Kim to Annie Edison, alternate, then rival, then replacement (Episode). Introduced in "Geography of Global Conflict" (S3E2) as Annie's multicultural evil twin with the same high school GPA, back in "History 101" (S4E1), and in "Queer Studies and Advanced Waxing" (S6E4) she replaces Annie as Daniel in The Karate Kid.
+- Beth and Sandi to Britta, Annie and Annie Kim, distributed rivalry (Episode, Interpretation). NewsRadio builds the doubling machine first. Beth says Sandi stole her high school sweetheart, "not to mention my hairstyle, my mannerisms, and my eclectic, some say daring, sense of style," calls her "a copycat" who "wants to be me," and tests it by feigning interest in Matthew to see whether Sandi follows. Community splits that machine in two. The romantic half runs between Britta and Annie, who follow each other through Vaughn and Jeff. The academic half runs between Annie and Annie Kim, the "multicultural evil twin" with the same high school GPA who eventually replaces her outright. Significance: this gives Annie Kim an older television ancestor for the exact job she performs, and it shows one older mechanism arriving in two halves rather than one character, which is the model this map argues.
 - Pierce to Jeff, future shadow (Interpretation). The ending Jeff fears if vanity, manipulation and the fear of becoming irrelevant win out.
 - Frankie to Annie, professional endpoint (Episode, Interpretation). Frankie arrives as an administrative consultant in "Ladders" (S6E1) and already holds the list of problems Annie chased through season five. Andrea's arc on NewsRadio is the older model, where an efficiency review hands Lisa her boss's job. In "Basic Crisis Room Decorum" (S6E3) Frankie calls her apparent psychic streak an illusion created by being extremely prepared, and in the same scene she is told she sounds like Jeff, answers that Jeff said she sounds like Abed, and wonders whether Britta hears Chang. The Greendale Lineage page carries the full line.
 - Hickey to Pierce's slot, succession (Episode, Interpretation). Buzz Hickey arrives in season 5 after Pierce leaves and appears in 11 of its 13 episodes. On NewsRadio, Max Lewis arrives in season 5 as Bill McNeal's replacement, so Max's reverse match is Hickey, rated 5 for ensemble function, with personality closer to 2.5 to 3.
@@ -139,7 +141,7 @@ Community keeps doubles, futures and replacements of its own characters. Late re
 
 ## The working index
 
-These are working index scores, rounded to whole numbers because M\*A\*S\*H, South Park, Gilmore Girls and How I Met Your Mother still have reverse ratings the other chat's table doesn't show.
+These are working index scores, rounded to whole numbers because M\*A\*S\*H, South Park, Gilmore Girls and How I Met Your Mother have reverse rosters whose per-regular ratings are not all exposed here.
 
 | Rank | Show | Working index | One-to-one match (rank) | Empty slots |
 |---:|---|---:|---:|---:|
@@ -165,7 +167,7 @@ These are working index scores, rounded to whole numbers because M\*A\*S\*H, Sou
 
 The one-to-one match lets each source character fill at most one Greendale slot and each slot take one character, so it checks concentration on both sides and has no column-order effect. It uses only the names in the map, so a slot with no second candidate counts zero. On this check Arrested Development leads, Buffy is second, South Park third and NewsRadio fourth, and It's Always Sunny, Scrubs and Saved by the Bell fall furthest because their maps reuse characters.
 
-Victorious is a chronology comparison. It premiered on March 27, 2010, after Community's pilot, so it can't explain the 2009 designs. The other chat's figure for it is 89.5, which shows the index also picks up a later school sitcom with a similar ensemble shape. Its map isn't on this page, so that figure predates the order-free tie rule.
+Victorious is a chronology comparison. It premiered on March 27, 2010, after Community's pilot, so it can't explain the 2009 designs. The source ranking's figure for it is 89.5, which shows the index also picks up a later school sitcom with a similar ensemble shape. Its map isn't on this page, so that figure predates the order-free tie rule.
 
 ## Casting and TV knowledge inside Greendale
 
@@ -203,29 +205,29 @@ Each row gives the scene, then the layer outside it: the actor's other roles, th
 
 ### Transcript check, September 15, 2026
 
-Every row labeled Episode, and every lineage row, was checked against the Community dialogue for all 110 episodes, the speaker-labeled transcripts, the TV Tropes recaps, the NewsRadio dialogue, saved wiki pages and Wikipedia's episode lists. The build confirms 261 anchor phrases in 117 files across 76 rows, and it fails if a checked row loses its anchor or a phrase stops matching its file.
+Every row labeled Episode, and every lineage row, was checked against the Community dialogue for all 110 episodes, the speaker-labeled transcripts, the TV Tropes recaps, the NewsRadio dialogue, saved wiki pages and Wikipedia's episode lists. The build confirms 270 anchor phrases in 119 files across 77 rows, and it fails if a checked row loses its anchor or a phrase stops matching its file.
 
 | Row | The page said | The sources show |
 |---|---|---|
-| Troy and Abed stage | chemistry noticed around the La Biblioteca rap | a real-life friendship turned comedic chemistry, shown off in the Spanish rap of the first tag |
-| The repair gift | Troy turns a plumbing offer down | Abed's Good Will Hunting speech pushes plumbing, and Troy refuses |
-| Repairman stage | the prophecy reads | Laybourne says it, after Troy's S3E21 deal with the Annex |
-| Exit | a trip to claim Pierce's fortune with LeVar as supervisor | Hawthorne Wipes shares on the will's condition, with LeVar assigned to check Troy doesn't cheat |
-| Annie Kim | a sharper overachiever | the same high school GPA as Annie |
-| S1E4 | a pair that rarely shared a storyline | never really had stories together |
-| S1E13 | Abed takes Radar | Abed asks to be called Radar |
-| S1E17 | the Draper voice on Annie in S3E19 | the impression again in S3E19, with Annie visibly affected |
-| S2E8 | by the end Jeff turns down a date | Jeff cancels his date by phone during the lockdown |
-| S2E12 | 2011, Andre's sweater | S2E12, and Jeff gives the compliment |
-| S2E16 | a generous friend who is bad with money | a very generous friend who is really stupid with her money |
-| S2E19 | panicking and running away | he panicked, became Chad for the take, and pooped his pants |
-| S2E21 | Abed, in a cape | a clip-show flashback |
-| S3E13 | Harmon insisted on full control | director Dan Eckman said they had complete freedom |
-| S5E1 | Abed consumed Troy's identity | Troy's identity consumed by his relationship with another man |
-| S5E6 and S6E4 | season 6, the IT admin, a nosebleed | S6E4, the IT lady, a whistle that makes her nose bleed |
-| S6E6 | Chang hasn't been well used since | haven't been well utilized since, said when Frankie and Elroy learn he taught |
-| Pilot | the draft has the Breakfast Club exchange | the aired pilot has it, and Harmon's script is dated January 28, 2009 |
-| Planbee | Frankie is hired as Greendale's CFO | The Dean says "I have brought her on as an administrative consultant" in "Ladders." The CFO wording comes from TVmaze's episode summary. |
+| Troy and Abed stage | a real-life friendship turned comedic chemistry, shown off in the Spanish rap of the first tag |
+| The repair gift | Abed's Good Will Hunting speech pushes plumbing, and Troy refuses |
+| Repairman stage | Laybourne says it, after Troy's S3E21 deal with the Annex |
+| Exit | Hawthorne Wipes shares on the will's condition, with LeVar assigned to check Troy doesn't cheat |
+| Annie Kim | the same high school GPA as Annie |
+| S1E4 | never really had stories together |
+| S1E13 | Abed asks to be called Radar |
+| S1E17 | the impression again in S3E19, with Annie visibly affected |
+| S2E8 | Jeff cancels his date by phone during the lockdown |
+| S2E12 | S2E12, and Jeff gives the compliment |
+| S2E16 | a very generous friend who is really stupid with her money |
+| S2E19 | he panicked, became Chad for the take, and pooped his pants |
+| S2E21 | a clip-show flashback |
+| S3E13 | director Dan Eckman said they had complete freedom |
+| S5E1 | Troy's identity consumed by his relationship with another man |
+| S5E6 and S6E4 | S6E4, the IT lady, a whistle that makes her nose bleed |
+| S6E6 | haven't been well utilized since, said when Frankie and Elroy learn he taught |
+| Pilot | the aired pilot has it, and Harmon's script is dated January 28, 2009 |
+| Planbee | The Dean says "I have brought her on as an administrative consultant" in "Ladders." The CFO wording comes from TVmaze's episode summary. |
 
 Held up under the check: Annie Kim replacing Annie as Daniel, Jeff asking the narrator about The Cape, Abed's network TV line, Britta's Level 7 remark, the guerrilla spelling joke, Garrity's return from S2E9, Hickey in eleven of thirteen episodes, Matthew kicking the life-support cord, and Harmon's 30 Rock undercut.
 
@@ -354,7 +356,7 @@ Each index is rounded once, from its exact harmonic mean, using Source Fit from 
 |  | Joey | Troy | 4.5 | from the map |
 |  | Phoebe | Abed | 5 | from the map |
 
-M\*A\*S\*H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard have no rating in the map, and South Park's four boys and How I Met Your Mother's five leads average above their published Source Fit, so those four rosters need the other chat's per-regular ratings.
+M\*A\*S\*H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard have no rating in the map, and South Park's four boys and How I Met Your Mother's five leads average above their published Source Fit, so those four reverse rosters stay provisional until each regular's rating is exposed.
 
 ### The full map with cell math
 
@@ -380,16 +382,16 @@ M\*A\*S\*H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard
 | Cheers | Sam 5 | Diane 4.5 (x0.975) = 4.39 | Cliff 3.5 (x0.975) = 3.41 | Woody 4.5 | Diane 4.5 (x0.975) = 4.39 | Carla 4 | Frasier 4 | Frasier 3.5 (x0.95) = 3.33 | Cliff 3.5 (x0.975) = 3.41 | 4.05 |
 | Friends | Chandler 4 (x0.975) + Joey 4 (x0.95) = 3.85 | Phoebe 4 (x0.95) = 3.80 | Phoebe 5 | Joey 4.5 | Monica 5 + Chandler 4 (x0.975) = 4.45 | Monica 4 (x0.95) = 3.80 | Ross 2.5 | Phoebe 2.5 (x0.85) = 2.13 | Ross 2 (x0.95) = 1.90 | 3.55 |
 
-### Resolved in revisions 3 and 4
+### Settled questions
 
 - Cordelia. Rated 5 as Annie's first stage, rivalling Britta, the same rating as Angel and Spike for Jeff.
 - Buffy. Back in the working index at 92, tied for third with Arrested Development, with Source Fit 4.66.
 - Relationship positions. They describe a pairing and don't count as a second use of a character, so Buffy's Community Fit is 4.53.
 - Tie rule. Tied uses of one character share the average reuse multiplier, so column order has no effect. Scrubs moves from 4.62 to 4.61 and stays at 93.
 - Max Lewis. On NewsRadio's roster through the succession match to Hickey, rated 5 for ensemble function, and NewsRadio's Source Fit stays 4.94.
-- Rounding. Each index is rounded once, from its exact value, so Cheers reads 80 from 80.47, where revision 2 rounded the published 80.5 up to 81.
+- Rounding. Each index is rounded once, from its exact value, so Cheers reads 80 from its exact 80.47 rather than rounding twice through 80.5.
 - Reverse concentration. The one-to-one match is the concentration check on both sides, since no character fills two slots and no slot takes two characters.
-- Reverse ratings. Exposed for fifteen rosters, seven more than revision 2.
+- Reverse ratings. Exposed for fifteen rosters, every one the published scores pin down.
 - Documentation. The AV Club line calling Joe and Matthew the proto Abed and Troy, "The Injury", both April Fools' Blank details and the review comparing Victorious and iCarly to Community now carry sources.
 - NASA interview plot. Found in the dialogue for "Retirement" (S5E21): Joe and Beth stage a mock job interview for Matthew that turns into a pretend NASA interview.
 - Matthew's debt. The dialogue for "In Through the Out Door" has $5,120, then $10,240, which replaces the wiki's $20,000.
@@ -399,20 +401,8 @@ M\*A\*S\*H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard
 
 ### Still open
 
-- Four shows' reverse ratings. M\*A\*S\*H, South Park, Gilmore Girls and How I Met Your Mother need the other chat's per-regular ratings.
+- Four shows' reverse ratings. M\*A\*S\*H, South Park, Gilmore Girls and How I Met Your Mother still need each regular's reverse rating exposed, so those rosters stay provisional.
 - Catherine and Joe. No Shirley and Troy counterpart is placed.
-
-### Change log
-
-- September 15, revision 7. Planbee to Ladders, checked against both shows' dialogue. Frankie's title now reads administrative consultant, the words the Dean uses on screen. Frankie to Annie moves from Future shadow to Professional endpoint, with Andrea's arc as the older model. Two NewsRadio pairs join the table, Jimmy and Andrea to the Dean and Frankie, and Andrea's pull on Lisa and Matthew to Frankie's pull on Annie and Abed. The declared scores stay exactly as published. Applied by hand over the revision 6 build on September 15, 2026, then folded into the working model as version 2 so the next build keeps it.
-- September 15, revision 6. Saved by the Bell and NewsRadio lineage section, the new focus: ten people credited on both sides, fourteen NewsRadio episodes and eleven Saved by the Bell episodes whose machinery reaches Greendale, and the commentary confirming the lineage recorded as Commentary heard. Each row is anchored on both the older show's side and Community's side, and the build fails if either side goes missing.
-- September 15, revision 5. Transcript audit. Every Episode-labeled row was checked against the Community and NewsRadio transcripts, the TV Tropes recaps and saved wiki pages, 18 details were corrected, and the build now fails when an Episode row has no transcript anchor or an anchor phrase goes missing.
-- September 14, revision 4. Greendale Lineage handoff, checked against the NewsRadio dialogue files, the AV Club and Wikipedia's episode list. Matthew's debt corrected to $5,120, then $10,240. The Black Rider line corrected to network TV good-looking. Space and The Injury cited by air date. The NASA interview plot found in "Retirement". Emily St. James named on the proto Abed and Troy review, and her secret remake of Newsradio theory added with Andy Dick's cameo. Joe's Boba Fett camera and Internet-cam show, the Freaky Friday job switch, and the Scrubs actors behind Subway and Agent Vohlers added.
-- September 14, revision 3. Cordelia rated 5 as Annie's first stage and Buffy computed into the index. Order-free tie rule. Each index rounded once from its exact value, which moves Cheers from 81 to 80. Max Lewis added to NewsRadio's roster through the Hickey succession match. Reverse ratings exposed for seven more rosters. Sources added for the AV Club prototype line, "The Injury", April Fools' Blank and the review comparing Victorious and iCarly to Community.
-- September 14, revision 2. Argument sections moved first. Scores relabeled as a working index and rounded. One-to-one ensemble match added. Reverse Source Fit ratings exposed for eight rosters. The stale Buffy row replaced by the corrected mapping, with Annie mapped from Cordelia to Willow to Dark Willow. Shadow category, succession layer and evidence labels added. Victorious renamed a chronology comparison. Casting and TV table split into the scene and its outside layer.
-- September 14, revision 1. Two-sided scoring from the other chat, core regulars only, reuse penalty, harmonic mean, and shows that premiered after Community dropped.
-- August 2. Ranked The Good Place first at 24 of 25 and NewsRadio second at 23 of 25.
-- The August 2 version stays available at /community-character-map/v2026-08-02.html.
 
 ### Sources
 
@@ -478,4 +468,4 @@ M\*A\*S\*H's B.J., Mulcahy and Henry and Gilmore Girls' Luke, Sookie and Richard
 
 Local files: dialogue files for all 110 Community episodes in ~/Projects/tv-scripts/text, the speaker-labeled Fandom transcripts and the S1E9 production script in ~/Projects/tv-scripts/text_speakers, the TV Tropes recaps and trivia in ~/Projects/tvtropes-pull/text, dialogue files for all 97 NewsRadio episodes in the Greendale Lineage evidence folder, and saved Community Wiki and NewsRadio Wiki pages in ~/Projects/_outputs/community-character-map/evidence, which also holds 125 Saved by the Bell Wiki episode pages, dialogue for Saved by the Bell's first 14 episodes and Wikipedia's NewsRadio article and episode lists for all three shows. The anchors in the builder name the exact file behind each row.
 
-Palette: Isle of Dogs (Wes Anderson). Revision 7 built September 15, 2026 by scripts/build_community_character_map.py from the working model. Revision 7 was applied by hand on September 15, 2026 and folded into the working model as version 2.
+Palette: Isle of Dogs (Wes Anderson). Built September 15, 2026 from the working model.
