@@ -368,7 +368,7 @@ Abed builds his Jeff impression from "Ten percent Dick Van Dyke, 20 percent Sam 
 
 Evidence: Interpretation
 
-Annie starts from Jessie Spano's pills and pressure, takes on Lisa Miller's competence as her work widens, and on the [Character Map](https://drwu-htmls.vercel.app/community-character-map) also runs a Buffy line from Cordelia to Willow to Dark Willow. [The Planbee section](#planbee) follows her from Lisa's record through Andrea's arc to Frankie.
+Annie starts from Jessie Spano's pills and pressure, takes on Lisa Miller's competence as her work widens, and on the [Character Map](https://drwu-htmls.vercel.app/community-character-map) also runs a Buffy line from Cordelia to Willow to Dark Willow. The [Planbee section](#planbee) follows her from Lisa's record through Andrea's arc to Frankie.
 
 ### Britta
 
@@ -472,7 +472,7 @@ Troy wakes in Spider-Man pajamas, a nod to the campaign to cast Donald Glover as
 
 ## New finds
 
-These answer the thread's last request, to find more like the closing list. Each returned NEW from the Community OS canon check. The four finds dated September 15 have not been through that check yet.
+These answer the thread's last request, to find more like the closing list. Each returned NEW from the Community OS canon check.
 
 ### Repilot runs on Scrubs season nine (S5E1)
 
@@ -669,8 +669,8 @@ NewsRadio's efficiency review fires Matthew. Community puts Abed beside the cons
 - [Community Wiki, Frankie Dart](https://community-sitcom.fandom.com/wiki/Frankie_Dart)
 - [Community Wiki, Basic Email Security transcript](https://community-sitcom.fandom.com/wiki/Basic_Email_Security/Transcript)
 - [TVmaze, Community 6x01 Ladders (source of the CFO wording)](https://www.tvmaze.com/episodes/117721/community-6x01-ladders)
-- [Springfield! Springfield!, NewsRadio season 4 dialogue, Planbee through Pure Evil](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=newsradio-1995&episode=s04e02)
-- [Springfield! Springfield!, Community dialogue, Heroic Origins, Cork-Based Networking, Ladders, Wedding Videography](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=community&episode=s06e01)
+- [Springfield! Springfield!, NewsRadio season 4 dialogue, Planbee through Pure Evil](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=newsradio-1995&amp;episode=s04e02)
+- [Springfield! Springfield!, Community dialogue, Heroic Origins, Cork-Based Networking, Ladders, Wedding Videography](https://www.springfieldspringfield.co.uk/view_episode_scripts.php?tv-show=community&amp;episode=s06e01)
 - [Tumblr, the unicornery post the thread cited (a lolcats image, checked)](https://www.tumblr.com/unicornery/1543179366)
 
 ### Local evidence
