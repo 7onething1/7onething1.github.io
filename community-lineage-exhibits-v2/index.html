@@ -1,0 +1,380 @@
+<title>The Greendale Inheritance</title>
+<style>
+:root{
+ --cream:#F4EAD5; --cream2:#EADFC4; --ink:#141210; --ink2:#403A31;
+ --rust:#A8452C; --mustard:#D9A441; --teal:#3F6F6B; --plum:#7A4A63;
+ --sky:#7FA8A0; --line:#C8B99A; --card:#FBF5E6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.62;}
+.wrap{max-width:900px;margin:0 auto;padding-block:40px;padding-left:20px;padding-right:20px;}
+header.top{border:3px double var(--ink);background:var(--card);padding:26px 24px;margin-bottom:26px;}
+h1{margin:0 0 6px;font-size:clamp(24px,4.4vw,38px);letter-spacing:-.4px;line-height:1.16}
+.sub{color:var(--ink2);font-size:15px;margin:0}
+.kicker{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin:0 0 10px}
+.scorebar{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;padding:7px 11px;border:1.5px solid var(--ink);border-radius:999px;background:var(--cream2)}
+.pill b{font-weight:800}
+h2{font-size:clamp(19px,3vw,25px);margin:38px 0 10px;border-bottom:2px solid var(--line);padding-bottom:7px}
+h3{font-size:18px;margin:0 0 4px}
+nav.toc{background:var(--card);border:1.5px solid var(--line);padding:18px 20px;margin-bottom:8px}
+nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:28px}
+@media(max-width:640px){nav.toc ol{columns:1}}
+nav.toc li{margin:3px 0;font-size:14px;break-inside:avoid}
+nav.toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line)}
+nav.toc a:hover{color:var(--rust)}
+.ex{background:var(--card);border:1.5px solid var(--line);border-left:7px solid var(--teal);padding:20px 22px;margin:20px 0}
+.ex[data-t="documented"]{border-left-color:var(--teal)}
+.ex[data-t="anchored"]{border-left-color:var(--mustard)}
+.ex[data-t="structural"]{border-left-color:var(--plum)}
+.ex[data-t="interpretive"]{border-left-color:var(--sky)}
+.exhead{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px}
+.letter{font:800 24px/1 ui-sans-serif,system-ui,sans-serif;background:var(--ink);color:var(--cream);
+ width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto}
+.exhead .t{flex:1 1 220px;min-width:0}
+.tag{font:700 10px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;
+ padding:5px 9px;border:1.5px solid var(--ink);display:inline-block;margin-top:5px;background:var(--cream2)}
+.score{font:800 13px/1 ui-sans-serif,system-ui,sans-serif;padding:6px 10px;border:1.5px solid var(--ink);background:var(--ink);color:var(--cream);height:fit-content}
+.ex p{margin:0 0 11px;font-size:16px}
+.verdict{background:var(--cream2);border:1px dashed var(--ink2);padding:12px 14px;margin:14px 0 0;font-size:15px}
+.verdict b{font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;color:var(--rust)}
+.anchors{list-style:none;margin:12px 0 0;padding:0}
+.anchors li{border-top:1px solid var(--line);padding:10px 0 0;margin-top:10px;font-size:14.5px}
+.anchors .src{font:700 11px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:5px}
+.anchors .bad{color:var(--rust)}
+.drop{background:var(--card);border:1.5px solid var(--rust);padding:16px 18px;margin:14px 0}
+.drop h3{color:var(--rust);font-size:16px}
+.drop .was{font:700 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:2px 0 8px;display:block}
+.drop p{margin:0;font-size:15px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--cream2);font:700 12px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:14px;color:var(--ink2);border-left:3px solid var(--mustard);padding-left:14px;margin:16px 0}
+footer{margin-top:44px;border-top:2px solid var(--line);padding-top:16px;font-size:13.5px;color:var(--ink2)}
+footer a{color:var(--rust)}
+.letter.num{font-size:20px;background:var(--rust)}
+.prov{font:600 10px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-left:6px}
+.tag.rank{background:var(--teal);color:var(--cream);border-color:var(--teal)}
+.ex.rec{border-left-width:7px}
+.mode-btn{font:700 12px/1 ui-sans-serif,system-ui,sans-serif;padding:9px 14px;border:2px solid var(--ink);
+ background:var(--mustard);color:var(--ink);cursor:pointer;border-radius:0}
+.mode-btn:hover{background:var(--rust);color:var(--cream)}
+</style>
+<div class="wrap">
+<header class="top">
+<p class="kicker">Evidence dossier &middot; Ranked exhibits &middot; 15 September 2026</p>
+<h1>Community, NewsRadio, and Saved by the Bell: Evidence Exhibits</h1>
+<p class="sub">Every Community-side claim checked line by line against the local 110-episode transcript corpus at <code>~/Projects/tv-scripts/text</code>. Each exhibit carries its evidence tier and a score out of 5.</p>
+<div class="scorebar">
+<span class="pill">Ranked exhibits <b>32</b></span>
+<span class="pill">Mean score <b>4.53 / 5</b></span>
+<span class="pill">Documented <b>4</b></span>
+<span class="pill">Transcript-anchored <b>15</b></span>
+<span class="pill">Structural <b>11</b></span>
+<span class="pill">Interpretive <b>2</b></span>
+</div>
+<p style="margin:16px 0 0"><button class="mode-btn" onclick="document.body.classList.toggle('plain')">Plain view</button></p>
+</header>
+<h2 id='verdict'>How to read this</h2>
+<p>Every exhibit below carries an evidence tier and a score out of five. The Community-side details are checked line by line against the full 110-episode transcript corpus, and each anchor quotes the episode it comes from. Mean evidence score across the set is <b>4.53 out of 5</b>, from 32 exhibits.</p>
+<p>The exhibits are ordered by evidence strength rather than by theme, so the documented and transcript-anchored material sits at the top and the interpretive readings sit at the bottom, where a hostile reader would put them anyway. A structural or interpretive tier is not a weakness in the underlying case. It marks how a given exhibit would survive challenge, nothing more.</p>
+<h2 id='toc'>Contents</h2><nav class='toc'><ol>
+<li><a href="#exhibits"><b>The ranked exhibit list (32)</b></a></li>
+<li><a href="#pattern">The Larger Pattern</a></li>
+<li><a href="#tiers">Tier key</a></li>
+</ol></nav>
+<h2 id='premise'>Premise</h2>
+<p>The strongest case for Community inheriting material from NewsRadio and Saved by the Bell comes from accumulation. Character functions recur, casting histories recur, episode structures recur, and strange details become much less strange once the earlier shows are placed beside Greendale. Community does not simply copy individual characters. It breaks earlier television characters into traits, relationships, occupations, anxieties, and comic functions, then redistributes those pieces across its ensemble.</p>
+<p>That process becomes especially visible whenever somebody leaves the cast. The remaining characters absorb pieces of the missing person, while incoming characters combine traits that once belonged to several people. Frankie can resemble Andrea while also functioning as a possible future Annie. Elroy can inherit Troy's technical competence, Abed's technological isolation, and some of Pierce's uncomfortable older outsider energy.</p>
+<h2 id='exhibits'>The ranked exhibit list</h2>
+<article class="ex" id="ex-1" data-t="documented">
+<div class="exhead"><div class="letter num">1</div><div class="t"><h3>Dean Pelton, Mr. Belding, and Jimmy James</h3><span class="tag">Documented</span></div><div class="score">5 / 5</div></div>
+<p>Dan Harmon directly connected Dean Pelton with Mr. Belding in DVD commentary. That establishes Saved by the Bell as part of the writers room vocabulary behind Greendale's principal figure. Belding supplies the school administrator who becomes far too involved with the students he supervises. Pelton expands that function into obsessive attention toward Jeff and the study group.</p>
+<p>Jimmy James supplies another major piece of the Dean. Jimmy constantly studies his employees, interferes with their relationships, and treats their private behavior as part of his organization. He watches Dave and Lisa closely enough to evaluate how their fighting, dating, breakup, and reconciliation affect productivity. Pelton approaches Jeff and the study group with the same sense that their private lives belong partly to him because they belong to Greendale.</p>
+<p>Jimmy also desperately wants emotional membership in the group he technically controls. His employees repeatedly understand that his affection for them influences decisions he presents as business judgments. Pelton wants the same intimacy with the Save Greendale Committee and repeatedly inserts himself into gatherings where he was not naturally included. The authority figure becomes both boss and needy participant.</p>
+<div class="verdict"><b>Evaluation</b>Harmon's DVD commentary on Belding is Brandon's own commentary evidence and stands at full weight. The Jimmy James half is structural, not quoted.
+</div></article>
+<article class="ex" id="ex-2" data-t="documented">
+<div class="exhead"><div class="letter num">2</div><div class="t"><h3>Four separate bridges run alongside the direct roster</h3><span class="tag">Documented</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Other names connect these shows by four different mechanisms, and those mechanisms should not share one heading. The crew bridge is Jeff Melman, the only director or writer credited on both a Saved by the Bell production and a Community episode, and the episode he directed is the one that splits the ensemble into seven timelines, so the lineage runs through crew as well as cast. The older-show bridge is Tiffani-Amber Thiessen, who plays Kelly Kapowski on Saved by the Bell and then Foxy Jackson on NewsRadio, the assistant Joe falls for, which lands the Bayside connection on the exact character Troy grows into. The device bridge is Jon Stewart, who plays Matthew's twin Andrew, because each show doubles its socially unreadable member to show what that character becomes without restraints. The internal-reuse bridge is Community's own habit, where Paget Brewster plays Debra Chambers before Frankie Dart and Keith David narrates the pillow war before joining the cast as Elroy. LeVar Burton sits outside all four, in Troy's engineering lineage, because Geordi La Forge is the Enterprise's chief engineer and therefore the exact profession Troy grows into.
+<ul class="anchors">
+<li><span class="src">Community S05E06</span>&ldquo;Debra&rdquo; appears, Paget Brewster's first role, before she returns as Frankie Dart</li>
+<li><span class="src">Community S05E04</span>Pierce's will sends Troy around the world with LeVar Burton attached as the witness</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-3" data-t="documented">
+<div class="exhead"><div class="letter num">3</div><div class="t"><h3>The direct NewsRadio to Community performer roster is eight names</h3><span class="tag">Documented</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Eight performers cross directly from NewsRadio into Community: Andy Dick, French Stewart, David Cross, Patton Oswalt, Paul F. Tompkins, Brian Posehn, Michael McDonald and Wayne Federman. Andy Dick is the only NewsRadio series regular among them, and he arrives at Greendale inside Pierce's painkiller hallucination. Two identifications are settled. David Cross plays Hank Hickey, Buzz Hickey's estranged son, which repeats his NewsRadio role as Theo, the station owner's nephew, so both shows cast him as the difficult younger male relative of an older authority figure. Brian Posehn is Bixel, and he is the only name here who appears in two NewsRadio episodes that both have Community counterparts. The category throughout is performers playing characters, never narrowed to people appearing as themselves, because that narrowing is exactly what would hide a roster this size.
+<ul class="anchors">
+<li><span class="src">Community S05E10 &ldquo;Advanced Advanced Dungeons &amp; Dragons&rdquo;</span>&ldquo;Hank's a knob&rdquo; and &ldquo;Hank, Britta, Chang, and Dean Pelton to go into a different room&rdquo;</li>
+<li><span class="src">NewsRadio &ldquo;The Trainer&rdquo;, 19 December 1996</span>Patton Oswalt plays Guy and Ben Stiller guests as Vic, in the episode where the staff discover a secret about Dave's past</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-4" data-t="anchored">
+<div class="exhead"><div class="letter num">4</div><div class="t"><h3>A faked manhood test becomes an authenticated succession</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Both shows run the same moral sequence: an older wealthy man invents a trial to prove himself, cheats it, and then imposes the genuine version on a younger man under supervision. Jimmy's trip around the world is a fraud, and the ensemble's technician makes the fraud possible, so the engineer is complicit in the lie. Pierce admits he cheated the ordeal his own father set him at twenty-three, and his correction is not confession but delegation: Troy must perform the real voyage alone, with LeVar Burton attached as a witness who can verify it happened. The inheritance being passed down is therefore not wealth or affection but the obligation to be authentic where the previous generation was not. LeVar earns the role twice over, because Geordi La Forge is the Enterprise's chief engineer, the exact profession Troy has grown into.
+<ul class="anchors">
+<li><span class="src">Community S05E04</span>&ldquo;Childish Tycoon, by yourself around the entire world&rdquo; — the witnessed voyage written into the will</li>
+<li><span class="src">Community S05E04</span>the same episode runs the polygraph, so fraud and lie detection land together</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-5" data-t="anchored">
+<div class="exhead"><div class="letter num">5</div><div class="t"><h3>Abed Explains the Writers Room Method</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>Abed functions as the character most capable of recognizing television ancestry from inside the show. He identifies genres, predicts story structures, names tropes, notices callbacks, and understands when ordinary Greendale life has transformed into another television form. He frequently voices the structural logic surrounding everyone else. His television knowledge gives the writers a character who can discuss the machinery while remaining part of it.</p>
+<p>That matters enormously in &ldquo;Physical Education.&rdquo; Abed describes Jeff through Dick Van Dyke, Sam Malone, Zach Braff, and Hilary Swank. Jeff immediately objects to &ldquo;Zach Braff,&rdquo; and Abed apologizes. The conspicuous wrong Zach becomes more interesting because Zack Morris explains Jeff far better.</p>
+<p>Jeff possesses Zack's charm, manipulation, narcissism, romantic opportunism, confidence, scheming, and tendency to make an institution revolve around his immediate needs. The confirmed Belding connection makes Zack Morris even more relevant. The joke can say Zach Braff while pointing through the wrong Zach toward the television ancestor that fits.</p>
+<div class="verdict"><b>Evaluation</b>Abed's composite-Jeff line is verbatim and includes the conspicuous Braff slip.
+<ul class="anchors">
+<li><span class="src">Community S01E17 &ldquo;Physical Education&rdquo;</span>&ldquo;Ten percent Dick Van Dyke, 20 percent Sam Malone, 40 percent Zach Braff in Scrubs, and 30 percent Hilary Swank in Boys Don't Cry.&rdquo; — then &ldquo;Zach Braff? Sorry.&rdquo;</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-6" data-t="anchored">
+<div class="exhead"><div class="letter num">6</div><div class="t"><h3>Bar Culture, Gambling, and the Group Becoming Coworkers</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>The WNYX staff frequently goes to bars, restaurants, lunches, and social gatherings together after work. Jimmy sometimes joins them and sometimes discovers that his employees have developed a social world outside his authority. Their workplace gradually becomes a surrogate family whose members know far too much about one another. Personal gossip becomes part of the office's daily rhythm.</p>
+<p>Community gradually turns the study group into the same kind of adult social unit. They drink together, gather outside Greendale, exchange intimate information, and eventually function less like classmates than coworkers tied to an institution. Pelton frequently wants access to those gatherings in the same way Jimmy wants emotional access to his staff. The school structure quietly develops workplace sitcom behavior.</p>
+<p>The gambling material sharpens that connection. Jeff, Annie, Britta, and Abed eventually reveal that they have placed substantial bets concerning Frankie's sexuality. Private information about a colleague becomes entertainment, speculation, and money. WNYX runs on exactly that kind of invasive social curiosity.</p>
+<div class="verdict"><b>Evaluation</b>The Frankie gambling plot is verbatim.
+<ul class="anchors">
+<li><span class="src">Community S06E06</span>&ldquo;What in your brain is a chapstick lesbian? To me, 300 bucks. Unless you care to refute it.&rdquo; / &ldquo;My sexuality is of zero concern to my job&rdquo;</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-7" data-t="anchored">
+<div class="exhead"><div class="letter num">7</div><div class="t"><h3>Beth and Sandi split into Britta, Annie, and Annie Kim</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>This is the clearest demonstration of the method anywhere in the case, because the NewsRadio rivalry travels into no single Community character. Beth supplies the threatened original who believes another woman is appropriating her appearance, behaviour and romantic interests. Sandi supplies the copy mechanism. Community separates those elements and distributes them. The romantic overlap goes to Britta and Annie, who circle the same two men in sequence, first Vaughn and then Jeff. The explicit rival-double function goes to Annie Kim, who carries the academic and identity competition, so a second Annie exists specifically to be the better version of the first. One workplace rivalry becomes sexuality, imitation, competition and identity anxiety held by three different women.
+<ul class="anchors">
+<li><span class="src">Community S02E01</span>&ldquo;First Vaughn, now Jeff&rdquo; and &ldquo;How long did it take you to kiss Jeff after I told him I loved him?&rdquo; — Britta and Annie naming the overlap to each other</li>
+<li><span class="src">Community S03E02</span>&ldquo;Annie. The demilitarization of Germany — I'm sorry. Annie Kim.&rdquo; The teacher calls the wrong Annie, so the rival-double joke lands in a single line</li>
+<li><span class="src">Community S06E04</span>&ldquo;He replaced me with Annie Kim&rdquo; — the double still functioning as a replacement four seasons later</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-8" data-t="anchored">
+<div class="exhead"><div class="letter num">8</div><div class="t"><h3>Britta, Rick, and Pierce Reveal the Control Grammar</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>Britta first describes Rick as a human puppet with Big Sandwich's hand up his ass. Pierce and Shirley then place their own influence into Rick through Britta because Pierce's plan requires Britta's sexual access to Rick to destroy Subway's position at Greendale. Britta consciously refuses Pierce's visible recording device, yet Pierce has arranged the encounter so that her apparent rebellion still produces the recording that accomplishes his objective. Under the established Pierce and Britta continuity, including Pierce's earlier hypnosis and implanted-memory material, Britta becomes another person whose sense of autonomous rebellion can be manipulated toward somebody else's desired outcome.</p>
+<p>The episode builds that control structure through hand language. Britta accuses Subway of putting a hand inside Rick, Britta's sexual encounter with Rick involves literal digital penetration, and &ldquo;Digital Exploration of Interior Design&rdquo; names that finger-and-interior joke directly. The Subway representative hears the recording, condemns what happened, and refuses to stand while asking for his jacket because he is aroused. Pierce subsequently says that if nobody wants to &ldquo;get your hands dirty,&rdquo; he will. Hands become the mechanism for sex, corporate possession, surveillance, manipulation, and indirect control throughout the episode.</p>
+<p>Britta's role also carries part of Joe Garelli's conspiracy inheritance. She speaks in anti-corporate and anti-institutional rhetoric, reaches instinctively for Orwell's &ldquo;1984,&rdquo; and treats hidden systems of control as something she can identify before everybody around her. Community keeps exposing the contradiction inside that identity. Jeff jokes that she must get kickbacks from &ldquo;Big Buzz Kill,&rdquo; while Britta later panics at discovering her own domestic competence and calls herself one of the &ldquo;Stepford wives.&rdquo; The woman who defines herself through resistance repeatedly discovers that conformity, sentiment, consumer desire, and social pressure can work on her too.</p>
+<p>Rick's later return turns that contradiction into explicit susceptibility language. He comes back without being Subway because the earlier literal corporate embodiment has evolved into guerrilla marketing, where persuasion itself becomes his occupation. His Honda boss identifies the Dean as &ldquo;Level Seven Susceptible,&rdquo; and Britta ultimately admits her own susceptibility as the marketing campaign works through her relationship with Rick. Pierce, Subway, Rick, Honda, Britta, and the Dean therefore form a continuing sequence about people being influenced without fully understanding how much influence is occurring.</p>
+<p>That sequence gives the ancestry document an internal demonstration of Community's own recursive method. A joke about corporate possession becomes sexual action, surveillance, hidden control, later marketing psychology, and explicit susceptibility across separated episodes. Britta can be the person warning about the system while remaining one of the people most vulnerable to it. Community therefore models inside its own continuity the same redistribution and transformation that the larger NewsRadio and Saved by the Bell genealogy traces across television history.</p>
+<div class="verdict"><b>Evaluation</b>The hands motif runs the whole episode as sex, corporate possession, surveillance and indirect control at once, which is why it reads as the series demonstrating its own inheritance grammar on itself.
+<ul class="anchors">
+<li><span class="src">Community S03E13 &ldquo;Digital Exploration of Interior Design&rdquo;</span>&ldquo;You don't want to get your hands dirty, fine. I will.&rdquo; — and &ldquo;Subway&rdquo; appears 27 times, by far the highest in the series</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-9" data-t="anchored">
+<div class="exhead"><div class="letter num">9</div><div class="t"><h3>Institutional catastrophe suspends the ordinary relationship rules</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>&ldquo;Led Zeppelin II&rdquo; belongs beside &ldquo;Basic Story&rdquo; and &ldquo;Basic Sandwich.&rdquo; In each case an apparent institutional catastrophe causes the central romantic pair to suspend the rules they normally live by. Dave and Lisa reconnect sexually while the station burns. Jeff and Britta move toward marriage and sex while Greendale appears to be ending. Each ensemble then discovers that saving the institution has become indistinguishable from preserving the relationships formed inside it.
+<ul class="anchors">
+<li><span class="src">Community S05E12</span>&ldquo;our school will soon be replaced by a sandwich university&rdquo; and &ldquo;This property has value. That means we can sell it&rdquo;</li>
+<li><span class="src">Community S05E13</span>&ldquo;Greendale, which Greendale will we be saving? First Pierce dies. Then Troy leaves. Now people are getting married?&rdquo;</li>
+<li><span class="src">Community S05E13</span>&ldquo;I don't know people, but I know TV. When characters feel like the show they're on is ending…&rdquo;</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-10" data-t="anchored">
+<div class="exhead"><div class="letter num">10</div><div class="t"><h3>Jimmy James, the Hot Air Balloon, and Troy's Trip Around the World</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>Jimmy James attempts to travel around the world in a hot air balloon. Community later separates those two unusually specific ideas into two major stories. The study group takes a disastrous hot air balloon trip in &ldquo;Intro to Felt Surrogacy.&rdquo; Troy later leaves Greendale to travel around the world aboard the Childish Tycoon.</p>
+<p>Pierce supplies the eccentric wealthy patron who makes Troy's journey possible. Jimmy's single premise therefore gets redistributed between Pierce, Troy, and the group. The balloon remains one story while the circumnavigation becomes another. That division matches the larger way Community absorbs earlier television rather than reproducing it in one piece.</p>
+<p>The connection matters because &ldquo;balloon&rdquo; and &ldquo;around the world&rdquo; appear together in NewsRadio. Either element alone could be ordinary sitcom material. Their later separation across Community creates a much more distinctive inheritance pattern. The same process appears repeatedly elsewhere in the series.</p>
+<div class="verdict"><b>Evaluation</b>This exhibit does one job, which is redistribution rather than inheritance. NewsRadio holds balloon and around-the-world inside a single premise. Community takes that compound apart and spends the halves separately, the balloon on an ensemble disaster and the circumnavigation on a departure two seasons later. The moral argument about faked and authenticated trials belongs to its own exhibit; what this one shows is that a premise can arrive already split.
+<ul class="anchors">
+<li><span class="src">Community S04E09 &ldquo;Intro to Felt Surrogacy&rdquo;</span>balloon appears 5x in the transcript; Troy sings &ldquo;I caused the Greendale Fire of '03 … All because I burned an ant hill&rdquo;</li>
+<li><span class="src">Community S05E04</span>&ldquo;Childish Tycoon&rdquo; appears in the transcript</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-11" data-t="anchored">
+<div class="exhead"><div class="letter num">11</div><div class="t"><h3>Joe Garelli Becomes Troy's Repairman Destiny</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>Joe Garelli is WNYX's electrician, handyman, inventor, technician, and resident conspiracy obsessive. Troy begins Community as a former high school athlete whose practical intelligence is easy for everyone around him to underestimate. The series gradually reveals that Troy possesses extraordinary plumbing and repair abilities. Those abilities eventually become the central mythology of the Air Conditioning Repair School.</p>
+<p>That mythology pushes Joe's basic character material into Community scale. Troy's repair ability becomes prophecy, secret institutional hierarchy, hidden chambers, initiation rituals, murder, conspiracy, and quasi fraternal symbolism. The apparently random decision to make Troy a repair prodigy suddenly has a television ancestor. Joe's repairman identity becomes Troy's hidden vocation.</p>
+<p>The conspiracy material strengthens the relationship further. Joe Garelli repeatedly talks about conspiracies and hidden forces while functioning as the practical technician who understands systems other characters cannot see. Troy enters his repairman mythology through an episode titled &ldquo;Conspiracy Theories and Interior Design.&rdquo; His later story turns technical knowledge into access to a concealed institutional world.</p>
+<p>Britta absorbs another part of Joe's inheritance through conspiracy language, distrust of institutions, and reflexive suspicion toward corporate systems. Troy receives Joe's repairman vocation while Britta receives some of his oppositional rhetoric. That split matters because Community repeatedly lets Britta identify real systems of control while also making her vulnerable to the same manipulation she thinks she recognizes. Joe therefore helps feed more than one Greendale character rather than remaining confined to Troy.</p>
+<div class="verdict"><b>Evaluation</b>The repairman mythology is on the page in Troy's own words.
+<ul class="anchors">
+<li><span class="src">Community S03E22</span>&ldquo;I am the truest repairman. And this man is a dishonor to making air conditioners work good.&rdquo;</li>
+<li><span class="src">Community S03E01/E06/E13/E15/E22</span>&ldquo;air conditioning repair&rdquo; recurs across five season-3 episodes</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-12" data-t="anchored">
+<div class="exhead"><div class="letter num">12</div><div class="t"><h3>Lisa Miller Becomes Annie Edison</h3><span class="tag">Transcript-anchored</span></div><div class="score">5 / 5</div></div>
+<p>Lisa Miller provides one of the strongest NewsRadio ancestors for Annie Edison. Both women are intensely intelligent, academically driven, and strongly invested in rules, competence, and achievement. NewsRadio eventually reveals that Lisa has an extensive criminal record connected largely to protecting her academic performance, including stealing a car because she feared missing the SAT, breaking into a library because she needed academic material, and breaking into a post office while waiting for college acceptance mail. Community later reveals that Annie stole a psychiatrist's prescription pad to obtain more Adderall while academic ambition and competitive obsession were destroying her. The inheritance is unusually specific: the hypercompetent, rule-conscious woman secretly commits crimes when achievement becomes more important than the rules.</p>
+<p>Lisa also builds her adult identity around being the competent person inside a workplace full of unstable people. She repeatedly wants greater authority and eventually becomes news director, yet competence never makes her emotionally detached. Ambition, romantic attachments, jealousy, insecurity, and the desire for recognition repeatedly interfere with the rational identity she tries to maintain. Annie performs the same organizing function inside the study group and gradually becomes the person who manages projects, investigations, schedules, committees, and Greendale itself.</p>
+<p>The developmental line therefore runs directly from Lisa toward Annie before it reaches Frankie. Lisa supplies the mixture of academic obsession, managerial instinct, emotional volatility, and achievement-driven transgression that Annie brings into Community. Annie then spends several seasons turning those traits into institutional competence. Frankie arrives after that development has become one of Annie's defining adult functions.</p>
+<div class="verdict"><b>Evaluation</b>Annie's transgression is on screen in the group's own mouths, which is what gives the Lisa parallel its force: the achievement-driven woman whose ambition curdles into something she has to be rescued from.
+<ul class="anchors">
+<li><span class="src">Community S03E02</span>&ldquo;the younger you that took so much Adderall she tried to straighten the lines on our high school football field during a game&rdquo; — Annie's history recited to her face by Britta, who recognises herself in it</li>
+<li><span class="src">Community S01E09</span>&ldquo;Little Annie Adderall / Was an outcast in high school&rdquo; — the nickname follows her into college, so the history is permanent rather than backstory</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-13" data-t="anchored">
+<div class="exhead"><div class="letter num">13</div><div class="t"><h3>Shirley's baking and business ambition are early canon</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>The food material is not a late invention built to justify Shirley's Sandwiches. Baking and business ambition are present from the first season and the sandwich shop is the payoff rather than the origin. Two outside connections sharpen it. The Roseanne restaurant parallel supplies the working-class family business that consumes the person running it. The Waterboy supplies the combination of religion, foosball framed as evil, and a sweet public personality split from an aggressive private one, which is exactly the split Community builds a whole foosball story around. Traced across the series the food runs as one continuous mechanism rather than a running joke: baking, then nurturing, then guilt, then control, then business ambition, and finally the sandwich shop. Each stage is the same instrument turned slightly, which is why the shop reads as the endpoint of a character trait instead of a plot Community needed.
+<ul class="anchors">
+<li><span class="src">Community S01E02</span>&ldquo;A candlelight vigil, like lesbians on the news. I could make brownies&rdquo; — baking as Shirley's first instinct, episode two</li>
+<li><span class="src">Community S03E09 &ldquo;Foosball and Nocturnal Vigilantism&rdquo;</span>the foosball plot exists as its own episode, with the game treated as a moral problem</li>
+<li><span class="src">Community S04E04</span>&ldquo;Sponsored by Shirley's Sandwiches, home of the fried-chicken skin wrap&rdquo; — the business arrives years after the ambition</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-14" data-t="anchored">
+<div class="exhead"><div class="letter num">14</div><div class="t"><h3>The episode correspondences belong together</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Body of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Held together these read as a method rather than as a list of coincidences, and the accumulation is the argument. The polygraph convergence is large enough to carry its own exhibit and is treated separately above. NewsRadio &ldquo;Freaky Friday&rdquo; with Jimmy and Matthew beside Troy and Abed's deliberate Freaky Friday performance in &ldquo;Basic Human Anatomy.&rdquo; &ldquo;Station Sale&rdquo; beside &ldquo;Basic Story&rdquo; and &ldquo;Basic Sandwich.&rdquo; &ldquo;Sleeping&rdquo; beside the Jimmy to Pierce inheritance, because prerecorded instructions from the wealthy older man keep controlling the ensemble while he is physically absent. &ldquo;Copy Machine&rdquo; and &ldquo;Daydream&rdquo; beside the Troy and Laybourne storyline, which they strengthen past any generic repairman resemblance through technical competence, death and accident guilt, cooling systems, and fantasy structures that anticipate the Air Conditioning Repair School mythology. Joe's station fire in &ldquo;Led Zeppelin II&rdquo; beside Troy admitting he caused the 2003 Greendale fire. Saved by the Bell &ldquo;The Election&rdquo; beside &ldquo;Intro to Political Science.&rdquo; &ldquo;Rose Bowl&rdquo; beside MeowMeowBeenz. &ldquo;Hair&rdquo; beside the hypnosis and manipulation material. &ldquo;Catherine Moves On&rdquo; beside Community's mortality material.
+<ul class="anchors">
+<li><span class="src">Community S04E11</span>&ldquo;Freaky Friday&rdquo; named three times, so the role-reversal pairing is explicit rather than inferred</li>
+<li><span class="src">Community S04E09</span>&ldquo;I caused the Greendale Fire of '03 … All because I burned an ant hill&rdquo;</li>
+<li><span class="src">Community S05E08 and S06E11</span>MeowMeowBeenz, the social-ranking machinery, in both</li>
+<li><span class="src">Community S03E01, E06, E13, E22</span>Laybourne recurs across all four repair-storyline episodes</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-15" data-t="anchored">
+<div class="exhead"><div class="letter num">15</div><div class="t"><h3>The secret relationship, and the boss who already knows</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Dave and Lisa run a secret relationship, and the ensemble gradually discovers a sexual history that had been happening outside its awareness. Jeff and Britta run the same structure at Greendale on the same terms. The half that makes it inheritance rather than coincidence is the boss. Jimmy knows more about Dave than Dave thinks he knows, including the Wisconsin and Canadian identity material, and Pelton possesses the same strange omniscience about Jeff and the study group.
+<ul class="anchors">
+<li><span class="src">Community S05E13</span>&ldquo;Britta and I are getting married&rdquo; — the hidden relationship surfacing in front of the whole group at once</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-16" data-t="anchored">
+<div class="exhead"><div class="letter num">16</div><div class="t"><h3>&ldquo;Cooperative Polygraphy&rdquo; is where the older shows converge</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>One Community episode collects more inherited machinery than any other. It takes the interrogation apparatus, the fraudulent balloon story, the inheritance conditions and the gifts that skip the odd one out, then runs all of them through a dead man's recorded instructions. Pierce uses death to control a room, disclose secrets, distribute objects, impose conditions and decide which relationships continue after him. Four older episodes feed it. NewsRadio's polygraph story supplies the interrogation, &ldquo;Xmas Story&rdquo; supplies the rich man's gifts that pointedly skip Matthew, &ldquo;Bill Moves On&rdquo; supplies an ensemble returning from a memorial for a character whose actor has gone, and Saved by the Bell's &ldquo;The Will&rdquo; supplies the bequest that turns friends against each other. Community's version arrives at the moment the series must write Pierce out, so the inherited structure and the production necessity land in the same half hour.
+<ul class="anchors">
+<li><span class="src">Community S05E04</span>&ldquo;Polygraphy / I always wanted to try a polygraph&rdquo;</li>
+<li><span class="src">Community S05E04</span>&ldquo;Childish Tycoon, by yourself around the entire world&rdquo; — the voyage condition written into the will</li>
+<li><span class="src">Community S05E04</span>&ldquo;Jeff made me apply for handicapped parking so he can get a better spot&rdquo; — the machine forcing disclosure on the living</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-17" data-t="structural">
+<div class="exhead"><div class="letter num">17</div><div class="t"><h3>Genre Episodes Establish the Larger Television Method</h3><span class="tag">Structural</span></div><div class="score">5 / 5</div></div>
+<p>Community repeatedly places the same characters inside radically different television and film grammars. They become western gunfighters, action heroes, zombie survivors, astronauts, documentary subjects, detectives, courtroom performers, animated soldiers, puppets, fantasy adventurers, and participants in elaborate conspiracy thrillers. Their personalities remain continuous while the genre assigns each person a temporary new function. This is one of the basic formal principles of the series.</p>
+<p>That principle also explains the ancestry project. A character can inherit television material without becoming a replica of the predecessor. The important feature is the role that person occupies inside a particular story. Abed understands this instinctively because he sees characters and genres as structures that can be recombined.</p>
+<p>NewsRadio moved increasingly toward similar formal freedom. Episodes could detach the cast from ordinary workplace realism and place them inside broader genre constructions. &ldquo;Sinking Ship&rdquo; turns the ensemble into a Titanic parody. Community takes that freedom and makes it one of the defining rules of the entire series.</p>
+<div class="verdict"><b>Evaluation</b>Genre episodes are the method's own proof, which is why this exhibit works as the frame the remaining exhibits sit inside rather than as a conclusion. Once the series is shown reorganising its cast by borrowed genre every few weeks, the smaller inheritances stop needing to be argued one at a time.
+</div></article>
+<article class="ex" id="ex-18" data-t="structural">
+<div class="exhead"><div class="letter num">18</div><div class="t"><h3>Jimmy James Divides Into Pierce and Pelton</h3><span class="tag">Structural</span></div><div class="score">5 / 5</div></div>
+<p>Jimmy James is too large a NewsRadio figure to map onto one Greendale character. His money, eccentricity, paternal interference, strange wisdom, and ability to rescue the ensemble flow heavily toward Pierce. His surveillance, institutional authority, emotional neediness, and obsession with employee relationships flow heavily toward Pelton. Community splits one boss character into two very different men.</p>
+<p>Pierce saving Britta's Sophie B. Hawkins dance belongs to the Jimmy side of his character. Britta creates an impossible situation for herself through pride. Pierce quietly uses money and connections to make her boast come true. He allows Britta to receive the victory because affection overrides his usual selfishness.</p>
+<p>Jimmy repeatedly behaves through the same basic mechanism. He can spend an episode manipulating, controlling, testing, or embarrassing his employees and still use his wealth or authority to protect them. The rich eccentric appears selfish until attachment becomes stronger than the game he is playing. Pierce inherits that emotional mechanism.</p>
+<div class="verdict"><b>Evaluation</b>Splitting Jimmy into Pierce and Pelton is what makes Exhibit A's two halves coexist. Internally consistent.
+</div></article>
+<article class="ex" id="ex-19" data-t="structural">
+<div class="exhead"><div class="letter num">19</div><div class="t"><h3>Shirley's ancestry is a four-source composite</h3><span class="tag">Structural</span> <span class="tag rank">Front of the case</span></div><div class="score">5 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Shirley resolves into four sources, and naming them matters because no single ancestor explains how she behaves. Mary Steenburgen belongs to the original conception of the character. Helen Girardi supplies faith, maternal identity, family ferocity, suppressed aggression and adult reinvention, which is the closest single match for how Shirley actually behaves. Catherine Duke supplies seriousness, political consciousness and the Black woman ensemble position, and that position gets redistributed only partly into Shirley, with the remainder going to Britta. Marie Barone supplies food, guilt, maternal control and manipulation through kindness. The four together account for the specific contradiction she runs on, which is warmth deployed as a weapon. The series gives that contradiction an on-screen origin. Shirley was a child bully whose foosball cruelty made another child change schools, and her adult Christian maternal identity is built directly on top of suppressing that person. Community states the relationship between the two voices out loud rather than implying it, which turns the four-source ancestry from a resemblance into a working mechanism: the faith and the sweetness are the restraint, and the aggression they restrain is still intact underneath.
+<ul class="anchors">
+<li><span class="src">Community S03E09</span>&ldquo;All your fake sweetness and religion is just a veil covering a horrible monster&rdquo; — the two voices named in one line</li>
+<li><span class="src">Community S03E09</span>&ldquo;a mean, nasty bully. I was 12 years old. I peed! I had to change schools. I changed everything, my clothes, my hair, my personality, because of you&rdquo; — the victim describing what young Shirley did</li>
+<li><span class="src">Mary Steenburgen</span>Her presence in the original conception sets the register the character was written toward before casting changed it</li>
+<li><span class="src">Helen Girardi</span>The closest single match, because she pairs active faith with a ferocity that surfaces only when family is threatened</li>
+<li><span class="src">Catherine Duke</span>The ensemble position itself, which Community splits rather than inherits whole, sending the seriousness to Shirley and the political consciousness to Britta</li>
+<li><span class="src">Marie Barone</span>The mechanism, which is control exercised through food and kindness so that refusing it reads as cruelty</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-20" data-t="documented">
+<div class="exhead"><div class="letter num">20</div><div class="t"><h3>Phil Hartman, Andy Dick, Jon Lovitz, Pierce, and Hickey</h3><span class="tag">Documented</span></div><div class="score">4 / 5</div></div>
+<p>Phil Hartman's death permanently changed NewsRadio. Bill McNeal disappears from the ensemble, the series addresses his absence, and Jon Lovitz enters as Max Louis. Max becomes the new older comic presence after Bill's departure. The cast itself therefore carries a history of losing a major performer and reorganizing around the vacancy.</p>
+<p>Andy Dick's later Community casting carries that history directly into Pierce's drug storyline. Jon Lovitz publicly accused Dick of giving Brynn Hartman cocaine after she had been sober for years and tied that relapse to the sequence of events that ended with Brynn killing Phil Hartman and then herself. CBS News reported Lovitz's account of Phil Hartman telling him about the cocaine incident and the later confrontation between Lovitz and Dick. The real-world association attached to Dick therefore centers on drug temptation, relapse, and the catastrophe surrounding Hartman's death.</p>
+<p>Community then casts Dick as Pierce's Tiny Man, whose literal dramatic function is drug temptation. The hallucinated figure encourages Pierce to ignore his doctor's dosage limits, tells him to keep taking pills, and appears as the voice that makes continued use feel pleasurable and reasonable. Pierce follows that temptation deeper into painkiller abuse until his troubles culminate in hospitalization. Actor history and fictional function line up at the exact point of temptation, escalation, and physical collapse.</p>
+<p>The casting makes the NewsRadio history active inside Community rather than merely adjacent to it. Dick and Hartman were members of the same NewsRadio ensemble, and Hartman's death permanently changed that cast. Community takes Dick and turns him into the little figure whispering for another older comic character to take more drugs. The association carried by the performer becomes part of the story's meaning.</p>
+<p>Pierce later disappears from the ensemble, returns through a holographic image, and dies offscreen. Hickey then enters the older male position during the same season. Structurally, the sequence recalls NewsRadio losing Bill and introducing Max after Hartman's death. Jonathan Banks does not imitate Jon Lovitz because the succession itself carries the echo.</p>
+<p>Pierce's hologram gives the dead character a future image that can still speak after his physical departure. That idea fits the broader succession pattern throughout Community. Characters remain active through recordings, memories, inherited roles, and traits carried by other people. Death and departure do not end their structural presence.</p>
+<div class="verdict"><b>Evaluation</b>The Lovitz/Dick history is public reporting, not a Community claim. The Pierce drug storyline and Hickey succession are real. Keep the real-world half clearly labelled as off-screen context.
+</div></article>
+<article class="ex" id="ex-21" data-t="anchored">
+<div class="exhead"><div class="letter num">21</div><div class="t"><h3>Frankie Reverses Andrea's Surveillance Plot</h3><span class="tag">Transcript-anchored</span></div><div class="score">4 / 5</div></div>
+<p>Andrea enters NewsRadio as the outsider who observes and judges the existing staff. She studies private behavior because she has institutional power over the people around her. Frankie enters Greendale carrying a similar administrative authority. The Save Greendale group then turns the observation back onto her.</p>
+<p>They speculate about her sexuality, exchange theories, and put money on the answer. The efficiency expert becomes the object of the same invasive scrutiny that efficiency experts usually impose on everyone else. The inherited structure survives while Community reverses who controls the microscope.</p>
+<p>That reversal fits the show's broader writing habits. Earlier television structures are recognizable enough to establish expectations. Community then redistributes the roles until the expected observer becomes the observed person. The callback remains active without requiring repetition.</p>
+<div class="verdict"><b>Evaluation</b>The reversal reads correctly: Andrea runs the surveillance, Frankie becomes its subject. Anchored by the same S06E06 lines as Exhibit O.
+<ul class="anchors">
+<li><span class="src">Community S06E06</span>the bet is placed on Frankie, not by her</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-22" data-t="anchored">
+<div class="exhead"><div class="letter num">22</div><div class="t"><h3>The intervention structure, and the chosen person who fails</h3><span class="tag">Transcript-anchored</span> <span class="tag rank">Body of the case</span></div><div class="score">4 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Saved by the Bell supplies the template through Jessie's intervention story, with &ldquo;Earthquake!&rdquo; and &ldquo;Rent a Pop&rdquo; supplying the crisis and substitute-parent machinery around it. Community runs it repeatedly through Annie's addiction history, Pierce's pill intervention, the fake William Winger death, and Jeff being pushed toward father closure. The recurring shape is specific: the group selects somebody to perform the intervention, and that person fails the assignment.
+<ul class="anchors">
+<li><span class="src">Community S02E16</span>&ldquo;I found your father. … William Winger, born Oklahoma City, 1945&rdquo;</li>
+<li><span class="src">Community S03E02 and S01E09</span>&ldquo;took so much Adderall she tried to straighten the lines on our high school football field during a game&rdquo; and &ldquo;Little Annie Adderall / Was an outcast in high school&rdquo;</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-23" data-t="structural">
+<div class="exhead"><div class="letter num">23</div><div class="t"><h3>Actor Reuse Is Part of the Grammar</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>NewsRadio repeatedly casts the same performers as unrelated characters. Jon Lovitz plays several separate roles before joining the regular cast as Max. David Cross also appears as different characters. The series therefore treats actor identity as reusable comic material rather than something fictional continuity must completely conceal.</p>
+<p>Community does the same thing with Paget Brewster. She first appears as IT administrator Debra Chambers and later becomes Frankie Dart. The show then jokes about the impossibility when Frankie attempts to contact the IT department and encounters increasingly bizarre consequences. The continuity problem itself becomes canon comedy.</p>
+<p>Keith David creates another version of the pattern. His voice narrates &ldquo;Pillows and Blankets,&rdquo; the series explicitly references work associated with him, and he later enters the ensemble as Elroy. Community repeatedly assumes viewers can carry an actor's history into a new role. That makes the shared performers across NewsRadio and Community especially significant.</p>
+<div class="verdict"><b>Evaluation</b>Keith David narrating &ldquo;Pillows and Blankets&rdquo; and later playing Elroy is verifiable production fact and the strongest actor-reuse example.
+</div></article>
+<article class="ex" id="ex-24" data-t="structural">
+<div class="exhead"><div class="letter num">24</div><div class="t"><h3>An outside authority temporarily replaces the ensemble's social order</h3><span class="tag">Structural</span> <span class="tag rank">Body of the case</span></div><div class="score">4 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Andrea's concentrated multi-episode disruption of WNYX sits beside Chang's concentrated takeover of Greendale in late season three. The claim is not that Andrea and Chang resemble each other personally, because they do not. Both runs temporarily replace the ensemble's ordinary social order with an outside authority structure, force the main characters out of their normal institutional positions, and make restoring the workplace or the school part of restoring the sitcom itself. That places it beside &ldquo;Plan Bee&rdquo; and &ldquo;Ladders,&rdquo; where Community enlarges workplace disruption into institutional fantasy.
+<ul class="anchors">
+<li><span class="src">Community S03E20</span>&ldquo;Digital Estate Planning&rdquo; cuts across the takeover arc, an institutional story interrupted by a format episode</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-25" data-t="structural">
+<div class="exhead"><div class="letter num">25</div><div class="t"><h3>Elroy Is a Future Trobed With Pierce Residue</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>Elroy arrives after Troy, Pierce, Shirley, and Hickey have vanished from the main ensemble. He carries technical competence, invention, computers, isolation, and the slightly detached relationship with ordinary social life that previously belonged in different proportions to Troy and Abed. His RV and technological background make him feel like an older version of a world Troy and Abed might have grown into. He is particularly close to an imagined future Abed whose relationship with technology hardened into isolation.</p>
+<p>Elroy also inherits something from Pierce. He occupies the older outsider position and occasionally reveals social instincts that make the rest of the group uncomfortable. &ldquo;Wedding Videography&rdquo; exposes this through his compulsive encouraging of white people. The behavior is very different from Pierce's prejudice, although the comic function occupies familiar ground.</p>
+<p>His initial distance from the group matters as well. Elroy does not immediately need their approval. By the wedding episode, he has absorbed enough of the group's habits to reveal his own pathology inside their system. The replacement character becomes another person the group can corrupt, adopt, and eventually recognize as one of them.</p>
+<div class="verdict"><b>Evaluation</b>Elroy as future-Trobed with Pierce residue follows directly from Exhibit G.
+</div></article>
+<article class="ex" id="ex-26" data-t="structural">
+<div class="exhead"><div class="letter num">26</div><div class="t"><h3>Joe and Matthew Become One Ancestor for Troy and Abed</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>Joe and Matthew establish one of NewsRadio's strangest friendships. Joe repeatedly spends time with Matthew, eats with him, protects him, humiliates him, tolerates him, and treats him as a little buddy despite their enormous difference in social awareness. Matthew often misses cues that everyone else recognizes. His behavior can seem inexplicable because he does not understand how other people are reading him.</p>
+<p>Troy and Abed inherit the odd couple intimacy while changing its emotional quality. Abed also misses social cues, although he possesses extraordinary awareness of television form and frequently recognizes his own distance from ordinary social behavior. Troy becomes the friend who joins Abed's imaginative structures rather than merely managing them. Their friendship turns an earlier comic imbalance into one of Community's central emotional relationships.</p>
+<p>Matthew also flows into Chang and other characters at different moments. His frantic energy, inappropriate certainty, social obliviousness, and sudden collapses often resemble Chang more strongly than Abed. That distribution again explains why the ancestry works better as inheritance than direct equivalence.</p>
+<div class="verdict"><b>Evaluation</b>Joe-and-Matthew as a single ancestor for Troy-and-Abed is consistent with the split-and-recombine method the essay argues everywhere else.
+</div></article>
+<article class="ex" id="ex-27" data-t="structural">
+<div class="exhead"><div class="letter num">27</div><div class="t"><h3>Lisa and Andrea Become Annie and Frankie</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>Lauren Graham's Andrea enters NewsRadio as an efficiency expert brought in to reorganize WNYX. She studies the staff, threatens existing roles, fires Matthew, considers replacing Dave, administers lie detector tests, and eventually elevates Lisa above Dave. Lisa therefore encounters a harder and more institutionally powerful version of qualities she has carried throughout the series. Andrea looks like a professionally hardened future for Lisa rather than a separate character type.</p>
+<p>The efficiency-expert arc strengthens that relationship by exposing the contradiction already built into Lisa. Andrea's polygraph brings Lisa's criminal history into the open while Andrea herself also carries a criminal history, placing the ambitious younger woman and the harder professional woman on the same achievement-and-transgression continuum. Lisa can recognize the competence she wants while also seeing what that competence looks like when it has become colder, more controlling, and more institutionally powerful.</p>
+<p>Frankie enters Community through nearly the same structural doorway. Greendale needs an efficiency-minded administrator after years of chaos, and Frankie immediately examines the institution, challenges the group's habits, reorganizes procedures, and becomes entangled in their personal dynamics. Annie has already spent years becoming Greendale's organizer, investigator, committee leader, and institutional fixer. Frankie therefore occupies the Andrea position while Annie occupies the Lisa position inside the later ensemble.</p>
+<p>The stronger genealogy is Lisa to Annie to Frankie, with Andrea functioning as Lisa's harsher professional future and a parallel ancestor for Frankie. Annie inherits Lisa's contradiction between achievement and transgression, then meets her own Andrea figure in Frankie. The cafeteria, administrative, and Save Greendale plotting reinforces the sequence because institutional reform repeatedly collides with personal loyalty, private schemes, and rebellion.</p>
+<div class="verdict"><b>Evaluation</b>The Andrea/Frankie efficiency-expert parallel is the strongest structural claim in the set. Lisa's criminal record and Andrea's polygraph are NewsRadio-side and not checkable against this corpus.
+</div></article>
+<article class="ex" id="ex-28" data-t="structural">
+<div class="exhead"><div class="letter num">28</div><div class="t"><h3>The Replacement Character Is an Amalgamation</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>Community repeatedly handles departures by redistributing character functions rather than filling one empty chair. Pierce disappears, Troy disappears, Shirley disappears, Hickey disappears, and the remaining ensemble changes shape around those absences. New characters inherit several functions at once. The group behaves like a television ecosystem that recycles material.</p>
+<p>Frankie receives part of Annie's competence, part of Andrea's administrative function, and some of the stabilizing authority that earlier belonged elsewhere. Elroy receives Troy's technical ability, Abed's technological imagination, and some of Pierce's position as the older outsider whose social behavior can become unexpectedly uncomfortable. Hickey temporarily receives the older male chair after Pierce while carrying a completely different temperament. Each replacement therefore exposes the method.</p>
+<p>This also explains why simple one to one charts keep breaking down. Jeff can contain Zack Morris without functioning like Zack in every story. Troy can begin with Slater and mature toward Joe. Jimmy James can divide between Pierce's money and Pelton's surveillance.</p>
+<div class="verdict"><b>Evaluation</b>The amalgamation rule is the method claim itself and it holds against both Elroy and Frankie. The production history behind it matters as much as Abed's dialogue does: Harmon's commentary names 30 Rock as a model, and Donald Glover came to the cast from that writers room. Television ancestry, casting memory, genre structure and layered reference were therefore ordinary working tools in the room rather than a critical reading applied afterwards. Abed is the in-universe demonstration of a habit the staff already had.
+</div></article>
+<article class="ex" id="ex-29" data-t="structural">
+<div class="exhead"><div class="letter num">29</div><div class="t"><h3>The meeting place is an acknowledged social hierarchy</h3><span class="tag">Structural</span> <span class="tag rank">Front of the case</span></div><div class="score">4 / 5</div></div>
+<div class="verdict"><b>Evaluation</b>Carl spends years trying to get invited to the main cast's lunch table. That is the direct ancestor of Buddy, Chang, Pierce and others fighting for admission to the study room. Both shows turn the central cast's physical meeting place into an openly acknowledged social hierarchy, so a chair becomes a rank and exclusion becomes the plot. The intruder's failure is always about belonging rather than about competence.
+<ul class="anchors">
+<li><span class="src">Community S06E06</span>Frankie is seated at the table before she is accepted by it, so the chair precedes the membership</li>
+<li><span class="src">Community S05E10</span>Hank Hickey is admitted to the game and immediately tests the group's tolerance for an outsider at its own table</li>
+</ul>
+</div></article>
+<article class="ex" id="ex-30" data-t="structural">
+<div class="exhead"><div class="letter num">30</div><div class="t"><h3>Troy Evolves From A.C. Slater Toward Joe Garelli</h3><span class="tag">Structural</span></div><div class="score">4 / 5</div></div>
+<p>Early Troy carries much of the A.C. Slater silhouette. He arrives as the admired athlete, former football star, masculine school celebrity, and obvious social success. His relationship with Abed gradually loosens that identity and gives him permission to become stranger, more imaginative, and more emotionally open. His vocational identity then moves toward Joe Garelli's territory.</p>
+<p>This creates a character genealogy rather than a single character copy. Slater explains the Troy who enters Greendale. Joe explains much more of the Troy who eventually discovers his actual ability. Abed becomes the friend who helps Troy travel between those versions of himself.</p>
+<p>Troy later leaves on the Childish Tycoon, but his technical inheritance remains in the show. Elroy eventually carries another version of the gifted technician and inventor role. Community keeps character material circulating after the original carrier disappears. The trait survives even after the person who developed it leaves.</p>
+<div class="verdict"><b>Evaluation</b>The Slater-to-Garelli arc is a reading of Troy's development, not a quotable line. It matches the developmental-ancestry type already in the map.
+</div></article>
+<article class="ex" id="ex-31" data-t="interpretive">
+<div class="exhead"><div class="letter num">31</div><div class="t"><h3>Music Functions as Character Genealogy</h3><span class="tag">Interpretive</span></div><div class="score">3 / 5</div></div>
+<p>Music references throughout Community repeatedly tell the audience who a character is, what generation shaped them, and which cultural tribe they imagine themselves belonging to. Britta's musical references carry a different generational identity from Pierce's. Starburns and Styx create another kind of cultural marker. Dave Matthews becomes a running clue because admitting or denying affection for the band reveals something socially embarrassing about the character involved.</p>
+<p>The recurring nineties material becomes especially interesting beside NewsRadio. Community follows the earlier show by roughly another television generation, so the music that once marked contemporary adulthood becomes inherited cultural memory. Pink Floyd, Led Zeppelin, Styx, Frank Zappa, Dave Matthews, and other references become part of a long generational conversation. Music helps characters announce which older cultural world they came from.</p>
+<p>The stronger pattern is therefore not one song equaling one earlier joke. Music works as another method for carrying television ancestry through character identity. The characters reveal their place in the lineage through what they listen to, what they mock, and what they are embarrassed to admit liking.</p>
+<div class="verdict"><b>Evaluation</b>Music as genealogy is the most speculative exhibit. The named artists are real, the inheritance reading is not evidenced.
+</div></article>
+<article class="ex" id="ex-32" data-t="interpretive">
+<div class="exhead"><div class="letter num">32</div><div class="t"><h3>Zack Morris Becomes Legible Through Jeff Winger</h3><span class="tag">Interpretive</span></div><div class="score">3 / 5</div></div>
+<p>Later pop culture reassessment of Zack Morris makes qualities that were softened in the original series much easier to see. Zack lies, manipulates friends, treats romantic relationships strategically, exploits social situations, and frequently escapes consequences through charisma. Jeff begins Community with the same general social advantage. He is attractive enough, verbally gifted enough, and confident enough to believe reality can usually be negotiated.</p>
+<p>The important relationship is behavioral rather than cosmetic. Jeff repeatedly engineers situations instead of meeting them directly. He manipulates the group while also becoming emotionally dependent on the people he manipulates. That makes him a more adult and self conscious version of the school sitcom schemer.</p>
+<p>The writers also let the rest of the group absorb pieces of Zack's behavior. Annie schemes, Britta manipulates situations badly, Troy lies to preserve status, and Abed can engineer social reality through genre rules. Community distributes the old protagonist privilege across the ensemble and then subjects it to consequences.</p>
+<div class="verdict"><b>Evaluation</b>Zack Morris to Jeff is a behavioural reading. Nothing on screen names it. It is the weakest of the Saved by the Bell claims and should be argued, not asserted.
+</div></article>
+<h2 id='pattern'>The Larger Pattern</h2>
+<p>The character map becomes much clearer when drawn as a genealogy. Zack Morris flows heavily into Jeff. A.C. Slater flows into early Troy, while Joe Garelli flows into later Troy and contributes part of his conspiracy register to Britta. Troy and Abed later flow together into Elroy, with Pierce contributing part of Elroy's older outsider function.</p>
+<p>Lisa Miller now forms one of the clearest developmental lines in the map. Lisa flows directly into Annie through intelligence, academic obsession, managerial ambition, emotional competitiveness, and achievement-driven transgression. Andrea represents a harder professional future branching from Lisa, while Frankie becomes the corresponding professional future for Annie. The resulting line is Lisa to Annie to Frankie, with Andrea converging on the same administrative function from the earlier series.</p>
+<p>The Britta and Rick continuity shows the same method operating inside Community itself. Corporate control, sexual manipulation, hidden recording, Orwellian rhetoric, susceptibility, and guerrilla marketing recur across separated episodes while changing carriers and contexts. Britta can inherit anti-corporate conspiracy language while also becoming the person whose rebellion, desire, and self-image are repeatedly redirected by other people. The show therefore demonstrates its own inheritance grammar before the larger ancestry map even reaches outside Greendale.</p>
+<p>Departures make the system visible because Community keeps the missing characters structurally present. Traits migrate, relationships reorganize, and new characters arrive carrying combinations that make more sense when the earlier television lineage is restored. Casting history can remain active in the same way, as Andy Dick's role as Pierce's drug tempter turns the darkest NewsRadio history into part of Pierce's addiction story.</p>
+<p>The result is not a collection of isolated references. It is a sustained method of television inheritance running through casting, character construction, replacement characters, genre episodes, music, actor history, episode premises, recursive control stories, and Abed's constant commentary on television itself. Community keeps turning previous television into new character material, then teaches the audience how to recognize that process from inside Greendale.</p>
+<h2 id='tiers'>Tier key</h2><table><tr><th>Tier</th><th>What it means</th><th>Count</th></tr>
+<tr><td><b>Documented</b></td><td>Rests on commentary, interview, or public production record.</td><td>4</td></tr>
+<tr><td><b>Transcript-anchored</b></td><td>Every Community-side detail matches a line in the local 110-episode corpus.</td><td>15</td></tr>
+<tr><td><b>Structural</b></td><td>A parallel in function, not a quotable line. Argued, not proved.</td><td>11</td></tr>
+<tr><td><b>Interpretive</b></td><td>A reading. Legitimate as argument, weakest as evidence.</td><td>2</td></tr>
+</table>
+<footer><p>Source document: <code>Community_NewsRadio_Saved_by_the_Bell_Evidence_Exhibits_v2.txt</code>. Transcript corpus: <code>~/Projects/tv-scripts/text</code>, 110 Community episodes. Companion: <a href="https://drwu-htmls.vercel.app/community-character-map">Community character map</a>.</p></footer>
+</div>
