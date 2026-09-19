@@ -1,0 +1,29 @@
+# 7onething1.github.io robots.txt, written 2026-09-19.
+# Search engines may read only the pages allowed below.
+# Everything else on this site stays out of search on purpose.
+User-agent: *
+Disallow: /
+Allow: /googleec459703f9cd120c.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ico$
+Allow: /community-greendale-lineage$
+Allow: /community-greendale-lineage/
+Allow: /hejira-bass-harmonics$
+Allow: /hejira-bass-harmonics/
+Allow: /sorcery-player-guide$
+Allow: /sorcery-player-guide/
+Allow: /sorcery-vs-magic-top-40$
+Allow: /sorcery-vs-magic-top-40/
+Allow: /weatherman-device$
+Allow: /weatherman-device/
+
+Sitemap: https://7onething1.github.io/sitemap.xml
