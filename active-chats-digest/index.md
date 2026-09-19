@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-19 00:59 CDT. 21 chats read from transcripts.
+Built 2026-09-19 01:30 CDT. 21 chats read from transcripts.
 
 ## Headline
 
 All 21 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 11,773 assistant replies, 322 MB of transcript.
+Totals: 12,004 assistant replies, 324 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### 45% sound limit  (19.4 hours quiet, 89 replies)
+### 45% sound limit  (19.9 hours quiet, 89 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it on but 50%
 
 - The sound limit is off.** Your volume sits at 45 on the MacBook Pro Speakers, and you can turn it up as far as you want. 🟢 **Done, with proof** 1..
@@ -23,7 +23,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (11.0 hours quiet, 2016 replies)
+### Video timestamps and song names handoff (fork)  (11.5 hours quiet, 2016 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you are supposed to update youtube and the website did yo unot
 
 - While the public fetch runs, I'll read an existing posted-comment record so the new entry follows the same shape.
@@ -33,7 +33,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Handoff and automatic update conflicts  (10.0 hours quiet, 226 replies)
+### Handoff and automatic update conflicts  (10.5 hours quiet, 226 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
 - Now CLAUDE.md. The cross-Mac bullet still names `sfg/` as the channel for handoff docs, which contradicts the rule:
@@ -43,7 +43,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Claude onboarding prompts  (7.5 hours quiet, 286 replies)
+### Claude onboarding prompts  (8.0 hours quiet, 286 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - The gap fixes landed. Next I'm extending the tool tests to cover the new path checker and the brief-mode merge. Every tool in the kit then has a test.
@@ -53,7 +53,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps chat  (6.7 hours quiet, 183 replies)
+### Video timestamps chat  (7.2 hours quiet, 183 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - The deferrals landed on the newest contract. R1 and R2 belong to the earlier contract, which is parked. Let me see how the controller reopens a parked.
@@ -63,7 +63,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rewire or retire 27 unwired hook scripts  (6.0 hours quiet, 204 replies)
+### Rewire or retire 27 unwired hook scripts  (6.5 hours quiet, 204 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - 35 notes are marked, and the last status line scored 0 on the voice gate. The project memory folder has no POINTERS.md yet, so nothing gets.
@@ -73,7 +73,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix sung-text guard blocking quoted pipes  (5.3 hours quiet, 63 replies)
+### Fix sung-text guard blocking quoted pipes  (5.8 hours quiet, 63 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fix a false positive in ~/.claude/hooks/guard_sung_text.py (a PreToolUse hook on Read|Grep|Bash, wired in ~/.claude/settings.json). Machine: MacBookPro, user brandonchavez. The bug: wide_rea
 
 - The out-of-scope gaps are confirmed. I'll put them in a one-click follow-up chip so this change stays narrow.
@@ -83,7 +83,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix sung-text guard blocking quoted pipes  (5.3 hours quiet, 63 replies)
+### Fix sung-text guard blocking quoted pipes  (5.8 hours quiet, 63 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fix a false positive in ~/.claude/hooks/guard_sung_text.py (a PreToolUse hook on Read|Grep|Bash, wired in ~/.claude/settings.json). Machine: MacBookPro, user brandonchavez. The bug: wide_rea
 
 - The out-of-scope gaps are confirmed. I'll put them in a one-click follow-up chip so this change stays narrow.
@@ -93,7 +93,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Claude onboarding prompts (fork)  (5.1 hours quiet, 411 replies)
+### Claude onboarding prompts (fork)  (5.6 hours quiet, 411 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix all
 
 - The LaunchAgent passes lint, it's loaded with the Sunday 10:00 schedule, and it's firing now. While that runs, I'm teaching the audit the facts it got.
@@ -103,7 +103,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Find why babysit-watchdog exits 1  (5.0 hours quiet, 174 replies)
+### Find why babysit-watchdog exits 1  (5.5 hours quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bo0flt5di</task-id> <tool-use-id>toolu_01Jseh85fdce853PNWhZEuZ2</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/1d775fa1-1ecb-4dcc-9533-2
 
 - The log and memory note are updated. The only thing still running is the digest check, which is informational and outside the five asks. It fills the.
@@ -113,7 +113,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Make site_deploy.py refuse unknown flags  (4.6 hours quiet, 67 replies)
+### Make site_deploy.py refuse unknown flags  (5.1 hours quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fix a hazard in ~/.claude/skills/stream-setlist/tools/site_deploy.py (the only sanctioned deploy path for the drwu-htmls Vercel project from this MacBook). What happened on 2026-09-18: `pyth
 
 - Running the three real dry runs now. They read from Vercel only and never deploy.
@@ -123,7 +123,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Decide on stale gc.log.lock in drwu-overflow  (4.5 hours quiet, 54 replies)
+### Decide on stale gc.log.lock in drwu-overflow  (5.0 hours quiet, 54 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
 
 - Goal:** show you what retiring the stale `gc.log.lock` in drwu-overflow would cost before anything in the repo changes. The numbers will come from this.
@@ -133,7 +133,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Make babysitter deploy and push stamps honest  (4.4 hours quiet, 166 replies)
+### Make babysitter deploy and push stamps honest  (4.9 hours quiet, 166 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Context (measured 2026-09-18 on MacBookPro, user brandonchavez): a stale ~/Projects/drwu-overflow/.git/HEAD.lock (created 2026-09-16 05:18:58 by an interrupted git auto-gc after commit c6138
 
 - The reply text stalled at 27 characters for 20 seconds. Your notes warn the DOM can lag, so I'm taking a screenshot to see the real state.
@@ -143,7 +143,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Restore the babysitter's lost signature write  (3.8 hours quiet, 197 replies)
+### Restore the babysitter's lost signature write  (4.3 hours quiet, 197 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>boihwniqv</task-id> <summary>Monitor event: "quiet-board REFRESH, failures and watchdog runs on the live babysitter"</summary> <event>21:14:07 LOG 21:13:49 no ch
 
 - The first live `no change` stamp since 2026-09-07 18:32:52 has landed. I will confirm that the cycle skipped the render and the GitHub push, and that.
@@ -153,7 +153,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Add argument guard to daily_update.py  (3.6 hours quiet, 10 replies)
+### Add argument guard to daily_update.py  (4.1 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Goal: add a strict argument guard to `daily_update.py` and `route_guard.py`, modelled on the 2026-09-18 fix in `site_deploy.py`, and prove that neither.
@@ -163,17 +163,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (1.7 hours quiet, 1659 replies)
-**Goal.** Not summarised by hand yet. Last input on record: update what you can
-
-- Your Sep 17 comment's edit box is open, signed in as @pagesofbrandon. Inserting the text with the one corrected time and checking its checksum before.
-- Saved. Your comment now reads 5:16:32 Switch and shows "(edited)". Closing my tab and putting your Glostik tab back in front, then confirming from the.
-- The public copy of your Sep 17 comment matches the plan exactly (47 lines). Recording the edit, rerunning the YouTube-vs-site check, and handing.
-- I updated everything I can without Song A's name. **🟢 Your Sep 17 YouTube comment is fixed.** Switch now reads 5:16:32. The old time, 5:15:00, landed.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Volume limit  (1.5 hours quiet, 33 replies)
+### Volume limit  (2.0 hours quiet, 33 replies)
 **Goal.** Not summarised by hand yet. Last input on record: TURN OFF THE VOLUME LIMIT
 
 - The limit is your `volcap` tool. The memory note says the ceiling was set to 50% at 05:34 this morning. Before I change anything, I'll check its.
@@ -183,17 +173,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign  (1.3 hours quiet, 1387 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
-
-- The other chat has the deploy id and the pending `gallery.json` note. Now the report for Brandon. Checking the reply format rules first.
-- The reply follows his format: colored bullets, a done-and-left table, and files with paths, links and open commands. Writing it to a file and running.
-- Voice check passes with exit 0. Opening the live page in Firefox and revealing the page file and screenshot in Finder.
-- Pictures from the band's sites are live - 🟪 **"Glostik around the web" is live** on both layouts, above the comment box. **Deploy.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs site redesign (fork 2)  (14 minutes quiet, 1491 replies)
+### Glostik Songs site redesign (fork 2)  (44 minutes quiet, 1491 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - BassPoser is off and three new emotes are live **https://glostik-emotes.vercel.app** now has 20 emotes, deploy `dpl_C2Rg4ooxMipjKAMfxF7ih1L34jJq`. Kick.
@@ -203,7 +183,7 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (14 minutes quiet, 1416 replies)
+### Glostik Songs site redesign (fork)  (44 minutes quiet, 1416 replies)
 **Goal.** Not summarised by hand yet. Last input on record: remove the harp harmonica one
 
 - Local test matches fork 2's expected numbers: 19 rows, 55 name buttons and 113 working downloads, with no errors. Now the clobber check and the deploy.
@@ -213,12 +193,32 @@ Totals: 11,773 assistant replies, 322 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (0 minutes quiet, 1578 replies)
-**Goal.** Not summarised by hand yet. Last input on record: put all the originals back on the site
+### Glostik Songs site redesign  (14 minutes quiet, 1442 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
-- Deployed: `dpl_DgvrGTnb4J8wWqWc6qkuvPECVpdT`, live at 23:23. Checking the Songs tab on the live site, and whether the redesign chat's gallery.json went.
-- Tonight's songs are on the main Songs tab now as placeholders (deployed at 23:23). I checked them on the live site. - **On the Songs tab, marked played.
-- The photo gallery is live, and it didn't disturb anything else. I checked the live site after the redesign chat's deploy at 23:29. - **New "Glostik.
-- Checking which Glostik originals the site has now, compared with earlier tonight and with the band's catalog and history.
+- That last doc line points at my session scratch folder, which won't last. Moving the outage tests next to the page tests and pointing the doc there.
+- Docs point to the durable test now. Telling the other chat that its unattended run will pick up the tested tool.
+- The check passed with one minor flag. Looking at it so I can fix it.
+- - 🟪 **The other chat moved the 3 AM pull up to tonight.** **It will deploy on its own** once YouTube finishes processing tonight's stream. - 🟧 **My.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Video timestamps and song names handoff  (2 minutes quiet, 1667 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
+
+- Both other chats report nothing in progress, so tonight's automatic update can deploy cleanly whenever your setlist is ready. The redesign chat also.
+- The other chat is deploying the two fixes you gave it: - **Broke:** the unnamed original, Song A, is now Broke on 6 shows. - **Mars:** it's merged into.
+- The fork's deploy is live (`dpl_E95gPR4nqs81nJCyxQTMb3gRykFB`). Running my own checks against it, as promised.
+- I checked the other chat's deploy on the live site: - **Broke** shows 6 plays, and **Mars** is merged into Up on Mars, which now shows 14 plays. There.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Video timestamps and song names handoff (fork)  (1 minutes quiet, 1746 replies)
+**Goal.** Not summarised by hand yet. Last input on record: i need it now
+
+- Mars merge is in, and the credits self-test passes 36 of 36. Telling your parent chat I'm doing one rebuild and deploy for Broke plus Mars, then.
+- Deployed `dpl_E95gPR4nqs81nJCyxQTMb3gRykFB`. It went live at 01:27:19, and every route check passed. Checking Broke and Mars on the live site and.
+- The plan adds one row, "5:00:24 Broke - Glostik", between Broken Window Serenade and Weatherman. Your comment goes from 49 to 50 lines. Opening it in.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
