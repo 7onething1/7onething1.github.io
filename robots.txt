@@ -17,8 +17,6 @@ Allow: /*.svg$
 Allow: /*.woff$
 Allow: /*.woff2$
 Allow: /*.ico$
-Allow: /community-greendale-lineage$
-Allow: /community-greendale-lineage/
 Allow: /hejira-bass-harmonics$
 Allow: /hejira-bass-harmonics/
 Allow: /sorcery-player-guide$
