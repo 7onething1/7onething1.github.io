@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-18 19:26 CDT. 12 chats read from transcripts.
+Built 2026-09-18 19:56 CDT. 15 chats read from transcripts.
 
 ## Headline
 
-All 12 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,785 assistant replies, 94 MB of transcript.
+All 15 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 7 are past the 400-turn ceiling.
+Totals: 7,921 assistant replies, 140 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names  (21.8 hours quiet, 1203 replies)
+### Video timestamps and song names  (22.2 hours quiet, 1203 replies)
 **Goal.** Not summarised by hand yet. Last input on record: when i say handoff, don't send it to the other mac it will overwite your work, just save it here so i can give it to a new chat
 
 - The hook is pattern-matching the text "~/Desktop" inside my strings, even though nothing writes there. Putting the patch in a script file so the.
@@ -43,7 +43,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 45% sound limit  (13.9 hours quiet, 89 replies)
+### 45% sound limit  (14.4 hours quiet, 89 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it on but 50%
 
 - The sound limit is off.** Your volume sits at 45 on the MacBook Pro Speakers, and you can turn it up as far as you want. 🟢 **Done, with proof** 1..
@@ -53,7 +53,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (5.4 hours quiet, 2016 replies)
+### Video timestamps and song names handoff (fork)  (5.9 hours quiet, 2016 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you are supposed to update youtube and the website did yo unot
 
 - While the public fetch runs, I'll read an existing posted-comment record so the new entry follows the same shape.
@@ -63,7 +63,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Handoff and automatic update conflicts  (4.5 hours quiet, 226 replies)
+### Handoff and automatic update conflicts  (5.0 hours quiet, 226 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
 - Now CLAUDE.md. The cross-Mac bullet still names `sfg/` as the channel for handoff docs, which contradicts the rule:
@@ -73,7 +73,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Claude onboarding prompts  (2.0 hours quiet, 286 replies)
+### Claude onboarding prompts  (2.5 hours quiet, 286 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - The gap fixes landed. Next I'm extending the tool tests to cover the new path checker and the brief-mode merge. Every tool in the kit then has a test.
@@ -83,7 +83,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps chat  (1.1 hours quiet, 183 replies)
+### Video timestamps chat  (1.6 hours quiet, 183 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - The deferrals landed on the newest contract. R1 and R2 belong to the earlier contract, which is parked. Let me see how the controller reopens a parked.
@@ -93,17 +93,7 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Claude onboarding prompts (fork)  (49 minutes quiet, 236 replies)
-**Goal.** Not summarised by hand yet. Last input on record: do we do all the stuff here
-
-- Checked on disk myself - 🟪 **The rebuilt zip matches the kit folder exactly.** **All 54 files are identical** in both places, and the zip's integrity.
-- You're asking whether our own setup on this Mac practices everything the kit tells your friend to do. I'm assuming "we" means our live Claude Code.
-- Status: the comparison is nearly done. One file names "unloop," and I'm reading only that line so I can describe the reason accurately.
-- Short answer - 🟥 **No, our setup skips several things the kit teaches.** The **core safety and memory pieces match**, and **six gaps stand out**. The.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Rewire or retire 27 unwired hook scripts  (28 minutes quiet, 204 replies)
+### Rewire or retire 27 unwired hook scripts  (58 minutes quiet, 204 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - 35 notes are marked, and the last status line scored 0 on the voice gate. The project memory folder has no POINTERS.md yet, so nothing gets.
@@ -113,22 +103,62 @@ Totals: 6,785 assistant replies, 94 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (2 minutes quiet, 619 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/1682.sock" from-session="local_f6f39938-be06-4f11-a36c-dd5582b674bf" from-name="Glostik Songs site redes
+### Fix sung-text guard blocking quoted pipes  (13 minutes quiet, 63 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Fix a false positive in ~/.claude/hooks/guard_sung_text.py (a PreToolUse hook on Read|Grep|Bash, wired in ~/.claude/settings.json). Machine: MacBookPro, user brandonchavez. The bug: wide_rea
 
-- The redesign chat is now publishing both layouts. The first layout is your current page, with a button to try the new one. The second is.
-- The redesign chat's update is live as `dpl_8JUPq4…`, with both layouts answering 200. I'll run the sync gate myself instead of relying on its report,.
-- Both layouts are live, and the YouTube-to-site check now covers each one. - **Both pages are live.** Your current page at `/glostik-songs` has a button.
-- The redesign chat is publishing a second round of changes. I'm holding all site updates until it's done. **What goes live:** - **Both layouts sort by.
+- The out-of-scope gaps are confirmed. I'll put them in a one-click follow-up chip so this change stays narrow.
+- One more pre-existing gap belongs in that follow-up brief: a lone background `&` is not a separator in either version. I'll confirm it before adding it.
+- The chip now carries all four verified gaps, and the older one is withdrawn. One last lookup gives the exact line numbers for the file links.
+- The fix is in and tested. The command from your report now passes, and a recursive grep of the chat folder still gets denied. ## 🟢 What changed - **A.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign  (0 minutes quiet, 396 replies)
-**Goal.** Not summarised by hand yet. Last input on record: # Update Config Skill Modify Claude Code configuration by updating settings.json files. ## When Hooks Are Required (Not Memory) If the user wants something to happen automatically in respons
+### Video timestamps and song names handoff  (3 minutes quiet, 671 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/1682.sock" from-session="local_f6f39938-be06-4f11-a36c-dd5582b674bf" from-name="Glostik Songs site redes
 
-- Parity passes 57 of 57 with the new rule.** Before deploying, I'll check how the page looks now that 41% of rows carry Rare. The staging copy gets.
-- Quick status: the date exporter is written. I'm running it against the staging copy to check its output before anything touches the public folder.
+- Both pages are updated and their scripts pass the syntax check. Next is the layout check the redesign chat set up: the quick source comparison first,.
+- The dry run lists 5 changed files, and I only edited 2. I'll check what the other 3 are before shipping them.
+- I just finished your genre correction, and it's live on both pages. Nothing else is running in this chat right now. - **Both layouts start sorted by.
+- The redesign chat is adding your Debut button to the new layout, plus a small keyboard-focus fix. It expects to publish in about 20 minutes, and I'm.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Claude onboarding prompts (fork)  (2 minutes quiet, 411 replies)
+**Goal.** Not summarised by hand yet. Last input on record: fix all
+
+- The LaunchAgent passes lint, it's loaded with the Sunday 10:00 schedule, and it's firing now. While that runs, I'm teaching the audit the facts it got.
+- Your "fix all" checklist is complete, all 13 items with recorded proof. Revealing the final audit report in Finder.
+- Result - 🟩 **Every gap from the audit is now fixed or queued.** The audit dropped from **25 FAIL and 1,680 WARN to 0 FAIL and 1 WARN**, and I backed up.
 - No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Find why babysit-watchdog exits 1  (2 minutes quiet, 154 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bukcwtrcs</task-id> <tool-use-id>toolu_019g4q24ZNu4u5QhksThPDwW</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/1d775fa1-1ecb-4dcc-9533-2
+
+- The short reply passes both checks: `/say-it-plain` rates it PLAIN at 11 lines, and the anti-AI gate scores 0. The last open item is R5, launchd's own.
+- All five outcomes now show MET in the controller. Next I will fill the R5 placeholders in the session log and add the launchd result to the memory.
+- The log and memory note are updated. The only thing still running is the digest check, which is informational and outside the five asks. It fills the.
+- The digest log last changed at 19:26:33, so its next 30-minute run should start near 19:56:33. The background wait will pick up that run's result, and.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs site redesign (fork)  (0 minutes quiet, 549 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x3525, displayed at 817x2000. Multiply coordinates by 1.76 to map to original image.]
+
+- The sheet shows two band members plus a guest, and the costume nights make the strongest emote faces. I'm comparing the top six up close before.
+- The other session is editing the Glostik page files. This emote work never touches them, so I'm telling it not to wait on me.
+- scipy is available, so the outlines can use exact distance maps. The build script lives beside the emotes so the pair can be rebuilt later.
+- Next is the preview script. It shows each emote the way Twitch chat draws it, on the dark and the light chat colors.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs site redesign  (0 minutes quiet, 539 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
+
+- A bustout needs 28 days away under the current rule. I'm adding the Debut button now and reading the parity checks first.
+- The debut rule finds 23 songs right now. One is false, caused by the "What's Going On" name mix-up. I'm editing the new layout's code now.
+- Both other sessions say they are holding, so the page is clear. I'm registering the checklist and writing the Debut patch now.
+- The patch went in cleanly: 13 edits, and the script still parses. Next I'm teaching the parity checks the Debut rule.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
