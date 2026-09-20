@@ -1,49 +1,19 @@
 # Active chats digest
 
-Built 2026-09-19 21:08 CDT. 14 chats read from transcripts.
+Built 2026-09-19 21:38 CDT. 11 chats read from transcripts.
 
 ## Headline
 
-All 14 chats ended on a gate block, 0 on a message from Brandon.
+All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 10,710 assistant replies, 332 MB of transcript.
+Totals: 10,646 assistant replies, 332 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Fix sung-text guard blocking quoted pipes  (1.1 days quiet, 63 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Fix a false positive in ~/.claude/hooks/guard_sung_text.py (a PreToolUse hook on Read|Grep|Bash, wired in ~/.claude/settings.json). Machine: MacBookPro, user brandonchavez. The bug: wide_rea
-
-- The out-of-scope gaps are confirmed. I'll put them in a one-click follow-up chip so this change stays narrow.
-- One more pre-existing gap belongs in that follow-up brief: a lone background `&` is not a separator in either version. I'll confirm it before adding it.
-- The chip now carries all four verified gaps, and the older one is withdrawn. One last lookup gives the exact line numbers for the file links.
-- The fix is in and tested. The command from your report now passes, and a recursive grep of the chat folder still gets denied. ## 🟢 What changed - **A.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Restore the babysitter's lost signature write  (23.9 hours quiet, 197 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>boihwniqv</task-id> <summary>Monitor event: "quiet-board REFRESH, failures and watchdog runs on the live babysitter"</summary> <event>21:14:07 LOG 21:13:49 no ch
-
-- The first live `no change` stamp since 2026-09-07 18:32:52 has landed. I will confirm that the cycle skipped the render and the GitHub push, and that.
-- The quiet cycle behaved as designed: - **It wrote one line and did nothing else.** The 21:08:30 cycle stamped `no change`, with no render and no deploy.
-- The second watchdog run since install, at 21:10:47, also came back clean. It showed no alarms, page age 8.8 min, muted streak 0 and no failed deploys..
-- At 21:13:49 the board was 11 min 16 s past its 21:02:33 render. That sits under the 720-second line, so `no change` is the correct outcome. If the set.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Add argument guard to daily_update.py  (23.8 hours quiet, 10 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
-
-- Goal: add a strict argument guard to `daily_update.py` and `route_guard.py`, modelled on the 2026-09-18 fix in `site_deploy.py`, and prove that neither.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Volume limit  (21.6 hours quiet, 33 replies)
+### Volume limit  (22.1 hours quiet, 33 replies)
 **Goal.** Not summarised by hand yet. Last input on record: TURN OFF THE VOLUME LIMIT
 
 - The limit is your `volcap` tool. The memory note says the ceiling was set to 50% at 05:34 this morning. Before I change anything, I'll check its.
@@ -53,7 +23,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign  (19.9 hours quiet, 1442 replies)
+### Glostik Songs site redesign  (20.4 hours quiet, 1442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - That last doc line points at my session scratch folder, which won't last. Moving the outage tests next to the page tests and pointing the doc there.
@@ -63,7 +33,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (19.5 hours quiet, 1669 replies)
+### Video timestamps and song names handoff  (20.0 hours quiet, 1669 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - The other chat is deploying the two fixes you gave it: - **Broke:** the unnamed original, Song A, is now Broke on 6 shows. - **Mars:** it's merged into.
@@ -73,17 +43,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (17.8 hours quiet, 1554 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
-
-- Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
-- Fork 2's deploy is live with 29 emotes. As I told Brandon, I'm checking it myself: the live page, the retired WorstDrummer links, and a look at the.
-- I checked fork 2's latest deploy myself, and the band page is in good shape with 29 emotes: https://glostik-emotes.vercel.app - 🟩 **BurnAway leads the.
-- Grin's pink-line fix is built, but it isn't on the live page yet. - 🟩 **The fix works.** The pink edge pixels on the big Kick file dropped from 425 to.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs site redesign (fork 2)  (17.8 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (18.3 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -93,7 +53,17 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (6.2 hours quiet, 74 replies)
+### Glostik Songs site redesign (fork)  (18.3 hours quiet, 1554 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
+
+- Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
+- Fork 2's deploy is live with 29 emotes. As I told Brandon, I'm checking it myself: the live page, the retired WorstDrummer links, and a look at the.
+- I checked fork 2's latest deploy myself, and the band page is in good shape with 29 emotes: https://glostik-emotes.vercel.app - 🟩 **BurnAway leads the.
+- Grin's pink-line fix is built, but it isn't on the live page yet. - 🟩 **The fix works.** The pink edge pixels on the big Kick file dropped from 425 to.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Kick video transcription  (6.8 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -103,7 +73,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (5.6 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (6.1 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -113,7 +83,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (4.8 hours quiet, 2355 replies)
+### Video timestamps and song names handoff (fork)  (5.3 hours quiet, 2355 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it was last night, also after than, find online youtube video of glostik live performances of orginals and add them in linked like others
 
 - 26 of the 39 are linked now. Before shipping, I'm checking that each chapter label really names that song and isn't just a partial word match.
@@ -123,7 +93,7 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (1.5 hours quiet, 617 replies)
+### Glostik songs site updates  (2.0 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -133,22 +103,22 @@ Totals: 10,710 assistant replies, 332 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (1.5 hours quiet, 489 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Okay, I guess, but remember, you were supposed to um, find News Radio with speaker, right? Do you, do you have that? And is it shared? Because what is the speaker index XLX6? For News
+### Newsradio/Community/Saved by the Bell scripts  (24 minutes quiet, 516 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Radio,do we have the new newradio script
 
-- Straight answer first: no, we do not have NewsRadio with speaker names.** What exists is partial. Let me quantify it, check the sharing, and go hunting.
-- Found a real lead: fan transcripts posted to the alt.tv.newsradio newsgroup, which usually carry speaker names. Checking a plain-HTML mirror of that group.
-- Two mirrors are down or blocking. Opening the Google Groups thread in the built-in browser instead, which is a normal site.
-- No, I don't have NewsRadio with speaker names, and I should have led with that instead of the index.** **What the index actually is.** A 97-row.
+- Zero transcript posts came back, so let me check whether that's the archive's contents or my parsing.
+- The archive only covers 2003 to 2013, so the 1990s transcript posts aren't in it. My parse was right: 1,345 subjects, none about transcripts. Google.
+- That count is wrong and I caught it: 628 quoted lines cannot honestly produce 6,578 labels. My matcher was letting a quote from one episode label lines.
+- No. We do not have NewsRadio scripts with speaker titles, and I can't get them today.** **What the corrected pass produced.** I labeled only lines.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (4 minutes quiet, 80 replies)
-**Goal.** Not summarised by hand yet. Last input on record: resue glositk songs site updates chat but instead focus on We are adding an experimental alternate design for the Glostik Songs page at `https://drwu-htmls.vercel.app/glostik-songs/new`. Fir
+### Glostik Songs experimental design  (1 minutes quiet, 259 replies)
+**Goal.** Not summarised by hand yet. Last input on record: The existing experimental Glostik Songs page failed its design objective. It looks too similar to the stable `/glostik-songs/new` page, including substantially similar colors, layout, table 
 
-- Checklist registered. Writing the feature-parity audit and backing up the stable page.
-- Let me check the existing layout-parity harness before writing, since reusing it beats hand-rolling verification.
-- Let me ground the color choices with an actual contrast check before writing.
-- Palette validated: every token clears 3:1 on both surfaces. Now building the experimental page.
+- Creating the drop-in template for the future photo collection, then closing out the checklist.
+- Every checklist item but the report is closed. Writing the handoff and opening the page for you.
+- Let me verify the two cross-page links and the in-row actions before I claim them.
+- Everything is verified. Here is the report. ## What was built **New route `/glostik-songs/experimental`**, one self-contained file at.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
