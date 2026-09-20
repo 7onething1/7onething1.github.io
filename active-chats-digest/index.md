@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-19 22:09 CDT. 14 chats read from transcripts.
+Built 2026-09-19 22:39 CDT. 14 chats read from transcripts.
 
 ## Headline
 
 All 14 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 11,248 assistant replies, 345 MB of transcript.
+0 need a Brandon action. 8 are past the 400-turn ceiling.
+Totals: 11,972 assistant replies, 365 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Volume limit  (22.6 hours quiet, 33 replies)
+### Volume limit  (23.1 hours quiet, 33 replies)
 **Goal.** Not summarised by hand yet. Last input on record: TURN OFF THE VOLUME LIMIT
 
 - The limit is your `volcap` tool. The memory note says the ceiling was set to 50% at 05:34 this morning. Before I change anything, I'll check its.
@@ -23,7 +23,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign  (20.9 hours quiet, 1442 replies)
+### Glostik Songs site redesign  (21.4 hours quiet, 1442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - That last doc line points at my session scratch folder, which won't last. Moving the outage tests next to the page tests and pointing the doc there.
@@ -33,7 +33,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (20.5 hours quiet, 1669 replies)
+### Video timestamps and song names handoff  (21.1 hours quiet, 1669 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - The other chat is deploying the two fixes you gave it: - **Broke:** the unnamed original, Song A, is now Broke on 6 shows. - **Mars:** it's merged into.
@@ -43,7 +43,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (18.8 hours quiet, 1554 replies)
+### Glostik Songs site redesign (fork)  (19.3 hours quiet, 1554 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
 
 - Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
@@ -53,7 +53,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork 2)  (18.8 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (19.3 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -63,7 +63,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (7.2 hours quiet, 74 replies)
+### Kick video transcription  (7.8 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -73,7 +73,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (6.6 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (7.1 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -83,7 +83,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (5.8 hours quiet, 2355 replies)
+### Video timestamps and song names handoff (fork)  (6.3 hours quiet, 2355 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it was last night, also after than, find online youtube video of glostik live performances of orginals and add them in linked like others
 
 - 26 of the 39 are linked now. Before shipping, I'm checking that each chapter label really names that song and isn't just a partial word match.
@@ -93,7 +93,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (2.5 hours quiet, 617 replies)
+### Glostik songs site updates  (3.0 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -103,7 +103,7 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (6 minutes quiet, 550 replies)
+### Newsradio/Community/Saved by the Bell scripts  (36 minutes quiet, 550 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make an index that finds mirrors between newsradio and community versal or github
 
 - Page builder next. The performer scan keeps running while I write it.
@@ -113,42 +113,42 @@ Totals: 11,248 assistant replies, 345 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes  (1 minutes quiet, 147 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1600x2277, displayed at 1405x2000. Multiply coordinates by 1.14 to map to original image.]
+### Glostik Songs redesign skills  (8 minutes quiet, 326 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_e3532b83-9417-4171-9a20-a238575b92b6" name="Glostik Songs redesign and Lizz Vega emotes"> Audit of your three new sk
 
-- That stream has no Lizz song — so that woman is likely "the painter," not Lizz. I need frames at the actual Lizz timestamps. Let me check the.
-- Budget is 12 pulls per 10 min. Let me grab the most recent confirmed Lizz play — Dreams, 2026-09-15.
-- Got the clip. Let me extract frames and see who's on camera.
-- That's Lizz — red gown, singing lead on Dreams, 2026-09-15. Different person from the blonde in the other stream, so the check was worth it. Pulling.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs experimental design  (0 minutes quiet, 384 replies)
-**Goal.** Not summarised by hand yet. Last input on record: The existing experimental Glostik Songs page failed its design objective. It looks too similar to the stable `/glostik-songs/new` page, including substantially similar colors, layout, table 
-
-- Headless is laying out wider than the window and cropping. Let me use the browser pane, whose DOM I already verified, and display it for capture.
-- `show_pane` has no browser option. Let me reuse the repo's existing CDP harness, which does proper device-metrics emulation.
-- Experimental now renders 0 rows. Checking whether my patch broke it or a peer overwrote it again.
-- A peer overwrote it again at 22:08. I'll stop fighting for the path: verifying against my snapshot on a separate route, then installing once at the end.
+- Dry run first, as the deploy rule requires.
+- Exactly 1 new file against 9,353 carried forward. Deploying.
+- Live and verified by the deploy's own checks. Confirming independently and closing the round trip.
+- Done and live. `/glostik-songs/metal` returns 200 on deploy `dpl_FM9Xd6AizFDyXDr1keZGXErmER6p`. ## The 4th page 🟩 **A metal view built as a stack of.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (0 minutes quiet, 135 replies)
+### Glostik songs site updates  (6 minutes quiet, 329 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Okay, yeah. This is dope. I like this. So, keep going. Um, the old layout did have um, pictures of the album. But we I think it maybe we did it and then it got overwritten or something. But 
 
-- The fetch is still running detached (the notification was for the wrapper, not the python). Meanwhile, restoring is done. Checking the art URL format.
-- Now patching in the album covers plus the two outstanding fixes:
-- 20 of 64 done. While it runs, checking the covers render:
-- Covers are in, including the acid-diamond placeholder for Glostik originals with no iTunes match. Checking the wide layout:
+- Both deploys landed carry-forward, so neither erased the other. Confirming the final production state:
+- Production is byte-exact: the live archive page hashes identical to my local file. Now back to the originals. Running a fuzzy scan across every cached.
+- Definitive: 467 chapters across 35 videos, and the best fuzzy match for any of the 13 is 0.64 ("Cry Me A River" against "Raging River"). No naming.
+- R1 and R2 met. Waiting out the last fetches to close R3 properly:
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign skills  (0 minutes quiet, 161 replies)
-**Goal.** Not summarised by hand yet. Last input on record: look at teh Glostik Songs site redesign (fork 2) chat make some skills so we can do this for other artists acroos platforms, note the ones the band picked
+### Glostik Songs redesign and Lizz Vega emotes  (0 minutes quiet, 357 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2312x1028, displayed at 2000x889. Multiply coordinates by 1.16 to map to original image.]
 
-- Now wiring the artwork match into the per-platform report.
-- Three renames found. Two are both "JayMoe in a wig", which is exactly where a false match could hide. Verifying visually before I write any of this down.
-- Both confirmed: same artwork, renamed. The Twitch inventory I used is from before the pack shipped, so it cannot answer the Twitch question. Looking.
-- No Twitch credentials on disk. The saved Twitch inventory carries emote ids though, so I can still run the artwork match against it. Generalising the.
+- `fg2` is her on this night, not `fg1`. Let me generalize the builder and add the three.
+- Eleven built. Let me correct the two stale comments, then re-verify everything.
+- All eleven pass. Let me look at the three new ones before I call this done.
+- The bob-night cutouts are the cleanest of the set. Let me finalize the preview and record.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs experimental design  (0 minutes quiet, 539 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Oh, yeah, and that's cool. Um, I don't know if there's a way for when we click the YouTube for it to actually play as it, but YouTube in the browser. Uh, and for it to have to work on phone 
+
+- Both done. ## 1. The other chats **Talked to all of them, and the overriding stopped at 22:11.** Nothing has touched my file since. They each took.
+- Four things here. Let me enumerate them, then start with the one you asked me to do first. 1. **Inline YouTube playback** on click, working on phone.
+- New message noted — that's the days-since and last-gap I moved off the row, and I flagged it as a limitation. Let me see exactly what you're looking at.
+- Found it. The state cell renders `display:none` when a song has no state, so it **drops out of the grid and every column after it shifts left** — rows.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
