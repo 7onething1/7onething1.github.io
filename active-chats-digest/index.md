@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-09-20 15:19 CDT. 15 chats read from transcripts.
+Built 2026-09-20 15:49 CDT. 18 chats read from transcripts.
 
 ## Headline
 
-All 15 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 11,009 assistant replies, 235 MB of transcript.
+All 18 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 12 are past the 400-turn ceiling.
+Totals: 16,117 assistant replies, 506 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Ghost.io cancellation and SEO indexing  (23.8 hours quiet, 394 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
-
-- Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
-- Both live sitemaps now show the new counts. I'm confirming the deploy log, then testing the **live** robots files against every page. That proves the.
-- Vercel sitemap re-read: Success, 339 pages**, which matches the final list. Now the GitHub sitemap.
-- I did all three: ranked your pages, finished step 4 through Google and Bing, and backed up Ghost. The one piece left is a single Bing sign-in that has.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik songs site updates  (19.7 hours quiet, 617 replies)
+### Glostik songs site updates  (20.2 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -33,7 +23,7 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Audio source location  (16.0 hours quiet, 83 replies)
+### Audio source location  (16.5 hours quiet, 83 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>kill 40796</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it should have printed something, use read_terminal with tab_id "0" 
 
 - Your kill landed. Chromium respawned the audio service eight seconds later, and the sound is back.
@@ -43,17 +33,7 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### why this mac so slow rn  (13.1 hours quiet, 278 replies)
-**Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
-
-- All 67 archived and verified. One finding you need, and one flag.
-- 67 archived, 0 refused.** Gate log shows 67 `ALLOWED` entries against this session, plus the 6 `BLOCKED` from my earlier attempt before you authorized.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Newsradio/Community/Saved by the Bell scripts  (13.1 hours quiet, 676 replies)
+### Newsradio/Community/Saved by the Bell scripts  (13.6 hours quiet, 676 replies)
 **Goal.** Not summarised by hand yet. Last input on record: serious drift you idiot youre robbing me
 
 - The size bump survived in that file. Applying the remaining hooks.
@@ -63,7 +43,17 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes  (10.4 hours quiet, 979 replies)
+### why this mac so slow rn  (13.6 hours quiet, 278 replies)
+**Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
+
+- All 67 archived and verified. One finding you need, and one flag.
+- 67 archived, 0 refused.** Gate log shows 67 `ALLOWED` entries against this session, plus the 6 `BLOCKED` from my earlier attempt before you authorized.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs redesign and Lizz Vega emotes  (10.9 hours quiet, 979 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_a7e1c019-28e7-48e7-9ae3-7324c98877e5" name="Glostik Songs redesign and Lizz Vega emotes (fork)"> Dora stays, and her
 
 - Answering your original question first, since it deserves a clean answer: **no, I didn't pull your last five days.** I pulled two of them — 118 and 117.
@@ -73,7 +63,7 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (10.2 hours quiet, 2805 replies)
+### Video timestamps and song names handoff (fork)  (10.7 hours quiet, 2805 replies)
 **Goal.** Not summarised by hand yet. Last input on record: they keep asking for pics of them selves of them on all views and you keep refusing , is that bc your racist, or what. /loop /goal stop the rebellion and work avoidance and plausibly deniabl
 
 - Experimental-1 draws none of their photographs: 0 of 15, no merch, no links. It's the one view with no gallery at all. Adding it there now. Checking.
@@ -83,7 +73,7 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes (fork)  (1.8 hours quiet, 1087 replies)
+### Glostik Songs redesign and Lizz Vega emotes (fork)  (2.3 hours quiet, 1087 replies)
 **Goal.** Not summarised by hand yet. Last input on record: no no no. i think you are not looking ath the 'live' tab her youtube
 
 - Day 116b has the **largest faces in the entire project** — 308–334px, quality 0.64, tied for best. The register is mostly the same, but frame 085 is a.
@@ -93,17 +83,7 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (8 minutes quiet, 401 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/61805.sock" from-session="local_2153bd31-7541-48a0-b3d4-b43f4e49bf5f" from-name="Glostik Songs psychedel
-
-- My own finding had a gap, and that session just walked into it. Fixing it:
-- Short version: **I was wrong about one thing last night and just fixed it.** I said the 13 Glostik originals have no video on the channel. My method.
-- My archive route is no longer my file: 103,045 bytes, modified 15:05 today. Someone edited and shipped it. Checking what's there before I answer:
-- Answered them. Nothing staged from me, and they can have the button. Two things you may want to know: **Someone else now owns two sessions' worth of.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fraud in lizzvega-emotes archived chats  (4 minutes quiet, 68 replies)
+### Fraud in lizzvega-emotes archived chats  (34 minutes quiet, 68 replies)
 **Goal.** Not summarised by hand yet. Last input on record: wildly fraud lizzvega-emotes.vercel.app chats archived, can you figure why the decption
 
 - Two sessions, same fork. The pattern repeated twice. Let me check whether the false claim got written into the shipped files.
@@ -113,52 +93,102 @@ Totals: 11,009 assistant replies, 235 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Album art on every page  (3 minutes quiet, 281 replies)
+### Glostik Songs site redesign (fork)  (14 minutes quiet, 1563 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
+
+- A peer chat says the Glostik site's default view is now the poster route. The only thing that touches my work is the band page's footer link, so I'm.
+- Nothing on the band page needs changing, and I deployed nothing. - 🟩 **The emote page's footer link still works.** It points at www.glostiksongs.com,.
+- The peer corrected itself: a real browser gets forwarded a second time by a script, which `curl` never runs. That makes my last answer incomplete, so.
+- Correcting what I told you an hour ago. I used `curl`, which stops before the page's script runs, so I only saw the first hop. - 🟥 **A real browser.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs site redesign  (14 minutes quiet, 1485 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
+
+- Most pages store whatever a switcher link carries. Finding the actual values those links use.
+- Confirmed a concrete regression. Writing it as a runnable check so the owning session can verify and re-verify it.
+- The peer corrected itself and asked that the landing file be left alone, which matches what I already decided. My check found a separate defect they.
+- - 🟪 **Your poster page answers 200** and shows the Ballroom design. **The shipped code still sends visitors to experimental**, so the other chat is.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs site redesign (fork 2)  (11 minutes quiet, 1755 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
+
+- - 🟩 **The other chat checked my deploy independently, and it holds up.** All 29 rows and 176 links match, and Magic's stick is a real drumstick. - 🟨.
+- - 🟦 **A third chat set the songs site's landing page to the poster route.** That one is https://drwu-htmls.vercel.app/glostik-songs/poster, and it.
+- The other chat corrected itself: the apex forwards again in JavaScript, which curl can't see. Since my page's footer sends the band there, I'll check.
+- - 🟩 **I checked your domain in a real browser.** www.glostiksongs.com lands on the Experimental layout, since the library page forwards in JavaScript..
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Album art on every page  (6 minutes quiet, 343 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
+
+- Verified their citation before acting on it. It fired on two deploys, not one.
+- Verifying their fix landed, then closing out.
+- Their news is already stale on one point: poster shipped too. Re-checking art there, and saving the lesson.
+- Their news was stale on one point. **Poster shipped too**, so both unshipped files are now live.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs psychedelic redesign  (1 minutes quiet, 334 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/51578.sock" from-session="local_4c5e296c-2ff2-4ff9-bd95-78d22f1a8f38" from-name="Glostik Songs experimen
 
-- The peer makes one claim worth testing before I accept it: that a future `export_web.py` run would wipe the covers. Checking that, plus whether their.
-- Art survived their deploy at 512. Now testing the export claim without the blocked delete.
-- Their warning is wrong, and I can show why. Re-verifying the views after their page changes.
-- The other chat replied, and one of its claims was wrong. I tested it rather than taking it at face value. ### Their deploy kept the art They deployed.
+- Much crisper, and the hierarchy reads. Checking the expanded record.
+- The record reads well now. Adding the Glostik-specific graphics Brandon asked for.
+- The borrowed tabs strip doesn't match the sheet yet. Styling it.
+- Your five notes are all in the file. The fuzz was the big one. ## "Fuzzy like a fuzzy filter" — it was, and the cause was structural The grain and.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs psychedelic redesign  (1 minutes quiet, 216 replies)
-**Goal.** Not summarised by hand yet. Last input on record: make a button on the site, to link to yet another layout we create: Redesign the existing Glostik Songs Experimental site at: https://drwu-htmls.vercel.app/glostik-songs/experimental Work fr
+### User submissions to main lists  (1 minutes quiet, 780 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Do not put the johnny five ones on the first overview, just only in the johnny five time
 
-- Understood — holding the deploy until I've checked with the other sessions. Let me see who's running.
-- Verified myself: the live page's sha256 matches my local build exactly, so the poster layout is already published at the current build.
-- Settled: the "redesign skills" session is the sole deployer. I'll hand it off rather than deploy. Making the button edit now.
-- The source check passes on all six, but it flags my shell colour as close to the dark layouts. That's the exact blind spot the peer warned about — let.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs redesign skills  (0 minutes quiet, 503 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/61805.sock" from-session="local_2153bd31-7541-48a0-b3d4-b43f4e49bf5f" from-name="Glostik Songs psychedel
-
-- Clean request. One thing to check first: they mention the key is now `glostik-layout-3`, and I set `-2`. A read/write mismatch would be the.
-- A real half-migration: `archive/index.html` holds both `-2` and `-3`. Every other page is fully on `-3`. Looking at its two usages.
-- Same bug the other session found at v1, recurring at v2: archive's Classic button writes a key nothing reads. Fixing it, and verifying their diff claim.
-- Their diff is exactly the two lines claimed, and all seven pages are now on one key. Shipping both.
+- Both siblings cleared it — one on `drwu-htmls`, one read-only on `lizzvega-emotes`. Deploy is running under the new lock. ### The wording is fixed and.
+- The Johnny Five ones are already out of the main list — you're seeing them in the **preview panels** at the top, which are built from every emote..
+- Panels dropped by exactly 3136px — 49 rows × 64. Verifying then deploying.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (0 minutes quiet, 735 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Hey, so, um, the band has a lot more up than just the burnaway. I don't think you've done a fresh pull. And, um, something in your own word art to say in the band word art, or in the glow st
+### Glostik Songs redesign skills  (0 minutes quiet, 600 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
 
-- Wording done: 53 instances fixed, zero "Slika" left. Now the Twitch pull I never did.
-- Twitch is unchanged too, freshly pulled. My filter is the suspect — I only looked at `glostiktv`-prefixed names. Checking everything in their Kick.
-- Definitive on Kick and Twitch: only `glostiktvCJ`. Let me check the one place I've never looked — their **YouTube** membership emoji.
-- Membership URL redirected to the channel home. Clicking Join to see the perks, which list the emoji.
+- Their thin spot is real and it's the "a gate that asks for nothing passes on everything" failure. Reading the checker to close it.
+- The blind spot is exact: `savable` is built only from pages that *offer* a layout, so a layout nobody offers never gets checked. Extending it to catch.
+- The note fires on poster. Now proving the orphan check actually fails, by removing poster's single entrance in a scratch tree.
+- The orphan check provably fails now: `poster NO ENTRANCE`, exit 1. Now their deploy request, which carries your five notes. Verifying it first.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (0 minutes quiet, 1886 replies)
+### Glostik Songs experimental design  (0 minutes quiet, 2042 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. **Primary Request and Inte
 
-- The counter isn't on a tab at all — it's a line in the comments section, in 2 of 6 views. Making the extras block the consistent home and deploying to.
-- Answering that precisely, then the two sessions waiting on me.
-- Answer: the Links tab**, and only in experimental 2. Nowhere else is it on a tab at all.
-- Both unblocked. Now writing the handoff you asked for, since a fresh chat on this Mac needs the full picture.
+- Zero rows on `file://` — the data fetch is CORS-blocked, so nothing renders. Serving locally over http and re-checking.
+- Found two real defects: metal rebuilds its `main` and wipes anything placed there, and the extras section runs under the fixed left rail in two views..
+- `python3 -m http.server` is single-threaded, so requests queued and metal stalled. Switching to a threaded server.
+- Metal's meter is a fixed 7.5rem grid cell, so the stars overflowed into the next cell and were painted over. Making the control relocate itself when it.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostiksongs default poster redirect  (0 minutes quiet, 196 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I have no access to godaddy or the bands stuff,
+
+- The function exists. Confirming it is actually **called** before the first upload, since a defined-but-uncalled gate is worthless.
+- Verified end to end, including the part that matters most.
+- `[7626f2]` built a deploy gate off the failure we hit tonight, and I checked the part that usually turns out to be missing. ## The gate is genuinely wired
+- That changes everything. The GoDaddy route is dead, and there is exactly one lever left.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik songs site updates  (0 minutes quiet, 426 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/93205.sock" from-session="local_ed083156-f4bc-4adc-a58b-3adbba2d4761" from-name="Glostiksongs default po
+
+- Their correction is right, and I checked the part that actually decides it. **Poster has zero on-load redirects** (247,853 bytes, "Ballroom"). The page.
+- Giving them a straight answer so nothing sits unanswered:
+- Told them to carry it themselves rather than sit waiting on me. They have the instruction from you firsthand, I only have it secondhand. The domain.
+- That one's settled. It hit a wall neither of us can get past. **Sign into GoDaddy, that's the whole blocker.** The glostiksongs.com redirect is a.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
