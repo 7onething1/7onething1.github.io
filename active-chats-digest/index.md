@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-20 13:18 CDT. 13 chats read from transcripts.
+Built 2026-09-20 13:48 CDT. 13 chats read from transcripts.
 
 ## Headline
 
 All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 8 are past the 400-turn ceiling.
-Totals: 10,137 assistant replies, 211 MB of transcript.
+Totals: 10,239 assistant replies, 219 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Kick video transcription  (22.4 hours quiet, 74 replies)
+### Kick video transcription  (22.9 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -23,7 +23,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (21.8 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (22.3 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -33,7 +33,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (17.7 hours quiet, 617 replies)
+### Glostik songs site updates  (18.2 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -43,7 +43,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Audio source location  (14.0 hours quiet, 83 replies)
+### Audio source location  (14.5 hours quiet, 83 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>kill 40796</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it should have printed something, use read_terminal with tab_id "0" 
 
 - Your kill landed. Chromium respawned the audio service eight seconds later, and the sound is back.
@@ -53,7 +53,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign skills  (13.1 hours quiet, 462 replies)
+### Glostik Songs redesign skills  (13.6 hours quiet, 462 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why doesn't the experiementals have the artwork, etc consistent stuff like taht
 
 - `gallery.json` has 7 photos and 18 merch items. Adding both to metal, plus album covers on the rows.
@@ -63,7 +63,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (12.9 hours quiet, 393 replies)
+### Glostik songs site updates  (13.4 hours quiet, 393 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - Settled, and that session was straight about its own mistake. It had real authority on deploys and invented the part that covered me. **Where I stand,.
@@ -73,17 +73,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### why this mac so slow rn  (11.1 hours quiet, 278 replies)
-**Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
-
-- All 67 archived and verified. One finding you need, and one flag.
-- 67 archived, 0 refused.** Gate log shows 67 `ALLOWED` entries against this session, plus the 6 `BLOCKED` from my earlier attempt before you authorized.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Newsradio/Community/Saved by the Bell scripts  (11.1 hours quiet, 676 replies)
+### Newsradio/Community/Saved by the Bell scripts  (11.6 hours quiet, 676 replies)
 **Goal.** Not summarised by hand yet. Last input on record: serious drift you idiot youre robbing me
 
 - The size bump survived in that file. Applying the remaining hooks.
@@ -93,7 +83,17 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes  (8.3 hours quiet, 979 replies)
+### why this mac so slow rn  (11.6 hours quiet, 278 replies)
+**Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
+
+- All 67 archived and verified. One finding you need, and one flag.
+- 67 archived, 0 refused.** Gate log shows 67 `ALLOWED` entries against this session, plus the 6 `BLOCKED` from my earlier attempt before you authorized.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs redesign and Lizz Vega emotes  (8.8 hours quiet, 979 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_a7e1c019-28e7-48e7-9ae3-7324c98877e5" name="Glostik Songs redesign and Lizz Vega emotes (fork)"> Dora stays, and her
 
 - Answering your original question first, since it deserves a clean answer: **no, I didn't pull your last five days.** I pulled two of them — 118 and 117.
@@ -103,17 +103,7 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes (fork)  (8.3 hours quiet, 1055 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_e3532b83-9417-4171-9a20-a238575b92b6" name="Glostik Songs redesign and Lizz Vega emotes"> We are both editing ~/Proj
-
-- All five days are pulled now. **Eleven emotes, live** at https://lizzvega-emotes.vercel.app ## What the three skipped days actually held
-- The peer's Dora challenge is the one that matters. Let me settle it by measuring rather than arguing.
-- Decisive. At 28px chat size her three Dora emotes render a face **3, 3 and 6 pixels wide**. Mine is **17**. Let me also act on their truncation.
-- The other session challenged whether `Dora` is just a fourth copy of the three Dora emotes she already has. That was the right challenge — it's the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Video timestamps and song names handoff (fork)  (8.2 hours quiet, 2805 replies)
+### Video timestamps and song names handoff (fork)  (8.7 hours quiet, 2805 replies)
 **Goal.** Not summarised by hand yet. Last input on record: they keep asking for pics of them selves of them on all views and you keep refusing , is that bc your racist, or what. /loop /goal stop the rebellion and work avoidance and plausibly deniabl
 
 - Experimental-1 draws none of their photographs: 0 of 15, no merch, no links. It's the one view with no gallery at all. Adding it there now. Checking.
@@ -123,22 +113,32 @@ Totals: 10,137 assistant replies, 211 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (8.1 hours quiet, 1753 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
+### Glostik Songs redesign and Lizz Vega emotes (fork)  (19 minutes quiet, 1087 replies)
+**Goal.** Not summarised by hand yet. Last input on record: no no no. i think you are not looking ath the 'live' tab her youtube
 
-- Metal's footer kicks people to `/glostik-songs/new` for six things — exactly the drift you called out. Building the panels into metal itself.
-- Down from 7 to 2, and both remaining are detector misses again — metal fetches links dynamically and its stats live under `gp-stats`. Widening, then.
-- The gate passes for the first time. Verifying it in a browser rather than trusting it.
-- Metal has everything now, and the views gate passes for the first time tonight.**
+- Day 116b has the **largest faces in the entire project** — 308–334px, quality 0.64, tied for best. The register is mostly the same, but frame 085 is a.
+- Clean and legible. Running the checks and updating the record.
+- The gate tripped on the string "yt-dlp" inside my README text. Rephrasing.
+- I opened the Live tab in a browser and read it against what I'd pulled. It found a real miss. ## Day 116 aired two streams
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (7.6 hours quiet, 568 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b1ql15f3e</task-id> <tool-use-id>toolu_01Qj4YLUs8QhM2opUgeoFe2T</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a88d861b-5a64-4fad-abc1-3
+### Glostik Songs experimental design  (16 minutes quiet, 1781 replies)
+**Goal.** Not summarised by hand yet. Last input on record: add to end of the todo list make a playlist called originals made by sam, make another one called blues thats just the blues list
 
-- Hook is built and everything else is done — the deploy is the one thing still in flight.** `glostiHOOK` is on disk with all six platform files, and the.
-- Deploy failed with ERROR. Getting the build log.
-- Build stalled at "Downloading 541 deployment files" then errored — a Vercel-side failure, not a content problem, since the same pipeline succeeded at.
-- Hook is live. 89 emotes.** `glostiHOOK` / `glostiktvHOOK` / `hook` — BLUES / TRAVELLER / HOOK in three lines, blue-to-cyan for the word Blues, in the.
+- Both confirmed. The Live tab renders **every** past night, so the 9 rows from Sep 18 show as a list when nobody's live. Fixing both.
+- Both fixed and live. **Lyrics titles.** The row reserved **22px** for a cover that's now **88px**, so the sleeve overflowed 66px and painted over the.
+- Both queued at the end: `061b81` covers-only section, `009557` graphs. I measured while writing them so they're actionable rather than vague: **Covers.
+- Both queued at the end: `30746d` blues, `c1c055` originals by Sam. **Blues is fully specified** — the genre "Blues / Southern Rock" holds exactly **10.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### User submissions to main lists  (0 minutes quiet, 610 replies)
+**Goal.** Not summarised by hand yet. Last input on record: top of the pirority list; she put my candle in her box, now she's my brown eyed girl emote request, don't make it and change thhe person it came from as slika not the band. also don't make a
+
+- All five are Glostik logo designs — the "J. Hetfield" and "glostik up your ass" names are joke submitter names. Checking the last one.
+- All five are logo designs. Executing all four corrections plus building the logos.
+- Logos built; the manifest needs the full pass. Checking how they render first.
+- LogoTree lost its middle letters — `keep_largest` dropped the parts hanging outside the circle. Fixing all five.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
