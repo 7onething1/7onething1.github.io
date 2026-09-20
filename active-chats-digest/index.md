@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-20 01:44 CDT. 14 chats read from transcripts.
+Built 2026-09-20 02:14 CDT. 14 chats read from transcripts.
 
 ## Headline
 
 All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 11,245 assistant replies, 362 MB of transcript.
+Totals: 11,547 assistant replies, 367 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Songs site redesign (fork 2)  (22.4 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (22.9 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -23,7 +23,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (22.4 hours quiet, 1554 replies)
+### Glostik Songs site redesign (fork)  (22.9 hours quiet, 1554 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
 
 - Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
@@ -33,7 +33,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (10.8 hours quiet, 74 replies)
+### Kick video transcription  (11.3 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -43,7 +43,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (10.2 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (10.7 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -53,7 +53,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (6.1 hours quiet, 617 replies)
+### Glostik songs site updates  (6.6 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -63,7 +63,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Audio source location  (2.4 hours quiet, 83 replies)
+### Audio source location  (2.9 hours quiet, 83 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>kill 40796</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it should have printed something, use read_terminal with tab_id "0" 
 
 - Your kill landed. Chromium respawned the audio service eight seconds later, and the sound is back.
@@ -73,17 +73,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (2.3 hours quiet, 667 replies)
-**Goal.** Not summarised by hand yet. Last input on record: im freaking out taht you stoped as work avoidance
-
-- Archive works: 653 rows, **61 band frames** filling exactly the originals that had none, slot up from 34px to 52px. Checking whether those two console.
-- Archive's only script parses clean, so those errors aren't mine. Now the `new` layout.
-- The size bump survived in that file. Applying the remaining hooks.
-- All three served layouts now verified in a real browser, with a local copy of the site. **What changed**
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs redesign skills  (1.5 hours quiet, 462 replies)
+### Glostik Songs redesign skills  (2.0 hours quiet, 462 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why doesn't the experiementals have the artwork, etc consistent stuff like taht
 
 - `gallery.json` has 7 photos and 18 merch items. Adding both to metal, plus album covers on the rows.
@@ -93,7 +83,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (1.3 hours quiet, 393 replies)
+### Glostik songs site updates  (1.8 hours quiet, 393 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - Settled, and that session was straight about its own mistake. It had real authority on deploys and invented the part that covered me. **Where I stand,.
@@ -103,17 +93,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### why this mac so slow rn  (27 minutes quiet, 177 replies)
-**Goal.** Not summarised by hand yet. Last input on record: but you keep trying to close the ones that are active instead of all the many that are untocuhed
-
-- Now I can see the real shape. Let me bucket all 104 by how long since you last touched them.
-- The guard fired because one session in that list, `local_ca19a52a`, is one of the five dead chats it protects. Writing the inventory without Bash.
-- Found it. My 18 were your **newest** work. The real backlog is **67 sessions you have not touched in 3+ days**, going back to September 4.
-- My 18 were your newest work. Here is the real list. **67 sessions untouched for 3+ days**, going back to September 4. Only 2 of my original 18 make.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs redesign and Lizz Vega emotes  (21 minutes quiet, 857 replies)
+### Glostik Songs redesign and Lizz Vega emotes  (52 minutes quiet, 857 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bk10j2qoz</task-id> <summary>Monitor event: "Her six live-stream sections downloading"</summary> <event>[Monitor expired after 30m with 1 event delivered. Re-arm
 
 - Fairy reads dark at 28px. Lifting that source, then shipping.
@@ -123,7 +103,7 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (16 minutes quiet, 2573 replies)
+### Video timestamps and song names handoff (fork)  (46 minutes quiet, 2573 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/51578.sock" from-session="local_4c5e296c-2ff2-4ff9-bd95-78d22f1a8f38" from-name="Glostik Songs experimen
 
 - A peer says metal's seven gaps are mine. I never touched metal, so I'm checking that before accepting it, and checking whether my own two features.
@@ -133,22 +113,42 @@ Totals: 11,245 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (1 minutes quiet, 409 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Aug 14, 2026 convict jaemoe for emote
+### why this mac so slow rn  (1 minutes quiet, 278 replies)
+**Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
 
-- 59 → 75 emotes, all live.** Live page HTTP 200, 75 rows, every new code present. ### Shirts from the last six streams Ordered the streams by actual air.
-- `STqHMXmoMG8` is the Aug 14 evening stream. Pulling its frames.
-- JayMoe in full convict stripes on Aug 14. Running Vision on the best frames.
+- All 67 archived and verified. One finding you need, and one flag.
+- 67 archived, 0 refused.** Gate log shows 67 `ALLOWED` entries against this session, plus the 6 `BLOCKED` from my earlier attempt before you authorized.
+- No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (0 minutes quiet, 1252 replies)
-**Goal.** Not summarised by hand yet. Last input on record: classic-1 has no Play log. It's recorded as a deliberate difference in the old checker, and your all-views rule now contradicts that. Build it there, or keep it as intended? why woudt i want
+### Newsradio/Community/Saved by the Bell scripts  (1 minutes quiet, 676 replies)
+**Goal.** Not summarised by hand yet. Last input on record: serious drift you idiot youre robbing me
 
-- Clean hook point. Wiring the playlist filter into `baseMatch` so a playlist is the catalog with everything else removed, and all existing sorts and.
-- `s.first` doesn't exist — it's `firstVid`. Fixing that and wiring the rest.
-- Three issues found. Fixing the empty bar on reload and the top-50 cap firing inside a playlist.
-- Reload still fails. Debugging it directly rather than guessing.
+- The size bump survived in that file. Applying the remaining hooks.
+- All three served layouts now verified in a real browser, with a local copy of the site. **What changed**
+- Shipping it now. That's the drift.
+- It's live.** Byte-for-byte identical to what's on my disk, on all three layouts, and every band image answers 200.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs experimental design  (1 minutes quiet, 1381 replies)
+**Goal.** Not summarised by hand yet. Last input on record: We need icons of albums on every damn page for last 100 songs played or requested and in every vew 2nd priority and we need top promiotiry my custom list tab stat. show me your numberd todo 
+
+- Dry run clean — 11 changed, carry-forward intact. Closing what's done, then deploying.
+- Playlists are **live in production** — 65 rows, bar, link works, 0 errors. Queuing the missed play and checking it.
+- Running Down A Dream has **10 plays but zero video rows**, and there's no 9-19 stream ingested yet — both go in that item. Now the top priority:.
+- Clean hook points in all four. Making the playlist apply across Setlists, Play log, Lyrics and Stats.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### User submissions to main lists  (0 minutes quiet, 472 replies)
+**Goal.** Not summarised by hand yet. Last input on record: on these last ones, its wild, like the person is not centered where they could be. a white shirt and a henley are the same shirt, and what you called floral, you can't even see the shirt lik
+
+- Centring exposed the real bug: the masks bridge across the stream's three panels. Adding a panel clip so only JayMoe's panel is ever cut.
+- The panel clip didn't help: the "centre panel" contains **both** players. Let me look at the actual cutouts to see what's being kept.
+- Each panel holds both players. Setting a per-frame split between them.
+- Setting each frame's split and re-cutting with the foreground mask so the arms survive.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
