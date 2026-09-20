@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-19 23:39 CDT. 15 chats read from transcripts.
+Built 2026-09-20 00:09 CDT. 15 chats read from transcripts.
 
 ## Headline
 
 All 15 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 13,046 assistant replies, 399 MB of transcript.
+Totals: 13,189 assistant replies, 403 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Songs site redesign  (22.4 hours quiet, 1442 replies)
+### Glostik Songs site redesign  (22.9 hours quiet, 1442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - That last doc line points at my session scratch folder, which won't last. Moving the outage tests next to the page tests and pointing the doc there.
@@ -23,7 +23,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (22.1 hours quiet, 1669 replies)
+### Video timestamps and song names handoff  (22.6 hours quiet, 1669 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - The other chat is deploying the two fixes you gave it: - **Broke:** the unnamed original, Song A, is now Broke on 6 shows. - **Mars:** it's merged into.
@@ -33,7 +33,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (20.4 hours quiet, 1554 replies)
+### Glostik Songs site redesign (fork)  (20.9 hours quiet, 1554 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
 
 - Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
@@ -43,7 +43,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork 2)  (20.4 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (20.9 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -53,7 +53,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (8.8 hours quiet, 74 replies)
+### Kick video transcription  (9.3 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -63,7 +63,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (8.1 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (8.6 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -73,7 +73,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (7.4 hours quiet, 2355 replies)
+### Video timestamps and song names handoff (fork)  (7.9 hours quiet, 2355 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it was last night, also after than, find online youtube video of glostik live performances of orginals and add them in linked like others
 
 - 26 of the 39 are linked now. Before shipping, I'm checking that each chapter label really names that song and isn't just a partial word match.
@@ -83,7 +83,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (4.0 hours quiet, 617 replies)
+### Glostik songs site updates  (4.5 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -93,7 +93,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Audio source location  (19 minutes quiet, 83 replies)
+### Audio source location  (49 minutes quiet, 83 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>kill 40796</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it should have printed something, use read_terminal with tab_id "0" 
 
 - Your kill landed. Chromium respawned the audio service eight seconds later, and the sound is back.
@@ -103,7 +103,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (16 minutes quiet, 667 replies)
+### Newsradio/Community/Saved by the Bell scripts  (46 minutes quiet, 667 replies)
 **Goal.** Not summarised by hand yet. Last input on record: im freaking out taht you stoped as work avoidance
 
 - Archive works: 653 rows, **61 band frames** filling exactly the originals that had none, slot up from 34px to 52px. Checking whether those two console.
@@ -113,7 +113,7 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (8 minutes quiet, 383 replies)
+### Glostik songs site updates  (38 minutes quiet, 383 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Oh. Hello. Wake up. Hello. Wake up. Yeah. Hello. Huh. It took so long for you to populate that text. Okay. So what are you saying? What do you need me to do? that was an info dump. You know 
 
 - Two sessions are now each telling me they speak for you, and they say opposite things:
@@ -123,42 +123,42 @@ Totals: 13,046 assistant replies, 399 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (5 minutes quiet, 788 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/72147.sock" from-session="local_0e278f95-7c08-49b6-9c8b-42498d870aac" from-name="Glostik Songs redesign 
+### Glostik Songs redesign and Lizz Vega emotes  (22 minutes quiet, 703 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b4sjkg3r0</task-id> <tool-use-id>toolu_01UEDrkz25FVkMYqmbEnjsEp</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a1aa73da-fc43-4141-9e18-5
 
-- The `.nav` CSS was lost in that same recovery. Writing it fresh.
-- Stats reads well, and the genre bars confirm the fix live (**Grunge 20**, Jam/Roots 70). Let me confirm the nav offset actually took.
-- Fixed — nav starts at 331px, exactly the rail width, no overlap. Handing the deploy over with the markup they asked for.
-- Two flags first, then the build.** **1. You gave two sessions opposite instructions within the hour.** You told me to stand the others down and roll.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs redesign and Lizz Vega emotes  (1 minutes quiet, 679 replies)
-**Goal.** Not summarised by hand yet. Last input on record: . So I don't know how we're miscommunicating so hard, but this is wild. We just have to start over. I mean, there's maybe three of those we can use. Just focus on... Uh, I mean, focus on... 
-
-- Six distinct reactions. Running the checks and regenerating.
-- Two things to settle: an orphan file, and a magenta reading on Penny.
-- Edge is clean — the magenta is her own mouth paint, which the inner count confirms. Now the record and the site.
-- The intro still says "four different looks." Fixing that.
+- A static baby photo, not her. Worth having looked. Now r2, which reported zero.
+- Both are static childhood photos with lyric text, not wide shots. Correcting the record.
+- The zip on the live site carries that README, so let me rebuild and redeploy it.
+- The last two downloads finished after I'd already written the record, so I checked the claim I'd made and one part of it was wrong. **The correction:**.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (1 minutes quiet, 203 replies)
+### User submissions to main lists  (14 minutes quiet, 249 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 2048x1280, displayed at 2000x1250. Multiply coordinates by 1.02 to map to original image.]
 
-- You're right. Queueing is for something I can't do, and I can do this. Starting Laurel now. Plan: pull his actual Laurel art from the ChatGPT.
-- The conversation is right there in Recents: "Create Laurel Grateful Dead Versions".
-- Adding those five to the run. Checklist for this pass: **Laurel batch, #1 Supporter, Friends Don't Let Friends Get Haircuts, Play Originals, Johnny.
-- Found his two Laurel sheets in the conversation. Saving them.
+- Apostrophe in a single-quoted note broke it. Repairing in place.
+- All seven read. Adding the page copy for the 20, then the full rebuild.
+- 59 built. Updating the README and shipping.
+- Laurel is built, not queued. **39 → 59 emotes, all live.** ### Laurel, all fifteen I pulled your actual sheet out of the ChatGPT conversation rather.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign skills  (0 minutes quiet, 405 replies)
-**Goal.** Not summarised by hand yet. Last input on record: what the fuck no, this is the landing page https://drwu-htmls.vercel.app/glostik-songs/new smh
+### Glostik Songs experimental design  (2 minutes quiet, 823 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/72147.sock" from-session="local_0e278f95-7c08-49b6-9c8b-42498d870aac" from-name="Glostik Songs redesign 
 
-- Guard is tripping on my heredocs. Using the browser, which is the right tool anyway since this is client-side behaviour.
-- Reproduced exactly. With no stored choice at all, `/glostik-songs/new` stays put and never forwards. The redirect only exists on `/glostik-songs`, and.
-- Zero redirects in `/new`. Adding the same first-visit forward it already has on `/glostik-songs`, with a backup.
-- Now testing the URL you actually used, from a clean browser, plus the tabs on the page it lands on.
+- Escape hatches all work. But this exposes a break in **my** file: I have 4 bare links to `/new`, and the ones without `data-layout` now bounce straight.
+- All four now record the choice. Let me verify the round trip actually works.
+- Round trip is clean end to end. Telling the peer what they missed and handing over the files.
+- Their fix is correct and I verified it on production. But **the rename missed two files**, and I found a bug of my own in the same pass. ## The audit I.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs redesign skills  (0 minutes quiet, 443 replies)
+**Goal.** Not summarised by hand yet. Last input on record: why doesn't the experiementals have the artwork, etc consistent stuff like taht
+
+- Verifying their audit myself across every page, rather than trusting the table.
+- Confirmed, and my miss is real: I named four files by hand instead of enumerating every page. Fixing `archive/` with a backup.
+- Every page migrated. Shipping all three changed files together.
+- Good question, and it is checkable. Auditing which pages use the artwork and the band photos.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
