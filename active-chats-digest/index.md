@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-09-20 02:45 CDT. 14 chats read from transcripts.
+Built 2026-09-20 03:15 CDT. 14 chats read from transcripts.
 
 ## Headline
 
 All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 11,644 assistant replies, 368 MB of transcript.
+Totals: 11,723 assistant replies, 368 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Songs site redesign (fork)  (23.4 hours quiet, 1554 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
-
-- Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
-- Fork 2's deploy is live with 29 emotes. As I told Brandon, I'm checking it myself: the live page, the retired WorstDrummer links, and a look at the.
-- I checked fork 2's latest deploy myself, and the band page is in good shape with 29 emotes: https://glostik-emotes.vercel.app - 🟩 **BurnAway leads the.
-- Grin's pink-line fix is built, but it isn't on the live page yet. - 🟩 **The fix works.** The pink edge pixels on the big Kick file dropped from 425 to.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs site redesign (fork 2)  (23.4 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (23.9 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -33,7 +23,17 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (11.8 hours quiet, 74 replies)
+### Glostik Songs site redesign (fork)  (23.9 hours quiet, 1554 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
+
+- Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
+- Fork 2's deploy is live with 29 emotes. As I told Brandon, I'm checking it myself: the live page, the retired WorstDrummer links, and a look at the.
+- I checked fork 2's latest deploy myself, and the band page is in good shape with 29 emotes: https://glostik-emotes.vercel.app - 🟩 **BurnAway leads the.
+- Grin's pink-line fix is built, but it isn't on the live page yet. - 🟩 **The fix works.** The pink edge pixels on the big Kick file dropped from 425 to.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Kick video transcription  (12.4 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -43,7 +43,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (11.2 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (11.7 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -53,7 +53,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (7.1 hours quiet, 617 replies)
+### Glostik songs site updates  (7.6 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -63,7 +63,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Audio source location  (3.4 hours quiet, 83 replies)
+### Audio source location  (3.9 hours quiet, 83 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>kill 40796</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it should have printed something, use read_terminal with tab_id "0" 
 
 - Your kill landed. Chromium respawned the audio service eight seconds later, and the sound is back.
@@ -73,7 +73,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign skills  (2.5 hours quiet, 462 replies)
+### Glostik Songs redesign skills  (3.0 hours quiet, 462 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why doesn't the experiementals have the artwork, etc consistent stuff like taht
 
 - `gallery.json` has 7 photos and 18 merch items. Adding both to metal, plus album covers on the rows.
@@ -83,7 +83,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (2.3 hours quiet, 393 replies)
+### Glostik songs site updates  (2.8 hours quiet, 393 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - Settled, and that session was straight about its own mistake. It had real authority on deploys and invented the part that covered me. **Where I stand,.
@@ -93,7 +93,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and Lizz Vega emotes  (1.4 hours quiet, 857 replies)
+### Glostik Songs redesign and Lizz Vega emotes  (1.9 hours quiet, 857 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bk10j2qoz</task-id> <summary>Monitor event: "Her six live-stream sections downloading"</summary> <event>[Monitor expired after 30m with 1 event delivered. Re-arm
 
 - Fairy reads dark at 28px. Lifting that source, then shipping.
@@ -103,7 +103,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (1.3 hours quiet, 2573 replies)
+### Video timestamps and song names handoff (fork)  (1.8 hours quiet, 2573 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/51578.sock" from-session="local_4c5e296c-2ff2-4ff9-bd95-78d22f1a8f38" from-name="Glostik Songs experimen
 
 - A peer says metal's seven gaps are mine. I never touched metal, so I'm checking that before accepting it, and checking whether my own two features.
@@ -113,7 +113,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### why this mac so slow rn  (32 minutes quiet, 278 replies)
+### why this mac so slow rn  (1.0 hours quiet, 278 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yeah you can run it if it wont affect my current 7 live chats
 
 - All 67 archived and verified. One finding you need, and one flag.
@@ -123,7 +123,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (32 minutes quiet, 676 replies)
+### Newsradio/Community/Saved by the Bell scripts  (1.0 hours quiet, 676 replies)
 **Goal.** Not summarised by hand yet. Last input on record: serious drift you idiot youre robbing me
 
 - The size bump survived in that file. Applying the remaining hooks.
@@ -133,7 +133,7 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (11 minutes quiet, 485 replies)
+### User submissions to main lists  (41 minutes quiet, 485 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on these last ones, its wild, like the person is not centered where they could be. a white shirt and a henley are the same shirt, and what you called floral, you can't even see the shirt lik
 
 - Each panel holds both players. Setting a per-frame split between them.
@@ -143,12 +143,12 @@ Totals: 11,644 assistant replies, 368 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs experimental design  (1 minutes quiet, 1465 replies)
-**Goal.** Not summarised by hand yet. Last input on record: hight priority take of the limit on requests per day on to learn
+### Glostik Songs experimental design  (0 minutes quiet, 1544 replies)
+**Goal.** Not summarised by hand yet. Last input on record: add that black hole sun is always with lizz. whats on your to do list
 
-- The forwarder code is right — the bug is a **stale pin in your browser**, and my change caused it. Adding `data-layout="classic"` to `/new`'s "Classic.
-- Zero old-key references left. Deploying the redirect fix and proving it with a clean browser holding a stale `classic` pin.
-- Fixed and live.** A browser holding the stale `classic` pin — yours — now lands on `/glostik-songs/experimental`. A new visitor does too, 653 rows..
-- No prose turn recorded for this slot.
+- All five filter to 234, but Hurt is missing from four of them. Debugging that directly.
+- My regex was wrong, not the page — the row text runs together as `219HurtJohnny Cash`, so `\bHurt\b` never matched. **Hurt is there, at row 219, marked.
+- Live in all five views.** "Kinda due" = 15 to 364 days since the last play. **234 songs**, and Hurt is one of them — it shows **Kinda due, Jul 31, 51.
+- Checking Black Hole Sun's current credit and where the "with" comes from.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
