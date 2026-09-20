@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-19 20:38 CDT. 13 chats read from transcripts.
+Built 2026-09-19 21:08 CDT. 14 chats read from transcripts.
 
 ## Headline
 
-All 13 chats ended on a gate block, 0 on a message from Brandon.
+All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 10,630 assistant replies, 331 MB of transcript.
+Totals: 10,710 assistant replies, 332 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Fix sung-text guard blocking quoted pipes  (1.0 days quiet, 63 replies)
+### Fix sung-text guard blocking quoted pipes  (1.1 days quiet, 63 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fix a false positive in ~/.claude/hooks/guard_sung_text.py (a PreToolUse hook on Read|Grep|Bash, wired in ~/.claude/settings.json). Machine: MacBookPro, user brandonchavez. The bug: wide_rea
 
 - The out-of-scope gaps are confirmed. I'll put them in a one-click follow-up chip so this change stays narrow.
@@ -23,7 +23,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Restore the babysitter's lost signature write  (23.4 hours quiet, 197 replies)
+### Restore the babysitter's lost signature write  (23.9 hours quiet, 197 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>boihwniqv</task-id> <summary>Monitor event: "quiet-board REFRESH, failures and watchdog runs on the live babysitter"</summary> <event>21:14:07 LOG 21:13:49 no ch
 
 - The first live `no change` stamp since 2026-09-07 18:32:52 has landed. I will confirm that the cycle skipped the render and the GitHub push, and that.
@@ -33,7 +33,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Add argument guard to daily_update.py  (23.3 hours quiet, 10 replies)
+### Add argument guard to daily_update.py  (23.8 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Goal: add a strict argument guard to `daily_update.py` and `route_guard.py`, modelled on the 2026-09-18 fix in `site_deploy.py`, and prove that neither.
@@ -43,7 +43,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (21.1 hours quiet, 33 replies)
+### Volume limit  (21.6 hours quiet, 33 replies)
 **Goal.** Not summarised by hand yet. Last input on record: TURN OFF THE VOLUME LIMIT
 
 - The limit is your `volcap` tool. The memory note says the ceiling was set to 50% at 05:34 this morning. Before I change anything, I'll check its.
@@ -53,7 +53,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign  (19.4 hours quiet, 1442 replies)
+### Glostik Songs site redesign  (19.9 hours quiet, 1442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98237.sock" from-session="local_65a389b0-a769-40aa-946e-6d0144912457" from-name="Video timestamps and so
 
 - That last doc line points at my session scratch folder, which won't last. Moving the outage tests next to the page tests and pointing the doc there.
@@ -63,7 +63,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff  (19.0 hours quiet, 1669 replies)
+### Video timestamps and song names handoff  (19.5 hours quiet, 1669 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/57450.sock" from-session="local_d304ca0b-8017-4b72-be75-84514bd57875" from-name="Video timestamps and so
 
 - The other chat is deploying the two fixes you gave it: - **Broke:** the unnamed original, Song A, is now Broke on 6 shows. - **Mars:** it's merged into.
@@ -73,7 +73,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (17.3 hours quiet, 1554 replies)
+### Glostik Songs site redesign (fork)  (17.8 hours quiet, 1554 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/43498.sock" from-session="local_a25fe5bf-7223-43c5-a769-b574b9c13fe3" from-name="Glostik Songs site rede
 
 - Fork 2 has the band page for your latest ask: WorstDrummer comes off, and a batch of funny, positive ones goes on, with laughing, cheering and hype.
@@ -83,7 +83,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork 2)  (17.3 hours quiet, 1733 replies)
+### Glostik Songs site redesign (fork 2)  (17.8 hours quiet, 1733 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/55602.sock" from-session="local_bb58c6da-c2c5-4f3e-aa01-13816ed909b1" from-name="Glostik Songs site rede
 
 - The other chat checked my deploy on its own and flagged one thing: a thin pink line from the stream room's pink wall along Grin's hair. It scores 425.
@@ -93,7 +93,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick video transcription  (5.7 hours quiet, 74 replies)
+### Kick video transcription  (6.2 hours quiet, 74 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/file-getter # File Getter — MP4 / WAV → Text Transcription ## Core Tool **faster-whisper** with the `base` model. Free, loc
 
 - The channel's video list works. Next I'll find the VOD whose `video.uuid` matches the link and read its stream source.
@@ -103,7 +103,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ghost.io cancellation and SEO indexing  (5.1 hours quiet, 394 replies)
+### Ghost.io cancellation and SEO indexing  (5.6 hours quiet, 394 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bhm41fy26</task-id> <tool-use-id>toolu_01AqJYzfrUvxQJs1Z6RAD9Wg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e2ad5396-3514-4455-9804-f
 
 - Deploy #3 is still building. At 9,335 files, the last two took 2 to 4 minutes each. Two background jobs will wake me the moment it's live: the deploy.
@@ -113,7 +113,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video timestamps and song names handoff (fork)  (4.3 hours quiet, 2355 replies)
+### Video timestamps and song names handoff (fork)  (4.8 hours quiet, 2355 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it was last night, also after than, find online youtube video of glostik live performances of orginals and add them in linked like others
 
 - 26 of the 39 are linked now. Before shipping, I'm checking that each chapter label really names that song and isn't just a partial word match.
@@ -123,7 +123,7 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik songs site updates  (1.0 hours quiet, 617 replies)
+### Glostik songs site updates  (1.5 hours quiet, 617 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://streamersonglist.com/t/glostiktv/saved-requests
 
 - All six landed with their log history and live links. **Chase You Away has 118 plays, Golem In The Shed 79, Drunk Dad 59.** Those counts moved out of.
@@ -133,12 +133,22 @@ Totals: 10,630 assistant replies, 331 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (59 minutes quiet, 489 replies)
+### Newsradio/Community/Saved by the Bell scripts  (1.5 hours quiet, 489 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Okay, I guess, but remember, you were supposed to um, find News Radio with speaker, right? Do you, do you have that? And is it shared? Because what is the speaker index XLX6? For News
 
 - Straight answer first: no, we do not have NewsRadio with speaker names.** What exists is partial. Let me quantify it, check the sharing, and go hunting.
 - Found a real lead: fan transcripts posted to the alt.tv.newsradio newsgroup, which usually carry speaker names. Checking a plain-HTML mirror of that group.
 - Two mirrors are down or blocking. Opening the Google Groups thread in the built-in browser instead, which is a normal site.
 - No, I don't have NewsRadio with speaker names, and I should have led with that instead of the index.** **What the index actually is.** A 97-row.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Songs experimental design  (4 minutes quiet, 80 replies)
+**Goal.** Not summarised by hand yet. Last input on record: resue glositk songs site updates chat but instead focus on We are adding an experimental alternate design for the Glostik Songs page at `https://drwu-htmls.vercel.app/glostik-songs/new`. Fir
+
+- Checklist registered. Writing the feature-parity audit and backing up the stable page.
+- Let me check the existing layout-parity harness before writing, since reusing it beats hand-rolling verification.
+- Let me ground the color choices with an actual contrast check before writing.
+- Palette validated: every token clears 3:1 on both surfaces. Now building the experimental page.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
