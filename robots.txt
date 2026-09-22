@@ -25,5 +25,8 @@ Allow: /sorcery-vs-magic-top-40$
 Allow: /sorcery-vs-magic-top-40/
 Allow: /weatherman-device$
 Allow: /weatherman-device/
+Allow: /on-brand$
+Allow: /on-brand/
 
 Sitemap: https://7onething1.github.io/sitemap.xml
+Sitemap: https://7onething1.github.io/on-brand/sitemap.xml
