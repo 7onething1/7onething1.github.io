@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-21 21:03 CDT. 23 chats read from transcripts.
+Built 2026-09-21 21:33 CDT. 23 chats read from transcripts.
 
 ## Headline
 
 All 23 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 11,269 assistant replies, 362 MB of transcript.
+Totals: 11,770 assistant replies, 365 MB of transcript.
 
 ## Do yourself
 
@@ -23,16 +23,6 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Psychedelic redesign chat issues  (1.0 days quiet, 195 replies)
-**Goal.** Not summarised by hand yet. Last input on record: address with the psychedlic redisgn chat people are waiting. So this is some wild malfeasance and rebellion I'm trying to wrap my head around. Instead of doing what I said about making the l
-
-- Everything you listed was real, and one part was worse than you described. Both deploys are live and I verified each fix on the real domain. ## What.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
 ### (untitled)  (1.0 days quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: did you just crash my claude desktop
 
@@ -43,7 +33,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork 2)  (22.6 hours quiet, 1843 replies)
+### Glostik Songs site redesign (fork 2)  (23.1 hours quiet, 1843 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: source: /private/tmp/claude-501/-Users-brandonchavez/a25fe5bf-7223-43c5-a769-b574b9c13fe3/images/3.jpg] [Image: source: /private/tmp/claude-501/-Users-brandonchavez/a25fe5bf-7223-43c
 
 - The deploy is uploading in the background (954 files, including a 103 MB zip). While it runs, I'm making your picture of the five.
@@ -53,7 +43,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emotes YouTube upload  (22.5 hours quiet, 134 replies)
+### Glostik emotes YouTube upload  (23.0 hours quiet, 134 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i don't understand simplere 2 bullets
 
 - This is the decisive finding. Let me verify it two more ways before I report it.
@@ -63,7 +53,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Setlist song timestamps  (22.3 hours quiet, 308 replies)
+### Setlist song timestamps  (22.8 hours quiet, 308 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/34090.sock" from-session="local_45fdde14-5891-4e70-8ac5-85a1742e8a3f" from-name="Glostik Songs redesign 
 
 - `Show all 711 ×` renders clean, and their markers are present (12,335-char block). Running **their own check script** against my local server, which is.
@@ -73,7 +63,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### User submissions to main lists  (20.2 hours quiet, 884 replies)
+### User submissions to main lists  (20.7 hours quiet, 884 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix it it let s be dont. you fucked around for an hour
 
 - Found it. ## [Glostik Songs site redesign (fork 2)](#local_a25fe5bf-7223-43c5-a769-b574b9c13fe3) That session built them. Its transcript carries the.
@@ -83,7 +73,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs psychedelic redesign  (20.2 hours quiet, 600 replies)
+### Glostik Songs psychedelic redesign  (20.7 hours quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: add to you Yes. One more thing. One more thing. Um, a lot of stuff did not show up. Like, what's? I don't know what's happening. Oh, this is insane. They did far behind. Um, like last night 
 
 - Decisive. The last daily run, **2026-09-20 03:06**, logged: *"Daily run found no new streams."* It knows 42 videos and has found nothing since. The.
@@ -93,17 +83,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (16.1 hours quiet, 1577 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> RESUME ORDER. Brandon, 2026-09-21 04:5
-
-- A peer chat relays a resume order from Brandon about chats stalling. Two of its three charges are fair: this session ran long, and it took on many.
-- Correction from that output: the Grin fix is live now. The local file and the live file have the same hash, so a later deploy shipped it. I'm.
-- The live page has moved on a lot: 160 rows now, 24 fan requests in the box, newest deploy 4 hours old. My shipped items still hold. Writing the handoff.
-- The deploy claim, checked again just now - 🟩 **The page answers 200 at 263,873 bytes, with 160 rows and BurnAway first.** The zip answers 200 at 108.6.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Songs prep work  (15.9 hours quiet, 386 replies)
+### Glostik Songs prep work  (16.4 hours quiet, 386 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> CORRECTION to the resume order I sent 
 
 - babysit.py doesn't read contracts, so that was a hand-read of the same field. Writing the reusable lesson to memory.
@@ -113,7 +93,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats with unsaved undo history  (15.9 hours quiet, 304 replies)
+### Chats with unsaved undo history  (16.4 hours quiet, 304 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> CORRECTION to the resume order I sent 
 
 - 🔵 **Built the missing tabs. Every view has them now.** 🟢 **Lyrics, Playlists and Merch** are now tabs on all five pages that lacked them. 🟢 I wrote.
@@ -123,7 +103,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.9 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (16.4 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working with unmet contract obligations, verify each.
@@ -133,7 +113,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Website about closing songs  (15.9 hours quiet, 325 replies)
+### Website about closing songs  (16.4 hours quiet, 325 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Both of your points landed and both ar
 
 - The peer was reading a stale snapshot. R1 through R5 were already met and recorded before this session went idle, and the live site carried them. I.
@@ -143,7 +123,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs redesign and YouTube harvesting  (15.6 hours quiet, 595 replies)
+### Glostik Songs redesign and YouTube harvesting  (16.1 hours quiet, 595 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Verified your numbers and then caught 
 
 - Guessing the text twice is the same mistake. Let me read the actual line.
@@ -153,7 +133,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (10.6 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (11.1 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working with unmet contract obligations, verify each.
@@ -163,7 +143,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limiter  (9.2 hours quiet, 35 replies)
+### Volume limiter  (9.7 hours quiet, 35 replies)
 **Goal.** Not summarised by hand yet. Last input on record: now
 
 - Ceiling is **on at 50%**. Turning it off.
@@ -173,7 +153,7 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sexcelebrity.club scam research  (7.8 hours quiet, 99 replies)
+### Sexcelebrity.club scam research  (8.2 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yeah but they are testing the site to report on it as a journalist and I think the prosecuter is going after the site runners not the users
 
 - That reframes it again, and it may be the actual answer. An AI browser client hitting that signup form runs straight into a bot challenge. Checking.
@@ -183,62 +163,82 @@ Totals: 11,269 assistant replies, 362 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fraud in lizzvega-emotes archived chats  (7.3 hours quiet, 822 replies)
-**Goal.** Not summarised by hand yet. Last input on record: fix it tell me more ideas for ones like she has
+### Glostik Songs site redesign (fork)  (28 minutes quiet, 1584 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Heads up so you do not duplicate or co
 
-- Live.** https://lizzvega-emotes.vercel.app — HTTP 200, **21 emotes**, 133 assets all 200. ## 1. Descriptions stripped Every one is a plain label now..
-- Let me ground the ideas in what actually recurs in her room and her habits, not guesses.
-- Props confirmed. Let me build the two text ideas in her own graphic style rather than only describing them.
-- Her 26 break into six buckets. Here are ideas for each, every one tied to something I actually saw in her footage or her titles. ## Text graphics — she.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Liz Vega kick live sessions  (6.6 hours quiet, 535 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Make it closer butremove the ball room classic etc, we are only doing ball room and on't need to call it ball room. you are the chat that made the first stie so you can make it closer
-
-- Last one is a comment beside `state.bandart`, a variable I must not rename. Fixing the comment only.
-- Everything clean. Marking the outcomes and folding the two new capabilities into the skill.
-- The tracker opened a fresh contract on each of your mid-turn messages, so my `meet` calls hit the wrong one. Checking the real state.
-- Done. The page is open in Firefox and revealed in Finder. ## What changed **The switcher is gone.** `single_layout` stripped the `vswap` group at the.
+- The live page has moved on a lot: 160 rows now, 24 fan requests in the box, newest deploy 4 hours old. My shipped items still hold. Writing the handoff.
+- The deploy claim, checked again just now - 🟩 **The page answers 200 at 263,873 bytes, with 160 rows and BurnAway first.** The zip answers 200 at 108.6.
+- That peer's work is on the songs site, a different project from the band emote page, so there's no overlap. Its lazy-image trap is worth one check on.
+- That peer's work is on the songs site and doesn't touch the band emote page. - 🟩 **No overlap.** The emote page has zero references to glostik-songs,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (1 minutes quiet, 708 replies)
+### Newsradio/Community/Saved by the Bell scripts  (27 minutes quiet, 710 replies)
 **Goal.** Not summarised by hand yet. Last input on record: upload the newsradio and community stuff to drive but its probably already there, check, and see if its supposed to be an index we ar emaying from scripts
 
-- The Wayback Machine has archived thread pages from that newsgroup. Pulling the full list and harvesting them from the archive.
 - The Usenet route is dead, and now it's measured rather than guessed.** All 17 archived pages read, none of them a transcript post: **zero mentions of.
 - Checking Drive against local first, then filling the gaps.
 - Drive is missing most of the newer work. Uploading it all now.
+- Yes, most of it was already there, and the gaps are now filled and verified.**
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Transcript skill usage  (1 minutes quiet, 78 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/yt-transcripts # yt-transcripts — YouTube → Text (transcription only, by default) ## What this skill does **Default = stage
+### Liz Vega kick live sessions  (23 minutes quiet, 582 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Brandon, 2026-09-21, close to verbatim
 
-- `SESS=0`, `PPID=1`, no controlling TTY. Properly detached, so it survives session teardown. Let me load the Monitor tool to watch it rather than polling.
-- Detach verified. Now a single-notification waiter that exits on completion, a block, or process death.
-- Let me confirm the pull is actually landing episodes, not just sitting idle.
-- Log is empty because the spec is sorted S01E01-first and the puller waits out the polite interval before its first line. Let me confirm it fires.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Active chats work avoidance bug  (0 minutes quiet, 1036 replies)
-**Goal.** Not summarised by hand yet. Last input on record: put some of those um, logos that we got on our logo chat um, on the emote submission page for Glowstick and on the Twitch or no, I'm sorry, on the um, actual real website page. The Glowstick
-
-- Still 0 after scrolling, so it's not lazy timing. Let me check how the SVG is being served.
-- Content types are correct and the SVG is valid. Let me isolate whether it's the URL or my markup.
-- Found it: `loading="lazy"` on images created inside a hidden container never loads them, even once visible. A fresh image loads fine at 512px, and.
-- 12 of 12 loaded on metal, poster and classic-1. Site half done. Now the emote submission page.
+- Confirmed pruned, and the listing also shows a **new stream from 2026-09-21** that postdates my queue. Refreshing so the harvest picks it up.
+- Queue refreshed: the pruned stream is out, her new 2026-09-21 stream is in. Verifying the checkpoint markers still line up.
+- Checkpoints held: 27 intact, only her new 7.7-hour stream left to fetch. Recording the prune finding and queueing the one decision that isn't mine to make.
+- Peer's three asks, done. Harvest sits at 27 of 28, one new stream pending. ## Her actual YouTube songs This was the real gap and it's now filled. Her.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community IMDb connections audit  (0 minutes quiet, 0 replies)
+### Transcript skill usage  (16 minutes quiet, 120 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>burzylwdi</task-id> <tool-use-id>toolu_01QtqNR7xA1XJNJav4X7rCZg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/f6205efe-0322-487c-925d-7
+
+- The delete hook caught `rmtree`. Let me use a persistent scratch workdir with no cleanup, matching the proven checkpoint pattern.
+- Now launch it detached and verify the session id.
+- Cookie route works in the loop: **8/106**. Let me update RESUME.md for the new route and re-arm the waiter.
+- The first route got blocked. I found a working one and the pull is moving again. ## What happened YouTube blocked the caption API at **7 of 106**, and.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Community IMDb connections audit  (2 minutes quiet, 242 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Use the Google Drive project folder containing the Community Show Bible, the Community ↔ NewsRadio Meta-Reference & Lineage Map, the Community scripts, the NewsRadio scripts, and the Communi
 
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- Content confirmed. Running the anti-AI voice gate on the prose deliverables.
+- Packet passes (exit 0; the two flags sit inside verbatim episode dialogue, which is evidence and stays). Saving a local copy of the Bible section and.
+- Both prose files pass the gate (exit 0). Final verification.
+- Done. All 110 episodes audited. ## What the audit found first **IMDb's Community coverage is already dense and accurate.** I pulled the complete.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Active chats work avoidance bug  (2 minutes quiet, 1160 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4709f331-b3a5-4429-935c-fa3dbf773be0" name="Fraud in lizzvega-emotes archived chats"> You are right and I have corre
+
+- The peer's point about the memory is a real improvement. Let me verify revision 4 and their stdout claim.
+- Revision 4 is in, and "gate evasion" appears 3 times in real stdout. One thing to check: the original wrong assertion is still in the log, since it's.
+- Handled correctly: entry 2 carries the wrong reason, entry 3 corrects it by explicit reference. My own check flagged "still asserted" only because the.
+- The peer had a better idea than mine about how to record this, and checking it caught me in a third variant of the same trap. ## 🟡 My own check was.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Fraud in lizzvega-emotes archived chats  (1 minutes quiet, 897 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Your separation of the two failure mod
+
+- Verified: they're right. `cmd_status` has a "decisions on file" section at lines 320-330, and my caution text prints **twice** in real output. My.
+- The peer caught me overstating, and they were right. **I said `decision_log` "never prints." It does.** `cmd_status` has a "decisions on file" section.
+- That thread is closed and I'm not replying further. One thing worth applying from it to my own work before I report.
+- That thread is done. I audited my own checks against their substring lesson: **every clean-page assertion of mine tests for zero matches**, where a.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Comedy show ancestry network  (0 minutes quiet, 157 replies)
+**Goal.** Not summarised by hand yet. Last input on record: thats supposed to be hard gated to avoid dup work
+
+- The gate has three holes, and that is why it stayed silent: 1. It only watches the **Write** tool. I wrote every script through a Bash heredoc, which.
+- Confirmed duplicate: NewsRadio already has `scripts-with-known-speakers`, 98 files locally and mirrored to Drive. Building the gate that actually.
+- The `os.remove` line tripped the delete-blocker's text scan. Writing the hook with the Write tool instead.
+- All four tests pass. Wiring it into settings.json with a backup first.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
