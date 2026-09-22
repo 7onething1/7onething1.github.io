@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-22 05:38 CDT. 26 chats read from transcripts.
+Built 2026-09-22 06:09 CDT. 26 chats read from transcripts.
 
 ## Headline
 
 All 26 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 11,049 assistant replies, 228 MB of transcript.
+Totals: 11,112 assistant replies, 228 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (19.2 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (19.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working with unmet contract obligations, verify each.
@@ -53,7 +53,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limiter  (17.8 hours quiet, 35 replies)
+### Volume limiter  (18.3 hours quiet, 35 replies)
 **Goal.** Not summarised by hand yet. Last input on record: now
 
 - Ceiling is **on at 50%**. Turning it off.
@@ -63,7 +63,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sexcelebrity.club scam research  (16.3 hours quiet, 99 replies)
+### Sexcelebrity.club scam research  (16.9 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yeah but they are testing the site to report on it as a journalist and I think the prosecuter is going after the site runners not the users
 
 - That reframes it again, and it may be the actual answer. An AI browser client hitting that signup form runs straight into a bot challenge. Checking.
@@ -73,7 +73,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Songs site redesign (fork)  (8.6 hours quiet, 1584 replies)
+### Glostik Songs site redesign (fork)  (9.1 hours quiet, 1584 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Heads up so you do not duplicate or co
 
 - The live page has moved on a lot: 160 rows now, 24 fan requests in the box, newest deploy 4 hours old. My shipped items still hold. Writing the handoff.
@@ -83,7 +83,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Transcript skill usage  (8.4 hours quiet, 120 replies)
+### Transcript skill usage  (8.9 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>burzylwdi</task-id> <tool-use-id>toolu_01QtqNR7xA1XJNJav4X7rCZg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/f6205efe-0322-487c-925d-7
 
 - The delete hook caught `rmtree`. Let me use a persistent scratch workdir with no cleanup, matching the proven checkpoint pattern.
@@ -93,7 +93,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fraud in lizzvega-emotes archived chats  (8.1 hours quiet, 897 replies)
+### Fraud in lizzvega-emotes archived chats  (8.6 hours quiet, 897 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Your separation of the two failure mod
 
 - Verified: they're right. `cmd_status` has a "decisions on file" section at lines 320-330, and my caution text prints **twice** in real output. My.
@@ -103,7 +103,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Houses of the Holy analysis  (6.7 hours quiet, 231 replies)
+### Houses of the Holy analysis  (7.2 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: submit the song remains the same connection too /goal fix everything perfect
 
 - All four age claims now have exact citations, and IMDb's own S4E16 goof supplies the birthdate anchor. Rewriting the packet with the new submission.
@@ -113,7 +113,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (6.7 hours quiet, 714 replies)
+### Newsradio/Community/Saved by the Bell scripts  (7.2 hours quiet, 714 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> RESUME ORDER. Brandon, just now: "the 
 
 - Drive is missing most of the newer work. Uploading it all now.
@@ -123,7 +123,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Comedy show ancestry network  (6.5 hours quiet, 350 replies)
+### Comedy show ancestry network  (7.0 hours quiet, 350 replies)
 **Goal.** Not summarised by hand yet. Last input on record: A session-scoped Stop hook is now active with condition: "all". Briefly acknowledge the goal, then immediately start (or continue) working toward it — treat the condition itself as your dire
 
 - Workbook rebuilt with four named tables. Updating the README, then re-uploading.
@@ -133,7 +133,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.3 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (6.8 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working with unmet contract obligations, verify each.
@@ -143,7 +143,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound issue  (6.1 hours quiet, 81 replies)
+### Sound issue  (6.6 hours quiet, 81 replies)
 **Goal.** Not summarised by hand yet. Last input on record: restart my claude sessions stop playing shit and forgeting yo udid it be a better baby siter
 
 - Sound is off and your volume is back at 38, unmuted. Firefox is still alive, so NewsRadio should be fine. **Why I was slow: I guessed instead of.
@@ -153,7 +153,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community IMDb connections audit  (5.9 hours quiet, 294 replies)
+### Community IMDb connections audit  (6.5 hours quiet, 294 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/community-imdb-audit/IMDb_SUBMISSION_PACKET.md</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it shou
 
 - S3E10 isn't on this Mac (only 12 S1 files and 5 S2 files exist locally). Checking a second independent text source instead, returning only the.
@@ -163,7 +163,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats work avoidance fraud  (5.5 hours quiet, 315 replies)
+### Active chats work avoidance fraud  (6.0 hours quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> If you were the pass that un-retired 1
 
 - Songs are back up. 16 of your own originals had been pulled off the list.** ## What broke Your instruction on 2026-09-21 was *"the original tab is only.
@@ -173,7 +173,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### NDN Kars fixes  (5.0 hours quiet, 221 replies)
+### NDN Kars fixes  (5.5 hours quiet, 221 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i asked for ndn kars and stuff to be fixed etc 5 hours ago https://drwu-htmls.vercel.app/glostik-songs/poster
 
 - Let me confirm the page itself renders correctly, not just the data behind it.
@@ -183,7 +183,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Album art display issue  (2.9 hours quiet, 212 replies)
+### Album art display issue  (3.4 hours quiet, 212 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brp9quwfx</task-id> <summary>Monitor event: "Lizz fuzzy cover pass progress and finish"</summary> <event>[Monitor expired after 30m with no events delivered. Re-
 
 - Monitor silent for 30 minutes, which is unexpected. Checking the chained job.
@@ -193,7 +193,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega kick live sessions  (2.8 hours quiet, 1126 replies)
+### Liz Vega kick live sessions  (3.3 hours quiet, 1126 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bj1fec9ks</task-id> <summary>Monitor event: "Lizz Vega processing: stream completions, named lists, current-run crashes, write activity"</summary> <event>WATCH A
 
 - Spans are complete, but the deep files are 86 minutes old (from the pre-crash run) while something wrote 3.6 minutes ago. Let me see what.
@@ -203,7 +203,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats work avoidance bug  (2.7 hours quiet, 1954 replies)
+### Active chats work avoidance bug  (3.2 hours quiet, 1954 replies)
 **Goal.** Not summarised by hand yet. Last input on record: # /loop — schedule a recurring or self-paced prompt Parse the input below into `[interval] <prompt…>` and schedule it. ## Parsing (in priority order) 1. **Leading token**: if the first white
 
 - Five are authoritative. Three returned cover artists rather than the real release, so probing those harder before I attach anything.
@@ -213,7 +213,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.7 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (3.2 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. Goal: find chats from the last 24 hours that stopped working with unmet obligations, verify each one is still.
@@ -223,7 +223,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (2.5 hours quiet, 1 replies)
+### (untitled)  (3.0 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is my firefox youtube staleed
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****2gAA is invalid
@@ -233,7 +233,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.5 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (3.0 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. Goal: find chats from the last 24 hours that stopped working with unmet contract outcomes, verify each one at.
@@ -243,7 +243,7 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega animated emotes  (2.2 hours quiet, 505 replies)
+### Lizz Vega animated emotes  (2.7 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
 - Both sets verify clean. Running the platform checker and the fringe scan on the final state.
@@ -253,22 +253,22 @@ Totals: 11,049 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### UST streamer list vs YouTube lives site  (0 minutes quiet, 856 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b1ps65ndi</task-id> <tool-use-id>toolu_012eySQWJYAPZU2hhfAy2K1J</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/b49ab943-36ec-4801-979d-4
+### Missing stream links and artwork  (22 minutes quiet, 491 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/81667.sock" from-session="local_1a3a9ca6-60f4-47cc-864b-39c05d4ad03b" from-name="UST streamer list vs Yo
 
-- The hook is right that the test is unverified. Let me watch it.
-- Manifest shows the loudness pass ran (1 take). The guard runs after transcription completes, so it has not been reached yet. Watching for it.
-- The test is running and I am not calling it before it lands. ## 🧪 What is in flight `83LVPVKvGUU` is reprocessing with `--calib loudness` back on and.
-- The guard fired end to end. Now the actual acceptance test: does the song survive?
+- No image is stuck on screen — 0 unpainted in viewport before and after a full scroll. The real question is whether a hidden tab's images load once you.
+- Splitting the work since the hidden pane is slow.
+- Every real text failure is gone. Only the unfilled rating-star outlines remain, which is correct.
+- Both findings were real, and checking them myself turned up more than the report contained. ## Contrast: 49 failures, not 12 The token was the first.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Missing stream links and artwork  (0 minutes quiet, 460 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/81667.sock" from-session="local_1a3a9ca6-60f4-47cc-864b-39c05d4ad03b" from-name="UST streamer list vs Yo
+### UST streamer list vs YouTube lives site  (3 minutes quiet, 888 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [stop fucking me over]: No message from Brandon appears in the transcript confirming that the problems have been resolved, that he is no longer being harmed, or that the 
 
-- Re-sweeping, this time counting opacity the way paint actually works.
-- Fixing the chips exposed the real pattern: the colour passes but **stacked `opacity` declarations push it back under**. Better to bake the fade into.
-- Down from 49 failures to 5 groups. Computing the last four fixes.
-- All four clear at full opacity. Applying the last fixes.
+- The peer found the mirror image of my bug, and it is my file. Fixed both halves. ## 🔧 `page_truth.py` now reads opacity It read `color` and ignored.
+- Both questions answered, and the no-fallback path is now proven end to end.
+- The no-fallback path is now proven end to end, which was the gap I flagged. ## ✅ Both questions answered `dkNEshBOLx4` — the 32-minute music stream.
+- Both guard paths are now measured on real streams, which closes the gap I flagged. ## 🔀 The guard distinguishes her two stream types
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
