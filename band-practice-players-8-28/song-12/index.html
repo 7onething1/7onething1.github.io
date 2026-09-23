@@ -279,6 +279,12 @@ footer{
       </label>
     </div>
 
+    <div class="loopbar" id="srcbar">
+      <span class="tag">Source</span>
+      <button id="srcTape">Tape, 3-mic blend</button>
+      <button id="srcMix" class="on">Ableton master mix</button>
+    </div>
+
     <div class="loopbar">
       <span class="tag">A/B loop</span>
       <button id="setA">Set A</button>
@@ -291,7 +297,7 @@ footer{
     <div class="err" id="err"></div>
 
     <audio id="audio" preload="metadata">
-      <source src="audio/song-12.m4a" type="audio/mp4">
+      <source src="/band-practice-players-8-28/song-12/audio/song-12-ableton-mix.m4a" type="audio/mp4">
 
     </audio>
   </section>
@@ -309,8 +315,9 @@ footer{
   <h2>Downloads</h2>
   <p class="body">This take is a time-aligned blend of THREE microphone feeds from the 24-bit 44.1 kHz masters, which arrived 2026-09-01. GCC-PHAT at three points across the tape reads every mic within one sample of the others, so they were recorded sample-locked on one interface and are summed at zero offset, then averaged so the mix cannot clip. A fourth feed exists and is left out: it measures 26.9 dB below mic1 and would add noise rather than signal. Head alignment against the old 24 kbps transcode measured -0.070 s at 0.866 correlation, so the timecodes carried over with no re-detection.</p>
   <div class="dl">
-    <a href="audio/song-12.m4a" download>M4A / AAC 160 kbps <span class="sz">2.3 MB</span></a>
+    <a href="/band-practice-players-8-28/song-12/audio/song-12.m4a" download>M4A / AAC 160 kbps <span class="sz">2.3 MB</span></a>
 
+    <a href="/band-practice-players-8-28/song-12/audio/song-12-ableton-mix.m4a" download>Ableton master mix, M4A / AAC 160 kbps <span class="sz">2.5 MB</span></a>
   </div>
 
   <h2>Keyboard</h2>
@@ -521,9 +528,23 @@ footer{
     showErr('The audio file did not load. Try the direct download links below.');
   });
 
+  /* ---------- source switch (Ableton master mix added 2026-09-23) ---------- */
+  function loadPeaks(u){ fetch(u).then(function(r){return r.json();}).then(function(j){ peaks=j.peaks; rms=j.rms; if(j.duration) DUR=j.duration; draw(); tick(); }).catch(function(){}); }
+  function setSrc(which){
+    var t=audio.currentTime||0, wasPlaying=!audio.paused;
+    audio.src = which==='mix' ? '/band-practice-players-8-28/song-12/audio/song-12-ableton-mix.m4a' : '/band-practice-players-8-28/song-12/audio/song-12.m4a';
+    loadPeaks(which==='mix' ? '/band-practice-players-8-28/song-12/peaks-mix.json' : '/band-practice-players-8-28/song-12/peaks.json');
+    document.getElementById('srcMix').classList.toggle('on', which==='mix');
+    document.getElementById('srcTape').classList.toggle('on', which!=='mix');
+    audio.addEventListener('loadedmetadata', function f(){ audio.removeEventListener('loadedmetadata',f); audio.currentTime=Math.min(t,audio.duration||t); if(wasPlaying) audio.play(); });
+    audio.load();
+  }
+  document.getElementById('srcTape').addEventListener('click', function(){ setSrc('tape'); });
+  document.getElementById('srcMix').addEventListener('click', function(){ setSrc('mix'); });
+
   /* ---------- boot ---------- */
   draw();
-  fetch('peaks.json')
+  fetch('/band-practice-players-8-28/song-12/peaks-mix.json')
     .then(function(r){ if(!r.ok) throw new Error('peaks '+r.status); return r.json(); })
     .then(function(j){
       peaks = j.peaks; rms = j.rms;
