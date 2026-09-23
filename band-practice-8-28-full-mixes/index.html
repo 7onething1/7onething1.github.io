@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8-28 Full Mixes</title>
+<style>
+:root{--cream:#F4EAD5;--ink:#141210;--rust:#B5533C;--mustard:#D9A441;--sage:#7C8C6B;--teal:#4E7A82;--line:#D8C9A8;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Iowan Old Style",Georgia,serif;padding:0 16px}
+.wrap{max-width:880px;margin:0 auto;padding:48px 0 80px}
+h1{font-size:2.1rem;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:#6b6257;margin:0 0 32px;font-size:.95rem}
+h2{font-size:1.15rem;margin:40px 0 12px;padding-left:12px;border-left:5px solid var(--rust)}
+h2.g{border-color:var(--sage)} h2.m{border-color:var(--mustard)} h2.t{border-color:var(--teal)}
+table{width:100%;border-collapse:collapse;font-size:.9rem;background:#fffaf0}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#EFE2C6;font-weight:700}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.ok{color:var(--sage);font-weight:700}
+.note{color:var(--mustard);font-weight:700}
+.skip{color:#9a9086;font-weight:700}
+code{background:#EFE2C6;padding:1px 5px;border-radius:3px;font-size:.85em}
+ul{padding-left:20px} li{margin:6px 0}
+.box{background:#fffaf0;border:1px solid var(--line);padding:16px 18px;border-radius:4px}
+@media(max-width:560px){table{font-size:.8rem}th,td{padding:6px 5px}}
+</style></head><body><div class="wrap">
+<h1>8-28 Band Practice, Full Mixes</h1>
+<p class="sub">11 songs exported from one Ableton Live 11 set on 2026-09-22. Song 17 skipped, exported separately.</p>
+
+<h2>Every file, checked against the set's own clip data</h2>
+<table><thead><tr><th>Song</th><th>Render start</th><th class="n">Bars</th><th class="n">Expected</th><th class="n">Actual</th><th class="n">WAV</th><th>Match</th></tr></thead><tbody>
+<tr><td>11</td><td><code>113.1.1</code></td><td class="n">272.00</td><td class="n">534.5 s</td><td class="n">544.0 s</td><td class="n">91.5 MB</td><td class="note">tail +9.5 s</td></tr>
+<tr><td>13</td><td><code>513.1.1</code></td><td class="n">317.75</td><td class="n">635.5 s</td><td class="n">635.5 s</td><td class="n">106.9 MB</td><td class="ok">exact</td></tr>
+<tr><td>10</td><td><code>865.1.1</code></td><td class="n">62.25</td><td class="n">124.5 s</td><td class="n">124.5 s</td><td class="n">20.9 MB</td><td class="ok">exact</td></tr>
+<tr><td>12</td><td><code>961.1.1</code></td><td class="n">60.25</td><td class="n">120.5 s</td><td class="n">120.5 s</td><td class="n">20.3 MB</td><td class="ok">exact</td></tr>
+<tr><td>14</td><td><code>1057.1.1</code></td><td class="n">82.25</td><td class="n">164.5 s</td><td class="n">164.5 s</td><td class="n">27.7 MB</td><td class="ok">exact</td></tr>
+<tr><td>15</td><td><code>1185.1.1</code></td><td class="n">241.75</td><td class="n">483.5 s</td><td class="n">483.5 s</td><td class="n">81.3 MB</td><td class="ok">exact</td></tr>
+<tr><td>17</td><td>&mdash;</td><td class="n">810.25</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="skip">skipped</td></tr>
+<tr><td>18</td><td><code>2347.2.1</code></td><td class="n">161.00</td><td class="n">322.0 s</td><td class="n">322.0 s</td><td class="n">54.2 MB</td><td class="ok">exact</td></tr>
+<tr><td>19</td><td><code>2546.3.1</code></td><td class="n">286.25</td><td class="n">572.5 s</td><td class="n">572.5 s</td><td class="n">96.3 MB</td><td class="ok">exact</td></tr>
+<tr><td>20</td><td><code>2866.3.1</code></td><td class="n">98.25</td><td class="n">196.5 s</td><td class="n">196.5 s</td><td class="n">33.1 MB</td><td class="ok">exact</td></tr>
+<tr><td>21</td><td><code>2994.3.1</code></td><td class="n">138.25</td><td class="n">276.5 s</td><td class="n">276.5 s</td><td class="n">46.5 MB</td><td class="ok">exact</td></tr>
+<tr><td>22</td><td><code>3154.3.1</code></td><td class="n">137.75</td><td class="n">275.5 s</td><td class="n">275.5 s</td><td class="n">46.3 MB</td><td class="ok">exact</td></tr>
+</tbody></table>
+<p class="sub" style="margin-top:10px">10 of 11 match to the millisecond. Song 11 used the loop region already sitting in the session (113 to 385), which runs 9.5 s past its clips. Extra tail, nothing cut. Tempo 120 BPM 4/4, so 1 bar = 2.000 s. Durations read with <code>afinfo</code>, bar spans parsed from the <code>.als</code>.</p>
+
+<h2 class="g">How the region was set each time</h2>
+<div class="box"><ul>
+<li><strong>Bar positions came from the set file, not from pixels.</strong> The <code>.als</code> is gzipped XML. Parsing <code>AudioClip</code> for <code>CurrentStart</code> and <code>CurrentEnd</code> gives every song's exact extent.</li>
+<li><strong>Every song has one clip spanning its whole length on the Kick track.</strong> Clicking that clip's title bar sets the time selection to its exact extent, and the Export dialog inherits it.</li>
+<li><strong>Read back before rendering.</strong> Render Start and Render Length were confirmed on screen for all 11 before Export was clicked, then the finished duration was checked against the bar count.</li>
+<li><strong>Exact extent instead of padding.</strong> A mis-aimed pad click can shorten a song, so each render used the clip's own boundaries.</li>
+</ul></div>
+
+<h2 class="m">Export settings, unchanged</h2>
+<div class="box"><p style="margin:0">Rendered Track <strong>Master</strong>. Include Return and Master Effects <strong>Off</strong>. Render as Loop <strong>Off</strong>. Convert to Mono <strong>Off</strong>. Normalize <strong>Off</strong>. Create Analysis File <strong>On</strong>. <strong>44100 Hz, WAV 16-bit</strong>, No Dither, plus <strong>MP3 CBR 320</strong>. Only the filename changed between songs.</p></div>
+
+<h2 class="t">Where the files are</h2>
+<div class="box"><p style="margin:0 0 8px"><code>~/Projects/_outputs/band-practice-8-28-full-mixes/</code></p>
+<p style="margin:0">788 MB total. Each song has a <code>.wav</code>, a <code>.mp3</code> at 320, and Live's <code>.asd</code> analysis files. A <code>README.md</code> beside them repeats this table. The <code>.als</code> was not saved, only the window size and arrangement zoom changed, and no clip moved.</p></div>
+</div></body></html>
