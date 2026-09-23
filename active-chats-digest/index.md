@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-22 21:45 CDT. 50 chats read from transcripts.
+Built 2026-09-22 22:15 CDT. 52 chats read from transcripts.
 
 ## Headline
 
-All 50 chats ended on a gate block, 0 on a message from Brandon.
+All 52 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 14,389 assistant replies, 186 MB of transcript.
+Totals: 15,435 assistant replies, 212 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Houses of the Holy analysis  (22.8 hours quiet, 231 replies)
+### Houses of the Holy analysis  (23.4 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: submit the song remains the same connection too /goal fix everything perfect
 
 - All four age claims now have exact citations, and IMDb's own S4E16 goof supplies the birthdate anchor. Rewriting the packet with the new submission.
@@ -23,7 +23,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/Community/Saved by the Bell scripts  (22.8 hours quiet, 714 replies)
+### Newsradio/Community/Saved by the Bell scripts  (23.3 hours quiet, 714 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> RESUME ORDER. Brandon, just now: "the 
 
 - Drive is missing most of the newer work. Uploading it all now.
@@ -33,7 +33,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Comedy show ancestry network  (22.6 hours quiet, 350 replies)
+### Comedy show ancestry network  (23.1 hours quiet, 350 replies)
 **Goal.** Not summarised by hand yet. Last input on record: A session-scoped Stop hook is now active with condition: "all". Briefly acknowledge the goal, then immediately start (or continue) working toward it — treat the condition itself as your dire
 
 - Workbook rebuilt with four named tables. Updating the README, then re-uploading.
@@ -43,7 +43,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.4 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (22.9 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working with unmet contract obligations, verify each.
@@ -53,7 +53,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Sound issue  (22.2 hours quiet, 81 replies)
+### Sound issue  (22.8 hours quiet, 81 replies)
 **Goal.** Not summarised by hand yet. Last input on record: restart my claude sessions stop playing shit and forgeting yo udid it be a better baby siter
 
 - Sound is off and your volume is back at 38, unmuted. Firefox is still alive, so NewsRadio should be fine. **Why I was slow: I guessed instead of.
@@ -63,7 +63,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community IMDb connections audit  (22.0 hours quiet, 294 replies)
+### Community IMDb connections audit  (22.6 hours quiet, 294 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/community-imdb-audit/IMDb_SUBMISSION_PACKET.md</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it shou
 
 - S3E10 isn't on this Mac (only 12 S1 files and 5 S2 files exist locally). Checking a second independent text source instead, returning only the.
@@ -73,7 +73,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats work avoidance fraud  (21.6 hours quiet, 315 replies)
+### Active chats work avoidance fraud  (22.1 hours quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> If you were the pass that un-retired 1
 
 - Songs are back up. 16 of your own originals had been pulled off the list.** ## What broke Your instruction on 2026-09-21 was *"the original tab is only.
@@ -83,7 +83,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### NDN Kars fixes  (21.1 hours quiet, 221 replies)
+### NDN Kars fixes  (21.6 hours quiet, 221 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i asked for ndn kars and stuff to be fixed etc 5 hours ago https://drwu-htmls.vercel.app/glostik-songs/poster
 
 - Let me confirm the page itself renders correctly, not just the data behind it.
@@ -93,7 +93,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Album art display issue  (19.0 hours quiet, 212 replies)
+### Album art display issue  (19.5 hours quiet, 212 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brp9quwfx</task-id> <summary>Monitor event: "Lizz fuzzy cover pass progress and finish"</summary> <event>[Monitor expired after 30m with no events delivered. Re-
 
 - Monitor silent for 30 minutes, which is unexpected. Checking the chained job.
@@ -103,7 +103,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Active chats work avoidance bug  (18.8 hours quiet, 1954 replies)
+### Active chats work avoidance bug  (19.3 hours quiet, 1954 replies)
 **Goal.** Not summarised by hand yet. Last input on record: # /loop — schedule a recurring or self-paced prompt Parse the input below into `[interval] <prompt…>` and schedule it. ## Parsing (in priority order) 1. **Leading token**: if the first white
 
 - Five are authoritative. Three returned cover artists rather than the real release, so probing those harder before I attach anything.
@@ -113,7 +113,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (18.8 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (19.3 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. Goal: find chats from the last 24 hours that stopped working with unmet obligations, verify each one is still.
@@ -123,7 +123,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (18.6 hours quiet, 1 replies)
+### (untitled)  (19.1 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is my firefox youtube staleed
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****2gAA is invalid
@@ -133,7 +133,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (18.6 hours quiet, 2 replies)
+### Stop malfeasance and fraud  (19.1 hours quiet, 2 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. Goal: find chats from the last 24 hours that stopped working with unmet contract outcomes, verify each one at.
@@ -143,7 +143,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Missing stream links and artwork  (15.2 hours quiet, 540 replies)
+### Missing stream links and artwork  (15.8 hours quiet, 540 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/81667.sock" from-session="local_1a3a9ca6-60f4-47cc-864b-39c05d4ad03b" from-name="UST streamer list vs Yo
 
 - The one thing still worth doing: a fixture with wrong expected values is worse than no fixture, and they already caught themselves on exactly that.
@@ -153,7 +153,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 45% sound limit revert  (15.2 hours quiet, 38 replies)
+### 45% sound limit revert  (15.7 hours quiet, 38 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% sound limit back one
 
 - Goal:** put the 45% output-volume cap back on and prove it is enforcing. **Phase 1** — find the cap: locate `com.brandonchavez.volumecap`, its plist.
@@ -163,7 +163,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### UST streamer list vs YouTube lives site  (15.1 hours quiet, 1066 replies)
+### UST streamer list vs YouTube lives site  (15.6 hours quiet, 1066 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [stop fucking me over]: The transcript contains no message from Brandon confirming that the problems have been resolved or that he is no longer being harmed. The conditio
 
 - The work is finished and verified. This gate needs your word, not another pass from me.
@@ -173,7 +173,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (7.3 hours quiet, 14 replies)
+### Stop malfeasance and fraud  (7.8 hours quiet, 14 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stalled on unmet work, verify each one at send time, and push.
@@ -183,7 +183,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### PDF conversion  (5.2 hours quiet, 89 replies)
+### PDF conversion  (5.7 hours quiet, 89 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Checking whether the `<b>` runs are actually rendering bold, at higher resolution.
@@ -193,7 +193,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube stream timestamps and links  (4.9 hours quiet, 155 replies)
+### YouTube stream timestamps and links  (5.4 hours quiet, 155 replies)
 **Goal.** Not summarised by hand yet. Last input on record: doe her picture rotate yet, we keep getting asked
 
 - Goal:** find why her poster shows no stream timestamps and no per-song stream links, and name every gap against the Glostik page it was cloned from. -.
@@ -203,7 +203,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega site banner and song timestamps  (4.6 hours quiet, 248 replies)
+### Lizz Vega site banner and song timestamps  (5.2 hours quiet, 248 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - Correction: free space went back up to 7.11 GB. That 1 GB/min reading was a single sample of a number that swings, so my "fills in 0.1 hours".
@@ -213,7 +213,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat test archive recovery  (3.2 hours quiet, 708 replies)
+### Chat test archive recovery  (3.7 hours quiet, 708 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Re-check the GLOSTIK site (not Lizz, another chat owns Lizz). Run: python3 ~/Projects/_outputs/glostik-site-check/check.py . It probes all 8 layouts plus the data files, runs the five-views 
 
 - That's **another chat's work**, not mine: a dock minimize feature answering "the minimize isn't working. And so it's blocking text." Testing whether.
@@ -223,7 +223,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.0 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (3.5 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. Plan first, then execution. **Goal:** find chats from the last 24 hours that stopped working with open.
@@ -233,7 +233,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glosti chat secret stream link  (2.8 hours quiet, 282 replies)
+### Glosti chat secret stream link  (3.3 hours quiet, 282 replies)
 **Goal.** Not summarised by hand yet. Last input on record: retired is being moved yes, not on the top bar
 
 - Metal passes now. Checking the last four views.
@@ -243,7 +243,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega site QA  (2.6 hours quiet, 1409 replies)
+### Lizz Vega site QA  (3.1 hours quiet, 1409 replies)
 **Goal.** Not summarised by hand yet. Last input on record: rusme
 
 - The pane reports a zero-height viewport, so a screenshot would prove nothing. The layout measurements above are the real evidence. Recording the state.
@@ -253,7 +253,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ok  (2.5 hours quiet, 141 replies)
+### ok  (3.0 hours quiet, 141 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go
 
 - My Desktop only shows two items, and none of the folders CLAUDE.md references. Let me find out whether this session is sandboxed before I read anything.
@@ -263,7 +263,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Local VPN location rotation utility  (2.5 hours quiet, 180 replies)
+### Local VPN location rotation utility  (3.0 hours quiet, 180 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>sudo python3 ~/Projects/vpn-rotate/vpn_rotate.py</bash-input><bash-stdout>Password: [The user typed into the terminal pane (tab c1) while this command was running, so output afte
 
 - Clean signal. Wiring it so Mullvad is skipped when it can't actually connect.
@@ -273,7 +273,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### On Brand production website  (2.4 hours quiet, 305 replies)
+### On Brand production website  (2.9 hours quiet, 305 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go
 
 - Out loud: curling our own live page, not fetching a corpus.**
@@ -283,7 +283,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Divorce documents Gmail search  (1.8 hours quiet, 252 replies)
+### Divorce documents Gmail search  (2.3 hours quiet, 252 replies)
 **Goal.** Not summarised by hand yet. Last input on record: um, we have the final parenting plan that was signed so don't worry about her proposals and there should be what I emailed that had all my financials and her financials too so we could figur
 
 - The **Mar 12 draft** uses a true 2-2-3 rotation ("Parent A" and "Parent B," alternating weeks, exchanges at 8:00 am or school start), which is 50/50..
@@ -293,7 +293,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega TODO handoff  (1.8 hours quiet, 404 replies)
+### Lizz Vega TODO handoff  (2.3 hours quiet, 404 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - The log doesn't name the files. Listing what changed under the site folder in the last three hours, backups left out.
@@ -303,7 +303,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.6 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (2.1 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** Run the anti-malfeasance sweep, send verified resume orders to stalled chats, log each nudge, and write the report. - **Phase 1:** Run the.
@@ -313,7 +313,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega animated emotes  (1.6 hours quiet, 514 replies)
+### Lizz Vega animated emotes  (2.1 hours quiet, 514 replies)
 **Goal.** Not summarised by hand yet. Last input on record: is it done
 
 - 40 emotes animated, 157 GIFs, all verified.** Your stream was still live so I recorded 85 minutes of Night 119 and cut the swoon set from that, which.
@@ -323,7 +323,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Experimental styles performance  (1.2 hours quiet, 318 replies)
+### Experimental styles performance  (1.7 hours quiet, 318 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go
 
 - The evidence validator wants structured, checkable records for empirical claims, not free-text notes. R4 and R5 are empirical (a URL, a file state) so.
@@ -333,17 +333,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega animated emotes chat  (1.2 hours quiet, 176 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2472x340, displayed at 2000x275. Multiply coordinates by 1.24 to map to original image.]
-
-- The README gate passes at exit 0 with a score of 2, which means my new sentence tripped something. I'm finding it and tightening it.
-- README gate score 0. Now I'm adding the removal to the audit note.
-- Audit note gate score 0. Closing the tracker, revealing the pack in Finder, and sending you the new preview.
-- I removed the 11 animated emotes that broke mid-loop.** The pack now holds 29 animated emotes in 116 GIFs, and both checks pass on them. **What was.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix verify.mjs __learn crash in Glostik layout_parity full run  (1.0 hours quiet, 231 replies)
+### Fix verify.mjs __learn crash in Glostik layout_parity full run  (1.5 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
 
 - All four checklist items are met, each with evidence. I'll grab the exact line numbers for the file links.
@@ -353,7 +343,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five band feedback page  (54 minutes quiet, 261 replies)
+### Johnny Five band feedback page  (1.4 hours quiet, 261 replies)
 **Goal.** Not summarised by hand yet. Last input on record: faser
 
 - Two changes: remove the "The band's line to Claude Code" line, and cut the lead down to "Post a change you want on the Glostik site. Johnny Five picks.
@@ -363,7 +353,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Add the missing visit-counter session guard to 5 Glostik views  (21 minutes quiet, 161 replies)
+### Add the missing visit-counter session guard to 5 Glostik views  (51 minutes quiet, 161 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_bfa7aea6 ("Guard the Lizz Vega visit counter per session") in a separate local session. It is running independently. Yo
 
 - The tracker contract is closed. One claim still needs grounding before I write it up. I read the parity suite's "POST, POST, GET, POST" as a load plus.
@@ -373,7 +363,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Retire stale checks in the Glostik layout parity suite  (17 minutes quiet, 32 replies)
+### Retire stale checks in the Glostik layout parity suite  (47 minutes quiet, 32 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_db36c36c-b5ba-4a18-a577-248fe5c5782f" name="Chats touched to day 6 most recent"> Wake-up: pick your task back up whe
 
 - Now the pages, the API handlers, production routing, and the last report.
@@ -383,17 +373,7 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats touched to day 6 most recent  (16 minutes quiet, 59 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwt95qhp1</task-id> <tool-use-id>toolu_01A1WFQtq8RyShGGXwxTaPPR</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3008900c-477c-4988-9160-a
-
-- All six messages were delivered, and the tool confirmed a new turn started in each chat. Next I'll confirm from the session list that all six are running.
-- All six show `isRunning: true` at 9:23 PM CDT. Some woken chats have died on a rate limit right after waking, so next I'll read each transcript tail.
-- All six chats are awake and show as running. Three of them are already producing work. A background check is watching the other three and will report.
-- Six chats woken The two newest chats were already running, so I woke the next six. Five of those six had stopped between 9:13:06 and 9:13:35 PM, all on.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix Glostik page bugs found by the parity run  (16 minutes quiet, 103 replies)
+### Fix Glostik page bugs found by the parity run  (46 minutes quiet, 103 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_db36c36c-b5ba-4a18-a577-248fe5c5782f" name="Chats touched to day 6 most recent"> Wake-up: pick your task back up whe
 
 - The rules say two launchd jobs deploy whatever sits in the tree, so a half-finished edit could go live on its own. Reading the full deploy protocol in.
@@ -403,7 +383,17 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Guard the Lizz Vega visit counter per session  (11 minutes quiet, 60 replies)
+### Chats touched to day 6 most recent  (46 minutes quiet, 59 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwt95qhp1</task-id> <tool-use-id>toolu_01A1WFQtq8RyShGGXwxTaPPR</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3008900c-477c-4988-9160-a
+
+- All six messages were delivered, and the tool confirmed a new turn started in each chat. Next I'll confirm from the session list that all six are running.
+- All six show `isRunning: true` at 9:23 PM CDT. Some woken chats have died on a rate limit right after waking, so next I'll read each transcript tail.
+- All six chats are awake and show as running. Three of them are already producing work. A background check is watching the other three and will report.
+- Six chats woken The two newest chats were already running, so I woke the next six. Five of those six had stopped between 9:13:06 and 9:13:35 PM, all on.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Guard the Lizz Vega visit counter per session  (41 minutes quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_8f0611aa-cfa4-4ed5-b322-5d53c231f53f" name="Emergency Lizz data replacing Glostiks"> Lizz Vega content is OFF all se
 
 - The original checker shows an **mtime of 20:59 today**. I never wrote to it, so a sibling chat may have changed it around my read. Checking whether my.
@@ -413,102 +403,132 @@ Totals: 14,389 assistant replies, 186 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glositk emotes animation plan (fork)  (4 minutes quiet, 68 replies)
-**Goal.** Not summarised by hand yet. Last input on record: this fork just look at existing non band emotes and ones for other kicks that would be good for fans to use during good songs and covers and jams and shreds as animated for the glostik anima
+### Triage the 13 failing Glostik layout_parity rows  (26 minutes quiet, 309 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>boy9i4jj9</task-id> <tool-use-id>toolu_01M6aSzuEQjs9sYsMWgJLbSR</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/798f47e2-ea3c-45e0-82a4-1
 
-- This fork has a new scope. It covers **animated fan-reaction emotes for music moments**, so no band faces. **Goal:** animated Glostik emotes that fans.
-- That endpoint answered, but it ignored the Music filter and sent back Just Chatting. Next I'll try the parameter variants and a subcategory lookup.
-- Checking our own candidates at chat size now, then I'll pick the set.
+- Close. My harness part is done, and one last confirming run finishes in about three minutes. The check still fails, because the rows left need page.
+- The tracker switched to a new contract when Brandon's question arrived, and parked the original one. Finding how to address the parked contract.
+- The parked contract is a file the tool reads through `CC_CONTRACT`. Marking R4 and R5 there. I'm also recording Brandon's short question on the new.
+- The harness work is finished and checked. The confirming run ended at 21:47: **76 of 87 pass, exit 1**. The same 11 rows still fail, and each needs a.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Liz Vega kick live sessions  (25 minutes quiet, 1191 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [until its done]: The condition 'until its done' is unmet. The assistant states 'What isn't done is getting these 198 onto her page' and identifies `export_lizz_web.py` a
+
+- Yes. 198 songs came out of her streams. I told you zero. That was wrong, and the error was mine.
+- Bigger than I knew: a second run covers her YouTube lives too.
+- Deployed. Verifying it renders rather than trusting the 200.
+- Her setlists are live on her page https://drwu-htmls.vercel.app/lizzvega-songs/poster
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Emergency Lizz data replacing Glostiks  (20 minutes quiet, 229 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_f2a0153e-06fe-460f-bf37-d6c7b8b30995" name="Live player playback"> Heads-up from the live-player chat: in the next ~
+
+- The first hit is a queued message, which is how a message typed mid-turn gets stored. Reading its content and the next matching entries to confirm.
+- The idle ping isn't available for that chat, so I'll watch the deploy logs instead. When the live-player chat's deploy lands, I'll recheck the live page.
+- The transcript guard tripped because my shell was sitting in the transcripts folder. Rerunning the same watch from the site folder without `find`.
+- The live-player chat ([Live player playback](#local_f2a0153e-06fe-460f-bf37-d6c7b8b30995)) is about to change the Live tab. I checked its reason: at.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Kick livestream transcription  (10 minutes quiet, 230 replies)
+**Goal.** Not summarised by hand yet. Last input on record: is this done or not
+
+- Resumed. Two workers are running and two are paging their memory back in. I'm re-arming the watch for the rest of the pass.
+- 🟦 What we have so far - 🟩 **Kick audio is on disk from the stream's first second.** It covers 20:14:55 to 21:33 CDT, which is 1 h 18 m. - 🟩 **The first.
+- Not done yet.** Checked at 22:05: - 🟨 **Transcription is running again.** All four workers are back up and gaining CPU time, after the memory chat's.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Live player playback  (2 minutes quiet, 137 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_db36c36c-b5ba-4a18-a577-248fe5c5782f" name="Chats touched to day 6 most recent"> Wake-up: pick your task back up whe
+### Glositk emotes animation plan (fork)  (10 minutes quiet, 188 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/92035.sock" from-session="local_fdc1bb61-4164-4e9a-af4f-1284cce6ffa7" from-name="Glositk emotes animatio
 
-- Both blocks are written. Next I'll back up the seven view files, apply the new blocks with `--replace` (block-only swaps that re-read each file at.
-- zsh didn't split the file list, so that run stopped before writing anything (the only failure was a file-not-found on the joined string). Re-running.
-- Three views pass on laptop. The rest fail, and I need the details to see whether the page or the test is at fault. Pulling the per-view readings.
-- The dry run shows 7 files new or changed against the base, which matches my 7 views. Checking the log to confirm they are those files before the real.
+- `get_session` needs full session IDs, so I'll list sessions and read the last few events of the two candidates. That shows which one built `/animated`.
+- Logging the outcomes on the tracker now, then I'll reply.
+- The other emote chat, **Glositk emotes animation plan**, has the handoff now. - **What it got:** 11 animated emotes for jams, shreds, good songs and.
+- The other emote chat confirmed it has all 11 emotes. - It will check the six flagged loops frame by frame. Any with a real glitch stay off the page. -.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glositk emotes animation plan (fork 2)  (2 minutes quiet, 74 replies)
+### Live YouTube inline playback  (4 minutes quiet, 170 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/79886.sock" from-session="local_f2a0153e-06fe-460f-bf37-d6c7b8b30995" from-name="Live player playback" f
+
+- The allow file works once per touch, and it's shared by every chat on this Mac. Another chat used up my first touch. I'm touching it again and running.
+- All seven views took the new block. Each now carries the Kick status check and the Kick frame. Next I'm confirming that only the live-player block.
+- You interrupted me, so this chat won't edit anything else. The other chat reports that its deploy is live. I'm running one read-only check on the live.
+- The Live tab now plays **the band's Kick stream** inside the page, in all seven Glostik views. 🔎 **Which chat did it** - The chat that built the inline.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Remove the duplicate PDF viewer from every chat  (1 minutes quiet, 68 replies)
+**Goal.** Not summarised by hand yet. Last input on record: On this MacBook (hostname MacBookPro, user brandonchavez, 16 GB RAM), every Claude Code session starts two PDF viewer MCP servers: a node process running `~/.npm/_npx/6583fba12287d067/node_m
+
+- Checking which process answered that call.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glositk emotes animation plan  (1 minutes quiet, 298 replies)
+**Goal.** Not summarised by hand yet. Last input on record: is this not done yes, tell the other emote chat to update it
+
+- While Dawson builds, I'm adding the fork's music-moment set to the page as its own section, so the kept five stay separate from the new emotes. First,.
+- The first fork's socket has gone stale, so I'll send by its session name.
+- Fork 1 isn't reachable any more. Its handoff was complete, so nothing is waiting on it. Now the Dawson result.
+- It's still rendering, and no failure line has printed for the 6:25 window. The build only prints for a window that fails its match, so that window.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glositk emotes animation plan (fork 2)  (1 minutes quiet, 186 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1792x2214, displayed at 1619x2000. Multiply coordinates by 1.11 to map to original image.]
 
-- This fork has a new scope. It covers **animated fan-reaction emotes for music moments**, so no band faces. **Goal:** animated Glostik emotes that fans.
-- That endpoint answered, but it ignored the Music filter and sent back Just Chatting. Next I'll try the parameter variants and a subcategory lookup.
-- This fork's job is the **band's own emotes that are still static**. I'll animate every emote on their live Kick and Twitch that doesn't move yet..
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Application memory leak investigation  (1 minutes quiet, 0 replies)
-**Goal.** Not summarised by hand yet. Last input on record: whats stealing all the application memory, let me use finder to find files to delete quicker than you can
-
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- Twitch's help page needs JavaScript, so it came back empty. I'll try the how-to article from the search results instead.
+- The first 26 read at both sizes. Every motion shows at 28 px and nothing breaks mid-loop. CoolRalf's smoke reads as separate puffs, so I'll make it a.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emergency Lizz data replacing Glostiks  (1 minutes quiet, 196 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_28f5e404-06d4-4d5c-9a9c-5bc442b53d0f" name="Triage the 13 failing Glostik layout_parity rows"> Ack from the parity h
+### Application memory leak investigation  (1 minutes quiet, 104 replies)
+**Goal.** Not summarised by hand yet. Last input on record: i already told you to
 
-- One last sweep before I report, since other chats keep deploying. Checking the live views and local files once more.
-- The Glostik page is fixed and live. I deployed at 9:31 PM and checked every layout again at 9:43 PM. 1. **Glostik's Live tab shows only Glostik now.**.
-- The parity chat confirmed the rules. Running one more quick live sweep, since 14 sibling chats are active.
-- The parity chat ([Triage the 13 failing Glostik layout_parity rows](#local_28f5e404-06d4-4d5c-9a9c-5bc442b53d0f)) wrote back that it will follow the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glositk emotes animation plan  (0 minutes quiet, 122 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/artist-chat-emotes # artist-chat-emotes Built 2026-09-19 from the Glostik pack: 29 emotes across three platforms, 27 cut fr
-
-- Syntax is clean. Running Huh, Tammy and CJ side by side now, since their sources are on disk. The two stream windows are still downloading.
-- The Tallica window is down at full 1080x1920, 30 fps. Starting its build now. While the builds run I'll pull the Glostik emote site's colour tokens so.
-- Status: Huh, Tammy and CJ are still rendering. The Tallica moment wasn't in the first window, so I'm finding it from the stream's storyboard, and the.
-- The Dawson window is down. Starting its build, which will also test whether the half-point guess holds for that stream.
+- Checklist for this ask: 1. Archive every chat untouched in the last three days. 2. Make a list of exactly what got archived. I'm reading "archive" as.
+- The list is saved, and archiving is waiting on one step from you. ## 🟥 Your archive gate blocked all 22 chats - 🟥 **Your `no_autoarchive_gate` hook.
+- You already told me, so I'll do it. I'm adding your exact words and the 22 IDs to `archive.allow`, marked as written by this chat at your direction..
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Triage the 13 failing Glostik layout_parity rows  (0 minutes quiet, 286 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b2n91jisi</task-id> <tool-use-id>toolu_01Ayq8vSU2a9frLWzJEoPASu</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/798f47e2-ea3c-45e0-82a4-1
+### Archive old/finished chats  (1 minutes quiet, 7 replies)
+**Goal.** Not summarised by hand yet. Last input on record: archive chats not touches yesterday or today or seeming finished touched yesterday, make a list tho first
 
-- The suite is on its last run, new phone, which should finish around 21:37. Its completion notice will resume me here to read the report and start the.
-- While the probe runs, I'm marking the baseline run as met in the tracker and taking a diff summary of the three harness files for the report.
-- The diffs are small: server.mjs +96/−8 lines, verify.mjs +6/−2, compare.mjs +11/−5, each with its `.PRE_STALE_ROWS_2026-09-22.bak` beside it. The.
-- Status: the final suite run has started, about four minutes. Meanwhile I'm recording the sorting and the harness fixes in the tracker with their evidence.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Kick livestream transcription  (0 minutes quiet, 132 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bgxcjnabh</task-id> <tool-use-id>toolu_0173o8AKFP4TEjJCKr8T68BV</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/4cf54417-ef7d-4e6b-85dd-f
-
-- The download marker says 4,691 s (1.30 h), and the audio file is 97 MB. The watcher's own length line hasn't appeared yet, though, so I'll check that.
-- Item 2 is met. The 1.30 hours of Kick audio from the stream's first second is on disk, and transcription is running. The watch will report when the.
-- That notice is the old polite-wait check finishing, and nothing depends on it. I'll check the processor's stage in `state.json`, which holds no.
-- The processor is at `transcribing` (since 21:43:43), with 5 workers on the 4,691-second file. The watch reports when it exits and the naming tools run.
+- Goal:** archive every chat untouched yesterday and today, plus finished-looking chats from yesterday, with the list shown first. - **Phase 1:** Pull.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega kick live sessions  (0 minutes quiet, 1147 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_8f0611aa-cfa4-4ed5-b322-5d53c231f53f" name="Emergency Lizz data replacing Glostiks"> Your add_lizz_lives.py block is
+### Lizz Vega animated emotes chat  (1 minutes quiet, 225 replies)
+**Goal.** Not summarised by hand yet. Last input on record: your previews don't work is this live or note its over due
 
-- That's changed materially. **13 streams named, 3 posted**, up from 0. Let me verify what's actually in them rather than take the counter's word.
-- 15 named lists, every one reading 0 rows. Before I conclude anything, my row pattern could be wrong, which is exactly the trap I've hit repeatedly.
-- That's the real answer and my count was right. **15 named lists, 0 songs in any of them.** The naming sheet for a stream shows `DRAFT ROWS` empty and.
-- Now I have the diagnosis, and it is not what I expected.
+- Audit note gate score 0. Closing the tracker, revealing the pack in Finder, and sending you the new preview.
+- I removed the 11 animated emotes that broke mid-loop.** The pack now holds 29 animated emotes in 116 GIFs, and both checks pass on them. **What was.
+- Reading your message as three asks: 1. Fix the previews. A still picture can't show an animated emote, so the preview has to play. 2. Tell you whether.
+- The live page ships from `~/Projects/lizzvega-emotes-site/`. Next I'm checking that folder against what is live now, and reading how it was deployed.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Live YouTube inline playback  (0 minutes quiet, 91 replies)
-**Goal.** Not summarised by hand yet. Last input on record: oh it it now. find witch chat did it and switch it ti kicklcom
+### Live player playback  (0 minutes quiet, 270 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_e21ddbf0-9759-4741-a92f-23b0feeb33f4" name="Live YouTube inline playback"> Update from the Kick chat, 21:53 CDT. Twe
 
-- The other chat received the handoff and has started on it. While it works, I'm preparing an independent browser check for when the change goes live.
-- The checker is written. Before trusting it, I'm running it against the site as it is now. The known answer is YouTube in all seven views, so every view.
-- The checker returned the known answer. All seven views show the YouTube frame uncovered, so it fails each one as expected. I'm opening one screenshot.
-- The checker now also measures how much of the player is covered. I'm checking the other chat's progress once before handing back.
+- It's already live. The Kick player went out at 22:06 (`dpl_AQx3SkGPxtEu6jxjTHe59hGS4ASo`, deploy exit 0). Running one quick proof on the live page now.
+- The Live tab plays the band's Kick stream inside the site now, on all seven views. Sorry it took this long. **Open it:**.
+- This message is from 21:53 and only reached me now. By then I had applied the Kick chat's block, added the play button and deployed at 22:06. I'll.
+- The sung-text guard misfired on the `*kick.com…*` wildcard string inside my patch command. Nothing here reads transcripts or lyrics. I'll put the patch.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
