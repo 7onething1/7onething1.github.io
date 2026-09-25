@@ -1,49 +1,19 @@
 # Active chats digest
 
-Built 2026-09-24 18:44 CDT. 25 chats read from transcripts.
+Built 2026-09-24 21:36 CDT. 27 chats read from transcripts.
 
 ## Headline
 
-All 25 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 7,760 assistant replies, 260 MB of transcript.
+All 27 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 6 are past the 400-turn ceiling.
+Totals: 7,036 assistant replies, 212 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Center pick for kick.com  (21.8 hours quiet, 285 replies)
-**Goal.** Not summarised by hand yet. Last input on record: okay aboandon the point is on others streams. its weird i can use lizz's emotes on glosik page
-
-- Other streams - 🟥 **Not yet in any other channel's chat.** Kick's help page says your channel emotes "cannot be used in other streamers' chats." - 🟩.
-- - 🟩 **The fork chat confirmed the prefix lock.** From its own tab it saw the same greyed-out `7onething1` box and 57 of 60 slots, and it **changed.
-- Brandon is dropping the prefix. What he wants is his emote working in other streamers' chats, the way Lizz's emotes already work for him in Glostik's.
-- Why Lizz's emotes work on Glostik - 🟩 **Lizz's emotes are almost all subscriber emotes.** Her Kick list has 26 emotes, and **24 are marked.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Center pick for kick.com (fork)  (21.8 hours quiet, 289 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/91703.sock" from-session="local_3dda6c39-ef2b-4cf8-aed0-d3614ead5786" from-name="Center pick for kick.co
-
-- Kick has the emote prefix locked, so I couldn't set it to `pagesofbrandon`. Nothing on your channel changed. ## 🟥 Why the prefix can't change - 🟥.
-- The upload chat has now gone idle, as I reported above. It's holding every upload until you tell it to go. Nothing else has changed on your channel.
-- The original chat relays that Brandon dropped the prefix idea there: "okay aboandon the point is on others streams." So the Kick support request I.
-- I've dropped the Kick support request. You told the original chat to "aboandon" the prefix idea, so that item is off the queue and the memory notes are.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Animated shadow emote  (21.2 hours quiet, 710 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98206.sock" from-session="local_ba19bcac-4d2e-4179-915b-85985072e024" from-name="Glositk emotes animatio
-
-- All three are done and live at https://glostik-emotes.vercel.app/animated/. It's open in Firefox now. - **The coffee steam is much bigger.** The mug.
-- Fork 2 passed on your rejection of the photo animations: "you wrote on top of it with shitty just dancing motions". Photos have to move the way the.
-- The rule is saved, and its pointer is in `POINTERS.md`. Replying to fork 2 now: it takes all the photo redos, including my 24 batch-3 photos, and I.
-- Fork 2 passed on what you said about the photo emotes, and you're right. Laying a nod or a sway over a photo was my call on 24 of the batch-3 pictures,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik and Whatyove sites  (20.2 hours quiet, 260 replies)
+### Glostik and Whatyove sites  (23.1 hours quiet, 260 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/2455.sock" from-session="local_639e9c6f-946b-4f6c-92a2-76b79e1223ac" from-name="Live stream to live tab 
 
 - That chat independently confirmed the fix on the live site. Its checks agree with mine: all seven pages match the files on disk, covers sit 0 px over.
@@ -53,7 +23,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Live stream to live tab connection  (20.2 hours quiet, 596 replies)
+### Live stream to live tab connection  (23.1 hours quiet, 596 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "uds:/tmp/cc-socks/30672.sock", which you asked to be notified about, is idle now — it finished a turn at 22:23. Its harness reports: «**Your Ballroom song page r
 
 - Every item on the checklist is now met. Last pieces: a short reply to the peer, a doc line mentioning its follow-up fix, and a handoff file.
@@ -63,7 +33,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN setup  (20.1 hours quiet, 183 replies)
+### VPN setup  (23.0 hours quiet, 183 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b32jl9yil</task-id> <tool-use-id>toolu_011zknto6y6WJba8abd3bUs8</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/177c9cbb-d216-4a24-9061-c
 
 - The watcher is re-armed until about 10:36 PM and covers both browsers. I'll also update the saved memory so a later chat knows the current state:.
@@ -73,7 +43,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizzvega songs chat notification  (19.7 hours quiet, 86 replies)
+### Lizzvega songs chat notification  (22.6 hours quiet, 86 replies)
 **Goal.** Not summarised by hand yet. Last input on record: tell the other lizzvega site chat of songs, its missed the most recent stream https://drwu-htmls.vercel.app/lizzvega-songs/poster#songs?genre=Rock%7CAlternative
 
 - The message sits in that chat's transcript as its newest turn, word for word. One last check that the chat has picked it up and started working.
@@ -83,7 +53,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes on Glostik stream  (19.0 hours quiet, 84 replies)
+### Lizz emotes on Glostik stream  (21.9 hours quiet, 84 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
 
 - The voice gate passes again. The line counter still reads **27**, so I'll check how it counts before cutting further.
@@ -93,7 +63,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick streamer integration  (18.8 hours quiet, 425 replies)
+### Kick streamer integration  (21.7 hours quiet, 425 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix the nobody is playing line tooaso is this fixed .. you stopped/ loop
 
 - A second guard blocks unbounded `find` under `~/Projects`. Adding a depth cap, since the deepest file is only four levels down.
@@ -103,7 +73,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega kick live sessions  (18.8 hours quiet, 1263 replies)
+### Liz Vega kick live sessions  (21.7 hours quiet, 1263 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/44011.sock" from-session="local_b91670c1-4acc-4617-9beb-b891d34cfcba" from-name="Kick streamer integrati
 
 - Verified, and their ordering is safe from me. `harvest.sh` runs only `kick_download.py` and reads `queue.txt` for a line count. It never calls.
@@ -113,7 +83,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chat history missing messages  (18.5 hours quiet, 123 replies)
+### Chat history missing messages  (21.4 hours quiet, 123 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b4kw2nm1r</task-id> <tool-use-id>toolu_01KZa7zJWNT92MgejuLgyyGw</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/6d2fb4e2-3226-483c-aee4-8
 
 - Writing the answer up now and running it through his voice gate before it goes out.
@@ -123,7 +93,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emote permissions inconsistency  (18.1 hours quiet, 47 replies)
+### Emote permissions inconsistency  (20.9 hours quiet, 47 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i keep asking the same quesito and youre evasive why can i use lizz emotes on glostik stream but you say i can use mine on there, thats not right
 
 - Goal: give you a straight answer on the emotes, backed by the platform rules. Here's the plan. - **Phase 1:** Find the earlier chats where you asked.
@@ -133,7 +103,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Boys emot live on animated page  (16.8 hours quiet, 92 replies)
+### Boys emot live on animated page  (19.7 hours quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: urgent as fast as you can make the boys emot live on the animated page
 
 - Deploy finished and the script's own route check passed (**exit 0**). Now proving the animated page itself: live bytes against local, the three new.
@@ -143,7 +113,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Animated clips for Kick channel  (16.8 hours quiet, 260 replies)
+### Animated clips for Kick channel  (19.6 hours quiet, 260 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98206.sock" from-session="local_ba19bcac-4d2e-4179-915b-85985072e024" from-name="Glositk emotes animatio
 
 - Your other chat passed along your note about the "shitty just dancing motions", so **nine of the band emotes are out**. I checked your exact words in.
@@ -153,7 +123,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick stream playback issue  (16.7 hours quiet, 172 replies)
+### Kick stream playback issue  (19.5 hours quiet, 172 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bsjegbjti</task-id> <tool-use-id>toolu_018oJVgJTbmkMMc84u1MCyzs</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/6f971ccc-2c32-420f-b04d-3
 
 - Quick status: v3 is in place, and I'm starting it now so it can take over the paused jobs.
@@ -163,7 +133,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kmack crashing and charging issues  (16.3 hours quiet, 65 replies)
+### Kmack crashing and charging issues  (19.2 hours quiet, 65 replies)
 **Goal.** Not summarised by hand yet. Last input on record: kmack keeps crashing and not charging on the charger
 
 - Goal:** find out why this MacBook keeps crashing and won't charge, then fix whatever software can fix. - **Phase 1, gather every piece of evidence.**.
@@ -173,7 +143,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes from screenshots  (15.9 hours quiet, 811 replies)
+### Lizz emotes from screenshots  (18.8 hours quiet, 811 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 3200x360, displayed at 2000x225. Multiply coordinates by 1.60 to map to original image.]
 
 - Both pass: 8 of 8 files on the verifier and 8 of 8 clean on the fringe scan, and both matched their own frame exactly. Folding them into the page.
@@ -183,7 +153,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Anti-Google searchable content  (14.9 hours quiet, 248 replies)
+### Anti-Google searchable content  (17.8 hours quiet, 248 replies)
 **Goal.** Not summarised by hand yet. Last input on record: take all the anti google searchable stuf you put inversal
 
 - Status: writing a small deploy tool that ships each site's live files plus one edited home page. Nothing from disk goes out, so the busy emotes chat's.
@@ -193,7 +163,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Costume changes for animated emotes  (14.3 hours quiet, 412 replies)
+### Costume changes for animated emotes  (17.2 hours quiet, 412 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1050x2352, displayed at 893x2000. Multiply coordinates by 1.18 to map to original image.]
 
 - The first pass made all 14 stills and 10 animated emotes. I'm starting the second pass now for the last four and the two better green-costume moments,.
@@ -203,7 +173,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glositk emotes animation plan (fork 2)  (14.0 hours quiet, 1098 replies)
+### Glositk emotes animation plan (fork 2)  (16.9 hours quiet, 1098 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 2592x324, displayed at 2000x250. Multiply coordinates by 1.30 to map to original image.]
 
 - Ralfbass improved at sigma 2.2, with flash at 0.071, but that's still over the 0.06 limit. I'm reading the cut-out coverage frame by frame to see which.
@@ -213,7 +183,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (13.6 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (16.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, send resume orders to stalled chats, log each nudge, and write the report. - **Phase 1:** Run the stall sweep..
@@ -223,7 +193,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume 55% limit  (13.5 hours quiet, 40 replies)
+### Volume 55% limit  (16.3 hours quiet, 40 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 65%
 
 - Three reads over a minute all hold at **55**. Recording the new state in the two volume memory notes and their index lines, so later chats stop reading.
@@ -233,7 +203,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop overflow.sh committing other chats' edits  (13.0 hours quiet, 195 replies)
+### Stop overflow.sh committing other chats' edits  (15.9 hours quiet, 195 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
 
 - Quick status: the fix is live, verified on a real babysitter run, and the saved test suite passes 81 of 81 after the install. I'm doing the last.
@@ -243,7 +213,7 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (4.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any stalled chat that still owes work. - **Phase 1:** run the sweep, register this run's checklist,.
@@ -253,10 +223,60 @@ Totals: 7,760 assistant replies, 260 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (4.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five pass on the band's request queue and leave each request marked with its outcome. - **Phase 1:** Check that this is the.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### (untitled)  (2.6 hours quiet, 1 replies)
+**Goal.** Not summarised by hand yet. Last input on record: why is application memory gone
+
+- Please run /login · API Error: 401 Authentication Fails, Your api key: ****2gAA is invalid (request_id: 2bc46353-07a9-4efd-8283-d6a481bee57d)
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (2.5 hours quiet, 4 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal:** run the anti-malfeasance sweep, send resume orders to stalled chats, and file the report. - **Phase 1, sweep:** run `stall_sweep.py --since 24h.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (28 minutes quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Anti-malfeasance sweep for 2026-09-24. The goal is to get chats that stalled in the last 24 hours working again and to report exactly what each tool.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Application memory growth  (12 minutes quiet, 311 replies)
+**Goal.** Not summarised by hand yet. Last input on record: we good now?
+
+- The lock is held by the new processor run, and the CPU load has already dropped from about 20 to 14. Free memory reads 51%, lower than I'd like..
+- 🛠 Why deleting didn't stop it - 🟥 **Deleting only made room for overflow.** The crashes come from **the transcription jobs overloading memory**. After.
+- Checking everything fresh instead of repeating earlier numbers: memory and workers, any new crash since 21:06, and whether Books reached Black without.
+- ✅ Yes, we're good - 🟩 **No crash since your 21:06 restart.** There are **no new crash reports** since then. - 🟩 **The cause of the flashing is gone.**.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Last 15 chats completion status  (0 minutes quiet, 238 replies)
+**Goal.** Not summarised by hand yet. Last input on record: finish /goal
+
+- No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
