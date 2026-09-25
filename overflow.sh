@@ -4,6 +4,12 @@
 # overflow host and push. GitHub Pages rebuilds on push (soft ~10/hr), so this
 # does NOT count against Vercel's 100/day deploy cap. Use for ITERATION only;
 # ship the finished page to drwu-htmls.vercel.app once, at the end.
+#
+# Other chats edit this checkout too, so a run stages and commits only its own
+# paths: the route folders it copied, the landing index.html and .nojekyll.
+# Every other change in the working tree or the index is left as it was.
+# 2026-09-24: the `git add -A` that used to sit here swept another session's
+# uncommitted edits into 64da78a "overflow: chat-babysitter" and pushed them.
 set -euo pipefail
 
 SRC="$HOME/Projects/drwu-htmls/public"
@@ -16,6 +22,10 @@ if [ "$#" -lt 1 ]; then
   exit 1
 fi
 
+# Everything this run may stage or commit. Each route it copies joins the list.
+paths=(index.html .nojekyll)
+owns() { local p; for p in "${paths[@]}"; do [ "$p" = "$1" ] && return 0; done; return 1; }
+
 cd "$OV"
 for route in "$@"; do
   route="${route#/}"; route="${route%/}"
@@ -26,9 +36,16 @@ for route in "$@"; do
   mkdir -p "$OV/$route"
   cp -R "$SRC/$route/." "$OV/$route/"
   echo "copied  $route  ($(du -sh "$OV/$route" | cut -f1))"
+  paths+=("$route/")
 done
 
-# Rebuild the root landing from whatever route dirs now exist.
+# The landing links only pages this commit will carry: those already committed
+# plus the routes copied above. A folder another chat has on disk but has not
+# committed stays off the public list.
+committed=$'\n'"$(git -c core.quotepath=off ls-tree -r --name-only HEAD \
+  | grep -E '^[^/]+/index\.html$' || true)"$'\n'
+
+# Rebuild the root landing from those route dirs.
 {
   cat <<'HTML'
 <!doctype html>
@@ -53,7 +70,11 @@ done
 HTML
   for d in */ ; do
     d="${d%/}"
-    [ -f "$OV/$d/index.html" ] || continue
+    if owns "$d/"; then
+      [ -f "$OV/$d/index.html" ] || continue
+    else
+      case "$committed" in *$'\n'"$d/index.html"$'\n'*) ;; *) continue ;; esac
+    fi
     echo "<li><a href=\"/$d/\">$d</a></li>"
   done
   cat <<'HTML'
@@ -64,20 +85,52 @@ HTML
 } > "$OV/index.html"
 
 touch "$OV/.nojekyll"
-git add -A
-if git diff --cached --quiet; then
+git add -A -- "${paths[@]}"
+changed=()
+for p in "${paths[@]}"; do
+  git diff --cached --quiet -- "$p" || changed+=("$p")
+done
+if [ "${#changed[@]}" -eq 0 ]; then
   echo "no changes to push."; exit 0
 fi
+# Naming the paths makes git commit record only those paths, so a change
+# another chat has staged stays staged and stays out of this commit.
 git -c user.email="7onething1@gmail.com" -c user.name="7onething1" \
-  commit -q -m "overflow: $*"
-# Concurrency-safe push: rebase on remote and retry so simultaneous pushes
-# from multiple chats don't fail on non-fast-forward.
+  commit -q -m "overflow: $*" -- "${changed[@]}"
+
+commit_tree() {
+  git -c user.email="7onething1@gmail.com" -c user.name="7onething1" commit-tree "$@"
+}
+# Catch up with a remote that moved on, without touching other chats' files.
+# git rebase refuses to start while any tracked file is dirty, and --autostash
+# would rewrite those files mid-edit. merge-tree builds the combined tree from
+# objects alone. A lone unpushed commit is rebuilt on the remote tip under its
+# own message, as the old rebase did, and several are kept under a merge.
+# read-tree then moves the files the way `git checkout` does: what the remote
+# changed is updated, other uncommitted changes carry over as they are, and if
+# another chat has changed a file the remote also changed, it stops before
+# writing anything.
+catch_up() {
+  local tree new
+  tree=$(git merge-tree --write-tree --no-messages origin/main HEAD) || return 1
+  if [ "$(git rev-list --count origin/main..HEAD)" = 1 ]; then
+    new=$(git log -1 --format=%B HEAD | commit_tree "$tree" -p origin/main) || return 1
+  else
+    new=$(echo "Merge origin/main" | commit_tree "$tree" -p HEAD -p origin/main) || return 1
+  fi
+  git update-index -q --refresh >/dev/null 2>&1 || true
+  git read-tree -m -u HEAD "$new" || return 1
+  git update-ref -m "overflow: catch up with origin/main" HEAD "$new"
+}
+
+# Concurrency-safe push: catch up with the remote and retry so simultaneous
+# pushes from other clones don't fail on non-fast-forward.
 pushed=0
 for attempt in 1 2 3 4 5; do
   if git push -q origin main 2>/dev/null; then pushed=1; break; fi
-  echo "push race (attempt $attempt), rebasing on remote..."
+  echo "push race (attempt $attempt), catching up with the remote..."
   git fetch -q origin main
-  git rebase -q origin/main || { git rebase --abort 2>/dev/null || true; sleep 2; }
+  catch_up || sleep 2
 done
 if [ "$pushed" != "1" ]; then
   echo "!! push failed after retries; run again in a moment."; exit 1
