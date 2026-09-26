@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-26 15:46 CDT. 17 chats read from transcripts.
+Built 2026-09-26 16:16 CDT. 19 chats read from transcripts.
 
 ## Headline
 
-All 17 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 5,522 assistant replies, 146 MB of transcript.
+All 19 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 5 are past the 400-turn ceiling.
+Totals: 5,883 assistant replies, 150 MB of transcript.
 
 ## Do yourself
 
@@ -103,7 +103,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.1 days quiet, 118 replies)
+### 55% volume limit  (1.2 days quiet, 118 replies)
 **Goal.** Not summarised by hand yet. Last input on record: now
 
 - 🟩 Alarm set for 12:20 - 🟩 **Your alarm goes off at 12:20 today** and plays the Mac's "Alarm" ringtone on repeat. - 🟦 **It plays through VLC at full.
@@ -113,17 +113,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Schedule daily KC MTG events refresh  (1.1 days quiet, 129 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bl2fpm1kl</task-id> <tool-use-id>toolu_016wPfpGLcgQU2QcDHA2VB8V</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a458348a-c02b-4f94-943c-8
-
-- The deploy went READY, and site_deploy is now running its route checks against the live site. The runner reads the live feed after those finish, and.
-- The watcher reports the launchd run has exited. Reading its full output.
-- The `modified` field no longer holds the old value, which suggests a hook rewrote it on edit. Checking the frontmatter and the full edited section.
-- The KC MTG events page (the Hobbit MTG KC event site) now refreshes from this MacBook every day at 07:30. I ran it once through launchd, and the live.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (22.8 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (23.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Anti-malfeasance sweep for 2026-09-24. The goal is to get chats that stalled in the last 24 hours working again and to report exactly what each tool.
@@ -133,7 +123,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (22.8 hours quiet, 3 replies)
+### Johnny Five daily pass  (23.2 hours quiet, 3 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for the Glostik band queue. - **Phase 1:** confirm this Mac, then pull and list the queue. - **Phase 2:** work.
@@ -143,7 +133,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (28 minutes quiet, 5 replies)
+### Stop malfeasance and fraud  (58 minutes quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any chat that quit with work still owed. **Phase 1:** Run the stall sweep over the last 24 hours and.
@@ -153,7 +143,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15 minutes quiet, 7 replies)
+### Johnny Five daily pass  (45 minutes quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Goal:** run today's Johnny Five pass on the Glostik band queue. - **Phase 1:** check that this is the MacBookPro, then pull and list the queue. -.
@@ -163,7 +153,7 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11 minutes quiet, 12 replies)
+### Johnny Five daily pass  (41 minutes quiet, 12 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for Glostik. - **Phase 1:** confirm this Mac, read today's daily check file, and post the report lines. -.
@@ -173,12 +163,42 @@ Totals: 5,522 assistant replies, 146 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (1 minutes quiet, 395 replies)
-**Goal.** Not summarised by hand yet. Last input on record: whaste does this mean Originals column will get tracks to play.
+### Liz Vega/Glowstick site updates  (28 minutes quiet, 413 replies)
+**Goal.** Not summarised by hand yet. Last input on record: how old is that, we have the spoitfy player right
 
-- The memory note is saved and linked from the band page note. I'll write the reply and run it through your plain-language checker.
-- 🔵 **Every daily pass now checks the site's tabs and the band's secret page.** Today's check passed on every tab. - 🟢 **Tabs:** all 10 tabs answered on.
-- Checking the site to see what that request refers to.
 - It's a fan asking for play buttons on the band's own songs.** Someone who signed the request "Inigo" loves the site's look, which he called a jukebox.
+- Checking two things: the date of Inigo's request, and whether the site's Spotify player already covers the originals.
+- The site guard blocked a broad read of that page, since the page holds song words. Reading only the Spotify block's own lines instead.
+- Inigo asked on Sep 23 at 7:06 PM, three days ago.** The Spotify player was already live by then. It went up on Sep 22 around 4:30 PM. - 🟢 **Yes, we.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Schedule daily KC MTG events refresh  (16 minutes quiet, 193 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9mrooftr</task-id> <tool-use-id>toolu_01MpdhfpCPrRVq9UWWHR3GCb</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a458348a-c02b-4f94-943c-8
+
+- Memory note updated. Checking the catch-up run.
+- The catch-up is deploying now. Its dry run showed 1 changed file and 0 held, on top of the current production `dpl_NBKTLETH…`. The watcher will report.
+- The second kickstart logged `SKIP reason=already-refreshed-today`, exited 0, and wrote no second run log or deploy. Last step: recording today's result.
+- Here's the link:** https://drwu-htmls.vercel.app/kc-mtg-events It answers 200 right now and shows today's events. The page reads its data from.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Random VPN live  (9 minutes quiet, 161 replies)
+**Goal.** Not summarised by hand yet. Last input on record: make random vpn live like we talked
+
+- Quick status: the fixes and docs are done, and I'm checking whether Chrome has come online since I started. If it has and Proton is signed in, I can.
+- Now the handoff file, so a fresh chat can pick this up without redoing any of today's work.
+- The handoff is saved. Last, a final state check, including confirming the failed Homebrew attempt changed nothing. Then I'll reveal the two key files.
+- The random VPN is not live yet.** The rotator still has no Proton server configs to hop between. Getting them needs your Proton sign-in, and only you.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Community character map versals  (0 minutes quiet, 118 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/deslop # deslop — keep the AI tells out Built 2026-07-03. Brandon caught, one phrase at a time, a run of AI tells that a te
+
+- I have every section the map and the machine cards need. Before writing the builder, I'll read how `site_deploy.py --only` treats files under a route.
+- The allow file has to exist before the guarded command runs, so I'll create it in its own step.
+- Now the builder itself. It embeds every map line with the bible section it cites, draws the board, and renders the full bible with a searchable.
+- Builder written. First run goes to the scratchpad so I can review the report before anything touches `public/`.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
