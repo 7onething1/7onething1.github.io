@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-26 16:16 CDT. 19 chats read from transcripts.
+Built 2026-09-26 16:46 CDT. 19 chats read from transcripts.
 
 ## Headline
 
 All 19 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 5,883 assistant replies, 150 MB of transcript.
+Totals: 6,063 assistant replies, 160 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emote preview background colors  (1.6 days quiet, 172 replies)
+### Emote preview background colors  (1.7 days quiet, 172 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
 
 - The peer now knows production changed. Next I'm registering the checklist with the completion controller and marking each item with its evidence.
@@ -113,7 +113,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (23.2 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (23.8 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Anti-malfeasance sweep for 2026-09-24. The goal is to get chats that stalled in the last 24 hours working again and to report exactly what each tool.
@@ -123,7 +123,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (23.2 hours quiet, 3 replies)
+### Johnny Five daily pass  (23.8 hours quiet, 3 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for the Glostik band queue. - **Phase 1:** confirm this Mac, then pull and list the queue. - **Phase 2:** work.
@@ -133,7 +133,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (58 minutes quiet, 5 replies)
+### Stop malfeasance and fraud  (1.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any chat that quit with work still owed. **Phase 1:** Run the stall sweep over the last 24 hours and.
@@ -143,7 +143,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (45 minutes quiet, 7 replies)
+### Johnny Five daily pass  (1.2 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Goal:** run today's Johnny Five pass on the Glostik band queue. - **Phase 1:** check that this is the MacBookPro, then pull and list the queue. -.
@@ -153,7 +153,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (41 minutes quiet, 12 replies)
+### Johnny Five daily pass  (1.2 hours quiet, 12 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for Glostik. - **Phase 1:** confirm this Mac, read today's daily check file, and post the report lines. -.
@@ -163,7 +163,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (28 minutes quiet, 413 replies)
+### Liz Vega/Glowstick site updates  (58 minutes quiet, 413 replies)
 **Goal.** Not summarised by hand yet. Last input on record: how old is that, we have the spoitfy player right
 
 - It's a fan asking for play buttons on the band's own songs.** Someone who signed the request "Inigo" loves the site's look, which he called a jukebox.
@@ -173,7 +173,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Schedule daily KC MTG events refresh  (16 minutes quiet, 193 replies)
+### Schedule daily KC MTG events refresh  (46 minutes quiet, 193 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9mrooftr</task-id> <tool-use-id>toolu_01MpdhfpCPrRVq9UWWHR3GCb</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a458348a-c02b-4f94-943c-8
 
 - Memory note updated. Checking the catch-up run.
@@ -183,7 +183,7 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Random VPN live  (9 minutes quiet, 161 replies)
+### Random VPN live  (39 minutes quiet, 161 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make random vpn live like we talked
 
 - Quick status: the fixes and docs are done, and I'm checking whether Chrome has come online since I started. If it has and Proton is signed in, I can.
@@ -193,12 +193,12 @@ Totals: 5,883 assistant replies, 150 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community character map versals  (0 minutes quiet, 118 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/deslop # deslop — keep the AI tells out Built 2026-07-03. Brandon caught, one phrase at a time, a run of AI tells that a te
+### Community character map versals  (0 minutes quiet, 298 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
 
-- I have every section the map and the machine cards need. Before writing the builder, I'll read how `site_deploy.py --only` treats files under a route.
-- The allow file has to exist before the guarded command runs, so I'll create it in its own step.
-- Now the builder itself. It embeds every map line with the bible section it cites, draws the board, and renders the full bible with a searchable.
-- Builder written. First run goes to the scratchpad so I can review the report before anything touches `public/`.
+- The import is guarded, so it's safe. Running the probe against the live page at desktop and phone sizes.
+- The dry run now shows exactly one changed file and nothing held, since this Mac published the previous copy. Deploying the fix.
+- `dpl_GPqiNxFmdUy7Pcd8DdV4U1xTAQbp` is live: 30 routes at 200, secrets at 404, both machines' routes present. Final pass on the live page: bytes,.
+- All four live files now match local byte for byte, with real sizes and hashes. I'll mark the four outcomes met with their evidence, then take one.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
