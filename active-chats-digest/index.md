@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-27 18:22 CDT. 15 chats read from transcripts.
+Built 2026-09-27 18:52 CDT. 15 chats read from transcripts.
 
 ## Headline
 
 All 15 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 2,505 assistant replies, 39 MB of transcript.
+0 need a Brandon action. 3 are past the 400-turn ceiling.
+Totals: 2,885 assistant replies, 44 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Liz Vega/Glowstick site updates  (20.9 hours quiet, 499 replies)
+### Liz Vega/Glowstick site updates  (21.4 hours quiet, 499 replies)
 **Goal.** Not summarised by hand yet. Last input on record: add spotify play buttons beside each original. also can you make the youtube player have less room bright florescent light, and more of a stage concert pink purple stage lite vibe for glosti
 
 - Nothing in the page's CSS points to a clear culprit, so I'll look at the page itself. Taking headless screenshots of Lizz's live page at desktop and.
@@ -23,7 +23,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (20.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (21.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, send resume orders to stalled chats that still owe work, and report. - **Phase 1.** Run the stall sweep and.
@@ -33,7 +33,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix stale ai-tells gate path in CLAUDE.md  (18.5 hours quiet, 84 replies)
+### Fix stale ai-tells gate path in CLAUDE.md  (19.0 hours quiet, 84 replies)
 **Goal.** Not summarised by hand yet. Last input on record: On this MacBook (hostname check first with `hostname -s`), the anti-AI voice gate script is NOT at the path ~/.claude/CLAUDE.md names. CLAUDE.md (section "Hard-gate every section of long-for
 
 - No prose turn recorded for this slot.
@@ -43,7 +43,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### OnlyFans test compromise investigation  (16.1 hours quiet, 177 replies)
+### OnlyFans test compromise investigation  (16.6 hours quiet, 177 replies)
 **Goal.** Not summarised by hand yet. Last input on record: claude chrome why one onlyfans payment go thru
 
 - Reading this as two linked questions: 1. Why did one OnlyFans payment go through? 2. Can Claude in Chrome check it for you, and what does its block.
@@ -53,7 +53,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Repoint two writing skills to the Projects gate path  (15.4 hours quiet, 169 replies)
+### Repoint two writing skills to the Projects gate path  (15.9 hours quiet, 169 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - The build finished clean: 2,136 of 2,136 planned chunks in 1,192 s, with zero embed failures and zero tracebacks. Next I run the checks and the atomic.
@@ -63,7 +63,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Teach the voice gate the cardinal bans it misses  (15.2 hours quiet, 228 replies)
+### Teach the voice gate the cardinal bans it misses  (15.8 hours quiet, 228 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - The workbook checks out: 4 sheets with named Tables, 19 findings (17 true and 2 false), and all 57 probes passing live (26 exit 2, 31 exit 0). Filing.
@@ -73,7 +73,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.7 hours quiet, 9 replies)
+### Johnny Five daily pass  (8.2 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, read today's daily check, and report it first. - **Phase.
@@ -83,7 +83,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Hobbit MTG KC Vent site update  (1.4 hours quiet, 540 replies)
+### Hobbit MTG KC Vent site update  (1.9 hours quiet, 540 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The click didn't register, probably because the screenshot is scaled 0.8 from the 1000px viewport. Retrying at the viewport-scaled position:
@@ -93,7 +93,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.3 hours quiet, 152 replies)
+### 55% volume limit  (1.8 hours quiet, 152 replies)
 **Goal.** Not summarised by hand yet. Last input on record: off
 
 - 🟩 Volume limit is back on at 55% - 🟩 **The limit is 55% as of 03:53:52**, the value saved when you turned it off on 9/25. - 🟦 **Your H87 headset was at.
@@ -103,17 +103,7 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcript analysis  (1 minutes quiet, 31 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/yt-transcripts # yt-transcripts — YouTube → Text (transcription only, by default) ## What this skill does **Default = stage
-
-- Both fetches returned ok. Exit codes prove nothing about content, so I'll measure each file against its video length.
-- The politeness gate blocks raw yt-dlp calls. I'll measure the local files first and read the polite wrapper's usage.
-- Both files hold about 2,230 words over roughly 12.5 minutes. That pace is about 180 words a minute, a normal speaking rate. Next I'll pull each video's.
-- The spot check shows clean English captions. Both files end on the channel's outro, which suggests full coverage. The length lookup went to the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Hard drive vs application memory  (1 minutes quiet, 103 replies)
+### Hard drive vs application memory  (32 minutes quiet, 103 replies)
 **Goal.** Not summarised by hand yet. Last input on record: look at the last chat safe to delete
 
 - Found it. The chat is "Application memory growth," last active 2026-09-24 at 21:24. It sorted files into three groups: safe to move, move with care,.
@@ -123,42 +113,52 @@ Totals: 2,505 assistant replies, 39 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Restore dropped "not" in clean/ Christian chapters  (1 minutes quiet, 42 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Machine: run `hostname -s` first; this task is for Brandons-MacBook-Pro only. Problem found 2026-09-27: an anti-antithesis cleanup pass (prompt rules in ~/Projects/ai-tells-corpus/fix_book.p
-
-- Goal: find every sentence where the clean/ pass dropped a negation, sort each one as inverted or kept, and give you the list as an .xlsx with a named.
-- The gate's LLM layer calls DeepSeek, and your CLAUDE.md allows DeepSeek only on your say-so. I'll run the gate with `--skip-llm` for that reason. Now.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix four legacy holes in ai_tells_gate.py  (1 minutes quiet, 26 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Machine: run `hostname -s` first; this task is for Brandons-MacBook-Pro only. Edit only ~/Projects/ai-tells-corpus/ai_tells_gate.py (never the duplicate under ~/Desktop/New Folder With Items
-
-- The machine is confirmed as `Brandons-MacBook-Pro`. Next I'll read the probe runner, the held-out list, and every script that imports the gate.
-- Baseline holds at 57/57 (26 bad, 30 good, 1 note), and the DeepSeek key is unset, so every run stays deterministic. My importer grep hit a zsh glob.
-- One test script imports the gate as a module, so I'll check which names it uses.
-- The report builder only calls `strip_non_prose` and `scan_cardinal`, and both signatures will stay unchanged. Next I'll register the checklist the goal.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Repoint beato-style-write corpus path on MacBook  (0 minutes quiet, 52 replies)
+### Repoint beato-style-write corpus path on MacBook  (27 minutes quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: On Brandons-MacBook-Pro (run `hostname -s` first; this is MacBook-only work), the beato-style-write skill cannot resolve any song because its source corpus path is dead. Facts checked on 202
 
-- Goal: get beato-style-write resolving songs on this MacBook again. The candidate lookup has to keep the iMac path working too. **Phase 1, verify and.
-- Confirmed MacBookPro. The prior PATHFIX backups are already in both delete/ folders. Next I'm checking what that precedent changed, which hooks guard.
-- Copy verified: 249 files and 6,078,111 bytes on both sides, with an identical sha256 tree digest. Nothing is missing, extra or different. Next I'm.
 - All four edits are in. Next I'm recording the finished outcomes, writing a proof harness that never touches DeepSeek, and pulling the diffs.
+- All seven checklist items are marked met. Two steps remain: closing the contract and running Brandon's anti-AI gate over my reply draft before sending it.
+- The gate passed with score 0 and exit code 0. The contract is closed. My `cd` into the gate folder moved the working directory, so I'm moving it back.
+- Decision - 🟪 **The live MacBook copy now sits at `~/Projects/yt-beato-wmtsg`**, following the ai-tells-corpus precedent. All 249 files **match the.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (0 minutes quiet, 388 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
+### YouTube transcript analysis  (26 minutes quiet, 55 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bfbok5sty</task-id> <tool-use-id>toolu_01Adu3qs2D2Q6pbacKeVer2J</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/98207ac0-d98b-4dfc-9afe-4
 
-- Discovery finished its batch: 45 searches, 5 more stretches locked, and 10 songs found by search in total. Checking which songs those were.
-- Credits are keyed correctly, and the withdrawn song is out of the pool. Rebuilding the names with the discovered songs, then checking rows 002 to 004.
-- Both passes ran on the live URL. The phone pass came back 390px wide with no sideways scroll. Scoring with page-truth's own bars.
-- The phone pass shows the same two failures, both from the old live page. Checking the fix against the local copy before deploying, then I'll re-measure.
+- The newer hard gate says to open each deliverable and reveal it in Finder. Before opening, I'll confirm the default `.txt` app is not Bear, and check.
+- No custom handler is set, so `.txt` opens in TextEdit and never Bear. I'll name TextEdit anyway to be safe, and confirm the controller shows both items.
+- Both transcripts are saved and checked against each video's length.** 🟢 **1. MEN DID THAT [Do women like strong men or not?]** (`pOlZ-E7tgCQ`) - The.
+- The leftover background check finished, and it doesn't change either transcript. It did turn up one small bug in the shared YouTube wrapper: - **The.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Fix four legacy holes in ai_tells_gate.py  (8 minutes quiet, 118 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Machine: run `hostname -s` first; this task is for Brandons-MacBook-Pro only. Edit only ~/Projects/ai-tells-corpus/ai_tells_gate.py (never the duplicate under ~/Desktop/New Folder With Items
+
+- Two small corrections before running. The table name `Verdicts` would match its sheet name, and the cardinal keyword check should match the full phrase.
+- All four fixes are in and proven, and the held-out scan is finished. I'm on the last checks now, then the report.
+- The exit code in that last check is wrong. `$?` was read after the `basename` substitution ran, so it shows `basename`'s zero. I'll rerun it and.
+- 🟪 Summary - 🟩 **All four fixes are in** and each one has a passing probe pair. - 🟩 **The eight new probes pass 8 of 8** on the fixed gate. The backup.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Summer music site  (2 minutes quiet, 492 replies)
+**Goal.** Not summarised by hand yet. Last input on record: the player is wildly different from lizz or glostik ina always and is missing auto crop center on face
+
+- Summer is live on Vercel:** https://summer-songs.vercel.app/ `summer.vercel.app` already belongs to someone else's site, so I named it `summer-songs`.
+- You want Summer's player to match the Lizz and Glostik player in every way, including the auto-crop that keeps her face centered. Checklist for this.
+- The Lizz page has a `goFace()` function inside its player code. Reading the whole player section.
+- The sung-text guard blocked my wildcard search across the Glostik tools. Narrowing it to just the three player pages.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Restore dropped "not" in clean/ Christian chapters  (1 minutes quiet, 187 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- The gate reports findings per line, and the repairs never add or remove lines. So the check is exact: compare each chapter's findings line by line,.
+- Some gate findings are document-level and carry no line number. I'll fix the print for that case.
+- Before the rebuild, I'll move the first staged set into a dated delete/ folder rather than overwrite it, per your never-delete rule. Then I'll rebuild.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
