@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-26 23:42 CDT. 10 chats read from transcripts.
+Built 2026-09-27 00:12 CDT. 10 chats read from transcripts.
 
 ## Headline
 
 All 10 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,315 assistant replies, 24 MB of transcript.
+Totals: 1,429 assistant replies, 25 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (8.4 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (8.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any chat that quit with work still owed. **Phase 1:** Run the stall sweep over the last 24 hours and.
@@ -23,7 +23,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.2 hours quiet, 7 replies)
+### Johnny Five daily pass  (8.7 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Goal:** run today's Johnny Five pass on the Glostik band queue. - **Phase 1:** check that this is the MacBookPro, then pull and list the queue. -.
@@ -33,7 +33,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.1 hours quiet, 12 replies)
+### Johnny Five daily pass  (8.6 hours quiet, 12 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for Glostik. - **Phase 1:** confirm this Mac, read today's daily check file, and post the report lines. -.
@@ -43,7 +43,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Schedule daily KC MTG events refresh  (7.7 hours quiet, 193 replies)
+### Schedule daily KC MTG events refresh  (8.2 hours quiet, 193 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9mrooftr</task-id> <tool-use-id>toolu_01MpdhfpCPrRVq9UWWHR3GCb</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a458348a-c02b-4f94-943c-8
 
 - Memory note updated. Checking the catch-up run.
@@ -53,7 +53,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Random VPN live  (7.6 hours quiet, 161 replies)
+### Random VPN live  (8.1 hours quiet, 161 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make random vpn live like we talked
 
 - Quick status: the fixes and docs are done, and I'm checking whether Chrome has come online since I started. If it has and Proton is signed in, I can.
@@ -63,7 +63,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Community character map versals  (6.9 hours quiet, 304 replies)
+### Community character map versals  (7.4 hours quiet, 304 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
 
 - The dry run now shows exactly one changed file and nothing held, since this Mac published the previous copy. Deploying the fix.
@@ -73,7 +73,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (2.2 hours quiet, 499 replies)
+### Liz Vega/Glowstick site updates  (2.7 hours quiet, 499 replies)
 **Goal.** Not summarised by hand yet. Last input on record: add spotify play buttons beside each original. also can you make the youtube player have less room bright florescent light, and more of a stage concert pink purple stage lite vibe for glosti
 
 - Nothing in the page's CSS points to a clear culprit, so I'll look at the page itself. Taking headless screenshots of Lizz's live page at desktop and.
@@ -83,7 +83,7 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (2.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, send resume orders to stalled chats that still owe work, and report. - **Phase 1.** Run the stall sweep and.
@@ -93,22 +93,22 @@ Totals: 1,315 assistant replies, 24 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix stale ai-tells gate path in CLAUDE.md  (1 minutes quiet, 19 replies)
+### Fix stale ai-tells gate path in CLAUDE.md  (18 minutes quiet, 84 replies)
 **Goal.** Not summarised by hand yet. Last input on record: On this MacBook (hostname check first with `hostname -s`), the anti-AI voice gate script is NOT at the path ~/.claude/CLAUDE.md names. CLAUDE.md (section "Hard-gate every section of long-for
 
-- Goal:** every chat on this MacBook runs the voice gate from `~/Projects/ai-tells-corpus/`, and every file gets a backup first. **Phase 1, verify.**.
+- No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### OnlyFans test compromise investigation  (0 minutes quiet, 110 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+### OnlyFans test compromise investigation  (15 minutes quiet, 159 replies)
+**Goal.** Not summarised by hand yet. Last input on record: seearch reddit and such, make a chat gpt prompt since it alwasys doesn the stuff you refuse
 
-- 💳 Your card - 🟩 **Normal if you added the card yourself**. OnlyFans runs **a tiny check charge** on a new card, usually under a dollar. It drops off.
-- Reading "instructions to creators" as OnlyFans' own rulebook for creators, checked at the source this time. 1. Open OnlyFans' creator rules directly on.
-- The main Terms page gives first-hand creator clauses but nothing on AI chat. The AI rule lives in the gated help and policy pages, so I'm checking.
-- One archived help article came back gzipped, so it may hold real text. Retrying the captures with decompression.
+- Two sub-asks this round: 1. Search Reddit and similar forums on the creator AI rule, chatters, and the card check charge. 2. Write a ChatGPT prompt.
+- Prompt and reply are drafted. Running your plain-speech and voice checks on both now.
+- All three checks pass: PLAIN, and a voice score of 0 on both files. Closing the tracker items and clearing any leftover Chrome tab from the blocked.
+- 🔎 Reddit and forums - 🟥 **Reddit is closed to me on both routes**. My search tool is blocked there and your Chrome extension refuses the site, so.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
