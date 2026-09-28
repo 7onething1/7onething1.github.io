@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-28 08:27 CDT. 18 chats read from transcripts.
+Built 2026-09-28 08:58 CDT. 18 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 ## Every chat
 
-### Johnny Five daily pass  (21.8 hours quiet, 9 replies)
+### Johnny Five daily pass  (22.3 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, read today's daily check, and report it first. - **Phase.
@@ -23,7 +23,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Hobbit MTG KC Vent site update  (15.5 hours quiet, 540 replies)
+### Hobbit MTG KC Vent site update  (16.0 hours quiet, 540 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The click didn't register, probably because the screenshot is scaled 0.8 from the 1000px viewport. Retrying at the viewport-scaled position:
@@ -33,7 +33,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Hard drive vs application memory  (14.1 hours quiet, 103 replies)
+### Hard drive vs application memory  (14.6 hours quiet, 103 replies)
 **Goal.** Not summarised by hand yet. Last input on record: look at the last chat safe to delete
 
 - Found it. The chat is "Application memory growth," last active 2026-09-24 at 21:24. It sorted files into three groups: safe to move, move with care,.
@@ -43,7 +43,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Repoint beato-style-write corpus path on MacBook  (14.0 hours quiet, 67 replies)
+### Repoint beato-style-write corpus path on MacBook  (14.5 hours quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: On Brandons-MacBook-Pro (run `hostname -s` first; this is MacBook-only work), the beato-style-write skill cannot resolve any song because its source corpus path is dead. Facts checked on 202
 
 - All four edits are in. Next I'm recording the finished outcomes, writing a proof harness that never touches DeepSeek, and pulling the diffs.
@@ -53,7 +53,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcript analysis  (14.0 hours quiet, 55 replies)
+### YouTube transcript analysis  (14.5 hours quiet, 55 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bfbok5sty</task-id> <tool-use-id>toolu_01Adu3qs2D2Q6pbacKeVer2J</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/98207ac0-d98b-4dfc-9afe-4
 
 - The newer hard gate says to open each deliverable and reveal it in Finder. Before opening, I'll confirm the default `.txt` app is not Bear, and check.
@@ -63,7 +63,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix four legacy holes in ai_tells_gate.py  (13.7 hours quiet, 118 replies)
+### Fix four legacy holes in ai_tells_gate.py  (14.2 hours quiet, 118 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Machine: run `hostname -s` first; this task is for Brandons-MacBook-Pro only. Edit only ~/Projects/ai-tells-corpus/ai_tells_gate.py (never the duplicate under ~/Desktop/New Folder With Items
 
 - Two small corrections before running. The table name `Verdicts` would match its sheet name, and the cardinal keyword check should match the full phrase.
@@ -73,7 +73,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Add a negation-loss guard to fix_book.py  (13.3 hours quiet, 17 replies)
+### Add a negation-loss guard to fix_book.py  (13.8 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - Goal:** make `fix_book.py` refuse any DeepSeek rewrite that drops a negation or touches quoted text, with tests that never call DeepSeek. - **Phase.
@@ -83,7 +83,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Restore dropped "not" in clean/ Christian chapters  (13.3 hours quiet, 289 replies)
+### Restore dropped "not" in clean/ Christian chapters  (13.8 hours quiet, 289 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The user started your suggested background task task_d130c070 ("Add a negation-loss guard to fix_book.py") in a separate local session. It is running independently. You wil
 
 - No linked session was listed, so I'll search all recent sessions for the task's title.
@@ -93,7 +93,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Make yt_polite.py honor its --print-wait flag  (13.0 hours quiet, 76 replies)
+### Make yt_polite.py honor its --print-wait flag  (13.5 hours quiet, 76 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fix a doc/code mismatch in ~/.claude/skills/_shared/yt_polite.py, the shared polite YouTube fetch gate that every chat routes yt-dlp through. The problem: the module docstring (line 15) says
 
 - While the sibling's fetch runs, I'll check your reply-format note and the anti-AI gate's usage. The closing summary gets gated before you see it.
@@ -103,17 +103,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik site removal from Live Learn  (12.1 hours quiet, 396 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Fix archive view rail covering the panels block", which you asked to be notified about, is idle now — it finished a turn at 20:02. Its harness reports: «The rail
-
-- The memory note and its pointer are in. Last I'll close each checklist item against its live evidence. Glattangle stays open under its recorded blocker.
-- I made every change you asked for on the live site except one song I couldn't identify. Your note came through voice-typed, so I matched each spoken.
-- Both notices only say the two peer chats went idle, at 20:02 and 20:04, before my 20:13 deploy. So they add nothing new. I'll do one quick check that.
-- Nothing has changed since my last update. Both other chats have finished, and the live site still has everything from this round. - 🟪 **The live site.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix archive view rail covering the panels block  (12.1 hours quiet, 171 replies)
+### Fix archive view rail covering the panels block  (12.6 hours quiet, 171 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/44492.sock" from-session="local_cd3d7d12-7388-4534-a22a-2e5eb61f6f3f" from-name="Glostik site removal fr
 
 - A peer chat edited the three files I changed, and it says my fix survived. I'll check that on disk before replying.
@@ -123,7 +113,17 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Fix classic 1 logo images that return 404  (12.1 hours quiet, 168 replies)
+### Glostik site removal from Live Learn  (12.6 hours quiet, 396 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Fix archive view rail covering the panels block", which you asked to be notified about, is idle now — it finished a turn at 20:02. Its harness reports: «The rail
+
+- The memory note and its pointer are in. Last I'll close each checklist item against its live evidence. Glattangle stays open under its recorded blocker.
+- I made every change you asked for on the live site except one song I couldn't identify. Your note came through voice-typed, so I matched each spoken.
+- Both notices only say the two peer chats went idle, at 20:02 and 20:04, before my 20:13 deploy. So they add nothing new. I'll do one quick check that.
+- Nothing has changed since my last update. Both other chats have finished, and the live site still has everything from this round. - 🟪 **The live site.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Fix classic 1 logo images that return 404  (12.6 hours quiet, 168 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "uds:/tmp/cc-socks/44492.sock", which you asked to be notified about, is idle now — it finished a turn at 20:19. Its harness reports: «- 🟥 **The one thing still o
 
 - I've acknowledged the plan and I'm holding all writes. The Live Learn chat's `site_deploy.py --only glostik-songs` run will carry the logo fix. When.
@@ -133,7 +133,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stalled chats analysis  (8.6 hours quiet, 92 replies)
+### Stalled chats analysis  (9.1 hours quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -143,7 +143,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (7.9 hours quiet, 721 replies)
+### Liz Vega/Glowstick site updates  (8.4 hours quiet, 721 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_9672cd51-7504-4782-8d0f-3c039abb0920" name="Stalled chats analysis"> Brandon's last ask in this chat is still undone
 
 - Recorded. Now the daily-pass hostname fix. After the reboot this Mac answers `MacBookPro`, and the pass would stop on anything but.
@@ -153,7 +153,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### OnlyFans payment 3D Secure issue  (6.4 hours quiet, 8 replies)
+### OnlyFans payment 3D Secure issue  (6.9 hours quiet, 8 replies)
 **Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
 
 - Goal:** remove every block on this Mac that could stop the card's 3D Secure check. Here is your ask as a checklist: 1. Turn off the VPN on this Mac. 2..
@@ -163,7 +163,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (6.2 hours quiet, 60 replies)
+### Chats migration to Black Drive  (6.7 hours quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -173,7 +173,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (2.3 hours quiet, 167 replies)
+### 55% volume limit  (2.8 hours quiet, 167 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The limit held off at 17:02:04, 11 seconds after the change. The watcher is running, and nothing on this Mac can put the limit back. Next I update the.
@@ -183,7 +183,7 @@ Totals: 4,600 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (2.2 hours quiet, 1543 replies)
+### Summer music site  (2.7 hours quiet, 1543 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bd3wlvqdh</task-id> <summary>Monitor event: "Summer: guard, update steps and deploys, refs job, process failures"</summary> <event>2026-09-28 06:12:46 discover: 
 
 - The update is running discovery and the credit step, then the final match on the new ceiling. When that lands I'll run the full null check and review.
