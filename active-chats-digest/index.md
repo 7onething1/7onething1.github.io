@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-29 14:35 CDT. 14 chats read from transcripts.
+Built 2026-09-29 15:05 CDT. 15 chats read from transcripts.
 
 ## Headline
 
-All 14 chats ended on a gate block, 0 on a message from Brandon.
+All 15 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 5,151 assistant replies, 81 MB of transcript.
+Totals: 5,271 assistant replies, 82 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (21.6 hours quiet, 1 replies)
+### (untitled)  (22.1 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
@@ -53,7 +53,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (21.4 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (21.9 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -63,7 +63,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (21.3 hours quiet, 17 replies)
+### Johnny Five daily pass  (21.9 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -73,7 +73,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (21.0 hours quiet, 1693 replies)
+### Summer music site  (21.5 hours quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -83,7 +83,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (20.4 hours quiet, 300 replies)
+### Playlist player next button  (20.9 hours quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -93,7 +93,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (18.0 hours quiet, 944 replies)
+### Liz Vega/Glowstick site updates  (18.5 hours quiet, 944 replies)
 **Goal.** Not summarised by hand yet. Last input on record: add the doin time and karl videos to the site. Sometimes the player auto fits sometimes i have to click the fit button. needs to fit when it needs to center all that
 
 - Status: the shape tool now answers in seconds from YouTube's frame grabs, and keeps measured sizes separate. Running it on all the band's videos.
@@ -103,7 +103,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (17.0 hours quiet, 34 replies)
+### Emotes on other streams  (17.5 hours quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -113,7 +113,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (12.6 hours quiet, 174 replies)
+### Rapper slant rhymes analysis  (13.1 hours quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -123,7 +123,7 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (10.4 hours quiet, 188 replies)
+### 55% volume limit  (10.9 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - 🟩 Volume limit is off - 🟩 **The limit came off at 19:55:59** when I ran `volcap off`. - 🟦 **Your speakers stayed at 45**, because lifting the limit.
@@ -133,22 +133,32 @@ Totals: 5,151 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (17 minutes quiet, 445 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b0c0ingxj</task-id> <tool-use-id>toolu_019VDDPh3y1NPZHMtWKq3xVn</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
-
-- The tab responds to screenshots, and the account menu is closed now. I'll test page scripts with the smallest possible call before trying anything bigger.
-- While the public read waits out its polite delay, I'm checking the exact post time for the record.
-- It's 14:17 CDT, so the post went up at about 14:16. The autoname log already gave its row: 050. Waiting for the public read to finish.
-- Tonight's setlist is up on YouTube as @pagesofbrandon, and it matches the page. - **Posted at about 14:16** on the Sep 28 VOD, with all 36 songs,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Summer music site skill  (15 minutes quiet, 698 replies)
+### Summer music site skill  (46 minutes quiet, 698 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the ixi genre chips match summer's but both must allow multiple selections
 
 - All five genre items are met. Registering and closing the Discord question on its own contract too.
 - Removing a leftover no-op line from that probe, then bumping the skill version and running the selftest.
 - Selftest: 35 of 35 pass, including the two new guards, and the voice gate scores 0. Re-stamping ixi and writing today's lessons into memory.
 - I did both. Both sites also pass on multiple selections, and Summer needed no change. **ixi's genre chips now match Summer's.** ixi uses Summer's genre.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### VPN off temporarily  (5 minutes quiet, 20 replies)
+**Goal.** Not summarised by hand yet. Last input on record: vpn off for a moment
+
+- Goal: turn off the VPN on this Mac, keep its settings untouched, and hand back a one-line way to reconnect. - **Phase 1:** Find which VPN is running.
+- Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
+- 🟢 **Your VPN is off.** Cloudflare WARP is disconnected, so your traffic now goes straight out through T-Mobile.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostick pull timing adjustment  (0 minutes quiet, 545 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bk2og9w69</task-id> <tool-use-id>toolu_01DvYeecQqdQt4P4eSsbvEvS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
+
+- Status: the republish is running. I'm now adding the nightly Kick pull, starting with two small fixes to the Kick tools.
+- The skill and your color memory note are updated. Next I'll wait for the republish to finish, then check the live page for the new colors and Mr. Crowley.
+- The edit plan is saved: 38 lines, the title plus 37 rows, UTF-16 length 1464, djb2 774798873. The rows differ from the posted comment in exactly five.
+- The republish finished. First, a bookkeeping error I caught. Your mid-turn message opened a new tracker contract whose only item is the title line. My.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
