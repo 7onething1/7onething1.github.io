@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-28 19:29 CDT. 16 chats read from transcripts.
+Built 2026-09-28 20:29 CDT. 13 chats read from transcripts.
 
 ## Headline
 
-All 16 chats ended on a gate block, 0 on a message from Brandon.
+All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 4,513 assistant replies, 91 MB of transcript.
+Totals: 3,935 assistant replies, 70 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### YouTube transcript analysis  (1.0 days quiet, 55 replies)
+### YouTube transcript analysis  (1.1 days quiet, 55 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bfbok5sty</task-id> <tool-use-id>toolu_01Adu3qs2D2Q6pbacKeVer2J</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/98207ac0-d98b-4dfc-9afe-4
 
 - The newer hard gate says to open each deliverable and reveal it in Finder. Before opening, I'll confirm the default `.txt` app is not Bear, and check.
@@ -23,47 +23,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Make yt_polite.py honor its --print-wait flag  (24.0 hours quiet, 76 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Fix a doc/code mismatch in ~/.claude/skills/_shared/yt_polite.py, the shared polite YouTube fetch gate that every chat routes yt-dlp through. The problem: the module docstring (line 15) says
-
-- While the sibling's fetch runs, I'll check your reply-format note and the anti-AI gate's usage. The closing summary gets gated before you see it.
-- The background wait has finished. Reading what it found:
-- Contract `sc-d9d76854f1` is closed. Gating the draft reply:
-- Fixed and live - 🟩 **The flag now does what line 15 promised.** It reads the history, prints one line and exits 0 in about a tenth of a second. - 🟦.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik site removal from Live Learn  (23.2 hours quiet, 396 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Fix archive view rail covering the panels block", which you asked to be notified about, is idle now — it finished a turn at 20:02. Its harness reports: «The rail
-
-- The memory note and its pointer are in. Last I'll close each checklist item against its live evidence. Glattangle stays open under its recorded blocker.
-- I made every change you asked for on the live site except one song I couldn't identify. Your note came through voice-typed, so I matched each spoken.
-- Both notices only say the two peer chats went idle, at 20:02 and 20:04, before my 20:13 deploy. So they add nothing new. I'll do one quick check that.
-- Nothing has changed since my last update. Both other chats have finished, and the live site still has everything from this round. - 🟪 **The live site.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix archive view rail covering the panels block  (23.1 hours quiet, 171 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/44492.sock" from-session="local_cd3d7d12-7388-4534-a22a-2e5eb61f6f3f" from-name="Glostik site removal fr
-
-- A peer chat edited the three files I changed, and it says my fix survived. I'll check that on disk before replying.
-- The rail fix survived the Live Learn chat's edits, and I have nothing pending in archive, metal or the panels block. - **What the peer changed.** At.
-- The peer says production now runs its deploy and my fix came through. I'll check that on production myself, both the bytes and the rail behavior,.
-- The rail fix is still live after the Live Learn chat's deploy. I checked production myself before relying on the peer's report. - **What shipped:**.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix classic 1 logo images that return 404  (23.1 hours quiet, 168 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "uds:/tmp/cc-socks/44492.sock", which you asked to be notified about, is idle now — it finished a turn at 20:19. Its harness reports: «- 🟥 **The one thing still o
-
-- I've acknowledged the plan and I'm holding all writes. The Live Learn chat's `site_deploy.py --only glostik-songs` run will carry the logo fix. When.
-- The peer reports production is serving `dpl_7QRNBt4qszjvk5HFYZNHC4MHCM2p`. A peer's summary isn't proof of what's live, so I'm checking production.
-- Classic 1's Logos tab now paints every image on the live site, with 0 console errors on both addresses.** ### 🟢 What caused the 13 errors - **Twelve.
-- That idle notice is the one-shot subscription I set up earlier. The Live Learn chat finished its turn at 20:19, and nothing in it touches the logo fix,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stalled chats analysis  (19.6 hours quiet, 92 replies)
+### Stalled chats analysis  (20.6 hours quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -73,7 +33,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### OnlyFans payment 3D Secure issue  (17.4 hours quiet, 8 replies)
+### OnlyFans payment 3D Secure issue  (18.4 hours quiet, 8 replies)
 **Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
 
 - Goal:** remove every block on this Mac that could stop the card's 3D Secure check. Here is your ask as a checklist: 1. Turn off the VPN on this Mac. 2..
@@ -83,7 +43,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (17.2 hours quiet, 60 replies)
+### Chats migration to Black Drive  (18.2 hours quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -93,17 +53,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (13.3 hours quiet, 167 replies)
-**Goal.** Not summarised by hand yet. Last input on record: 45% on
-
-- The limit held off at 17:02:04, 11 seconds after the change. The watcher is running, and nothing on this Mac can put the limit back. Next I update the.
-- 🟩 Volume limit is off - 🟩 **The limit came off at 17:01:53** when I ran `volcap off`. - 🟦 **It still read off at 17:02:04 and 17:02:29**, both after.
-- Setting the volume limit to 45% with `volcap 45`, and saving 45 as the restore value. Before-and-after snapshot in one step:
-- 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 06:08:23**, set with `volcap 45`. - 🟦 **Your H87 headset dropped from 50 to 45** and reported.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### (untitled)  (2.5 hours quiet, 1 replies)
+### (untitled)  (3.5 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
@@ -113,7 +63,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.2 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (3.2 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -123,7 +73,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.2 hours quiet, 17 replies)
+### Johnny Five daily pass  (3.2 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -133,7 +83,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (1.9 hours quiet, 1693 replies)
+### Summer music site  (2.9 hours quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -143,17 +93,7 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (1.8 hours quiet, 785 replies)
-**Goal.** Not summarised by hand yet. Last input on record: find the origials we odn't have yet but going through other glostik searches
-
-- Finding Glostik originals that exist somewhere other than Spotify, which is where our 4 play buttons come from. The search will cover your own past.
-- Results came from the band's own channel (51 hits), an older "Glostik Willy" channel (2), and several fan channels that seem to have filmed shows..
-- Status: the other festival descriptions carry no setlists. Two loose ends before I report: whether "FATE" is already on either site's song list, and.
-- Yes, this used the band site's own lists. Nothing was added to the site, and every song the band retired stays off. - 🔴 **Left out because the band.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Playlist player next button  (1.3 hours quiet, 300 replies)
+### Playlist player next button  (2.3 hours quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -163,12 +103,42 @@ Totals: 4,513 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (3 minutes quiet, 514 replies)
+### 55% volume limit  (32 minutes quiet, 178 replies)
+**Goal.** Not summarised by hand yet. Last input on record: turn it off
+
+- Reading "turn it off" as the 45% volume limit you just set. Lifting it now and keeping 45 saved as the restore value:
+- The limit is off as of 19:55:59, and 45 stays saved. Your speakers are at 45. Next I check again after the watcher's refresh and sweep for anything.
+- The limit held off at 19:56:07, 8 seconds after the change. The level stayed at 45, the watcher is running, and nothing on this Mac can put the limit.
+- 🟩 Volume limit is off - 🟩 **The limit came off at 19:55:59** when I ran `volcap off`. - 🟦 **Your speakers stayed at 45**, because lifting the limit.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Emotes on other streams  (15 minutes quiet, 32 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I can do my emotoes on kick on other ppls streams right? they are doing it to mine
+
+- Your notes from Sept 23 and 24 already cover this, so next I'm checking Kick live to see if anything has changed since.
+- Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
+- Lizz's two regular emotes still stay in her chat, same as on Sept 24. Next I'm logging today's check in your Kick channel note and running my reply.
+- Short answer - 🟥 **No, your three emotes stay in your own chat for now.** Kick lists 7onething1boys, 7onething1GlowEQ and 7onething1TYPEII as regular.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Summer music site skill  (2 minutes quiet, 575 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- All 50 answer http 200 as valid JPEGs; my check scrolled past them faster than they loaded. Making the walk wait at each screen until the covers in.
-- The slower walk stopped early (only 200 rows drawn), so something in it failed. Making the walk report how far it got.
-- The walk reached the bottom, yet fewer covers painted than the fast walk. Looking at the full-page screenshot to see what a visitor actually gets.
-- Art now covers 472 of 611 songs; genres are running. While that finishes, confirming ixi's copy still equals the template after today's fixes.
+- While the job works through its art step, updating the handoff note with the state so far.
+- Art step done: 995 songs, 772 with covers. The genre step is running. Recording R4 with the live evidence already in hand.
+- All four outcomes are met. One last publish is left, so the live page carries the comment-list streams and today's fixes. Waiting for the scheduled.
+- Genres covered 563 of 789 artists this pass, with the rest queued. Faces are finishing. Waiting on the last step.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Liz Vega/Glowstick site updates  (1 minutes quiet, 914 replies)
+**Goal.** Not summarised by hand yet. Last input on record: add the doin time and karl videos to the site. Sometimes the player auto fits sometimes i have to click the fit button. needs to fit when it needs to center all that
+
+- Status: both pages carry the same 1.6-second backup, so one patch fits both. It will only drop the crop on phones, which need it. Backing up first,.
+- The shape job has cached nothing yet. Your wrapper also caps YouTube fetches at 12 per 10 minutes across all chats, so it may be waiting its turn..
+- None of the three frame grabs shows side bars, not even the known vertical stream. So either YouTube crops those grabs to fill the frame, or my.
+- Status: the shape tool now answers in seconds from YouTube's frame grabs, and keeps measured sizes separate. Running it on all the band's videos.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
