@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-28 20:29 CDT. 13 chats read from transcripts.
+Built 2026-09-28 20:59 CDT. 13 chats read from transcripts.
 
 ## Headline
 
 All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 3,935 assistant replies, 70 MB of transcript.
+Totals: 3,993 assistant replies, 70 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stalled chats analysis  (20.6 hours quiet, 92 replies)
+### Stalled chats analysis  (21.1 hours quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -33,7 +33,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### OnlyFans payment 3D Secure issue  (18.4 hours quiet, 8 replies)
+### OnlyFans payment 3D Secure issue  (18.9 hours quiet, 8 replies)
 **Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
 
 - Goal:** remove every block on this Mac that could stop the card's 3D Secure check. Here is your ask as a checklist: 1. Turn off the VPN on this Mac. 2..
@@ -43,7 +43,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (18.2 hours quiet, 60 replies)
+### Chats migration to Black Drive  (18.7 hours quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -53,7 +53,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (3.5 hours quiet, 1 replies)
+### (untitled)  (4.0 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
@@ -63,7 +63,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.2 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (3.8 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -73,7 +73,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.2 hours quiet, 17 replies)
+### Johnny Five daily pass  (3.7 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -83,7 +83,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (2.9 hours quiet, 1693 replies)
+### Summer music site  (3.4 hours quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -93,7 +93,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (2.3 hours quiet, 300 replies)
+### Playlist player next button  (2.8 hours quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -103,7 +103,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (32 minutes quiet, 178 replies)
+### 55% volume limit  (1.0 hours quiet, 178 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - Reading "turn it off" as the 45% volume limit you just set. Lifting it now and keeping 45 saved as the restore value:
@@ -113,7 +113,7 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (15 minutes quiet, 32 replies)
+### Emotes on other streams  (46 minutes quiet, 32 replies)
 **Goal.** Not summarised by hand yet. Last input on record: I can do my emotoes on kick on other ppls streams right? they are doing it to mine
 
 - Your notes from Sept 23 and 24 already cover this, so next I'm checking Kick live to see if anything has changed since.
@@ -123,22 +123,22 @@ Totals: 3,935 assistant replies, 70 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (2 minutes quiet, 575 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+### Liz Vega/Glowstick site updates  (23 minutes quiet, 944 replies)
+**Goal.** Not summarised by hand yet. Last input on record: add the doin time and karl videos to the site. Sometimes the player auto fits sometimes i have to click the fit button. needs to fit when it needs to center all that
 
-- While the job works through its art step, updating the handoff note with the state so far.
-- Art step done: 995 songs, 772 with covers. The genre step is running. Recording R4 with the live evidence already in hand.
-- All four outcomes are met. One last publish is left, so the live page carries the comment-list streams and today's fixes. Waiting for the scheduled.
-- Genres covered 563 of 789 artists this pass, with the rest queued. Faces are finishing. Waiting on the last step.
+- Status: the shape tool now answers in seconds from YouTube's frame grabs, and keeps measured sizes separate. Running it on all the band's videos.
+- Status: deployed. Production now serves `dpl_GMHp5ErQaBK4Bc16UbBTcqFQiHsK`. Proving it on the live site next, with nothing served locally.
+- Running the step exactly as the 3 AM job will: same Python, same folder, all shapes cached.
+- Both are live: the two videos, and a player that picks fit or crop on its own. - 🟢 **Karl** now plays the live video from May Daze 2016. - 🟡 **Doin.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (1 minutes quiet, 914 replies)
-**Goal.** Not summarised by hand yet. Last input on record: add the doin time and karl videos to the site. Sometimes the player auto fits sometimes i have to click the fit button. needs to fit when it needs to center all that
+### Summer music site skill  (13 minutes quiet, 603 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- Status: both pages carry the same 1.6-second backup, so one patch fits both. It will only drop the crop on phones, which need it. Backing up first,.
-- The shape job has cached nothing yet. Your wrapper also caps YouTube fetches at 12 per 10 minutes across all chats, so it may be waiting its turn..
-- None of the three frame grabs shows side bars, not even the known vertical stream. So either YouTube crops those grabs to fill the frame, or my.
-- Status: the shape tool now answers in seconds from YouTube's frame grabs, and keeps measured sizes separate. Running it on all the band's videos.
+- Published: 1,132 songs from 64 streams, live data.json matches the local build. Final live check at both sizes.
+- Transcript search is guarded, so checking which chats were active in that window instead.
+- Opening the live site in Firefox and revealing the page file in Finder.
+- All four asks are done, and the ixi site is live. **1. Read the Summer chat.** I read the "Summer music site" chat, both of its handoff notes, and all.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
