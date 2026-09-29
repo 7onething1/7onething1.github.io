@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-29 15:36 CDT. 15 chats read from transcripts.
+Built 2026-09-29 17:12 CDT. 17 chats read from transcripts.
 
 ## Headline
 
-All 15 chats ended on a gate block, 0 on a message from Brandon.
+All 17 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 5,470 assistant replies, 84 MB of transcript.
+Totals: 5,749 assistant replies, 96 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Slant rhymes chats  (14.4 days quiet, 579 replies)
+### Slant rhymes chats  (14.5 days quiet, 579 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b74vj8yu2</task-id> <tool-use-id>toolu_01Ucn6UqEC2eAKLqECEbeHQC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/adccc717-23f5-4262-80be-5
 
 - 🟩 **8 swaps are now logged.** The main pull still has the four Big Daddy Kane videos to go. This chat picks back up when it finishes.
@@ -43,7 +43,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (22.7 hours quiet, 1 replies)
+### (untitled)  (1.0 days quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
@@ -53,27 +53,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.4 hours quiet, 10 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
-- The send tool's description says scheduled-task runs cannot use it. I will confirm that against this session's own record. Meanwhile the sweep runs.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (22.4 hours quiet, 17 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
-- The tool writes "first seen" in local CDT time (line 69, naive `now()`). The "posted" stamp comes straight from the site data at line 166. I'll check.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Summer music site  (22.0 hours quiet, 1693 replies)
+### Summer music site  (23.6 hours quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -83,7 +63,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (21.5 hours quiet, 300 replies)
+### Playlist player next button  (23.1 hours quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -93,17 +73,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (19.0 hours quiet, 944 replies)
-**Goal.** Not summarised by hand yet. Last input on record: add the doin time and karl videos to the site. Sometimes the player auto fits sometimes i have to click the fit button. needs to fit when it needs to center all that
-
-- Status: the shape tool now answers in seconds from YouTube's frame grabs, and keeps measured sizes separate. Running it on all the band's videos.
-- Status: deployed. Production now serves `dpl_GMHp5ErQaBK4Bc16UbBTcqFQiHsK`. Proving it on the live site next, with nothing served locally.
-- Running the step exactly as the 3 AM job will: same Python, same folder, all shapes cached.
-- Both are live: the two videos, and a player that picks fit or crop on its own. - 🟢 **Karl** now plays the live video from May Daze 2016. - 🟡 **Doin.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Emotes on other streams  (18.0 hours quiet, 34 replies)
+### Emotes on other streams  (19.6 hours quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -113,7 +83,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (13.6 hours quiet, 174 replies)
+### Rapper slant rhymes analysis  (15.2 hours quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -123,7 +93,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (11.4 hours quiet, 188 replies)
+### 55% volume limit  (13.0 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - 🟩 Volume limit is off - 🟩 **The limit came off at 19:55:59** when I ran `volcap off`. - 🟦 **Your speakers stayed at 45**, because lifting the limit.
@@ -133,7 +103,7 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN off temporarily  (36 minutes quiet, 20 replies)
+### VPN off temporarily  (2.2 hours quiet, 20 replies)
 **Goal.** Not summarised by hand yet. Last input on record: vpn off for a moment
 
 - Goal: turn off the VPN on this Mac, keep its settings untouched, and hand back a one-line way to reconnect. - **Phase 1:** Find which VPN is running.
@@ -143,22 +113,72 @@ Totals: 5,470 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (1 minutes quiet, 691 replies)
-**Goal.** Not summarised by hand yet. Last input on record: We put darker filter on the vid player, but going forwrd dont put it on and take it off last night
+### Summer music site skill  (1.6 hours quiet, 766 replies)
+**Goal.** Not summarised by hand yet. Last input on record: draft an email to summer about the song site
 
-- Status: the block is written and compiles. Now it gets an offline known-answer test in headless Chrome: last night's id and a new id should get no.
-- The hook checks before a command runs, so a touch inside the same command comes too late. I'll touch the allow file on its own first, then run the write.
-- The hook flagged this read-only check too, because the script text sat inside the command and contained `>`. I'll save it with the Write tool and run.
-- The dry run shows **7 files to upload**, exactly the 7 layouts. The base is the 15:04 publish, and the other Mac's 32 newer files are held as they are..
+- Checklist: 1) pull current facts from Summer's live site so every line is true, 2) write the email, 3) run it through your voice gate, 4) save it where.
+- It passes, but flags one filler word ("just"). Cutting it and re-running.
+- Voice gate: score 0, pass. Building a one-line command that opens this draft in a Mail compose window, so nothing sends until you press Send.
+- Here's the draft. It's written from you to Summer, and every number in it comes from the live site today. Nothing has been sent. > **To:**.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (0 minutes quiet, 751 replies)
-**Goal.** Not summarised by hand yet. Last input on record: draft an email to summer about the song site
+### Glostick pull timing adjustment  (1.4 hours quiet, 730 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bu3feljgy</task-id> <tool-use-id>toolu_015poWxKzzuEwvivK7haGuXE</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
-- Neither Summer nor ixi publishes a public Discord invite link. - **ixi's Discord is private, for paying Patreon members.** Every paid tier at.
-- Checklist: 1) find the contact routes Summer publishes, 2) pick the best one. I'll check Summer's own website, link page and profiles, and only for.
-- Summer's own contact page lists the routes directly. Confirming what its form is, what the "hire me" page offers, and which address the link page's.
-- Email is the best way: summerpwoods@gmail.com. Summer's [contact page](https://summerwoodsmusic.com/contact) lists it as the address for "a.
+- The dry run shows **7 files to upload**, exactly the 7 layouts. The base is the 15:04 publish, and the other Mac's 32 newer files are held as they are..
+- The first-results check fires in about 100 seconds, and the full suite reports when it finishes.
+- The rerun is on its normal pace. It started at 15:41:35, and the first viewport's results landed at 15:42:38, about 63 seconds, close to Sep 28's 54..
+- The darker filter is off for last night and won't go on anything new. Older nights still have it. - **What it was:** the pink and purple "stage light".
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (1.4 hours quiet, 10 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
+- The send tool's description says scheduled-task runs cannot use it. I will confirm that against this session's own record. Meanwhile the sweep runs.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (1.4 hours quiet, 17 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
+- The tool writes "first seen" in local CDT time (line 69, naive `now()`). The "posted" stamp comes straight from the site data at line 166. I'll check.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (25 minutes quiet, 5 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (25 minutes quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, then read today's daily check file. - **Phase 2:** report.
+- Daily pass for 2026-09-29, run on MacBookPro** - **daily check:** PASS. The file is dated 2026-09-29T16:43, so it ran today. - **tabs check:** PASS, 10.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Liz Vega/Glowstick site updates  (2 minutes quiet, 1158 replies)
+**Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
+
+- Ballroom before and after: the Stars column is gone and every other column still sits under its heading. Checking the phone view and experimental next.
+- Both block views render clean. Now running the layout parity suite on the current pages and on the staged ones, so I can compare failures one to one.
+- Quick parity passes on both. Running the full browser suite on the staged pages.
+- Staged pages pass 82 of 87. Running the same suite on the current live-matching pages to confirm those 5 failures were already there.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
