@@ -1,99 +1,19 @@
 # Active chats digest
 
-Built 2026-09-30 11:29 CDT. 20 chats read from transcripts.
+Built 2026-09-30 17:58 CDT. 12 chats read from transcripts.
 
 ## Headline
 
-All 20 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,301 assistant replies, 107 MB of transcript.
+All 12 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 3 are past the 400-turn ceiling.
+Totals: 4,064 assistant replies, 69 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### OnlyFans payment 3D Secure issue  (2.4 days quiet, 8 replies)
-**Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
-
-- Goal:** remove every block on this Mac that could stop the card's 3D Secure check. Here is your ask as a checklist: 1. Turn off the VPN on this Mac. 2..
-- Phase 1 found the tunnel. Traffic exits through **Cloudflare WARP** (AS13335, Kansas City). Mullvad's background service is also running. Next I'll.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### (untitled)  (1.8 days quiet, 1 replies)
-**Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
-
-- Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Summer music site  (1.7 days quiet, 1693 replies)
-**Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
-
-- The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
-- No gendered words remain in the page's own wording or its source comments. 19 passages were reworded, and the script still parses. Deploying now, then.
-- Deployed at 17:33:28. One thing turned up in the site folder: a `README.md` next to the page, which gets served publicly too. I'm checking what it says.
-- All three are live on https://summer-songs.vercel.app/ (http 200, last deployed 17:33). 1. **The genre buttons now press together.** A song shows when.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Playlist player next button  (1.7 days quiet, 300 replies)
-**Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
-
-- Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
-- The two local servers on ports 8837 and 8838 are the ones I started, confirmed by their command lines, and no headless Chrome is left over. Stopping.
-- Memory note updated. Last step: revealing the Ballroom page file in Finder. I'm not opening the page in a browser, because it starts the Spotify dock.
-- The Glostik playlist player now has a working Next button in all seven views, and it's live on the site. 🟢 **What changed** - **Ballroom and.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Emotes on other streams  (1.6 days quiet, 34 replies)
-**Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
-
-- Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
-- Lizz's two regular emotes still stay in her chat, same as on Sept 24. Next I'm logging today's check in your Kick channel note and running my reply.
-- Short answer - 🟥 **No, your three emotes stay in your own chat for now.** Kick lists 7onething1boys, 7onething1GlowEQ and 7onething1TYPEII as regular.
-- 🟩 **Stream 5 total hours on pagesofbrandon so Kick switches on subs**, then re-upload your three emotes as sub-only so anyone subbed to you can post.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Rapper slant rhymes analysis  (1.4 days quiet, 174 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
-- Two evidence IDs recorded: **b3602191c6ff** for the workbook and **522227dc1d07** for Mattie's transcript. Marking all five checklist items met against.
-- The closed contract now sits in this session's state file. Checking where the parked copy lives.
-- I searched 33 ChatGPT chats, one archived Claude session, the Reddit thread you read, and Mattie's video. The full list, with a source on every row, is.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (19.6 hours quiet, 10 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
-- The send tool's description says scheduled-task runs cannot use it. I will confirm that against this session's own record. Meanwhile the sweep runs.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (19.6 hours quiet, 17 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
-- The tool writes "first seen" in local CDT time (line 69, naive `now()`). The "posted" stamp comes straight from the site data at line 166. I'll check.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (18.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (1.0 days quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
@@ -103,17 +23,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (18.7 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, then read today's daily check file. - **Phase 2:** report.
-- Daily pass for 2026-09-29, run on MacBookPro** - **daily check:** PASS. The file is dated 2026-09-29T16:43, so it ran today. - **tabs check:** PASS, 10.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### VPN off temporarily  (16.2 hours quiet, 27 replies)
+### VPN off temporarily  (22.7 hours quiet, 27 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
@@ -123,7 +33,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (16.2 hours quiet, 818 replies)
+### Summer music site skill  (22.7 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -133,7 +43,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (15.7 hours quiet, 845 replies)
+### Glostick pull timing adjustment  (22.1 hours quiet, 845 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
 - The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
@@ -143,7 +53,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (14.2 hours quiet, 376 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (20.6 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
 - No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
@@ -153,7 +63,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (14.1 hours quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (20.6 hours quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -163,7 +73,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (12.8 hours quiet, 243 replies)
+### Delete scope review  (19.3 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -173,7 +83,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (9.4 hours quiet, 198 replies)
+### 55% volume limit  (15.9 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
@@ -183,17 +93,7 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (8.4 hours quiet, 10 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
-- Time is 03:05 CDT on MacBookPro. Next I'll run the sweep and read the sweep and ledger scripts at the same time.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Space saving cleanup  (56 minutes quiet, 136 replies)
+### Space saving cleanup  (7.4 hours quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -203,10 +103,30 @@ Totals: 6,301 assistant replies, 107 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (52 minutes quiet, 5 replies)
+### Johnny Five daily pass  (7.3 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass on this MacBook. 1. **Phase 1:** confirm the Mac and read today's daily check file. 2. **Phase 2:** report.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (6.4 hours quiet, 10 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
+- Time is 03:05 CDT on MacBookPro. Next I'll run the sweep and read the sweep and ledger scripts at the same time.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (55 minutes quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
+
+- Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
