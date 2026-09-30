@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whisper Silence Hallucination</title>
+<style>
+:root{--cream:#F4EDE0;--ink:#1A1713;--rust:#B5532E;--teal:#4F7F7B;
+ --sage:#A8B08A;--rule:#CFC3AE;--card:#FBF6EC;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.55 "Futura","Avenir Next",Helvetica,Arial,sans-serif;padding:0 16px}
+.wrap{max-width:880px;margin:0 auto;padding:40px 0 72px}
+h1{font-size:30px;letter-spacing:.02em;margin:0 0 4px}
+.sub{color:#6B6155;font-size:14px;margin:0 0 26px}
+h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+.verdict{background:var(--card);border-left:6px solid var(--rust);padding:18px 20px;margin:22px 0}
+.fix{background:#EEE8D6;border-left:6px solid var(--teal);padding:16px 20px;margin:22px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px;background:var(--card)}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:#EDE2CE;font-weight:600}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+code{background:#EDE2CE;padding:1px 5px;border-radius:3px;font-size:13.5px;
+ font-family:"SF Mono",Menlo,monospace}
+pre{background:#EDE2CE;padding:14px 16px;border-radius:4px;overflow-x:auto;font-size:13px;
+ font-family:"SF Mono",Menlo,monospace;line-height:1.45}
+.mech{background:var(--card);border:1px solid var(--rule);padding:16px 20px;margin:14px 0}
+.mech div{margin:7px 0}
+ul,ol{padding-left:22px} li{margin:7px 0}
+.foot{margin-top:38px;padding-top:14px;border-top:2px solid var(--rule);font-size:13px;color:#6B6155}
+.bad{color:var(--rust);font-weight:600} .good{color:#2E6B45;font-weight:600}
+@media (max-width:620px){table{font-size:13px}th,td{padding:6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Whisper Silence Hallucination</h1>
+<p class="sub">Why a transcriber writes words over empty audio, and the gate that stops it &middot; 2026-09-30</p>
+
+<div class="verdict">
+<b>Given silence, Whisper emits its favourite caption anyway.</b>
+Running <code>faster-whisper base</code> over a 133.8 second track produced five words,
+each of them <code>You</code>, placed at 00:00, 00:30, 01:00, 01:30 and 02:00.
+The audio contained no sound at any point.
+</div>
+
+<h2>The evidence the audio was empty</h2>
+<pre>$ ffmpeg -i clip.mp4 -af volumedetect -f null -
+
+  n_samples:   2140160
+  mean_volume: -91.0 dB
+  max_volume:  -91.0 dB</pre>
+<p><b>Mean equal to max is the decisive reading.</b> It means every one of the 2,140,160 samples
+holds the same value, so the track is digital silence from the first sample to the last.
+A 16 bit floor is around -96 dB, so -91.0 is the noise floor of an empty container.</p>
+
+<table>
+<tr><th>Track</th><th class="n">mean dBFS</th><th class="n">max dBFS</th><th>Reading</th></tr>
+<tr><td>Empty clip A</td><td class="n">-91.0</td><td class="n">-91.0</td><td class="bad">digital silence</td></tr>
+<tr><td>Empty clip B</td><td class="n">-91.0</td><td class="n">-91.0</td><td class="bad">digital silence</td></tr>
+<tr><td>Empty clip C</td><td class="n">-91.0</td><td class="n">-91.0</td><td class="bad">digital silence</td></tr>
+<tr><td>Real speech A</td><td class="n">-21.6</td><td class="n">-0.4</td><td class="good">has signal</td></tr>
+<tr><td>Real speech B</td><td class="n">-24.3</td><td class="n">-0.0</td><td class="good">has signal</td></tr>
+</table>
+<p>The separation is absolute. There is no value between -24.3 and -91.0.</p>
+
+<h2>Why the model does it</h2>
+<div class="mech">
+<div><b>1.</b> Whisper processes audio in 30 second windows and must emit a token sequence for each one.</div>
+<div><b>2.</b> With no acoustic evidence, the decoder falls back on its language prior.</div>
+<div><b>3.</b> That prior came largely from YouTube caption tracks, where <code>You</code>, <code>Thank you for watching</code> and <code>Thanks for watching!</code> are among the most common closing lines in the corpus.</div>
+<div><b>4.</b> So each empty window is filled with the statistically likeliest caption text.</div>
+<div><b>5.</b> <b>The timestamps prove the mechanism.</b> The five tokens fall at exactly 00:00, 00:30, 01:00, 01:30 and 02:00. Perfectly regular 30 second spacing is a per-window artifact, never the rhythm of speech.</div>
+</div>
+
+<h2>Why the first gate missed it</h2>
+<p>The check for success was <code>words &gt; 0</code>. Five is greater than zero, so the run was
+stamped <code>OK</code> and five fabricated words were reported as content. That is counting output
+rather than measuring it. A count cannot tell invented text from transcribed text.</p>
+<p>A duration based silence rule did not save it either. A rule that cuts at the first silent run
+lasting past five minutes cannot fire on a clip of 133.8 seconds, because a 133.8 second file
+structurally cannot contain a 300 second run.</p>
+
+<div class="fix">
+<b>The fix is to measure level before transcribing, rather than to judge the output afterwards.</b>
+</div>
+<pre>def volume_stats(path):
+    r = run(["ffmpeg", "-i", path, "-af", "volumedetect", "-f", "null", "-"])
+    mean = float(re.search(r"mean_volume: ([-0-9.]+) dB", r.stderr).group(1))
+    mx   = float(re.search(r"max_volume: ([-0-9.]+) dB",  r.stderr).group(1))
+    dead = abs(mean - mx) &lt; 0.01 or mx &lt;= -60.0
+    return mean, mx, dead
+
+# called BEFORE the model is loaded
+if dead_audio:
+    return "NO_SPEECH", f"digital silence, mean {mean} dBFS and max {mx} dBFS"</pre>
+<p>Whisper is never started on an empty track, so there is no window in which it can invent a token.
+A second guard remains as a backstop: any output under 30 words carrying three or fewer unique
+tokens is labelled a hallucination rather than counted as speech.</p>
+
+<h2>Result after the fix</h2>
+<table>
+<tr><th>Clip</th><th class="n">Before</th><th class="n">After</th></tr>
+<tr><td>Empty clip A, 0.37 min</td><td class="n">EMPTY_AFTER_TRANSCRIBE</td><td class="n good">NO_SPEECH, basis printed</td></tr>
+<tr><td>Empty clip B, 0.33 min</td><td class="n">EMPTY_AFTER_TRANSCRIBE</td><td class="n good">NO_SPEECH, basis printed</td></tr>
+<tr><td>Empty clip C, 2.23 min</td><td class="n bad">OK, 5 words "You"</td><td class="n good">NO_SPEECH, basis printed</td></tr>
+<tr><td>Real speech A, 11.47 min</td><td class="n">OK</td><td class="n good">OK, unchanged</td></tr>
+<tr><td>Real speech B, 4.89 min</td><td class="n">OK</td><td class="n good">OK, unchanged</td></tr>
+</table>
+
+<h2>Two things worth carrying forward</h2>
+<ul>
+<li><b>A silence threshold measured in seconds is a truncation rule, never an emptiness test.</b> Use it to stop transcribing dead air in a long recording. Use a level measurement to decide whether there is any sound at all.</li>
+<li><b>Whisper output is not stable run to run.</b> The same 4.89 minute file returned 269, then 313, then 232 words across three passes with identical settings. The words are real, the counts drift. Pin temperature and disable fallback when reproducibility matters.</li>
+</ul>
+
+<div class="foot">
+Measured with <code>ffmpeg volumedetect</code>, <code>ffmpeg silencedetect</code> and
+<code>faster-whisper</code> base, int8, CPU, on macOS.
+Method notes only. No transcript content is published here.
+</div>
+
+</div>
+</body>
+</html>
