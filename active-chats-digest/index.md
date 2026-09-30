@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-30 08:28 CDT. 19 chats read from transcripts.
+Built 2026-09-30 08:58 CDT. 19 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### (untitled)  (1.6 days quiet, 1 replies)
+### (untitled)  (1.7 days quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: old arena installs to delete? we need to insteall the new one
 
 - Please run /login · API Error: 401 Authentication Fails, Your api key: ****CgAA is invalid (request_id: c6aa7cd0-8f34-4c92-b5ea-24dc8c598716)
@@ -73,7 +73,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.6 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (17.1 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -83,7 +83,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (16.6 hours quiet, 17 replies)
+### Johnny Five daily pass  (17.1 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -93,7 +93,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (16.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
@@ -103,7 +103,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (16.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, then read today's daily check file. - **Phase 2:** report.
@@ -113,7 +113,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN off temporarily  (13.2 hours quiet, 27 replies)
+### VPN off temporarily  (13.7 hours quiet, 27 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
@@ -123,7 +123,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (13.2 hours quiet, 818 replies)
+### Summer music site skill  (13.7 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -133,7 +133,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (12.6 hours quiet, 845 replies)
+### Glostick pull timing adjustment  (13.1 hours quiet, 845 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
 - The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
@@ -143,7 +143,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (11.2 hours quiet, 376 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (11.7 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
 - No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
@@ -153,7 +153,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (11.1 hours quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (11.6 hours quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -163,7 +163,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (9.8 hours quiet, 243 replies)
+### Delete scope review  (10.3 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -173,7 +173,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (6.4 hours quiet, 198 replies)
+### 55% volume limit  (6.9 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
@@ -183,7 +183,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5.4 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (5.9 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
@@ -193,7 +193,7 @@ Totals: 6,247 assistant replies, 106 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (4.8 hours quiet, 87 replies)
+### Space saving cleanup  (5.4 hours quiet, 87 replies)
 **Goal.** Not summarised by hand yet. Last input on record: urgent space saving what can we delete
 
 - The dry run works and **deletes nothing**. One thing needs a fix first: the Kick parked folder grew from 2.76 to 3.18 GB during this session, so a live.
