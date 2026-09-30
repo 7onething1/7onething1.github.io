@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-30 02:54 CDT. 17 chats read from transcripts.
+Built 2026-09-30 03:24 CDT. 19 chats read from transcripts.
 
 ## Headline
 
-All 17 chats ended on a gate block, 0 on a message from Brandon.
+All 19 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,150 assistant replies, 105 MB of transcript.
+Totals: 6,211 assistant replies, 106 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### OnlyFans payment 3D Secure issue  (2.0 days quiet, 8 replies)
+### OnlyFans payment 3D Secure issue  (2.1 days quiet, 8 replies)
 **Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
 
 - Goal:** remove every block on this Mac that could stop the card's 3D Secure check. Here is your ask as a checklist: 1. Turn off the VPN on this Mac. 2..
@@ -63,7 +63,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (1.0 days quiet, 174 replies)
+### Rapper slant rhymes analysis  (1.1 days quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -73,7 +73,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (11.1 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (11.6 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -83,7 +83,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.1 hours quiet, 17 replies)
+### Johnny Five daily pass  (11.6 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -93,7 +93,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (10.1 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (10.6 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
@@ -103,7 +103,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.1 hours quiet, 6 replies)
+### Johnny Five daily pass  (10.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, then read today's daily check file. - **Phase 2:** report.
@@ -113,7 +113,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN off temporarily  (7.7 hours quiet, 27 replies)
+### VPN off temporarily  (8.2 hours quiet, 27 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
@@ -123,7 +123,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (7.6 hours quiet, 818 replies)
+### Summer music site skill  (8.1 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -133,7 +133,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (7.1 hours quiet, 845 replies)
+### Glostick pull timing adjustment  (7.6 hours quiet, 845 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
 - The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
@@ -143,7 +143,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (5.6 hours quiet, 376 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (6.1 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
 - No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
@@ -153,7 +153,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (5.5 hours quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (6.0 hours quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -163,7 +163,7 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (4.2 hours quiet, 243 replies)
+### Delete scope review  (4.7 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -173,12 +173,32 @@ Totals: 6,150 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (51 minutes quiet, 198 replies)
+### 55% volume limit  (1.4 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 04:10:20**, set with `volcap 45`. - 🟦 **Your Beats Solo 4 are at 37**, under the limit, so.
 - Reading "turn it off" as the 45% volume limit. Lifting it now and keeping 45 saved as the restore value:
 - 🟩 Volume limit is off - 🟩 **The limit came off at 02:02:41** when I ran `volcap off`. - 🟦 **Your speakers stayed at 45**, because lifting the limit.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (19 minutes quiet, 10 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
+- Time is 03:05 CDT on MacBookPro. Next I'll run the sweep and read the sweep and ledger scripts at the same time.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Space saving cleanup  (0 minutes quiet, 51 replies)
+**Goal.** Not summarised by hand yet. Last input on record: urgent space saving what can we delete
+
+- Two surprises showed up: **Chrome has 52 GB of leftover temp copies** in a system folder, and **your transcript rescue folder grew to 37 GB**. Checking.
+- The Chrome copies all came from yesterday, **37 launches in about four hours**. They may share disk blocks with the installed app, so I'm measuring the.
+- Quick status: I'm still measuring and haven't deleted anything. Two last checks are running, then the ranked list comes.
+- The picture is clear now. Last pass: **exact sizes for the throwaway browser profiles**, plus a look inside the remaining parked folders so nothing.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
