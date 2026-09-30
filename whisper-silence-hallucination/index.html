@@ -109,9 +109,29 @@ tokens is labelled a hallucination rather than counted as speech.</p>
 <tr><td>Real speech B, 4.89 min</td><td class="n">OK</td><td class="n good">OK, unchanged</td></tr>
 </table>
 
+<h2>Correction: never truncate at silence</h2>
+<div class="verdict" style="border-left-color:#4F7F7B">
+<b>An earlier version of this page recommended cutting the transcription at the first silent run
+past five minutes. That was wrong, and it was corrected the same day by the person whose
+recordings these were.</b>
+</div>
+<p>Meetings pause. People step away for fifteen minutes and come back, and the material after the
+pause is often the part worth having. A transcriber that stops at the first long silence throws
+away the second half of the meeting.</p>
+<div class="mech">
+<div><b>The rule now:</b> transcribe the whole file, end to end, every time.</div>
+<div><b>Gap detection still runs</b>, at <code>silencedetect=noise=-40dB:d=900</code>, to FIND breaks rather than to act on them.</div>
+<div><b>Each gap of 15 minutes or longer is labelled</b> in the header, for example
+<code>00:05 to 16:05 (16.0 min) - transcription CONTINUES past this</code>.</div>
+<div><b>The truncated flag must read False</b> on every run.</div>
+</div>
+<p><b>Validated</b> against a purpose-built file: spoken audio, then 16 minutes of silence, then a
+second and unrelated spoken passage. Both passages were transcribed, the break was labelled, and
+nothing was cut.</p>
+
 <h2>Two things worth carrying forward</h2>
 <ul>
-<li><b>A silence threshold measured in seconds is a truncation rule, never an emptiness test.</b> Use it to stop transcribing dead air in a long recording. Use a level measurement to decide whether there is any sound at all.</li>
+<li><b>A silence threshold is a map of the breaks, never a place to stop.</b> Use a level measurement to decide whether there is sound at all. Use gap length only to label where a meeting paused.</li>
 <li><b>Whisper output is not stable run to run.</b> The same 4.89 minute file returned 269, then 313, then 232 words across three passes with identical settings. The words are real, the counts drift. Pin temperature and disable fallback when reproducibility matters.</li>
 </ul>
 
