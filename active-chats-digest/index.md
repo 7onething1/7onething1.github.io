@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-29 20:50 CDT. 18 chats read from transcripts.
+Built 2026-09-29 21:51 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 6,360 assistant replies, 103 MB of transcript.
+Totals: 6,582 assistant replies, 109 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Slant rhymes chats  (14.6 days quiet, 579 replies)
+### Slant rhymes chats  (14.7 days quiet, 579 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b74vj8yu2</task-id> <tool-use-id>toolu_01Ucn6UqEC2eAKLqECEbeHQC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/adccc717-23f5-4262-80be-5
 
 - 🟩 **8 swaps are now logged.** The main pull still has the four Big Daddy Kane videos to go. This chat picks back up when it finishes.
@@ -43,7 +43,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (1.1 days quiet, 1693 replies)
+### Summer music site  (1.2 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -53,7 +53,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (1.1 days quiet, 300 replies)
+### Playlist player next button  (1.2 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -63,7 +63,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (23.2 hours quiet, 34 replies)
+### Emotes on other streams  (1.0 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -73,7 +73,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (18.9 hours quiet, 174 replies)
+### Rapper slant rhymes analysis  (19.9 hours quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -83,7 +83,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (16.7 hours quiet, 188 replies)
+### 55% volume limit  (17.7 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - 🟩 Volume limit is off - 🟩 **The limit came off at 19:55:59** when I ran `volcap off`. - 🟦 **Your speakers stayed at 45**, because lifting the limit.
@@ -93,7 +93,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5.0 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (6.0 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stalled in the last 24 hours and send each one a checked resume order. Then log each send and write the report. - **Phase.
@@ -103,7 +103,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.0 hours quiet, 17 replies)
+### Johnny Five daily pass  (6.0 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass and report what the Glo site tabs and the band queue hold. - **Phase 1:** Confirm this is the MacBook and read.
@@ -113,7 +113,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (5.1 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
@@ -123,7 +123,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (5.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac, then read today's daily check file. - **Phase 2:** report.
@@ -133,7 +133,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN off temporarily  (1.6 hours quiet, 27 replies)
+### VPN off temporarily  (2.6 hours quiet, 27 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
@@ -143,7 +143,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (1.6 hours quiet, 818 replies)
+### Summer music site skill  (2.6 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -153,7 +153,7 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostick pull timing adjustment  (1.0 hours quiet, 845 replies)
+### Glostick pull timing adjustment  (2.0 hours quiet, 845 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
 - The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
@@ -163,32 +163,32 @@ Totals: 6,360 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (8 minutes quiet, 1307 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Your response above was stopped by a safety classifier — this is not a tool or API error. The rest of it was withheld, and tool calls in it that had not finished did not run. Do not produce 
+### Delete scope review  (45 minutes quiet, 106 replies)
+**Goal.** Not summarised by hand yet. Last input on record: whats up
 
-- No earlier version with these tabs exists, only your searches on the live page today. Checking how ixi's tools locate their folders, so I can render a.
-- API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This sometimes happens with safe, normal conversations..
-- API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This sometimes happens with safe, normal conversations..
-- The last step got cut off, so I've stopped there for now. - **Done so far:** backups of ixi's files, ixi's channel ID added to its settings, and a.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Delete scope review  (2 minutes quiet, 95 replies)
-**Goal.** Not summarised by hand yet. Last input on record: what can we delete on this delete
-
-- The `=====` separator tripped a zsh quirk, so the second file didn't print. The first file adds a closing tally of what was produced and what is left..
-- Both claims hold. I'll draft the reply to a scratch file and run your anti-AI gate on it in hard mode.
 - The voice gate passed with a score of 0 and exit code 0. Last step is confirming the tracker shows all four checklist items met.
 - Everything in `~/.claude/delete/` can go, and I didn't delete anything myself. Your never-delete rule leaves the emptying to you, so the commands are.
+- It passed, and it flagged "just" as filler. I'll cut that word and rerun it to see the second finding.
+- Nothing has changed since my last reply. You haven't run either trash command yet. - 🟧 **The folder still holds 16 items,** 277 files and 3.5 MB. I.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (1 minutes quiet, 253 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (32 minutes quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
-- All four items are marked met in the tracker. One housekeeping step: my `cd` commands moved the working directory, so I'll move it back home for the.
-- The James Gang row was never James Gang, and Walk Away was not played on 8-22. I removed the row and the live page is fixed. **Why the James Gang link.
-- Checklist for this ask:** 1. Add the 6 songs the audit found on 8-22, each with a verified start time. 2. Merge the two Dogs rows (3:36:53 and 3:45:16).
-- Self grams only fill in for songs with **no published lyrics**, per the comment at `lyric_match.py:447`. That applies to This Cloud. Running the detail.
+- No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
+- The scorer is cheap per call: a ref of up to 300 frames against a 40-frame window. Writing the chroma check now, with both controls built in.
+- Both blockers are recorded, and the item is queued as `q-2026-09-29-e366f9`, marked "add only on Brandon's own word." Marking the six finished outcomes.
+- Four of the six songs are added on 8-22 and Dogs is now one row, all live. The other two aren't on the list, because every check says they weren't.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Liz Vega/Glowstick site updates  (28 minutes quiet, 1395 replies)
+**Goal.** Not summarised by hand yet. Last input on record: what up
+
+- Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
+- Playlists and Links are recorded as met. The other four need the storage you haven't answered on yet, so I'm logging that as the open blocker and.
+- Both "failed" notices are the two test servers I stopped on purpose. You still haven't answered the storage question, so I'm recording it as the blocker.
+- Here is where ixi stands. Four of the six tabs are working on the live page, and the last four forms are waiting on one yes from you. Live page:.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
