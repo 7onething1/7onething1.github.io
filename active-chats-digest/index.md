@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-09-30 23:34 CDT. 14 chats read from transcripts.
+Built 2026-10-01 00:04 CDT. 14 chats read from transcripts.
 
 ## Headline
 
@@ -73,7 +73,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (1.0 days quiet, 243 replies)
+### Delete scope review  (1.1 days quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -83,7 +83,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (21.5 hours quiet, 198 replies)
+### 55% volume limit  (22.0 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
@@ -93,7 +93,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (13.0 hours quiet, 136 replies)
+### Space saving cleanup  (13.5 hours quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -103,7 +103,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (12.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (13.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass on this MacBook. 1. **Phase 1:** confirm the Mac and read today's daily check file. 2. **Phase 2:** report.
@@ -113,7 +113,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.0 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (12.5 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
@@ -123,7 +123,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox performance  (2.6 hours quiet, 122 replies)
+### Firefox performance  (3.1 hours quiet, 122 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bkl4z874b</task-id> <tool-use-id>toolu_017kTALesvb5HxXVNwtZmvGK</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3235171a-3ede-45bd-82b1-2
 
 - The chorus pass is at 14 and 15 of 16 windows, so the stream ends within minutes. A background watcher will confirm the halt, and I'll report back then.
@@ -133,7 +133,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emotes Chrome Kick upload  (1.8 hours quiet, 159 replies)
+### Glostik emotes Chrome Kick upload  (2.3 hours quiet, 159 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
 - All 17 saved**, and the dashboard reads 40/60. Now for proof from Kick's public side. I'll pull the live list and download each live emote to compare.
@@ -143,7 +143,7 @@ Totals: 4,345 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (21 minutes quiet, 6 replies)
+### Stop malfeasance and fraud  (51 minutes quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
