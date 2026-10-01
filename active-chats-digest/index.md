@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-09-30 20:02 CDT. 12 chats read from transcripts.
+Built 2026-09-30 20:33 CDT. 13 chats read from transcripts.
 
 ## Headline
 
-All 12 chats ended on a gate block, 0 on a message from Brandon.
+All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 4,064 assistant replies, 69 MB of transcript.
+Totals: 4,112 assistant replies, 70 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (1.1 days quiet, 5 replies)
+### Stop malfeasance and fraud  (1.2 days quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find the chats that stopped working in the last 24 hours, get them moving again, and log every step. - **Phase 1, sweep.** I'll run the stall.
@@ -23,7 +23,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VPN off temporarily  (1.0 days quiet, 27 replies)
+### VPN off temporarily  (1.1 days quiet, 27 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - Disconnect returned Success. No rotator job is installed or running, so nothing will switch WARP back on. Phase 3 checks the result.
@@ -33,7 +33,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (1.0 days quiet, 818 replies)
+### Summer music site skill  (1.1 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -53,7 +53,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (22.7 hours quiet, 376 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (23.2 hours quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
 - No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
@@ -63,7 +63,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (22.7 hours quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (23.2 hours quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -73,7 +73,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (21.3 hours quiet, 243 replies)
+### Delete scope review  (21.9 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -83,7 +83,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (18.0 hours quiet, 198 replies)
+### 55% volume limit  (18.5 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
@@ -93,7 +93,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (9.5 hours quiet, 136 replies)
+### Space saving cleanup  (10.0 hours quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -103,7 +103,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (9.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (9.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass on this MacBook. 1. **Phase 1:** confirm the Mac and read today's daily check file. 2. **Phase 2:** report.
@@ -113,7 +113,7 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (8.5 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (9.0 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
@@ -123,12 +123,22 @@ Totals: 4,064 assistant replies, 69 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (3.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Firefox performance  (11 minutes quiet, 48 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
+
+- The plain-speech check flagged three sentences as too long. The bold markers were hiding the sentence breaks. I'm moving the periods outside the bold.
+- Both checks pass. I'm making three small wording fixes (a source label, the real gate score, and the memory note link), then re-checking the final text.
+- The plain-speech check counts the code block, so the reply ran to 16 lines against a limit of 14. I'm folding the status into the Fix section to get.
+- Why Firefox is slow - 🟥 **Speech-to-text jobs** are eating the CPU. **The Lizz Vega YouTube processor** has run since the Mac started at 5 PM. **Its.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
