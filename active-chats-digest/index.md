@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-09-30 21:03 CDT. 13 chats read from transcripts.
+Built 2026-09-30 21:33 CDT. 14 chats read from transcripts.
 
 ## Headline
 
-All 13 chats ended on a gate block, 0 on a message from Brandon.
+All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 4,186 assistant replies, 71 MB of transcript.
+Totals: 4,253 assistant replies, 72 MB of transcript.
 
 ## Do yourself
 
@@ -53,7 +53,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Games Gang pointing to Pink Floyd Dogs  (23.7 hours quiet, 376 replies)
+### Glostik Games Gang pointing to Pink Floyd Dogs  (1.0 days quiet, 376 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 8-22 add the 6 missing songs and merge dogs
 
 - No layout draws a Snippet or Partial label. The only hit is one lowercase "snippet" in the poster layout, so I'll check that one hit before saying the.
@@ -63,7 +63,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (23.7 hours quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (1.0 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -73,7 +73,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Delete scope review  (22.4 hours quiet, 243 replies)
+### Delete scope review  (22.9 hours quiet, 243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes fix the notes
 
 - All 22 first-round edits went in. Now the four second edits.
@@ -83,7 +83,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (19.0 hours quiet, 198 replies)
+### 55% volume limit  (19.5 hours quiet, 198 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - The limit is 45% in both files. Your Beats Solo 4 is at 37, under the limit, so nothing was turned down. Next I check again after the watcher's refresh.
@@ -93,7 +93,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (10.5 hours quiet, 136 replies)
+### Space saving cleanup  (11.0 hours quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -103,7 +103,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (10.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass on this MacBook. 1. **Phase 1:** confirm the Mac and read today's daily check file. 2. **Phase 2:** report.
@@ -113,7 +113,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (9.5 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (10.0 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
@@ -123,7 +123,7 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (4.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
@@ -133,12 +133,22 @@ Totals: 4,186 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox performance  (6 minutes quiet, 122 replies)
+### Firefox performance  (37 minutes quiet, 122 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bkl4z874b</task-id> <tool-use-id>toolu_017kTALesvb5HxXVNwtZmvGK</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3235171a-3ede-45bd-82b1-2
 
 - The chorus pass is at 14 and 15 of 16 windows, so the stream ends within minutes. A background watcher will confirm the halt, and I'll report back then.
 - The watcher finished. Reading its result and checking the Mac's load now that the processor has stopped.
 - All three outcomes are met and recorded. I'm running the voice and plain-speech checks on the final reply now.
 - Paused - 🟩 **The processor stopped cleanly** at 8:54 PM. **The stream it was on finished first**, so nothing was frozen or lost. **Total CPU use.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik emotes Chrome Kick upload  (0 minutes quiet, 67 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
+
+- The dashboard reads **pagesofbrandon**, so this is your channel. Expanding the Studio menu next.
+- Found it: the emotes page lives at `dashboard.kick.com/community/chat/emotes`. Reading its controls now.
+- The page shows **57 of 60 slots free**, with boys, GlowEQ and TYPEII already up. Looking for the hidden file input behind the + tile.
+- The + tile is a plain button that opens the native picker, which I can't drive. I'll intercept that file input so it receives the files directly.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
