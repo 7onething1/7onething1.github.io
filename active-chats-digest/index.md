@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-01 04:35 CDT. 8 chats read from transcripts.
+Built 2026-10-01 05:05 CDT. 8 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 ## Every chat
 
-### Space saving cleanup  (18.0 hours quiet, 136 replies)
+### Space saving cleanup  (18.5 hours quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -23,7 +23,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (18.0 hours quiet, 5 replies)
+### Johnny Five daily pass  (18.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass on this MacBook. 1. **Phase 1:** confirm the Mac and read today's daily check file. 2. **Phase 2:** report.
@@ -33,7 +33,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (17.0 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (17.5 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit while owing work, and write the report. - **Phase 1:** Run the stall sweep and load.
@@ -43,7 +43,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox performance  (7.6 hours quiet, 122 replies)
+### Firefox performance  (8.1 hours quiet, 122 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bkl4z874b</task-id> <tool-use-id>toolu_017kTALesvb5HxXVNwtZmvGK</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3235171a-3ede-45bd-82b1-2
 
 - The chorus pass is at 14 and 15 of 16 windows, so the stream ends within minutes. A background watcher will confirm the halt, and I'll report back then.
@@ -53,7 +53,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emotes Chrome Kick upload  (6.8 hours quiet, 159 replies)
+### Glostik emotes Chrome Kick upload  (7.3 hours quiet, 159 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
 - All 17 saved**, and the dashboard reads 40/60. Now for proof from Kick's public side. I'll pull the live list and download each live emote to compare.
@@ -63,7 +63,7 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5.4 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (5.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
@@ -73,22 +73,22 @@ Totals: 488 assistant replies, 10 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.5 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal:** find chats that stopped while they still owe work, send each live one a resume order, log every nudge, and write the report. - **Phase 1:** Run.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### PC performance issues  (3.3 hours quiet, 44 replies)
+### PC performance issues  (3.8 hours quiet, 44 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why pc so slow
 
 - Goal:** find what is slowing this Mac down, then fix it. - **Phase 1, measure.** Check CPU, memory, swap, disk space, heat, and the heaviest processes..
 - Both answers check out now. I'm logging the evidence, then writing up the summary.
 - Why the Mac is slow Your Mac is short on both memory and disk space. The processor itself sits 88% idle. ### 🔴 1. Memory is full - **All 16 GB of RAM.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (23 minutes quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal:** find chats that stopped while they still owe work, send each live one a resume order, log every nudge, and write the report. - **Phase 1:** Run.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
