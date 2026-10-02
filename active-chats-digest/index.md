@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-02 00:36 CDT. 11 chats read from transcripts.
+Built 2026-10-02 01:06 CDT. 11 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 ## Every chat
 
-### PC performance issues  (23.3 hours quiet, 44 replies)
+### PC performance issues  (23.8 hours quiet, 44 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why pc so slow
 
 - Goal:** find what is slowing this Mac down, then fix it. - **Phase 1, measure.** Check CPU, memory, swap, disk space, heat, and the heaviest processes..
@@ -23,7 +23,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (19.9 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (20.4 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find chats that stopped while they still owe work, send each live one a resume order, log every nudge, and write the report. - **Phase 1:** Run.
@@ -33,7 +33,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (18.6 hours quiet, 209 replies)
+### 55% volume limit  (19.1 hours quiet, 209 replies)
 **Goal.** Not summarised by hand yet. Last input on record: set back to 45%
 
 - Reading "turn it off" as the 45% volume limit. Lifting it now and keeping 45 saved as the restore value:
@@ -43,7 +43,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (14.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase.
@@ -53,7 +53,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.7 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (5.2 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any stalled chat that still owes work. - **Phase 1:** Run the stall sweep and load the session.
@@ -63,7 +63,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.3 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (4.8 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Anti-malfeasance sweep, scheduled run on 2026-10-01. **Goal:** find the chats that stalled while they still owed work, send a fresh resume order to.
@@ -73,7 +73,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Monthly storage charges review  (49 minutes quiet, 110 replies)
+### Monthly storage charges review  (1.3 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - LibreOffice isn't on this Mac, so I'll check the formulas another way: recompute them in Python, then read the values back from Numbers.
@@ -83,7 +83,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update status  (42 minutes quiet, 251 replies)
+### Glostik update status  (1.2 hours quiet, 251 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "uds:/tmp/cc-socks/92947.sock", which you asked to be notified about, is idle now — it finished a turn at 23:48. Its harness reports: «## 🟡 The other Glostik chat
 
 - All four sites are checked, and only one is still harvesting. Logging the three items, then the full reply.
@@ -93,7 +93,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcript analysis  (39 minutes quiet, 67 replies)
+### YouTube transcript analysis  (1.1 hours quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - No custom handler is set, so `.txt` opens in TextEdit and never Bear. I'll name TextEdit anyway to be safe, and confirm the controller shows both items.
@@ -103,7 +103,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update status  (25 minutes quiet, 1159 replies)
+### Glostik update status  (55 minutes quiet, 1159 replies)
 **Goal.** Not summarised by hand yet. Last input on record: post the 9 18 and 9 20 comments too. but first look thru all the transcripts more mentions of pages of brandon or johnny five
 
 - While the deploy finishes, I'm tightening the mention count. Some Kick streams were transcribed twice as overlapping parts, so a mention can repeat.
@@ -113,7 +113,7 @@ Totals: 2,087 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (4 minutes quiet, 218 replies)
+### Ashilzzle transcript versals  (34 minutes quiet, 218 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
