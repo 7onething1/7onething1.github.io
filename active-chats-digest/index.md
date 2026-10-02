@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-01 21:35 CDT. 10 chats read from transcripts.
+Built 2026-10-01 22:05 CDT. 10 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emotes Chrome Kick upload  (23.8 hours quiet, 159 replies)
+### Glostik emotes Chrome Kick upload  (1.0 days quiet, 159 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
 - All 17 saved**, and the dashboard reads 40/60. Now for proof from Kick's public side. I'll pull the live list and download each live emote to compare.
@@ -33,7 +33,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.4 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (22.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/babysit-chats # babysit-chats ## Why it exists Brandon, 2026-09-21: **"make sure the active chats from last day or two don'
 
 - Goal: run the anti-malfeasance sweep, restart any chat that quit with work still owed, then file the dated report. - **Phase 1, sweep and match.** I.
@@ -43,7 +43,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### PC performance issues  (20.3 hours quiet, 44 replies)
+### PC performance issues  (20.8 hours quiet, 44 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why pc so slow
 
 - Goal:** find what is slowing this Mac down, then fix it. - **Phase 1, measure.** Check CPU, memory, swap, disk space, heat, and the heaviest processes..
@@ -53,7 +53,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.9 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (17.4 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** find chats that stopped while they still owe work, send each live one a resume order, log every nudge, and write the report. - **Phase 1:** Run.
@@ -63,7 +63,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (15.6 hours quiet, 209 replies)
+### 55% volume limit  (16.1 hours quiet, 209 replies)
 **Goal.** Not summarised by hand yet. Last input on record: set back to 45%
 
 - Reading "turn it off" as the 45% volume limit. Lifting it now and keeping 45 saved as the restore value:
@@ -73,7 +73,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (11.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase.
@@ -83,7 +83,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.7 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (2.2 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any stalled chat that still owes work. - **Phase 1:** Run the stall sweep and load the session.
@@ -93,7 +93,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.3 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (1.8 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Anti-malfeasance sweep, scheduled run on 2026-10-01. **Goal:** find the chats that stalled while they still owed work, send a fresh resume order to.
@@ -103,7 +103,7 @@ Totals: 1,346 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update status  (1.0 hours quiet, 777 replies)
+### Glostik update status  (1.5 hours quiet, 777 replies)
 **Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
 - The app quit mid-test, so I'm picking up where it stopped. Still open: 1. **Rooster comments:** prove the three edits with public reads and record.
