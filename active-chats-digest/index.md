@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-02 07:39 CDT. 10 chats read from transcripts.
+Built 2026-10-02 08:09 CDT. 10 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 ## Every chat
 
-### Johnny Five daily pass  (20.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (21.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase.
@@ -23,7 +23,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (11.7 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (12.2 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and restart any stalled chat that still owes work. - **Phase 1:** Run the stall sweep and load the session.
@@ -33,7 +33,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Monthly storage charges review  (7.8 hours quiet, 110 replies)
+### Monthly storage charges review  (8.4 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - LibreOffice isn't on this Mac, so I'll check the formulas another way: recompute them in Python, then read the values back from Numbers.
@@ -43,7 +43,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update status  (7.8 hours quiet, 251 replies)
+### Glostik update status  (8.3 hours quiet, 251 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "uds:/tmp/cc-socks/92947.sock", which you asked to be notified about, is idle now — it finished a turn at 23:48. Its harness reports: «## 🟡 The other Glostik chat
 
 - All four sites are checked, and only one is still harvesting. Logging the three items, then the full reply.
@@ -53,7 +53,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcript analysis  (7.7 hours quiet, 67 replies)
+### YouTube transcript analysis  (8.2 hours quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - No custom handler is set, so `.txt` opens in TextEdit and never Bear. I'll name TextEdit anyway to be safe, and confirm the controller shows both items.
@@ -63,7 +63,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update status  (7.5 hours quiet, 1159 replies)
+### Glostik update status  (8.0 hours quiet, 1159 replies)
 **Goal.** Not summarised by hand yet. Last input on record: post the 9 18 and 9 20 comments too. but first look thru all the transcripts more mentions of pages of brandon or johnny five
 
 - While the deploy finishes, I'm tightening the mention count. Some Kick streams were transcribed twice as overlapping parts, so a mention can repeat.
@@ -73,7 +73,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (7.1 hours quiet, 218 replies)
+### Ashilzzle transcript versals  (7.6 hours quiet, 218 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -83,7 +83,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.5 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (7.0 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Anti-malfeasance sweep, scheduled run on 2026-10-01. **Goal:** find the chats that stalled while they still owed work, send a fresh resume order to.
@@ -93,7 +93,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.4 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (1.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -103,7 +103,7 @@ Totals: 2,054 assistant replies, 31 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.4 hours quiet, 220 replies)
+### 55% volume limit  (1.9 hours quiet, 220 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - Setting the volume limit back to 45% with `volcap 45`, and saving 45 as the restore value. Before-and-after snapshot in one step:
