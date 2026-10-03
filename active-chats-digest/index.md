@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-03 17:15 CDT. 6 chats read from transcripts.
+Built 2026-10-03 17:45 CDT. 6 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,303 assistant replies, 38 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (6.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -33,7 +33,7 @@ Totals: 1,303 assistant replies, 38 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (5.4 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (5.9 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -43,7 +43,7 @@ Totals: 1,303 assistant replies, 38 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (4.5 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (5.0 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -53,7 +53,7 @@ Totals: 1,303 assistant replies, 38 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (12 minutes quiet, 391 replies)
+### htmls.versal.app summary version  (43 minutes quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -63,7 +63,7 @@ Totals: 1,303 assistant replies, 38 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (0 minutes quiet, 518 replies)
+### YouTube transcripts community commentary  (30 minutes quiet, 518 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - Port 8765 belongs to another process (PID 59612), so it stays untouched and I'll use 8791. Checking that page_truth.py is safe to import before I reuse.
