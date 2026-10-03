@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-03 12:58 CDT. 5 chats read from transcripts.
+Built 2026-10-03 13:28 CDT. 5 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 ## Every chat
 
-### YouTube transcript analysis  (1.5 days quiet, 67 replies)
+### YouTube transcript analysis  (1.6 days quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - No custom handler is set, so `.txt` opens in TextEdit and never Bear. I'll name TextEdit anyway to be safe, and confirm the controller shows both items.
@@ -23,7 +23,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (1.4 hours quiet, 6 replies)
+### Johnny Five daily pass  (1.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -33,7 +33,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (1.1 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (1.6 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -43,7 +43,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (16 minutes quiet, 99 replies)
+### YouTube transcripts with SKLL  (46 minutes quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -53,7 +53,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (12 minutes quiet, 216 replies)
+### YouTube transcripts community commentary  (42 minutes quiet, 216 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b89deplpt</task-id> <tool-use-id>toolu_01DSmmWoz4Hc1AFNe1Benczi</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
 
 - The last two searches are next in the gate's queue. The monitor will report each one.
