@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-03 15:29 CDT. 5 chats read from transcripts.
+Built 2026-10-03 16:15 CDT. 6 chats read from transcripts.
 
 ## Headline
 
-All 5 chats ended on a gate block, 0 on a message from Brandon.
+All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 610 assistant replies, 13 MB of transcript.
+Totals: 759 assistant replies, 18 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### YouTube transcript analysis  (1.6 days quiet, 67 replies)
+### YouTube transcript analysis  (1.7 days quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - No custom handler is set, so `.txt` opens in TextEdit and never Bear. I'll name TextEdit anyway to be safe, and confirm the controller shows both items.
@@ -23,7 +23,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.9 hours quiet, 6 replies)
+### Johnny Five daily pass  (4.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -33,7 +33,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (3.6 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (4.4 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -43,7 +43,7 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (2.8 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (3.5 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -53,12 +53,22 @@ Totals: 610 assistant replies, 13 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (2.7 hours quiet, 216 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b89deplpt</task-id> <tool-use-id>toolu_01DSmmWoz4Hc1AFNe1Benczi</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
+### YouTube transcripts community commentary  (1 minutes quiet, 269 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Mkae a versal thats 20 most interesting points from season 1
 
-- The last two searches are next in the gate's queue. The monitor will report each one.
-- The Communitary search adds no new commentary tracks. It surfaced official DVD featurettes like "Cast Evaluations", which are not commentary tracks, so.
-- All four checklist items are met with evidence. The Season 4 gap is recorded as a genuine blocker and queued as a follow-up. Opening the folder and the.
-- 108 of 110 Community commentary tracks are now transcribed in one folder.** It also holds two full-season compilations. ### 🟢 What you have - **110.
+- Episode 3 is read. One fact needs checking before I write it: which part Iqbal Theba plays in this episode.
+- The saved wiki text doesn't name either actor's role, so I'm checking the web.
+- Confirmed: Iqbal Theba plays Gobi Nadir, Abed's father ([Wikipedia](https://en.wikipedia.org/wiki/Iqbal_Theba)). Saving episode 3.
+- Both episodes pass the voice gate. The verifier flagged a five-word sentence in episode 2 and a "while" in episode 3. Fixing both.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### htmls.versal.app summary version  (1 minutes quiet, 96 replies)
+**Goal.** Not summarised by hand yet. Last input on record: drwu htmls.versal.app make another version thats more summary at a glance
+
+- A categorized launcher already exists (all-sites v1 to v3, about 1,050 links each). Its categories are worth reusing. Looking at how v3 groups pages.
+- All 1,178 visible routes now have titles. Next: dating each route from production snapshots (daily for the last two weeks, weekly before that).
+- Snapshots cover Jul 4 to today across 26 deployments. The site grew from 608 routes (Jul 4) to 1,180 now, with only 4 added since Sep 19. Next, sorting.
+- Status: titles and dates are in hand for all 1,178 routes. I am now writing the builder that sorts them into 12 areas and renders the glance page.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
