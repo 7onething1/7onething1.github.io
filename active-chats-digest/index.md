@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-03 04:57 CDT. 4 chats read from transcripts.
+Built 2026-10-03 05:28 CDT. 4 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 460 assistant replies, 11 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.7 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (23.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -33,7 +33,7 @@ Totals: 460 assistant replies, 11 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (18.4 hours quiet, 6 replies)
+### Johnny Five daily pass  (18.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** Confirm this Mac by hostname, then read today's daily check file. - **Phase.
@@ -43,7 +43,7 @@ Totals: 460 assistant replies, 11 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (16.6 hours quiet, 230 replies)
+### 55% volume limit  (17.1 hours quiet, 230 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit was already on at 45%** and hadn't changed since yesterday at 05:58. - 🟦 **Re-running `volcap 45` at.
