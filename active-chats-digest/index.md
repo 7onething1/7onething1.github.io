@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-03 12:28 CDT. 5 chats read from transcripts.
+Built 2026-10-03 12:58 CDT. 5 chats read from transcripts.
 
 ## Headline
 
 All 5 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 484 assistant replies, 12 MB of transcript.
+Totals: 610 assistant replies, 13 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 484 assistant replies, 12 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (52 minutes quiet, 6 replies)
+### Johnny Five daily pass  (1.4 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -33,7 +33,7 @@ Totals: 484 assistant replies, 12 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (37 minutes quiet, 222 replies)
+### Ashilzzle transcript versals  (1.1 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -43,22 +43,22 @@ Totals: 484 assistant replies, 12 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (2 minutes quiet, 53 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b67k6etby</task-id> <summary>Monitor event: "CLA transcript pulls: each OK/FAIL line, ends at EXIT"</summary> <event>OK WYElkX6nLvs 1360 lines 8656 words The Chr
+### YouTube transcripts with SKLL  (16 minutes quiet, 99 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- The five picks are saved. Now I'm starting the gated pull, about 45 to 90 seconds per video.
-- The scripts are saved. The gated puller is waiting 82 seconds before the first pull, and each later pull gets its own 45 to 90 second gap. I'll wait on.
-- The monitor is armed. It reports each pull as it lands and ends when the run exits. Five pulls at 45 to 90 seconds apart should take about six minutes..
-- The Beato interview landed first: 1,360 caption lines and 8,656 words. Four pulls remain, each spaced 45 to 90 seconds apart.
+- The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
+- The sung-text guard fired again, even though this command never names a transcript file. I'm reading the guard's wildcard rule so I can stop tripping it.
+- openpyxl reads the `[h]:mm:ss` cells back as timedeltas, while Excel stores them as day fractions. The checker needs to convert before doing the math,.
+- I pulled all five CLA interview transcripts, Beato included, and checked each one. The transcripts folder and the Excel index are open on your screen.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1 minutes quiet, 136 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/yt-transcripts # yt-transcripts — YouTube → Text (transcription only, by default) ## What this skill does **Default = stage
+### YouTube transcripts community commentary  (12 minutes quiet, 216 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b89deplpt</task-id> <tool-use-id>toolu_01DSmmWoz4Hc1AFNe1Benczi</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
 
-- The first search finished. Reading its 15 results.
-- Testing the manifest builder now on the current data, ahead of the final run once the searches finish.
-- The builder ran: **105 episodes plus 1 special**, and 5 gap rows. My checker misread openpyxl's table list, so I'm rerunning that check.
-- One of nine searches is done so far. The gate allows about one YouTube fetch a minute across every chat, so the remaining eight searches and two.
+- The last two searches are next in the gate's queue. The monitor will report each one.
+- The Communitary search adds no new commentary tracks. It surfaced official DVD featurettes like "Cast Evaluations", which are not commentary tracks, so.
+- All four checklist items are met with evidence. The Season 4 gap is recorded as a genuine blocker and queued as a follow-up. Opening the folder and the.
+- 108 of 110 Community commentary tracks are now transcribed in one folder.** It also holds two full-season compilations. ### 🟢 What you have - **110.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
