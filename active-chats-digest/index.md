@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-03 16:45 CDT. 6 chats read from transcripts.
+Built 2026-10-03 17:15 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,081 assistant replies, 28 MB of transcript.
+Totals: 1,303 assistant replies, 38 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 1,081 assistant replies, 28 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.1 hours quiet, 6 replies)
+### Johnny Five daily pass  (5.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -33,7 +33,7 @@ Totals: 1,081 assistant replies, 28 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (4.9 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (5.4 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -43,7 +43,7 @@ Totals: 1,081 assistant replies, 28 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (4.0 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (4.5 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -53,22 +53,22 @@ Totals: 1,081 assistant replies, 28 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (0 minutes quiet, 441 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Mkae a versal thats 20 most interesting points from season 1
+### htmls.versal.app summary version  (12 minutes quiet, 391 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
-- Twenty of 25 episodes are verified, 400 points done.** Five to go, starting with episode 21.
-- Two fixes for episode 21: an eight-word match and a five-word sentence.
-- Two lines in episode 22 echo the transcript for nine words. Rewording both.
-- Status: **24 of 25 episodes written, 480 points.** Fixing one line in episode 24, then the last episode.
+- Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
+- Fixing two memory link slugs to match their notes' names, and refreshing the contract evidence with the final deploy.
+- All outcomes on both requests are recorded as met with evidence. Resetting the shell to the home folder so the file links in my reply resolve.
+- The summary version is live at **https://drwu-htmls.vercel.app/glance**, with a cream background and new colors. ## 🧭 Goal and three phases - 🟪 Phase 1.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (0 minutes quiet, 246 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
+### YouTube transcripts community commentary  (0 minutes quiet, 518 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
-- Desktop and phone both read cleanly now. Two last copy and layout touches: the subtitle leaves "2026." alone on a line, and the phone search box should.
-- Local build passes everything. Moving to deploy. First re-checking for other live sessions, as the shared-site rule requires, and reading the deploy.
-- No session is working on the site; the one busy peer is doing YouTube transcripts. Running the deploy as a dry run limited to the new route.
-- Dry run is exactly right: 2 new files (the page and its Markdown twin), 0 held, every other one of the 9,569 production files carried forward.
+- Port 8765 belongs to another process (PID 59612), so it stays untouched and I'll use 8791. Checking that page_truth.py is safe to import before I reuse.
+- The overflow measurement is waiting on Chrome in the background. If the page is fine, a 390px iframe will show the scroll width equal to the client.
+- Firefox opened the page, Finder revealed it, and all five checklist items are recorded as met. Resetting my working folder so the file links below resolve.
+- Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
