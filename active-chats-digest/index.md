@@ -1,17 +1,37 @@
 # Active chats digest
 
-Built 2026-10-03 23:17 CDT. 16 chats read from transcripts.
+Built 2026-10-03 23:47 CDT. 18 chats read from transcripts.
 
 ## Headline
 
-All 16 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 3,855 assistant replies, 148 MB of transcript.
+All 18 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 5 are past the 400-turn ceiling.
+Totals: 5,496 assistant replies, 226 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
+
+### Fraud in lizzvega-emotes archived chats  (12.1 days quiet, 897 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_fb88608b-f0c3-458b-b20d-746c9f013650" name="Active chats work avoidance bug"> Your separation of the two failure mod
+
+- Verified: they're right. `cmd_status` has a "decisions on file" section at lines 320-330, and my caution text prints **twice** in real output. My.
+- The peer caught me overstating, and they were right. **I said `decision_log` "never prints." It does.** `cmd_status` has a "decisions on file" section.
+- That thread is closed and I'm not replying further. One thing worth applying from it to my own work before I report.
+- That thread is done. I audited my own checks against their substring lesson: **every clean-page assertion of mine tests for zero matches**, where a.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega animated emotes  (11.2 days quiet, 514 replies)
+**Goal.** Not summarised by hand yet. Last input on record: is it done
+
+- 40 emotes animated, 157 GIFs, all verified.** Your stream was still live so I recorded 85 minutes of Night 119 and cut the swoon set from that, which.
+- Let me re-check on disk rather than answer from memory.
+- Scratchpad was cleared on the new session. Re-running the verifiers.
+- Yes, re-checked just now on disk. **Animated:** 84/84 originals pass, 73/73 swoon pass. Both verifiers exit 0, no failures. **Codes:** all three.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
 
 ### Lizz emotes on Glostik stream  (10.0 days quiet, 84 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
@@ -73,7 +93,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (12.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -83,7 +103,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (11.4 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (11.9 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -93,7 +113,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (10.6 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (11.1 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -103,7 +123,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (6.2 hours quiet, 391 replies)
+### htmls.versal.app summary version  (6.7 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -113,7 +133,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (5.3 hours quiet, 541 replies)
+### YouTube transcripts community commentary  (5.8 hours quiet, 541 replies)
 **Goal.** Not summarised by hand yet. Last input on record: And those txts to the google drive in a folder
 
 - Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
@@ -123,7 +143,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.9 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (4.4 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -133,7 +153,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox ChatGPT episode reminder script  (1.6 hours quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (2.1 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -143,7 +163,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.6 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (2.1 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, restart every stalled chat that still owes work, and report what happened. - **Phase 1.** Run the sweep, read.
@@ -153,7 +173,7 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (7 minutes quiet, 9 replies)
+### Stop malfeasance and fraud  (37 minutes quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
@@ -163,12 +183,12 @@ Totals: 3,855 assistant replies, 148 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (0 minutes quiet, 73 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Look at the lizz emotes chats, figure out what went wrong and lets get the ones Im asking for
+### Lizz emotes chats debugging  (4 minutes quiet, 303 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b908welxd</task-id> <summary>Monitor event: "Lizz harp-square renders: each finished emote or failure"</summary> <event>puddle lizzvegaPuddle 22 frames centre f2
 
-- I now have every Lizz emote ask across 15 chats. Checking which ones actually reached the live page.
-- None of the 14 costume emotes are live, and they still sit behind the `.pending` gate. Checking the word-emote list from Sept 22 next.
-- The failure picture is clear now. Registering the checklist, then checking the other-chats rule and whether a stream is playing before any heavy render.
-- The gate tripped on my grep text, not a deploy. Reading the log and diff tool again without that phrase.
+- While the four remaining renders run, I'm drafting the reply and running it through the voice gate early.
+- The plain-speech check reads a period inside bold as mid-sentence, so three bullets count as one long sentence each. Moving those periods outside the bold.
+- The reply draft passes the voice gate at exit 0 and reads PLAIN on the plain-speech check. It goes out only after the five are live and verified. Your.
+- Puddle finished at 22 frames, Kick 288 px, largest file 975.5 KB. Reverb, Cauldron and Belt are still rendering.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
