@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-03 19:46 CDT. 9 chats read from transcripts.
+Built 2026-10-03 20:16 CDT. 9 chats read from transcripts.
 
 ## Headline
 
@@ -33,7 +33,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.2 hours quiet, 6 replies)
+### Johnny Five daily pass  (8.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -43,7 +43,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (7.9 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (8.4 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -53,7 +53,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (7.0 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (7.5 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -63,7 +63,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (2.7 hours quiet, 391 replies)
+### htmls.versal.app summary version  (3.2 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -73,7 +73,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1.8 hours quiet, 541 replies)
+### YouTube transcripts community commentary  (2.3 hours quiet, 541 replies)
 **Goal.** Not summarised by hand yet. Last input on record: And those txts to the google drive in a folder
 
 - Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
@@ -83,7 +83,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox ChatGPT episode reminder script  (29 minutes quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (1.0 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bkcteo7sr</task-id> <tool-use-id>toolu_01SS1NawehJ3CB8DBtosrHpZ</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/0c0639f8-19e5-4c72-9ebf-9
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -93,7 +93,7 @@ Totals: 1,793 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (25 minutes quiet, 6 replies)
+### Stop malfeasance and fraud  (55 minutes quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
