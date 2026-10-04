@@ -1,17 +1,57 @@
 # Active chats digest
 
-Built 2026-10-03 22:47 CDT. 10 chats read from transcripts.
+Built 2026-10-03 23:17 CDT. 16 chats read from transcripts.
 
 ## Headline
 
-All 10 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,799 assistant replies, 44 MB of transcript.
+All 16 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 3 are past the 400-turn ceiling.
+Totals: 3,855 assistant replies, 148 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
+
+### Lizz emotes on Glostik stream  (10.0 days quiet, 84 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
+
+- The voice gate passes again. The line counter still reads **27**, so I'll check how it counts before cutting further.
+- The counter includes fenced lines, so I'll fold everything into six bullets, a one-line proof, and sources.
+- The gate stalled past five minutes. Your stream guard freezes busy Python jobs while Firefox plays Kick, so I'm checking whether it caught mine.
+- Why it happens - 🟩 **27 of Lizz's 29 emotes** are subscriber-only, and you hold an active sub to her. - 🟩 Kick lets subscribers use **sub emotes in.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz emotes from screenshots  (9.9 days quiet, 811 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 3200x360, displayed at 2000x225. Multiply coordinates by 1.60 to map to original image.]
+
+- Both pass: 8 of 8 files on the verifier and 8 of 8 clean on the fringe scan, and both matched their own frame exactly. Folding them into the page.
+- The page now holds 43 emotes and 172 GIFs. Dog and RapBattle are on it, and Mwah's old code is gone from the page. Safety diff next.
+- Deployed as `dpl_9ZzKpHss7P1eMEUFDdf5Dewcrvc1`. Verifying live: every link, Dog and RapBattle present, Mwah gone, then page-truth across the animated.
+- Both changes are live on her animated page. 🟢 **What changed** - **Mwah is now `lizzvegaRapBattle`.** On YouTube it's `rapbattle`, and it's labeled.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Animated content page visibility  (8.9 days quiet, 387 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biswvct1t</task-id> <tool-use-id>toolu_01QSayQoBBJhCvovCv7KGt8C</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/61d6ffc6-a522-4d71-b5ed-3
+
+- The before and after shows the change clearly. Her face and the poodle's face are about twice as big, and the noodle between them now shows at Kick.
+- Four of the eight views are done. While the rest run, here's the before and after.
+- The page check is still running its last four views. Its result will come back to this chat when it finishes.
+- 🔴 **Costume emotes: not live yet** - None of the 14 are on her page, and none are on her Kick. - All 14 are animated on disk, at 16 to 22 frames each..
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Costume changes for animated emotes  (8.8 days quiet, 692 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1120x2548, displayed at 879x2000. Multiply coordinates by 1.27 to map to original image.]
+
+- The README is generated from the manifests and passes the voice gate. I'll record R4 as met, then re-check that the site on disk still matches.
+- STATE.md now shows the set as ready and gated. The handoff file from September 23 describes the first render and is out of date, so I'll rewrite it to.
+- The handoff passes the voice gate. I'll record R5, then check the final contact sheet before sending it to you.
+- None of the 14 are live yet.** All of them are finished, checked, and ready to publish on your word. - **Every check passes.** All 56 GIFs verify, the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
 
 ### YouTube transcript analysis  (2.0 days quiet, 67 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
@@ -23,7 +63,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.4 days quiet, 230 replies)
+### 55% volume limit  (1.5 days quiet, 230 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit was already on at 45%** and hadn't changed since yesterday at 05:58. - 🟦 **Re-running `volcap 45` at.
@@ -33,7 +73,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.2 hours quiet, 6 replies)
+### Johnny Five daily pass  (11.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -43,7 +83,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (10.9 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (11.4 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -53,7 +93,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (10.1 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (10.6 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -63,7 +103,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (5.7 hours quiet, 391 replies)
+### htmls.versal.app summary version  (6.2 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -73,7 +113,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (4.8 hours quiet, 541 replies)
+### YouTube transcripts community commentary  (5.3 hours quiet, 541 replies)
 **Goal.** Not summarised by hand yet. Last input on record: And those txts to the google drive in a folder
 
 - Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
@@ -83,7 +123,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.4 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (3.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -93,7 +133,7 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox ChatGPT episode reminder script  (1.1 hours quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (1.6 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -103,12 +143,32 @@ Totals: 1,799 assistant replies, 44 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.1 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (1.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, restart every stalled chat that still owes work, and report what happened. - **Phase 1.** Run the sweep, read.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (7 minutes quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz emotes chats debugging  (0 minutes quiet, 73 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Look at the lizz emotes chats, figure out what went wrong and lets get the ones Im asking for
+
+- I now have every Lizz emote ask across 15 chats. Checking which ones actually reached the live page.
+- None of the 14 costume emotes are live, and they still sit behind the `.pending` gate. Checking the word-emote list from Sept 22 next.
+- The failure picture is clear now. Registering the checklist, then checking the other-chats rule and whether a stream is playing before any heavy render.
+- The gate tripped on my grep text, not a deploy. Reading the log and diff tool again without that phrase.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
