@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-04 05:20 CDT. 21 chats read from transcripts.
+Built 2026-10-04 05:50 CDT. 21 chats read from transcripts.
 
 ## Headline
 
 All 21 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 6,925 assistant replies, 298 MB of transcript.
+Totals: 6,985 assistant replies, 311 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Animated Lizz emote apps  (11.1 days quiet, 385 replies)
+### Animated Lizz emote apps  (11.2 days quiet, 385 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 2282x644, displayed at 2000x564. Multiply coordinates by 1.14 to map to original image.]
 
 - The gate passes, with one lexical flag on the word "before" worth 2 points. I'm rewording that line to reach 0.
@@ -43,7 +43,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes on Glostik stream  (10.2 days quiet, 84 replies)
+### Lizz emotes on Glostik stream  (10.3 days quiet, 84 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
 
 - The voice gate passes again. The line counter still reads **27**, so I'll check how it counts before cutting further.
@@ -93,7 +93,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (17.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (18.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan for this daily pass** - **Phase 1:** confirm this Mac by hostname, then read today's daily check file. - **Phase 2:** report the daily check, the.
@@ -103,7 +103,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (17.5 hours quiet, 222 replies)
+### Ashilzzle transcript versals  (18.0 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <bash-input>open ~/Projects/_outputs/mtg-video-visual-aid/ashlizzlle-reality-fracture</bash-input><bash-stdout>[No output was captured. The command ran in the terminal pane (tab 0); if it sh
 
 - The sheet is built and passes every gate. I'm now looking through the rendered page in 5 slices before publishing it.
@@ -113,7 +113,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts with SKLL  (16.6 hours quiet, 99 replies)
+### YouTube transcripts with SKLL  (17.1 hours quiet, 99 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The gated run finished with exit code 0. Next I'm reading the full log, converting the output to the skill's layout and running the content checks.
@@ -123,7 +123,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (12.3 hours quiet, 391 replies)
+### htmls.versal.app summary version  (12.8 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -133,7 +133,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (11.3 hours quiet, 541 replies)
+### YouTube transcripts community commentary  (11.8 hours quiet, 541 replies)
 **Goal.** Not summarised by hand yet. Last input on record: And those txts to the google drive in a folder
 
 - Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
@@ -143,7 +143,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (10.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (10.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -153,7 +153,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox ChatGPT episode reminder script  (7.7 hours quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (8.2 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -163,7 +163,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (7.7 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (8.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, restart every stalled chat that still owes work, and report what happened. - **Phase 1.** Run the sweep, read.
@@ -173,7 +173,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.2 hours quiet, 9 replies)
+### Stop malfeasance and fraud  (6.7 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
@@ -183,7 +183,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume up  (1.9 hours quiet, 17 replies)
+### Volume up  (2.4 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn olume up
 
 - Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
@@ -193,7 +193,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz site update  (1.2 hours quiet, 118 replies)
+### Lizz site update  (1.8 hours quiet, 118 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - The page-gate hook misread that read-only command as a page write. I'm re-running the same measurement as a plain Python read.
@@ -203,7 +203,7 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (46 minutes quiet, 244 replies)
+### 55% volume limit  (1.3 hours quiet, 244 replies)
 **Goal.** Not summarised by hand yet. Last input on record: back on
 
 - 🟩 Volume limit is off - 🟩 **The limit came off at 12:21:53** when I ran `volcap off`. - 🟦 **Your speakers are at 3%**, and lifting the limit leaves.
@@ -213,12 +213,12 @@ Totals: 6,925 assistant replies, 298 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (2 minutes quiet, 1198 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2400x400, displayed at 2000x333. Multiply coordinates by 1.20 to map to original image.]
+### Lizz emotes chats debugging  (0 minutes quiet, 1258 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2280x420, displayed at 2000x368. Multiply coordinates by 1.14 to map to original image.]
 
-- The fix works on LampWave: the flashing patch is gone from every frame. Waiting on the remaining clips, then all ten get re-rendered with it.
-- The re-render with the steady mask is running, LampWave first. Nine more follow, then the checks and the page.
-- Still rendering; LampWave is close to done. The main page needs no edit, since its link to the animated page names no count.
-- Three of ten re-rendered. LampWave now holds clean in every frame. LampLaugh has a busy bottom-left corner, which I'm looking at now.
+- Seven of ten are rendered. I erased a harp corner that flashed in BlueGrin, and I'm checking it with BlueVibe and DollGrin now.
+- Eight of ten are rendered. A thin harp edge still shows in DollGrin for three frames, so I'm widening that cut slightly.
+- Two more Doll cuts pick up a lit harp pillar for a frame or two. I'm tracing her hair line from the masks so the cut follows her exactly.
+- All ten are re-rendered and every flash I found is fixed. Next come the chat-size previews and the checkers.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
