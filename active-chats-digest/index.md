@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-04 13:23 CDT. 22 chats read from transcripts.
+Built 2026-10-04 13:53 CDT. 22 chats read from transcripts.
 
 ## Headline
 
 All 22 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 7,704 assistant replies, 330 MB of transcript.
+Totals: 7,952 assistant replies, 344 MB of transcript.
 
 ## Do yourself
 
@@ -53,7 +53,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes from screenshots  (10.4 days quiet, 811 replies)
+### Lizz emotes from screenshots  (10.5 days quiet, 811 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 3200x360, displayed at 2000x225. Multiply coordinates by 1.60 to map to original image.]
 
 - Both pass: 8 of 8 files on the verifier and 8 of 8 clean on the fringe scan, and both matched their own frame exactly. Folding them into the page.
@@ -103,7 +103,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### htmls.versal.app summary version  (20.3 hours quiet, 391 replies)
+### htmls.versal.app summary version  (20.8 hours quiet, 391 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2862, displayed at 1006x2000. Multiply coordinates by 1.43 to map to original image.]
 
 - Shipped as `dpl_Ebv6VADviXgABu265Lmm8vw2uFKN`, exit 0, with only the two private files answering 404 as required. Final live verification.
@@ -113,17 +113,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (19.4 hours quiet, 541 replies)
-**Goal.** Not summarised by hand yet. Last input on record: And those txts to the google drive in a folder
-
-- Your Season 1 commentary page is built, checked and open in Firefox.** I read "for each episode" as **20 points per episode**, so the page has all 500,.
-- Goal:** put the commentary transcript text files into one folder in your Google Drive. **Checklist:** 1. Find the fastest working route into your.
-- rclone has a working **`gdrive:` remote**. Checking that it connects, what's at the top of that Drive, and whether a transcripts folder already exists,.
-- All 110 transcripts are in your Google Drive, in a new folder called Community Commentary Transcripts.** ### 🟩 What's in the folder - 🟩 **The main.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (18.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (18.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, nudge the chats that stalled while still owing work, and report what happened. - **Phase 1:** run the stall.
@@ -133,7 +123,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Firefox ChatGPT episode reminder script  (15.7 hours quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (16.2 hours quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -143,7 +133,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.7 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (16.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep, restart every stalled chat that still owes work, and report what happened. - **Phase 1.** Run the sweep, read.
@@ -153,7 +143,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (14.2 hours quiet, 9 replies)
+### Stop malfeasance and fraud  (14.7 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
@@ -163,7 +153,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume up  (10.0 hours quiet, 17 replies)
+### Volume up  (10.5 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn olume up
 
 - Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
@@ -173,7 +163,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.8 hours quiet, 6 replies)
+### Johnny Five daily pass  (3.3 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac's hostname and read today's daily check file. - **Phase.
@@ -183,7 +173,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz site update  (44 minutes quiet, 188 replies)
+### Lizz site update  (1.2 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do it now
 
 - Status: tonight is **live on her page now**. The Setlists tab reads 244, and both of tonight's nights open to their 20 songs. I'm closing the checklist.
@@ -193,7 +183,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (38 minutes quiet, 252 replies)
+### 55% volume limit  (1.1 hours quiet, 252 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is back on at 45% - 🟩 **The limit is 45% as of 04:32:56**, the value saved when you turned it off on 10/02. - 🟥 **Your H87 headset was.
@@ -203,7 +193,7 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (23 minutes quiet, 1426 replies)
+### Lizz emotes chats debugging  (53 minutes quiet, 1426 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go ahead and put the ones you took off back and keep the new ones as well.
 
 - Stare is out of the pack, the site folder and the hand-off (now 19 GIFs). Next, the readme gets the right wording for a removal you asked for, and the.
@@ -213,22 +203,32 @@ Totals: 7,704 assistant replies, 330 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (2 minutes quiet, 410 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Make a page like that for the cards dev mentions in standard is saved video
+### YouTube transcripts community commentary  (1 minutes quiet, 634 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- The builder has the strip option. Running the regression checks: the old Big Red Treasures example and the live Reality Fracture page must both rebuild.
-- Running the skill's checks next: resolve every card on the page, then the grounding check, which prints the caption at each row start and each cited time.
-- Both cites now point at the exact line: the Wolves at **05:55** and "helping the deck hold on" at **10:51**. Building the sheet and running every gate.
-- The gate fix and the voice rewording are in. Running the known-answer test on the gate first, with two real apostrophe cards and one invented name.
+- The domain command stopped at a prompt and printed its next steps as JSON. Reading the full message.
+- The 24 Season 2 reading copies are ready, about 90,600 words. Pulling the Season 2 writer and director credits so I can attribute "I wrote this" lines.
+- One snag in the credits: S02E14's title carries wiki italic marks, "''Dungeons & Dragons''". Stripping those in the builder now, then reading episode 1.
+- Season 2 is underway: episodes 1 and 2 passed every check, and episode 3 needs two short sentences fixed. I'm re-checking episode 3 against its.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (0 minutes quiet, 285 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Hold off on the other decks
+### Creator deck page update  (1 minutes quiet, 383 replies)
+**Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
-- The old harvester exit was my own stop, on purpose. Restarting it with three polite workers.
-- The price harvest now runs about 2 seconds a card, roughly 28 minutes total. Writing the deck math next: colors, wildcards, prices, gameplan.
-- Holding off. I'm stopping the other creators' pulls now and keeping the new version to the decks from **"Standard is Saved."** only.
-- The live page is `mtg-creator-decks/index.html` plus an `index.md` twin, so the new version replaces both and the old one moves to an archive route..
+- Cards now render at 300 px with a full picture list per deck. Next: dropping the 14 no-Reality-Fracture rows and widening the layout so five cards fit.
+- Both changes are in the build: **18 rows left with no row missing a Reality Fracture card**, and all 723 card images are 300 px large art, each linking.
+- The card fact gate now fails 44 checks. Reading what it flags.
+- The gate paces lookups at 0.06 s, which trips Scryfall's limit, and it never caches a failure, so each rerun resolves more (201, then 221). Rerunning.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ashilzzle transcript versals  (0 minutes quiet, 467 replies)
+**Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
+
+- Quick status: the page is live, and the board preview changed exactly the three board files. Running the production pass now, then confirming the card.
+- The crop reads well: Dev's 9th-place notes plus all nine cards, rules text legible. Sending it to your phone and updating memory in the same pass.
+- Dev's "Standard is Saved" page is live:** https://sbmtg-standard-is-saved.vercel.app (200) 🟢 **What's on it** - It covers **every card Dev names, 72 in.
+- Two changes: 1. **Card size:** bigger cards on desktop, and full-width cards on a phone so they're readable there too. 2. **Rows:** remove every deck.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
