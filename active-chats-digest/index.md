@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-05 06:31 CDT. 15 chats read from transcripts.
+Built 2026-10-05 07:01 CDT. 15 chats read from transcripts.
 
 ## Headline
 
@@ -33,7 +33,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume up  (1.1 days quiet, 17 replies)
+### Volume up  (1.2 days quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn olume up
 
 - Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
@@ -43,7 +43,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (19.9 hours quiet, 6 replies)
+### Johnny Five daily pass  (20.4 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac's hostname and read today's daily check file. - **Phase.
@@ -53,7 +53,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz site update  (17.9 hours quiet, 188 replies)
+### Lizz site update  (18.4 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do it now
 
 - Status: tonight is **live on her page now**. The Setlists tab reads 244, and both of tonight's nights open to their 20 songs. I'm closing the checklist.
@@ -63,7 +63,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (17.5 hours quiet, 1426 replies)
+### Lizz emotes chats debugging  (18.0 hours quiet, 1426 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go ahead and put the ones you took off back and keep the new ones as well.
 
 - Stare is out of the pack, the site folder and the hand-off (now 19 GIFs). Next, the readme gets the right wording for a removal you asked for, and the.
@@ -73,7 +73,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (16.6 hours quiet, 406 replies)
+### Creator deck page update  (17.1 hours quiet, 406 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
@@ -83,7 +83,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (16.2 hours quiet, 568 replies)
+### Ashilzzle transcript versals  (16.7 hours quiet, 568 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
@@ -93,7 +93,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### MTG deck mythics and rares analysis  (16.1 hours quiet, 121 replies)
+### MTG deck mythics and rares analysis  (16.6 hours quiet, 121 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it cant
 
 - MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
@@ -103,7 +103,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (11.9 hours quiet, 1081 replies)
+### YouTube transcripts community commentary  (12.4 hours quiet, 1081 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b87hhf6f0</task-id> <tool-use-id>toolu_01LEvujdrVncgFgyYr2Nb3PV</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
 
 - Now the same cache-busting and title proof go into the phone-width check, because the Season 1 and 2 navs gained a third season link that could change.
@@ -113,7 +113,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (10.7 hours quiet, 26 replies)
+### CLA chat location  (11.2 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -123,7 +123,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (5.0 hours quiet, 77 replies)
+### Ryan Adams live 2004 reviews  (5.5 hours quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/live-archive-site # live-archive-site Two halves already exist on disk and both already take a client. This skill wires the
 
 - One info file returned an archive.org 500 error. Next I'm retrying with backoff so one bad file can't stop the batch.
@@ -133,7 +133,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (4.6 hours quiet, 390 replies)
+### Glostik update  (5.1 hours quiet, 390 replies)
 **Goal.** Not summarised by hand yet. Last input on record: tehy finished updated the site
 
 - The late piece is mostly talk. The finder measured music in 2% of its 1.4 hours, against a 31% median across Kick pieces, so EMPTY is the right verdict.
@@ -143,7 +143,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.1 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (4.6 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -153,7 +153,7 @@ Totals: 4,827 assistant replies, 163 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (23 minutes quiet, 276 replies)
+### 55% volume limit  (53 minutes quiet, 276 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% set now
 
 - Reading "back on" as restoring the 45% limit that came off on 10/04. The command below applies it only if the saved value still reads 45 and the limit.
