@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-05 15:38 CDT. 18 chats read from transcripts.
+Built 2026-10-05 16:08 CDT. 20 chats read from transcripts.
 
 ## Headline
 
-All 18 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 7,618 assistant replies, 201 MB of transcript.
+All 20 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 8 are past the 400-turn ceiling.
+Totals: 8,088 assistant replies, 214 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Firefox ChatGPT episode reminder script  (1.7 days quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (1.8 days quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -93,7 +93,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (19.8 hours quiet, 26 replies)
+### CLA chat location  (20.3 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -103,7 +103,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (13.2 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (13.8 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (5.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (4.9 hours quiet, 285 replies)
+### 55% volume limit  (5.4 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (1.9 hours quiet, 1068 replies)
+### Glostik update  (2.5 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (1.5 hours quiet, 562 replies)
+### Glostik update chat handoff  (2.0 hours quiet, 562 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix
 
 - The queued Setlists item is closed. Now I'm stopping my local test server and bringing the handoff brief to its final state.
@@ -153,7 +153,7 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (50 minutes quiet, 1456 replies)
+### YouTube transcripts community commentary  (1.3 hours quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -163,32 +163,52 @@ Totals: 7,618 assistant replies, 201 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume  (1 minutes quiet, 246 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <pasted_content id="f28e"> Okay, sure, and you can use IMDb, but some of the connections you previously said were not there actually were there once I checked other sources. I found some of 
+### YouTube transcripts community commentary resume (fork)  (7 minutes quiet, 486 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/38502.sock" from-session="local_6b2067d8-2fe4-4a26-bd3b-0aea0da336cb" from-name="YouTube transcripts com
 
-- Same guard, same reason: this is a writer interview about his jobs, which isn't in the NewsRadio script corpus.
-- Only 7 of the old page's show lines lack an IMDb match, and most are title spellings. Two need a closer look: Garrett Donovan on Shrinking, and Gillian.
-- Running the credit builder now. It makes roughly 65 paced IMDb requests, and everything gets cached.
-- The old click test treats connection notes showing under All tracks as a failure, which is the exact behavior you want reversed. I'll rewrite it after.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary resume (fork)  (0 minutes quiet, 287 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I mean 3
-
-- All 26 Season 3 people are matched and cached. Now writing the 15 new people into the shared people file. Before that I'm checking which of them have.
-- Reading your Show Bible's Season 3 passages to write the NewsRadio notes. The shared credit build runs in the background meanwhile.
-- Finding the Drive link for your NewsRadio Trope Index, so each Season 3 note can link back to it.
-- Adding the writers' room facts IMDb misses to the shared extras, sourced to Wikipedia and to the moments on the tracks where they're said.
+- The true 390 px phone view lays out cleanly. Nothing is clipped, the buttons wrap, the track list stacks in one column, and the top bar now links to.
+- Season 3 is finished and checked locally. It goes live once the Season 2 chat lands your two latest asks in the shared page builder, since both pages.
+- The phone-width check passes: the page is exactly 390 px wide at phone size, with no sideways scrolling. Every Season 3 check is now green on the local.
+- The Season 2 chat landed both of your asks. Repeated notes now print once, with a short pointer on later tracks. A connection with no published episode.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (0 minutes quiet, 711 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>wjb88z5sf</task-id> <tool-use-id>toolu_014bLYGQe5gLYkGFas9RM7id</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04dbf2a1-1557-4fd1-91c2-8
+### YouTube transcripts community commentary resume  (7 minutes quiet, 319 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
-- 11/15 Minneapolis passed the gate at 1,086 words, with every verifier issue applied and none rejected. Its fixer worked from the older Johnny Cash.
-- The 11/15 Minneapolis consistency audit is running. Twelve reviews have passed every gate. The rest are still in the pipeline, each audited against the.
-- The 9/13 Blue Note workflow finished. All ten agents ran: three drafts, two judges, the merge, three verifiers and the fixer, with no errors. Before it.
-- 9/14 Memphis is the first approved review. It passed the full gate again against today's data. 9/13 is next once its audit finishes, and then the first.
+- Jerry Minor is already on the S02E24 card through your Lineage Index. Saving the click test now, then adding the Mr. Show to NewsRadio notes for Dino.
+- Text fixes are in. Joe Russo's card now shows both counts: he directed 21 episodes and was executive producer on 71. Now measuring phone width inside a.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (2 minutes quiet, 789 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b1vlgibe0</task-id> <summary>Monitor event: "Bristol readiness and redo end"</summary> <event>[Monitor expired after 30m with 3 events delivered. Re-arm it if yo
+
+- 9/13 cleared its audit. The auditors raised 28 issues and the fixer resolved them all. Please Do Not Let Me Go is now correctly 13 shows after the.
+- The site is deployed. Next I'm confirming it reached production and that every page loads.
+- The site is live with 9/13 first, as you asked. It's open in Firefox, and the local build is revealed in Finder. ## Live now - 🟩 **Start here: [9/13/04.
+- That monitor has expired and isn't needed anymore. Its job ended when Bristol's data finished. The six remaining reviews are all tracked by their own.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Resume YouTube transcripts community commentary  (2 minutes quiet, 54 replies)
+**Goal.** Not summarised by hand yet. Last input on record: here resume YouTube transcripts community commentary resume (fork)
+
+- Goal:** pick up the forked "YouTube transcripts community commentary" session where it stopped and finish its open work. - **Phase 1:** Find the.
+- Registered six outcomes. Now I'm sending the Season 2 chat a hold on the deploy, then rerunning the Season 3 checks.
+- The Season 2 chat is resumed and holding the deploy until I send my results. It says rebuilding Season 3 is safe. Next I'm pulling the fork's exact.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary  (1 minutes quiet, 66 replies)
+**Goal.** Not summarised by hand yet. Last input on record: YouTube transcripts community commentary resume (not the fork) recume that chat here
+
+- The Season 3 chat confirmed the same plan: it rechecks Season 3, then signals me to deploy. Checking for leftover processes and old scratchpad paths.
+- Both page copies match. Rebuilding Season 2 from the current builder to prove the page is current, then running all three checks.
+- Rebuild is byte-identical, so the Season 2 page is current. Running the data, page and click checks now.
+- All three Season 2 checks pass with no fails. Now the 390 px phone check that was killed last time.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
