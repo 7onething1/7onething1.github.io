@@ -85,7 +85,7 @@ footer{font-size:13px}
 .wrap ~ h2.sec,.wrap ~ .sec-sub,.wrap ~ .grid,.wrap ~ footer{max-width:1120px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
 .wrap ~ .grid{margin-bottom:40px}
 .tag{float:none;display:block;margin-bottom:6px}
-.anp{margin:0 0 .9em}.anp:last-child{margin-bottom:0}.note a{color:var(--acc-ink)}
+.anl{margin:0;padding-left:1.2em}.anl li{margin:0 0 .45em;padding-left:.2em}.anl li::marker{color:var(--acc)}.anl li:last-child{margin-bottom:0}.note a{color:var(--acc-ink)}
 </style>
 </head><body>
 
@@ -146,15 +146,14 @@ chips.addEventListener('click',e=>{if(!e.target.classList.contains('chip'))retur
  e.target.classList.add('on');f=e.target.dataset.f;apply();});
 </script>
 <script id="readable-paras-2026-10-05">
-/* break long analysis blocks into ~3-sentence paragraphs; wording untouched */
-document.querySelectorAll('.an').forEach(function(el){
-  if(el.textContent.length<420)return;
-  var parts=el.innerHTML.split(/(?<=[.!?]["”]?)\s+(?=[A-Z"“♭])/);
-  var out=[],cur=[],len=0;
-  var q=0;parts.forEach(function(s){cur.push(s);var t=s.replace(/<[^>]+>/g,'');len+=t.length;q+=(t.match(/["\u201c\u201d]/g)||[]).length;
-    if(q%2===0&&cur.length>=3&&len>260){out.push(cur.join(' '));cur=[];len=0;}});
-  if(cur.length){ if(out.length&&len<120)out[out.length-1]+=' '+cur.join(' '); else out.push(cur.join(' ')); }
-  if(out.length>1)el.innerHTML=out.map(function(t){return '<p class="anp">'+t+'</p>';}).join('');
+/* every sentence of the analysis text becomes its own bullet; wording untouched (2026-10-05) */
+document.querySelectorAll('.an,.cd .an2').forEach(function(el){
+  var parts=el.innerHTML.split(/(?<=[.!?;]["\u201d)]?)\s+(?=[A-Z"\u201c\u266d(])/);
+  var out=[],cur='',q=0;
+  parts.forEach(function(s){cur+=(cur?' ':'')+s;q+=(s.replace(/<[^>]+>/g,'').match(/["\u201c\u201d]/g)||[]).length;
+    if(q%2===0){out.push(cur);cur='';}});
+  if(cur)out.push(cur);
+  if(out.length>1)el.innerHTML='<ul class="anl">'+out.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>';
 });
 </script>
 </body></html>
