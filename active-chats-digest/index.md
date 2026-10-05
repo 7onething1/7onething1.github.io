@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-05 15:08 CDT. 18 chats read from transcripts.
+Built 2026-10-05 15:38 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 7,176 assistant replies, 197 MB of transcript.
+Totals: 7,618 assistant replies, 201 MB of transcript.
 
 ## Do yourself
 
@@ -63,7 +63,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (1.0 days quiet, 406 replies)
+### Creator deck page update  (1.1 days quiet, 406 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
@@ -73,7 +73,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (1.0 days quiet, 568 replies)
+### Ashilzzle transcript versals  (1.1 days quiet, 568 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
@@ -83,7 +83,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### MTG deck mythics and rares analysis  (1.0 days quiet, 121 replies)
+### MTG deck mythics and rares analysis  (1.1 days quiet, 121 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it cant
 
 - MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
@@ -93,7 +93,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (19.3 hours quiet, 26 replies)
+### CLA chat location  (19.8 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -103,7 +103,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.8 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (13.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (5.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (4.4 hours quiet, 285 replies)
+### 55% volume limit  (4.9 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (1.4 hours quiet, 1068 replies)
+### Glostik update  (1.9 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (58 minutes quiet, 562 replies)
+### Glostik update chat handoff  (1.5 hours quiet, 562 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix
 
 - The queued Setlists item is closed. Now I'm stopping my local test server and bringing the handoff brief to its final state.
@@ -153,7 +153,7 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (19 minutes quiet, 1456 replies)
+### YouTube transcripts community commentary  (50 minutes quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -163,32 +163,32 @@ Totals: 7,176 assistant replies, 197 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (1 minutes quiet, 610 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bso5w74ug</task-id> <summary>Monitor event: "Ryan Adams data: readiness changes, Bristol redo end, lane C end, crashes"</summary> <event>15:06:33 waiting: 2 2004
-
-- Those three reviews are underway. Only Bristol, 11/16 and 11/20 remain on the data side. Next I'm checking whether the Bristol redo got past.
-- 11/16 Omaha is now ready, leaving only Bristol and 11/20. Next I'm rebuilding 11/16's pack and starting its review, then re-arming the quieter monitor.
-- Sixteen of the 18 shows are now in review workflows. 11/20 Nashville and 1/21 Bristol are the last two still finishing their data, and the monitor.
-- This is the new monitor's first reading, and it matches the expected state. Two shows are still waiting on data: 1/21 Bristol and 11/20 Nashville. The.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary resume (fork)  (0 minutes quiet, 99 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I mean 3
-
-- Looking up IMDb ids for all 25 shows so I can pull each one's full credit list.
-- Reading the first two minutes of each Season 3 track to find who introduces themselves.
-- Named the people on 21 of 22 tracks so far. Now checking a few unclear introductions against the rest of each track.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary resume  (0 minutes quiet, 93 replies)
+### YouTube transcripts community commentary resume  (1 minutes quiet, 246 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <pasted_content id="f28e"> Okay, sure, and you can use IMDb, but some of the connections you previously said were not there actually were there once I checked other sources. I found some of 
 
-- Testing whether headless Chrome can read IMDb's full credit pages, since those carry per-person episode counts.
-- Headless Chrome gets through to IMDb, so I'm mapping the page's built-in credit data now.
-- Looking up IMDb ids for all 25 shows so I can pull each one's full credit list.
-- Reading the page builder in full now, since the filter, card and ranking changes all land in it.
+- Same guard, same reason: this is a writer interview about his jobs, which isn't in the NewsRadio script corpus.
+- Only 7 of the old page's show lines lack an IMDb match, and most are title spellings. Two need a closer look: Garrett Donovan on Shrinking, and Gillian.
+- Running the credit builder now. It makes roughly 65 paced IMDb requests, and everything gets cached.
+- The old click test treats connection notes showing under All tracks as a failure, which is the exact behavior you want reversed. I'll rewrite it after.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary resume (fork)  (0 minutes quiet, 287 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I mean 3
+
+- All 26 Season 3 people are matched and cached. Now writing the 15 new people into the shared people file. Before that I'm checking which of them have.
+- Reading your Show Bible's Season 3 passages to write the NewsRadio notes. The shared credit build runs in the background meanwhile.
+- Finding the Drive link for your NewsRadio Trope Index, so each Season 3 note can link back to it.
+- Adding the writers' room facts IMDb misses to the shared extras, sourced to Wikipedia and to the moments on the tracks where they're said.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (0 minutes quiet, 711 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>wjb88z5sf</task-id> <tool-use-id>toolu_014bLYGQe5gLYkGFas9RM7id</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04dbf2a1-1557-4fd1-91c2-8
+
+- 11/15 Minneapolis passed the gate at 1,086 words, with every verifier issue applied and none rejected. Its fixer worked from the older Johnny Cash.
+- The 11/15 Minneapolis consistency audit is running. Twelve reviews have passed every gate. The rest are still in the pipeline, each audited against the.
+- The 9/13 Blue Note workflow finished. All ten agents ran: three drafts, two judges, the merge, three verifiers and the fixer, with no errors. Before it.
+- 9/14 Memphis is the first approved review. It passed the full gate again against today's data. 9/13 is next once its audit finishes, and then the first.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
