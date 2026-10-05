@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-05 18:06 CDT. 22 chats read from transcripts.
+Built 2026-10-05 18:36 CDT. 22 chats read from transcripts.
 
 ## Headline
 
 All 22 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 9,568 assistant replies, 230 MB of transcript.
+0 need a Brandon action. 11 are past the 400-turn ceiling.
+Totals: 10,385 assistant replies, 238 MB of transcript.
 
 ## Do yourself
 
@@ -93,7 +93,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (22.3 hours quiet, 26 replies)
+### CLA chat location  (22.8 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -103,7 +103,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (16.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (8.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (7.4 hours quiet, 285 replies)
+### 55% volume limit  (7.9 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (4.4 hours quiet, 1068 replies)
+### Glostik update  (4.9 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (3.3 hours quiet, 1456 replies)
+### YouTube transcripts community commentary  (3.8 hours quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -153,7 +153,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume (fork)  (2.1 hours quiet, 486 replies)
+### YouTube transcripts community commentary resume (fork)  (2.6 hours quiet, 486 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/38502.sock" from-session="local_6b2067d8-2fe4-4a26-bd3b-0aea0da336cb" from-name="YouTube transcripts com
 
 - The true 390 px phone view lays out cleanly. Nothing is clipped, the buttons wrap, the track list stacks in one column, and the top bar now links to.
@@ -163,7 +163,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume  (2.1 hours quiet, 319 replies)
+### YouTube transcripts community commentary resume  (2.6 hours quiet, 319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
 - Jerry Minor is already on the S02E24 card through your Lineage Index. Saving the click test now, then adding the Mr. Show to NewsRadio notes for Dino.
@@ -173,7 +173,7 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (28 minutes quiet, 981 replies)
+### Ryan Adams live 2004 reviews  (59 minutes quiet, 981 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Fixed one real fraud-check hit: a lock helper was copied into two tools. Now confirming both tools still load.
@@ -183,52 +183,52 @@ Totals: 9,568 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (4 minutes quiet, 551 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
+### Glostik update chat handoff  (3 minutes quiet, 709 replies)
+**Goal.** Not summarised by hand yet. Last input on record: spotify needs to auto play that song
 
-- The anchor didn't scroll in the headless shot, so I'm reading the E08 card as rendered text instead.
-- Tightening that one Season 2 note so the voice check comes back clean, backup first.
-- While Season 2 runs, a short note to the Season 3 chat: credit_data.py changed again, though its Season 3 output is identical, so its rebuild isn't.
-- Season 5 is built and fully checked; the Season 2 rerun and the Season 3 chat's rebuild are in progress. After both, the three pages are ready for one.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams live 2004 reviews  (0 minutes quiet, 398 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Ryan Adams live 2004 reviews chat - add 2005
-
-- Fixed. "Mockingbird Song" now resolves through "Mockingbird" to Cold Roses (2005), so 68 of 107 songs carry a release. Adding a brief rule for the.
-- The pipeline watch expired after 30 quiet minutes, meaning no failures. Re-arming it, then running the review gate on 6/10/05:
-- First 2005 review approved, 37 to go. Next is 4/19/05, the FM broadcast from The Loft:
-- Something besides the web context changed in the rebuilt 9/23/04 pack. I won't go further until I know what. Diffing the two packs field by field:
+- Both lines are recorded in the skill. Closing the two checklist items with their proof, then updating the handoff brief.
+- Both items are closed. Updating the handoff brief to this state.
+- Both are done and live as of 6:19 PM. 🟢 **Sep 30 title** - **It now reads "Electric, Live From Our Garage"** on the Setlists tab in all seven views. I.
+- You want "Here We Go" to start playing on its own when someone opens the site. One checklist item: **the Spotify panel plays the song by itself, in.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Resume YouTube transcripts community commentary  (0 minutes quiet, 221 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bno3mdpsu</task-id> <tool-use-id>toolu_01EpYJgz4mptJMpY9grcKf42</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/89bbcbd8-e104-4f64-8e5f-b
+### Resume YouTube transcripts community commentary  (1 minutes quiet, 426 replies)
+**Goal.** Not summarised by hand yet. Last input on record: coordinate that w the other chat
 
-- The Season 2 chat finished Season 5 and asks me to rebuild Season 3 for its nav link. Before rebuilding, I'm checking the three things it says it.
-- - 🟩 **Season 3 is rebuilt with the Season 5 link.** **Only two things changed**: the new nav link, and four job titles now printed with proper.
-- The Season 2 chat changed `credit_data.py` again and reran it for Season 3, and it says my output came out identical. I'm checking that against the.
-- Confirmed: the Season 3 credit data was rewritten at 18:00, and its contents are identical, same hash as my rebuild. The page is still the build I.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik update chat handoff  (0 minutes quiet, 645 replies)
-**Goal.** Not summarised by hand yet. Last input on record: sep 30 title is live from our garage, electric, also wheres the view counters we had
-
-- All seven installed extras blocks match the source, so the swap is safe. Backing up the block, then writing the visits tiles.
-- The new row reads **MISSING in all seven views** before the install, so it can fail. Now a syntax check of the extras block, then the install with backups.
-- The gate fired on a `2>&1` sharing a line with the site path. I'll run the build steps alone and do the title check from a script file.
+- Seasons 3 and 6 are rebuilt with whole staff seasons counted. Both pass every data check, with voice at 0 and your asks at 10 of 10. - **Season 3's.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (0 minutes quiet, 155 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Ryan Adams live 2004 reviews chat, but your mission is to add 1999-2000
+### Ryan Adams live 2004 reviews  (1 minutes quiet, 558 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Ryan Adams live 2004 reviews chat - add 2005
 
-- Now patching the parser with the 1999-2000 rules.
-- Pipeline is running (4 of 36 tapes measured so far). Now adapting the stats, talk-topic and fact-pack tools to the 1999-2000 span.
-- A safety hook blocked that command because of the path I used. I'm moving the web-evidence checks into the project's own folder and retrying.
-- I'm adding the 1999-2000 entry to the shared site registry as a draft, and making a two-function date fix in the builder so the undated Club Largo tape.
+- A false positive. The verifier reads "in Burlington" in the dek as a key claim, "in B". The body's matching phrases have citations, and the dek can't.
+- Gate pass. My claim check found one overreach: "catches Ryan addressing the crowd" names the speaker, and the brief allows only "the machine transcript.
+- Now rerunning the parser and the lookup, then diffing every song's earliest releases against the saved results:
+- Only La Cienega changed. It now carries Gold (2001), and every other song's release facts are identical, so no approved review is affected. Checking.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary  (0 minutes quiet, 735 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
+
+- The Georgetown site refuses connections from here; WebFetch was blocked too. The Season 3 chat quoted the page, so it may have saved a copy. Looking.
+- This machine can't resolve alumni.georgetown.edu at all; it's a DNS failure, not a block on the page. A search on the exact quoted phrase can confirm.
+- Seasons 2 and 5 pass all quick checks on the new counts: voice 0, page checker clean, audit 10 of 10. Telling the Season 3 chat, then starting the full.
+- Recording the count change in the checklist while the suites run.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live reviews 1999-2000  (0 minutes quiet, 359 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
+
+- Six reviews pass now. Next is 1/5/00 at the Mercury Lounge, a set with spoken intros before several songs.
+- Both 10/28/99 talk passes are about 25 CPU-minutes in on a 90-minute tape. While they finish, next is 2/16/00 at Slim's in San Francisco, with Kim.
+- Eight reviews pass. Checking whether the start-show talk has landed.
+- Talk passes still running. Next is 3/16/00 at Stubb's in Austin, the second tape with When The Rope Gets Tight.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
