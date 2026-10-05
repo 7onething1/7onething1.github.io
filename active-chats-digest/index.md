@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-05 14:37 CDT. 16 chats read from transcripts.
+Built 2026-10-05 15:08 CDT. 18 chats read from transcripts.
 
 ## Headline
 
-All 16 chats ended on a gate block, 0 on a message from Brandon.
+All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 6,902 assistant replies, 191 MB of transcript.
+Totals: 7,176 assistant replies, 197 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.6 days quiet, 9 replies)
+### Stop malfeasance and fraud  (1.7 days quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
@@ -93,7 +93,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (18.8 hours quiet, 26 replies)
+### CLA chat location  (19.3 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -103,7 +103,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.2 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (12.8 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (4.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (3.9 hours quiet, 285 replies)
+### 55% volume limit  (4.4 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (56 minutes quiet, 1068 replies)
+### Glostik update  (1.4 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (28 minutes quiet, 562 replies)
+### Glostik update chat handoff  (58 minutes quiet, 562 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix
 
 - The queued Setlists item is closed. Now I'm stopping my local test server and bringing the handoff brief to its final state.
@@ -153,22 +153,42 @@ Totals: 6,902 assistant replies, 191 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (2 minutes quiet, 1437 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Add a a button to hide the episodes with the vet. A button to show only those episodes. Add a button to show only the news radio connections a button to show only the rest of development con
+### YouTube transcripts community commentary  (19 minutes quiet, 1456 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
-- The full sheet came back inline, so I'm trying the sheet's own export link to get it to disk cleanly, and reading the Lineage Map in parallel.
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
 - While that runs, I'm updating the task tracker. Each of your three messages opened a new checklist, so I'm consolidating them onto the active one.
 - I've logged five of the six outcomes as met. The last one is the deploy and live check, which waits on the background checks now running: the render.
+- The buttons and the shared-shows ranking are live on **https://community-commentary-highlights.vercel.app/season-2-commentators**, and I've opened it.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (1 minutes quiet, 547 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
+### Ryan Adams live 2004 reviews  (1 minutes quiet, 610 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bso5w74ug</task-id> <summary>Monitor event: "Ryan Adams data: readiness changes, Bristol redo end, lane C end, crashes"</summary> <event>15:06:33 waiting: 2 2004
 
-- The checker proved itself first. All five known-answer cases match, and every seeded bug moves at least one case off its answer. Next I'm measuring the.
-- Both workflows are still running. Next I'm refreshing talk topics for newly transcribed tapes and rerunning the readiness report to see which shows can.
-- The third batch is running for those five shows. Meanwhile I'm updating the tracked checklist, marking only items with proof on disk. Next I'm reading.
-- The 9/13 judges have run about 15 minutes, which is long. Next I'm checking their agent logs for live activity, so I can tell slow from stuck.
+- Those three reviews are underway. Only Bristol, 11/16 and 11/20 remain on the data side. Next I'm checking whether the Bristol redo got past.
+- 11/16 Omaha is now ready, leaving only Bristol and 11/20. Next I'm rebuilding 11/16's pack and starting its review, then re-arming the quieter monitor.
+- Sixteen of the 18 shows are now in review workflows. 11/20 Nashville and 1/21 Bristol are the last two still finishing their data, and the monitor.
+- This is the new monitor's first reading, and it matches the expected state. Two shows are still waiting on data: 1/21 Bristol and 11/20 Nashville. The.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary resume (fork)  (0 minutes quiet, 99 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I mean 3
+
+- Looking up IMDb ids for all 25 shows so I can pull each one's full credit list.
+- Reading the first two minutes of each Season 3 track to find who introduces themselves.
+- Named the people on 21 of 22 tracks so far. Now checking a few unclear introductions against the rest of each track.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary resume  (0 minutes quiet, 93 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <pasted_content id="f28e"> Okay, sure, and you can use IMDb, but some of the connections you previously said were not there actually were there once I checked other sources. I found some of 
+
+- Testing whether headless Chrome can read IMDb's full credit pages, since those carry per-person episode counts.
+- Headless Chrome gets through to IMDb, so I'm mapping the page's built-in credit data now.
+- Looking up IMDb ids for all 25 shows so I can pull each one's full credit list.
+- Reading the page builder in full now, since the filter, card and ranking changes all land in it.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
