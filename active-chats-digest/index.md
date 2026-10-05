@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-10-05 00:00 CDT. 11 chats read from transcripts.
+Built 2026-10-05 00:30 CDT. 10 chats read from transcripts.
 
 ## Headline
 
-All 11 chats ended on a gate block, 0 on a message from Brandon.
+All 10 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 4,476 assistant replies, 165 MB of transcript.
+Totals: 4,091 assistant replies, 153 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Animated Lizz emote apps  (11.9 days quiet, 385 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2282x644, displayed at 2000x564. Multiply coordinates by 1.14 to map to original image.]
-
-- The gate passes, with one lexical flag on the word "before" worth 2 points. I'm rewording that line to reach 0.
-- The animated Lizz page is live at https://lizzvega-emotes.vercel.app/animated/, and the main page links to it.** Firefox has it open, and Finder is.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Volume up  (20.6 hours quiet, 17 replies)
+### Volume up  (21.1 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn olume up
 
 - Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
@@ -33,7 +23,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.4 hours quiet, 6 replies)
+### Johnny Five daily pass  (13.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac's hostname and read today's daily check file. - **Phase.
@@ -43,7 +33,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz site update  (11.3 hours quiet, 188 replies)
+### Lizz site update  (11.8 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do it now
 
 - Status: tonight is **live on her page now**. The Setlists tab reads 244, and both of tonight's nights open to their 20 songs. I'm closing the checklist.
@@ -53,7 +43,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (11.2 hours quiet, 252 replies)
+### 55% volume limit  (11.8 hours quiet, 252 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is back on at 45% - 🟩 **The limit is 45% as of 04:32:56**, the value saved when you turned it off on 10/02. - 🟥 **Your H87 headset was.
@@ -63,7 +53,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (11.0 hours quiet, 1426 replies)
+### Lizz emotes chats debugging  (11.5 hours quiet, 1426 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go ahead and put the ones you took off back and keep the new ones as well.
 
 - Stare is out of the pack, the site folder and the hand-off (now 19 GIFs). Next, the readme gets the right wording for a removal you asked for, and the.
@@ -73,7 +63,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (10.0 hours quiet, 406 replies)
+### Creator deck page update  (10.5 hours quiet, 406 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
@@ -83,7 +73,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (9.7 hours quiet, 568 replies)
+### Ashilzzle transcript versals  (10.2 hours quiet, 568 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
@@ -93,7 +83,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### MTG deck mythics and rares analysis  (9.6 hours quiet, 121 replies)
+### MTG deck mythics and rares analysis  (10.1 hours quiet, 121 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it cant
 
 - MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
@@ -103,7 +93,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (5.4 hours quiet, 1081 replies)
+### YouTube transcripts community commentary  (5.9 hours quiet, 1081 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b87hhf6f0</task-id> <tool-use-id>toolu_01LEvujdrVncgFgyYr2Nb3PV</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
 
 - Now the same cache-busting and title proof go into the phone-width check, because the Season 1 and 2 navs gained a third season link that could change.
@@ -113,7 +103,7 @@ Totals: 4,476 assistant replies, 165 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (4.2 hours quiet, 26 replies)
+### CLA chat location  (4.7 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
