@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-05 01:00 CDT. 11 chats read from transcripts.
+Built 2026-10-05 01:30 CDT. 12 chats read from transcripts.
 
 ## Headline
 
-All 11 chats ended on a gate block, 0 on a message from Brandon.
+All 12 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 4,318 assistant replies, 157 MB of transcript.
+Totals: 4,516 assistant replies, 160 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Volume up  (21.6 hours quiet, 17 replies)
+### Volume up  (22.1 hours quiet, 17 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn olume up
 
 - Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
@@ -23,7 +23,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (14.4 hours quiet, 6 replies)
+### Johnny Five daily pass  (14.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for the Glo site. - **Phase 1:** confirm this Mac's hostname and read today's daily check file. - **Phase.
@@ -33,7 +33,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz site update  (12.3 hours quiet, 188 replies)
+### Lizz site update  (12.8 hours quiet, 188 replies)
 **Goal.** Not summarised by hand yet. Last input on record: do it now
 
 - Status: tonight is **live on her page now**. The Setlists tab reads 244, and both of tonight's nights open to their 20 songs. I'm closing the checklist.
@@ -43,7 +43,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (12.2 hours quiet, 252 replies)
+### 55% volume limit  (12.8 hours quiet, 252 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is back on at 45% - 🟩 **The limit is 45% as of 04:32:56**, the value saved when you turned it off on 10/02. - 🟥 **Your H87 headset was.
@@ -53,7 +53,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz emotes chats debugging  (12.0 hours quiet, 1426 replies)
+### Lizz emotes chats debugging  (12.5 hours quiet, 1426 replies)
 **Goal.** Not summarised by hand yet. Last input on record: go ahead and put the ones you took off back and keep the new ones as well.
 
 - Stare is out of the pack, the site folder and the hand-off (now 19 GIFs). Next, the readme gets the right wording for a removal you asked for, and the.
@@ -63,7 +63,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (11.0 hours quiet, 406 replies)
+### Creator deck page update  (11.5 hours quiet, 406 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
@@ -73,7 +73,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (10.7 hours quiet, 568 replies)
+### Ashilzzle transcript versals  (11.2 hours quiet, 568 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
@@ -83,7 +83,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### MTG deck mythics and rares analysis  (10.6 hours quiet, 121 replies)
+### MTG deck mythics and rares analysis  (11.1 hours quiet, 121 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it cant
 
 - MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
@@ -93,7 +93,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (6.4 hours quiet, 1081 replies)
+### YouTube transcripts community commentary  (6.9 hours quiet, 1081 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b87hhf6f0</task-id> <tool-use-id>toolu_01LEvujdrVncgFgyYr2Nb3PV</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d1aae561-8d52-4886-aef3-a
 
 - Now the same cache-busting and title proof go into the phone-width check, because the Season 1 and 2 navs gained a third season link that could change.
@@ -103,7 +103,7 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (5.2 hours quiet, 26 replies)
+### CLA chat location  (5.7 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -113,12 +113,22 @@ Totals: 4,318 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (1 minutes quiet, 227 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b2wdv8w3u</task-id> <summary>Monitor event: "Glostik daily update and Kick catch-up milestones"</summary> <event>2026-10-05 00:58:56 188f2179 waiting: 0 of 2 nam
+### Glostik update  (7 minutes quiet, 363 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bgbhjnu4t</task-id> <summary>Monitor event: "Glostik build gates, deploy and Kick naming milestones"</summary> <event>2026-10-05 01:21:43 daily_update done in 47
 
-- Still moving: one Kick piece has downloaded, and the YouTube show is on its third transcription span. The background wait will wake me when the list is.
-- All four transcription spans for tonight's show are running now. Kick has one piece down and the second still downloading.
-- Kick is unchanged: 26 of 27 pieces downloaded, and tonight's second piece is still pulling. Nothing needs action yet.
-- Three of the four transcription spans are done. The last one, covering the final 34 minutes of the show, is running now.
+- All seven layouts carry tonight's show, with 17 of 17 rows linked in each, and the unknown-id control found nothing in every view. Waiting on the daily.
+- Both hard gates passed on the live site: the sync gate and the freshness gate. Pulling their detail lines to close out those checklist items.
+- Tonight's YouTube show is live on the site and in all seven layouts, and its comment is posted and confirmed by a public read. The Kick-only songs are.
+- That event is the first build finishing at 01:21, which I've already covered. Kick is still in progress, and a background wait will report when its.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (0 minutes quiet, 62 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/live-archive-site # live-archive-site Two halves already exist on disk and both already take a client. This skill wires the
+
+- The 9/13 show is streaming from archive.org now, three tracks at a time, with loudness measured on the way. Meanwhile I'm building the setlist table.
+- The anti-AI gate has a `--skip-llm` switch. I'll use it, since CLAUDE.md keeps DeepSeek off without your say-so. Three tracks are measured so far. Next.
+- One info file returned an archive.org 500 error. Next I'm retrying with backoff so one bad file can't stop the batch.
+- Two OpenMP runtimes collided when Whisper loaded, a known torch and CTranslate2 clash. Next I'm retrying with the standard `KMP_DUPLICATE_LIB_OK`.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
