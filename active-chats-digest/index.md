@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-05 17:05 CDT. 20 chats read from transcripts.
+Built 2026-10-05 17:35 CDT. 21 chats read from transcripts.
 
 ## Headline
 
-All 20 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 8 are past the 400-turn ceiling.
-Totals: 8,439 assistant replies, 217 MB of transcript.
+All 21 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 9 are past the 400-turn ceiling.
+Totals: 8,952 assistant replies, 223 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.7 days quiet, 9 replies)
+### Stop malfeasance and fraud  (1.8 days quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
@@ -63,7 +63,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Creator deck page update  (1.1 days quiet, 406 replies)
+### Creator deck page update  (1.2 days quiet, 406 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
@@ -93,7 +93,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### CLA chat location  (21.2 hours quiet, 26 replies)
+### CLA chat location  (21.8 hours quiet, 26 replies)
 **Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
 
 - Found it, and I'm checking that its files are still on disk.
@@ -103,7 +103,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (14.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (15.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (6.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (7.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (6.3 hours quiet, 285 replies)
+### 55% volume limit  (6.8 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (3.4 hours quiet, 1068 replies)
+### Glostik update  (3.9 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (2.9 hours quiet, 562 replies)
+### Glostik update chat handoff  (3.4 hours quiet, 562 replies)
 **Goal.** Not summarised by hand yet. Last input on record: fix
 
 - The queued Setlists item is closed. Now I'm stopping my local test server and bringing the handoff brief to its final state.
@@ -153,7 +153,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (2.3 hours quiet, 1456 replies)
+### YouTube transcripts community commentary  (2.8 hours quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -163,7 +163,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume (fork)  (1.1 hours quiet, 486 replies)
+### YouTube transcripts community commentary resume (fork)  (1.6 hours quiet, 486 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/38502.sock" from-session="local_6b2067d8-2fe4-4a26-bd3b-0aea0da336cb" from-name="YouTube transcripts com
 
 - The true 390 px phone view lays out cleanly. Nothing is clipped, the buttons wrap, the track list stacks in one column, and the top bar now links to.
@@ -173,7 +173,7 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume  (1.1 hours quiet, 319 replies)
+### YouTube transcripts community commentary resume  (1.6 hours quiet, 319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
 - Jerry Minor is already on the S02E24 card through your Lineage Index. Saving the click test now, then adding the Mr. Show to NewsRadio notes for Dino.
@@ -183,32 +183,42 @@ Totals: 8,439 assistant replies, 217 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (33 minutes quiet, 823 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>wes8qms9f</task-id> <tool-use-id>toolu_014Rr9Jk85owRvKcJjmwiggg</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04dbf2a1-1557-4fd1-91c2-8
-
-- Bristol's review finished, with 42 verifier issues applied and a gate pass at 1,096 words. It was built on the complete data, including the newly.
-- Only 9/22 Warfield uses "views" twice in its body, and every other review stays within the one-definition rule. Next I'm reading the two 9/22 sentences.
-- 9/22 now uses "views" once, its favorites note reflects the tie, and it's re-approved through the full gate. Next I'm adding the MusicBrainz year-only.
-- That follow-up is queued as `q-2026-10-05-3b0795`. Everything else for the final deploy is ready. 17 of 18 reviews are approved, the about page carries.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Resume YouTube transcripts community commentary  (32 minutes quiet, 177 replies)
+### Resume YouTube transcripts community commentary  (21 minutes quiet, 183 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
 
-- "Final and checked" is sent, and three of six outcomes are met. While the Season 2 chat deploys, I'm writing the final local results into the Season 3.
-- The original chat deployed this site the same way each time. It used the one-time gate override, then ran Vercel's production deploy from `site/`. That.
 - The Season 2 chat stopped short of deploying. The deploy gate's override only counts when you ask for the deploy yourself in that turn, so it asked you.
 - Where it stands - 🟩 **Season 3 is finished and checked** on this Mac. **Every check passes** on the final build. - 🟥 **Neither updated page is live.**.
+- Status - 🟪 **The Season 2 chat has started on Season 5**, because you asked for it there. **It's working only in Season 5's own files**, so the.
+- - 🟩 **Season 3 hasn't changed since the final checks.** Its fingerprint still matches the build that passed every check. **The Season 2 chat confirmed.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (31 minutes quiet, 260 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
+### Ryan Adams live 2004 reviews  (2 minutes quiet, 979 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
-- Season 3 is final and checked. Before the production deploy, I'm checking two things: Brandon's deploy rule for finished pages, and whether the live.
-- Recording the deploy blocker, then telling the Season 3 chat.
-- Blocker recorded and the Season 3 chat told. Next, opening the rebuilt Season 2 page in Firefox so Brandon can look before he gives the word, using his.
-- I've done everything this chat can do on its own. The joint deploy is ready but waiting on your go-ahead. 🔴 **Blocked on one word from you.** Your.
+- Board item is now recorded as waiting on your yes. Running the last number and fraud checks before the summary.
+- Fixed one real fraud-check hit: a lock helper was copied into two tools. Now confirming both tools still load.
+- Two finished checklist items carry text-only proof, so I'm attaching proof the checker can verify.
+- Stats proof checks out: all 21 tapes show their numbers on the live pages. Now the proof for the flagged-step fix.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary  (0 minutes quiet, 453 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Season 5
+
+- Season 5 connections are complete, including the audit note on E08. Checking what the credit data says about each Season 5 person on Community, so I.
+- Fixing how job titles print in the shared credit data, then confirming Seasons 2 and 3 change only on those lines.
+- Writing a one-pass Season 5 check script covering all nine checks, on my own ports, then running it in the background.
+- The checks take about ten minutes because of the headless browser runs. Meanwhile I'm writing s5/STATE.md, so this Season 5 work can be resumed from a.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (0 minutes quiet, 158 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Ryan Adams live 2004 reviews chat - add 2005
+
+- The watch is armed. While the tapes measure, I'm checking how the 2005 tapers wrote their titles, so the song parser handles their notes correctly.
+- Four uploads have track fields that disagree with file-name order. I'll look at which order is right for each.
+- Running the MusicBrainz lookup in the background. It caches every response, and 220 are already cached from 2004.
+- While MusicBrainz runs, I'm pointing the archive.org stats tool at 2005. Every "2004" in it is a year reference, so I'm checking each one before replacing.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
