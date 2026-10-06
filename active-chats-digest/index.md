@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-06 18:19 CDT. 12 chats read from transcripts.
+Built 2026-10-06 18:50 CDT. 12 chats read from transcripts.
 
 ## Headline
 
 All 12 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 8 are past the 400-turn ceiling.
-Totals: 6,932 assistant replies, 105 MB of transcript.
+0 need a Brandon action. 9 are past the 400-turn ceiling.
+Totals: 7,343 assistant replies, 113 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik update chat handoff  (22.3 hours quiet, 818 replies)
+### Glostik update chat handoff  (22.8 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Quick update: the retry is in all seven views, and the panel code still parses as one identical copy. Testing archive's Open case three times in a row,.
@@ -23,17 +23,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Resume YouTube transcripts community commentary  (22.0 hours quiet, 580 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
-
-- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
-- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
-- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
-- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary  (22.0 hours quiet, 922 replies)
+### YouTube transcripts community commentary  (22.5 hours quiet, 922 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
 
 - The tool only marks items on the active checklist, and the deploy items sit on the parked one. Looking at how parked checklists are stored, to record.
@@ -43,7 +33,17 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (21.8 hours quiet, 1007 replies)
+### Resume YouTube transcripts community commentary  (22.5 hours quiet, 580 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
+
+- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
+- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
+- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
+- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (22.3 hours quiet, 1007 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brwbu67u0</task-id> <summary>Monitor event: "2005 pipeline failures and completion (all lanes)"</summary> <event>[Monitor expired after 30m with no events delive
 
 - Merged titles change some cross-tape counts (My Winding Wheel now has 14 versions on the 2005 tapes, up from 12). Rebuilding packs and checking every.
@@ -53,7 +53,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (20.4 hours quiet, 1043 replies)
+### Ryan Adams live reviews 1999-2000  (21.0 hours quiet, 1043 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bujf858iz</task-id> <tool-use-id>toolu_0154bepkVNGVTm8YuFfakYnr</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a7e9ce04-23c5-48d4-adf1-4
 
 - Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
@@ -63,7 +63,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (18.5 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (19.0 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
@@ -73,7 +73,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (16.7 hours quiet, 627 replies)
+### Glostic animated emote page update  (17.2 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -83,7 +83,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (8.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -93,7 +93,7 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (5.4 hours quiet, 303 replies)
+### 55% volume limit  (6.0 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -103,32 +103,32 @@ Totals: 6,932 assistant replies, 105 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1 minutes quiet, 645 replies)
-**Goal.** Not summarised by hand yet. Last input on record: make the button interact better
-
-- The rebuilt all-seasons page (sha256 5c204b50) passes everything again: voice 0, every link and booth, counts against Wikipedia, the click test, phone.
-- The slow part is the readability check. It loads each page in four views and measures every line of text, about 5 to 8 minutes per page, run one page.
-- It's live. On all seven who-is-talking pages, "People with more than five credits" is now a button that starts collapsed. - **Click to open and close.
-- The corrected button check and the remaining season suites are both running. I'll report when they land.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### News radio community commentary highlights  (1 minutes quiet, 350 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/yt-transcripts # yt-transcripts — YouTube → Text (transcription only, by default) ## What this skill does **Default = stage
-
-- The index builder dropped Wikipedia's story-and-teleplay template, which blanks 22 writer fields. I'll parse the raw wikitext in my own module and.
-- Only 25 rows parsed, so the earlier seasons' blocks are formatted differently. Inspecting the first block.
-- Seasons 1 and 2 put both episode numbers on one line. Fixing the field split for known field names only.
-- All 97 episodes now parse, and Wikipedia's writing counts match IMDb's within one. Rebuilding the credit data on the corrected bylines.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Kick feature broken in Lizz Vega  (0 minutes quiet, 627 replies)
+### Kick feature broken in Lizz Vega  (19 minutes quiet, 699 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
-- Status: her builder now fills Days Between. Testing it on a scratch copy before her live data changes.
-- Dry run is clean: both content gates pass and 10 files change (the seven layouts, the new Kick data and the data files). Deploying.
-- Deployed as `dpl_2HtzHqobKEdLh1YMeWq4kSZzcMQ1`, with every route answering 200. Checking that the live files match disk, then running the Kick card.
-- Those mismatches are probably the trailing-slash redirect, which answers with a 15-byte redirect body instead of the page. Re-measuring at each.
+- Updating the skill's own notes so the next chat knows the Kick cards exist. First, locating the line that still says they aren't built.
+- Adding the two new lessons to the skill's bug list: the date check that missed last night's video, and the Rooster check that read the wrong folder.
+- Updating memory with today's lessons, starting with Lizz's publish note.
+- Status while the YouTube video transcribes. It's been at it 33 minutes, and a watcher will tell me when the routine finishes. **Done and live** -.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary  (8 minutes quiet, 754 replies)
+**Goal.** Not summarised by hand yet. Last input on record: make the button interact better
+
+- Status: the button and three-column changes are built, and their check is still running. I'm now adding a still to every episode card from TVmaze, the.
+- Status: stills are wired into all seven pages. I'm updating the readability runner so it scrolls like a reader before measuring, then rebuilding and.
+- That "failed" notice is the stale button run I stopped. Rebuilding all seven pages with the three columns, the improved button and the stills, then.
+- The button check, the Season 1 and 4 suites and the all-seasons suite are all running. I'll deploy as soon as the click tests, the button check and the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### News radio community commentary highlights  (0 minutes quiet, 580 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2200, displayed at 1309x2000. Multiply coordinates by 1.10 to map to original image.]
+
+- Marked. While clips cut, I'm checking every unique external link on the page, except IMDb and private Drive links, which reject scripted requests.
+- Fifteen links to check. The clip-basis links (GIPHY, Tenor, IMDb quotes) get checked after the final build. Opening the one-call pass for this batch,.
+- All 15 return 200. One more check: the AV Club link should be the actual Foley interview, not a redirect to the homepage.
+- Linked to the same Vercel team as the Community site. Checking the driver's progress.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
