@@ -1,109 +1,19 @@
 # Active chats digest
 
-Built 2026-10-06 01:44 CDT. 26 chats read from transcripts.
+Built 2026-10-06 02:14 CDT. 17 chats read from transcripts.
 
 ## Headline
 
-All 26 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 14 are past the 400-turn ceiling.
-Totals: 13,505 assistant replies, 299 MB of transcript.
+All 17 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 11 are past the 400-turn ceiling.
+Totals: 10,513 assistant replies, 167 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Firefox ChatGPT episode reminder script  (2.2 days quiet, 231 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
-
-- The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
-- Adding a docstring line for the new waiting rule, then extending the harness with two "window out of view" scenarios, alongside the five that passed.
-- The startup lines look right. Reading again to confirm the loop has reached its countdown.
-- 🟥 The loop misfired once, and that's on me - 🟥 **At 7:02:29 you typed your own message** to ChatGPT. - 🟧 **The loop sent "next episode" 5 seconds.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (2.1 days quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal:** run the anti-malfeasance sweep and nudge every stalled chat that still owes work. Then log each nudge and write the report. - **Phase 1:** run.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Volume up  (1.9 days quiet, 17 replies)
-**Goal.** Not summarised by hand yet. Last input on record: turn olume up
-
-- Volume sits at 93 and unmuted, on the H87 output. His volume-cap agent is loaded, so I need its ceiling before raising anything.
-- The script clamps output to the number in `~/.config/volume-cap/cap.conf`. Reading that ceiling now.
-- The cap reads 100, which the script treats as no ceiling. Nothing blocks a raise, so I'm setting 100 and re-reading after a full cap refresh cycle.
-- 🟢 **Volume went from 93 to 100.** 1. **Turn the volume up:** I set it to 100. It read back at 100 after 7 seconds, unmuted, on your H87 headset. -.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lizz site update  (1.5 days quiet, 188 replies)
-**Goal.** Not summarised by hand yet. Last input on record: do it now
-
-- Status: tonight is **live on her page now**. The Setlists tab reads 244, and both of tonight's nights open to their 20 songs. I'm closing the checklist.
-- Every checklist item is met with evidence, and the split song is queued for a decision. I'm adding the "do it now" steps to the memory note so the next.
-- The two rules agree once both are read. No popups for their own sake, and each deliverable gets opened and revealed. Opening her updated page in.
-- 🟢 Tonight is on her page now - **Both of tonight's streams are live with 20 songs each.** Kick's "Back from Los Angeles" ran 5.8 hours, and YouTube's.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lizz emotes chats debugging  (1.5 days quiet, 1426 replies)
-**Goal.** Not summarised by hand yet. Last input on record: go ahead and put the ones you took off back and keep the new ones as well.
-
-- Stare is out of the pack, the site folder and the hand-off (now 19 GIFs). Next, the readme gets the right wording for a removal you asked for, and the.
-- All 90 failures are `ERR_CERT_VERIFIER_CHANGED`, the test browser's own certificate hiccup, so the site isn't at fault. Re-running that one phone view.
-- All three changes are live and checked. I'm writing them into STATE.md and saving one lesson to memory, then showing you the new Tramp.
-- All three changes are live on her page: https://lizzvega-emotes.vercel.app/animated/ ## What changed 1. **Round two is back.** All 14 "Your newer.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Creator deck page update  (1.5 days quiet, 406 replies)
-**Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
-
-- Live. Proving both changes on the production page, then checking that the images actually paint in a real browser.
-- All **110 key-card images painted** in a real browser, drawn 300 px wide from 672×936 large art. Checking the 613 images inside the "Every card behind.
-- All **613 list images painted too**, so 723 of 723 render live. Recording that the 300 px rule covers this page as well, then opening it for you.
-- Both fixes are live on the page now. https://drwu-htmls.vercel.app/mtg-creator-decks returns http 200, matches the local build, and is open in Firefox..
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ashilzzle transcript versals  (1.5 days quiet, 568 replies)
-**Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
-
-- Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
-- The card text is written. Running the replace build next. Before any deploy I'm printing the exact changed lines against the live board, to confirm.
-- The diff is exactly right: only this card's description and scale line change in each of the three board files, and no counts move. Running preview,.
-- Both changes are live at the same link: https://sbmtg-standard-is-saved.vercel.app (200) 🟢 **Card size** - **On a phone**, every card now fills the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### MTG deck mythics and rares analysis  (1.5 days quiet, 121 replies)
-**Goal.** Not summarised by hand yet. Last input on record: it cant
-
-- MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
-- Status: your FRA cards are in the data. I'm finding how the pull was made so I can refresh it.
-- Status: the check is done, and I'm recording the result before writing it up.
-- 🟢 Yes, I have your Reality Fracture cards - Today's Untapped pull, taken at **12:41 PM**, holds 223 of the 296 FRA cards. - That comes to **577.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### CLA chat location  (1.2 days quiet, 26 replies)
-**Goal.** Not summarised by hand yet. Last input on record: where's our cla chat
-
-- Found it, and I'm checking that its files are still on disk.
-- Goal:** find the CLA chat and confirm its files still exist. - **Phase 1:** search every chat title and transcript for CLA. - **Phase 2:** read the.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (23.4 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (23.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +23,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15.1 hours quiet, 6 replies)
+### Johnny Five daily pass  (15.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +33,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (15.0 hours quiet, 285 replies)
+### 55% volume limit  (15.5 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +43,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (12.0 hours quiet, 1068 replies)
+### Glostik update  (12.6 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +53,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (10.9 hours quiet, 1456 replies)
+### YouTube transcripts community commentary  (11.4 hours quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -153,7 +63,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume (fork)  (9.7 hours quiet, 486 replies)
+### YouTube transcripts community commentary resume (fork)  (10.2 hours quiet, 486 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/38502.sock" from-session="local_6b2067d8-2fe4-4a26-bd3b-0aea0da336cb" from-name="YouTube transcripts com
 
 - The true 390 px phone view lays out cleanly. Nothing is clipped, the buttons wrap, the track list stacks in one column, and the top bar now links to.
@@ -163,7 +73,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume  (9.7 hours quiet, 319 replies)
+### YouTube transcripts community commentary resume  (10.2 hours quiet, 319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
 - Jerry Minor is already on the S02E24 card through your Lineage Index. Saving the click test now, then adding the Mr. Show to NewsRadio notes for Dino.
@@ -173,7 +83,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (8.1 hours quiet, 981 replies)
+### Ryan Adams live 2004 reviews  (8.6 hours quiet, 981 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Fixed one real fraud-check hit: a lock helper was copied into two tools. Now confirming both tools still load.
@@ -183,7 +93,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (5.7 hours quiet, 818 replies)
+### Glostik update chat handoff  (6.2 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Quick update: the retry is in all seven views, and the panel code still parses as one identical copy. Testing archive's Open case three times in a row,.
@@ -193,17 +103,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Resume YouTube transcripts community commentary  (5.4 hours quiet, 580 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
-
-- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
-- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
-- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
-- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary  (5.4 hours quiet, 922 replies)
+### YouTube transcripts community commentary  (5.9 hours quiet, 922 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
 
 - The tool only marks items on the active checklist, and the deploy items sit on the parked one. Looking at how parked checklists are stored, to record.
@@ -213,7 +113,17 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (5.2 hours quiet, 1007 replies)
+### Resume YouTube transcripts community commentary  (5.9 hours quiet, 580 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
+
+- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
+- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
+- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
+- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (5.7 hours quiet, 1007 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brwbu67u0</task-id> <summary>Monitor event: "2005 pipeline failures and completion (all lanes)"</summary> <event>[Monitor expired after 30m with no events delive
 
 - Merged titles change some cross-tape counts (My Winding Wheel now has 14 versions on the 2005 tapes, up from 12). Rebuilding packs and checking every.
@@ -223,7 +133,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (3.9 hours quiet, 1043 replies)
+### Ryan Adams live reviews 1999-2000  (4.3 hours quiet, 1043 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bujf858iz</task-id> <tool-use-id>toolu_0154bepkVNGVTm8YuFfakYnr</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a7e9ce04-23c5-48d4-adf1-4
 
 - Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
@@ -233,7 +143,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.9 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (2.4 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
@@ -243,7 +153,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1.7 hours quiet, 543 replies)
+### YouTube transcripts community commentary  (2.2 hours quiet, 543 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6xmt6ixu</task-id> <tool-use-id>toolu_01S8Mn3H93Rd3JuJ7Lig8SbT</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - No stray processes were left. Waiting on the Season 2, 3, 5 and 6 suite.
@@ -253,7 +163,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (35 minutes quiet, 363 replies)
+### Kick feature broken in Lizz Vega  (1.1 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Fuck you1!!! you didn't tell me kick wasn't working in lizz vega I have 100 compliaints
 
 - Running the permanent check once against production with no ids passed in, to prove it stands on its own.
@@ -263,7 +173,7 @@ Totals: 13,505 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (7 minutes quiet, 627 replies)
+### Glostic animated emote page update  (37 minutes quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
