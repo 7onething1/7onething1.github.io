@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-05 20:07 CDT. 22 chats read from transcripts.
+Built 2026-10-05 20:38 CDT. 23 chats read from transcripts.
 
 ## Headline
 
-All 22 chats ended on a gate block, 0 on a message from Brandon.
+All 23 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 12 are past the 400-turn ceiling.
-Totals: 11,865 assistant replies, 250 MB of transcript.
+Totals: 12,044 assistant replies, 252 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Firefox ChatGPT episode reminder script  (1.9 days quiet, 231 replies)
+### Firefox ChatGPT episode reminder script  (2.0 days quiet, 231 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bphlzni0x</task-id> <tool-use-id>toolu_012MG5vRcyDNoTTaqUYUY3oQ</tool-use-id> <status>stopped</status> <summary>Background shell command didn't finish before the
 
 - The 8-minute timer is done. Reading the loop's terminal and checking the server to see how the S01E04 handoff went.
@@ -73,7 +73,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ashilzzle transcript versals  (1.2 days quiet, 568 replies)
+### Ashilzzle transcript versals  (1.3 days quiet, 568 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make the cards the size i asked for remove the ones with no rf cards
 
 - Quick status: the phone fix is live (200, all files match). Re-measuring at phone width now, and taking a screenshot of the cards.
@@ -83,7 +83,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### MTG deck mythics and rares analysis  (1.2 days quiet, 121 replies)
+### MTG deck mythics and rares analysis  (1.3 days quiet, 121 replies)
 **Goal.** Not summarised by hand yet. Last input on record: it cant
 
 - MTG Arena Zone blocked the fetch, so I'm trying two other guides at once.
@@ -103,7 +103,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (17.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (18.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal:** run the stall sweep, nudge each chat that quit while it still owed work, then file the report. - **Phase 1:** run the sweep detector and load.
@@ -113,7 +113,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (9.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (10.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass for 2026-10-05. - **Phase 1:** check the hostname to confirm this is the MacBook, then read today's daily check.
@@ -123,7 +123,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (9.4 hours quiet, 285 replies)
+### 55% volume limit  (9.9 hours quiet, 285 replies)
 **Goal.** Not summarised by hand yet. Last input on record: offf
 
 - Reading "offff" as turn the 45% volume limit off. Lifting it now and keeping 45 saved as the restore value:
@@ -133,7 +133,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update  (6.4 hours quiet, 1068 replies)
+### Glostik update  (7.0 hours quiet, 1068 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you told me you had glostik lyrics for rooster, now you ask me if it is, what
 
 - The gate parses. Running it now. It loads the lyric index once for the YouTube lists and once in a child process for the Kick lists.
@@ -143,7 +143,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (5.3 hours quiet, 1456 replies)
+### YouTube transcripts community commentary  (5.8 hours quiet, 1456 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2400, displayed at 1200x2000. Multiply coordinates by 1.20 to map to original image.]
 
 - The passages are pinned. Next I'm finding the exact caption seconds for the three Andy Dick moments your Show Bible cites, so each one links straight.
@@ -153,7 +153,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume (fork)  (4.1 hours quiet, 486 replies)
+### YouTube transcripts community commentary resume (fork)  (4.6 hours quiet, 486 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/38502.sock" from-session="local_6b2067d8-2fe4-4a26-bd3b-0aea0da336cb" from-name="YouTube transcripts com
 
 - The true 390 px phone view lays out cleanly. Nothing is clipped, the buttons wrap, the track list stacks in one column, and the top bar now links to.
@@ -163,7 +163,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary resume  (4.1 hours quiet, 319 replies)
+### YouTube transcripts community commentary resume  (4.6 hours quiet, 319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
 - Jerry Minor is already on the S02E24 card through your Lineage Index. Saving the click test now, then adding the Mr. Show to NewsRadio notes for Dino.
@@ -173,7 +173,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (2.5 hours quiet, 981 replies)
+### Ryan Adams live 2004 reviews  (3.0 hours quiet, 981 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Fixed one real fraud-check hit: a lock helper was copied into two tools. Now confirming both tools still load.
@@ -183,17 +183,7 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (8 minutes quiet, 878 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
-
-- Recording this round in the checklist while the suites run.
-- The counts round from the Season 3 chat's research is in, and the full Season 2 and 5 checks are running on the rebuilt pages. Nothing is deployed, and.
-- Both points are right. "(episodes 7)" should read "(episode 7)". And when someone's titles together cover a whole season, as Matt Roller's two season-6.
-- Nothing is deployed yet. The two episode-range wording fixes are in, and Seasons 2 and 5 are rebuilt with them. - **One-episode ranges read correctly.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik update chat handoff  (4 minutes quiet, 818 replies)
+### Glostik update chat handoff  (34 minutes quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Quick update: the retry is in all seven views, and the panel code still parses as one identical copy. Testing archive's Open case three times in a row,.
@@ -203,32 +193,52 @@ Totals: 11,865 assistant replies, 250 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (2 minutes quiet, 1035 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6lybm88m</task-id> <summary>Monitor event: "1999-2000 pipeline: talk passes, Seattle fetch, failures"</summary> <event>20:05:09 A done</event> If this event is 
+### YouTube transcripts community commentary  (16 minutes quiet, 922 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
 
-- I stopped the blocking wait you interrupted. Nothing is running in the foreground now, and the detached pipeline carries on in the background. -.
-- The Seattle 9/9/00 tape finished downloading and measuring at 20:05 with no errors. I'm holding there, as your interrupt asked, and the detached.
-- Both of my background wait-checks have finished; they had only been watching for the Seattle measurement. I'm still holding for your direction, and.
+- The tool only marks items on the active checklist, and the deploy items sit on the parked one. Looking at how parked checklists are stored, to record.
+- It's live: all four who-is-talking pages are up, and I checked them myself. - **Pushed at 8:09 PM.** The Season 3 chat ran the deploy on your "deploy.
+- The Season 3 chat's full suite is green on both its shipped pages. Checking whether my own runs on the shipped Season 2 and 5 files have finished.
+- All four shipped pages have now passed every check on the exact files that are live. Seasons 2 and 5 were checked in this chat, and the Season 3 chat.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Resume YouTube transcripts community commentary  (16 minutes quiet, 580 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
+
+- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
+- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
+- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
+- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live reviews 1999-2000  (10 minutes quiet, 1041 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6lybm88m</task-id> <summary>Monitor event: "1999-2000 pipeline: talk passes, Seattle fetch, failures"</summary> <event>[Monitor expired after 30m with 4 events 
+
 - The download step has finished for all 36 tapes. Analysis and speech transcription carry on in the background, and I'm still waiting for your direction.
+- Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
+- Analysis and the kick-drum pass are now done for every tape. Speech transcription for the 10/21/99 Raleigh tape finished at 20:20 after an hour, so 5.
+- The pipeline watcher reached its 30-minute limit, and I'm leaving it off while you decide how to proceed. The detached pipeline keeps writing its logs,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (1 minutes quiet, 1000 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
+### Ryan Adams live 2004 reviews  (4 minutes quiet, 1007 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brwbu67u0</task-id> <summary>Monitor event: "2005 pipeline failures and completion (all lanes)"</summary> <event>[Monitor expired after 30m with no events delive
 
-- Status: Asheville is drafted and passes the gate, so seven drafts now wait only on talk passes. Downloads run about twice as fast on archive.org's.
-- Fixing the song parser now: talk tracks named "Ryan Speaks" and "Ryan brings the promoter out", a "cont'd" suffix, and two documented short-title links.
-- Re-running the MusicBrainz lookup (mostly cached) so the merged titles carry the right release facts, then the verification and override steps.
 - Merged titles change some cross-tape counts (My Winding Wheel now has 14 versions on the 2005 tapes, up from 12). Rebuilding packs and checking every.
+- You interrupted me partway through a fix. Nothing has been deployed, and the background pipeline keeps measuring tapes by itself. - **Reviews:** 5 of.
+- That alert was only a background progress watch timing out, which is routine. The measuring pipeline is still running on its own. I've stopped where.
+- That was the last background watch timing out, which is routine and not a failure. I'm still paused where you interrupted me, with the count fixes on.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Resume YouTube transcripts community commentary  (0 minutes quiet, 536 replies)
-**Goal.** Not summarised by hand yet. Last input on record: what is taking so long
+### YouTube transcripts community commentary  (0 minutes quiet, 78 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Resume YouTube transcripts community commentary take over, its being lazy
 
-- The last changes have landed: - **Sourced series totals:** the shared script now accepts them. - **Partial staff lines:** they now print their episode.
-- Both rebuilt pages pass the quick checks, with voice at 0 and your asks at 10 of 10. The Season 2 chat is fixing the two small range-text issues on.
-- Both range fixes have landed. I'm rebuilding Seasons 3 and 6 and confirming Roller's season 6 lines now carry no range, then starting the full browser.
-- The full suite is running on the final Season 3 and Season 6 builds and takes about 25 minutes. When it's clean, I'll send the Season 2 chat "final and.
+- The first search surfaced Rotten Tomatoes' NewsRadio Season 5 crew page for both names. Checking the per-season crew pages directly, plus Wikipedia's.
+- The gate's pass is single-use, so I'm fetching every page in one command and saving each to disk as evidence.
+- A lyric guard misread the wildcard because the folder path contains "yt-transcripts". Rerunning with each file named explicitly.
+- The gate also matches the Community wiki address and the folder name I chose. I'm moving the evidence to a folder name that won't trip it, using one.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
