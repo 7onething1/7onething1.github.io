@@ -1,8 +1,7 @@
 # iximusic — analysis index
 
-Every ixi-style (iximusic) analysis in one place: 17 deep vocal-vs-chord-stack sheets plus 86 corpus breakdowns across 43 artists.
+Every ixi-style (iximusic) analysis in one place: 17 deep sheets plus 86 corpus breakdowns across 43 artists.
 
-Live page: https://drwu-htmls.vercel.app/iximusic
+The deep sheets were repaired on 2026-10-06 after a sentence-by-sentence provenance audit against ixi's videos. Plain sentences come from the cited video; "Verified" cites an independent transcription or the recording; "Unverified" marks Claude's own inference. Audit: https://7onething1.github.io/iximusic-provenance/
 
-This is the text companion (sibling .md) for [iximusic](https://drwu-htmls.vercel.app/iximusic).
-Part of drwu-htmls.vercel.app.
+Live page: https://7onething1.github.io/iximusic/
