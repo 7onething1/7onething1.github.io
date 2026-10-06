@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-06 16:49 CDT. 12 chats read from transcripts.
+Built 2026-10-06 17:19 CDT. 12 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 ## Every chat
 
-### Ryan Adams live 2004 reviews  (23.2 hours quiet, 981 replies)
+### Ryan Adams live 2004 reviews  (23.7 hours quiet, 981 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/completion-control # completion-control Completion authority lives here, not in the fifty gates and not in the reply text. 
 
 - Fixed one real fraud-check hit: a lock helper was copied into two tools. Now confirming both tools still load.
@@ -23,7 +23,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik update chat handoff  (20.8 hours quiet, 818 replies)
+### Glostik update chat handoff  (21.2 hours quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
 
 - Quick update: the retry is in all seven views, and the panel code still parses as one identical copy. Testing archive's Open case three times in a row,.
@@ -33,17 +33,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Resume YouTube transcripts community commentary  (20.4 hours quiet, 580 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
-
-- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
-- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
-- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
-- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube transcripts community commentary  (20.4 hours quiet, 922 replies)
+### YouTube transcripts community commentary  (21.0 hours quiet, 922 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/6886.sock" from-session="local_ee34f9cb-e32b-4e56-8995-5a7c523a517f" from-name="Resume YouTube transcrip
 
 - The tool only marks items on the active checklist, and the deploy items sit on the parked one. Looking at how parked checklists are stored, to record.
@@ -53,7 +43,17 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live 2004 reviews  (20.3 hours quiet, 1007 replies)
+### Resume YouTube transcripts community commentary  (20.9 hours quiet, 580 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/7314.sock" from-session="local_b549b1bc-c042-44cc-a590-951b466487d4" from-name="YouTube transcripts comm
+
+- It's live - 🟩 **All four "who is talking" pages are published.** Every page answers on the live site and **matches the files that passed the checks**.
+- Done - 🟩 **Season 6 passed its final check on the live site.** It passes counts, the click test, readability in all four views and phone width, and.
+- The Season 2 chat confirms its two shipped pages passed too. It also checked all seven live routes on its own. Its one open item is Goldman and.
+- All four pages are live and checked - 🟩 **Both chats' checks came back clean.** The Season 2 chat **confirmed its own two pages** and all seven live.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams live 2004 reviews  (20.8 hours quiet, 1007 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>brwbu67u0</task-id> <summary>Monitor event: "2005 pipeline failures and completion (all lanes)"</summary> <event>[Monitor expired after 30m with no events delive
 
 - Merged titles change some cross-tape counts (My Winding Wheel now has 14 versions on the 2005 tapes, up from 12). Rebuilding packs and checking every.
@@ -63,7 +63,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (18.9 hours quiet, 1043 replies)
+### Ryan Adams live reviews 1999-2000  (19.4 hours quiet, 1043 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bujf858iz</task-id> <tool-use-id>toolu_0154bepkVNGVTm8YuFfakYnr</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a7e9ce04-23c5-48d4-adf1-4
 
 - Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
@@ -73,7 +73,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (17.0 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (17.5 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
@@ -83,7 +83,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (15.2 hours quiet, 627 replies)
+### Glostic animated emote page update  (15.7 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -93,7 +93,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (6.2 hours quiet, 6 replies)
+### Johnny Five daily pass  (6.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -103,7 +103,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (3.9 hours quiet, 303 replies)
+### 55% volume limit  (4.4 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -113,7 +113,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (3.9 hours quiet, 400 replies)
+### Kick feature broken in Lizz Vega  (4.4 hours quiet, 400 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Did the update for these sites run
 
 - The stream guard just exited on its own. I'm checking why and whether the paused jobs were released.
@@ -123,7 +123,7 @@ Totals: 7,286 assistant replies, 110 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (21 minutes quiet, 595 replies)
+### YouTube transcripts community commentary  (51 minutes quiet, 595 replies)
 **Goal.** Not summarised by hand yet. Last input on record: deploy it
 
 - Closing the tracker item and both queued pages, then opening the live all-seasons page in Firefox.
