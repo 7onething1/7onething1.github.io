@@ -3,20 +3,24 @@
 Audit of https://7onething1.github.io/iximusic/ , all 17 deep sheets, 176 sentences, each checked against the transcript of the ixi video it cites.
 
 - Origin: 85 faithful to ixi; 34 ixi statements distorted by Claude; 9 ixi statements padded with Claude additions; 42 originate with Claude; 2 ambiguous captions made specific by Claude.
-- Status: 10 verified, 28 contradicted, 121 unresolved, 17 interpretation. 35 high severity.
+- Status: 10 verified, 33 contradicted, 116 unresolved, 17 interpretation. 35 high severity.
 - Mechanisms: stillness template (20), emotional overlay (20), certainty inflation (17), claim reattachment (15), scope expansion (12), instrument transfer (6), section reassignment (5), theory-label insertion (4), motif conflation (3), neighbor-song contamination (3), unsourced addition (2), directional reversal (1), caption slip (1).
 - Rule: a Claude-written score never verifies a Claude claim; an accurate ixi quote stays unresolved until audio or an outside source confirms it.
 - Same text also lives on drwu-htmls.vercel.app/iximusic-analysis-sheets, the stale Vercel copy of /iximusic, and the held-note lesson in /iximusic-course.
 
 ## High-severity contradictions
-- **No Surprises** (#8, stillness template): ixi describes leaps of a 6th and a 7th and a walk upward. Fix: Cut.
-- **Climbing Up The Walls** (#10, instrument transfer; section reassignment): 'Stuck on the B' is a clean lead guitar alternating two notes in 16ths during the chorus; strings 'on the B' also chorus. Verse vocal = 'minor pentatonic' with 'syncopated accents'. Fix: Rewrite: verse Bm-G-Em under a minor-pentatonic vocal; the B pedal belongs to the chorus lead guitar.
-- **Climbing Up The Walls** (#12, instrument transfer): Same as headline; no held vocal B in the verse. Fix: Cut.
+- **No Surprises** (#1, stillness template; claim reattachment): Songsterr capture 10139 and the Demucs vocal stem agree: the verse vocal moves A3-C3 (6th down), A3-Bb2 (7th down), Bb3-D3 (minor 6th down), then climbs D3 to A3. Longest stretch on A in the stem is 1.95 s, about 0.6 of a bar; four bars run about 12.6 s. Verse chords read F, Bb/D, Gm, C from bass plus capo-3 guitar shapes; ixi hears the D-bass chord as Bbmaj7. Bbm6 is the chord she names in Ed's intro arpeggio. Fix: Headline: big descending leaps (M6, M7, m6), a walk back up, phrases that start and end on A.
+- **No Surprises** (#2, stillness template): Longest A in the vocal stem is 1.95 s; Songsterr shows A alternating with C, G, F, Bb, D and E. Fix: Cut.
+- **No Surprises** (#4, stillness template; claim reattachment): No Bbm6 under the verse vocal; the chord under the A is Bb/D, which ixi reads as Bbmaj7. Bbm6 belongs to the intro arpeggio. Fix: If kept, say: over the Bb/D chord the melody touches A, the major 7th ixi hears.
+- **No Surprises** (#7, stillness template): Vocal stem and Songsterr both show a moving line. Fix: Cut.
+- **No Surprises** (#8, stillness template): Transcript, Songsterr and the vocal stem all show leaps of a 6th and a 7th and a climb back up. Fix: Cut.
+- **Climbing Up The Walls** (#10, instrument transfer; section reassignment): 'Stuck on the B' is a clean lead guitar alternating two notes in 16ths during the chorus; strings 'on the B' also chorus. Verse vocal = 'minor pentatonic' with 'syncopated accents'. Songsterr capture 51276 agrees: verse vocal B3 D4 E4 F#4 E4 D4, minor-pentatonic notes, no held B. Fix: Rewrite: verse Bm-G-Em under a minor-pentatonic vocal; the B pedal belongs to the chorus lead guitar.
+- **Climbing Up The Walls** (#12, instrument transfer): Same as headline; no held vocal B in the verse. Songsterr capture 51276 agrees: verse vocal B3 D4 E4 F#4 E4 D4, minor-pentatonic notes, no held B. Fix: Cut.
 - **Climbing Up The Walls** (#14, instrument transfer; emotional overlay): ixi calls the G 'our dramatic flat six chord'; 'too warm for the panic' is Claude's and conflicts with her word. Fix: Use ixi's label: dramatic flat-six chord.
 - **Climbing Up The Walls** (#15, instrument transfer; emotional overlay): ixi: 'the hopeless four chord minor'. 'Resignation' is Claude's. Fix: Use ixi's label: hopeless minor iv.
-- **Climbing Up The Walls** (#17, instrument transfer; stillness template): No source; it depends on the transferred guitar B. Fix: Cut.
-- **Let Down** (#23, stillness template): ixi: the melody follows the chords and keeps going down; later verses add variations. Fix: Cut.
-- **Let Down** (#24, stillness template): Same; the vocal is the moving line in ixi's account. Fix: Cut.
+- **Climbing Up The Walls** (#17, instrument transfer; stillness template): No source; it depends on the transferred guitar B. Songsterr capture 51276 agrees: verse vocal B3 D4 E4 F#4 E4 D4, minor-pentatonic notes, no held B. Fix: Cut.
+- **Let Down** (#23, stillness template): ixi: the melody follows the chords and keeps going down; later verses add variations. Songsterr capture 9548: the vocal changes pitch with each chord, A3, G#3, A3, F#3, E3. Fix: Cut.
+- **Let Down** (#24, stillness template): Same; the vocal is the moving line in ixi's account. Songsterr capture 9548: the vocal changes pitch with each chord, A3, G#3, A3, F#3, E3. Fix: Cut.
 - **Karma Police** (#44, claim reattachment; certainty inflation): ixi first says he 'pulses' on a ninth, then corrects herself (not pulses, just hits). Only AFTER that does the song go to the surprise E major. Claude merged the two, kept the retracted verb, computed F#, and added a late resolution she never mentions. Fix: Say: in the D major section Thom hits a ninth; then a surprise E major arrives.
 - **Orestes** (#63, claim reattachment): ixi: Billy keeps himself 'sort of stationary' while Maynard 'moves below him'. Billy below and dropping further would widen the gap, never reach a 2nd. Fix: Say: Billy above, stepping down to a major 2nd against Maynard.
 - **3 Libras** (#74, scope expansion): ixi: 'ninths all over this song'. The every-chord ninth claim fails on the E5 she names. Fix: Keep her quote; cut the every-chord claim.
