@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 18:02 CDT. 18 chats read from transcripts.
+Built 2026-10-07 18:32 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 14,441 assistant replies, 228 MB of transcript.
+Totals: 14,827 assistant replies, 230 MB of transcript.
 
 ## Do yourself
 
@@ -53,7 +53,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (8.8 days quiet, 34 replies)
+### Emotes on other streams  (8.9 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -73,7 +73,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (7.9 days quiet, 818 replies)
+### Summer music site skill  (8.0 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -113,7 +113,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (15.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (16.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (7.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (6.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (6.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (4.0 hours quiet, 2689 replies)
+### News radio community commentary highlights  (4.5 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (32 minutes quiet, 600 replies)
+### ixi page theme suggestions  (1.0 hours quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you don't have it
 
 - The tracker reads `CC_CONTRACT`, so I can point it at the parked contract file and close R1 to R3 there. Saving the live proof files first: the.
@@ -163,23 +163,23 @@ Totals: 14,441 assistant replies, 228 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (28 minutes quiet, 1660 replies)
-**Goal.** Not summarised by hand yet. Last input on record: theses are not as good as amy, or synced as well what did you do different
+### Ryan Adams Songsterr inventory  (17 minutes quiet, 359 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
-- Nobody Girl's live tab carries an 8th-note swing setting from bar 1, inherited from the donor. Amy and When The Stars Go Blue have none. Writing the.
-- Neither sheet carries a strumming pattern. UG keeps other versions of each song, so I'm checking whether any of those has a transcriber's strum pattern.
-- Pausing now. I didn't import or publish anything, and the editor holds no changes. The only call on Songsterr was a converter dry run, which saves.
-- Everything is paused as of your message. Nothing was imported or published after it, and the local file server is off. **What I did differently from.
+- All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
+- The inventory is built. The first sheet holds your 31 songs, and the file is open in Numbers and sent to your devices. **Your 31 songs on Songsterr** -.
+- The queued YouTube checks finished. I'll read the results, then rebuild.
+- The last YouTube checks are done, so the workbook is final. - 🟩 **All seven videos that were still waiting play.** Cold Roses, Catherine, Born Into A.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (1 minutes quiet, 260 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+### Ryan Adams Amy tabs  (1 minutes quiet, 1947 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Yes but the model was for you to tweak the start from there adding odd meter measure to match the intro start time if needed. upload your own youtube version if there isn't one and use my so
 
-- The Songsterr pass finished. One soft voice flag came up in the sheet prose ("matter"), so I'll reword that cell, confirm the run wrote all 225 rows,.
-- The YouTube checker finished far too fast for its 45-second spacing. I'll read its log to see what happened.
-- I'll register the two new asks with the tracker, then map your 31 titles onto the inventory and check what instrument labels the existing tabs carry.
-- While those checks run, I'll confirm the two remaining facts the focus sheet needs: Love Is Hell's track list, and whether the Carnegie Hall shows were.
+- The settings are in: reference bar 18, start time handed over to it, Note tolerant on. Synchronizing pass two.
+- The revision preview confirms both changes: "Video synchronization points changed" and the new 1/4 lead-in bar, with 112 bars unchanged. Filling in the.
+- Submitted. The new revision is 9596691. Songsterr serves a new revision after about 90 to 120 seconds, so I'm waiting for it, then checking the live.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
