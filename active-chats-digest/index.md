@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 10:29 CDT. 6 chats read from transcripts.
+Built 2026-10-07 10:59 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 5,815 assistant replies, 71 MB of transcript.
+Totals: 5,814 assistant replies, 71 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Johnny Five daily pass  (23.9 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
-- Daily pass report, 2026-10-06, on MacBookPro**
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### 55% volume limit  (21.6 hours quiet, 303 replies)
+### 55% volume limit  (22.1 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -33,7 +23,7 @@ Totals: 5,815 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (8.6 hours quiet, 1683 replies)
+### YouTube transcripts community commentary  (9.1 hours quiet, 1683 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bo735yphj</task-id> <tool-use-id>toolu_016AqqCPz38Fom72nSK6zhid</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
 
 - Recorded. Drafting my reply to Brandon and running it through the voice gate before sending.
@@ -43,7 +33,7 @@ Totals: 5,815 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (8.3 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (8.8 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -53,7 +43,7 @@ Totals: 5,815 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (7.4 hours quiet, 669 replies)
+### Ryan Adams Amy tabs  (7.9 hours quiet, 669 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/skillify # /skillify Adapted from the starter kit for this Mac on 2026-09-18. ## 1. List the lessons From the task or corre
 
 - The songs item is ruled a **genuine blocker** and queued as q-2026-10-07-e368c9. Closing the skill and ranking items on the parked contract, then the.
@@ -63,12 +53,22 @@ Totals: 5,815 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (6.3 hours quiet, 2265 replies)
+### News radio community commentary highlights  (6.8 hours quiet, 2265 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6851ahnt</task-id> <tool-use-id>toolu_019Q6irjNyShyWSmdj6EqJfX</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - The handoff format is clear. I'm writing this session's handoff locally in the same shape.
 - The gate passes with exit 0, though it flagged two loose words that are easy to fix. The third flag sits inside a backup filename, so it stays.
 - The handoff gates at exit 0. The single remaining flag is inside a real backup filename. With the goal complete, the loop stops, and a one-line notice.
 - Season 1 is done, and so are Seasons 3, 4 and 5 and the all-seasons page. The whole NewsRadio site is live, and every page passed its checks on the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (22 minutes quiet, 5 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
