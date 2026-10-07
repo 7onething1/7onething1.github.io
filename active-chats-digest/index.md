@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-07 16:31 CDT. 8 chats read from transcripts.
+Built 2026-10-07 17:02 CDT. 8 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 ## Every chat
 
-### Playlist player next button  (8.9 days quiet, 300 replies)
+### Playlist player next button  (9.0 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -33,7 +33,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (14.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (14.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -43,7 +43,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (6.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -53,7 +53,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (4.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (5.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -63,7 +63,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (2.4 hours quiet, 2689 replies)
+### News radio community commentary highlights  (2.9 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -73,7 +73,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (2.1 hours quiet, 442 replies)
+### ixi page theme suggestions  (2.6 hours quiet, 442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes . also taae her other ixi page we made and updated on the other mac yesterday as a tab on this page
 
 - The reply passes all three: say-it-plain "PLAIN. Ship it.", grounding "CLEAR", and voice score 0. Running the full firewall once more for the record.
@@ -83,7 +83,7 @@ Totals: 8,987 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (23 minutes quiet, 1570 replies)
+### Ryan Adams Amy tabs  (54 minutes quiet, 1570 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - The round-trip checker is already written and tested in my scratchpad, so I'm moving it into the skill now rather than leaving it queued.
