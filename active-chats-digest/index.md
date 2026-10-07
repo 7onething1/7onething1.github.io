@@ -1,49 +1,19 @@
 # Active chats digest
 
-Built 2026-10-06 23:21 CDT. 9 chats read from transcripts.
+Built 2026-10-06 23:51 CDT. 6 chats read from transcripts.
 
 ## Headline
 
-All 9 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 5,496 assistant replies, 98 MB of transcript.
+All 6 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 4 are past the 400-turn ceiling.
+Totals: 3,861 assistant replies, 80 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik update chat handoff  (1.1 days quiet, 818 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
-
-- Quick update: the retry is in all seven views, and the panel code still parses as one identical copy. Testing archive's Open case three times in a row,.
-- Archive now passes 3 of 3**: Here We Go plays, then the band's next song follows every time. Quick regression on the new code: fresh visitors under.
-- All pass: fresh visitors under both rules, and **silence while live** in Ballroom and archive. Deploying this final version. It's still the change you.
-- Quick update: the gate fix is written. Rerunning the gate, with the detector's known-answer test in a script file, since the page gate refuses inline.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams live reviews 1999-2000  (1.1 days quiet, 1043 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bujf858iz</task-id> <tool-use-id>toolu_0154bepkVNGVTm8YuFfakYnr</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a7e9ce04-23c5-48d4-adf1-4
-
-- Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
-- Analysis and the kick-drum pass are now done for every tape. Speech transcription for the 10/21/99 Raleigh tape finished at 20:20 after an hour, so 5.
-- The pipeline watcher reached its 30-minute limit, and I'm leaving it off while you decide how to proceed. The detached pipeline keeps writing its logs,.
-- The local preview server on port 8766 was stopped when it hit its time limit. It was only there for the page check, which already finished with 67.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (23.6 hours quiet, 4 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostic animated emote page update  (21.7 hours quiet, 627 replies)
+### Glostic animated emote page update  (22.2 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -53,7 +23,7 @@ Totals: 5,496 assistant replies, 98 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (12.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (13.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -63,7 +33,7 @@ Totals: 5,496 assistant replies, 98 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (10.5 hours quiet, 303 replies)
+### 55% volume limit  (11.0 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -73,7 +43,7 @@ Totals: 5,496 assistant replies, 98 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (4.0 hours quiet, 768 replies)
+### Kick feature broken in Lizz Vega  (4.5 hours quiet, 768 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwthjtljz</task-id> <tool-use-id>toolu_01JvWeegXH4ihcogqHsBFbu5</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2042c532-203b-458d-8806-a
 
 - The updated block is in all seven layouts, and every script parses cleanly. Re-running the views gate and layout parity before deploying, as the skill.
@@ -83,22 +53,22 @@ Totals: 5,496 assistant replies, 98 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (3 minutes quiet, 974 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
+### News radio community commentary highlights  (8 minutes quiet, 1058 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bxpxwiere</task-id> <tool-use-id>toolu_01X57s3aN3hy2hFBRHoVeor9</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
-- All four planted faults are caught now, and the real page passes. Next is the commentators page: each track gets a "20 highlights from this track" link.
-- Next I back up the deployed commentators page, rebuild it, and diff the two versions to confirm only the links changed.
-- The diff shows the 14 track links and the nav link. Next I confirm nothing else moved and re-run the commentators checks.
-- Both commentators checks pass after the rebuild. The highlights page needs its own click test, which is a new script, so the prior-art gate comes first.
+- The new deployment, `de18q7np0`, is Ready in Production. Next I check the live site against the local files: status codes, content hashes, the.
+- Both live click tests pass: 29 of 29 cases on the highlights page, and FAILS none on the commentators page. I'm recording that, then opening the live.
+- The launcher handed the URL to the running Firefox (PID 30706) and exited, and Finder revealed the local file. I'm recording that and updating STATE.md.
+- The Season 2 highlights page is live at **https://newsradio-commentary-highlights.vercel.app/season-2**. It's in the same format as the Community.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1 minutes quiet, 953 replies)
+### YouTube transcripts community commentary  (0 minutes quiet, 1099 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- All seven pages rebuilt. Counting the GIF cards on each page and running the voice gate on the new footer copy.
-- GIF counts line up on every page: 28 GIFs and 82 TVmaze stills, 110 in all. Running the voice gate and listing the check scripts.
-- Writing a browser check for the GIF cards. It covers images loading, the hover video picking WebM, letterbox fit, and the column count at six widths.
-- Each Chrome run is hanging until its 180-second kill, so the check would take about two hours. Stopping it to find the cause.
+- Both files are the right episodes. S01E07 mentions Batman nine times and S03E04 says "timeline" 19 times. My spot-check had glued words across line.
+- All 110 dialogue files are in. Running the quote pass, with a backup of the picks file first.
+- The GIPHY search page does carry results after all: about 25 GIFs per search, served in the HTML. My earlier "no results" came from a pattern that.
+- The S03E02 card now uses Britta's "maybe I'm not done raging against the machine", an exact line. That's 41 picks. Next, a contact sheet of the 13 new.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
