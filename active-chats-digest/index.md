@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 15:01 CDT. 8 chats read from transcripts.
+Built 2026-10-07 15:31 CDT. 8 chats read from transcripts.
 
 ## Headline
 
 All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 8,695 assistant replies, 129 MB of transcript.
+Totals: 8,827 assistant replies, 130 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (7.7 days quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (7.8 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -33,7 +33,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (12.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (13.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -43,7 +43,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (4.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -53,7 +53,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (3.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (3.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -63,7 +63,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (56 minutes quiet, 2689 replies)
+### News radio community commentary highlights  (1.4 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -73,7 +73,7 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (38 minutes quiet, 442 replies)
+### ixi page theme suggestions  (1.1 hours quiet, 442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes . also taae her other ixi page we made and updated on the other mac yesterday as a tab on this page
 
 - The reply passes all three: say-it-plain "PLAIN. Ship it.", grounding "CLEAR", and voice score 0. Running the full firewall once more for the record.
@@ -83,12 +83,12 @@ Totals: 8,695 assistant replies, 129 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1 minutes quiet, 1278 replies)
+### Ryan Adams Amy tabs  (0 minutes quiet, 1410 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- The copy exists: s7349079 "Nobody Girl Brandon edit", not yet published. I'm exporting its GP7 file next.
-- The export holds 5 tracks. Only Rhythm Guitar has notes: 372 of them, in 11 of 326 bars. I'm swapping our part into that track at capo 2, setting tempo.
-- The alphaTab check read the empty Lead Guitar track by default. I'm pointing it at the Rhythm Guitar track, then looking at the renders myself.
-- alphaTab parses all 6,420 notes on Rhythm Guitar at capo 2. The last 10 bars are rests where the guitar stem falls silent at the end. I'm looking at.
+- Strawberry Wine's audio is in: official album 29 upload, G major at standard pitch, matching the sheet's capo 0. The song is in 3/4. Running the whole.
+- The sheet-order mode doesn't rescue Strawberry Wine either. C, C/B, D and Gmaj7 still lose their own bars, so it stays unshipped. I'm adding that to.
+- The official Come Pick Me Up upload is 79mPuNFWEhw, 319 seconds, the same length as the synced fan upload. I'm downloading it now, so the identity test.
+- When The Stars Go Blue's stems are in: Bb major, matching the sheet's capo 3 on Am, C, D and G. Running the donor scores and the chord route.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
