@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-06 22:21 CDT. 9 chats read from transcripts.
+Built 2026-10-06 22:51 CDT. 9 chats read from transcripts.
 
 ## Headline
 
 All 9 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 5,086 assistant replies, 92 MB of transcript.
+Totals: 5,273 assistant replies, 94 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.6 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (23.1 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
@@ -43,7 +43,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (20.7 hours quiet, 627 replies)
+### Glostic animated emote page update  (21.2 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -53,7 +53,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (12.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -63,7 +63,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (9.5 hours quiet, 303 replies)
+### 55% volume limit  (10.0 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -73,7 +73,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (3.0 hours quiet, 768 replies)
+### Kick feature broken in Lizz Vega  (3.5 hours quiet, 768 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwthjtljz</task-id> <tool-use-id>toolu_01JvWeegXH4ihcogqHsBFbu5</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2042c532-203b-458d-8806-a
 
 - The updated block is in all seven layouts, and every script parses cleanly. Re-running the views gate and layout parity before deploying, as the skill.
@@ -83,22 +83,22 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (2.7 hours quiet, 738 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x3400, displayed at 847x2000. Multiply coordinates by 1.70 to map to original image.]
+### YouTube transcripts community commentary  (3 minutes quiet, 861 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bdjuvcd90</task-id> <tool-use-id>toolu_01MeHojQLmRcDFrwg4WiHs8s</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
 
-- Opened in Firefox and revealed in Finder. One claim to verify before I report it: that the uploader has every remaining DVD track, not just Season 2's.
-- Forty-nine of 50 tracks are uploaded. Only Season 5's "Jail" doesn't show up by code. Checking whether it's in the list under a different title.
-- Confirmed: Season 5's "Jail" track isn't uploaded. The channel has the other 35 remaining tracks plus two gag reels. My queue note said all 36, so I'm.
-- Your NewsRadio Season 2 page is live:.
+- The corrected harvest finished. Reading what it found.
+- My edit broke the indentation inside the search loop, so the rerun stopped at once. Fixing it.
+- Now patching the all-seasons builder's card helper, script and footer while the harvest runs.
+- The second pass is ready and only fills gaps the title pass leaves. It runs once the title pass finishes.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (2.1 hours quiet, 779 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bymynlo0q</task-id> <tool-use-id>toolu_01Ji2QMRtjd78rfQezWQnDmZ</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
+### News radio community commentary highlights  (1 minutes quiet, 843 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- All three changes are live on the [all-seasons page](https://community-commentary-highlights.vercel.app/all-seasons-commentators) and the six season.
-- Every tracker item is met. Recording the three changes in the state file while the last season suites finish.
-- Season 4 passed everything as well, with all 11 stills painted in all four views. The suites for Seasons 2, 3, 5 and 6 are running now on the files.
-- Every check has now finished, and all seven live pages pass with nothing failing. - **The data checks:** captions, page structure, credit flags, counts.
+- Six of 14 clean, and all six still pass with the patched checker. Track seven, "Bitch Session".
+- Track seven of fourteen (S02E12) passes both checks. Writing S02E13 next.
+- Nine of fourteen tracks pass both checks. S02E15 is next.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
