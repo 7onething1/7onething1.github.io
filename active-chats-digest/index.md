@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 17:32 CDT. 16 chats read from transcripts.
+Built 2026-10-07 18:02 CDT. 18 chats read from transcripts.
 
 ## Headline
 
-All 16 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 12,855 assistant replies, 216 MB of transcript.
+All 18 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 10 are past the 400-turn ceiling.
+Totals: 14,441 assistant replies, 228 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stalled chats analysis  (9.7 days quiet, 92 replies)
+### Stalled chats analysis  (9.8 days quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -23,7 +23,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (9.6 days quiet, 60 replies)
+### Chats migration to Black Drive  (9.7 days quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -63,7 +63,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (8.6 days quiet, 174 replies)
+### Rapper slant rhymes analysis  (8.7 days quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -83,7 +83,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (7.8 days quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (7.9 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -113,7 +113,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (15.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (15.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (6.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (7.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (5.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (6.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (3.4 hours quiet, 2689 replies)
+### News radio community commentary highlights  (4.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1 minutes quiet, 600 replies)
+### ixi page theme suggestions  (32 minutes quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you don't have it
 
 - The tracker reads `CC_CONTRACT`, so I can point it at the parked contract file and close R1 to R3 there. Saving the live proof files first: the.
@@ -163,12 +163,32 @@ Totals: 12,855 assistant replies, 216 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (0 minutes quiet, 1646 replies)
+### Ryan Adams Amy tabs  (28 minutes quiet, 1660 replies)
 **Goal.** Not summarised by hand yet. Last input on record: theses are not as good as amy, or synced as well what did you do different
 
-- You were right: I had ranked UG's chart across every artist. Everything below is Ryan Adams, ranked from his own UG page by views and matched to every.
-- You're right, and I can name most of the differences now. I'll measure them before I claim anything. First, the sync: I'm checking where Songsterr.
 - Nobody Girl's live tab carries an 8th-note swing setting from bar 1, inherited from the donor. Amy and When The Stars Go Blue have none. Writing the.
 - Neither sheet carries a strumming pattern. UG keeps other versions of each song, so I'm checking whether any of those has a transcriber's strum pattern.
+- Pausing now. I didn't import or publish anything, and the editor holds no changes. The only call on Songsterr was a converter dry run, which saves.
+- Everything is paused as of your message. Nothing was imported or published after it, and the local file server is off. **What I did differently from.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams Songsterr inventory  (1 minutes quiet, 260 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- The Songsterr pass finished. One soft voice flag came up in the sheet prose ("matter"), so I'll reword that cell, confirm the run wrote all 225 rows,.
+- The YouTube checker finished far too fast for its 45-second spacing. I'll read its log to see what happened.
+- I'll register the two new asks with the tracker, then map your 31 titles onto the inventory and check what instrument labels the existing tabs carry.
+- While those checks run, I'll confirm the two remaining facts the focus sheet needs: Love Is Hell's track list, and whether the Carnegie Hall shows were.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Appleseed cast chat  (26.1 days quiet, 1312 replies)
+**Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
+
+- A tab had 700 spots where one hand had to grab impossible shapes.
+- It moved those onto a second guitar so a person could play them.
+- The count of impossible spots fell from 700 down to 59.
+- Four songs are arranged, checked by the gates, and on the web.
+
+**Finish today.** Check whether the 59 leftovers are real problems, then write the handoff.
