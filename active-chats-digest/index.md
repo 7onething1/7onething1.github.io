@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-06 21:50 CDT. 9 chats read from transcripts.
+Built 2026-10-06 22:21 CDT. 9 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams live reviews 1999-2000  (24.0 hours quiet, 1043 replies)
+### Ryan Adams live reviews 1999-2000  (1.0 days quiet, 1043 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bujf858iz</task-id> <tool-use-id>toolu_0154bepkVNGVTm8YuFfakYnr</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/a7e9ce04-23c5-48d4-adf1-4
 
 - Lane F, the analysis pass for the November tapes, finished at 20:11 with no errors. Whisper should get more CPU now, and I'm still holding for your.
@@ -33,7 +33,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.0 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (22.6 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. - **Phase 1:** Run the stall sweep, read the three tiers, and.
@@ -43,7 +43,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (20.2 hours quiet, 627 replies)
+### Glostic animated emote page update  (20.7 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -53,7 +53,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.2 hours quiet, 6 replies)
+### Johnny Five daily pass  (11.7 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -63,7 +63,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (9.0 hours quiet, 303 replies)
+### 55% volume limit  (9.5 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -73,7 +73,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (2.4 hours quiet, 768 replies)
+### Kick feature broken in Lizz Vega  (3.0 hours quiet, 768 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwthjtljz</task-id> <tool-use-id>toolu_01JvWeegXH4ihcogqHsBFbu5</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2042c532-203b-458d-8806-a
 
 - The updated block is in all seven layouts, and every script parses cleanly. Re-running the views gate and layout parity before deploying, as the skill.
@@ -83,7 +83,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (2.2 hours quiet, 738 replies)
+### News radio community commentary highlights  (2.7 hours quiet, 738 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x3400, displayed at 847x2000. Multiply coordinates by 1.70 to map to original image.]
 
 - Opened in Firefox and revealed in Finder. One claim to verify before I report it: that the uploader has every remaining DVD track, not just Season 2's.
@@ -93,7 +93,7 @@ Totals: 5,086 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1.6 hours quiet, 779 replies)
+### YouTube transcripts community commentary  (2.1 hours quiet, 779 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bymynlo0q</task-id> <tool-use-id>toolu_01Ji2QMRtjd78rfQezWQnDmZ</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
 
 - All three changes are live on the [all-seasons page](https://community-commentary-highlights.vercel.app/all-seasons-commentators) and the six season.
