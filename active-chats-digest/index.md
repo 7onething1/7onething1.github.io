@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 11:29 CDT. 6 chats read from transcripts.
+Built 2026-10-07 11:59 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 5,814 assistant replies, 71 MB of transcript.
+Totals: 5,940 assistant replies, 73 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### 55% volume limit  (22.6 hours quiet, 303 replies)
+### 55% volume limit  (23.1 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -23,17 +23,7 @@ Totals: 5,814 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (9.6 hours quiet, 1683 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bo735yphj</task-id> <tool-use-id>toolu_016AqqCPz38Fom72nSK6zhid</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
-
-- Recorded. Drafting my reply to Brandon and running it through the voice gate before sending.
-- The draft passes, but with five small flags. I'm rewording each: "before", "just", "stuff", "things" (inside a quote, so I'm paraphrasing it), and.
-- The reply now scores 0. Resetting the working folder so the file links resolve.
-- 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Kick feature broken in Lizz Vega  (9.3 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (9.8 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -43,32 +33,42 @@ Totals: 5,814 assistant replies, 71 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (8.4 hours quiet, 669 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/skillify # /skillify Adapted from the starter kit for this Mac on 2026-09-18. ## 1. List the lessons From the task or corre
-
-- The songs item is ruled a **genuine blocker** and queued as q-2026-10-07-e368c9. Closing the skill and ranking items on the parked contract, then the.
-- All trackers are current. One last count, so the numbers I report match what's on disk.
-- The skill holds 23 tool scripts. My tracker note said 21, so I'm correcting it before reporting.
-- The skill is built and tested. You've already heard the result: the first tab it made plays right against the recording. 🟢 **The skill:.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### News radio community commentary highlights  (7.3 hours quiet, 2265 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6851ahnt</task-id> <tool-use-id>toolu_019Q6irjNyShyWSmdj6EqJfX</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
-
-- The handoff format is clear. I'm writing this session's handoff locally in the same shape.
-- The gate passes with exit 0, though it flagged two loose words that are easy to fix. The third flag sits inside a backup filename, so it stays.
-- The handoff gates at exit 0. The single remaining flag is inside a real backup filename. With the goal complete, the loop stops, and a one-line notice.
-- Season 1 is done, and so are Seasons 3, 4 and 5 and the all-seasons page. The whole NewsRadio site is live, and every page passed its checks on the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (52 minutes quiet, 5 replies)
+### Johnny Five daily pass  (1.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube transcripts community commentary  (10 minutes quiet, 1697 replies)
+**Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
+
+- 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
+- Brandon's answer is "if no gif then pic". That settles the open blocker: no clips to cut. The 11 episodes without a tied GIF keep a picture, their.
+- Both outcomes are recorded as met. Gating the short reply.
+- 🟢 **Every episode card now shows an image: 99 GIFs and 11 pictures.** I made no changes, because the site already falls back to a still when there's no.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams Amy tabs  (7 minutes quiet, 686 replies)
+**Goal.** Not summarised by hand yet. Last input on record: No look at UG then look at ones already done songsterr AI, that's obvious, you are doing work avoidance
+
+- The skill holds 23 tool scripts. My tracker note said 21, so I'm correcting it before reporting.
+- The skill is built and tested. You've already heard the result: the first tab it made plays right against the recording. 🟢 **The skill:.
+- You're right. I searched from the wrong end. UG is where the usable sources live, and Songsterr's AI has already done its part on thousands of songs,.
+- Running the finder on UG's top 100 tabs first, to see the hit rate before scanning deeper.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### News radio community commentary highlights  (0 minutes quiet, 2360 replies)
+**Goal.** Not summarised by hand yet. Last input on record: wait where the fuck is the top 20 take aways for each episode like community
+
+- Season 1's twenty picks keep the six standouts unchanged and add fourteen. Every headline is drawn from its point's text and checked against it.
+- Season 1's top 20 now gates at 0. Season 2 already has 14 standouts and needs 6 more.
+- Seasons 1 and 2 both gate at 0. Season 3 has ten standouts and needs ten more.
+- All five seasons now have a top 20, and every headline file gates at 0. Next comes switching the builder, verifier and click test from one pick per.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
