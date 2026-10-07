@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 16:01 CDT. 8 chats read from transcripts.
+Built 2026-10-07 16:31 CDT. 8 chats read from transcripts.
 
 ## Headline
 
 All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 8,969 assistant replies, 131 MB of transcript.
+Totals: 8,987 assistant replies, 131 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (13.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (14.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -43,7 +43,7 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (5.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -53,7 +53,7 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (4.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (4.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -63,7 +63,7 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (1.9 hours quiet, 2689 replies)
+### News radio community commentary highlights  (2.4 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -73,7 +73,7 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1.6 hours quiet, 442 replies)
+### ixi page theme suggestions  (2.1 hours quiet, 442 replies)
 **Goal.** Not summarised by hand yet. Last input on record: yes . also taae her other ixi page we made and updated on the other mac yesterday as a tab on this page
 
 - The reply passes all three: say-it-plain "PLAIN. Ship it.", grounding "CLEAR", and voice score 0. Running the full firewall once more for the record.
@@ -83,12 +83,12 @@ Totals: 8,969 assistant replies, 131 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (0 minutes quiet, 1552 replies)
+### Ryan Adams Amy tabs  (23 minutes quiet, 1570 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- The import landed. Now the round trip: export the staged tab and diff it against the build.
-- Our Rhythm Guitar survives byte-exact. I'm finding out which note property Songsterr's importer rewrites on the four untouched tracks.
-- All four reports pass the voice gate. Now the bookkeeping: move the finished songs' audio onto Elements, queue the candidates still left, and update.
 - The round-trip checker is already written and tested in my scratchpad, so I'm moving it into the skill now rather than leaving it queued.
+- The self-test passes all 13 checks with the documented gate. I'm updating the batch memory with today's final results.
+- Both local file servers are stopped. Last, the handoff file. This session has run long, and the next one should start from a file.
+- You were right: I had ranked UG's chart across every artist. Everything below is Ryan Adams, ranked from his own UG page by views and matched to every.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
