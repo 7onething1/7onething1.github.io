@@ -1,19 +1,39 @@
 # Active chats digest
 
-Built 2026-10-07 13:30 CDT. 6 chats read from transcripts.
+Built 2026-10-07 14:00 CDT. 8 chats read from transcripts.
 
 ## Headline
 
-All 6 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,364 assistant replies, 78 MB of transcript.
+All 8 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 5 are past the 400-turn ceiling.
+Totals: 8,363 assistant replies, 126 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Kick feature broken in Lizz Vega  (11.3 hours quiet, 889 replies)
+### Playlist player next button  (8.8 days quiet, 300 replies)
+**Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
+
+- Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
+- The two local servers on ports 8837 and 8838 are the ones I started, confirmed by their command lines, and no headless Chrome is left over. Stopping.
+- Memory note updated. Last step: revealing the Ballroom page file in Finder. I'm not opening the page in a browser, because it starts the Spotify dock.
+- The Glostik playlist player now has a working Next button in all seven views, and it's live on the site. 🟢 **What changed** - **Ballroom and.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Liz Vega/Glowstick site updates  (7.7 days quiet, 1395 replies)
+**Goal.** Not summarised by hand yet. Last input on record: what up
+
+- Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
+- Playlists and Links are recorded as met. The other four need the storage you haven't answered on yet, so I'm logging that as the open blocker and.
+- Both "failed" notices are the two test servers I stopped on purpose. You still haven't answered the storage question, so I'm recording it as the blocker.
+- Here is where ixi stands. Four of the six tabs are working on the live page, and the last four forms are waiting on one yes from you. Live page:.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Kick feature broken in Lizz Vega  (11.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -23,7 +43,7 @@ Totals: 6,364 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (3.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -33,7 +53,7 @@ Totals: 6,364 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (1.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (2.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -43,32 +63,32 @@ Totals: 6,364 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (4 minutes quiet, 2620 replies)
-**Goal.** Not summarised by hand yet. Last input on record: add the top 20 to the all seasons page too
+### News radio community commentary highlights  (3 minutes quiet, 2672 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bt50okqh0</task-id> <tool-use-id>toolu_019KjTs5aADpBMZRRfzc4rKk</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
-- The NewsRadio planted-fault run already holds its inputs, so both pages can rebuild now. Next: the rebuild and the gates on both copy files and both.
-- Both all-seasons pages have their top 20 built and verified. Community's highlights pages now link every page on the site. Four check runs are starting.
-- While those run, I'm logging the Community changes in the Community state file, so its owner chat sees exactly what changed and why.
-- After the nav change, all 5,646 in-site Community links resolve. That's 21 more than before, the 7 new nav links on each of the 3 highlights pages, and.
+- Port 8798 is free now. I'm running the NewsRadio phone checker, the one with the scroll-strip fix, on the current Community Season 1 page and on its.
+- While the live click test runs, I'm adding the phone-checker fix to the Community state file and recording the all-seasons work in NewsRadio's STATE.md.
+- Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
+- Community Season 3's page-truth run is about four minutes in. When it finishes, Community deploys and gets its live hash check and Firefox open.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1 minutes quiet, 940 replies)
+### Ryan Adams Amy tabs  (1 minutes quiet, 1092 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- I'm rebuilding the ranking from UG's Ryan Adams tabs, ordered by popularity.
-- The ranker now reads Ryan Adams' own UG page, most viewed first. I'm finishing its report step, then running it.
-- The UG-first Ryan Adams ranking is done. The only Songsterr AI preview with a usable UG tab is Oh My Sweet Carolina, ranked #8 on UG with 13 of 177.
-- Both synced videos are fan uploads, so I'm testing one against Ryan Adams' official 297-second upload. Identical audio means the fan upload counts as.
+- New York New York's audio is in: official Gold album upload, A major, capo 0. I'm testing My Winding Wheel's fan upload against the official uploads now.
+- To Be Without You's audio is in: F major, matching the UG tab's capo 3. I'm scoring its donor now.
+- Luminol's UG tab now parses to 58 clean bars. The skill self-test still passes all 9 checks. I'm checking whether the stems are ready.
+- Luminol's stems are ready: B minor at standard pitch. The UG chord shapes suggest a different key, so I'm measuring which transposition fits before.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (0 minutes quiet, 213 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
+### ixi page theme suggestions  (0 minutes quiet, 313 replies)
+**Goal.** Not summarised by hand yet. Last input on record: yes . also taae her other ixi page we made and updated on the other mac yesterday as a tab on this page
 
-- Writing the play-count switch and tip jar change as one patch with backups: the config, the renderer, and the page template.
-- Live matches local byte for byte. Every count is hidden at both sizes, and the tip jar is on the page. Running the site's standard readability and.
-- Memory updated. Drafting the final reply and running it through the firewall and voice gate.
-- The voice gate scores 0 on the draft. My summary script misread the firewall's JSON keys, so I'm printing the raw component results.
+- Got your yes, so I'm connecting storage for the ixi forms. I'm also bringing in ixi's other page as a tab. The plan: 1. **Storage**: create a store.
+- Two places the iMac could have published it: drwu-htmls on Vercel, or the GitHub Pages host. Searching both, plus Brandon's GitHub repos and Vercel.
+- Found it on the GitHub Pages host: **`iximusic/`** and a companion **`iximusic-provenance/`** both changed in the last two days. Checking which commits.
+- Quick update: the import tool is written. Running it now; it fetches the live page, strips kid mode and the build notes, and refuses to write if.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
