@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 00:21 CDT. 6 chats read from transcripts.
+Built 2026-10-07 00:52 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 3,971 assistant replies, 81 MB of transcript.
+Totals: 4,329 assistant replies, 86 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostic animated emote page update  (22.7 hours quiet, 627 replies)
+### Glostic animated emote page update  (23.2 hours quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -23,7 +23,7 @@ Totals: 3,971 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.7 hours quiet, 6 replies)
+### Johnny Five daily pass  (14.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run the Johnny Five daily pass, report today's tabs and band queue, and work any open band requests. - **Phase 1:** confirm this Mac by.
@@ -33,7 +33,7 @@ Totals: 3,971 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (11.5 hours quiet, 303 replies)
+### 55% volume limit  (12.0 hours quiet, 303 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 03:46:54**, set with `volcap 45`. - 🟥 **Your AIR SPORT X5 was at 86**, with Firefox playing.
@@ -43,7 +43,7 @@ Totals: 3,971 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (5.0 hours quiet, 768 replies)
+### Kick feature broken in Lizz Vega  (5.5 hours quiet, 768 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwthjtljz</task-id> <tool-use-id>toolu_01JvWeegXH4ihcogqHsBFbu5</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2042c532-203b-458d-8806-a
 
 - The updated block is in all seven layouts, and every script parses cleanly. Re-running the views gate and layout parity before deploying, as the skill.
@@ -53,22 +53,22 @@ Totals: 3,971 assistant replies, 81 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (38 minutes quiet, 1058 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bxpxwiere</task-id> <tool-use-id>toolu_01X57s3aN3hy2hFBRHoVeor9</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
+### News radio community commentary highlights  (0 minutes quiet, 1304 replies)
+**Goal.** Not summarised by hand yet. Last input on record: # /loop — schedule a recurring or self-paced prompt Parse the input below into `[interval] <prompt…>` and schedule it. ## Parsing (in priority order) 1. **Leading token**: if the first white
 
-- The new deployment, `de18q7np0`, is Ready in Production. Next I check the live site against the local files: status codes, content hashes, the.
-- Both live click tests pass: 29 of 29 cases on the highlights page, and FAILS none on the commentators page. I'm recording that, then opening the live.
-- The launcher handed the URL to the running Firefox (PID 30706) and exited, and Finder revealed the local file. I'm recording that and updating STATE.md.
-- The Season 2 highlights page is live at **https://newsradio-commentary-highlights.vercel.app/season-2**. It's in the same format as the Community.
+- Tenor has fan-made NewsRadio GIFs tagged by episode. One account, "mnewsradio", tags its uploads with titles like "Smoking". I'm checking Tenor's.
+- The corpus gate applies to WebFetch but not WebSearch. A Tenor GIF listing is new material, not the script corpus, so I'm arming the pass and retrying.
+- Commentary captions are 39 of 49 in. Next I'm writing Season 1's top picks and its famous-moments file. The moments still need episode captions to.
+- Each season needs its own fixed palette, and Season 2 used Rushmore. The Community pipeline draws the next Wes Anderson palette from a shared helper,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (2 minutes quiet, 1209 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bzm8qkaa7</task-id> <tool-use-id>toolu_015i6gqRBqnT8L1ZFc8nX85A</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/fd75b926-fc77-46c2-bd6e-a
+### YouTube transcripts community commentary  (0 minutes quiet, 1321 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1320x2124, displayed at 1243x2000. Multiply coordinates by 1.06 to map to original image.]
 
-- All three outcomes are met. Updating STATE.md, then opening the live page in Firefox and revealing the local file in Finder.
-- Running my report through the voice gate before sending it.
-- 🟢 Live **42 of the 110 episode cards now show a famous GIF**, and three columns hold down to 770 px wide. It's live on the [all seasons.
-- 🟢 **The full check suites pass on the final live files.** Each page's hash matches what is deployed (Season 1 `16d8fcac` through All Seasons.
+- Both passes are running: the line search is at 52 Tenor pages and the signature prefetch has just started. I'll pick up when they finish. Next comes.
+- The signature words now leave out every cast and guest name. The line pass is at 230 of up to 441 searches. Once it finishes I'll check its picks by.
+- All three passes now honor the rejection list. Running the caption pass over every saved page, with no new requests.
+- A name clash: the module's own loop reuses the name `toks` for a set, which overwrote my function. Renaming the function and rerunning.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
