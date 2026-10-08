@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 22:34 CDT. 20 chats read from transcripts.
+Built 2026-10-07 23:04 CDT. 20 chats read from transcripts.
 
 ## Headline
 
 All 20 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 17,197 assistant replies, 274 MB of transcript.
+0 need a Brandon action. 11 are past the 400-turn ceiling.
+Totals: 17,687 assistant replies, 284 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stalled chats analysis  (9.9 days quiet, 92 replies)
+### Stalled chats analysis  (10.0 days quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -23,7 +23,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (9.8 days quiet, 60 replies)
+### Chats migration to Black Drive  (9.9 days quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -53,7 +53,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (9.0 days quiet, 34 replies)
+### Emotes on other streams  (9.1 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -73,7 +73,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (8.1 days quiet, 818 replies)
+### Summer music site skill  (8.2 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -83,7 +83,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (8.0 days quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (8.1 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -113,7 +113,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (20.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (20.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (12.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (10.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (11.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (8.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (9.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (4.3 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (4.8 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (22 minutes quiet, 270 replies)
+### Filter single-play songs button  (53 minutes quiet, 270 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://drwu-htmls.vercel.app/glostik-songs/poster#songs?show=soon&genre=Classic+%2F+Hard+Rock%7CAlternative+Rock%7CGrunge%7CMetal%7CRock+%2F+Other add a button to our site that takes off al
 
 - All seven live files are byte-identical to the tested copies and carry the button label. Running the full browser check against production now.
@@ -173,33 +173,33 @@ Totals: 17,197 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (1 minutes quiet, 320 replies)
+### ixi page theme suggestions  (4 minutes quiet, 1319 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
+
+- All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
+- The draft write was refused because the file changed since I read it, so those gates graded the old draft. Re-reading, writing the new draft, and.
+- The plain-speech gate merges each bold lead with the sentence after it when the period sits inside the bold, which is a known quirk. Moving those.
+- 🎸 Fret 28 is gone, and the tabs now show the real fingering 🔴 **You're right, and that one's on me.** Songsterr writes Ed O'Brien's screech at fret 28.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup button  (1 minutes quiet, 519 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put a button on lizz vega page to remove songs played only once or not in last year, can toggle with other buttions. to do list allso then look for missign songs on glostik.. they def did un
 
-- Still on the Glostik hunt. I'm checking whether The Secret's strong match is real or the take matching itself. A recursive search tripped the guard.
-- Every insert point is clear. The new rows fit in time order between the existing rows. Applying the three list edits with dated backups.
-- Three rows are in. Now running the skill's own checks on each edited list: the tag measure, the one-row rule, and `check_list`.
-- The builder only does work under `main()`, so I can import it and measure. Making the edit with a backup, as a named constant the measurement can switch.
+- Recorded in the skill at line 297. Checking on the web sweep and the Kick downloads.
+- Still on Lizz. The guard hook blocked my command because it named a transcript file, even though I only checked that it existed. Rerunning without it.
+- No matches, so the slug map is shaped differently from what I assumed. Looking at its structure.
+- That's the systematic cause. 155 of her 541 songs (29%) have no lyrics on file, so the naming can never find them, however often she plays them. Fixing.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (0 minutes quiet, 1160 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x3462, displayed at 570x2000. Multiply coordinates by 1.73 to map to original image.]
-
-- Desktop paint count rose from 1294 to 2037 of 2289 between runs. Phone painted all 2289 both times, and every other check passes. That's cache warming,.
-- Site check passes on the third run: desktop and phone painted all 2289 covers, lowest contrast 4.77:1, no sideways scroll. Opening the live page in.
-- Voice gate passes. Plain-speech flags four sentences over 25 words. Splitting them.
-- Plain-speech says "PLAIN. Ship it." The voice gate passes at score 0. Running the fraud firewall on the reply.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams Amy tabs  (0 minutes quiet, 3167 replies)
+### Ryan Adams Amy tabs  (0 minutes quiet, 3299 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- Writing a finalize script so every song's final.json and REPORT.md come from measured files in one step.
-- Call Me and Cherry Lane now each have a final.json and a REPORT.md built from measured files. Starting In My Time Of Need.
-- Peaceful Valley's AI tab is ready (s7354243). Next I'm submitting Answering Bell, after the ledger check clears it.
-- In My Time Of Need's lead-in bar is 143/64, because the song starts about 7.45 s into the video. Running the import and autosync now.
+- I added a kept-AI path to the finalize script for In My Time Of Need. Checking Peaceful Valley's autosync result now.
+- Peaceful Valley's plain autosync wins on both measures: notes 38.4 ms against 52.7 ms, bar starts 27.1 ms against 36.1 ms. Accepting it. Next: export,.
+- Peaceful Valley is published as r9600312. Starting its live check, then writing In My Time Of Need's report.
+- Answering Bell's lead-in import (9/64) is loading in the editor. Autosync starts once the bar count reads 58.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
