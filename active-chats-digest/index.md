@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 13:47 CDT. 21 chats read from transcripts.
+Built 2026-10-08 14:17 CDT. 19 chats read from transcripts.
 
 ## Headline
 
-All 21 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 17,511 assistant replies, 274 MB of transcript.
+All 19 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 10 are past the 400-turn ceiling.
+Totals: 14,286 assistant replies, 210 MB of transcript.
 
 ## Do yourself
 
@@ -33,23 +33,13 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (9.8 days quiet, 1693 replies)
+### Summer music site  (9.9 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
 - No gendered words remain in the page's own wording or its source comments. 19 passages were reworded, and the script still parses. Deploying now, then.
 - Deployed at 17:33:28. One thing turned up in the site folder: a `README.md` next to the page, which gets served publicly too. I'm checking what it says.
 - All three are live on https://summer-songs.vercel.app/ (http 200, last deployed 17:33). 1. **The genre buttons now press together.** A song shows when.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Playlist player next button  (9.8 days quiet, 300 replies)
-**Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
-
-- Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
-- The two local servers on ports 8837 and 8838 are the ones I started, confirmed by their command lines, and no headless Chrome is left over. Stopping.
-- Memory note updated. Last step: revealing the Ballroom page file in Finder. I'm not opening the page in a browser, because it starts the Spotify dock.
-- The Glostik playlist player now has a working Next button in all seven views, and it's live on the site. 🟢 **What changed** - **Ballroom and.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
@@ -83,17 +73,17 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (8.7 days quiet, 1395 replies)
-**Goal.** Not summarised by hand yet. Last input on record: what up
+### Glostick pull timing adjustment  (8.8 days quiet, 845 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
-- Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
-- Playlists and Links are recorded as met. The other four need the storage you haven't answered on yet, so I'm logging that as the open blocker and.
-- Both "failed" notices are the two test servers I stopped on purpose. You still haven't answered the storage question, so I'm recording it as the blocker.
-- Here is where ixi stands. Four of the six tabs are working on the live page, and the last four forms are waiting on one yes from you. Live page:.
+- The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
+- The republish is running. The live check for Steve's runs as soon as it lands.
+- Status: all 7 layouts carry Steve's. The only failure left is in my own checking script, whose patch didn't apply. I'll edit it directly and rerun.
+- Steve's playlist is live on the song site, in the Playlists tab of every layout, next to Brandon's list, Cheryl and Ed. - **Steve's has all 12 songs**.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (8.1 days quiet, 136 replies)
+### Space saving cleanup  (8.2 days quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -113,17 +103,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (23.7 hours quiet, 2689 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
-
-- Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
-- Community Season 3's page-truth run is about four minutes in. When it finishes, Community deploys and gets its live hash check and Firefox open.
-- Every outcome is met and the goal is closed. Last step: updating the handoff file with this round and gating it.
-- Both all-seasons pages now open with "The show's top 20", and the two sites match feature for feature. Both are live, and every page on each matches.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams Songsterr inventory  (19.5 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (20.0 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -133,7 +113,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (14.8 hours quiet, 1319 replies)
+### ixi page theme suggestions  (15.3 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -143,7 +123,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.5 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (4.0 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -153,7 +133,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.2 hours quiet, 5 replies)
+### Johnny Five daily pass  (3.7 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -163,7 +143,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (3.0 hours quiet, 117 replies)
+### Large files to move  (3.6 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -173,17 +153,7 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (2.3 hours quiet, 574 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Lizz Vega song cleanup button", which you asked to be notified about, is idle now — it finished a turn at 11:12. Its harness reports: «I've stopped and am waitin
-
-- I'm recording the proof for each checklist item now. The summary comes right after.
-- All six checklist items are met, and the disk is holding at 42 GB free. Last, I'm grabbing the live status codes for the seven views to include in the.
-- Everything the full disk interrupted is finished and checked on the live site. Along the way I found a phone bug in Exp 2 and fixed it. 🟢 **Live and.
-- That notice is stale and doesn't need any action from me. The old Lizz session went idle at 11:12, right after it told me the Glostik lock was free,.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lizz Vega song cleanup button  (1.5 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (2.0 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -193,27 +163,37 @@ Totals: 17,511 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (1.2 hours quiet, 489 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwzb8636c</task-id> <tool-use-id>toolu_0131zq63c1srbpeKTo7GmGeC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/00932575-3e36-4e63-9a56-5
+### Ryan Adams Amy tabs  (8 minutes quiet, 4413 replies)
+**Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
-- My watch pipes into `tail`, so the loop reads tail's exit code and could quit at once. Checking it and restarting without the pipe.
-- As suspected, that watch quit at once on tail's exit code; the catch-up is not done (14 queued, 1 processing). Restarting it without the pipe.
-- The new watch is alive and checks every 5 minutes. Adding today's progress to the handoff file, so a later chat can pick up from it.
-- Her Oct 7 night is live on her page: 24 songs, passing all 9 checks on the live site. **🟢 Done and checked** - **Don't Let Me Down is in it,** played.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams Amy tabs  (6 minutes quiet, 4305 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>w627i9tw4</task-id> <tool-use-id>toolu_01WvmpVJB5i7e5oWAjcBYryi</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/5181894a-dc3d-4806-8a21-4
-
-- Every report passes the voice gate again. I am running one last scripted check across all 22 reports, then the batch audit, before reporting back.
-- Four reports tripped my check. Their new open items also contain the phrase "notes written in", which inflates my count. I am recounting on the table.
-- All four are correct. Each table row carries the written-bar figure, and the numbers match the second checker's own counts. Last step: the batch audit.
-- The second check is finished, and I've fixed what it found. Two steps still need your OK. 🟢 **Fixed since my last message** - **Fifteen sync.
+- The tab file stores each note's string, fret and MIDI number, so I can check the fix note by note against the live tab. Then comes the bar-by-bar key.
+- The note diff passes. Every guitar note matches the plan. The only extra is one held note in Lead bar 43, which keeps the fret it was tied from. Now.
+- The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
+- The key-gate test went to a wrong output path. Fixing that and rerunning.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (26.9 days quiet, 1312 replies)
+### Lizz Vega song cleanup  (3 minutes quiet, 679 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- The Lizz run has decoded 100 of 427 audio segments in about 3 minutes, so decoding should finish in about 10 more. Waiting on the channel listing and.
+- While those run, checking the Glostik Kick catch-up, which is R5 on the parked contract. Its two Oct 7 pieces just finished naming.
+- The catch-up is at 47 of 56 pieces named, 1 processing and 8 queued. Its hunt over 46 lists finds no Unforgiven II window. Waiting on the Lizz audio.
+- Decoding is at 200 of 427 segments. Waiting in place for the Lizz results, which take a few more minutes.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Filter single-play songs button  (0 minutes quiet, 590 replies)
+**Goal.** Not summarised by hand yet. Last input on record: don't make a button to hide or unhide plays just invisible track the plays
+
+- All six checklist items are met, and the disk is holding at 42 GB free. Last, I'm grabbing the live status codes for the seven views to include in the.
+- Everything the full disk interrupted is finished and checked on the live site. Along the way I found a phone bug in Exp 2 and fixed it. 🟢 **Live and.
+- That notice is stale and doesn't need any action from me. The old Lizz session went idle at 11:12, right after it told me the Glostik lock was free,.
+- I'll take the button off every view and let the play counts do the work with nothing on screen. First I'm checking how the site defines its song.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Appleseed cast chat  (27.0 days quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
