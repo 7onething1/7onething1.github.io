@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 21:03 CDT. 18 chats read from transcripts.
+Built 2026-10-07 21:33 CDT. 19 chats read from transcripts.
 
 ## Headline
 
-All 18 chats ended on a gate block, 0 on a message from Brandon.
+All 19 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 15,876 assistant replies, 239 MB of transcript.
+Totals: 15,948 assistant replies, 240 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (9.1 days quiet, 1693 replies)
+### Summer music site  (9.2 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -93,7 +93,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (7.4 days quiet, 136 replies)
+### Space saving cleanup  (7.5 days quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -113,7 +113,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (18.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (19.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (10.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (9.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (9.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (7.0 hours quiet, 2689 replies)
+### News radio community commentary highlights  (7.5 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (2.8 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (3.3 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1.0 hours quiet, 2701 replies)
+### Ryan Adams Amy tabs  (1.5 hours quiet, 2701 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - Cherry Lane puts its only bar line at the end of each staff line, not the start. I'm making the span rule handle a trailing bar line, and checking how.
@@ -173,7 +173,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (44 minutes quiet, 895 replies)
+### ixi page theme suggestions  (1.2 hours quiet, 895 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ixi-multitrack-sheet # ixi-multitrack-sheet The from-a-real-multitrack production method behind `/hooray-say-enough-ixi` an
 
 - On a phone, each figure now keeps full size inside its own box and swipes sideways. Notes, labels and tab stay readable, and the page itself still.
@@ -183,7 +183,17 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (26.2 days quiet, 1312 replies)
+### Filter single-play songs button  (0 minutes quiet, 72 replies)
+**Goal.** Not summarised by hand yet. Last input on record: https://drwu-htmls.vercel.app/glostik-songs/poster#songs?show=soon&genre=Classic+%2F+Hard+Rock%7CAlternative+Rock%7CGrunge%7CMetal%7CRock+%2F+Other add a button to our site that takes off al
+
+- Mapped poster, classic 1 and classic 2. Now reading the other four views' filter code.
+- Found the numbers: 84 of 710 songs were played exactly once. Now looking at the live poster page to place the button.
+- Planning the build now. I'll stage all seven views in a test folder, serve them locally against real data, and only touch the live tree after every.
+- Taking "before" screenshots of all seven views now.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Appleseed cast chat  (26.3 days quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
