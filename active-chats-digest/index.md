@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 18:32 CDT. 18 chats read from transcripts.
+Built 2026-10-07 19:02 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 14,827 assistant replies, 230 MB of transcript.
+Totals: 15,059 assistant replies, 232 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (9.0 days quiet, 1693 replies)
+### Summer music site  (9.1 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -93,7 +93,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (7.3 days quiet, 136 replies)
+### Space saving cleanup  (7.4 days quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -113,7 +113,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (16.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (16.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (8.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (6.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (7.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (4.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (5.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1.0 hours quiet, 600 replies)
+### ixi page theme suggestions  (1.5 hours quiet, 600 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you don't have it
 
 - The tracker reads `CC_CONTRACT`, so I can point it at the parked contract file and close R1 to R3 there. Saving the live proof files first: the.
@@ -163,7 +163,7 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (17 minutes quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (47 minutes quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -173,17 +173,17 @@ Totals: 14,827 assistant replies, 230 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1 minutes quiet, 1947 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Yes but the model was for you to tweak the start from there adding odd meter measure to match the intro start time if needed. upload your own youtube version if there isn't one and use my so
+### Ryan Adams Amy tabs  (1 minutes quiet, 2179 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- The settings are in: reference bar 18, start time handed over to it, Note tolerant on. Synchronizing pass two.
-- The revision preview confirms both changes: "Video synchronization points changed" and the new 1/4 lead-in bar, with 112 bars unchanged. Filling in the.
-- Submitted. The new revision is 9596691. Songsterr serves a new revision after about 90 to 120 seconds, so I'm waiting for it, then checking the live.
-- No prose turn recorded for this slot.
+- The CDN serves the AI tab's three parts under image hash v0-3-2-jNtwkW_rVBO45KvS, so I can read them without the public meta.
+- The build tool writes hammer-ons as an hp flag on the origin note. I'm checking whether the GP swap carries slides too, then writing the UG-to-grid.
+- Status: comparing per-bar pitch fit of the UG build against the AI part to find where UG loses.
+- Two voices can collide on one string, for example the thumb's open D under a fretted D-string finger note. I'm cutting a held note where the other.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (26.1 days quiet, 1312 replies)
+### Appleseed cast chat  (26.2 days quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
