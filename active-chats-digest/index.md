@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 23:35 CDT. 20 chats read from transcripts.
+Built 2026-10-08 00:05 CDT. 20 chats read from transcripts.
 
 ## Headline
 
 All 20 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 17,962 assistant replies, 285 MB of transcript.
+Totals: 18,318 assistant replies, 287 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (9.2 days quiet, 1693 replies)
+### Summer music site  (9.3 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -93,7 +93,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (7.5 days quiet, 136 replies)
+### Space saving cleanup  (7.6 days quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -113,7 +113,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (21.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (21.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.0 hours quiet, 5 replies)
+### Johnny Five daily pass  (13.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (11.8 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (12.3 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (9.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (10.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (5.3 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (5.8 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (34 minutes quiet, 1319 replies)
+### ixi page theme suggestions  (1.1 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -173,37 +173,37 @@ Totals: 17,962 assistant replies, 285 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (1 minutes quiet, 307 replies)
-**Goal.** Not summarised by hand yet. Last input on record: the never played button says 0 but thats a lie
+### Filter single-play songs button  (9 minutes quiet, 383 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/13182.sock" from-session="local_a2252bf4-8e01-41e5-ba8e-3114409dfcdd" from-name="Lizz Vega song cleanup 
 
-- Checking where "Never played" gets its number, and which songs the site counts as never played.
-- The catalog file merges the band's request list with their old play history. Separating the two, to find songs on the request list with no play anywhere.
-- The disk just filled up: the last command failed with "no space left on device". Checking how full it is before anything else.
-- The search guard blocked that sweep for being unbounded. Rerunning it with a depth cap.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lizz Vega song cleanup button  (0 minutes quiet, 645 replies)
-**Goal.** Not summarised by hand yet. Last input on record: put a button on lizz vega page to remove songs played only once or not in last year, can toggle with other buttions. to do list allso then look for missign songs on glostik.. they def did un
-
-- While that finishes, I'm working on the split songs. Reading the export's play join and play counting to fold a misspelled twin into her entry safely.
-- Writing the page side as a one-shot anchored patch, like the earlier one. It refuses unless the page is still the 431,048 bytes I deployed.
-- Live as dpl_8Q2Svp2hVvjGwxWy1d9oYRhdA7HR. Proving it in Firefox: the toggle suite again against the new data, plus a search probe that "rule the world".
-- The YouTube pass is on its last few nights. While it finishes, I'm checking the Glostik Kick catch-up running in the background.
+- Both live files now match the tested copies byte for byte, and the views, sortable, copy, rooster and parity gates all exit 0. Deploying, scoped to the.
+- You were right about that button. It only knew songs the band had played, so it could never count the ones they haven't. 🟢 **Fixed and live** (deploy.
+- The Kick catch-up is paused and about 1.3 GB is free again. Picking up where the disk cut me off: the deploy record, the live files, and why the deploy.
+- The Never played button now tells the truth, and I've confirmed it on the live site. - It shows **18 across the site and 7 in your rock genres**..
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (0 minutes quiet, 3411 replies)
+### Lizz Vega song cleanup button  (1 minutes quiet, 772 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/1356.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play songs
+
+- Free space fell to 258 MiB, about 20 MB a minute, so roughly 13 minutes to zero. Downloaders and transcribers show up by CPU, so listing the busiest.
+- The YouTube politeness hook blocked the command because my grep pattern contained the downloader's name. Rerunning without it.
+- My `pkill` pattern missed because of the "+" in it. These four are my background search's own shells and its `bfs`, so I'm stopping them by PID.
+- The disk hit zero. The tool couldn't even create its own output file, so that deploy command almost certainly never ran. Retrying the smallest possible.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams Amy tabs  (0 minutes quiet, 3564 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- Magnolia Mountain is public at r9600222, the AI revision unchanged. Verifying it in the background, then submitting the four songs whose audio is ready.
-- Mockingbird and Easy Plateau are submitted (credits now 88, each recorded once). Rosebud's form reads back correctly and is going in now.
-- Political Scientist's form is filled and checked, so I'm sending that one first and then giving you the status.
-- Meadowlake Street's AI export is saved. Building its lead-in and running one plain autosync pass, since its AI clock runs about 18 ms late.
+- Now That You're Gone is next. The AI wrote it with no capo, and the UG sheet says capo 3, so I'm checking first whether the notes fit under a capo 3.
+- The capo-3 move fails: 61% of the notes would land below the capo, since the AI hears open-position chords. I'm keeping its no-capo reading and noting.
+- Replied to the peer session. Continuing with Now That You're Gone: filing its export and building the lead-in.
+- Both background jobs failed again. Checking whether the disk filled up a second time.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (26.3 days quiet, 1312 replies)
+### Appleseed cast chat  (26.4 days quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
