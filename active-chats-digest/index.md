@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 21:33 CDT. 19 chats read from transcripts.
+Built 2026-10-07 22:03 CDT. 20 chats read from transcripts.
 
 ## Headline
 
-All 19 chats ended on a gate block, 0 on a message from Brandon.
+All 20 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 15,948 assistant replies, 240 MB of transcript.
+Totals: 16,571 assistant replies, 265 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (9.1 days quiet, 300 replies)
+### Playlist player next button  (9.2 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -103,7 +103,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (1.8 days quiet, 627 replies)
+### Glostic animated emote page update  (1.9 days quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -113,7 +113,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (19.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (19.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (11.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (9.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (10.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (7.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (8.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (3.3 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (3.8 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,33 +163,43 @@ Totals: 15,948 assistant replies, 240 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1.5 hours quiet, 2701 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
+### ixi page theme suggestions  (1 minutes quiet, 978 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: # Session summary: ixi-songs 
 
-- Cherry Lane puts its only bar line at the end of each staff line, not the start. I'm making the span rule handle a trailing bar line, and checking how.
-- All four contract items are met with evidence. I'm updating the handoff file and the project memory with the survey result.
-- The memory and handoff are current. I'm stopping the local file server and any stale background waiters from earlier.
-- I See Monsters is live on Songsterr, built from the UG tab and synced as tightly as Amy. The rest of your list can't be done the Amy way, because none.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### ixi page theme suggestions  (1.2 hours quiet, 895 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ixi-multitrack-sheet # ixi-multitrack-sheet The from-a-real-multitrack production method behind `/hooray-say-enough-ixi` an
-
-- On a phone, each figure now keeps full size inside its own box and swipes sideways. Notes, labels and tab stay readable, and the page itself still.
-- Memory and README now reflect that this Mac builds the figures. Regenerating STATE.md from the figure files, so it lists each song's real bars, and.
-- STATE.md now lists all 17 figures with their bars, keys, parts and source. Opening the live Analysis tab in Firefox and revealing the page file in Finder.
-- Done and live - 🟩 **All 17 Song sheets on the Analysis tab now have sheet music.** Each one copies the believeyoume-book-v7 Figure 1.2 layout, with tab.
+- Revision search finished; reading its results now.
+- Older revisions gave Climbing Up The Walls proven words. Now checking how Songsterr splits lyric lines by bar.
+- Mapped out the 8va rendering: abcjs has no 8va bracket, and its tab ignores octave marks. Checking how to draw the bracket so the tab still reads the.
+- Writing the 8va logic into the figure builder now.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (0 minutes quiet, 72 replies)
+### Filter single-play songs button  (0 minutes quiet, 237 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://drwu-htmls.vercel.app/glostik-songs/poster#songs?show=soon&genre=Classic+%2F+Hard+Rock%7CAlternative+Rock%7CGrunge%7CMetal%7CRock+%2F+Other add a button to our site that takes off al
 
-- Mapped poster, classic 1 and classic 2. Now reading the other four views' filter code.
-- Found the numbers: 84 of 710 songs were played exactly once. Now looking at the live poster page to place the button.
-- Planning the build now. I'll stage all seven views in a test folder, serve them locally against real data, and only touch the live tree after every.
-- Taking "before" screenshots of all seven views now.
+- The never-delete hook stopped my cleanup `rm`. That's fair, so I'm using a fresh folder name and deleting nothing.
+- All seven live files are byte-identical to the copies the browser tested, and each original sits in a backup beside it. Running the site gates now.
+- The views, sortable, copy and rooster gates all pass. Two gates didn't run, because zsh passed "page_weight.py check" as one filename. Rerunning those.
+- The deploy script already leaves out every `.bak` and `PRE_` file, so my backups won't go public. My zsh `echo ===` line broke the chain, so I'm.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup button  (0 minutes quiet, 111 replies)
+**Goal.** Not summarised by hand yet. Last input on record: put a button on lizz vega page to remove songs played only once or not in last year, can toggle with other buttions. to do list allso then look for missign songs on glostik.. they def did un
+
+- The patch applies all 18 anchors cleanly, and all nine inline scripts pass the syntax check. Next I'll serve the patched copy against production data.
+- The existing Lizz checks don't block her visit counter in Firefox, so my check will intercept `/api/visits` and count nothing. I'm writing a small.
+- The page posts one visit per browser session unless the `lizzvega-counted` key is set. My check sets that key on the origin first, so even a production.
+- The local proxy serves the patched page, and her data comes through from production. Running the Firefox check now.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams Amy tabs  (0 minutes quiet, 2965 replies)
+**Goal.** Not summarised by hand yet. Last input on record: # Workflow authoring reference A workflow structures work across many agents — to be comprehensive (decompose and cover in parallel), to be confident (independent perspectives and adversaria
+
+- Call Me's lead-in comes out at 19/32, about 2.1 s, filling the gap before the AI tab's first bar. I'm serving the build folder locally so the editor.
+- The lead-in file serves fine. Importing it into Call Me's editor, then running the plain autosync: start time 0, Note tolerant off.
+- The import went in, and autosync is now enabled with the old 66 points still in place. Running the plain autosync.
+- Autosync returned 67 points, but Songsterr flags 19 of them as suspicious, mostly bars 46 to 63. Scoring them against the stem.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
