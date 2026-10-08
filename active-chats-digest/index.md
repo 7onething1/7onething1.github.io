@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 00:05 CDT. 20 chats read from transcripts.
+Built 2026-10-08 00:36 CDT. 20 chats read from transcripts.
 
 ## Headline
 
 All 20 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 18,318 assistant replies, 287 MB of transcript.
+Totals: 18,467 assistant replies, 288 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (9.2 days quiet, 300 replies)
+### Playlist player next button  (9.3 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -103,7 +103,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (1.9 days quiet, 627 replies)
+### Glostic animated emote page update  (2.0 days quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -113,7 +113,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (21.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (22.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.5 hours quiet, 5 replies)
+### Johnny Five daily pass  (14.0 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (12.3 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (12.8 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (10.0 hours quiet, 2689 replies)
+### News radio community commentary highlights  (10.5 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (5.8 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (6.3 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1.1 hours quiet, 1319 replies)
+### ixi page theme suggestions  (1.6 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -173,7 +173,7 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (9 minutes quiet, 383 replies)
+### Filter single-play songs button  (40 minutes quiet, 383 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/13182.sock" from-session="local_a2252bf4-8e01-41e5-ba8e-3114409dfcdd" from-name="Lizz Vega song cleanup 
 
 - Both live files now match the tested copies byte for byte, and the views, sortable, copy, rooster and parity gates all exit 0. Deploying, scoped to the.
@@ -183,23 +183,23 @@ Totals: 18,318 assistant replies, 287 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (1 minutes quiet, 772 replies)
+### Lizz Vega song cleanup button  (28 minutes quiet, 780 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/1356.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play songs
 
-- Free space fell to 258 MiB, about 20 MB a minute, so roughly 13 minutes to zero. Downloaders and transcribers show up by CPU, so listing the busiest.
-- The YouTube politeness hook blocked the command because my grep pattern contained the downloader's name. Rerunning without it.
 - My `pkill` pattern missed because of the "+" in it. These four are my background search's own shells and its `bfs`, so I'm stopping them by PID.
 - The disk hit zero. The tool couldn't even create its own output file, so that deploy command almost certainly never ran. Retrying the smallest possible.
+- All 44 checks pass. Every one of the six Glostik songs shows in all seven views, Do You Feel Like We Do sits at Sep 18 2:06:14, and The Secret plays.
+- Glostik is updated and checked: **six songs it had missed now show in all seven views**, passing 44 of 44 checks (deploy.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (0 minutes quiet, 3564 replies)
+### Ryan Adams Amy tabs  (1 minutes quiet, 3705 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- Now That You're Gone is next. The AI wrote it with no capo, and the UG sheet says capo 3, so I'm checking first whether the notes fit under a capo 3.
-- The capo-3 move fails: 61% of the notes would land below the capo, since the AI hears open-position chords. I'm keeping its no-capo reading and noting.
-- Replied to the peer session. Continuing with Now That You're Gone: filing its export and building the lead-in.
-- Both background jobs failed again. Checking whether the disk filled up a second time.
+- The second Publish click sent no request at all, so the editor itself looks stuck after the first failure. Reloading (the draft is kept locally) and.
+- The restored draft round-trips cleanly. The byte difference is export metadata, and every note matches. Retrying the publish.
+- Political Scientist is verified live with its report written. Please Do Not Let Me Go is next. It sits on an existing public song id, so it will.
+- Please Do Not Let Me Go keeps the AI's clock: plain autosync scored 31.5 ms against the AI's 27.5 ms. Resetting the draft, then verifying the live AI tab.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
