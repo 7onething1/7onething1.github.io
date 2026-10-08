@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-07 20:33 CDT. 18 chats read from transcripts.
+Built 2026-10-07 21:03 CDT. 18 chats read from transcripts.
 
 ## Headline
 
@@ -113,7 +113,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (18.4 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (18.9 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (9.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (10.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (8.7 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (9.2 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (6.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (7.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (2.3 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (2.8 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (31 minutes quiet, 2701 replies)
+### Ryan Adams Amy tabs  (1.0 hours quiet, 2701 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - Cherry Lane puts its only bar line at the end of each staff line, not the start. I'm making the span rule handle a trailing bar line, and checking how.
@@ -173,7 +173,7 @@ Totals: 15,876 assistant replies, 239 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (14 minutes quiet, 895 replies)
+### ixi page theme suggestions  (44 minutes quiet, 895 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ixi-multitrack-sheet # ixi-multitrack-sheet The from-a-real-multitrack production method behind `/hooray-say-enough-ixi` an
 
 - On a phone, each figure now keeps full size inside its own box and swipes sideways. Notes, labels and tab stay readable, and the page itself still.
