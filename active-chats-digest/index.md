@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-07 20:03 CDT. 18 chats read from transcripts.
+Built 2026-10-07 20:33 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 15,753 assistant replies, 238 MB of transcript.
+Totals: 15,876 assistant replies, 239 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stalled chats analysis  (9.8 days quiet, 92 replies)
+### Stalled chats analysis  (9.9 days quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -23,7 +23,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (9.7 days quiet, 60 replies)
+### Chats migration to Black Drive  (9.8 days quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -53,7 +53,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (8.9 days quiet, 34 replies)
+### Emotes on other streams  (9.0 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -73,7 +73,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (8.0 days quiet, 818 replies)
+### Summer music site skill  (8.1 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -83,7 +83,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (7.9 days quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (8.0 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -113,7 +113,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (17.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (18.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (9.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (9.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (8.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (8.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (6.0 hours quiet, 2689 replies)
+### News radio community commentary highlights  (6.5 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,7 +153,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (1.8 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (2.3 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -163,7 +163,7 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1 minutes quiet, 2701 replies)
+### Ryan Adams Amy tabs  (31 minutes quiet, 2701 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - Cherry Lane puts its only bar line at the end of each staff line, not the start. I'm making the span rule handle a trailing bar line, and checking how.
@@ -173,13 +173,13 @@ Totals: 15,753 assistant replies, 238 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1 minutes quiet, 772 replies)
+### ixi page theme suggestions  (14 minutes quiet, 895 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ixi-multitrack-sheet # ixi-multitrack-sheet The from-a-real-multitrack production method behind `/hooray-say-enough-ixi` an
 
-- It renders with no errors: one SVG, 752 px tall, 117 text elements, no overflow. Checking the engraving by eye, since a clean render can still look wrong.
-- The converter now breaks the figure into systems and writes plain treble clefs and ASCII chord names. Re-rendering the test page to look at it again.
-- It renders at 1,985 px across three systems. My checker only captures 900 px, so I'm extending it to capture the whole figure before judging the spacing.
-- The guard again read the `*` in my inline regex as a file wildcard. Moving the code into a script file, as before.
+- On a phone, each figure now keeps full size inside its own box and swipes sideways. Notes, labels and tab stay readable, and the page itself still.
+- Memory and README now reflect that this Mac builds the figures. Regenerating STATE.md from the figure files, so it lists each song's real bars, and.
+- STATE.md now lists all 17 figures with their bars, keys, parts and source. Opening the live Analysis tab in Firefox and revealing the page file in Finder.
+- Done and live - 🟩 **All 17 Song sheets on the Analysis tab now have sheet music.** Each one copies the believeyoume-book-v7 Figure 1.2 layout, with tab.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
