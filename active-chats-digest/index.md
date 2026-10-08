@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-08 12:46 CDT. 21 chats read from transcripts.
+Built 2026-10-08 13:17 CDT. 21 chats read from transcripts.
 
 ## Headline
 
 All 21 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 17,422 assistant replies, 274 MB of transcript.
+Totals: 17,444 assistant replies, 274 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stalled chats analysis  (10.5 days quiet, 92 replies)
+### Stalled chats analysis  (10.6 days quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -23,7 +23,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (10.4 days quiet, 60 replies)
+### Chats migration to Black Drive  (10.5 days quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -53,7 +53,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (9.6 days quiet, 34 replies)
+### Emotes on other streams  (9.7 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -63,7 +63,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (9.4 days quiet, 174 replies)
+### Rapper slant rhymes analysis  (9.5 days quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -73,7 +73,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (8.7 days quiet, 818 replies)
+### Summer music site skill  (8.8 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -83,7 +83,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Liz Vega/Glowstick site updates  (8.6 days quiet, 1395 replies)
+### Liz Vega/Glowstick site updates  (8.7 days quiet, 1395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what up
 
 - Playlists, Links and the Live player work on the live ixi site at desktop and phone widths. The only error is the expected "not connected yet" from the.
@@ -113,7 +113,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (22.7 hours quiet, 2689 replies)
+### News radio community commentary highlights  (23.2 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -123,7 +123,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (18.5 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (19.0 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -133,7 +133,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (13.8 hours quiet, 1319 replies)
+### ixi page theme suggestions  (14.3 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -143,7 +143,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.5 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (3.0 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -153,7 +153,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.2 hours quiet, 5 replies)
+### Johnny Five daily pass  (2.7 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -163,7 +163,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (2.0 hours quiet, 117 replies)
+### Large files to move  (2.5 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -173,7 +173,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (1.2 hours quiet, 574 replies)
+### Filter single-play songs button  (1.8 hours quiet, 574 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Lizz Vega song cleanup button", which you asked to be notified about, is idle now — it finished a turn at 11:12. Its harness reports: «I've stopped and am waitin
 
 - I'm recording the proof for each checklist item now. The summary comes right after.
@@ -183,7 +183,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (29 minutes quiet, 1009 replies)
+### Lizz Vega song cleanup button  (59 minutes quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -193,7 +193,7 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (10 minutes quiet, 489 replies)
+### Lizz Vega song cleanup  (40 minutes quiet, 489 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bwzb8636c</task-id> <tool-use-id>toolu_0131zq63c1srbpeKTo7GmGeC</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/00932575-3e36-4e63-9a56-5
 
 - My watch pipes into `tail`, so the loop reads tail's exit code and could quit at once. Checking it and restarting without the pipe.
@@ -203,13 +203,13 @@ Totals: 17,422 assistant replies, 274 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (0 minutes quiet, 4216 replies)
+### Ryan Adams Amy tabs  (22 minutes quiet, 4238 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>wdg590jcd</task-id> <tool-use-id>toolu_01PHXRXUZCVYWFftYGp1ApVY</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/5181894a-dc3d-4806-8a21-4
 
-- Pass D scores 24.2 ms, exactly the live figure in the report. It keeps pass C through editor bar 67 and re-syncs from bar 68. Now the signed-out live.
-- I See Monsters is fixed and passes the voice gate. Next come the batch records: the results table, the ledger note and a fresh credit snapshot.
-- The strengthened audit passes all 22 credit songs, including I See Monsters and the new bar-count check. To prove the new check can fail, I am running.
-- All six live pages answer 200 signed out after one redirect. Next I am checking whether the auditor's pitch test can become a standing gate before.
+- The new key gate is written. I am running its known answers on When Will now: the live guitars must fail, and the capo-zero versions must pass.
+- The skill's selftest passes with the new gate in place. Now I am queueing every follow-up item that needs your go-ahead or a new revision, so nothing.
+- All six follow-ups are queued. Before reporting back, I am starting a second independent pass that tries to break each rewritten report against its.
+- Not done yet. Two steps need your OK. 🔴 **Needs your OK** - **When Will You Come Back Home is live a whole step sharp.** The AI added a capo 2 on top.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
