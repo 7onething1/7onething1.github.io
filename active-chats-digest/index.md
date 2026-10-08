@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-08 14:17 CDT. 19 chats read from transcripts.
+Built 2026-10-08 15:46 CDT. 19 chats read from transcripts.
 
 ## Headline
 
 All 19 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 14,286 assistant replies, 210 MB of transcript.
+Totals: 14,467 assistant replies, 211 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stalled chats analysis  (10.6 days quiet, 92 replies)
+### Stalled chats analysis  (10.7 days quiet, 92 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_4fefe2ae-6365-4222-82d0-d6a383265cda" name="Summer music site"> Summer loop resumed at 23:45; the 23:02 ScheduleWake
 
 - All three checklist items are met. The parked MTG fix sits in the work queue under its own id, so nothing was dropped. Closing the contract.
@@ -23,7 +23,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chats migration to Black Drive  (10.5 days quiet, 60 replies)
+### Chats migration to Black Drive  (10.6 days quiet, 60 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/ask # /ask — unified retrieval across the whole 2nd brain One question goes in. Ranked, source-cited results come back from
 
 - Three of the four Phish shows are at Black's top level (MSG 7/27 and both Deer Creek nights). I need the fourth file's name, so I'm paging back to the.
@@ -43,7 +43,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (9.7 days quiet, 34 replies)
+### Emotes on other streams  (9.8 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -53,7 +53,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Rapper slant rhymes analysis  (9.5 days quiet, 174 replies)
+### Rapper slant rhymes analysis  (9.6 days quiet, 174 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The Rappers sheet reads cleanly, all 40 rows. The file check came back **VERIFIED** at 18,873 bytes with no evidence ID, so I'm recording it to get one.
@@ -63,7 +63,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (8.8 days quiet, 818 replies)
+### Summer music site skill  (8.9 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -93,7 +93,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostic animated emote page update  (2.5 days quiet, 627 replies)
+### Glostic animated emote page update  (2.6 days quiet, 627 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bewr3s2dr</task-id> <summary>Monitor event: "The launchd finisher shipping Jon's last five"</summary> <event>[Monitor expired after 5m with no events delivered. 
 
 - The live page reads correctly. Last bit of housekeeping is recording tonight's lessons in the emote memory: the scan workflow, the light-blob photo.
@@ -103,7 +103,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (20.0 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (21.5 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -113,7 +113,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (15.3 hours quiet, 1319 replies)
+### ixi page theme suggestions  (16.8 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -123,7 +123,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.0 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (5.5 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -133,7 +133,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.7 hours quiet, 5 replies)
+### Johnny Five daily pass  (5.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -143,7 +143,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (3.6 hours quiet, 117 replies)
+### Large files to move  (5.0 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -153,7 +153,7 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (2.0 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (3.5 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -163,33 +163,33 @@ Totals: 14,286 assistant replies, 210 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (8 minutes quiet, 4413 replies)
+### Ryan Adams Amy tabs  (1.3 hours quiet, 4429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
-- The tab file stores each note's string, fret and MIDI number, so I can check the fix note by note against the live tab. Then comes the bar-by-bar key.
-- The note diff passes. Every guitar note matches the plan. The only extra is one held note in Lead bar 43, which keeps the fret it was tied from. Now.
 - The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
 - The key-gate test went to a wrong output path. Fixing that and rerunning.
+- Easy Plateau's left and right stems are done. When Will's are still running. Reading what each Easy Plateau side holds.
+- You were right on both counts. When Will wasn't sharp everywhere, and the tab is missing guitar parts. 🟢 **When Will You Come Back Home** - **The.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (3 minutes quiet, 679 replies)
+### Lizz Vega song cleanup  (1 minutes quiet, 744 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- The Lizz run has decoded 100 of 427 audio segments in about 3 minutes, so decoding should finish in about 10 more. Waiting on the channel listing and.
-- While those run, checking the Glostik Kick catch-up, which is R5 on the parked contract. Its two Oct 7 pieces just finished naming.
-- The catch-up is at 47 of 56 pieces named, 1 processing and 8 queued. Its hunt over 46 lists finds no Unforgiven II window. Waiting on the Lizz audio.
-- Decoding is at 200 of 427 segments. Waiting in place for the Lizz results, which take a few more minutes.
+- The full-coverage pass cuts every Kick piece into 30-minute stretches that overlap by 4 minutes, so no minute goes unscanned. Running it in the background.
+- The `>=` tripped the page guard again. Moving the check into a scratch file.
+- The full pass has started. It covers about 39 hours of Kick audio in 30-minute stretches, roughly 15 minutes of work. Waiting for it.
+- The keep-awake is held for the scan's process. Waiting for the full-coverage results.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (0 minutes quiet, 590 replies)
+### Filter single-play songs button  (0 minutes quiet, 690 replies)
 **Goal.** Not summarised by hand yet. Last input on record: don't make a button to hide or unhide plays just invisible track the plays
 
-- All six checklist items are met, and the disk is holding at 42 GB free. Last, I'm grabbing the live status codes for the seven views to include in the.
-- Everything the full disk interrupted is finished and checked on the live site. Along the way I found a phone bug in Exp 2 and fixed it. 🟢 **Live and.
-- That notice is stale and doesn't need any action from me. The old Lizz session went idle at 11:12, right after it told me the Glostik lock was free,.
-- I'll take the button off every view and let the play counts do the work with nothing on screen. First I'm checking how the site defines its song.
+- That run went past 10 minutes, which is much slower than the run that passed. I'm checking where it's up to.
+- The views gate always reads the live site folder, so I'll run it after the files are applied and before the deploy. I'm backing up the gate and the.
+- The gate and the installer are updated. Back to the comparison run:
+- No failures so far: 53 checks have passed, and it's in the phone section. While it finishes, I'm marking the old hide-once check as replaced, so no one.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
