@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-07 19:02 CDT. 18 chats read from transcripts.
+Built 2026-10-07 19:32 CDT. 18 chats read from transcripts.
 
 ## Headline
 
 All 18 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 10 are past the 400-turn ceiling.
-Totals: 15,059 assistant replies, 232 MB of transcript.
+Totals: 15,315 assistant replies, 234 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (9.0 days quiet, 300 replies)
+### Playlist player next button  (9.1 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -113,7 +113,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick feature broken in Lizz Vega  (16.9 hours quiet, 889 replies)
+### Kick feature broken in Lizz Vega  (17.4 hours quiet, 889 replies)
 **Goal.** Not summarised by hand yet. Last input on record: find the 4 missing glostik songs. Phone inbox: the Lizz page missed its 14:00 publish because the Rooster check failed. I left it alone, since it is a separate task.
 
 - Status: scoring the 4 takes against the band's own lyrics, with Bust and The Game as known-answer controls.
@@ -123,7 +123,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (8.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -133,7 +133,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (7.2 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (7.7 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -143,7 +143,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (5.0 hours quiet, 2689 replies)
+### News radio community commentary highlights  (5.5 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -153,17 +153,7 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (1.5 hours quiet, 600 replies)
-**Goal.** Not summarised by hand yet. Last input on record: you don't have it
-
-- The tracker reads `CC_CONTRACT`, so I can point it at the parked contract file and close R1 to R3 there. Saving the live proof files first: the.
-- Updating the handoff with this round, and compile-checking the import tool after its comment edit.
-- All done and verified. Running the closing reply through the three reply checks once.
-- Done and live - 🟩 **16 of the 17 sheets** now link to their ixi video. **Weak and Powerless** has no link, because none of her 229 videos covers it. -.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams Songsterr inventory  (47 minutes quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (1.3 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -173,13 +163,23 @@ Totals: 15,059 assistant replies, 232 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (1 minutes quiet, 2179 replies)
+### ixi page theme suggestions  (2 minutes quiet, 623 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: source: /private/tmp/claude-501/-Users-brandonchavez/193b40ba-b2ff-4fe7-b3a4-8e312e2943ff/images/1.webp]
+
+- This screenshot is from yesterday, Oct 6 at 12:28 PM. It shows the format you mean: the BELIEVEYOUME ixi-model edition (`believeyoume-book-v7`) with a.
+- The gate passes, but it flags "matters" in my own line. "just" is inside your quoted words, which stay verbatim. Rewording my line, then sending while.
+- Confirmed: the 17:18 request is in the watcher's `processed/` folder (2,008 bytes), so the iMac has it. The follow-up waits in the inbox for the next.
+- Sent to the iMac - 🟩 **I sent your instrument note to the iMac at 19:30** as a follow-up to the earlier request. **It quotes your words** and points.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams Amy tabs  (1 minutes quiet, 2412 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- The CDN serves the AI tab's three parts under image hash v0-3-2-jNtwkW_rVBO45KvS, so I can read them without the public meta.
-- The build tool writes hammer-ons as an hp flag on the origin note. I'm checking whether the GP swap carries slides too, then writing the UG-to-grid.
-- Status: comparing per-bar pitch fit of the UG build against the AI part to find where UG loses.
-- Two voices can collide on one string, for example the thumb's open D under a fretted D-string finger note. I'm cutting a held note where the other.
+- Long sleeps are blocked, so I'm installing a page-side waiter that records the points the moment they change.
+- While the waiter runs, I'm checking that my rhythm_check change hasn't broken the skill's self-test.
+- Note tolerant returned points that track the AI's original clock almost exactly. Scoring it the same way.
+- Amy's original points were centred, with a signed median of -0.1 ms. To test for an autosync bias I'm scoring Amy's own pass 1 points the same way.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
