@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 11:46 CDT. 22 chats read from transcripts.
+Built 2026-10-08 12:16 CDT. 21 chats read from transcripts.
 
 ## Headline
 
-All 22 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 18,827 assistant replies, 301 MB of transcript.
+All 21 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 10 are past the 400-turn ceiling.
+Totals: 17,130 assistant replies, 272 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist player next button  (9.7 days quiet, 300 replies)
+### Playlist player next button  (9.8 days quiet, 300 replies)
 **Goal.** Not summarised by hand yet. Last input on record: glostik website on the playlist tab in the playlist player, make a next button that plays the next song on the player
 
 - Live desktop passes too: 61 of 61 steps, exit 0, all seven views agreeing. One look at the live Ballroom screenshot, since that's the view Brandon uses.
@@ -113,17 +113,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (23.9 hours quiet, 1697 replies)
-**Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
-
-- 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
-- Brandon's answer is "if no gif then pic". That settles the open blocker: no clips to cut. The 11 episodes without a tied GIF keep a picture, their.
-- Both outcomes are recorded as met. Gating the short reply.
-- 🟢 **Every episode card now shows an image: 99 GIFs and 11 pictures.** I made no changes, because the site already falls back to a still when there's no.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### News radio community commentary highlights  (21.7 hours quiet, 2689 replies)
+### News radio community commentary highlights  (22.2 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -133,7 +123,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (17.5 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (18.0 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -143,7 +133,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (12.8 hours quiet, 1319 replies)
+### ixi page theme suggestions  (13.3 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -153,7 +143,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.5 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (2.0 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -163,7 +153,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (1.2 hours quiet, 5 replies)
+### Johnny Five daily pass  (1.7 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -173,7 +163,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (1.0 hours quiet, 117 replies)
+### Large files to move  (1.5 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -183,7 +173,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (34 minutes quiet, 1005 replies)
+### Lizz Vega song cleanup button  (1.1 hours quiet, 1005 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/17251.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play song
 
 - The catch-up is moving (39 pieces named), but the two Oct 7 Kick pieces still sit at "queued". I'd stopped its downloaders during the disk crisis, so.
@@ -193,7 +183,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (27 minutes quiet, 4087 replies)
+### Ryan Adams Amy tabs  (57 minutes quiet, 4087 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The safety check stopped me before the step that spends a transcription credit. I will not route around that. I am closing the dialog untouched and.
@@ -203,7 +193,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (14 minutes quiet, 574 replies)
+### Filter single-play songs button  (44 minutes quiet, 574 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Lizz Vega song cleanup button", which you asked to be notified about, is idle now — it finished a turn at 11:12. Its harness reports: «I've stopped and am waitin
 
 - I'm recording the proof for each checklist item now. The summary comes right after.
@@ -213,7 +203,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (11 minutes quiet, 330 replies)
+### Lizz Vega song cleanup  (41 minutes quiet, 330 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Lizz Vega song cleanup button chat archive it and resume it here
 
 - Unforgiven II has no window in any of the 39 Kick pieces named so far. Sixteen pieces remain, so mapping them to their dates.
@@ -223,7 +213,7 @@ Totals: 18,827 assistant replies, 301 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Appleseed cast chat  (26.8 days quiet, 1312 replies)
+### Appleseed cast chat  (26.9 days quiet, 1312 replies)
 **Goal.** Split guitar parts that one hand cannot reach into two guitar tracks.
 
 - A tab had 700 spots where one hand had to grab impossible shapes.
