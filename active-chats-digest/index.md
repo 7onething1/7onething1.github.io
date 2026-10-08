@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-08 03:37 CDT. 19 chats read from transcripts.
+Built 2026-10-08 04:07 CDT. 19 chats read from transcripts.
 
 ## Headline
 
@@ -53,7 +53,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Emotes on other streams  (9.2 days quiet, 34 replies)
+### Emotes on other streams  (9.3 days quiet, 34 replies)
 **Goal.** Not summarised by hand yet. Last input on record: simple one line what do i do
 
 - Kick's docs don't answer whether a streamer can use their own sub emotes in other chats. Next I'm checking Lizz's current emote set and recording the.
@@ -73,7 +73,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site skill  (8.3 days quiet, 818 replies)
+### Summer music site skill  (8.4 days quiet, 818 replies)
 **Goal.** Not summarised by hand yet. Last input on record: on the ixi site add a genre called prog and re run what might better fit there, same for electronic
 
 - Deployed at 19:14, and the live data.json matches the local build. Running the live check with Prog, Electronic and Metal as the chips to press.
@@ -113,7 +113,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (17.0 hours quiet, 5 replies)
+### Johnny Five daily pass  (17.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Plan:** run today's Johnny Five daily pass and report what it found. - **Phase 1:** I confirmed the Mac and read today's daily check file. - **Phase.
@@ -123,7 +123,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (15.8 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (16.3 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -133,7 +133,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (13.5 hours quiet, 2689 replies)
+### News radio community commentary highlights  (14.0 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -143,7 +143,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (9.4 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (9.9 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -153,7 +153,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (4.6 hours quiet, 1319 replies)
+### ixi page theme suggestions  (5.1 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -163,7 +163,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (3.7 hours quiet, 383 replies)
+### Filter single-play songs button  (4.2 hours quiet, 383 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/13182.sock" from-session="local_a2252bf4-8e01-41e5-ba8e-3114409dfcdd" from-name="Lizz Vega song cleanup 
 
 - Both live files now match the tested copies byte for byte, and the views, sortable, copy, rooster and parity gates all exit 0. Deploying, scoped to the.
@@ -173,7 +173,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (2.3 hours quiet, 3883 replies)
+### Ryan Adams Amy tabs  (2.8 hours quiet, 3883 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - The audit is clean: all 21 finished songs pass, and the ledger holds 22 entries for 22 distinct videos, so no song was charged twice. Recording the.
@@ -183,7 +183,7 @@ Totals: 17,888 assistant replies, 288 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (2.2 hours quiet, 912 replies)
+### Lizz Vega song cleanup button  (2.7 hours quiet, 912 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - I have the record format. Writing the step that checks each public read against its plan by SHA-256 and logs it. If any read doesn't match, it changes.
