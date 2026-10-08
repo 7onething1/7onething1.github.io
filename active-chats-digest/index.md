@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 11:16 CDT. 22 chats read from transcripts.
+Built 2026-10-08 11:46 CDT. 22 chats read from transcripts.
 
 ## Headline
 
 All 22 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 11 are past the 400-turn ceiling.
-Totals: 18,477 assistant replies, 299 MB of transcript.
+Totals: 18,827 assistant replies, 301 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer music site  (9.7 days quiet, 1693 replies)
+### Summer music site  (9.8 days quiet, 1693 replies)
 **Goal.** Not summarised by hand yet. Last input on record: summer genre buttons make it so multiple can be pressed at once stop pulling old streams
 
 - The changes are written up. As a last check, I'm starting the transcription job once under launchd, to prove the new code finds nothing old to take.
@@ -93,7 +93,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Space saving cleanup  (8.0 days quiet, 136 replies)
+### Space saving cleanup  (8.1 days quiet, 136 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Just the tiles to delete
 
 - Reading "tiles" as **files**: you want only the deletable parts showing, with the keepers out of view. Checking what inside each folder is scratch.
@@ -113,7 +113,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube transcripts community commentary  (23.4 hours quiet, 1697 replies)
+### YouTube transcripts community commentary  (23.9 hours quiet, 1697 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if no gif then pic
 
 - 🟢 The stall in "Advanced Gay" (S3E6) - **The man in the stall is Murray from the air conditioning annex.** He isn't Abed. After Troy unclogs his first.
@@ -123,7 +123,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### News radio community commentary highlights  (21.2 hours quiet, 2689 replies)
+### News radio community commentary highlights  (21.7 hours quiet, 2689 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>br5aepnky</task-id> <tool-use-id>toolu_012rLRWWxmGKmuor8fKDEa2d</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/04f87fe3-d4f0-4065-863f-d
 
 - Two runs are left: page-truth on Community Season 3 and the NewsRadio live click test. When Season 3 passes, Community deploys and gets its live hash.
@@ -133,7 +133,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (17.0 hours quiet, 359 replies)
+### Ryan Adams Songsterr inventory  (17.5 hours quiet, 359 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
 
 - All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
@@ -143,7 +143,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (12.2 hours quiet, 1319 replies)
+### ixi page theme suggestions  (12.8 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -153,7 +153,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (59 minutes quiet, 4 replies)
+### Stop malfeasance and fraud  (1.5 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -163,7 +163,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (40 minutes quiet, 5 replies)
+### Johnny Five daily pass  (1.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -173,7 +173,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (32 minutes quiet, 117 replies)
+### Large files to move  (1.0 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -183,7 +183,7 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (3 minutes quiet, 1005 replies)
+### Lizz Vega song cleanup button  (34 minutes quiet, 1005 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/17251.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play song
 
 - The catch-up is moving (39 pieces named), but the two Oct 7 Kick pieces still sit at "queued". I'd stopped its downloaders during the disk crisis, so.
@@ -193,33 +193,33 @@ Totals: 18,477 assistant replies, 299 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (1 minutes quiet, 501 replies)
-**Goal.** Not summarised by hand yet. Last input on record: there's space finish work
-
-- I'm looking at phone screenshots of the four views to see whether the panel bottom really is out of reach.
-- Running the swipe test on Exp 2 now, with the poster as a comparison.
-- While the Lizz chat finishes, I'm logging this pass's checklist and finding the exact rule that stops the Exp 2 panel from scrolling.
-- Testing the Exp 2 fix on my local copy now: first a swipe test, then a real click in all seven views.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams Amy tabs  (0 minutes quiet, 4058 replies)
+### Ryan Adams Amy tabs  (27 minutes quiet, 4087 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- The account holds 78 credits and no copies of either song. I am saving that snapshot and running the one-credit guard.
-- The independent check of all 22 live songs is now running in the background. Meanwhile I am reading the per-song steps before making the Strawberry.
-- The copy button has not opened its dialog yet. The side panel moved, so I am locating the button again.
-- The dialog offers automatic or manual instrument choice. I am opening the manual option to match the method used on the other songs.
+- The safety check stopped me before the step that spends a transcription credit. I will not route around that. I am closing the dialog untouched and.
+- Nothing was spent: credits still read 78, with no pending transcription. Next I am recording what today's checks proved about both held songs.
+- Carolina's outcome is now recorded as a proven blocker. Strawberry Wine waits on one credit approval from you. The 22-song check is still running, so I.
+- No, the work isn't finished. Two items are still open, and one of them needs your answer. 🟢 **Done** - **All 21 list songs are live.** A signed-out.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (0 minutes quiet, 82 replies)
+### Filter single-play songs button  (14 minutes quiet, 574 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "Lizz Vega song cleanup button", which you asked to be notified about, is idle now — it finished a turn at 11:12. Its harness reports: «I've stopped and am waitin
+
+- I'm recording the proof for each checklist item now. The summary comes right after.
+- All six checklist items are met, and the disk is holding at 42 GB free. Last, I'm grabbing the live status codes for the seven views to include in the.
+- Everything the full disk interrupted is finished and checked on the live site. Along the way I found a phone bug in Exp 2 and fixed it. 🟢 **Live and.
+- That notice is stale and doesn't need any action from me. The old Lizz session went idle at 11:12, right after it told me the Glostik lock was free,.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup  (11 minutes quiet, 330 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Lizz Vega song cleanup button chat archive it and resume it here
 
-- The queue holds 548 items, so I am filtering it to the ones the old chat added on Oct 7 and Oct 8.
-- The last deploy from this Mac went out at 11:09 as dpl_HMZ6zswpni4uKv432YeVSTgeSgDj, probably the Glostik Oct 7 build. Checking production against that.
-- Her pipeline has two runs: a Kick run and a YouTube run, with a daily 2 PM publish. The YouTube processor's last exit was code 3, so reading the tail.
-- Her YouTube run is paused by a STOP file, which is why Night 125 has not moved. Her Kick run shows one night queued. Reading the STOP files and the.
+- Unforgiven II has no window in any of the 39 Kick pieces named so far. Sixteen pieces remain, so mapping them to their dates.
+- Her post-Sep 22 Kick nights are named, apart from the three no-song stubs and tonight's night. Running the hunt with the Sep 22 night as a positive.
+- Let me grab the Kick link for the third Back Room take, so Brandon can check all three by ear in one pass.
+- The old chat is stopped, its state is saved, and its work continues here. Two steps need you. **🔴 Needs you** - **Archiving that chat:** a guard blocks.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
