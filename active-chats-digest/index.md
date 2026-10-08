@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 18:00 CDT. 10 chats read from transcripts.
+Built 2026-10-08 18:30 CDT. 11 chats read from transcripts.
 
 ## Headline
 
-All 10 chats ended on a gate block, 0 on a message from Brandon.
+All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 9,743 assistant replies, 121 MB of transcript.
+Totals: 9,785 assistant replies, 124 MB of transcript.
 
 ## Do yourself
 
@@ -23,17 +23,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Songsterr inventory  (23.7 hours quiet, 359 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b8s5338ka</task-id> <tool-use-id>toolu_01YEqwrPeGpKqhB5rRtMePS4</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/2d0ee448-2cd5-4c7f-81ce-b
-
-- All 27 formulas match their cells, and all six sheets carry named tables. Now I'll open the workbook in Numbers, reveal it in Finder, and send it to.
-- The inventory is built. The first sheet holds your 31 songs, and the file is open in Numbers and sent to your devices. **Your 31 songs on Songsterr** -.
-- The queued YouTube checks finished. I'll read the results, then rebuild.
-- The last YouTube checks are done, so the workbook is final. - 🟩 **All seven videos that were still waiting play.** Cold Roses, Catherine, Born Into A.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### ixi page theme suggestions  (19.0 hours quiet, 1319 replies)
+### ixi page theme suggestions  (19.5 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -43,7 +33,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (7.7 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (8.2 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -53,7 +43,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (7.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -63,7 +53,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (7.3 hours quiet, 117 replies)
+### Large files to move  (7.8 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -73,7 +63,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (5.7 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (6.2 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -83,7 +73,7 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (3.5 hours quiet, 4429 replies)
+### Ryan Adams Amy tabs  (4.0 hours quiet, 4429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
 - The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
@@ -93,22 +83,42 @@ Totals: 9,743 assistant replies, 121 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (32 minutes quiet, 790 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/17251.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play song
+### Filter single-play songs button  (18 minutes quiet, 955 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- The minute-by-minute pass is still running under the heavy load. The Mac also slept from 14:38 to 15:03, which cost time. The main results are solid,.
-- The Glostik chat's change is live, and its hold is lifted. I have nothing pending for Glostik, so I'm telling it no deploy is coming from me, then.
-- Memory saved, with its pointer in POINTERS.md. Recording the Unforgiven II result in the contract.
-- I stopped the extra minute-by-minute scan. The results I gave you earlier still stand. - **Your Mac overheated at 16:45 with the lid closed.** It.
+- Still waiting on Chrome. The tab has stayed hidden for about two minutes, so I'm logging the blocker and handing it back to you.
+- The posting tools are ready. Checking whether the Chrome tab has come to the front yet:
+- Still hidden. While I wait, I'm saving a note so later chats don't bring star ratings back. You had to ask several times, and the first removal only.
+- The Lizz page is fixed and live. All 19 YouTube comments are built and ready, but none can go up until the Chrome tab is on screen. 🟢 **The Lizz page's.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (0 minutes quiet, 866 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+### Mac overheating issue  (4 minutes quiet, 58 replies)
+**Goal.** Not summarised by hand yet. Last input on record: what are you doing thats overheating this mac
 
-- Quick status: the Lizz star check is running in the background. Meanwhile I'm checking the posting record for that stream: whether its comment was ever.
-- The Lizz star check has finished. Reading its result, and where the Aug 17 show sits in the setlist status:
-- While the Lizz page ships, I'm reading the format of the existing posting records and a past plan file, plus how the public read is taken:
-- Today's #055 post left a working plan file and a recorder script behind. I'm reading both to reuse the same proven method, and finding the public-read.
+- The Kick queue has 56 streams. 52 are finished, stream 053 is transcribing now, and 3 more are downloaded and waiting. Next I'm checking how long each.
+- The current stream finished its first half while I measured, and the second half is running now. Next I'm logging the checklist with the completion.
+- Both sub-asks are registered. One last check confirms that the 5-minute timer spawned this batch, and shows whether that timer respects the STOP flag.
+- Short answer:** your Glostik Kick setlist pipeline is transcribing streams with Whisper. It has kept about four cores' worth of CPU busy almost nonstop.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Tabs against UG  (0 minutes quiet, 143 replies)
+**Goal.** Not summarised by hand yet. Last input on record: check our tabs agains UG https://ixi-songs.vercel.app/#analysis
+
+- Status: 8 of 17 songs are fetched. While the rest download, I'm previewing No Surprises from the cached UG tabs to sanity-check the parse and the match.
+- Rerun started. The inventory step is complete and proven, so I'm marking it met. All 17 sheets hold 40 guitar and bass parts, and each one rebuilds.
+- Six cached songs finished in seconds, and Exit Music is fetching now. Once the run ends, I'll build the report and go through the disagreements one by one.
+- The Hollow is fetched. Five songs are left to fetch, and then the alignment pass runs.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup  (0 minutes quiet, 901 replies)
+**Goal.** Not summarised by hand yet. Last input on record: add helpers parelelel, add comments stso youtube
+
+- Sep 9 is posted: exact match, all 55 lines showing. Logging it and pulling the next ready show.
+- Sep 8 is posted, all 37 lines: 3 of 33 done. Logging it and taking the next.
+- Status: 3 of 33 comments are posted and checked. The rest go out one at a time, roughly a minute apart, with proof reads running in the background..
+- Sep 6 is posted: exact match, all 42 lines. Its header shows 3 comments including replies, matching the public read. Logging it and generating the next.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
