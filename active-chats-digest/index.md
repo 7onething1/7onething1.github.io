@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 22:32 CDT. 15 chats read from transcripts.
+Built 2026-10-08 23:02 CDT. 16 chats read from transcripts.
 
 ## Headline
 
-All 15 chats ended on a gate block, 0 on a message from Brandon.
+All 16 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 12,037 assistant replies, 157 MB of transcript.
+Totals: 12,462 assistant replies, 161 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (23.5 hours quiet, 1319 replies)
+### ixi page theme suggestions  (1.0 days quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -33,7 +33,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.3 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (12.8 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -43,7 +43,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (12.4 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -53,7 +53,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (11.8 hours quiet, 117 replies)
+### Large files to move  (12.3 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -63,7 +63,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (10.2 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (10.8 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -73,7 +73,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (8.1 hours quiet, 4429 replies)
+### Ryan Adams Amy tabs  (8.6 hours quiet, 4429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
 - The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
@@ -83,7 +83,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Tabs against UG  (3.7 hours quiet, 315 replies)
+### Tabs against UG  (4.2 hours quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: check our tabs agains UG https://ixi-songs.vercel.app/#analysis
 
 - Of the 17 Parabola bass notes UG leaves out, 13 are octave doubles and 4 are other upper notes over the low E. I'm correcting that line along with the.
@@ -93,7 +93,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Mac overheating issue  (3.3 hours quiet, 162 replies)
+### Mac overheating issue  (3.8 hours quiet, 162 replies)
 **Goal.** Not summarised by hand yet. Last input on record: throlttle
 
 - Memory is updated. One last live check: confirm the throttle is still holding, and the running worker is making progress.
@@ -103,7 +103,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Coventry blogspot comment links  (3.1 hours quiet, 39 replies)
+### Coventry blogspot comment links  (3.6 hours quiet, 39 replies)
 **Goal.** Not summarised by hand yet. Last input on record: get the links from the coventry. blogspot comment section related to vizzies or droids
 
 - Goal:** I'll collect every link posted in the Coventry Blogspot comment threads that mentions vizzies or droids. - **Phase 1:** Find the exact blog.
@@ -113,7 +113,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik song categories data loss  (2.2 hours quiet, 260 replies)
+### Glostik song categories data loss  (2.7 hours quiet, 260 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_eb3834d9-8b61-4921-a459-565cccd0669c" name="Filter single-play songs button"> Please pause now, on Brandon's word. B
 
 - The sung-text guard misread a regex as a wildcard, because this shell sits in the setlist folder. I'll run it from home without the pattern.
@@ -123,7 +123,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (2.0 hours quiet, 1297 replies)
+### Filter single-play songs button  (2.5 hours quiet, 1297 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - The year tool passed its test: 34 years before the run, 34 after, none lost. Now the nightly script edits:
@@ -133,7 +133,7 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (1.3 hours quiet, 1455 replies)
+### Lizz Vega song cleanup  (1.8 hours quiet, 1455 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/19260.sock" from-session="local_b2c0c940-c985-480b-bf97-96303c826b09" from-name="Single-play songs filte
 
 - No, not everything. Most of tonight's work is finished, but four things are still waiting: two on the 3 AM update, one on YouTube's spam filter, and.
@@ -143,22 +143,32 @@ Totals: 12,037 assistant replies, 157 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Single-play songs filter button  (1 minutes quiet, 777 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I see songs I wrote down past ten shows still not on there, evaluate how you're collecting lyrics and matching up and how you might be missing and what you do whit stuff that produces no mat
+### Glostik emote edit  (13 minutes quiet, 116 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
-- Goal:** find out why songs you wrote down from the last ten shows still aren't on the site, and put every take that matched nothing in front of you. -.
-- Strong lead: the site's Corrections tab stores what you submit, and per the skill "Nothing applies one automatically." Checking what's sitting in that.
-- While the audit runs, checking whether the songs you named have lyrics on file at all. A song without lyrics can never be found this way.
-- The audit finished. Every one of the last ten nights also has a Kick card with Kick-only songs, so Kick hours are being processed. Reading the audit.
+- Dry run is clean: 2,216 files, and only the page plus two members zips need sending. Rollback point recorded as `dpl_E2xCqi1K9GV1e48SRusasRWnDi8y`..
+- The never-delete hook caught a stray `rm` in that command, so nothing ran. Rerunning with a fresh filename and no delete.
+- Both texts pass the voice gate at score 0. One last check: a plain fetch with no cache-buster, the way an ordinary visitor loads the page.
+- WesShred is off the Glostik emote page - 🟪 **The live page no longer shows it.** The [animated page](https://glostik-emotes.vercel.app/animated/) now.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emote edit  (0 minutes quiet, 4 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/artist-chat-emotes # artist-chat-emotes Built 2026-09-19 from the Glostik pack: 29 emotes across three platforms, 27 cut fr
+### YouTube videos for 427 songs  (0 minutes quiet, 115 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b43z6rxkd</task-id> <summary>Monitor event: "YouTube listing steps finishing (done lines, failures)"</summary> <event>23:02:24 done pl_live_highlights exit=0 row
 
-- Goal: pull the **glostiktvWesShred** emote ("Wes locked in on the guitar") out of the Glostik emote pack. - **Phase 1, locate.** Find every file,.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- Status: 42 of 63 titles already have YouTube links. About 15 spaced YouTube listings are still queued, covering Cherry Wrenches, JayMoe, Lizz's channel.
+- Cherry Wrenches has no music under that name on YouTube; the top 40 results are off-road and tool videos. Still waiting on the JayMoe, Jyzz and Lizz.
+- The band's Releases tab lists the "Begin at the End" album (three editions) and the "Switch" and "Here We Go" singles. Their track lists are being read.
+- The band's Live Music Highlights playlist adds nothing new, since every video in it is already counted.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Single-play songs filter button  (0 minutes quiet, 975 replies)
+**Goal.** Not summarised by hand yet. Last input on record: These are the glostik originals I gave you, any other original is retired; hard gate, again. you keep for getting. <pasted_content id="f628"> 427 Peppermint KICK Traveling Moo Highs & Lows W
+
+- View gate passes. The dry run shows 3 changed files on top of current production, with nothing held. Deploying.
+- Live at 22:58 as dpl_J2wxgB3gZtYTS1QQ8YBZdbpbtdv7. Proving it on production: the originals gate against the live page data, plus the freshness and sync.
+- Memory saved (index at 23,078 bytes, under the cap). Adding the rule to the skill instructions and the run notes, where naming chats look first.
+- Recording evidence for each of the six outcomes, each one measured by code from the live data and the files.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
