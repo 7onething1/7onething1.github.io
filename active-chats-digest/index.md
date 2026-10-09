@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-09 02:05 CDT. 20 chats read from transcripts.
+Built 2026-10-09 02:36 CDT. 20 chats read from transcripts.
 
 ## Headline
 
 All 20 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 8 are past the 400-turn ceiling.
-Totals: 14,670 assistant replies, 180 MB of transcript.
+Totals: 14,972 assistant replies, 182 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.8 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (16.3 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -43,7 +43,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15.5 hours quiet, 5 replies)
+### Johnny Five daily pass  (16.0 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -53,7 +53,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (15.4 hours quiet, 117 replies)
+### Large files to move  (15.9 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -63,7 +63,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (13.8 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (14.3 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -73,7 +73,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Tabs against UG  (7.3 hours quiet, 315 replies)
+### Tabs against UG  (7.8 hours quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: check our tabs agains UG https://ixi-songs.vercel.app/#analysis
 
 - Of the 17 Parabola bass notes UG leaves out, 13 are octave doubles and 4 are other upper notes over the low E. I'm correcting that line along with the.
@@ -83,7 +83,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Mac overheating issue  (6.9 hours quiet, 162 replies)
+### Mac overheating issue  (7.4 hours quiet, 162 replies)
 **Goal.** Not summarised by hand yet. Last input on record: throlttle
 
 - Memory is updated. One last live check: confirm the throttle is still holding, and the running worker is making progress.
@@ -93,7 +93,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Coventry blogspot comment links  (6.7 hours quiet, 39 replies)
+### Coventry blogspot comment links  (7.2 hours quiet, 39 replies)
 **Goal.** Not summarised by hand yet. Last input on record: get the links from the coventry. blogspot comment section related to vizzies or droids
 
 - Goal:** I'll collect every link posted in the Coventry Blogspot comment threads that mentions vizzies or droids. - **Phase 1:** Find the exact blog.
@@ -103,7 +103,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik song categories data loss  (5.8 hours quiet, 260 replies)
+### Glostik song categories data loss  (6.3 hours quiet, 260 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_eb3834d9-8b61-4921-a459-565cccd0669c" name="Filter single-play songs button"> Please pause now, on Brandon's word. B
 
 - The sung-text guard misread a regex as a wildcard, because this shell sits in the setlist folder. I'll run it from home without the pattern.
@@ -113,7 +113,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (5.6 hours quiet, 1297 replies)
+### Filter single-play songs button  (6.1 hours quiet, 1297 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - The year tool passed its test: 34 years before the run, 34 after, none lost. Now the nightly script edits:
@@ -123,7 +123,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (4.9 hours quiet, 1455 replies)
+### Lizz Vega song cleanup  (5.4 hours quiet, 1455 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/19260.sock" from-session="local_b2c0c940-c985-480b-bf97-96303c826b09" from-name="Single-play songs filte
 
 - No, not everything. Most of tonight's work is finished, but four things are still waiting: two on the 3 AM update, one on YouTube's spam filter, and.
@@ -133,7 +133,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik emote edit  (3.3 hours quiet, 116 replies)
+### Glostik emote edit  (3.8 hours quiet, 116 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2600, displayed at 1108x2000. Multiply coordinates by 1.30 to map to original image.]
 
 - Dry run is clean: 2,216 files, and only the page plus two members zips need sending. Rollback point recorded as `dpl_E2xCqi1K9GV1e48SRusasRWnDi8y`..
@@ -143,7 +143,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Single-play songs filter button  (3.0 hours quiet, 988 replies)
+### Single-play songs filter button  (3.5 hours quiet, 988 replies)
 **Goal.** Not summarised by hand yet. Last input on record: These are the glostik originals I gave you, any other original is retired; hard gate, again. you keep for getting. <pasted_content id="f628"> 427 Peppermint KICK Traveling Moo Highs & Lows W
 
 - Recording evidence for each of the six outcomes, each one measured by code from the live data and the files.
@@ -153,7 +153,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio Community show bible infographics  (2.3 hours quiet, 298 replies)
+### Newsradio Community show bible infographics  (2.8 hours quiet, 298 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Community Show Bible infographic tick. Follow the Tick procedure in /Users/brandonchavez/Projects/_outputs/community-bible-infographics/STATE.md exactly: run tick.py status, run CHECK_JS in 
 
 - Both shows' Wikidata ids are confirmed: NewsRadio is Q427583 and Community is Q728553. My first guesses were wrong, so the lookup was worth doing..
@@ -163,7 +163,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos for 427 songs  (1.6 hours quiet, 398 replies)
+### YouTube videos for 427 songs  (2.1 hours quiet, 398 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bluhjm2oy</task-id> <summary>Monitor event: "YouTube lookups finishing, third watch (done lines, failures)"</summary> <event>[Monitor expired after 30m with 10 e
 
 - The tracker filed R1 to R4 under the earlier contract, which got parked when you sent your correction. I'm checking the script's source for how to.
@@ -173,7 +173,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Expensive hallucinations in chat tabs  (36 minutes quiet, 149 replies)
+### Expensive hallucinations in chat tabs  (1.1 hours quiet, 149 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>wi116x03h</task-id> <tool-use-id>toolu_01ASwrTWEZkNxQDgPyeYmuAN</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/5cc229d5-d4ff-4025-9c8d-9
 
 - Queue fixed: the stale item now carries a block that says never to upload the capo-0 file, and it points at the new item. Building the ledger workbook.
@@ -183,7 +183,7 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (20 minutes quiet, 4500 replies)
+### Ryan Adams Amy tabs  (50 minutes quiet, 4500 replies)
 **Goal.** Not summarised by hand yet. Last input on record: if you stopped the songs must be perfect you fuck
 
 - All eight Cold Roses songs now have left/right stems and an upload folder. Reading the last four side reports.
@@ -193,22 +193,22 @@ Totals: 14,670 assistant replies, 180 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Opus 5.5 outline and chapter: My Favorite Chord  (2 minutes quiet, 134 replies)
+### Opus 5.5 outline and chapter: My Favorite Chord  (20 minutes quiet, 219 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/music-analysis-writer # music-analysis-writer — three-gate prose for music writing ## What this skill does Take a music-ana
 
-- Next I'm writing the outline. It follows ixi's own segment names from the two videos, and every song carries an evidence label.
-- Outline drafted. Next I'm running both gates on it: the standalone anti-AI hard gate, and the skill's three-gate runner with the sources and citation pack.
-- The one flag is a false positive: "open a chorus" matched the verifier's "open A" tuning pattern. I'm rewording that line and giving Chapter 15 its own.
-- Both gates pass on the outline (exit 0 and exit 0). I then re-checked every claim against the transcripts and found four sentences that said slightly.
+- Section 2 passes both gates: anti-AI score 0 (exit 0) and **PARAPHRASE 99.0% ✓
+- All six sections pass both gates individually. Next I'm assembling the full chapter and running the whole-chapter gates, including the stricter chapter.
+- Everything is recorded. Next I'm opening both files on screen, revealing them in Finder, and sending them to the app.
+- Done: the outline and Chapter 1 are written, gated, and open in TextEdit.** I wrote both myself on Opus 5.5. 🟢 **What the playlist is** - **The.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik most played songs tabs  (1 minutes quiet, 1260 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I just don't understand songsterr tabs, like why isnt the lyrics over the rhymn chords, the fuck
+### Glostik most played songs tabs  (4 minutes quiet, 1477 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Now find most played 50 in the last 50
 
-- Up on Mars is uploading, and The Weight is the last upload. Confirming the charge.
-- Up on Mars is in (credits 60 to 59). Last upload: The Weight, E-flat.
-- All 14 songs are now submitted to Songsterr. Confirming The Weight's charge, then collecting the last finished tabs.
-- The folder is now in your last-10-shows order. Running the per-channel key check on Carry On and Round and Round too, so all 14 use the same test, then.
+- All 14 Glostik tabs are done.** Each one has every part Songsterr's AI picked up, with chord names and words added. ### Checklist 1. **The 14.
+- The top 50 list is built. Before I hand it over, I'm checking whether any plays were logged twice on the same night.
+- The list is done: 52 songs, because there's a tie at 50th place. I'm saving it and opening the workbook now.
+- Glostik's top 50 over the last 50 shows comes to 52 songs.** Nine songs are tied at 10 plays for the last places, and I kept all of them instead of.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
