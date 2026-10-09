@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-08 19:00 CDT. 12 chats read from transcripts.
+Built 2026-10-08 19:30 CDT. 13 chats read from transcripts.
 
 ## Headline
 
-All 12 chats ended on a gate block, 0 on a message from Brandon.
+All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 10,204 assistant replies, 141 MB of transcript.
+Totals: 10,573 assistant replies, 144 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (20.0 hours quiet, 1319 replies)
+### ixi page theme suggestions  (20.5 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -33,7 +33,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (8.7 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (9.2 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -43,7 +43,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.4 hours quiet, 5 replies)
+### Johnny Five daily pass  (8.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -53,7 +53,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (8.3 hours quiet, 117 replies)
+### Large files to move  (8.8 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -63,7 +63,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (6.7 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (7.2 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -73,7 +73,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (4.5 hours quiet, 4429 replies)
+### Ryan Adams Amy tabs  (5.0 hours quiet, 4429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
 - The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
@@ -83,7 +83,7 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Tabs against UG  (11 minutes quiet, 315 replies)
+### Tabs against UG  (41 minutes quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: check our tabs agains UG https://ixi-songs.vercel.app/#analysis
 
 - Of the 17 Parabola bass notes UG leaves out, 13 are octave doubles and 4 are other upper notes over the low E. I'm correcting that line along with the.
@@ -93,42 +93,52 @@ Totals: 10,204 assistant replies, 141 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (1 minutes quiet, 1051 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
-
-- Aug 11 is posted, all 46 lines, onto a video with 0 comments. That's 20 posted and 3 held, with 10 to go.
-- Aug 9 is posted, all 46 lines. Its single existing comment loaded and isn't yours. That's 21 posted and 3 held, with 9 to go.
-- Still posting, now at the Aug 1 show. Twenty-six comments are up with three on hold, and four remain.
-- Three proof reads came back with no public comment from @pagesofbrandon: Aug 12, Aug 11 and Aug 9. I'm stopping new posts until I know why. Two shows.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Mac overheating issue  (1 minutes quiet, 90 replies)
+### Mac overheating issue  (17 minutes quiet, 162 replies)
 **Goal.** Not summarised by hand yet. Last input on record: throlttle
 
-- Short answer:** your Glostik Kick setlist pipeline is transcribing streams with Whisper. It has kept about four cores' worth of CPU busy almost nonstop.
-- Throttling the Whisper jobs so the Mac cools down. The queue keeps running. 1. **Check the pipeline's watchdogs**, so a paused worker can't trigger a.
-- Now the launchd agent. It keeps the throttle alive while the flag file exists, and it reads a fixed PATH.
-- Detection finds both real workers, and the plist is valid. Running the dummy test now.
+- Memory is updated. One last live check: confirm the throttle is still holding, and the running worker is making progress.
+- All 11 checks pass on the new code, including the stay-on mode. Applying it to the live throttle: set the flag to stay on, restart the agent so it.
+- Live: the throttle restarted on the new code as PID 84793 in stay-on mode, and the old instance exited cleanly. Updating the memory note to match:
+- The throttle is on and verified.** Only one Whisper worker runs at a time now. The second one waits frozen and starts by itself when the first.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Filter single-play songs button  (1 minutes quiet, 968 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_f65af90b-9ffd-41ec-ab50-2994f0d4a078" name="Glostik song categories data loss"> To-do from Brandon: recover the lost
+### Glostik song categories data loss  (14 minutes quiet, 81 replies)
+**Goal.** Not summarised by hand yet. Last input on record: what the fuck where's the comment https://www.youtube.com/watch?v=dAHLMJfZpJc&t=2529s
 
-- Still hidden. While I wait, I'm saving a note so later chats don't bring star ratings back. You had to ask several times, and the first removal only.
-- The Lizz page is fixed and live. All 19 YouTube comments are built and ready, but none can go up until the Chrome tab is on screen. 🟢 **The Lizz page's.
-- The peer relays one ask from you: put the Sep 15 Glostik categories workbook on my to-do list, since that file is out of date and a lot of its data has.
-- Your Sep 15 workbook is on my to-do list, and the YouTube comments are still waiting on a visible Chrome window. 🟢 **To-do added.** "Recover the song.
+- Checking now. That video is setlist row 021. Earlier today the Glostik chat said that row never got a comment. I'll do a public read of the video and.
+- The plan file holds a ready 49-line setlist for this show with no comment id, so it was never posted. Two new queue items landed at 7:13 PM that name.
+- Everything lines up, and it's already queued. One last check: does the ready setlist include 42:09, the spot your link points at?
+- That comment was never posted. A ready version is waiting, and I didn't post it tonight because YouTube is hiding new comments from your account. 🔴.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik song categories data loss  (0 minutes quiet, 52 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_eb3834d9-8b61-4921-a459-565cccd0669c" name="Filter single-play songs button"> Added to the to-do list as q-2026-10-0
+### Coventry blogspot comment links  (4 minutes quiet, 39 replies)
+**Goal.** Not summarised by hand yet. Last input on record: get the links from the coventry. blogspot comment section related to vizzies or droids
 
-- The message is sitting in the Glostik chat's transcript, and that chat is working on it now. I'll give it about 90 seconds, then check that the to-do.
-- The message got through, and the Glostik chat is acting on it now. I'm waiting about 90 seconds for its turn to finish, then I'll read its reply to.
-- The Glostik chat reports the item is logged as q-2026-10-08-952f3b. I'll check that id against the queue file itself before calling this done.
-- The queue entry checks out: it is at line 2183 of the shared queue, marked queued, with your words verbatim. I'll mark the last item met.
+- Goal:** I'll collect every link posted in the Coventry Blogspot comment threads that mentions vizzies or droids. - **Phase 1:** Find the exact blog.
+- The vocabulary is clear now: **droids / droid / droidz** for audio and **vizzies / viz / visuals** for video. Old ringtone spam also says "droid", so.
+- I'm wrapping up now. I'll make one quick check that the legal sources I'm about to name still load.
+- I found the blog and read all 13,420 comments. Then I stopped before building the link list, so Phase 3 never ran. **What the comments say these files.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup  (2 minutes quiet, 1167 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/17251.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play song
+
+- The blocker is recorded as b-ce8513e35e (GENUINE). Next I'm marking R2 met with its evidence and the pacing shortfall written into it.
+- Putting the agreed posting order into the queue item now, then the final report.
+- I've stopped posting for today. Of the 33 shows, **18 now have a public setlist** and YouTube is hiding 10 more. Posting another one now would most.
+- The other chat ("Filter single-play songs button") is adding "80s" and "New" buttons to the Glostik site at your request. It asked every chat to hold.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Filter single-play songs button  (1 minutes quiet, 1081 replies)
+**Goal.** Not summarised by hand yet. Last input on record: You said 19 first
+
+- Yes, all 19 setlists in that range are live on the site, including the three still waiting for their YouTube comment. I checked the site's live song.
+- The Lizz chat agreed to your order: Aug 17 first, then Aug 27, Sep 3, and the July shows. It also apologized for overwriting my two files. I'm checking.
+- Quick status: missing release years are filling in the background. Meanwhile I'm mapping how each of the seven views builds its song filters, so I can.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
