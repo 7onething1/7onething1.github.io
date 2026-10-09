@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-08 20:31 CDT. 14 chats read from transcripts.
+Built 2026-10-08 21:31 CDT. 14 chats read from transcripts.
 
 ## Headline
 
 All 14 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 6 are past the 400-turn ceiling.
-Totals: 11,214 assistant replies, 152 MB of transcript.
+0 need a Brandon action. 7 are past the 400-turn ceiling.
+Totals: 11,864 assistant replies, 156 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostick pull timing adjustment  (9.0 days quiet, 845 replies)
+### Glostick pull timing adjustment  (9.1 days quiet, 845 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>baxz3szc7</task-id> <tool-use-id>toolu_01Tuw7MYL3AihE2J66e5TuXv</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/e7834303-1f69-4c27-b624-7
 
 - The check is ready. It also confirms `data.json` has "Walk Away - James Gang" and no "Seems to Me", and that `playlists.json` carries Steve's with 12.
@@ -23,7 +23,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### ixi page theme suggestions  (21.5 hours quiet, 1319 replies)
+### ixi page theme suggestions  (22.5 hours quiet, 1319 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Image: original 986x2747, displayed at 718x2000. Multiply coordinates by 1.37 to map to original image.]
 
 - All three outcomes are met with recorded proof. The live page is open in Firefox and the local file is revealed in Finder. Drafting the reply and.
@@ -33,7 +33,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (10.2 hours quiet, 4 replies)
+### Stop malfeasance and fraud  (11.2 hours quiet, 4 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the stall sweep, send a verified resume order to each stalled chat, log every nudge, and write the report. **Phase 1.** Run the sweep and.
@@ -43,7 +43,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (9.9 hours quiet, 5 replies)
+### Johnny Five daily pass  (10.9 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS tabs check: PASS, 10 of 10 tabs answered, 0 new, inbox /Users/brandonchavez/Projects/_outputs/glostik-setlists/tabs_inbox.md johnny.
@@ -53,7 +53,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Large files to move  (9.8 hours quiet, 117 replies)
+### Large files to move  (10.8 hours quiet, 117 replies)
 **Goal.** Not summarised by hand yet. Last input on record: are you done
 
 - Moving now. The Elements drive is exFAT with 1.6 TB free. A folder-level `mv` aborts on that format, so this script moves one file at a time and checks.
@@ -63,7 +63,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup button  (8.2 hours quiet, 1009 replies)
+### Lizz Vega song cleanup button  (9.2 hours quiet, 1009 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw13rodl8</task-id> <tool-use-id>toolu_01RJpA6koqpDKAmjwyqZ2gqB</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3d83e11d-a946-4cf6-a298-0
 
 - I've stopped the wait. The Glostik chat's message is out of date, and answering it now stops it from rebuilding and redeploying what's already live, so.
@@ -73,7 +73,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (6.0 hours quiet, 4429 replies)
+### Ryan Adams Amy tabs  (7.0 hours quiet, 4429 replies)
 **Goal.** Not summarised by hand yet. Last input on record: there's a third guitar on en Will You Come Back Home, idk if the rhymn is always sharp or just a few chords, the third guitar is close to the thymn guitar put picked
 
 - The When Will fix is built, gated and written up. I'm logging that evidence, then moving to Easy Plateau.
@@ -83,7 +83,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Tabs against UG  (1.7 hours quiet, 315 replies)
+### Tabs against UG  (2.7 hours quiet, 315 replies)
 **Goal.** Not summarised by hand yet. Last input on record: check our tabs agains UG https://ixi-songs.vercel.app/#analysis
 
 - Of the 17 Parabola bass notes UG leaves out, 13 are octave doubles and 4 are other upper notes over the low E. I'm correcting that line along with the.
@@ -93,7 +93,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Mac overheating issue  (1.3 hours quiet, 162 replies)
+### Mac overheating issue  (2.3 hours quiet, 162 replies)
 **Goal.** Not summarised by hand yet. Last input on record: throlttle
 
 - Memory is updated. One last live check: confirm the throttle is still holding, and the running worker is making progress.
@@ -103,7 +103,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Coventry blogspot comment links  (1.1 hours quiet, 39 replies)
+### Coventry blogspot comment links  (2.1 hours quiet, 39 replies)
 **Goal.** Not summarised by hand yet. Last input on record: get the links from the coventry. blogspot comment section related to vizzies or droids
 
 - Goal:** I'll collect every link posted in the Coventry Blogspot comment threads that mentions vizzies or droids. - **Phase 1:** Find the exact blog.
@@ -113,7 +113,7 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik song categories data loss  (13 minutes quiet, 260 replies)
+### Glostik song categories data loss  (1.2 hours quiet, 260 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_eb3834d9-8b61-4921-a459-565cccd0669c" name="Filter single-play songs button"> Please pause now, on Brandon's word. B
 
 - The sung-text guard misread a regex as a wildcard, because this shell sits in the setlist folder. I'll run it from home without the pattern.
@@ -123,32 +123,32 @@ Totals: 11,214 assistant replies, 152 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz Vega song cleanup  (2 minutes quiet, 1372 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/17251.sock" from-session="local_eb3834d9-8b61-4921-a459-565cccd0669c" from-name="Filter single-play song
-
-- The workbook now carries the 11 never-played songs from your list itself, the ones that had been nowhere in it. They'll survive every nightly rebuild..
-- Telling the other Glostik chat about the change to the shared tools, so its next rebuild doesn't surprise it.
-- Brandon, they kept disappearing because two steps of the nightly rebuild dropped them. I've fixed both, and the fix goes live with the 3 AM update.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Single-play songs filter button  (0 minutes quiet, 41 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Filter single-play songs button chat, prepare to resume here
-
-- Reading the old chat's contracts and recent turns now.
-- Pulling the old chat's queued asks now.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Filter single-play songs button  (0 minutes quiet, 1297 replies)
+### Filter single-play songs button  (1.0 hours quiet, 1297 replies)
 **Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
 
 - The year tool passed its test: 34 years before the run, 34 after, none lost. Now the nightly script edits:
 - Today's workbook is `/Users/Shared/Glostik_favorites.xlsx`, written by `build_workbook.py`. Next I'm reading its sheets and columns next to the Sep 15.
 - Quick status: I'm building an item-by-item list of what the Sep 15 workbook had that today's lost. A small fix: the catalog file stores its songs as a.
 - No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz Vega song cleanup  (18 minutes quiet, 1455 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/19260.sock" from-session="local_b2c0c940-c985-480b-bf97-96303c826b09" from-name="Single-play songs filte
+
+- No, not everything. Most of tonight's work is finished, but four things are still waiting: two on the 3 AM update, one on YouTube's spam filter, and.
+- The other chat has released the shared files. One change affects my queue. Its paste tool now converts every new paste to the new marks, so the five.
+- The other Glostik chat's fixes are in. I checked them against your never-played fix, and all of it still ships with the 3 AM update. - **Your.
+- Running on Empty is fixed. Jackson Browne's song is back in the main song list with its 1 play, filed under Folk / Singer-Songwriter as in your Sep 15.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Single-play songs filter button  (1 minutes quiet, 608 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
+
+- Writing the closing block to a draft file and running the firewall against this session's own transcript, so it grades this chat and no sibling.
+- Five components refused. Pulling each one's detail so I can fix the work itself.
+- Blocker recorded as genuine (b-fe5a287f04), and the item is marked blocked until the 3 AM run. Checking what the completion controller still sees.
+- The controller refuses my four outcomes because their evidence is prose it cannot verify. Reading what evidence format it accepts.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
