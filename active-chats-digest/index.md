@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-10 18:22 CDT. 15 chats read from transcripts.
+Built 2026-10-10 18:52 CDT. 16 chats read from transcripts.
 
 ## Headline
 
-All 15 chats ended on a gate block, 0 on a message from Brandon.
+All 16 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 7,699 assistant replies, 84 MB of transcript.
+Totals: 8,035 assistant replies, 87 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Discord playback CPU usage  (22.9 hours quiet, 80 replies)
+### Discord playback CPU usage  (23.4 hours quiet, 80 replies)
 **Goal.** Not summarised by hand yet. Last input on record: let discord play don't hit cpu so hard it cant
 
 - Now I'm adding the launchd start command to the guard's memory note, so future chats use it.
@@ -23,7 +23,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs  (22.8 hours quiet, 4838 replies)
+### Ryan Adams Amy tabs  (23.3 hours quiet, 4838 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - The import dialog opened this time, so your words got through. Now I confirm "Replace current tab" and load the per-bar fix file into the editor.
@@ -33,7 +33,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams Amy tabs chat  (21.1 hours quiet, 554 replies)
+### Ryan Adams Amy tabs chat  (21.6 hours quiet, 554 replies)
 **Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
 - Writing the song's report next: bar map, checks, sources and the pending upload. It gets checked with the voice gate.
@@ -43,7 +43,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### URL shortener for Summer Woods site  (20.9 hours quiet, 108 replies)
+### URL shortener for Summer Woods site  (21.4 hours quiet, 108 replies)
 **Goal.** Not summarised by hand yet. Last input on record: is it live summerwoods.vercel.app
 
 - The CLI reports success:** "Domain summerwoods.vercel.app added to project summer-songs." Now proving it with HTTP codes and byte-for-byte page.
@@ -53,7 +53,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Animated emote YouTube skill  (20.3 hours quiet, 59 replies)
+### Animated emote YouTube skill  (20.8 hours quiet, 59 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Look at our animated emote youtbe skill
 
 - The checker printed "No errors" but zsh dropped the exit code through the pipe. I'll rerun it once without the pipe to capture that code.
@@ -63,7 +63,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Song metadata corrections  (19.1 hours quiet, 291 replies)
+### Song metadata corrections  (19.6 hours quiet, 291 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://summer-songs.vercel.app/#songs?genre=Grunge%7CMetal%7CPop+%2F+Soft+Rock%7CAlternative+Rock YOU'RE FUCKING UP! for example don't dream its over is really what I am edie brickell. fix 
 
 - Both domains serve the new build (HTTP 200, 27 rows for 9-18). The update job's background wait also just finished, so I am reading what it logged,.
@@ -73,7 +73,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick livestream recording  (16.8 hours quiet, 175 replies)
+### Kick livestream recording  (17.3 hours quiet, 175 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bx7p79ew0</task-id> <tool-use-id>toolu_01WPeEhp1QSiw3ZrUcyNzf5F</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/7a44a4f8-a9f8-47e7-af7a-5
 
 - Clicking the camera button in the studio now.
@@ -83,7 +83,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer and Lizz sets update status  (15.3 hours quiet, 98 replies)
+### Summer and Lizz sets update status  (15.8 hours quiet, 98 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why isn't the latest summer and lizz sets updated yet
 
 - Short update: Summer's new show is queued. For Lizz, yesterday's processor crashes were already fixed by another chat. I'm now checking that her Night.
@@ -93,7 +93,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (15.2 hours quiet, 307 replies)
+### 55% volume limit  (15.7 hours quiet, 307 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make it louder
 
 - The limit is off as of 12:52:44, and 45 stays saved. Your speakers are at 45. Next I check again after the refresh and sweep for anything that could.
@@ -103,7 +103,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Songsterr Pavement Terror Twilight lyrics  (15.2 hours quiet, 403 replies)
+### Songsterr Pavement Terror Twilight lyrics  (15.7 hours quiet, 403 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98771.sock" from-session="local_f33d4b9c-5010-4448-b89d-0af68ca2b3cc" from-name="Pavement Songsterr tabs
 
 - Cream of Gold is repaired live. Revision `r9646066` passes against the donor, and its words are intact at 236 syllables. Checking Billie's staged draft.
@@ -113,7 +113,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Pavement Songsterr tabs quality  (14.9 hours quiet, 688 replies)
+### Pavement Songsterr tabs quality  (15.5 hours quiet, 688 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bf58gwen9</task-id> <summary>Monitor event: "Pavement audit: og_check and sync results as they land"</summary> <event>[Monitor expired after 30m with 8 events de
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -123,7 +123,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (13.5 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (14.0 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -133,7 +133,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.3 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (12.8 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -143,7 +143,7 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (9.7 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (10.2 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -153,12 +153,22 @@ Totals: 7,699 assistant replies, 84 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (9 minutes quiet, 95 replies)
-**Goal.** Not summarised by hand yet. Last input on record: sshe's on kick.com
+### Glostik Versal Gmail login setup  (11 minutes quiet, 173 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6xbpcppe</task-id> <tool-use-id>toolu_01HFTWE838FDcYtjx4beth1E</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
-- Lizz has her own pipeline. It runs the YouTube side overnight only, a Kick harvest, and a 14:00 daily publish. I'm reading her notes and logs to see.
-- Last night's Lizz show finished downloading, and transcription starts next. I'm arming a watcher on it and reading her export and deploy steps while it.
-- Transcription of Lizz's Oct 9 Kick show is running, and the dry run left her files untouched. I'm measuring its pace so I can give you a real finish time.
-- Status at 18:13: last night's Lizz show is transcribing now.** **What is running** - **The show:** Kick stream "One New LiveLearn: Halloween Dressup.
+- It is on her page, but the setlist is empty.** - **What the live page shows:** the top card on her Setlists tab reads "Sat Oct 10, One New LiveLearn:.
+- The watcher exited with code 2, which is the stall signal I built in: the stage still says transcribing, yet no Lizz Kick processor was alive for three.
+- Her transcript file was still growing at 18:33, so something is working on her show. The whisper throttle also shows a held worker. I'm reading the.
+- Update 18:45: her processor crashed, I fixed the cause, and it is running again.** - **What broke:** at 18:33 a hangup signal killed her Kick job just.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik Versal Gmail login setup (fork)  (1 minutes quiet, 258 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Just get those on the sight first
+
+- "What I Am" at 2:24:08 is right, and I'm leaving it alone.** Lizz is off my list too. A note on disk shows another session is already working her show..
+- Rereading your last few messages, "those" most likely means the songs missing from Summer's site. Her matcher can only add a song once I know its.
+- Your "some are, some are not" may mean some of those 31 aren't showing on the live Songs tab. I can test that directly: load the page the way a visitor.
+- The finder shows two unnamed music takes in the Oct 9 show. I'm running a check on every music take against its named rows now.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
