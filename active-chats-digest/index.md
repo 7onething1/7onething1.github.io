@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-11 06:14 CDT. 8 chats read from transcripts.
+Built 2026-10-11 06:45 CDT. 7 chats read from transcripts.
 
 ## Headline
 
-All 8 chats ended on a gate block, 0 on a message from Brandon.
+All 7 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 1,358 assistant replies, 32 MB of transcript.
+Totals: 1,357 assistant replies, 32 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (1.0 days quiet, 1 replies)
+### Stop malfeasance and fraud  (22.1 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -23,17 +23,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (21.6 hours quiet, 1 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Versal Gmail login setup (fork)  (11.1 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (11.6 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -43,7 +33,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (7.0 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (7.5 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -53,7 +43,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (5.8 hours quiet, 340 replies)
+### Show shared button across filters  (6.3 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -63,7 +53,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (2.5 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (3.0 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -73,7 +63,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (1.7 hours quiet, 51 replies)
+### Volume limit  (2.2 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -83,7 +73,7 @@ Totals: 1,358 assistant replies, 32 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (36 minutes quiet, 222 replies)
+### Ixi site playlist and custom lists  (1.1 hours quiet, 222 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9zv0qvu8</task-id> <tool-use-id>toolu_01UmPUr8Rvnf2RxCHHmu9WWP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Status: the live site passes all 95 checks. I'm now updating the tracker, the README and the memory notes.
