@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-11 00:43 CDT. 11 chats read from transcripts.
+Built 2026-10-11 01:13 CDT. 11 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 ## Every chat
 
-### Kick livestream recording  (23.1 hours quiet, 175 replies)
+### Kick livestream recording  (23.6 hours quiet, 175 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bx7p79ew0</task-id> <tool-use-id>toolu_01WPeEhp1QSiw3ZrUcyNzf5F</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/7a44a4f8-a9f8-47e7-af7a-5
 
 - Clicking the camera button in the studio now.
@@ -23,7 +23,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer and Lizz sets update status  (21.7 hours quiet, 98 replies)
+### Summer and Lizz sets update status  (22.2 hours quiet, 98 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why isn't the latest summer and lizz sets updated yet
 
 - Short update: Summer's new show is queued. For Lizz, yesterday's processor crashes were already fixed by another chat. I'm now checking that her Night.
@@ -33,7 +33,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (21.5 hours quiet, 307 replies)
+### 55% volume limit  (22.0 hours quiet, 307 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make it louder
 
 - The limit is off as of 12:52:44, and 45 stays saved. Your speakers are at 45. Next I check again after the refresh and sweep for anything that could.
@@ -43,7 +43,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Songsterr Pavement Terror Twilight lyrics  (21.5 hours quiet, 403 replies)
+### Songsterr Pavement Terror Twilight lyrics  (22.0 hours quiet, 403 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98771.sock" from-session="local_f33d4b9c-5010-4448-b89d-0af68ca2b3cc" from-name="Pavement Songsterr tabs
 
 - Cream of Gold is repaired live. Revision `r9646066` passes against the donor, and its words are intact at 236 syllables. Checking Billie's staged draft.
@@ -53,7 +53,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Pavement Songsterr tabs quality  (21.3 hours quiet, 688 replies)
+### Pavement Songsterr tabs quality  (21.8 hours quiet, 688 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bf58gwen9</task-id> <summary>Monitor event: "Pavement audit: og_check and sync results as they land"</summary> <event>[Monitor expired after 30m with 8 events de
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -63,7 +63,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (19.8 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (20.4 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -73,7 +73,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (18.6 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (19.1 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -83,7 +83,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.1 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (16.6 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -93,7 +93,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup (fork)  (5.6 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (6.1 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -103,7 +103,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (1.4 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (1.9 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -113,7 +113,7 @@ Totals: 2,647 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (14 minutes quiet, 340 replies)
+### Show shared button across filters  (44 minutes quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
