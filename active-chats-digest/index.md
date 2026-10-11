@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-11 16:18 CDT. 6 chats read from transcripts.
+Built 2026-10-11 18:02 CDT. 8 chats read from transcripts.
 
 ## Headline
 
-All 6 chats ended on a gate block, 0 on a message from Brandon.
+All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,034 assistant replies, 48 MB of transcript.
+Totals: 2,073 assistant replies, 49 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Versal Gmail login setup (fork)  (21.2 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (22.9 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -23,7 +23,7 @@ Totals: 2,034 assistant replies, 48 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (17.0 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (18.8 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -33,7 +33,7 @@ Totals: 2,034 assistant replies, 48 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (15.8 hours quiet, 340 replies)
+### Show shared button across filters  (17.6 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -43,7 +43,7 @@ Totals: 2,034 assistant replies, 48 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (12.6 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (14.3 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -53,7 +53,7 @@ Totals: 2,034 assistant replies, 48 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (11.8 hours quiet, 51 replies)
+### Volume limit  (13.5 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -63,12 +63,32 @@ Totals: 2,034 assistant replies, 48 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (29 minutes quiet, 900 replies)
+### Ixi site playlist and custom lists  (2.2 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
 - That monitor expired after the browser run had already finished, so nothing is pending. All four outcomes on the reaction contract are met, and the.
 - That event confirms the final live run I already reported: 140 checks passed, 30 of 30 buttons landed on their seconds, and there were no script.
 - That monitor ended normally and carries nothing new. The reaction work is finished and verified live, and no background jobs of mine are still running.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (1 minutes quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ixi site today's live  (1 minutes quiet, 30 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
+
+- Goal:** add today's live show to the Ixi site and deploy it. - **Phase 1:** Find the Ixi site, its data files, and today's live source. - **Phase 2:**.
+- Found the site (ixi-songs.vercel.app); its stream list last refreshed at 00:20, so today's stream is missing. Reading the refresh tools next.
+- No other chat is working on ixi right now. Registering the checklist and refreshing the stream list.
+- R1 is settled: today's stream is **BIG-SOUNDING TRIOS listening party** (d30w9OBEebA, 2 h 11 m). Fetching its description next.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
