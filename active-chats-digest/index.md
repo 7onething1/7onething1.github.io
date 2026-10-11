@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-11 14:47 CDT. 6 chats read from transcripts.
+Built 2026-10-11 15:18 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,600 assistant replies, 37 MB of transcript.
+Totals: 1,826 assistant replies, 42 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Versal Gmail login setup (fork)  (19.6 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (20.1 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -23,7 +23,7 @@ Totals: 1,600 assistant replies, 37 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (15.5 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (16.0 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -33,7 +33,7 @@ Totals: 1,600 assistant replies, 37 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (14.3 hours quiet, 340 replies)
+### Show shared button across filters  (14.8 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -43,7 +43,7 @@ Totals: 1,600 assistant replies, 37 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (11.1 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (11.6 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -53,7 +53,7 @@ Totals: 1,600 assistant replies, 37 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (10.3 hours quiet, 51 replies)
+### Volume limit  (10.8 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -63,12 +63,12 @@ Totals: 1,600 assistant replies, 37 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (3 minutes quiet, 466 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x3600, displayed at 800x2000. Multiply coordinates by 1.80 to map to original image.]
+### Ixi site playlist and custom lists  (0 minutes quiet, 692 replies)
+**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
 
-- Status: the player button is built in the staged page. I'm wiring a test copy of the reaction data into the stage, so I can click the button in a real.
-- Status: I'm fetching each track's recorded length from Deezer, a second check on the detector. A song played in full should run about as long as its.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
+- Real `reactions.json` (30 plays) is built into the staged site and re-rendered; starting the full browser test, which now presses all 30 buttons.
+- Picks check out: 30 plays chosen, 30 others skipped for torture or nature. The full browser test is still running; checking its progress.
+- The staged template differs from the live one only by the reaction button and its loader. The full 30-button browser test is still running.
+- Still waiting on the 30-button browser run; I'll set a monitor on it instead of polling.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
