@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-11 13:47 CDT. 6 chats read from transcripts.
+Built 2026-10-11 14:17 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 1,435 assistant replies, 35 MB of transcript.
+Totals: 1,453 assistant replies, 35 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Versal Gmail login setup (fork)  (18.6 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (19.1 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -23,7 +23,7 @@ Totals: 1,435 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (14.5 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (15.0 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -33,7 +33,7 @@ Totals: 1,435 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (13.3 hours quiet, 340 replies)
+### Show shared button across filters  (13.8 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -43,7 +43,7 @@ Totals: 1,435 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (10.1 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (10.6 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -53,7 +53,7 @@ Totals: 1,435 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (9.3 hours quiet, 51 replies)
+### Volume limit  (9.8 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -63,12 +63,12 @@ Totals: 1,435 assistant replies, 35 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (59 minutes quiet, 301 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bjmpntn7t</task-id> <tool-use-id>toolu_015qX8SdFDZmSEQNTBHd62wo</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
+### Ixi site playlist and custom lists  (1 minutes quiet, 319 replies)
+**Goal.** Not summarised by hand yet. Last input on record: do this first
 
-- Status: fixing two small things the test turned up. Eight themes have no songs, and eight streams have empty tracklists. Then I rerun everything.
-- Status: the Theme filter build is installed and renders identically to the tested copy. Deploying it to the site now.
 - Theme filter is live - 🟪 **A Theme row now sits under Genre.** **One "Pick themes" button starts closed**, so the page looks the same until you press.
 - 🟩 **Firefox opened the live Songs tab.** The summary above still stands, and nothing new needs you.
+- 🟥 **"ode2" matches no skill, note or request I can find.** **What did you mean by it?** The ixi site work above is finished and live, so nothing waits.
+- Checklist for this ask: 1. Pick the last 10 Alternative Rock, last 10 Grunge and last 10 Prog plays, skipping Torture and Nature streams. 2. Add a.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
