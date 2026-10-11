@@ -1,49 +1,19 @@
 # Active chats digest
 
-Built 2026-10-10 21:12 CDT. 14 chats read from transcripts.
+Built 2026-10-10 22:12 CDT. 11 chats read from transcripts.
 
 ## Headline
 
-All 14 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 3,205 assistant replies, 51 MB of transcript.
+All 11 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 2 are past the 400-turn ceiling.
+Totals: 2,507 assistant replies, 27 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Ryan Adams Amy tabs chat  (23.9 hours quiet, 554 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. Summary: 1. Primary Request and Intent
-
-- Writing the song's report next: bar map, checks, sources and the pending upload. It gets checked with the voice gate.
-- The voice gate flags two lines: the shortened hash reads as an ellipsis, and one sentence opens with "It was". Fixing both and re-gating.
-- The voice gate is clean on the report, with 0 findings. Writing the local handoff file, since this session has run long.
-- Please Do Not Let Me Go: fix built, upload waiting on your yes The fixed tab is built and passes every check, but it's not live yet. Your "don't upload.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### URL shortener for Summer Woods site  (23.8 hours quiet, 108 replies)
-**Goal.** Not summarised by hand yet. Last input on record: is it live summerwoods.vercel.app
-
-- The CLI reports success:** "Domain summerwoods.vercel.app added to project summer-songs." Now proving it with HTTP codes and byte-for-byte page.
-- The auto-open rule applies here, since the live page is the deliverable. Before opening Firefox, I'm checking that the page won't start playing audio.
-- Confirmed: every play call in the page sits inside a click handler, so **loading it starts no sound**. Opening it in Firefox and gating my reply.
-- 🟢 Yes, it's live now:** [https://summerwoods.vercel.app/](https://summerwoods.vercel.app/) - **Nobody was using that name when you asked.** It returned.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Animated emote YouTube skill  (23.1 hours quiet, 59 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Look at our animated emote youtbe skill
-
-- The checker printed "No errors" but zsh dropped the exit code through the pipe. I'll rerun it once without the pipe to capture that code.
-- Exit code 0 on the static pack, and the checker has zero lines that touch a GIF. I'll confirm two last details and close the checklist items with their.
-- The members' GIFs sit in subfolders, so the earlier count missed them. One quick recount keeps the numbers honest.
-- Your ask:** look at the animated emote YouTube skill. **Checklist:** 🟢 1. Found the skill. 🟢 2. Read all of it. 🟢 3. Report below, with proof. ### 🟢 1..
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Song metadata corrections  (21.9 hours quiet, 291 replies)
+### Song metadata corrections  (22.9 hours quiet, 291 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://summer-songs.vercel.app/#songs?genre=Grunge%7CMetal%7CPop+%2F+Soft+Rock%7CAlternative+Rock YOU'RE FUCKING UP! for example don't dream its over is really what I am edie brickell. fix 
 
 - Both domains serve the new build (HTTP 200, 27 rows for 9-18). The update job's background wait also just finished, so I am reading what it logged,.
@@ -53,7 +23,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Kick livestream recording  (19.6 hours quiet, 175 replies)
+### Kick livestream recording  (20.6 hours quiet, 175 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bx7p79ew0</task-id> <tool-use-id>toolu_01WPeEhp1QSiw3ZrUcyNzf5F</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/7a44a4f8-a9f8-47e7-af7a-5
 
 - Clicking the camera button in the studio now.
@@ -63,7 +33,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer and Lizz sets update status  (18.2 hours quiet, 98 replies)
+### Summer and Lizz sets update status  (19.2 hours quiet, 98 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why isn't the latest summer and lizz sets updated yet
 
 - Short update: Summer's new show is queued. For Lizz, yesterday's processor crashes were already fixed by another chat. I'm now checking that her Night.
@@ -73,7 +43,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (18.0 hours quiet, 307 replies)
+### 55% volume limit  (19.0 hours quiet, 307 replies)
 **Goal.** Not summarised by hand yet. Last input on record: make it louder
 
 - The limit is off as of 12:52:44, and 45 stays saved. Your speakers are at 45. Next I check again after the refresh and sweep for anything that could.
@@ -83,7 +53,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Songsterr Pavement Terror Twilight lyrics  (18.0 hours quiet, 403 replies)
+### Songsterr Pavement Terror Twilight lyrics  (19.0 hours quiet, 403 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/98771.sock" from-session="local_f33d4b9c-5010-4448-b89d-0af68ca2b3cc" from-name="Pavement Songsterr tabs
 
 - Cream of Gold is repaired live. Revision `r9646066` passes against the donor, and its words are intact at 236 syllables. Checking Billie's staged draft.
@@ -93,7 +63,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Pavement Songsterr tabs quality  (17.8 hours quiet, 688 replies)
+### Pavement Songsterr tabs quality  (18.8 hours quiet, 688 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bf58gwen9</task-id> <summary>Monitor event: "Pavement audit: og_check and sync results as they land"</summary> <event>[Monitor expired after 30m with 8 events de
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -103,7 +73,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.3 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (17.3 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -113,7 +83,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.1 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (16.1 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -123,7 +93,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.6 hours quiet, 1 replies)
+### Stop malfeasance and fraud  (13.5 hours quiet, 1 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -133,7 +103,7 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup (fork)  (2.1 hours quiet, 317 replies)
+### Glostik Versal Gmail login setup (fork)  (3.0 hours quiet, 317 replies)
 **Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
 
 - The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
@@ -143,12 +113,12 @@ Totals: 3,205 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik Versal Gmail login setup  (0 minutes quiet, 202 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b3q6yb5gt</task-id> <summary>Monitor event: "Lizz Oct 9 Kick show: spans, stage, liveness, list file (re-armed)"</summary> <event>[Monitor expired after 30m with
+### Glostik Versal Gmail login setup  (7 minutes quiet, 225 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bgml0j7cg</task-id> <summary>Monitor event: "Lizz Oct 9 Kick show: spans, stage, liveness, list file (3rd arm)"</summary> <event>22:05 stage=transcribing spans_d
 
-- The watcher is re-armed on Lizz's show, and I'll report when the first chunk finishes, near 19:26.
-- No change yet. The first chunk is due near 19:26.
-- The watcher expired with no change in 30 minutes, and the first chunk should have finished around 19:26. I'm checking whether the worker is stuck,.
 - It's 20:47 and her first chunk has not written anything since 20:08. The clock jumped 39 minutes between my last two commands, which looks like the Mac.
+- Update 21:46: her show is still transcribing, and the Mac sleeping caused most of the delay.** - **What happened:** the power log shows the Mac asleep.
+- Chunk 1 of 4 finished at 21:47. Chunk 2 is next, due near 22:09.
+- Chunk 2 of 4 finished at 22:05, in 18 minutes. Chunk 3 is due near 22:25.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
