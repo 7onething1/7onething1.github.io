@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-12 09:06 CDT. 7 chats read from transcripts.
+Built 2026-10-12 09:36 CDT. 7 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 ## Every chat
 
-### Ixi site playlist and custom lists  (17.3 hours quiet, 900 replies)
+### Ixi site playlist and custom lists  (17.8 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
@@ -23,7 +23,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15.1 hours quiet, 9 replies)
+### Johnny Five daily pass  (15.6 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
@@ -33,7 +33,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (14.9 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (15.4 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
@@ -43,7 +43,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site today's live  (14.8 hours quiet, 120 replies)
+### Ixi site today's live  (15.3 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
 
 - Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
@@ -53,7 +53,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video stalling and freezing  (11.7 hours quiet, 15 replies)
+### Video stalling and freezing  (12.2 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
@@ -63,7 +63,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (8.9 hours quiet, 323 replies)
+### 55% volume limit  (9.4 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -73,7 +73,7 @@ Totals: 1,723 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (6.6 hours quiet, 349 replies)
+### Lizz and Glostik early update  (7.1 hours quiet, 349 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bctpvse6c</task-id> <tool-use-id>toolu_016jWGXyteDhU9DGT316xzCU</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
 - While that waits, I'm queuing the two items I can't finish here, so neither drops silently.
