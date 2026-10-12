@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-10-11 19:03 CDT. 9 chats read from transcripts.
+Built 2026-10-11 19:33 CDT. 8 chats read from transcripts.
 
 ## Headline
 
-All 9 chats ended on a gate block, 0 on a message from Brandon.
+All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,170 assistant replies, 51 MB of transcript.
+Totals: 1,853 assistant replies, 48 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Versal Gmail login setup (fork)  (23.9 hours quiet, 317 replies)
-**Goal.** Not summarised by hand yet. Last input on record: what? you do this all the time for me without my help, yes we picked two domains
-
-- The search did not lock either take. The 4-minute one came closest to Alice in Chains' "Man in the Box" at 32.5 on 8 phrases, below her lock floor of.
-- The search is paused, and there is nothing left to push.** I stopped it, and no search process is running. It named no title for either take, so it.
-- Right: you chose two domains, and I was only confirming both serve the same data. And you're right that I shouldn't ask for titles. Her search stopped.
-- You're right: the two songs I found aren't on the site because they have no title yet, so naming them is the job. The wider search is running now, so.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik Versal Gmail login setup  (19.8 hours quiet, 316 replies)
+### Glostik Versal Gmail login setup  (20.3 hours quiet, 316 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
 
 - The list file was written at 23:08. Naming is still running its final checks.
@@ -33,7 +23,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (18.6 hours quiet, 340 replies)
+### Show shared button across filters  (19.1 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -43,7 +33,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (15.3 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (15.8 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -53,7 +43,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (14.5 hours quiet, 51 replies)
+### Volume limit  (15.0 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -63,7 +53,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (3.2 hours quiet, 900 replies)
+### Ixi site playlist and custom lists  (3.7 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
@@ -73,7 +63,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (1.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (1.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
@@ -83,7 +73,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (53 minutes quiet, 7 replies)
+### Stop malfeasance and fraud  (1.4 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
@@ -93,7 +83,7 @@ Totals: 2,170 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site today's live  (46 minutes quiet, 120 replies)
+### Ixi site today's live  (1.3 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
 
 - Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
