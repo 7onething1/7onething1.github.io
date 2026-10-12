@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-12 13:37 CDT. 8 chats read from transcripts.
+Built 2026-10-12 14:07 CDT. 8 chats read from transcripts.
 
 ## Headline
 
 All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 1,974 assistant replies, 42 MB of transcript.
+Totals: 1,981 assistant replies, 42 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Ixi site playlist and custom lists  (21.8 hours quiet, 900 replies)
+### Ixi site playlist and custom lists  (22.3 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
@@ -23,7 +23,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (19.6 hours quiet, 9 replies)
+### Johnny Five daily pass  (20.1 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
@@ -33,7 +33,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (19.5 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (20.0 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
@@ -43,7 +43,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site today's live  (19.3 hours quiet, 120 replies)
+### Ixi site today's live  (19.8 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
 
 - Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
@@ -53,7 +53,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video stalling and freezing  (16.2 hours quiet, 15 replies)
+### Video stalling and freezing  (16.7 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
@@ -63,7 +63,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (13.5 hours quiet, 323 replies)
+### 55% volume limit  (14.0 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -73,7 +73,7 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (3.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -83,12 +83,12 @@ Totals: 1,974 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (8 minutes quiet, 594 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bz6d0w2ac</task-id> <summary>Monitor event: "Glostik routine: gates, deploy, freshness, done"</summary> <event>2026-10-12 13:29:00 markers: MARKER AND NOTE GATE:
+### Lizz and Glostik early update  (27 minutes quiet, 601 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bz6d0w2ac</task-id> <tool-use-id>toolu_01KxRZDLUbmopYWXJCxv3L9J</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
-- Checking the live sites right now, rather than going from memory of earlier runs.
-- The June night came out clean: 31 songs and 0 flags from the list check. Publishing it through the full gated routine now, so the Glostik site isn't.
-- Short answer: yes for last night. The routine is now adding the one repaired June night that was still missing. I'll report once its deploy and gates.
-- The marker and originals gates passed on the rebuild that includes the June night. Waiting on the deploy.
+- The page data passed the originals gate. The deploy is next.
+- Deployed: `dpl_8siuCjfKNEwBNXz36gSaLP38CRUv` went live at 1:39 PM. Now waiting on the freshness gate's verdict.
+- Routine finished at 1:40 PM. The freshness gate passes with all 88 named lists on the live site, the June night included. The site-sync failures are.
+- Yes, both websites have all of last night.** - **Glostik has all of last night.** That's 42 songs from YouTube and 5 more from the Kick stream, in.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
