@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-11 23:34 CDT. 9 chats read from transcripts.
+Built 2026-10-12 00:04 CDT. 9 chats read from transcripts.
 
 ## Headline
 
@@ -23,7 +23,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Show shared button across filters  (23.1 hours quiet, 340 replies)
+### Show shared button across filters  (23.6 hours quiet, 340 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
 
 - Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
@@ -33,7 +33,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### VLC video freezing diagnosis  (19.9 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (20.4 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -43,7 +43,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (19.1 hours quiet, 51 replies)
+### Volume limit  (19.6 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -53,7 +53,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (7.8 hours quiet, 900 replies)
+### Ixi site playlist and custom lists  (8.3 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
@@ -63,7 +63,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.5 hours quiet, 9 replies)
+### Johnny Five daily pass  (6.0 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
@@ -73,7 +73,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5.4 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (5.9 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
@@ -83,7 +83,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site today's live  (5.3 hours quiet, 120 replies)
+### Ixi site today's live  (5.8 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
 
 - Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
@@ -93,7 +93,7 @@ Totals: 1,868 assistant replies, 49 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video stalling and freezing  (2.1 hours quiet, 15 replies)
+### Video stalling and freezing  (2.6 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
