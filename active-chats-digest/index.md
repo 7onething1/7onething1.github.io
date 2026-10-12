@@ -1,39 +1,19 @@
 # Active chats digest
 
-Built 2026-10-12 01:04 CDT. 11 chats read from transcripts.
+Built 2026-10-12 01:34 CDT. 9 chats read from transcripts.
 
 ## Headline
 
-All 11 chats ended on a gate block, 0 on a message from Brandon.
+All 9 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,323 assistant replies, 54 MB of transcript.
+Totals: 1,800 assistant replies, 42 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Glostik Versal Gmail login setup  (1.1 days quiet, 316 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bw1htncng</task-id> <tool-use-id>toolu_011VVh46hiD9Ka68YNVQWdwh</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/c1c7fec3-3a81-4f79-be94-b
-
-- The list file was written at 23:08. Naming is still running its final checks.
-- Naming finished at 23:09: the job is idle with exit code 0 and `named=True`. Before I export, I'm reading the finished list and its notes (titles and.
-- Notes saved. One last proof of what you'll see: I'm loading her live page in a fresh headless browser and reading the top of her Setlists tab.
-- Yes, last night's show is on Lizz's page now, with 20 songs.** - **What you'll see:** the top card on her Setlists tab reads "Sat Oct 10, One New.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Show shared button across filters  (1.0 days quiet, 340 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Its the all seasons one that needs it the most
-
-- Everything is verified on the exact file. Now the deploy, following the procedure in your notes for this project: the override touch runs as its own.
-- Writing two memory notes, one on the lesson and one on where this site lives, so the next chat doesn't repeat today's detour.
-- Everything is shipped and documented. Last bookkeeping: confirm the contract shows no unmet outcomes and close it.
-- The "Other shows this booth shares" button is now on the all-seasons page and live. I first read your request as the "Show the shared shows ranking".
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### VLC video freezing diagnosis  (21.4 hours quiet, 110 replies)
+### VLC video freezing diagnosis  (21.9 hours quiet, 110 replies)
 **Goal.** Not summarised by hand yet. Last input on record: why is vlc freezing video, the file or the cpu
 
 - The voice gate passed with score 0 (exit 0, LLM layer skipped). One more quick look to confirm the exact tab label for the fix.
@@ -43,7 +23,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume limit  (20.6 hours quiet, 51 replies)
+### Volume limit  (21.1 hours quiet, 51 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% on
 
 - The ceiling reads 45% and the level sits at 44, so the clamp had nothing to pull down. Re-reading past the config cache and sweeping now.
@@ -53,7 +33,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site playlist and custom lists  (9.3 hours quiet, 900 replies)
+### Ixi site playlist and custom lists  (9.8 hours quiet, 900 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
 
 - Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
@@ -63,7 +43,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (7.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (7.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
@@ -73,7 +53,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.9 hours quiet, 7 replies)
+### Stop malfeasance and fraud  (7.4 hours quiet, 7 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
@@ -83,7 +63,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ixi site today's live  (6.8 hours quiet, 120 replies)
+### Ixi site today's live  (7.3 hours quiet, 120 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
 
 - Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
@@ -93,7 +73,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Video stalling and freezing  (3.6 hours quiet, 15 replies)
+### Video stalling and freezing  (4.1 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
@@ -103,7 +83,7 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (55 minutes quiet, 323 replies)
+### 55% volume limit  (1.4 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -113,12 +93,12 @@ Totals: 2,323 assistant replies, 54 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (0 minutes quiet, 132 replies)
+### Lizz and Glostik early update  (16 minutes quiet, 265 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
-- Lizz's deploy is still running, so I'm setting up a proper wait for it to finish.
-- Lizz's early publish is verified. It shipped only her 4 files, and the other Mac's 32 files stayed untouched. Next I'm setting up the pull for her live.
-- I'm writing a one-shot Lizz watcher, modeled on Glostik's existing one, so her live show reaches her page once it's named.
-- Found a snag. Two old June videos ahead of tonight's in the Glostik queue keep failing to download ("Requested format is not available"). I'm checking.
+- Memory is updated: the yt-dlp note, the two Lizz notes, and two pointer lines. Next I'm checking transcription progress and whether Glostik is still live.
+- The handoff is written. Lizz's early publish is proven live, so I'm marking that outcome met.
+- Now I wait on the Glostik transcription; the monitor will report each stage. Meanwhile I'm reading what the site-sync gate flagged on its last run,.
+- Progress so far, at 1:20 AM: - **Lizz:** her early publish is live. Kick deleted one more of her nights (Sep 12), so 14 more plays now open on YouTube.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
