@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-12 22:04 CDT. 6 chats read from transcripts.
+Built 2026-10-12 22:34 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,808 assistant replies, 22 MB of transcript.
+Totals: 1,917 assistant replies, 23 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### 55% volume limit  (21.9 hours quiet, 323 replies)
+### 55% volume limit  (22.4 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -23,7 +23,7 @@ Totals: 1,808 assistant replies, 22 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (12.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -33,7 +33,7 @@ Totals: 1,808 assistant replies, 22 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (3.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -43,7 +43,7 @@ Totals: 1,808 assistant replies, 22 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Song categories reorganization  (2.1 hours quiet, 363 replies)
+### Song categories reorganization  (2.6 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -53,22 +53,22 @@ Totals: 1,808 assistant replies, 22 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Brandon playlist with YouTube clips  (2 minutes quiet, 215 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
+### Lizz and Glostik early update  (24 minutes quiet, 914 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bs9cce5yc</task-id> <tool-use-id>toolu_012XptTz8FT4TPPBUoofiEQe</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
-- Found it: YouTube refuses embeds from 127.0.0.1 but plays them on localhost. Making the error rule stop after three failures in a row, then rebuilding.
-- Classic 1 passes all nine steps, control included. Running all seven views now.
-- The older Next check passes too in all seven views, now ending songs by the real video. Adding a views-gate row for the change and proving it can fail.
-- The new gate row reads MISSING in all seven live views and yes in all seven staged views, so it can fail. Running the full gate set on the staged tree.
+- The export carries it: Oct 4 now has 19 plays, and "Suicide Solution" gains its first video play (36 plays in all). The dry run is clean, with 2.
+- Deployed: `dpl_EBtiuEYsr9GC6rAXfmeVVwWMh343` is live as of 10:08 PM. The baseline is advanced and the freshness gate passes. Final proof is the Oct 4.
+- Saving the three helper scripts into the setlist run's `_checks` folder, since the scratchpad gets cleared, and writing the method into memory.
+- "Suicide Solution" was a quick tease on the Oct 4 show, and it's on the page now.** - **No filter touched it anywhere in the pipeline.** I searched.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (1 minutes quiet, 896 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bs9cce5yc</task-id> <tool-use-id>toolu_012XptTz8FT4TPPBUoofiEQe</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
+### Brandon playlist with YouTube clips  (0 minutes quiet, 306 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
-- Brandon thinks a word filter threw out "Suicide Solution" from 3 or 4 shows ago, which would be Oct 7 or Oct 5. Checklist: 1. **Test the filter claim.
-- Checking the transcript loader's data shape before running, so the counts are real.
-- That Oct 4 Kick stream began at 7:47 PM, so the "suicide" moment fell at about 8:55 PM. Checking which YouTube video covers that minute.
-- The caption counter is written; it prints only times and counts, deduplicated per 5 seconds. Waiting on the three caption downloads.
+- Live: all 59 steps pass in all seven views on the real site. Running the Next check on production at desktop and phone size too.
+- Both pass on production at 1440x900 and 390x844. Taking a screenshot of the new list on the live Ballroom view to see it as a visitor does.
+- The new list is live in Ballroom ("Brandon's list 2, picked by hand, song by song, on October 12"). Now grounding the clip answer: what formats this.
+- YouTube's own clip button caps a clip at 60 seconds, and this Mac can pull full 1080p60 video again today. Recording the checklist in the completion.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
