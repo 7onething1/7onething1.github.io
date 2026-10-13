@@ -1,6 +1,6 @@
 # Active chats digest
 
-Built 2026-10-12 20:33 CDT. 6 chats read from transcripts.
+Built 2026-10-12 21:03 CDT. 6 chats read from transcripts.
 
 ## Headline
 
@@ -13,7 +13,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 ## Every chat
 
-### Video stalling and freezing  (23.1 hours quiet, 15 replies)
+### Video stalling and freezing  (23.6 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
@@ -23,7 +23,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (20.4 hours quiet, 323 replies)
+### 55% volume limit  (20.9 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -33,7 +33,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (10.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (10.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -43,7 +43,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (1.5 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (2.0 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,7 +53,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Song categories reorganization  (34 minutes quiet, 363 replies)
+### Song categories reorganization  (1.1 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -63,7 +63,7 @@ Totals: 1,496 assistant replies, 19 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (30 minutes quiet, 784 replies)
+### Lizz and Glostik early update  (1.0 hours quiet, 784 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b7lbk8m33</task-id> <tool-use-id>toolu_01JXBsPJE3vUMtskbfrddJAS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
 - The sibling chat says Lizz's new genres are deploying now, with only her folder touched. Her export keeps them from here on. That fits my plan: my.
