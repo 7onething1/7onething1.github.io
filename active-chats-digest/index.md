@@ -1,59 +1,19 @@
 # Active chats digest
 
-Built 2026-10-12 15:37 CDT. 8 chats read from transcripts.
+Built 2026-10-12 19:33 CDT. 6 chats read from transcripts.
 
 ## Headline
 
-All 8 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 2,080 assistant replies, 42 MB of transcript.
+All 6 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 1 are past the 400-turn ceiling.
+Totals: 1,267 assistant replies, 12 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Ixi site playlist and custom lists  (23.8 hours quiet, 900 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>biy9fahsf</task-id> <tool-use-id>toolu_018Qp6xKZgzLskwcnhgnsbqS</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/3f6ca5d1-fb87-4d6e-95e2-c
-
-- Skip to reaction is live on the ixi site ## Your four asks, each proven - 🟩 **Picks:** the last 10 Alternative Rock, Grunge and Prog plays are chosen,.
-- That monitor expired after the browser run had already finished, so nothing is pending. All four outcomes on the reaction contract are met, and the.
-- That event confirms the final live run I already reported: 140 checks passed, 30 of 30 buttons landed on their seconds, and there were no script.
-- That monitor ended normally and carries nothing new. The reaction work is finished and verified live, and no background jobs of mine are still running.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (21.6 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Both inboxes agree with the daily check. The source file is at /Users/brandonchavez/Projects/_outputs/glostik-setlists/daily_check.md, linked here as.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (21.5 hours quiet, 7 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- The sweep runs first, then each chat that still owes work gets a check and a message. - **Phase 1:** Run the stall sweep and load the session tools. -.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ixi site today's live  (21.3 hours quiet, 120 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Update Ixi site with todays live
-
-- Live Songs and Streams tabs both carry today's stream: 15 rows dated Oct 11, each opening d30w9OBEebA at its own second. Checking the theme link and.
-- The shared theme link opens all 15 songs at phone size. Re-running the full site check for the desktop covers.
-- All five outcomes have evidence. Saving the non-obvious lesson to the ixi project note, then putting the live Streams tab on screen per the deliverable.
-- Today's live stream is on the site 🟩 **The BIG-SOUNDING TRIOS listening party** is now the newest stream: Oct 11, 2 h 11 m, 15 songs. 🟪 The songs come.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Video stalling and freezing  (18.2 hours quiet, 15 replies)
+### Video stalling and freezing  (22.1 hours quiet, 15 replies)
 **Goal.** Not summarised by hand yet. Last input on record: youtube audio is not playing what are you stealing the bandwitdth for
 
 - Goal: take my background load off your Mac so the video plays smoothly again. - **Phase 1:** I find what is using CPU, GPU, disk and network, and I.
@@ -63,7 +23,7 @@ Totals: 2,080 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (15.5 hours quiet, 323 replies)
+### 55% volume limit  (19.4 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -73,7 +33,7 @@ Totals: 2,080 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (8.9 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -83,12 +43,32 @@ Totals: 2,080 assistant replies, 42 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (57 minutes quiet, 700 replies)
+### Lizz and Glostik early update  (4.9 hours quiet, 700 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bf3g6lt6r</task-id> <tool-use-id>toolu_01TL7hiKfNUNeL1G3iNzoSLV</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
 - Summer is done. Recording the change in memory, since the old note says Summer has no extra genre buckets and a future chat could "fix" it back.
 - Now the YouTube comments. Checking that Claude in Chrome sees your browser.
 - Claude in Chrome still reports no connected browser from this session. You may have turned on the other route instead. Testing that with a harmless.
 - Summer's site has the new genres live. The YouTube comments are still blocked on the Chrome connection.** 🟢 **Summer Woods: new genres are live** -.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (29 minutes quiet, 5 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Song categories reorganization  (1 minutes quiet, 218 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>[270/354] 'postal service': Indie 
+
+- MGMT goes to Indie Rock through its top tag (indie rock, 7 votes). "Electric Feel" moves out of Pop. Matt Maltese came up just before that and didn't.
+- Wikidata answers by MusicBrainz ID. Arctic Monkeys comes back as alternative rock, indie rock and others. I'll add it for thin cases once the pass.
+- The Postal Service goes to Indie Pop, its top tag at 5 votes. While the pass finishes its last stretch, I'm writing the probe that pulls Wikidata.
+- The probe is ready to run as soon as the pass writes its artist file.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
