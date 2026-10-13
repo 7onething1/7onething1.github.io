@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-13 05:06 CDT. 8 chats read from transcripts.
+Built 2026-10-13 05:36 CDT. 8 chats read from transcripts.
 
 ## Headline
 
 All 8 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,539 assistant replies, 40 MB of transcript.
+Totals: 2,559 assistant replies, 40 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Johnny Five daily pass  (18.5 hours quiet, 6 replies)
+### Johnny Five daily pass  (19.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -23,7 +23,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (10.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (10.5 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -33,7 +33,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Song categories reorganization  (9.1 hours quiet, 363 replies)
+### Song categories reorganization  (9.6 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -43,7 +43,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (6.9 hours quiet, 914 replies)
+### Lizz and Glostik early update  (7.4 hours quiet, 914 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bs9cce5yc</task-id> <tool-use-id>toolu_012XptTz8FT4TPPBUoofiEQe</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
 - The export carries it: Oct 4 now has 19 plays, and "Suicide Solution" gains its first video play (36 plays in all). The dry run is clean, with 2.
@@ -53,7 +53,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Brandon playlist with YouTube clips  (6.5 hours quiet, 326 replies)
+### Brandon playlist with YouTube clips  (7.0 hours quiet, 326 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - Both test servers were mine and stopped on my kill, so those two notices are expected. Adding the new tools to the skill file and saving one reference.
@@ -63,7 +63,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos unlisted  (3.6 hours quiet, 387 replies)
+### YouTube videos unlisted  (4.1 hours quiet, 387 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Rebuilding the restore list with both passes, after backing up the first version.
@@ -73,7 +73,7 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (3.2 hours quiet, 330 replies)
+### 55% volume limit  (3.7 hours quiet, 330 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% limit on
 
 - 🟩 The H87 has no limit - 🟩 **Nothing is capping the H87 now.** It went up to 90 at 00:08:26, and it still read 90 at 00:09:02. - 🟦 **The headset.
@@ -83,12 +83,12 @@ Totals: 2,539 assistant replies, 40 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (0 minutes quiet, 208 replies)
+### Newsradio/community scripts automation  (0 minutes quiet, 228 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT NewsRadio / Community scripts pass loop. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md and run its "One tick" sec
 
-- The stuck pass 8 is cleared, and pass 9 is in as a retry of the episode-structure focus. I clicked Stop once on the dead turn, reloaded, and sent..
-- Pass 10 is in, and its focus is the station and the school as institutions. ChatGPT's server now shows 10 pass prompts. The pass 9 retry finished.
-- Pass 11 is in, and its focus is arcs, exits and finales. ChatGPT's server now shows 11 pass prompts. Pass 10 finished first: 31,224 characters in three.
 - Pass 12 is in, and its focus is lines and jokes. ChatGPT's server now shows 12 pass prompts. Pass 11 finished first: 34,078 characters on cast exits.
+- Pass 13 is in, and its focus is character pairs. ChatGPT's server now shows 13 pass prompts. Pass 12 finished first: 33,018 characters of line-level.
+- Pass 14 is in, and its focus is episode structure. ChatGPT's server now shows 14 pass prompts. Pass 13 finished first: 29,766 characters on how the.
+- Pass 15 is in, and its focus is the station and the school as institutions. ChatGPT's server now shows 15 pass prompts. Pass 14 finished first: 35,413.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
