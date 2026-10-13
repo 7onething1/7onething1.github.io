@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-12 21:34 CDT. 6 chats read from transcripts.
+Built 2026-10-12 22:04 CDT. 6 chats read from transcripts.
 
 ## Headline
 
 All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 1,610 assistant replies, 20 MB of transcript.
+Totals: 1,808 assistant replies, 22 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### 55% volume limit  (21.4 hours quiet, 323 replies)
+### 55% volume limit  (21.9 hours quiet, 323 replies)
 **Goal.** Not summarised by hand yet. Last input on record: h87 limt off too
 
 - You've hit your weekly limit · resets Oct 11 at 6pm (America/Chicago)
@@ -23,7 +23,7 @@ Totals: 1,610 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (11.0 hours quiet, 6 replies)
+### Johnny Five daily pass  (11.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
@@ -33,7 +33,7 @@ Totals: 1,610 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.5 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (3.0 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -43,7 +43,7 @@ Totals: 1,610 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Song categories reorganization  (1.6 hours quiet, 363 replies)
+### Song categories reorganization  (2.1 hours quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -53,22 +53,22 @@ Totals: 1,610 assistant replies, 20 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (4 minutes quiet, 847 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bfm8i6opz</task-id> <tool-use-id>toolu_018f49ATEGLu1783Lh2TSpT6</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
+### Brandon playlist with YouTube clips  (2 minutes quiet, 215 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
-- Quick status: Suicide Solution isn't in the lyrics of the last three shows, so I'm widening the search to every show and Kick recording since Sep 28.
-- While the chat replays download, I'm writing a small parser that prints only chat lines mentioning Ozzy or Suicide Solution, with their video timestamps.
-- The first chat replay is downloading, at 3.8 MB so far. Chat replays come down page by page, so this takes a few minutes per show.
-- "Suicide Solution" isn't in any recorded show yet. My best guess is tonight's show, which is still live, and I've started a check that will settle it..
+- Found it: YouTube refuses embeds from 127.0.0.1 but plays them on localhost. Making the error rule stop after three failures in a row, then rebuilding.
+- Classic 1 passes all nine steps, control included. Running all seven views now.
+- The older Next check passes too in all seven views, now ending songs by the real video. Adding a views-gate row for the change and proving it can fail.
+- The new gate row reads MISSING in all seven live views and yes in all seven staged views, so it can fail. Running the full gate set on the staged tree.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Brandon playlist with YouTube clips  (0 minutes quiet, 66 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
+### Lizz and Glostik early update  (1 minutes quiet, 896 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bs9cce5yc</task-id> <tool-use-id>toolu_012XptTz8FT4TPPBUoofiEQe</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
-- Found the site's existing playlists file and the list player. Reading how the player ends each song now.
-- Every view reads plays by column name, so a new song-end column is safe. Now measuring song ends from the audio timelines.
-- Matched 49 of your songs exactly in the library. Four dictated names have no clear match yet. Now measuring where each song really ends.
-- No prose turn recorded for this slot.
+- Brandon thinks a word filter threw out "Suicide Solution" from 3 or 4 shows ago, which would be Oct 7 or Oct 5. Checklist: 1. **Test the filter claim.
+- Checking the transcript loader's data shape before running, so the counts are real.
+- That Oct 4 Kick stream began at 7:47 PM, so the "suicide" moment fell at about 8:55 PM. Checking which YouTube video covers that minute.
+- The caption counter is written; it prints only times and counts, deduplicated per 5 seconds. Waiting on the three caption downloads.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
