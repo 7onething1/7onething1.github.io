@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-14 00:12 CDT. 10 chats read from transcripts.
+Built 2026-10-14 00:42 CDT. 10 chats read from transcripts.
 
 ## Headline
 
 All 10 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 3,916 assistant replies, 55 MB of transcript.
+Totals: 4,056 assistant replies, 60 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos unlisted  (22.7 hours quiet, 387 replies)
+### YouTube videos unlisted  (23.2 hours quiet, 387 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Rebuilding the restore list with both passes, after backing up the first version.
@@ -43,7 +43,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (14.7 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (15.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,7 +53,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.5 hours quiet, 9 replies)
+### Johnny Five daily pass  (5.0 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
@@ -63,7 +63,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.5 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (5.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -73,7 +73,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1.3 hours quiet, 62 replies)
+### YouTube live view counts  (1.8 hours quiet, 62 replies)
 **Goal.** Not summarised by hand yet. Last input on record: of the four versal requested based on youtube lives, what's the view count at
 
 - The Lizz poster page calls the counter three times. Next I'll confirm those calls pass Lizz's own site key and that ixi's "visit" mentions aren't a.
@@ -83,7 +83,7 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (56 minutes quiet, 337 replies)
+### 55% volume limit  (1.4 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -93,22 +93,22 @@ Totals: 3,916 assistant replies, 55 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1 minutes quiet, 1057 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
+### Lizz and Glostik early update  (2 minutes quiet, 1434 replies)
+**Goal.** Not summarised by hand yet. Last input on record: do you got the old glostic from august and july done yet
 
-- I skipped the 00:02 tick because ChatGPT was still answering the 23:58 "next", and logged it as pass 37.
-- I skipped the 00:06 tick and logged it as pass 37, because ChatGPT was still writing the last lines of its answer. Its Next: line already points to.
-- The A.24 answer finished, and "next" is typed in the box. I'm clicking Send now.
-- I sent "next" on thread four at 00:10, after the 17,525-character answer finished. It landed and ChatGPT is now on Round 2 A.25, and I logged it as.
+- Jul 19, 18 and 17 are posted and showing publicly. I'm working down the rest of July, one every few minutes.
+- Got it. I'm adding the band's question about missing originals like "Here We Go" to the priority to-do list now, and the July posts keep going.
+- The band's question is on the priority list as `q-2026-10-14-c66831`. Back to July: Jul 16 is up and confirmed, and Jul 15 is next.
+- Ten of the 14 July shows are posted and confirmed this round. Four are left: Jul 4, 3, 2 and 1.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (0 minutes quiet, 1364 replies)
-**Goal.** Not summarised by hand yet. Last input on record: do you got the old glostic from august and july done yet
+### Newsradio/community scripts automation  (0 minutes quiet, 1127 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- Closing the four finished tracker entries, then marking the plan and recording items as met on tonight's tracker.
-- Sep 3's list repeats Champagne Supernova, and your note on that video mentions a Hey You cover. I'm checking both now so the next batch can post it.
-- All ten comments YouTube held back on Oct 8 are **still hidden**. I re-read every one signed out between 20:56 and 21:07, recorded the result, and.
-- Checking where things stand before I answer: the time, whether the 3 AM site update ran, other open chats, and the Chrome tab.
+- I sent "next" on thread four at 00:30 and logged it as pass 39. The 17,034-character A.26 answer had not shown on the page, so I reloaded first. The.
+- ChatGPT is still working on A.27, so this tick is a skip. I'm logging it now.
+- I skipped the 00:34 tick because ChatGPT was still writing A.27, and logged it as pass 40.
+- I skipped the 00:38 tick because ChatGPT was still writing the A.27 ratings, and logged it as pass 40.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
