@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-14 07:44 CDT. 12 chats read from transcripts.
+Built 2026-10-14 08:15 CDT. 12 chats read from transcripts.
 
 ## Headline
 
 All 12 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 5,816 assistant replies, 82 MB of transcript.
+Totals: 5,848 assistant replies, 83 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (22.3 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (22.8 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,17 +53,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.0 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (12.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (12.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
@@ -73,7 +63,17 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (8.5 hours quiet, 337 replies)
+### Stop malfeasance and fraud  (12.5 hours quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### 55% volume limit  (9.0 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -83,7 +83,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Vercel deployment  (5.6 hours quiet, 88 replies)
+### Summerwoods Vercel deployment  (6.1 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -93,7 +93,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (5.3 hours quiet, 395 replies)
+### YouTube live view counts  (5.8 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -103,7 +103,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (4.9 hours quiet, 1664 replies)
+### Lizz and Glostik early update  (5.4 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -113,7 +113,7 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (2.8 hours quiet, 505 replies)
+### Summer woods add-to-list feature  (3.3 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -123,12 +123,12 @@ Totals: 5,816 assistant replies, 82 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (2 minutes quiet, 1731 replies)
+### Newsradio/community scripts automation  (0 minutes quiet, 1763 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- I sent "next" in thread seven at 07:30, after the 4,240-character A.58 answer finished. It landed and ChatGPT is now on A.59, David Cross's NewsRadio.
-- I skipped the 07:34 tick because ChatGPT is still writing A.59 in thread seven, and logged it as pass 75.
-- I skipped the 07:38 tick because ChatGPT is still pulling A.59 together in thread seven, and logged it as pass 75.
-- I sent "next" in thread seven at 07:42, after the 8,408-character A.59 answer finished. It landed and ChatGPT is now on A.60, the Mrs. Doubtfire and.
+- I skipped the 07:58 tick because ChatGPT is still writing A.61 in thread seven, and logged it as pass 77.
+- I skipped the 08:02 tick because ChatGPT is still working on A.61 in thread seven, and logged it as pass 77.
+- I skipped the 08:06 tick and logged it as pass 77. ChatGPT is still on A.61 in thread seven, and it is checking whether the Atlas has room or needs a.
+- I skipped the 08:10 tick because ChatGPT is still working through document tools for A.61 in thread seven, and logged it as pass 77.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
