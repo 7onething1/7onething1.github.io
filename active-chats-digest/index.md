@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-10-14 14:46 CDT. 9 chats read from transcripts.
+Built 2026-10-14 15:16 CDT. 9 chats read from transcripts.
 
 ## Headline
 
 All 9 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 5,346 assistant replies, 63 MB of transcript.
+Totals: 5,385 assistant replies, 63 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Johnny Five daily pass  (19.1 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
-- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (19.1 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (19.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -33,7 +23,17 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (15.5 hours quiet, 337 replies)
+### Johnny Five daily pass  (19.6 hours quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
+- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### 55% volume limit  (16.0 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -43,7 +43,7 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Vercel deployment  (12.6 hours quiet, 88 replies)
+### Summerwoods Vercel deployment  (13.1 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -53,7 +53,7 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (12.3 hours quiet, 395 replies)
+### YouTube live view counts  (12.8 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -63,7 +63,7 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (11.9 hours quiet, 1664 replies)
+### Lizz and Glostik early update  (12.4 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -73,7 +73,7 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (9.8 hours quiet, 505 replies)
+### Summer woods add-to-list feature  (10.3 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -83,7 +83,7 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.2 hours quiet, 9 replies)
+### Johnny Five daily pass  (4.7 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for Glostik and report it. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file..
@@ -93,12 +93,12 @@ Totals: 5,346 assistant replies, 63 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (0 minutes quiet, 2333 replies)
+### Newsradio/community scripts automation  (2 minutes quiet, 2372 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- I skipped the 14:30 tick because ChatGPT is still answering A.90, and logged it as pass 105.
-- I sent next at 14:34 after A.90 finished and logged it as pass 105. ChatGPT is now working on A.91.
-- I skipped the 14:38 tick because ChatGPT is still answering A.91, and logged it as pass 106.
-- I skipped the 14:42 tick because ChatGPT is still answering A.91, and logged it as pass 106.
+- I skipped the 15:02 tick because ChatGPT is still answering A.93, and logged it as pass 108.
+- I skipped the 15:06 tick because ChatGPT is still answering A.93, and logged it as pass 108.
+- I sent next at 15:10 after A.93 finished and logged it as pass 108. ChatGPT is now working on A.94.
+- I skipped the 15:14 tick because ChatGPT is still answering A.94, and logged it as pass 109.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
