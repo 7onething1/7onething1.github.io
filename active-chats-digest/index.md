@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-14 03:43 CDT. 12 chats read from transcripts.
+Built 2026-10-14 04:14 CDT. 12 chats read from transcripts.
 
 ## Headline
 
 All 12 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 5,451 assistant replies, 79 MB of transcript.
+0 need a Brandon action. 3 are past the 400-turn ceiling.
+Totals: 5,495 assistant replies, 79 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (18.3 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (18.8 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,17 +53,7 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.0 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
-- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (8.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (8.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -73,7 +63,17 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (4.5 hours quiet, 337 replies)
+### Johnny Five daily pass  (8.5 hours quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
+- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### 55% volume limit  (5.0 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -83,7 +83,7 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Vercel deployment  (1.6 hours quiet, 88 replies)
+### Summerwoods Vercel deployment  (2.1 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -93,7 +93,7 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1.3 hours quiet, 395 replies)
+### YouTube live view counts  (1.8 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -103,7 +103,7 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (52 minutes quiet, 1664 replies)
+### Lizz and Glostik early update  (1.4 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -113,22 +113,22 @@ Totals: 5,451 assistant replies, 79 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (28 minutes quiet, 397 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
+### Summer woods add-to-list feature  (1 minutes quiet, 412 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
-- The scrambled-pool check named 0 rows on all 79 streams, so the new rule creates nothing by chance. Now measuring Sunrise under full-run weights.
-- Deezer confirms 19 of 32 unmatched marks as real tracks, including River Flows in You, Cuff Link, Brick, and Reptilia. Running the full matcher plus.
-- Status: fixing those five titles through Summer's own credit list in curation.json, the hand-decision file. Then I'm checking the two weak matches,.
 - Interim summary while the sweep finishes its last 43 shows. When it's done I'll run the final pass and redeploy without needing you. ## The plus button.
+- The sweep finished. Running the final pass now: 1. Fetch words for every new marked song. 2. Look up real track names. 3. Run the full matcher and the.
+- Parsers are working. The two lookup caches still hold earlier "not found" results from the old parser, so I'm clearing just those entries before.
+- 54 of 100 unmatched marks are confirmed real tracks on Deezer, and 64 marked songs now have published words in the pool. Running the full matcher and.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (2 minutes quiet, 1474 replies)
+### Newsradio/community scripts automation  (0 minutes quiet, 1503 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- I skipped the 03:30 tick because ChatGPT is still rating A.40 in thread five, and logged it as pass 54.
-- I sent "next" in thread five at 03:34, after the 10,673-character A.40 answer finished. It landed and ChatGPT is now on A.41, competing memories and.
-- I skipped the 03:38 tick because ChatGPT is still writing A.41 in thread five, and logged it as pass 55.
-- I skipped the 03:42 tick because ChatGPT is still working on A.41 in thread five, and logged it as pass 55.
+- I skipped the 03:58 tick because ChatGPT is still building the A.42 entry in thread five, and logged it as pass 56.
+- I skipped the 04:02 tick because ChatGPT is still writing A.42 in thread five, and logged it as pass 56.
+- I sent "next" in thread five at 04:06, after the 13,656-character A.42 answer finished. It landed and ChatGPT is now on A.43, dream endings that wipe.
+- I skipped the 04:10 tick because ChatGPT is still writing A.43 in thread five, and logged it as pass 57.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
