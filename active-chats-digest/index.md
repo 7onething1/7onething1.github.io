@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-14 00:42 CDT. 10 chats read from transcripts.
+Built 2026-10-14 01:42 CDT. 11 chats read from transcripts.
 
 ## Headline
 
-All 10 chats ended on a gate block, 0 on a message from Brandon.
+All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 4,056 assistant replies, 60 MB of transcript.
+Totals: 4,488 assistant replies, 65 MB of transcript.
 
 ## Do yourself
 
@@ -33,7 +33,7 @@ Totals: 4,056 assistant replies, 60 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos unlisted  (23.2 hours quiet, 387 replies)
+### YouTube videos unlisted  (1.0 days quiet, 387 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Rebuilding the restore list with both passes, after backing up the first version.
@@ -43,7 +43,7 @@ Totals: 4,056 assistant replies, 60 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (15.2 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (16.2 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,17 +53,7 @@ Totals: 4,056 assistant replies, 60 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.0 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
-- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (5.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (6.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -73,17 +63,17 @@ Totals: 4,056 assistant replies, 60 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1.8 hours quiet, 62 replies)
-**Goal.** Not summarised by hand yet. Last input on record: of the four versal requested based on youtube lives, what's the view count at
+### Johnny Five daily pass  (6.0 hours quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
-- The Lizz poster page calls the counter three times. Next I'll confirm those calls pass Lizz's own site key and that ixi's "visit" mentions aren't a.
-- Both checks hold: Lizz's page counts against her own store, and ixi's "visit" lines are rate-limit comments. Last, I'll confirm the live Summer and ixi.
-- All four live pages answered 200, and the counter code sits only on Glostik and Lizz. I'll log the two outcomes on the session's checklist tracker, as.
-- Glostik is at 1,372 visits and Lizz is at 217.** Summer and ixi have no counter, so neither has a view count. I took "versal" to mean Vercel, so the.
+- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
+- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.4 hours quiet, 337 replies)
+### 55% volume limit  (2.4 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -93,22 +83,42 @@ Totals: 4,056 assistant replies, 60 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (2 minutes quiet, 1434 replies)
-**Goal.** Not summarised by hand yet. Last input on record: do you got the old glostic from august and july done yet
+### Newsradio/community scripts automation  (1 minutes quiet, 1267 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- Jul 19, 18 and 17 are posted and showing publicly. I'm working down the rest of July, one every few minutes.
-- Got it. I'm adding the band's question about missing originals like "Here We Go" to the priority to-do list now, and the July posts keep going.
-- The band's question is on the priority list as `q-2026-10-14-c66831`. Back to July: Jul 16 is up and confirmed, and Jul 15 is next.
-- Ten of the 14 July shows are posted and confirmed this round. Four are left: Jul 4, 3, 2 and 1.
+- ChatGPT is still writing A.32, so this tick is a skip. I'm logging it now.
+- I skipped the 01:34 tick because ChatGPT was still writing up the Frankie casting links for A.32, and logged it as pass 45.
+- A.32 finished at 17,162 characters, and "next" is typed in the box. I'm sending it now.
+- I sent "next" on thread four at 01:38, after the 17,162-character A.32 answer finished. It landed, ChatGPT is answering, and I logged it as pass 45.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (0 minutes quiet, 1127 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
+### YouTube live view counts  (1 minutes quiet, 176 replies)
+**Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
-- I sent "next" on thread four at 00:30 and logged it as pass 39. The 17,034-character A.26 answer had not shown on the page, so I reloaded first. The.
-- ChatGPT is still working on A.27, so this tick is a skip. I'm logging it now.
-- I skipped the 00:34 tick because ChatGPT was still writing A.27, and logged it as pass 40.
-- I skipped the 00:38 tick because ChatGPT was still writing the A.27 ratings, and logged it as pass 40.
+- The Glostik and Lizz pages each have more than one player path: the main song player, a playlist player, and a few smaller blocks. Next I'll map each.
+- The main player gets each song as "Song — Artist", so plays can be counted by song name. Next I'll read the deploy gates and the visit-counter code the.
+- The views gate checks the exact `counted ? 'GET' : 'POST'` shape, so I'll leave that line alone and set `counted` earlier for your flagged browsers.
+- Quick status: I'm checking the two active chats so my edits don't collide with theirs. After that I'll write the tracking code.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz and Glostik early update  (1 minutes quiet, 1518 replies)
+**Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
+
+- July is done except for three shows, and YouTube is holding one of those three.** 🟢 **Live tonight:** 11 July comments are public and recorded: Jul 19,.
+- You're right. You asked for the Here We Go fix and I only put it on a list. Working on it now.
+- Understood, and no more waiting around. Results are coming in now.
+- The list now has 72 originals, Here We Go included. "Highs and Lows" maps to your "Highs & Lows", and Rooster stays off. Next is the namer.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Summer woods add-to-list feature  (1 minutes quiet, 94 replies)
+**Goal.** Not summarised by hand yet. Last input on record: our summer woods site is supposed to have the feature where you can click a plus and add it to the playlist or my list like the glostik site, but I dont see it.
+
+- Status: I found the newest version of this feature, the one ported to the ixi site three days ago. I'm adapting it into Summer's own page now.
+- Confirmed the cause: the live Summer page never got this feature. Now writing the plus button, My List, and a Playlists tab into a staged copy.
+- The plan is set. I'll write the patch as separate pieces plus an anchored applier, the same reproducible method the ixi port used.
+- Now the script half: the playlist engine and the tab switcher.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
