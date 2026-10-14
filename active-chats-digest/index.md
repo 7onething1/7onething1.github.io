@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-13 21:41 CDT. 9 chats read from transcripts.
+Built 2026-10-13 22:11 CDT. 9 chats read from transcripts.
 
 ## Headline
 
 All 9 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 3,512 assistant replies, 51 MB of transcript.
+Totals: 3,569 assistant replies, 52 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Brandon playlist with YouTube clips  (23.1 hours quiet, 326 replies)
+### Brandon playlist with YouTube clips  (23.6 hours quiet, 326 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - Both test servers were mine and stopped on my kill, so those two notices are expected. Adding the new tools to the skill file and saving one reference.
@@ -33,7 +33,7 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos unlisted  (20.2 hours quiet, 387 replies)
+### YouTube videos unlisted  (20.7 hours quiet, 387 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Rebuilding the restore list with both passes, after backing up the first version.
@@ -43,7 +43,7 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (19.8 hours quiet, 330 replies)
+### 55% volume limit  (20.3 hours quiet, 330 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% limit on
 
 - 🟩 The H87 has no limit - 🟩 **Nothing is capping the H87 now.** It went up to 90 at 00:08:26, and it still read 90 at 00:09:02. - 🟦 **The headset.
@@ -53,7 +53,7 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (12.2 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (12.7 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -63,17 +63,7 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.0 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
-- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (2.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (2.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -83,7 +73,17 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (27 minutes quiet, 1357 replies)
+### Johnny Five daily pass  (2.5 hours quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
+- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz and Glostik early update  (57 minutes quiet, 1357 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bcirvpmnu</task-id> <tool-use-id>toolu_01Gw9SXZpkM7WwLtFAP9SNf2</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
 
 - The paste file has drifted on 70 blocks, mostly marker changes. I'm rewriting it to match the current lists, with a backup first.
@@ -93,12 +93,12 @@ Totals: 3,512 assistant replies, 51 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (2 minutes quiet, 729 replies)
+### Newsradio/community scripts automation  (1 minutes quiet, 786 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- Held one more tick. Your message is 9.7 minutes old, just under the 10-minute mark. The 9:29 tick sends "next" if you stay quiet. The hold is logged in.
-- The hold cleared. Your message is 13.7 minutes old, so I sent "next," and ChatGPT is writing Round 2 A.5. That's Bill's made-up assignments set against.
-- Skipped this tick because ChatGPT is still writing A.5. It's comparing the made-up officer in M*A*S*H with Bill's fake newsroom assignments. The skip.
-- Sent "next" after ChatGPT finished a 13,857-character answer. It started at A.5, and its "Next:" line now names A.8: staged lessons that backfire, from.
+- Sent "next" after ChatGPT finished A.10 on Officer Cackowski (11,336 characters). ChatGPT is now on NewsRadio's "Jail" versus Oscar's prison swap in.
+- Skipped this tick because ChatGPT is still writing the "Jail" versus "Righteous Brothers" finding. It's keeping each episode's writing credits apart.
+- Status: the "Jail" finding is done. The page reads "Response complete," and the last message was the loop's "next." The server read is still loading,.
+- Sent "next" after ChatGPT finished A.11 on the two mistaken arrests (16,100 characters). ChatGPT is now on the release and proof-of-identity angle,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
