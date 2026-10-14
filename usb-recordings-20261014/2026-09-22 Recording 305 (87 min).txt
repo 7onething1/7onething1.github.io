@@ -1,0 +1,859 @@
+Recording (305), saved 2026-09-22 14:29
+=======================================
+
+Length:      87.2 minutes (1:27:14)
+File saved:  2026-09-22 14:29
+Words:       8,341
+Paragraphs:  144
+Source file: Recording (305).m4a
+Coverage:    the whole file, start to finish. Nothing was cut.
+Breaks:      1 stretch(es) of 15 min or longer, marked in the text:
+             0:57:56 to 1:13:23 (15.5 min, silence)
+
+Timestamps mark where each passage begins. Paragraph breaks follow real
+pauses in the audio. Speakers are not labelled, because no diarization
+model was used and guessing who spoke would be invention.
+
+--------------------------------------------------------------------------------------------
+
+[0:00:00]
+Yeah, yeah, because the non-intractable doesn't.
+
+[0:00:15]
+Yeah, yeah, yeah. I think it is. Not good to buy. Yeah. Here we shine again. Yeah, here we
+shine again.
+
+[0:00:35]
+I don't know why it keeps going out. Can you hear me? Yeah, I can hear you. Yes, I can. Uh-
+huh. All right. So yes, you're correct to remove the non-injectable. Okay. Yeah. I wasn't
+like it. we are good because we have boats that we should remove in the same sentence. So I
+was thinking one of them are boats. So I told him to remove boats and just leave a key
+process of my post so I might be headed. Perfect. Yep, you had it. Yeah, so giving, you
+know, more examples and like
+
+[0:01:26]
+really, you know, taking your time on this one's going to be important because, you know,
+301 seems to be one of those ones that's the hardest to really get everyone to fully
+understand.
+
+[0:01:47]
+So not only like those type of examples, but also really explaining that when it comes to
+when to use them from like carrier notes and wrist management notes. Where is that?
+
+[0:02:04]
+I'll see where Iris. Okay, so updating the diagnosis for CCM or wrist management notes, they
+can use them even if we have medical. So it is okay that they do that, but and that you know
+they don't get counted off for it, but just making sure that they use it if we don't have
+medical, because they will get counted off if they fail to use it and we don't have medical.
+So, if we have medical the diagnosis, they don't have to update per CCN or risk management
+notes,
+
+[0:02:42]
+They can just update from medical. So that's then kind of, you know, let's let that to them.
+They wouldn't be marked off for that. So, but it does they hear this. They'll consider a
+best practice to continue to monitor and update the claim per these diagnosis and case. They
+are added to medical later. I have a question here, but when I said if there is a makeup
+with a clear diagnosis on the claim, it's optional. So they was the interview with any
+diagnosis found in CCN or.
+
+[0:03:18]
+that was medical notes. Oh, sorry, Rick smash me notes. So the word optional made me think
+like in the one so they can do it, but you know that if they don't use the diagnosis to add
+in the injury body part that will cause a critical error. No, it's not if there is a
+diagnosis on the medical. So yeah, if there is a medical that has the diagnosis on it, that
+we have to update the claim based on the medical. It is optional that they, that the
+diagnosis using risk management notes
+
+[0:03:58]
+or CCN, it is optional since we have updated for medical.
+
+[0:04:05]
+But like they won't get counted off, however,
+
+[0:04:11]
+it's still considered best practice that they go ahead and just update per period notes.
+Like I would say, hey, still go ahead and add the diagnosis and finding, you know,
+perinosis, mismanagement notes. Because if they later get added to medical and you forget to
+update for that medical, then, you know. That would be the critical. Yeah. Okay, so for
+example, we have a new claim and to just enter to the new claim. We have America with a
+clear diagnosis And we have a North diagnosis in CCN.
+
+[0:04:45]
+Mandatory is the diagnosis for the medical document. That is the most important one. Yeah.
+Oh, okay. Yeah, so now if we do not have a medical with the diagnosis on it, and we do have
+a diagnosis in CCN or risk management notes, then they do have to use the diagnosis not in
+CCN or risk management notes. Okay, now I got it. All right, okay, and let's see here.
+
+[0:05:34]
+Okay, so yes, going over, showing them how to use the diagnosis codes, this, you know, this
+could, would be a good place to also use a live example for using diagnosis codes. You know,
+you can have them attempt to, you know, you can have like some codes that aside and ask them
+to pull it out. you know, using Google or they can use the ICB code link and have them, you
+know, practice following up the diagnosis codes. Also another thing that you can do is have,
+and again, a lot of
+
+[0:06:27]
+of times you know as you're just doing your normal coach thing and you see different medical
+documents you know take little snippets of it so like if you see a diagnosis on a medical
+you can take a snippet of that put it in the chat and you know pick one that has things that
+we need to remove like maybe it has, you know, in VA on it or something, or, you know,
+subsequent encounter things, you know, things that we need to remove and just put that in
+the chat,
+
+[0:07:03]
+and then, you know, I'm asked them to put the, what the diagnosis should be, you know, can
+do things like that. I'm gonna have a question. I don't know maybe if you know it or we can
+figure out later. We always use the ICD-10 code, but at some time I see the ICD-9 code.
+
+[0:07:29]
+The number nine. I don't know if you've seen before. Like what is it? You usually have like
+an R with it? I mean, is it like about the cold, right? Let me try to
+
+[0:07:44]
+I mean, so we always use ITD 10.
+
+[0:07:50]
+Let me show you here. Let me just create some.
+
+[0:08:00]
+So the normal diagnosis we use is the ICD-10 that is always we use. I mean that is the
+normal diagnosis we find in the American document. But sometimes I saw some diagnosis with
+the ICD-9. I mean, I don't know if you've seen before, I saw it some time, but I remember
+that moment I tell the agent I use always I see the same, but I don't know if you know what
+in the or do you bring in maybe or? Well, let's see. Oh, maybe we'll have to ask who our
+friend will be.
+
+[0:08:42]
+Yeah, I was willing that. And basically it says that it's like a kind of hierarchical
+organization structure. The ICD-9 uses three to five digit numeric. And the ICD-10 just used
+three to seven character. And basically, the difference is the nature of the injury. So
+basically, the 10 is more explicit than the 9, because the 9 includes, like, it's not so
+explicit, basically. That's what I find. And the updated highly detailed medical diagnostic
+coding system that replaced the older limited ICD-9 system in the United States, I'm not
+talking about it.
+
+[0:09:36]
+So the ICD-10 is the most updated one. The most recent, yes. Yeah, it sounds like, you know,
+if that is what they use, it should still be fine. just sound like they updated the system.
+They upgraded from a 9 to 10, but as long as it still falls under one of our accepted types
+of diagnoses, then that should be fine. Okay, just thinking to futures, maybe that happened
+and maybe I got that question. Yeah, that's okay. Do you remember what the diagnosis then?
+Like was it like a weird diagnosis when you looked it up,
+
+[0:10:27]
+or did it seem like kind of like a normal, like ankle sprain or, you know, something like
+that? Okay. Or do you remember what kind of injury it was when you looked up the diagnosis?
+No, I was pushing the door because it's like a truck or somewhere else that's really down. I
+just closed the door. No, I don't really remember what was the injury. But I noticed that
+the ACD-9 was like a really sure. And the ACD-10 was like more specific. I do remember that.
+I remember the specific part of the body.
+
+[0:11:06]
+I don't remember just like that the nag was like a really sure like like like general like
+uh yeah like something you know about the 10 was really specific. Okay oh so they did have a
+one with a nine and a 10. I'll say it. They had one that had a nine and then they had one
+that also had a 10. No I just remember one case. I don't remember one of them. Now just
+talking about these but I just made me remember about that. Yeah, no worries.
+
+[0:11:39]
+All right. Um, let's see here. Um. Um, all over the neighborhood. and down next to the side,
+and especially back up next to the side.
+
+[0:12:11]
+All very parts, one identified on the number of calls.
+
+[0:12:23]
+Okay, yeah, I love that we added what is a conservatory injury.
+
+[0:12:30]
+Nice.
+
+[0:12:36]
+All right, so one thing that I would let them know that has come up before that I've seen a
+couple of times in the chat. We never update the. What is that one? Not what was I'm
+probably doing. We can update that. Oh my god, come on. It's done. We love our update. Oh,
+what happened. I'm gonna get this. Okay. So because that has been asked more than once. So
+let me describe this whole random claim. So yeah, so we're going to show them, you know,
+
+[0:13:27]
+One, again, we always want to make sure we review this, but it is never to be updated. Even
+if it's unknown, we are not updating it to say NA.
+
+[0:13:39]
+We only want to modify the 301s, which is audit and APT or what was the entry illness and
+then what was employee doing. If they put unknown here, we don't care. We're not going to
+touch that part. But again, it is important that we read what happens to get the full story
+of the claim. I have a question here. I don't think that's it that before, but we never turn
+to use anorefield to what was the employee doing just before, right? I mean, we always use
+what was the employee doing
+
+[0:14:19]
+or what happened, depending on the case. So they, the agents, just the agents, right? I
+mean, I know you use one of their fields to avoid what they've been doing before. Or that
+can happen. We don't update it to anything except for NA. Like so if what was the employee
+doing said unknown or I don't know, they don't remember, you know, something like that, then
+we will update that to say NA, but not. We send the NA. Yeah, but we would not update it to
+say anything different
+
+[0:14:51]
+than that. Yeah, I mean, I was thinking about that. I mean, we only use their fill, so
+they're just the object. I mean, we never use, for example, use the object so they won't
+deploy doing, I mean, no, I never see that before.
+
+[0:15:04]
+Yeah.
+
+[0:15:06]
+Right now,
+
+[0:15:10]
+we would not ever update that to anything, so for instance. Yeah. But the object, you're
+correct. Yes, we can use that. I mean, we can update that to something other than an NA. We
+can take to what was employee doing if it that an update the object and then with code
+commission we can update the object with the what happens. Okay. And then let's see here.
+Okay, so then, and then also, you know, remind them that if it says blind app, you know,
+that's fine, then we tend to get a lot of questions, maybe not a lot, but I've seen, you
+know, more than a couple times where they've asked, if it says blind, I need to change it to
+NA.
+
+[0:16:09]
+Yeah, well, I'm not saying, and then we'll see here. Let's just we'll go over when we do
+change it to NA, then we want to make sure to send that email out to help and safety. And it
+wouldn't even hurt to also give him a quick little example of similar verbiage, you know,
+who says similar verbiage here. Yeah, like, for example, there is no object causing the
+injury for it. That is a, that's a verbiage for us saying that it's numb. Uh-huh. Yeah. And
+then we need to focus on that.
+
+[0:16:52]
+I mean, efficacy and that part because they, maybe that you see that it's a test there and
+just leave it like that. They didn't care to read. that is similar to every saying that is
+not odd yet. Yeah, yeah.
+
+[0:17:05]
+That's exactly, let's see. And then also, if management does reply, giving us the
+information, then update it.
+
+[0:17:17]
+I don't see a whole lot of management replies, but. No, I just see like a few, a few times
+in the email. I'll also share it with that's it. Yeah. Yeah. That I just noticed with the
+trio ones is that usually when well they they usually don't answer us or they don't provide
+a response but sometimes when I enter to the timeline I can see that there are some
+applications on some claims and they change it by their own. Yeah. Yeah. sometimes they do.
+Yeah, that's another one to point out also because they not only that, though, but sometimes
+they will go and change our injury nature body part.
+
+[0:18:09]
+before it gets? Yeah so we do that one of the irises that we review does tell them that they
+do need to check the timeline but that could be something to add in during this review also
+that making sure that this information is correct and sometimes management may change it
+back especially when they think they're like, oh, no, this isn't. This is the right. This
+was a personal injury or, you know,
+
+[0:18:43]
+keep it keeping leather. Yeah. So, um, but yeah, there's that it shouldn't be touching those
+things that sometimes they do. Um, and then let's see. Oh, let's see. Okay. So, and then it
+gives an example here.
+
+[0:19:10]
+Okay, so this one is like an example of when the object is saying none, and then but we do
+have this information over here, so we would just update that. Make sure to tell them do not
+pick, I mean, Iris will tell them, but just emphasize, do not try to pick and choose the
+words from here copy and paste the whole thing. And do not make any modifications to it.
+Let's see. Getting missing medical provider information. Hey. Do we still sign this? I'm
+missing medical provider information.
+
+[0:20:09]
+You know, I'm talking about in the in the widget.
+
+[0:20:15]
+The, um, sorry, what was your question? Do we still sign this here? The, uh, no, yet, but,
+but we have, we have that, uh, and that's on, on the dashboards and they can see it on their
+own dashboards. But at this time, we are focusing on the OSHA 500. So, so we, we are not
+working at this time on that until we clean. the other ones. So once we clean that we will
+return to work those three widgets that is missing medical information and I don't remember
+the other ones but yeah they're three. Okay,
+
+[0:20:53]
+so I don't even think last training class we covered this because yeah because we're not
+working on it yeah that is employee services unknown, new, there is medical treatment so as
+no and the other one is missing medical provider information, those three widgets. Yes, we
+stop it. All right. So then so Jonathan, that's another thing like if if it is something
+where like that it can be easily learned and iris, but that's not something that we've done
+in like months, then I would I do skip
+
+[0:21:33]
+over that because they're already going to be already filling them with so much information.
+So I don't want to do the same with COVID claims. I don't go over the whole COVID process
+because we don't really get COVID claims like once in a blue moon, we might. But if we do,
+then they can consult a coach. And, you know, or review iris for that. because at that
+point, they should, you know, be able to follow the steps just fine. But I don't want to
+shove a lot of processes in there
+
+[0:22:12]
+that we haven't done in months or, you know, things like that because it's already a lot.
+So, but this one's pretty simple that if, you know, if it's something that we're about to
+do, like once it comes to training time or we are currently working on, then I would go
+ahead and review these steps with them.
+
+[0:22:36]
+But it's not, then, no. Not going to do that.
+
+[0:22:44]
+Because they're going to forget by the time they get to it anyway.
+
+[0:22:49]
+So, health and safety escalations. So this is just going to be for them to know how to to do
+yeah to well it says for third requests but I think we just kind of copy and paste it this
+into a lot of the iris articles but this one is specifically just telling them how to find
+the health and safety person and those these are these steps because they have if they need
+to send the email to health and safety because of the 301s then these will be
+
+[0:23:27]
+the steps on how they can do that. So, um, and then, um, again, it can be, you know, um, a
+hands-on type of thing, uh, where you can, um, either just kind of show them the steps,
+like, go through the iris, but then show them how, you know, what it looks like to go
+through the claim, um, and or have, um, have one of them go through it. Yes, and, and
+journey, something, something that usually we do, When once we end this part on training is
+that we get practice on this so we we found like claims and we say like, hey, what is the
+manager supervisor for the, I don't know if the region 10510 is an example and they tell us
+what is and based on what they found that we can do it like three or four times.
+
+[0:24:22]
+and yeah, that's a good practice that they can have in order to know how to access it and
+how to find these specific employees or supervisor. Yeah. Right. Yeah, and it's just good to
+do these things because not only does it allow them to practice, but it kind of breaks up
+you talking at them, you know, so, you know, because you're, I'm telling you, make sure to
+have some water because they can talk so much.
+
+[0:24:57]
+But yeah, it just kind of really breaks that anile and allows them to get engaged into
+things. So, you know, they're not just like sitting there and listening, but they finally
+have that moment of, oh, okay, you know, I'm gonna do something. So it breaks up that I
+guess kind of the boring part of training for them. Yeah, because we don't get to do like a
+whole lot of hands on until they start working claims. So the more that they can, you know,
+try things out up until then the better.
+
+[0:25:37]
+Yeah. All right. What's next on our list. This is what we're going to be learning,
+processing new planes.
+
+[0:25:51]
+Accessing new planes to 3647.
+
+[0:26:00]
+Okay, oh, and this is the, we're working on this iris shoe. So it's going to look a little
+different. Just because they, they will then you provide. You're going to have to take out
+one part of these ideas. Yes, this. Yeah, that part. Yeah. Take that out. And. There are
+five examples of a much better thing.
+
+[0:26:42]
+So, it's not that much, but it's not that much. with the space by family.
+
+[0:27:10]
+One, two, three.
+
+[0:27:23]
+I was going to try to just pull up the one that I sent it.
+
+[0:27:32]
+That's not the thing.
+
+[0:27:43]
+Okay, well, that's spinning. Okay, I'm just going to come over here. So processing new
+plans. I'm sure I didn't know. Okay, yeah. So on this one, we're going to go through the
+Iris article. But with doing that, I still like to have a claim for them to see instead of
+just kind of going through all the steps. So it's like I do go back and forth quite a bit.
+So and also I don't review this part just yet. Because they won't completely. Yes. So
+because this is the part that's
+
+[0:28:41]
+telling them to avoid creating unnecessary or excessive tasks. So I don't really want to
+
+[0:28:48]
+do that and like review this part until I've gone over every type of task with them. If that
+makes sense. So because I don't want to say example for RDS and then what's an RDS and then
+I, but they will lead you to the RID. So what are the last time in the case, you know, so I
+don't go over this part just because most of this they're not going to understand what it
+is. So yes, so I don't I will skip this part because this part is also new newer to this
+iris. So so I skip right now here to first review of a new claim.
+
+[0:29:39]
+And as you get familiar with like the Iris articles, you'll start to, you know, you'll be
+able to kind of skim through. And another thing this is part of like the like before class
+stars, just kind of the or even the day before kind of review what you're going to, you
+know, go over and then you can quickly see like, oh, you know what? When I get to this Iris,
+I'm not going to review this part. I'm going to go ahead and skip down to review how to
+review a new claim.
+
+[0:30:07]
+And then go. Okay. Um.
+
+[0:30:36]
+Okay. Did you close everything? Taken forever to pull up. What did you say, Jonathan? No, I
+was thinking that you close everything. Oh, no, I was trying to open up the. The word doc
+that I for the processing new claims and have the modifications on it, but it is just taking
+a long time. So, um, but that's okay. I'll just keep on going. So, um, first thing, you
+know, you can tell them to select a new claim. And again, this is where I always will have a
+new claim.
+
+[0:31:16]
+To show them as I'm going through these steps. Okay. Okay, and then so as you're kind of
+going through the the steps, so open the new claim, that was assigned to you by a coach, and
+then why you're taking a point and I use you would show, you know, a real moment with a new
+claim. Yeah, so each step I'm going to then show them. So I'm reading through each step and
+then I'm showing them. Okay, you know, that's perfect. I'm on those steps. Yeah. So look for
+other active claims for the employee. So want to show them how to do that.
+
+[0:32:03]
+And then if you want, you can either have, like if you don't want to go back and forth on
+your screen, you can either add. You can either ask someone from the class to read the
+different steps, or you can always ask your co-trainer to redo the steps for you, and then
+you just do the actions on the claim, completely up to you. I usually just do both, go to
+Iris, then pull over my claim, and then show them the steps. Okay, so let's see here.
+
+[0:32:50]
+So, you know, go through each step. And then they have the the visual here. As well for the
+recent claims. And so basically, I mean, I don't. think I need to go through all of these,
+but one important thing is making sure, and I know this is like
+
+[0:33:21]
+they tend to get away from trying to go and use iris, but
+
+[0:33:29]
+we need to make sure they stick with it because they will try to just, you know, work from
+memory a lot. But, you know, and I get it like they feel like, you know, they've got it
+whatever, but it's important that they do still look at Iris and make sure to use these
+hyperlinks because that's not a lot of times they won't use these hyperlinks. So like when
+it says review the OSHA 3 ones, I know they don't remember everything about the real ones so
+they should be clicking this hyperlink to take them there to remind them and to check, you
+know, for those things.
+
+[0:34:04]
+things. So and then tells them to review what happened. So because that is not part of the
+301, so they need to then review that. And then, you know, if it's a blind app, then they
+should use
+
+[0:34:21]
+blind app, same with hearing claims, reminds them that the body diagram is for external
+management use only and we should never, ever use that. And we definitely don't want to make
+any updates on it.
+
+[0:34:38]
+Oh, one other thing that when it comes to new claims, I believe this says to go into edit
+first.
+
+[0:34:52]
+Where is it? Yeah, so edit claim. I don't know how usually where it claims I typically don't
+click on edit claim before I start reviewing a new claim. I think it used to be where we
+could see more information when we were in the edit claim view. But like for example, I
+think risk management knows only open when we used to have the have an edit. and edit but
+now we don't have to have an edit view in order to see risk management notes.
+
+[0:35:28]
+So I my preferences, I don't like reviewing the claimant while it's in edit screen. Also
+
+[0:35:36]
+I agree with you. I mean, the only difference between the edit mode is that you can see the
+And the body, the body, the, the, the, the hormones, you know, the, how do you die? Yeah,
+the, yeah, the VW. So, exactly. Yeah, so why you the bone? So yeah, I go and review the clay
+normal. I know they usually and it, and it claims to, I mean, to the injury body part, and
+stuff like that. Mm-hmm. And now because Iris says that, and most of the time they are,
+
+[0:36:08]
+especially you know, at first they are kind of going, word for word and they do select edit
+which is fine but we might just have to like remind them like hey you don't have to
+
+[0:36:25]
+And that's what I'm going to do.
+
+[0:36:37]
+Hello
+
+[0:36:43]
+I'm going to open it again.
+
+[0:37:06]
+Hello
+
+[0:37:19]
+Can you give me now, it was me. Now I can, you know, I think it says, kept saying something
+went wrong. We'll bring you back to the meeting shortly. Oh. What's going on? Is my each and
+there's something like that? What's happening? Okay. So not, I forgot where I was. Um, oh, I
+was gonna say also, you know, like when you're in edit, no one else can, um, go into edit
+and you don't want to really like lock it out for that long. So, um, like if someone else
+was needing to make an update on the claim, then you're blocking it as you're just like kind
+of reviewing it, which, you know, um, so I would only select edit claim.
+
+[0:38:13]
+Let them know only so that really select edit claim once you're ready to make an update on
+it. Like if you're actually going to make an edit on it, otherwise just review it like
+normal.
+
+[0:38:25]
+Okay.
+
+[0:38:28]
+So, okay, so then.
+
+[0:38:31]
+So first date of service. So that one, I will have to explain to them, you know, about if
+there is medical. So, and then ensuring in that first date of service per medical, if we
+have medical. So all they have to do is follow the steps here. Review the claim for medical
+document. Is there documentation with an identical. identifyable data service. If the answer
+is yes, then they're going to put that data service here. And if there are multiple
+documents used, whatever is the earliest data service.
+
+[0:39:10]
+And if the answer is no, then don't update that field at all. And then if medical
+
+[0:39:18]
+is received later, then they can update it at that time. All right. And then also. I was
+thinking we only use the fridge medical with the word to the service, but I think that just
+apply with the working calendar. I was thinking that that was applied here too, because we
+use the fridge medical with what to the service. We worked with the service. I was thinking
+that we apply here too, but based on that, we only see, we only apply that We're going to be
+coming there.
+
+[0:39:57]
+So your hand. Well, yeah, so this one is whatever is the earliest data service that we have
+in the files. So when we're working to claim we have a medical. Then we're going to put the
+data service in here, even if it's not the initial just just whatever. Like there's more
+than one medical, then we're going to put whatever is the earliest data service and here.
+And then now if we later get, by say if the first document we get is the follow up visit,
+we're still going to put that data service.
+
+[0:40:40]
+And this filled on the claim. But if we later get the initial data service, then at that
+time, then we will update that, yeah, with that data service. So, um, and then make sure
+that they know we do not update it based on dates found in the carrier notes or risk
+management notes or anywhere else on the claim. It has to be the actual medical document and
+the files. We can't even use it based on a phone call to the healthcare provider.
+
+[0:41:19]
+We have to have the medical and the files. Okay. So then scrolling to the OSHA regulatory.
+Okay. So OSHA privacy they should be opening that up because I will tell you they will try
+to memorize what the OSHA privacy are. Most of the time they do get it right. with, you
+know, ask them, you know, is this a privacy? You know, I just have a few options that we use
+to get into. So yeah, maybe they get it right, but it's not about options to take a look to
+the background. Yeah, they should be checking Iris.
+
+[0:42:02]
+When the claim is coded, OSHA 5, we don't get too many of those, but if we do, If we do then
+instruct them to make sure that medical treatment is thought at yes. If we need to change it
+to yes, we need to go ahead and do that and make sure to update health care provider. To
+unknown if there is no HCP information already. Okay, and then, and then that is it, we'd
+never make any type of escalations on it. Yeah, I would make sure to let them know, do not
+send any
+
+[0:42:44]
+escalations, do not call any healthcare providers. You know, when it comes to a claim that
+is at an ocean of five. All right, so now I'm reviewing medical treatment. Okay, so review
+an update, treat an ER and hospitalize overnight. So it has reference, our Iris 18155 there,
+which I think is the next thing on the itinerary. If I'm not mistaken, yes, it is. Okay. All
+right. So, um, and then you can just let them know instead of, you know, going to that iris
+at that point, just let them know, and like, and we will be reviewing this iris next.
+
+[0:43:40]
+And then, oh, yeah, I saw it in the, in the war that is in this one. Yeah. And then, you
+know, and then now if treatment thought is marked no and there is no indication that
+treatment has been sought and no indication that TV face yes within the claim. We're going
+to follow these steps here. And so I have them do it tells them to the IRC of the claim
+initial review, complete, do full claim review. Okay, I'm unsure that the ER and
+hospitalizer when I are both marked at no, um, if appropriate.
+
+[0:44:23]
+And that again will be a misirus. I'm sure that our three on one bills are not blank or
+unknown, etc. Is there anything on the claim that confirms TBFAS? Yes. If so, mark treatment
+thought. Yes. ArcTVFAS, and send an RHPD, and then breaking calendar if indicated, create a
+task, aim, and then template that we will use is our new thing of OSHA 0 node treatment. So
+then it breaks down for OSHA 0 claims with a breaking calendar, and then OSHA 0 claims
+treatment But unknown. So depending on which one you need, it will be which one you follow
+here. Now, let me see, when we get to.
+
+[0:45:28]
+Okay, so. Thank you so much to play.
+
+[0:45:44]
+All right, okay, so we have our OSHA zero no treat so you can you can go through the steps.
+I just let them know. And then you can let them know we will do a breaking. One second. I'm
+sorry. He's so loud. But only a second.
+
+[0:46:15]
+That's a play.
+
+[0:46:51]
+Okay. So sorry about that. All right. Okay. So then, okay. So, and again, because sometimes
+when we add things to Iris, it kind of goes off into things that we haven't learned about
+with training. So that's why I was saying, you know, sometimes things may pop into the IRS
+that we're reading that we have not went over yet. So when that happens, just reassure them
+like we are gonna go over what exactly what a breaking calendar is and our HPDs a little bit
+later. And you can just kind of give them a general idea of what those are.
+
+[0:47:44]
+Because we don't want to get to stuck on the maximum questions about it when we haven't
+reviewed it yet.
+
+[0:47:52]
+Okay, so then see here.
+
+[0:48:01]
+Okay, so then it tells, you know, explain to them when the ocean. Sorry, Regina to interrupt
+you. I will stop now. I will return to the meeting later on once I finish the other meeting.
+So yeah, do you want to please just take notes of all the information we need to update for
+the training process. The file is already on the shared drive, so you can just take notes.
+Thank you, Ruchana. Talk to you later, team. Thank you. Bye bye. Oh, and then Johnny, then
+also if you want, so I know I haven't taken a break or anything. Do you want to take one at
+two?
+
+[0:48:51]
+Yeah, yeah. Okay. All right. Okay, so let's see here. Let's see. All right, so then at the
+end of that just tells them to note their claim review and move on to the next claim. Okay,
+so that's when we have these treatment thought. I'm sorry, treatment thought is marked no,
+no indication of treatment and we do the OSHA zero no treatment type. Okay, so that's kind
+of squished in the middle here of everything else. So then it goes down to school to medical
+information. So this is kind of just that.
+
+[0:49:46]
+And I have to explain that. So this is part of number four, like this part here, because
+number four has us look at the ocean regulatory information, but then like kind of
+separately this process is an addition to number four. that and then it goes completes on to
+number five. So if it runs into this step here, then everything, you know, you're done. And
+then if not, then it continues on to scrolling to medical information. Take note of a
+medical provider's name contact information. If information is present, update the OSHA
+regulatory card information to reflect that medical treatment is thought.
+
+[0:50:42]
+Sproul to employee service update. And enter today's dates and initial review date filled or
+use the calendar icon. Um, it does tell them to review the changes like for change requests
+usually, um, like a new wave is not going to have any. So, um, so typically they won't have
+any, but a more seasoned rep may so as, you know, as they start to get change requests, they
+may be working on a new claim that does have a change request on it. However, when we do the
+change request, I, the change requests are sent separately, but, you know, they work those
+separately. So, but there may be a change request that was just submitted that day, and I, I
+do let them know like if you're in a claim.
+
+[0:51:44]
+And it happens to have a change request that was submitted today. Then go ahead and work it.
+But not from like your change request list. So if they're in a claim for any other reason
+and it happens to have a change request on it. I need to go ahead and work it. So, they
+should be checking for the change request section to see if there's any change requests. If
+there are, then here's the link to processing change request. They need to review the claim
+absence. If TAW less time has been started, they need to document that, make sure to move
+the estimated
+
+[0:52:32]
+date out to one year. They, I do tell them to still go ahead and check the transactions
+typically, you know, new claims are going to have that, but just for best practice. Yeah,
+new claim, then it'll happen, but is there no brother that they always check?
+
+[0:52:53]
+Yeah, it's good practice, just so they're always kind of, you know, doing that
+automatically, because if they stop doing it because it's new claim, they may forget to do
+it on a follow-up claim, so. Yeah. Yeah. And then open task. Not going to have open task on
+a new claim. You know, but I tell them to check the the task anyways, there might be like an
+attached off task or something, so. they should check for any task and then same with notes
+going over notes. There are these hyperlinks
+
+[0:53:35]
+but we're not going to review them yet so I just let them know. We will get that review this
+address in a later lesson. Then emails, checking that the emails make sure there's no
+additional information, such as any medical treatment for anything about restrictions or
+lost time.
+
+[0:54:06]
+Then we can update the claim-based on any information we find in the email. And then, you
+know, files, so the documents could contain a variety of information. So just we want to go
+over check in the files. So that would bring them to using these iris articles. If there are
+anything in the files. I remember the, let me see. We saw the Ayris of OSHA 1012 and we
+briefly see the 3.4 and we continue with the 5. Because you said that the 3.4, we're going
+to see it later.
+
+[0:54:54]
+Yeah, mm-hmm. Yes. So we're not going to actually look at these right now, But these are
+here for later, like when they're... Oh, okay, okay, you're just mentioned that you can,
+okay. Yeah, so like all of these, like because they're going to see them as you're reviewing
+it, just let them know that we will be reviewing these later.
+
+[0:55:17]
+But yeah, but, you know, they're here when they're actually working claims and, you know,
+need to actually use the irises at that time.
+
+[0:55:28]
+Okay, you got it. All right. And then this part, we've gotten rid of. See then. Okay. Let me
+see how I. This here is. Okay, it isn't landscape. Sorry. The one that I. And. just has some
+additional information and then once we got to hear them. So, okay, so we are going to just
+have them.
+
+[0:56:12]
+We're going to remove this and then they would just use the iris one eight one five five.
+
+[0:56:19]
+Okay, so not change anything after that. No. Okay. So this won't be here. Yeah. And process
+additional information. So this is review the information gathered to determine if any other
+actions required on the claim, look for a breaking calendar. And if I identify, take
+appropriate actions, when medical is present, is there a gap between the date of injury and
+the visit date? An absence record is served. as they're dealt between the date of injury and
+TWA lost time start date.
+
+[0:56:57]
+Are there any indicators of the following? TWA lost time conflicting start dates.
+
+[0:57:04]
+Does the conflicting date of injury exist? So again, these are all gonna be things that
+
+[0:57:10]
+they will learn a little bit later as well. So I break encounter indicators and conflicting
+dates. Okay, and then when we get back from break, we'll go over the next, this HCP
+information, and then we'll start looking at the new claims quiz. All right, all righty,
+then, okay, all right, well, then I will see you in my 2015 Okay. Okay. Okay. Okay. Yeah.
+You're awesome. Okay, yeah, you're awesome.
+
+[0:57:56 to 1:13:23]  ---- BREAK, 15.5 min of silence. Recording continues below. ----
+
+[1:13:23]
+And back and back. All right. I get kind of doing the dishes. You were doing dishes too.
+Yeah. Oh my gosh, I was too. I was loading up my dishwasher. Oh, man. The watershed is me
+so. Awesome. All right. Oh yeah, that's another thing. Sometimes I forget right away to tell
+the class. the class when they get back, put the hands on the air, raise their hands, so
+that way I know when they're back.
+
+[1:14:04]
+Oh, all right. Was it okay? So we're going to do iris 18155.
+
+[1:14:12]
+Like we're pretty familiar 18155. Let me share my screen again.
+
+[1:14:29]
+So this one, um, sometimes until we can actually apply it. Um, sometimes it's hard for them.
+This is like a low information without seeing any claim. So I go through it. And then, you
+know, of course, we will apply it later. because really, you know, it's not something that
+they'll fully understand right now and that's okay. So. Maybe we can try for example, okay,
+maybe go through the new plane, say widget, maybe try to find one that applies here on the
+children, children to them. Yeah, yeah.
+
+[1:15:18]
+You definitely can. Like if you can find. Um, maybe I don't know, just find one, I don't
+know if you'd be able to find one that fits, you know, each one, but, you know, a couple
+example claims to, like maybe some medical treatment that's yes, some that's no. I'm even
+like a few that's unknown. I mean, for the first two, maybe we just just kind of like open a
+new claim, just edit the right button without save any change, you just show it to the NIA.
+
+[1:15:53]
+Hey, look, for example, this part, like three minutes or no, whatever, what we are going to
+do, something like that. Found the NIA in the social 3, 4 and I just moved training to know
+about without saving any changes. I'm just showing today. I mean, what should I do in this
+situation? Yes. That's a good idea and to show them where this is at on the claim. Where do
+they go to look for medical treatment? Where do they go to the New York hospitalized? HCP
+info. Just to show them where that's at on the claim.
+
+[1:16:29]
+would be helpful. All right, and then now let me ask you as far as this iris do you have any
+questions on it? No, no, no, buddy. All right, all right. Okay, okay, okay.
+
+[1:16:58]
+Okay, so then we come to working new claims, quiz, let's see.
+
+[1:17:17]
+And we have the quiz for this one. Yeah. So 14 points. We must add it more. Maybe there were
+14 questions at first. Oh, I know the name doesn't have. I don't think. I don't know. Okay.
+Okay. So I know if it can. Yeah, I think maybe we added some additional questions. And
+that's why it doesn't. That's why it's only says 14. But so this is what we have for our
+quiz. When selecting a new claim, if another act of claim has an open absence. What should
+you do?
+
+[1:18:06]
+And then. Consult coach. Another claim for the same employee has an open task. What is the
+correct action? Consult a coach. What should you do with the injury body part diagram during
+the claim review process? And that's why they have to select all that apply. Ignore it. Do
+not update it for its for external management use only. And then when the claim is coded as
+OSHA 5, which is a following must be updated.
+
+[1:18:47]
+Maybe the HCP.
+
+[1:18:57]
+I think this one this one could throw them off a little bit because they do have to update
+medical treatment sought, but this is not would not be the correct answer. So that might
+throw them off a little bit which is fine because it shouldn't this should not be the right
+answer. Um, so I think that one's kind of a little bit of a trick question. If the shift
+start date does not match the date of injury and an absence record is present, what must you
+do?
+
+[1:19:23]
+So it's a poach. And you should start an absence immediately if the claim has no previous
+TWA lost time. False. I don't think I like that question. Okay. PWM last time record should
+be extended 365 days. If that's made end date has expired or will soon. True. You should
+only update. Claim builds that employees services has been authorized to update true.
+Attorney file and listen in the description as an indicator of that. The mind application
+process should be followed. true. Employee name and employee information should be open in
+the same tab to say prime.
+
+[1:20:19]
+employee name. Information. So like where the employee's name is in blue, I think
+
+[1:20:27]
+do some updates to a lot of these questions. Yeah, because they are the most beneficial. So
+when reviewing a claim for mental illness. The blank radio button that's the updated based
+on the injury and the OSHA regulatory information section. So they would fill in the answer
+here so they can type OSHA privacy or privacy. Either one will be acceptable. Yeah, I was
+going to say that. Oh, they're going to type. Okay, okay. They're going to write down that
+part. Okay, okay. So yeah, so when we set them to where they can enter an answer, like type
+out an answer, we try to put different variations of how they might answer it.
+
+[1:21:29]
+So that way won't count them off. If no other claims with open absence or tasks are found
+for them, ploy your next step would be to blank blank blank the claim. I don't review and
+edit the claim for normal review. Why would they say that? If not a claim, we don't have to
+find a claim, and then they will be to review an eddy, or maybe what they claim as normal,
+working for five hours. This really wouldn't fit within this sentence, but if they put
+something like that, that's fine.
+
+[1:22:19]
+But this is like basically copy and paste it right from Iris. So if they're checking Iris,
+they should see that the answer is review and edit the plane.
+
+[1:22:30]
+Okay.
+
+[1:22:34]
+If medical, excuse me, if medical provider information is found, you must update the medical
+information section of the plane to reflect that blank is being sought medical treatment I
+would accept treatment as well and the build initial review date should be updated with
+today's date and treatment sought is marked no and there's no indication of TBS the
+following steps should be completed. I see the claims that the OSHA 0, no treatment sought
+pass. Okay. And that is it on those questions. I wonder if there's 15 questions, why is only
+14 points.
+
+[1:23:26]
+I know for sure this one's probably was added later after we did the update. after the OSHA
+zero-no treatment sought was added to the process. So probably originally there were only 14
+points, so it was C. Well as you can see every questions say one point, one point maybe one
+of them doesn't study any of them.
+
+[1:24:10]
+The egg one doesn't have an appointment. Yeah, it does not.
+
+[1:24:17]
+Everybody's not big, I mean there is not like a big deal that will I don't have time to make
+a score here, I just need to get the ray on.
+
+[1:24:36]
+No, it was it's because of the added so the name won't have any points so originally there
+were only 15 questions so technically 14 because number one doesn't count as a point but
+when we added the new process of the OSHA zero no treatment This question was added later.
+So now there's 15 points available. So that's that's why it's just that this part didn't get
+updated.
+
+[1:25:20]
+I don't know why is it not well maybe I don't know oh well I guess it does automatically um
+Adam you can you can point because you have on the left no no no on the left There we go.
+No, doesn't it? Okay, yeah, yeah, yeah. All right. Okay. Now. Thank you. All right. Perfect.
+Yes, and I still want to go back and change some of those questions, because yeah, all
+that's on there. Okay. And then our next thing is our PowerPoint.
+
+[1:26:34]
+For me this is like a difficult topic. I mean, there's not that difficult, but can be
+confusing. It has like a lot of rules. Yeah, there's five rules for the breaking calendar.
+Let me. This one has some animations and interactive questions and a quiz in here, so I'm
+just going to
+
