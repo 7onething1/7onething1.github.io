@@ -1,39 +1,19 @@
 # Active chats digest
 
-Built 2026-10-13 09:07 CDT. 8 chats read from transcripts.
+Built 2026-10-13 20:10 CDT. 9 chats read from transcripts.
 
 ## Headline
 
-All 8 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 1 are past the 400-turn ceiling.
-Totals: 2,706 assistant replies, 41 MB of transcript.
+All 9 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 2 are past the 400-turn ceiling.
+Totals: 2,934 assistant replies, 43 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Johnny Five daily pass  (22.5 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Goal: run today's Johnny Five daily pass for the Glo site and report what it finds. - **Phase 1:** Confirm this Mac by hostname, then read today's.
-- This Mac is the right one:** `hostname -s` answered `MacBookPro`, so every path in the pass applies here. **The daily check ran today:** its first line.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (14.1 hours quiet, 5 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Song categories reorganization  (13.1 hours quiet, 363 replies)
+### Song categories reorganization  (1.0 days quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -43,17 +23,7 @@ Totals: 2,706 assistant replies, 41 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (11.0 hours quiet, 914 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bs9cce5yc</task-id> <tool-use-id>toolu_012XptTz8FT4TPPBUoofiEQe</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/8a6e9bd0-d0c6-4828-9399-7
-
-- The export carries it: Oct 4 now has 19 plays, and "Suicide Solution" gains its first video play (36 plays in all). The dry run is clean, with 2.
-- Deployed: `dpl_EBtiuEYsr9GC6rAXfmeVVwWMh343` is live as of 10:08 PM. The baseline is advanced and the freshness gate passes. Final proof is the Oct 4.
-- Saving the three helper scripts into the setlist run's `_checks` folder, since the scratchpad gets cleared, and writing the method into memory.
-- "Suicide Solution" was a quick tease on the Oct 4 show, and it's on the page now.** - **No filter touched it anywhere in the pipeline.** I searched.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Brandon playlist with YouTube clips  (10.5 hours quiet, 326 replies)
+### Brandon playlist with YouTube clips  (21.6 hours quiet, 326 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - Both test servers were mine and stopped on my kill, so those two notices are expected. Adding the new tools to the skill file and saving one reference.
@@ -63,7 +33,7 @@ Totals: 2,706 assistant replies, 41 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube videos unlisted  (7.6 hours quiet, 387 replies)
+### YouTube videos unlisted  (18.7 hours quiet, 387 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Rebuilding the restore list with both passes, after backing up the first version.
@@ -73,7 +43,7 @@ Totals: 2,706 assistant replies, 41 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (7.2 hours quiet, 330 replies)
+### 55% volume limit  (18.2 hours quiet, 330 replies)
 **Goal.** Not summarised by hand yet. Last input on record: 45% limit on
 
 - 🟩 The H87 has no limit - 🟩 **Nothing is capping the H87 now.** It went up to 90 at 00:08:26, and it still read 90 at 00:09:02. - 🟦 **The headset.
@@ -83,12 +53,52 @@ Totals: 2,706 assistant replies, 41 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1 minutes quiet, 375 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT NewsRadio / Community scripts pass loop. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md and run its "One tick" sec
+### Stop malfeasance and fraud  (10.7 hours quiet, 5 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
-- Skipped this tick because ChatGPT is still writing pass 28. It has written 2 sections so far, and the server updated 42 seconds ago. The skip is logged.
-- Pass 29 is in, and its focus is episode structure. The new thread's server shows 4 pass prompts. Pass 28 finished first with 35,977 characters. Its top.
-- Skipped this tick because ChatGPT is still writing pass 29. It has written 1 section so far, and the server updated 48 seconds ago. The skip is logged.
-- Pass 30 is in, and its focus is the station and the school as institutions. The new thread's server shows 5 pass prompts. Pass 29 finished first with.
+- The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (28 minutes quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (27 minutes quiet, 9 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
+
+- Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
+- The band inbox, pulled today, says **"Nothing open."** That means this pass ends here. - **daily check: PASS.** The file is stamped 2026-10-13T19:40 on.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lizz and Glostik early update  (16 minutes quiet, 985 replies)
+**Goal.** Not summarised by hand yet. Last input on record: no music on lizz last night stop the trascribe
+
+- Glostik: yes. Lizz: not yet, and it's in progress now.** 🟢 **Glostik is updated with last night** - **Last night's show went up at 3:49 this morning.**.
+- Checklist: 1. **Stop the transcription** of Lizz's Oct 12 night (`vnZhEe-V73K`) and confirm every worker is gone. 2. **Keep it from restarting.** Her.
+- Quick status: Lizz's transcription is stopped. I'm adding a skip so that no-music night is never transcribed again. Then I'll look into "old Glostik.
+- Memory has no note about a new Glostik tab. One recent handoff stands out: "Glostik most played tabs - 14 of 14 delivered" from Oct 9. "Tab" may mean a.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Newsradio/community scripts automation  (0 minutes quiet, 523 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
+
+- Skipped this tick because ChatGPT is still writing its answer to the last "next." It's on fan campaigns that saved shows, citing Star Trek and My.
+- Status: "next" for E.24 is in. The page shows "You said: next" and ChatGPT is responding. I'm logging it now, and the next tick will confirm the server.
+- Sent "next" after ChatGPT finished E.23 on fan cultures (6,557 characters). ChatGPT is now writing E.24, which compares the two shows' five-season NBC.
+- Skipped this tick because ChatGPT is still writing E.24. The server now shows 19 user messages, the newest "next" from 3.8 minutes ago, which confirms.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
