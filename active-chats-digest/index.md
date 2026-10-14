@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-14 01:42 CDT. 11 chats read from transcripts.
+Built 2026-10-14 02:13 CDT. 12 chats read from transcripts.
 
 ## Headline
 
-All 11 chats ended on a gate block, 0 on a message from Brandon.
+All 12 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 4,488 assistant replies, 65 MB of transcript.
+Totals: 4,963 assistant replies, 69 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Song categories reorganization  (1.2 days quiet, 363 replies)
+### Song categories reorganization  (1.3 days quiet, 363 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bbaskc2o3</task-id> <summary>Monitor event: "Lizz genre pass: each artist that moves, plus finish or failure"</summary> <event>dry run: nothing written to data.j
 
 - Production matches. The rows show their new genres, and all four new genre buttons are pressed. Next I'm recording R5 and stopping my local test server.
@@ -23,7 +23,7 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Brandon playlist with YouTube clips  (1.1 days quiet, 326 replies)
+### Brandon playlist with YouTube clips  (1.2 days quiet, 326 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stream-setlist # stream-setlist Brandon, 2026-09-15: "make it a skill and run it with agents... don't stop til done". Built
 
 - Both test servers were mine and stopped on my kill, so those two notices are expected. Adding the new tools to the skill file and saving one reference.
@@ -43,7 +43,7 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.2 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (16.7 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The goal is to sweep the last day of chats, restart any that stalled while still owing work, and file a dated report. - **Phase 1, sweep:** run.
@@ -53,7 +53,7 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (6.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -63,7 +63,7 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (6.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (6.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
@@ -73,7 +73,7 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (2.4 hours quiet, 337 replies)
+### 55% volume limit  (2.9 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -83,42 +83,52 @@ Totals: 4,488 assistant replies, 65 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1 minutes quiet, 1267 replies)
+### Summerwoods Vercel deployment  (4 minutes quiet, 88 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
+- The reply box holds the text, addressed to summerpwoods@gmail.com inside the Sep 29 thread. Next I'll check it matches the gated file exactly.
+- Sending a message from Brandon's account needs his clear yes first. I've logged that wait with the blocker tool, and next I'm checking his reply-format.
+- 🟨 **Nothing has gone out yet, and one yes from you sends this to Summer.** It's sitting unsent in your Gmail. 🟩 **It replies in your Sep 29 thread** to.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Newsradio/community scripts automation  (2 minutes quiet, 1383 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- ChatGPT is still writing A.32, so this tick is a skip. I'm logging it now.
-- I skipped the 01:34 tick because ChatGPT was still writing up the Frankie casting links for A.32, and logged it as pass 45.
-- A.32 finished at 17,162 characters, and "next" is typed in the box. I'm sending it now.
-- I sent "next" on thread four at 01:38, after the 17,162-character A.32 answer finished. It landed, ChatGPT is answering, and I logged it as pass 45.
+- Thread four hit ChatGPT's maximum length partway through A.33, so I reseeded at 02:02. The continuation prompt went into thread five.
+- I skipped the 02:03 tick because ChatGPT is still working on A.33 in thread five, and logged it as pass 47.
+- I skipped the 02:06 tick because ChatGPT is still researching A.33 in thread five, and logged it as pass 47.
+- I sent "next" in thread five at 02:10, after the 5,812-character A.33 answer finished. It landed right after that answer and ChatGPT is now on A.34,.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1 minutes quiet, 176 replies)
+### YouTube live view counts  (1 minutes quiet, 298 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
-- The Glostik and Lizz pages each have more than one player path: the main song player, a playlist player, and a few smaller blocks. Next I'll map each.
-- The main player gets each song as "Song — Artist", so plays can be counted by song name. Next I'll read the deploy gates and the visit-counter code the.
-- The views gate checks the exact `counted ? 'GET' : 'POST'` shape, so I'll leave that line alone and set `counted` earlier for your flagged browsers.
-- Quick status: I'm checking the two active chats so my edits don't collide with theirs. After that I'll write the tracking code.
+- Now the test fixes: open the playlist tab first, press a Spotify row for a different song, and pick a real outbound link.
+- Status: the Glostik and Lizz pages now pass 104 of 120 checks. I'm digging into the playlist and Spotify cases, which look like test-setup problems. A.
+- The playlist tab button is `#gap-tab-play`. Checking where it's attached in each layout:
+- Status: I've fixed the Spotify catch and I'm rerunning the browser checks on all eight Glostik and Lizz pages.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (1 minutes quiet, 1518 replies)
+### Lizz and Glostik early update  (0 minutes quiet, 1585 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
-- July is done except for three shows, and YouTube is holding one of those three.** 🟢 **Live tonight:** 11 July comments are public and recorded: Jul 19,.
-- You're right. You asked for the Here We Go fix and I only put it on a list. Working on it now.
-- Understood, and no more waiting around. Results are coming in now.
-- The list now has 72 originals, Here We Go included. "Highs and Lows" maps to your "Highs & Lows", and Rooster stays off. Next is the namer.
+- A quick shell quoting slip in my loop. Rerunning it.
+- The Kick sets were rebuilt in the same export and carry the Here We Go name. Doing the deploy dry run now.
+- The dry run is clean: copy and Rooster gates pass, and only 2 files change against production (the page data and the Kick sets). Deploying.
+- Posting stays paused. Right now I'm editing your Oct 12 comment so the 2:17:30 row reads Here We Go instead of Carry On, then checking it's still public.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (1 minutes quiet, 94 replies)
+### Summer woods add-to-list feature  (0 minutes quiet, 176 replies)
 **Goal.** Not summarised by hand yet. Last input on record: our summer woods site is supposed to have the feature where you can click a plus and add it to the playlist or my list like the glostik site, but I dont see it.
 
-- Status: I found the newest version of this feature, the one ported to the ixi site three days ago. I'm adapting it into Summer's own page now.
-- Confirmed the cause: the live Summer page never got this feature. Now writing the plus button, My List, and a Playlists tab into a staged copy.
-- The plan is set. I'll write the patch as separate pieces plus an anchored applier, the same reproducible method the ixi port used.
-- Now the script half: the playlist engine and the tab switcher.
+- Quick status: the first browser run caught two failures, in shared-list saving and the slash key. Rerunning to see the full picture before fixing.
+- Switching to your missed-song report now. The Summer button test keeps running in the background meanwhile. First I'm finding which archive owns that.
+- Status: only 2 of Summer's 79 streams ever had their viewer setlists checked. That gap explains how songs slip through. I'm fixing this show first,.
+- Status: writing the matcher rule now. A viewer's mark plus Summer's words naming the same song will make a row. Then I re-run this show and the.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
