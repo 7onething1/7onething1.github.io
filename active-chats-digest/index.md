@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-14 18:47 CDT. 10 chats read from transcripts.
+Built 2026-10-14 19:17 CDT. 10 chats read from transcripts.
 
 ## Headline
 
 All 10 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 3 are past the 400-turn ceiling.
-Totals: 6,065 assistant replies, 73 MB of transcript.
+0 need a Brandon action. 4 are past the 400-turn ceiling.
+Totals: 6,218 assistant replies, 75 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (23.1 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (23.6 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -23,7 +23,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (23.1 hours quiet, 9 replies)
+### Johnny Five daily pass  (23.6 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Running the daily pass now. The plan has three phases. - **Phase 1:** Confirm this is the MacBook and read today's daily check file. - **Phase 2:**.
@@ -33,7 +33,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (19.5 hours quiet, 337 replies)
+### 55% volume limit  (20.0 hours quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -43,7 +43,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Vercel deployment  (16.6 hours quiet, 88 replies)
+### Summerwoods Vercel deployment  (17.1 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -53,7 +53,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (16.3 hours quiet, 395 replies)
+### YouTube live view counts  (16.8 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -63,7 +63,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (15.9 hours quiet, 1664 replies)
+### Lizz and Glostik early update  (16.4 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -73,7 +73,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (13.8 hours quiet, 505 replies)
+### Summer woods add-to-list feature  (14.3 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -83,7 +83,7 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (8.2 hours quiet, 9 replies)
+### Johnny Five daily pass  (8.7 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for Glostik and report it. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file..
@@ -93,22 +93,22 @@ Totals: 6,065 assistant replies, 73 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1 minutes quiet, 2713 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
+### Lyric placement over rhythm guitar  (15 minutes quiet, 455 replies)
+**Goal.** Not summarised by hand yet. Last input on record: it wasn't published got it now
 
-- I skipped the 18:34 tick because A.112 is still being answered, and logged it as pass 127.
-- The 18:38 tick sent "next" after A.112 finished, so A.113 has started and I logged the send as pass 127.
-- I skipped the 18:42 tick because A.113 is still being answered, and logged it as pass 128.
-- The 18:46 tick sent "next" after A.113 finished, so A.114 has started and I logged the send as pass 128.
+- Indigo Sparke: the words are on the rhythm guitar in Player view, but the editor won't show them there **What works** - 🟢 **Player view shows the words.
+- You published it yourself and now see the words. Confirming from Songsterr's public data that the published tab carries them on the rhythm guitar,.
+- The public data confirms it. The tab is published as r9749710, both parts return http 200, and the Vocals part's words fill all 172 sung notes. Closing.
+- Good, so publishing it was the fix. I confirmed the tab is live: [the day I drove the car around the.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (0 minutes quiet, 339 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [the lyrics on the ](https://www.songsterr.com/a/wsa/indigo-sparke-the-day-i-drove-the-car-around-the-block-tab-s7470881/r9749710?open=editor)
+### Newsradio/community scripts automation  (4 minutes quiet, 2750 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- Quick status: I'm putting your view back the way it was. One slip: Multitrack had already reset to off, so my click turned it back on. Fixing that,.
-- Quick status: I'm switching your editor link back to the Rhythm Guitar so it opens the way it did before. The mixer didn't show after that click, so.
-- The mixer is open with Multitrack off and Vocals selected. Selecting the Rhythm Guitar row.
-- The revision view is on Rhythm Guitar now. Reloading your exact editor link to confirm it opens on the guitar again, then leaving the tab on the Player.
+- The 19:02 tick sent "next" after A.115 finished, so A.116 has started and I logged the send as pass 130.
+- I skipped the 19:06 tick because A.116 is still being answered, and logged it as pass 131.
+- The 19:10 tick sent "next" after A.116 finished, so A.117 has started and I logged the send as pass 131.
+- I skipped the 19:14 tick because A.117 is still being answered, and logged it as pass 132.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
