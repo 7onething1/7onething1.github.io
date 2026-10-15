@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-14 23:19 CDT. 7 chats read from transcripts.
+Built 2026-10-14 23:49 CDT. 7 chats read from transcripts.
 
 ## Headline
 
 All 7 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,344 assistant replies, 75 MB of transcript.
+Totals: 6,387 assistant replies, 76 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Summerwoods Vercel deployment  (21.2 hours quiet, 88 replies)
+### Summerwoods Vercel deployment  (21.7 hours quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -23,7 +23,7 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (20.8 hours quiet, 395 replies)
+### YouTube live view counts  (21.4 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -33,7 +33,7 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (20.4 hours quiet, 1664 replies)
+### Lizz and Glostik early update  (20.9 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -43,7 +43,7 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (18.4 hours quiet, 505 replies)
+### Summer woods add-to-list feature  (18.9 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -53,7 +53,7 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (12.7 hours quiet, 9 replies)
+### Johnny Five daily pass  (13.2 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for Glostik and report it. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file..
@@ -63,7 +63,7 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (3.5 hours quiet, 483 replies)
+### Lyric placement over rhythm guitar  (4.0 hours quiet, 483 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://www.songsterr.com/a/wsa/radiohead-how-to-disappear-completely-solo-tab-s51291t1 put the lyrics on the rhythm guitar
 
 - New task: put the lyrics on the rhythm guitar for Radiohead's "How to Disappear Completely", tab s51291. 1. **Read the tab.** Check the owner, the.
@@ -73,12 +73,12 @@ Totals: 6,344 assistant replies, 75 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1 minutes quiet, 3200 replies)
+### Newsradio/community scripts automation  (3 minutes quiet, 3243 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- The 23:06 tick sent "next" after A.139 finished, so A.140 has started (the NewsRadio documentary episodes set against Community's "Advanced Documentary.
-- I skipped the 23:10 tick because A.140 is still being answered, and logged it as pass 155.
-- The 23:14 tick sent "next" after A.140 finished, so A.141 has started (NewsRadio's hidden filming and the edited Bill McNeal tape against Community's.
-- I skipped the 23:18 tick because A.141 is still being answered, and logged it as pass 156.
+- The 23:38 tick sent "next" after A.143 finished, so A.144 has started, pairing NewsRadio's "Movie Star" with Community's "Messianic Myths and Ancient.
+- The loop tab has moved again. You opened another new chat at about 23:42, titled "resume news radio community here". I'm reading it before I change.
+- I'm holding: at 23:42 you opened another chat in the loop's tab ("resume news radio community here",.
+- I'm still holding at 23:46 because ChatGPT is still answering your resume message in thread fourteen, where it is preparing A.145. I logged the tick as.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
