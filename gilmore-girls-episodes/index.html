@@ -62,7 +62,7 @@ body.kids{font-size:1.04em}
   <div class="chips">
     <span class="chip"><b>21</b> of 22 season-1 episodes</span>
     <span class="chip"><b>22</b> of 22 season-2 episodes</span>
-    <span class="chip"><b>9</b> of 22 season-3 episodes</span>
+    <span class="chip"><b>10</b> of 22 season-3 episodes</span>
     <span class="chip"><b>153</b> episodes inventoried</span>
     <span class="chip"><b>3</b> artifacts per episode</span>
     <span class="chip">verbatim-grounded</span>
@@ -634,7 +634,18 @@ const EPS3 = [
    {t:"Emily follows Lorelai outside after the Yale reveal", q:"You hate us that much."},
    {t:"Dean stops avoiding Jess on the street", q:"This is my town"}
   ],
-  arc:"Emily drives to the inn to end weeks of dodged calls and claims Thanksgiving, which turns the holiday into a four-stop schedule of the Kims, Sookie, Luke and Hartford, and the Gilmores add Luke back the moment they see that being dropped actually disappoints him. Each stop runs on concealment: Lane passes off her bandmate Dave as a Christian guitarist her mother hired to play five hours of hymns, Rory asks Jess to keep their kissing out of sight of Doose's and the town, and Sookie loses her turkey to Jackson's vat of peanut oil. In Hartford a dinner guest's polite questions about safety schools drag out that Rory applied to Yale, and Lorelai accuses her parents of working on Rory behind her back while the French guests watch, until Emily tells her outside that she cannot let Rory have one piece of their lives. The night closes on Dean squaring up to Jess and announcing that he is done hiding in his own town, so the episode ends with three secrets in the open and nothing resolved about any of them."}
+  arc:"Emily drives to the inn to end weeks of dodged calls and claims Thanksgiving, which turns the holiday into a four-stop schedule of the Kims, Sookie, Luke and Hartford, and the Gilmores add Luke back the moment they see that being dropped actually disappoints him. Each stop runs on concealment: Lane passes off her bandmate Dave as a Christian guitarist her mother hired to play five hours of hymns, Rory asks Jess to keep their kissing out of sight of Doose's and the town, and Sookie loses her turkey to Jackson's vat of peanut oil. In Hartford a dinner guest's polite questions about safety schools drag out that Rory applied to Yale, and Lorelai accuses her parents of working on Rory behind her back while the French guests watch, until Emily tells her outside that she cannot let Rory have one piece of their lives. The night closes on Dean squaring up to Jess and announcing that he is done hiding in his own town, so the episode ends with three secrets in the open and nothing resolved about any of them."},
+ {code:"S03E10", title:"That'll Do, Pig",
+  theme:"Two households take an outsider's judgment for a verdict: Emily is ruled by her mother-in-law's approval at the Gilmore table, and Rory brings Dean back as a friend and Jess reads him as a rival.",
+  beats:[
+   {t:"Dean comes back with a four-year college plan and an offer", q:"Is there a way we could be friends?"},
+   {t:"Trix sends Lorelai away from the carnival and into the grown-up dinner", q:"Dinner will be for the grown-ups."},
+   {t:"Lorelai teaches Emily to laugh at Trix's disapproval", q:"You just need a system, a new mindset."},
+   {t:"Rory turns on Francie after the hijacked council vote", q:"All bets are off."},
+   {t:"Jess tells Dean what the friendship is really for", q:"Rory and I are just friends, just like you and Rory were just friends."},
+   {t:"Emily makes the green beans outlast Trix's twelve-minute courses", q:"Fine, we will wait."}
+  ],
+  arc:"Dean brings back Rory's books and CDs, then over pie at Weston's tells her he applied to a four-year college because of her, and asks if they can be friends, which she accepts without telling Jess. Richard's sixtieth birthday brings his mother Trix in unannounced from London, and her steady correction of Emily, from the foyer to the guest room to the gifts kept in the basement, sends Emily into a panic over Lorelai's furniture until Lorelai hands her the one tool that ever worked against Emily herself, which is to find the disapproval funny. At Chilton, Francie calls the meeting Paris cancelled and pushes the prom to the Wadsworth Mansion, and Rory tells her the truce is over. The carnival puts Rory, Jess, Dean and Clara on one midway, Jess calls the friendship a pity move to Dean's face, and at the inn Emily stretches four green beans across Trix's schedule while Trix announces she is moving back to Hartford, so Emily's one small win of the night arrives with her biggest critic about to live close by."}
 ];
 
 function clean(s){return (s||"").replace(/[—–]/g,", ").replace(/…|\.\.\./g,",").replace(/ ,/g,",");}
