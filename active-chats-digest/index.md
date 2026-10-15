@@ -1,29 +1,19 @@
 # Active chats digest
 
-Built 2026-10-15 01:49 CDT. 7 chats read from transcripts.
+Built 2026-10-15 02:20 CDT. 6 chats read from transcripts.
 
 ## Headline
 
-All 7 chats ended on a gate block, 0 on a message from Brandon.
+All 6 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 6,563 assistant replies, 78 MB of transcript.
+Totals: 6,519 assistant replies, 77 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Summerwoods Vercel deployment  (23.7 hours quiet, 88 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
-- The reply box holds the text, addressed to summerpwoods@gmail.com inside the Sep 29 thread. Next I'll check it matches the gated file exactly.
-- Sending a message from Brandon's account needs his clear yes first. I've logged that wait with the blocker tool, and next I'm checking his reply-format.
-- 🟨 **Nothing has gone out yet, and one yes from you sends this to Summer.** It's sitting unsent in your Gmail. 🟩 **It replies in your Sep 29 thread** to.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube live view counts  (23.4 hours quiet, 395 replies)
+### YouTube live view counts  (23.9 hours quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -33,7 +23,7 @@ Totals: 6,563 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (23.0 hours quiet, 1664 replies)
+### Lizz and Glostik early update  (23.5 hours quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -43,7 +33,7 @@ Totals: 6,563 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (20.9 hours quiet, 505 replies)
+### Summer woods add-to-list feature  (21.4 hours quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -53,7 +43,7 @@ Totals: 6,563 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (15.2 hours quiet, 9 replies)
+### Johnny Five daily pass  (15.7 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - Goal:** run today's Johnny Five daily pass for Glostik and report it. - **Phase 1:** confirm this Mac by hostname, then read today's daily check file..
@@ -63,7 +53,7 @@ Totals: 6,563 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (6.0 hours quiet, 483 replies)
+### Lyric placement over rhythm guitar  (6.5 hours quiet, 483 replies)
 **Goal.** Not summarised by hand yet. Last input on record: https://www.songsterr.com/a/wsa/radiohead-how-to-disappear-completely-solo-tab-s51291t1 put the lyrics on the rhythm guitar
 
 - New task: put the lyrics on the rhythm guitar for Radiohead's "How to Disappear Completely", tab s51291. 1. **Read the tab.** Check the owner, the.
@@ -73,12 +63,12 @@ Totals: 6,563 assistant replies, 78 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (4 minutes quiet, 3419 replies)
+### Newsradio/community scripts automation  (2 minutes quiet, 3463 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Tick of the ChatGPT "next" loop on the NewsRadio / Community scripts thread. Read /Users/brandonchavez/Projects/_outputs/community-os/chatgpt-scripts-pass-2026-10-13/LOOP_STATE.md, section "
 
-- A.157 had finished, so I sent "next" at 01:34 and logged it as pass 170. A.158 has started, testing NewsRadio's contradictory retellings against.
-- ChatGPT was still writing A.158 at 01:38, so I skipped this tick and logged it as pass 171.
-- A.158 had finished, so I sent "next" at 01:42 and logged it as pass 171. A.159 has started, looking for a NewsRadio episode about a private message.
-- ChatGPT was still writing A.159 at 01:46, so I skipped this tick and logged it as pass 172.
+- A.161 had finished, so I sent "next" at 02:06 and logged it as pass 174. A.162 has started, comparing Max Lewis's arrival with Elroy's introduction in.
+- ChatGPT was still writing A.162 at 02:10, so I skipped this tick and logged it as pass 175.
+- A.162 had finished, so I sent "next" at 02:14 and logged it as pass 175. A.163 has started, comparing Joe's inventions with Community's "Digital Estate.
+- ChatGPT was still writing A.163 at 02:18, so I skipped this tick and logged it as pass 176.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
