@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-15 18:09 CDT. 11 chats read from transcripts.
+Built 2026-10-15 18:39 CDT. 11 chats read from transcripts.
 
 ## Headline
 
 All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 4 are past the 400-turn ceiling.
-Totals: 7,587 assistant replies, 88 MB of transcript.
+Totals: 7,740 assistant replies, 90 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (1.9 days quiet, 6 replies)
+### Stop malfeasance and fraud  (2.0 days quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -53,7 +53,7 @@ Totals: 7,587 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (1.6 days quiet, 1664 replies)
+### Lizz and Glostik early update  (1.7 days quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -73,7 +73,7 @@ Totals: 7,587 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (58 minutes quiet, 6 replies)
+### Stop malfeasance and fraud  (1.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 7,587 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (57 minutes quiet, 9 replies)
+### Johnny Five daily pass  (1.4 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 7,587 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (49 minutes quiet, 3670 replies)
+### Newsradio/community scripts automation  (1.3 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,22 +103,22 @@ Totals: 7,587 assistant replies, 88 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (1 minutes quiet, 601 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
+### Lyric placement over rhythm guitar  (4 minutes quiet, 667 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
-- New hard gate: any tab I add under your account gets added to your favorites. Plan: 1. **Record it as a hard gate.** A memory note plus a row in the.
-- The guard blocked the wildcard over the transcript files. Using the session list instead, plus plain file times.
-- The other chat confirms my bullets are the only copies. It asked to hear about any further change, and I've made two since its snapshot. Telling it.
-- The favorite rule is now a hard gate Any tab I add under your account gets starred the moment it exists. That covers copies, AI transcriptions, blank.
+- The ID-only link `songsterr.com/a/wa/song?id=<id>` redirects to the real tab with http 200, so the sheet can use it for every row. Fetching titles for.
+- LibreOffice isn't on the PATH, so the recalculation didn't run. Checking whether it's installed anywhere on this Mac.
+- Your account's own list gives 70 unpublished and 47 published, matching the estimate. The flag list was cut off near the end, so I'm fetching just the.
+- AI tabs are starred, one per song, no Mister History **What changed** - 🟢 **I starred 117 AI tabs.** Your favorites went from 191 to 308. All 117 went.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (0 minutes quiet, 306 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/skillify # /skillify Adapted from the starter kit for this Mac on 2026-09-18. ## 1. List the lessons From the task or corre
+### Lyrics placement chat  (1 minutes quiet, 393 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bdxbycqgi</task-id> <summary>Monitor event: "Portishead checks batch milestones (re-armed)"</summary> <event>portishead-the-rip-s50772 right: demucs exit 0 bass.
 
-- Roads now reads 25.6 ms with the fix, against 163.6 ms from the old version. Running the I See Monsters known answer (24.2 ms live per the skill).
-- Roads now reads "KEEP the AI points" at 25.6 ms. Updating the state file with the corrected Roads sync, the Deep Water results and the tool fix.
-- Glory Box audio finished at 18:07. Telling the other chat about the `sync_score.py` fix, since its skill sends check 3 there.
-- Queued as the sixth song. While the batch runs, I'm writing a small summary script that reads each song folder's results, so the final numbers come.
+- The corrected run is going. I kept the grid-clock version as `intro_sync.gridclock.log` for the record, and I'll read the real numbers when it finishes.
+- The Rip fails its OG check too, and the details matter for your words. Its nylon guitar sits on the right side and fits at a median 0.257, above the.
+- The Portishead contract is active again, and Sour Times has been running since 18:35. Four songs are fully measured, so I'm meeting their outcomes with.
+- R1, R4, R6 and R7 are met with their evidence paths. Sour Times (R8) and the Glory Box VEVO tab are still in the batch, and the monitor will report them.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
