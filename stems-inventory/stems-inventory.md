@@ -1,78 +1,87 @@
 # Stem Inventory
 
-Measured 2026-10-16 on Jacks-iMac by walking the mounted disks. Not read from the old stem map, which is stale.
+Walked 2026-10-16 on Jacks-iMac with all three disks mounted (internal, T7 Shield, Black). Live page: https://7onething1.github.io/stems-inventory/
 
 ## Headline
 
-- **717** song folders, **4,315** stem files, **146.62 GB** of stem audio.
-- **80.68 GB** of that has no copy on any external drive.
-- The **T7 Shield is not plugged in**, so the Phish jam corpus, Goldfrapp, and parts of Radiohead, Shiner, Beach House and The Life and Times could not be counted.
-- **Black is full**: 1.8 TB capacity, 1.9 GB free.
+- **940** song folders, **5,103** stem files, **187.87 GB** of stem audio, across **93 pools** and **22 artists**.
+- **56.49 GB** of that has no copy on any external drive.
+- **186 shortcuts built**, every one resolving to a real folder.
+- Both externals are nearly full: T7 Shield 8.0 GB free, Black 1.9 GB free.
 
-## Tonight's copy, A Perfect Circle
+## How to find any of it now
 
-Most of A Perfect Circle was on Black before tonight. Two sets were missing and are now copied, with counts checked on both sides:
+Hub: `~/Projects/stem-map/STEMS-FINDER`
+
+| Item | What it is |
+|---|---|
+| `by-artist/` | one folder per artist, a shortcut to each of that artist's pools across all three disks, named with disk and size |
+| `by-disk/` | the same 93 pools grouped by the disk holding them |
+| `WHERE-ARE-THE-STEMS.txt` | the whole map as plain text, including the traps below |
+| `refresh.sh` | rebuilds all of it from a fresh walk |
+
+Inside **each of the 93 pools** there are now two entries, both sorting to the top of a Finder window:
+
+- `_STEMS-FINDER` — a shortcut back to the hub
+- `_WHERE-ARE-THE-STEMS.txt` — the same text map
+
+So landing in any stem folder on any disk gets you to all the others. Verified: 93 of 93 pools have both, and 186 of 186 hub links resolve to a real directory.
+
+## Four traps on these disks
+
+1. **A half-finished copy.** `/Volumes/Black/htdemucs_6s` duplicates `/Volumes/Black/stems/htdemucs_6s`, and 7 of its 15 album folders hold zero audio, including both A Perfect Circle folders, A Farewell To Kings, Life and times, Currents. Use the one under `/stems/`. Nothing was deleted.
+2. **The stem library is a shell.** `~/Music/STEMS_LIBRARY/` is a symlink farm, 918 of 1,288 links dead (71 percent). All 864 broken music links point at a pre-migration `Moises_Input/stems` path.
+3. **The old map is dead.** `~/Projects/stem-map/stem-map.md` (2026-06-20) targets a tree that has since moved into `Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/`.
+4. **exFAT inflates counts.** Both drives write a `._` sidecar beside every file, so a naive count doubles. Every figure here excludes them.
+
+## A Perfect Circle, copied and verified
 
 | Set | Files | Bytes | Destination |
 |---|---|---|---|
 | 13th Step, FLAC source demucs | 36 | 152,810,128 | `/Volumes/Black/stems/htdemucs_6s/13th Step (FLAC source)/` |
 | APC stem loops | 13 | 40,660,090 | `/Volumes/Black/stems/htdemucs_6s/A Perfect Circle - STEM LOOPS/` |
 
-Source and destination agree exactly on file count and byte total for the first set. AppleDouble `._` sidecars that exFAT creates were excluded from both counts.
+Source and destination agree exactly on file count and byte total for the first set. The loops folder held 230 entries and only 13 resolved; the other 217 were dead symlinks with no file behind them.
 
-On the drive before tonight and left untouched: `13th step apc` 330 files 571 MB, `APC Mercs` 240 files 413 MB, plus 7.2 GB of drum-kit splits and 106 MB of drum stems at the root of Black.
-
-The APC stem loops folder held 230 entries. Only 13 resolved. The other 217 were dead symlinks with no file behind them.
-
-## Four problems found along the way
-
-1. **The old stem map is dead.** `~/Projects/stem-map/stem-map.md` was generated 2026-06-20 and references a Desktop path. That tree was dragged into the vault and is now at `Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/`.
-2. **The stem library is a shell.** `~/Music/STEMS_LIBRARY/` is a symlink farm. 918 of 1,288 links are dead, 71 percent. All 864 broken music links share one pre-migration prefix. Worst hit: The Life and Times 294, A Perfect Circle 217, Beach House 165, Radiohead 108, Smashing Pumpkins 84.
-3. **A half-finished copy on Black.** `/Volumes/Black/htdemucs_6s` is an interrupted duplicate of `/Volumes/Black/stems/htdemucs_6s`. Seven of its fifteen album folders hold zero audio. The good pool is the one under `/stems/`. Nothing was deleted.
-4. **The T7 Shield is offline**, so this inventory is incomplete by design.
+On the drive beforehand and left untouched: `13th step apc` 330 files 571 MB, `APC Mercs` 240 files 413 MB, plus 7.2 GB of drum-kit splits and 106 MB of drum stems at the root of Black.
 
 ## Everything we have stemmed
 
-| Artist or collection | Kind | Songs | Files | GB | Backed up |
-|---|---|---|---|---|---|
-| Band practice 9-11 | your band | 58 | 450 | 19.40 | internal only |
-| The Mars Volta | record | 29 | 224 | 18.03 | both disks |
-| The Appleseed Cast | record | 93 | 546 | 16.94 | both disks |
-| Dream Theater | record | 13 | 148 | 16.00 | both disks |
-| Phish | record | 61 | 332 | 11.21 | both disks |
-| Band practice rebuild | your band | 72 | 374 | 11.17 | internal only |
-| A Perfect Circle | record | 72 | 314 | 8.61 | both disks |
-| Radiohead | record | 60 | 413 | 7.72 | both disks |
-| Hooray For Earth | record | 22 | 132 | 5.98 | internal only |
-| Yes | record | 2 | 24 | 5.26 | drive only |
-| Tame Impala | record | 12 | 78 | 3.99 | drive only |
-| Rush | record | 6 | 36 | 3.57 | drive only |
-| Evidence / QA copies | working | 48 | 288 | 3.35 | internal only |
-| stem-player working set | working | 12 | 72 | 3.09 | internal only |
-| Shiner | record | 27 | 66 | 2.42 | both disks |
-| Band practice 8-28 | your band | 12 | 36 | 2.39 | internal only |
-| Joni Mitchell | record | 5 | 30 | 1.76 | internal only |
-| Beach House | record | 12 | 126 | 0.89 | both disks |
-| Guitar-split working set | working | 2 | 12 | 0.82 | internal only |
-| The Life and Times | record | 43 | 258 | 0.75 | both disks |
-| Band practice / memo capture | your band | 6 | 34 | 0.66 | internal only |
-| Bass-fix working set | working | 4 | 22 | 0.63 | internal only |
-| unclassified | working | 30 | 180 | 0.62 | internal only |
-| Smashing Pumpkins | record | 7 | 84 | 0.57 | drive only |
-| Band practice / band-midi | your band | 6 | 18 | 0.39 | internal only |
-| Working set | working | 2 | 13 | 0.31 | internal only |
-| Nine Inch Nails | record | 1 | 5 | 0.10 | internal only |
-| **Total** | | **717** | **4,315** | **146.62** | |
+| Artist or collection | Kind | Pools | Songs | Files | GB | Which disks |
+|---|---|---|---|---|---|---|
+| Your band practice | your band | 6 | 176 | 929 | 34.82 | T7 + internal |
+| Phish | record | 15 | 113 | 579 | 27.28 | T7 + Black + internal |
+| The Mars Volta | record | 4 | 39 | 224 | 18.03 | Black + internal |
+| The Appleseed Cast | record | 7 | 93 | 546 | 16.94 | Black + internal |
+| Dream Theater | record | 2 | 24 | 144 | 15.73 | Black |
+| Working sets | working | 15 | 94 | 513 | 14.99 | T7 + internal |
+| Band books corpus | working | 4 | 53 | 319 | 14.61 | T7 + internal |
+| A Perfect Circle | record | 5 | 60 | 246 | 8.07 | Black |
+| Radiohead | record | 5 | 62 | 359 | 7.72 | Black + internal |
+| Mixed Moises output | working | 1 | 20 | 117 | 5.68 | T7 |
+| Yes | record | 2 | 4 | 24 | 5.26 | Black |
+| Tame Impala | record | 2 | 13 | 78 | 3.99 | Black |
+| Rush | record | 1 | 6 | 36 | 3.57 | Black |
+| Fugazi | record | 1 | 11 | 66 | 2.86 | T7 |
+| Shiner | record | 5 | 26 | 54 | 1.94 | Black + internal |
+| Joni Mitchell | record | 1 | 5 | 30 | 1.76 | internal only |
+| Unsorted | working | 4 | 6 | 33 | 0.92 | T7 + internal |
+| Mixed, to be stemmed | working | 1 | 11 | 67 | 0.84 | T7 |
+| Mixed stem output | working | 6 | 49 | 289 | 0.80 | T7 + internal |
+| Beach House | record | 2 | 18 | 108 | 0.75 | Black |
+| The Life and Times | record | 2 | 43 | 258 | 0.75 | Black + internal |
+| Smashing Pumpkins | record | 2 | 14 | 84 | 0.57 | Black |
+| **Total** | | **93** | **940** | **5,103** | **187.87** | |
 
-Counts exclude loop packs and sample libraries. A song folder counts when it holds two or more different stems.
+Counts exclude loop packs and sample libraries. A song folder counts when it holds two or more distinct stems, so drum-split folders of kick, snare, hihat, toms and cymbals count too.
 
-## What is worth doing next
+## What is still open
 
-- **The Appleseed Cast is the real exposure.** Roughly 39 GB across five internal pools (`APPLESEED-CAST-ALL` 28 GB, `lowlevelowl1-demucs` 3.7 GB, `lowlevelowl2-demucs` 3.3 GB, `illumination-ritual-demucs` 3.6 GB, `mare-vitalis-demucs` 770 MB). Black holds only its drum stems. This copy needs the T7 Shield, because Black has 1.9 GB free.
-- **Your own band practice recordings** are the biggest unbacked block, roughly 34 GB across four pools, internal only.
-- **Repoint the stem library.** All 864 dead links share one prefix, so a search and replace onto the live pool would restore the index without moving any audio.
-- **Regenerate the stem map** with `build_stem_map.py` so it stops pointing at the old location.
+- **The Appleseed Cast has no full backup.** Roughly 39 GB of folder space across five internal pools (`APPLESEED-CAST-ALL` 28 G, `lowlevelowl1-demucs` 3.7 G, `lowlevelowl2-demucs` 3.3 G, `illumination-ritual-demucs` 3.6 G, `mare-vitalis-demucs` 770 M). The drives hold only its drum stems and one album, and neither has the room. Needs space cleared or a new disk.
+- **Your own band practice** is the biggest single block, 34.82 GB over six pools, part on T7 and the rest internal only.
+- **Repoint the stem library.** All 864 dead links share one prefix, so a search and replace onto the live pool restores the index without moving any audio.
+- **Regenerate or retire the old map**, since the hub refreshes itself.
 
 ## Provenance
 
-Figures come from a direct `os.walk` of the mounted disks on 2026-10-16, counting a folder as a song when it holds two or more distinct stem names. exFAT AppleDouble `._` files were excluded from every count. The T7 Shield was not mounted and is absent from every row. The pre-existing `stem-map.md` totals (27 artists, 278 songs, 1,349 files, 56.76 GB) are lower because its paths no longer resolve.
+Figures come from a direct `os.walk` of the internal disk, the T7 Shield and Black on 2026-10-16. A folder counts as a song when it holds two or more distinct stem names. exFAT AppleDouble `._` files were excluded from every count. Overlapping scan roots (the T7 root and its own subfolders) were deduplicated by path before any figure was computed, which dropped 86 double-counted rows. The six flat drum-split folders at the root of Black are listed from direct measurement, since they hold no per-song subfolders.

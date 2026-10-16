@@ -4,21 +4,21 @@
 <title>Stem Inventory</title>
 <style>
 :root{
-  --cream:#F4EBD9; --ink:#1B1B1B; --mustard:#D8A425; --pink:#E8B4B8;
+  --cream:#F4EBD9; --ink:#1B1B1B; --mustard:#D8A425;
   --teal:#4A7C7E; --rust:#C1502E; --navy:#2A3A4A; --olive:#7D8C5C;
   --line:#D6C7AE; --card:#FBF5E9;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);
  font:16px/1.55 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
-.wrap{max-width:1120px;margin:0 auto;padding:40px 16px 80px}
+.wrap{max-width:1150px;margin:0 auto;padding:40px 16px 80px}
 h1{font-size:2.1rem;margin:0 0 4px;letter-spacing:-.4px}
 .sub{color:var(--navy);margin:0 0 28px;font-size:1.02rem}
 h2{font-size:1.3rem;margin:44px 0 12px;padding-bottom:6px;border-bottom:3px solid var(--mustard)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:22px 0 10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:22px 0 10px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.card .big{font-size:1.75rem;font-weight:700;line-height:1.1}
-.card .lab{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--navy);margin-top:4px}
+.card .big{font-size:1.7rem;font-weight:700;line-height:1.1}
+.card .lab{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;color:var(--navy);margin-top:4px}
 .c-teal{border-left:6px solid var(--teal)} .c-rust{border-left:6px solid var(--rust)}
 .c-must{border-left:6px solid var(--mustard)} .c-olive{border-left:6px solid var(--olive)}
 .box{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--teal);
@@ -27,158 +27,176 @@ h2{font-size:1.3rem;margin:44px 0 12px;padding-bottom:6px;border-bottom:3px soli
 .box h3{margin:0 0 8px;font-size:1.05rem}
 .box p{margin:6px 0}
 table{width:100%;border-collapse:collapse;background:var(--card);
- border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.93rem}
+ border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.92rem}
 th{background:var(--navy);color:var(--cream);text-align:left;padding:9px 11px;
- font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+ font-size:.73rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
 td{padding:8px 11px;border-top:1px solid var(--line);vertical-align:top}
 td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 td.nm{font-weight:600}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;word-break:break-all}
-.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.79rem;word-break:break-all}
+.tag{font-size:.71rem;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
 .t-rec{color:var(--teal)} .t-band{color:var(--rust)} .t-work{color:var(--olive)}
-.w{font-size:.82rem;white-space:nowrap;font-weight:600}
+.w{font-size:.81rem;font-weight:600}
 .w.ok{color:var(--olive)} .w.risk{color:var(--rust)}
 tfoot td{background:#EFE3CC;font-weight:700;border-top:2px solid var(--navy)}
 ul{margin:8px 0 8px 20px;padding:0} li{margin:5px 0}
 .foot{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);
  font-size:.84rem;color:var(--navy)}
-code{background:#EFE3CC;padding:1px 5px;border-radius:4px;font-size:.84em}
-@media (max-width:620px){ .tag,td.nm{font-size:.85rem} table{font-size:.84rem} }
+code{background:#EFE3CC;padding:1px 5px;border-radius:4px;font-size:.83em}
+.half{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){ .half{grid-template-columns:1fr} }
 </style></head><body><div class="wrap">
 
 <h1>Stem Inventory</h1>
-<p class="sub">Measured by walking the disks on 2026-10-16, not read from the old map. Jacks-iMac.</p>
+<p class="sub">Walked on 2026-10-16 with all three disks mounted. Jacks-iMac.</p>
 
 <div class="cards">
- <div class="card c-teal"><div class="big">717</div><div class="lab">song folders</div></div>
- <div class="card c-teal"><div class="big">4,315</div><div class="lab">stem files</div></div>
- <div class="card c-must"><div class="big">146.62 GB</div><div class="lab">total stem audio</div></div>
- <div class="card c-rust"><div class="big">50.66 GB</div><div class="lab">internal only, no copy on a drive</div></div>
+ <div class="card c-teal"><div class="big">940</div><div class="lab">song folders</div></div>
+ <div class="card c-teal"><div class="big">5,103</div><div class="lab">stem files</div></div>
+ <div class="card c-must"><div class="big">187.87 GB</div><div class="lab">stem audio</div></div>
+ <div class="card c-olive"><div class="big">93</div><div class="lab">pools, 22 artists</div></div>
+ <div class="card c-rust"><div class="big">1.76 GB</div><div class="lab">internal only, no drive copy</div></div>
 </div>
 
-<h2>Where the stems are</h2>
-
-<div class="box warn">
-<h3>The T7 Shield is not plugged in</h3>
-<p>It is the canonical stems drive, and it holds the Phish jam corpus, Goldfrapp, and parts of Radiohead, Shiner, Beach House and The Life and Times. Nothing on it could be counted today. Only two externals are mounted, <code>Black</code> and a 58 GB thumb drive.</p>
-</div>
-
-<div class="box warn">
-<h3>Black is full</h3>
-<p>1.8 TB capacity, 1.9 GB free after tonight's copy. Any further backup needs the T7 Shield or a new drive.</p>
-</div>
-
-<div class="box warn">
-<h3>The old stem map points at paths that no longer exist</h3>
-<p><code>~/Projects/stem-map/stem-map.md</code> was generated 2026-06-20 and still references <code>~/Desktop/IF YOU CAN'T FIND SOMETHING ITS HERE/</code>. That whole tree was dragged into the vault and is now at <code>Brandon-Vault/New Folder With Items 2/New Folder With Items 7/</code>. Every old Desktop path in the map is dead.</p>
-</div>
-
-<div class="box warn">
-<h3>The stem library is a shell</h3>
-<p><code>~/Music/STEMS_LIBRARY/</code> is built from symlinks. 918 of its 1,288 links are dead, 71 percent. All 864 of the broken music links point at <code>~/Desktop/Moises_Input/stems</code>, a pre-migration path. The folders look populated and open empty. Worst hit: The Life and Times 294, A Perfect Circle 217, Beach House 165, Radiohead 108, Smashing Pumpkins 84.</p>
-</div>
-
-<div class="box warn">
-<h3>There is a half-finished copy on Black</h3>
-<p><code>/Volumes/Black/htdemucs_6s</code> is an interrupted duplicate of <code>/Volumes/Black/stems/htdemucs_6s</code>. Seven of its fifteen album folders hold zero audio files, including both A Perfect Circle folders, A Farewell To Kings, Life and times and Currents. The good pool is the one under <code>/stems/</code>. Nothing was deleted.</p>
-</div>
-
-<h2>Tonight's copy, A Perfect Circle</h2>
+<h2>How to find any of it now</h2>
 <div class="box good">
-<h3>Verified byte-exact</h3>
-<p>Most of A Perfect Circle was on Black before tonight. Two sets were missing, and both are now copied and checked:</p>
+<h3>One hub, and a pointer inside every pool</h3>
+<p>Shortcuts are built, 186 of them, and every one resolves to a real folder:</p>
+<p><code>~/Projects/stem-map/STEMS-FINDER</code></p>
 <ul>
-<li><strong>13th Step, FLAC source demucs</strong>, 36 files, 152,810,128 bytes. Source and destination agree exactly on both numbers.</li>
-<li><strong>APC stem loops</strong>, 13 files, 40,660,090 bytes. The other 217 entries in that folder were dead symlinks with nothing behind them, so there was nothing to copy.</li>
+<li><code>by-artist/</code> one folder per artist, holding a shortcut to each of that artist's pools across all three disks. Each shortcut is named with its disk and size, so you can see where the weight is before you click.</li>
+<li><code>by-disk/</code> the same 93 pools grouped by the disk that holds them.</li>
+<li><code>WHERE-ARE-THE-STEMS.txt</code> the whole map as plain text, including the traps below.</li>
+<li><code>refresh.sh</code> rebuilds all of it from a fresh walk.</li>
 </ul>
-<p>On the drive before tonight and left untouched: <code>13th step apc</code> 330 files 571 MB, <code>APC Mercs</code> 240 files 413 MB, plus 7.2 GB of drum-kit splits and 106 MB of drum stems at the root of Black.</p>
+<p>Inside each of the 93 pools there are now two files: <code>_STEMS-FINDER</code>, a shortcut back to the hub, and <code>_WHERE-ARE-THE-STEMS.txt</code>, the same text map. So landing in any stem folder on any disk gets you to all the others. Both sort to the top of a Finder window.</p>
+</div>
+
+<h2>Disk state</h2>
+<div class="half">
+<div>
+<table>
+<thead><tr><th>Disk</th><th>Pools</th><th>GB of stems</th></tr></thead>
+<tbody><tr><td class="nm">internal</td><td class="n">41</td><td class="n">83.24</td></tr><tr><td class="nm">Black</td><td class="n">36</td><td class="n">63.38</td></tr><tr><td class="nm">T7 Shield</td><td class="n">16</td><td class="n">41.25</td></tr></tbody>
+</table>
+</div>
+<div class="box warn" style="margin-top:0">
+<h3>Both externals are nearly full</h3>
+<p>T7 Shield, 931 GB, <strong>8.0 GB free</strong>. Black, 1.8 TB, <strong>1.9 GB free</strong>. Internal, 957 GB, 44 GB free.</p>
+<p>The Appleseed Cast backup wants about 39 GB of folder space and will not fit on either drive as they stand.</p>
+</div>
+</div>
+
+<h2>Four traps on these disks</h2>
+<div class="box warn">
+<ul>
+<li><strong>A half-finished copy.</strong> <code>/Volumes/Black/htdemucs_6s</code> duplicates <code>/Volumes/Black/stems/htdemucs_6s</code>, and 7 of its 15 album folders hold zero audio, including both A Perfect Circle folders, A Farewell To Kings, Life and times and Currents. Use the one under <code>/stems/</code>. Nothing was deleted.</li>
+<li><strong>The stem library is a shell.</strong> <code>~/Music/STEMS_LIBRARY/</code> is a symlink farm, 918 of 1,288 links dead, 71 percent. All 864 broken music links point at a pre-migration <code>~/Desktop/Moises_Input/stems</code> path. The folders look populated and open empty.</li>
+<li><strong>The old map is dead.</strong> <code>~/Projects/stem-map/stem-map.md</code> was generated 2026-06-20 against a path that has since moved into the vault, at <code>Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN'T FIND SOMETHING ITS HERE/</code>.</li>
+<li><strong>exFAT inflates counts.</strong> Both drives write a <code>._</code> sidecar beside every file. A naive count doubles. Every figure here excludes them.</li>
+</ul>
+</div>
+
+<h2>A Perfect Circle, copied and verified</h2>
+<div class="box good">
+<p>Most of A Perfect Circle was on Black before this pass. Two sets were missing and are now copied, with counts checked on both sides:</p>
+<ul>
+<li><strong>13th Step, FLAC source demucs</strong>, 36 files, 152,810,128 bytes. Source and destination agree exactly on both figures.</li>
+<li><strong>APC stem loops</strong>, 13 files, 40,660,090 bytes. That folder held 230 entries, and the other 217 were dead symlinks with no file behind them.</li>
+</ul>
+<p>On the drive beforehand and left untouched: <code>13th step apc</code> 330 files 571 MB, <code>APC Mercs</code> 240 files 413 MB, plus 7.2 GB of drum-kit splits and 106 MB of drum stems at the root of Black.</p>
 </div>
 
 <h2>Everything we have stemmed</h2>
 <table>
-<thead><tr><th>Artist or collection</th><th>Kind</th><th>Songs</th><th>Files</th><th>GB</th><th>Backed up</th></tr></thead>
+<thead><tr><th>Artist or collection</th><th>Kind</th><th>Pools</th><th>Songs</th><th>Files</th><th>GB</th><th>Which disks</th></tr></thead>
 <tbody>
-<tr class="k-band"><td class="nm">Band practice 9-11 (yours)</td><td class="tag t-band">Your own band</td><td class="n">58</td><td class="n">450</td><td class="n">19.40</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">The Mars Volta</td><td class="tag t-rec">Released record</td><td class="n">29</td><td class="n">224</td><td class="n">18.03</td><td class="w ok">both disks</td></tr>
-<tr class="k-rec"><td class="nm">The Appleseed Cast</td><td class="tag t-rec">Released record</td><td class="n">93</td><td class="n">546</td><td class="n">16.94</td><td class="w ok">both disks</td></tr>
-<tr class="k-rec"><td class="nm">Dream Theater</td><td class="tag t-rec">Released record</td><td class="n">13</td><td class="n">148</td><td class="n">16.00</td><td class="w ok">both disks</td></tr>
-<tr class="k-rec"><td class="nm">Phish</td><td class="tag t-rec">Released record</td><td class="n">61</td><td class="n">332</td><td class="n">11.21</td><td class="w ok">both disks</td></tr>
-<tr class="k-band"><td class="nm">Band practice rebuild (yours)</td><td class="tag t-band">Your own band</td><td class="n">72</td><td class="n">374</td><td class="n">11.17</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">A Perfect Circle</td><td class="tag t-rec">Released record</td><td class="n">72</td><td class="n">314</td><td class="n">8.61</td><td class="w ok">both disks</td></tr>
-<tr class="k-rec"><td class="nm">Radiohead</td><td class="tag t-rec">Released record</td><td class="n">60</td><td class="n">413</td><td class="n">7.72</td><td class="w ok">both disks</td></tr>
-<tr class="k-rec"><td class="nm">Hooray For Earth</td><td class="tag t-rec">Released record</td><td class="n">22</td><td class="n">132</td><td class="n">5.98</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Yes</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">24</td><td class="n">5.26</td><td class="w ok">drive only</td></tr>
-<tr class="k-rec"><td class="nm">Tame Impala</td><td class="tag t-rec">Released record</td><td class="n">12</td><td class="n">78</td><td class="n">3.99</td><td class="w ok">drive only</td></tr>
-<tr class="k-rec"><td class="nm">Rush</td><td class="tag t-rec">Released record</td><td class="n">6</td><td class="n">36</td><td class="n">3.57</td><td class="w ok">drive only</td></tr>
-<tr class="k-work"><td class="nm">Evidence / QA stem copies</td><td class="tag t-work">Working set</td><td class="n">48</td><td class="n">288</td><td class="n">3.35</td><td class="w risk">internal only</td></tr>
-<tr class="k-work"><td class="nm">stem-player working set</td><td class="tag t-work">Working set</td><td class="n">12</td><td class="n">72</td><td class="n">3.09</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Shiner</td><td class="tag t-rec">Released record</td><td class="n">27</td><td class="n">66</td><td class="n">2.42</td><td class="w ok">both disks</td></tr>
-<tr class="k-band"><td class="nm">Band practice 8-28 (yours)</td><td class="tag t-band">Your own band</td><td class="n">12</td><td class="n">36</td><td class="n">2.39</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Joni Mitchell</td><td class="tag t-rec">Released record</td><td class="n">5</td><td class="n">30</td><td class="n">1.76</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Beach House</td><td class="tag t-rec">Released record</td><td class="n">12</td><td class="n">126</td><td class="n">0.89</td><td class="w ok">both disks</td></tr>
-<tr class="k-work"><td class="nm">Guitar-split working set</td><td class="tag t-work">Working set</td><td class="n">2</td><td class="n">12</td><td class="n">0.82</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">The Life and Times</td><td class="tag t-rec">Released record</td><td class="n">43</td><td class="n">258</td><td class="n">0.75</td><td class="w ok">both disks</td></tr>
-<tr class="k-band"><td class="nm">Band practice / memo capture (yours)</td><td class="tag t-band">Your own band</td><td class="n">6</td><td class="n">34</td><td class="n">0.66</td><td class="w risk">internal only</td></tr>
-<tr class="k-work"><td class="nm">Bass-fix working set</td><td class="tag t-work">Working set</td><td class="n">4</td><td class="n">22</td><td class="n">0.63</td><td class="w risk">internal only</td></tr>
-<tr class="k-work"><td class="nm">(still unclassified)</td><td class="tag t-work">Working set</td><td class="n">30</td><td class="n">180</td><td class="n">0.62</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Smashing Pumpkins</td><td class="tag t-rec">Released record</td><td class="n">7</td><td class="n">84</td><td class="n">0.57</td><td class="w ok">drive only</td></tr>
-<tr class="k-band"><td class="nm">Band practice / band-midi (yours)</td><td class="tag t-band">Your own band</td><td class="n">6</td><td class="n">18</td><td class="n">0.39</td><td class="w risk">internal only</td></tr>
-<tr class="k-work"><td class="nm">Working set</td><td class="tag t-work">Working set</td><td class="n">2</td><td class="n">13</td><td class="n">0.31</td><td class="w risk">internal only</td></tr>
-<tr class="k-rec"><td class="nm">Nine Inch Nails</td><td class="tag t-rec">Released record</td><td class="n">1</td><td class="n">5</td><td class="n">0.10</td><td class="w risk">internal only</td></tr>
+<tr><td class="nm">Your band practice</td><td class="tag t-band">Your band</td><td class="n">6</td><td class="n">176</td><td class="n">929</td><td class="n">34.82</td><td class="w ok">T7 Shield + internal</td></tr>
+<tr><td class="nm">Phish</td><td class="tag t-rec">Released record</td><td class="n">15</td><td class="n">113</td><td class="n">579</td><td class="n">27.28</td><td class="w ok">Black + T7 Shield + internal</td></tr>
+<tr><td class="nm">The Mars Volta</td><td class="tag t-rec">Released record</td><td class="n">4</td><td class="n">39</td><td class="n">224</td><td class="n">18.03</td><td class="w ok">Black + internal</td></tr>
+<tr><td class="nm">The Appleseed Cast</td><td class="tag t-rec">Released record</td><td class="n">7</td><td class="n">93</td><td class="n">546</td><td class="n">16.94</td><td class="w ok">Black + internal</td></tr>
+<tr><td class="nm">Dream Theater</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">24</td><td class="n">144</td><td class="n">15.73</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">Working sets</td><td class="tag t-work">Working set</td><td class="n">15</td><td class="n">94</td><td class="n">513</td><td class="n">14.99</td><td class="w ok">T7 Shield + internal</td></tr>
+<tr><td class="nm">Band books corpus</td><td class="tag t-work">Working set</td><td class="n">4</td><td class="n">53</td><td class="n">319</td><td class="n">14.61</td><td class="w ok">T7 Shield + internal</td></tr>
+<tr><td class="nm">A Perfect Circle</td><td class="tag t-rec">Released record</td><td class="n">5</td><td class="n">60</td><td class="n">246</td><td class="n">8.07</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">Radiohead</td><td class="tag t-rec">Released record</td><td class="n">5</td><td class="n">62</td><td class="n">359</td><td class="n">7.72</td><td class="w ok">Black + internal</td></tr>
+<tr><td class="nm">Mixed Moises output</td><td class="tag t-work">Working set</td><td class="n">1</td><td class="n">20</td><td class="n">117</td><td class="n">5.68</td><td class="w ok">T7 Shield</td></tr>
+<tr><td class="nm">Yes</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">4</td><td class="n">24</td><td class="n">5.26</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">Tame Impala</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">13</td><td class="n">78</td><td class="n">3.99</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">Rush</td><td class="tag t-rec">Released record</td><td class="n">1</td><td class="n">6</td><td class="n">36</td><td class="n">3.57</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">Fugazi</td><td class="tag t-rec">Released record</td><td class="n">1</td><td class="n">11</td><td class="n">66</td><td class="n">2.86</td><td class="w ok">T7 Shield</td></tr>
+<tr><td class="nm">Shiner</td><td class="tag t-rec">Released record</td><td class="n">5</td><td class="n">26</td><td class="n">54</td><td class="n">1.94</td><td class="w ok">Black + internal</td></tr>
+<tr><td class="nm">Joni Mitchell</td><td class="tag t-rec">Released record</td><td class="n">1</td><td class="n">5</td><td class="n">30</td><td class="n">1.76</td><td class="w risk">internal only</td></tr>
+<tr><td class="nm">Unsorted</td><td class="tag t-work">Working set</td><td class="n">4</td><td class="n">6</td><td class="n">33</td><td class="n">0.92</td><td class="w ok">T7 Shield + internal</td></tr>
+<tr><td class="nm">Mixed, to be stemmed</td><td class="tag t-work">Working set</td><td class="n">1</td><td class="n">11</td><td class="n">67</td><td class="n">0.84</td><td class="w ok">T7 Shield</td></tr>
+<tr><td class="nm">Mixed stem output</td><td class="tag t-work">Working set</td><td class="n">6</td><td class="n">49</td><td class="n">289</td><td class="n">0.80</td><td class="w ok">T7 Shield + internal</td></tr>
+<tr><td class="nm">Beach House</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">18</td><td class="n">108</td><td class="n">0.75</td><td class="w ok">Black</td></tr>
+<tr><td class="nm">The Life and Times</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">43</td><td class="n">258</td><td class="n">0.75</td><td class="w ok">Black + internal</td></tr>
+<tr><td class="nm">Smashing Pumpkins</td><td class="tag t-rec">Released record</td><td class="n">2</td><td class="n">14</td><td class="n">84</td><td class="n">0.57</td><td class="w ok">Black</td></tr>
 </tbody>
-<tfoot><tr><td>Total</td><td></td><td class="n">717</td><td class="n">4,315</td><td class="n">146.62</td><td></td></tr></tfoot>
+<tfoot><tr><td>Total</td><td></td><td class="n">93</td><td class="n">940</td><td class="n">5,103</td><td class="n">187.87</td><td></td></tr></tfoot>
 </table>
-<p class="sub" style="margin-top:10px">Counts exclude loop packs and sample libraries. A song folder counts when it holds two or more different stems. The T7 Shield was offline, so its contents are absent from every row.</p>
+<p class="sub" style="margin-top:10px">Counts exclude loop packs and sample libraries. A song folder counts when it holds two or more distinct stems, so drum-split folders of kick, snare, hihat, toms and cymbals count too.</p>
 
-<h2>The thirty largest stem pools on disk</h2>
+<h2>The forty largest pools</h2>
 <table>
-<thead><tr><th>Path</th><th>Disk</th><th>Folders</th><th>Files</th><th>GB</th></tr></thead>
+<thead><tr><th>Path</th><th>Disk</th><th>Artist</th><th>Songs</th><th>Files</th><th>GB</th></tr></thead>
 <tbody>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/band-practice-9-11</td><td class="w risk">internal</td><td class="n">75</td><td class="n">450</td><td class="n">19.40</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/bandpractice-rebuild</td><td class="w risk">internal</td><td class="n">74</td><td class="n">374</td><td class="n">11.17</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/APPLESEED-CAST-ALL</td><td class="w risk">internal</td><td class="n">46</td><td class="n">276</td><td class="n">8.39</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/Six Degrees of Inner Turbulence</td><td class="w ok">Black</td><td class="n">12</td><td class="n">72</td><td class="n">7.87</td></tr>
-<tr><td class="mono">/Volumes/Black/htdemucs_6s/Six Degrees of Inner Turbulence</td><td class="w ok">Black</td><td class="n">12</td><td class="n">72</td><td class="n">7.87</td></tr>
-<tr><td class="mono">FIND SOMETHING ITS HERE/BandBooks</td><td class="w risk">internal</td><td class="n">24</td><td class="n">144</td><td class="n">6.46</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/theship-tabs</td><td class="w risk">internal</td><td class="n">22</td><td class="n">119</td><td class="n">6.27</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium</td><td class="w ok">Black</td><td class="n">10</td><td class="n">60</td><td class="n">5.80</td></tr>
-<tr><td class="mono">/Volumes/Black/htdemucs_6s/The Mars Volta - Deloused in the Comatorium</td><td class="w ok">Black</td><td class="n">10</td><td class="n">60</td><td class="n">5.80</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/SlowRush</td><td class="w ok">Black</td><td class="n">12</td><td class="n">72</td><td class="n">3.64</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/A Farewell To Kings</td><td class="w ok">Black</td><td class="n">6</td><td class="n">36</td><td class="n">3.57</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/lowlevelowl2-demucs</td><td class="w risk">internal</td><td class="n">12</td><td class="n">72</td><td class="n">3.51</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/jam-cull-stems</td><td class="w risk">internal</td><td class="n">16</td><td class="n">94</td><td class="n">3.45</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/lowlevelowl1-demucs</td><td class="w risk">internal</td><td class="n">14</td><td class="n">84</td><td class="n">3.38</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/_evidence</td><td class="w risk">internal</td><td class="n">48</td><td class="n">288</td><td class="n">3.35</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/stem-player</td><td class="w risk">internal</td><td class="n">11</td><td class="n">66</td><td class="n">3.07</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/Close to the Edge</td><td class="w ok">Black</td><td class="n">2</td><td class="n">12</td><td class="n">2.63</td></tr>
-<tr><td class="mono">/Volumes/Black/htdemucs_6s/Close to the Edge</td><td class="w ok">Black</td><td class="n">2</td><td class="n">12</td><td class="n">2.63</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/phish-jam-cuts</td><td class="w risk">internal</td><td class="n">5</td><td class="n">30</td><td class="n">2.51</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/band-practice-8-28-drumsep-redo</td><td class="w risk">internal</td><td class="n">12</td><td class="n">36</td><td class="n">2.39</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/hejira-bass-fix</td><td class="w risk">internal</td><td class="n">5</td><td class="n">30</td><td class="n">1.76</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/mayer-jam-guitar-split</td><td class="w risk">internal</td><td class="n">13</td><td class="n">57</td><td class="n">1.70</td></tr>
-<tr><td class="mono">/Volumes/Black/Anatomy-Jams/take-our-phish</td><td class="w ok">Black</td><td class="n">17</td><td class="n">102</td><td class="n">1.18</td></tr>
-<tr><td class="mono">/Volumes/Black/Anatomy-Jams/1994-11-26-bowie</td><td class="w ok">Black</td><td class="n">3</td><td class="n">18</td><td class="n">1.09</td></tr>
-<tr><td class="mono">/Volumes/Black/Anatomy-Jams/1994-07-08-reba</td><td class="w ok">Black</td><td class="n">3</td><td class="n">16</td><td class="n">0.89</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/split-guitars</td><td class="w risk">internal</td><td class="n">2</td><td class="n">12</td><td class="n">0.82</td></tr>
-<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/Life and times</td><td class="w ok">Black</td><td class="n">21</td><td class="n">126</td><td class="n">0.75</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/memo0620-songcapture</td><td class="w risk">internal</td><td class="n">6</td><td class="n">34</td><td class="n">0.66</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/songsterr-sean-bass</td><td class="w risk">internal</td><td class="n">4</td><td class="n">22</td><td class="n">0.63</td></tr>
-<tr><td class="mono">/Users/drwu/Projects/_outputs/stems</td><td class="w risk">internal</td><td class="n">2</td><td class="n">12</td><td class="n">0.62</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/band-practice-9-11</td><td class="w risk">internal</td><td>Your band practice</td><td class="n">75</td><td class="n">450</td><td class="n">19.40</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Phish Media</td><td class="w ok">T7 Shield</td><td>Phish</td><td class="n">27</td><td class="n">111</td><td class="n">12.90</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/bandpractice-rebuild</td><td class="w risk">internal</td><td>Your band practice</td><td class="n">74</td><td class="n">374</td><td class="n">11.17</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/APPLESEED-CAST-ALL</td><td class="w risk">internal</td><td>The Appleseed Cast</td><td class="n">46</td><td class="n">276</td><td class="n">8.39</td></tr>
+<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/Six Degrees of Inner Turbulence</td><td class="w ok">Black</td><td>Dream Theater</td><td class="n">12</td><td class="n">72</td><td class="n">7.87</td></tr>
+<tr><td class="mono">/Volumes/Black/htdemucs_6s/Six Degrees of Inner Turbulence</td><td class="w ok">Black</td><td>Dream Theater</td><td class="n">12</td><td class="n">72</td><td class="n">7.87</td></tr>
+<tr><td class="mono">/Volumes/Black/A Perfect Circle - DRUM KIT STEMS</td><td class="w ok">Black</td><td>A Perfect Circle</td><td class="n">19</td><td class="n">95</td><td class="n">7.20</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/BandBooks</td><td class="w ok">T7 Shield</td><td>Band books corpus</td><td class="n">24</td><td class="n">144</td><td class="n">6.46</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/theship-tabs</td><td class="w risk">internal</td><td>Radiohead</td><td class="n">22</td><td class="n">119</td><td class="n">6.27</td></tr>
+<tr><td class="mono">/Volumes/Black/Mars Volta - De-Loused - DRUM STEMS</td><td class="w ok">Black</td><td>The Mars Volta</td><td class="n">10</td><td class="n">50</td><td class="n">6.00</td></tr>
+<tr><td class="mono">/Users/drwu/Desktop/Brandon-Vault/New Folder With Items 2/New Folder With Items 7/IF YOU CAN&#x27;T FIND SOMETHING ITS HERE/BandBooks/HoorayForEarth/3-voicing-derivation/_demucs_6s/htdemucs_6s</td><td class="w risk">internal</td><td>Band books corpus</td><td class="n">22</td><td class="n">132</td><td class="n">5.98</td></tr>
+<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/The Mars Volta - Deloused in the Comatorium</td><td class="w ok">Black</td><td>The Mars Volta</td><td class="n">10</td><td class="n">60</td><td class="n">5.80</td></tr>
+<tr><td class="mono">/Volumes/Black/htdemucs_6s/The Mars Volta - Deloused in the Comatorium</td><td class="w ok">Black</td><td>The Mars Volta</td><td class="n">10</td><td class="n">60</td><td class="n">5.80</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Moises_Stems</td><td class="w ok">T7 Shield</td><td>Mixed Moises output</td><td class="n">20</td><td class="n">117</td><td class="n">5.68</td></tr>
+<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/SlowRush</td><td class="w ok">Black</td><td>Tame Impala</td><td class="n">12</td><td class="n">72</td><td class="n">3.64</td></tr>
+<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/A Farewell To Kings</td><td class="w ok">Black</td><td>Rush</td><td class="n">6</td><td class="n">36</td><td class="n">3.57</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/lowlevelowl2-demucs</td><td class="w risk">internal</td><td>The Appleseed Cast</td><td class="n">12</td><td class="n">72</td><td class="n">3.51</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/jam-cull-stems</td><td class="w risk">internal</td><td>Phish</td><td class="n">16</td><td class="n">94</td><td class="n">3.45</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/lowlevelowl1-demucs</td><td class="w risk">internal</td><td>The Appleseed Cast</td><td class="n">14</td><td class="n">84</td><td class="n">3.38</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/_evidence</td><td class="w risk">internal</td><td>Working sets</td><td class="n">48</td><td class="n">288</td><td class="n">3.35</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Anatomy-Jams</td><td class="w ok">T7 Shield</td><td>Phish</td><td class="n">23</td><td class="n">136</td><td class="n">3.17</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/stem-player</td><td class="w risk">internal</td><td>Working sets</td><td class="n">11</td><td class="n">66</td><td class="n">3.07</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/The Argument</td><td class="w ok">T7 Shield</td><td>Fugazi</td><td class="n">11</td><td class="n">66</td><td class="n">2.86</td></tr>
+<tr><td class="mono">/Volumes/Black/stems/htdemucs_6s/Close to the Edge</td><td class="w ok">Black</td><td>Yes</td><td class="n">2</td><td class="n">12</td><td class="n">2.63</td></tr>
+<tr><td class="mono">/Volumes/Black/htdemucs_6s/Close to the Edge</td><td class="w ok">Black</td><td>Yes</td><td class="n">2</td><td class="n">12</td><td class="n">2.63</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/phish-jam-cuts</td><td class="w risk">internal</td><td>Phish</td><td class="n">5</td><td class="n">30</td><td class="n">2.51</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/band-practice-8-28-drumsep-redo</td><td class="w risk">internal</td><td>Your band practice</td><td class="n">12</td><td class="n">36</td><td class="n">2.39</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/untitled folder</td><td class="w ok">T7 Shield</td><td>Working sets</td><td class="n">6</td><td class="n">24</td><td class="n">2.18</td></tr>
+<tr><td class="mono">/Volumes/Black/Shiner BelieveYouMe - DRUM STEMS</td><td class="w ok">Black</td><td>Shiner</td><td class="n">22</td><td class="n">30</td><td class="n">1.80</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/hejira-bass-fix</td><td class="w risk">internal</td><td>Joni Mitchell</td><td class="n">5</td><td class="n">30</td><td class="n">1.76</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/mayer-jam-guitar-split</td><td class="w risk">internal</td><td>Phish</td><td class="n">13</td><td class="n">57</td><td class="n">1.70</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Full wav files for music books are here</td><td class="w ok">T7 Shield</td><td>Band books corpus</td><td class="n">5</td><td class="n">31</td><td class="n">1.69</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Soulseek</td><td class="w ok">T7 Shield</td><td>Working sets</td><td class="n">8</td><td class="n">16</td><td class="n">1.41</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/_delivery</td><td class="w ok">T7 Shield</td><td>Working sets</td><td class="n">4</td><td class="n">28</td><td class="n">1.28</td></tr>
+<tr><td class="mono">/Volumes/Black/Anatomy-Jams/take-our-phish/jams</td><td class="w ok">Black</td><td>Phish</td><td class="n">17</td><td class="n">102</td><td class="n">1.18</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/New Folder With Items 3</td><td class="w ok">T7 Shield</td><td>Working sets</td><td class="n">2</td><td class="n">6</td><td class="n">1.01</td></tr>
+<tr><td class="mono">/Volumes/Black/The Appleseed Cast - DRUM KIT STEMS</td><td class="w ok">Black</td><td>The Appleseed Cast</td><td class="n">2</td><td class="n">10</td><td class="n">0.94</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/Music to Stem</td><td class="w ok">T7 Shield</td><td>Mixed, to be stemmed</td><td class="n">11</td><td class="n">67</td><td class="n">0.84</td></tr>
+<tr><td class="mono">/Volumes/T7 Shield/bandpractice_stems</td><td class="w ok">T7 Shield</td><td>Your band practice</td><td class="n">3</td><td class="n">17</td><td class="n">0.83</td></tr>
+<tr><td class="mono">/Users/drwu/Projects/_outputs/split-guitars</td><td class="w risk">internal</td><td>Working sets</td><td class="n">2</td><td class="n">12</td><td class="n">0.82</td></tr>
 </tbody>
 </table>
 
-<h2>What is worth doing next</h2>
+<h2>What is still open</h2>
 <div class="box">
 <ul>
-<li><strong>The Appleseed Cast is the real exposure.</strong> About 39 GB across five internal pools, and Black holds only its drum stems. If APC meant Appleseed Cast rather than A Perfect Circle, this is the copy to run, and it needs the T7 Shield because Black has 1.9 GB free.</li>
-<li><strong>Your own band practice recordings are the single biggest unbacked block</strong>, roughly 34 GB across four pools, internal only.</li>
-<li><strong>Repoint the stem library.</strong> The 864 dead links all share one prefix, so a search and replace onto the live pool would restore the index without moving a single audio file.</li>
-<li><strong>Regenerate the stem map</strong> with <code>build_stem_map.py</code> so it stops pointing at the old location.</li>
+<li><strong>The Appleseed Cast has no full backup.</strong> Roughly 39 GB of folder space across five internal pools, and the drives hold only its drum stems and one album. Neither drive has the room, so this needs space cleared or a new disk.</li>
+<li><strong>Your own band practice is the biggest block on one disk</strong>, 34.82 GB over six pools. Part is on T7, the rest is internal only.</li>
+<li><strong>Repoint the stem library.</strong> All 864 dead links share one prefix, so a search and replace onto the live pool restores the index without moving any audio.</li>
+<li><strong>Regenerate the old map</strong> with <code>build_stem_map.py</code>, or retire it in favour of the hub, which refreshes itself.</li>
 </ul>
 </div>
 
 <div class="foot">
-Built 2026-10-16 on Jacks-iMac. Figures come from a direct walk of the mounted disks, with AppleDouble sidecar files excluded from every count. The T7 Shield was not mounted and is not represented.
+Built 2026-10-16 on Jacks-iMac from a direct walk of the internal disk, the T7 Shield and Black, with exFAT AppleDouble sidecars excluded from every count. Overlapping scan roots were deduplicated by path before any figure here was computed.
 </div>
 
 </div></body></html>
