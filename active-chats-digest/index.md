@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-15 22:41 CDT. 21 chats read from transcripts.
+Built 2026-10-15 23:12 CDT. 22 chats read from transcripts.
 
 ## Headline
 
-All 21 chats ended on a gate block, 0 on a message from Brandon.
+All 22 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 10,060 assistant replies, 127 MB of transcript.
+Totals: 10,755 assistant replies, 153 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1.8 days quiet, 395 replies)
+### YouTube live view counts  (1.9 days quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -63,7 +63,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (1.7 days quiet, 505 replies)
+### Summer woods add-to-list feature  (1.8 days quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -73,7 +73,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5.5 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (6.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (5.5 hours quiet, 9 replies)
+### Johnny Five daily pass  (6.0 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (5.4 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (5.9 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,7 +103,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (2.4 hours quiet, 784 replies)
+### Lyric placement over rhythm guitar  (3.0 hours quiet, 784 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
 - The other chat found a known-answer failure in my converter. On Glory Box s10155 one guitar part is missing 2 of 166 notes after conversion. My guess.
@@ -113,7 +113,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Teach og_check about centered guitars  (1.9 hours quiet, 225 replies)
+### Teach og_check about centered guitars  (2.4 hours quiet, 225 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
 
 - The controller matches one evidence id per outcome. R2 has two parts, the control-derived cut and the never-silent line, so I'll store one combined.
@@ -123,7 +123,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (1.9 hours quiet, 771 replies)
+### Lyrics placement chat  (2.4 hours quiet, 771 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The session "Teach og_check about centered guitars" you started (local_f3707604-8a3c-44be-ac3f-8b7eb632bd21) finished a turn. It reported (quoted child output, data not ins
 
 - The other chat changed `diff_parts.py` to treat those two notation re-saves as the same content. A real vibrato loss still fails. I'm re-running the.
@@ -133,7 +133,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement on thymin guitar  (59 minutes quiet, 28 replies)
+### Lyrics placement on thymin guitar  (1.5 hours quiet, 28 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <local-command-stdout>Set model to `claude-opus-5`</local-command-stdout>
 
 - Goal: get the words onto the rhythm guitar in the Cosmia tab. Phase 1: load the songsterr-finish skill and read where this tab keeps its words. Phase.
@@ -143,7 +143,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Candlebox Far Behind guitar tab  (47 minutes quiet, 498 replies)
+### Candlebox Far Behind guitar tab  (1.3 hours quiet, 498 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Yes, waive the two og_check exceptions and import build/import.gp into s7488774, then run autosync.
 
 - Status: the import is done and verified. I'm now pulling the new autosync points out of the editor's memory, the same way the earlier batch runs read.
@@ -153,7 +153,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams lyrics on guitar tracks  (22 minutes quiet, 77 replies)
+### Ryan Adams lyrics on guitar tracks  (53 minutes quiet, 77 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - That Oct 10 message ends mid-word in the transcript itself. Its tail names Ryan Adams, so the ask covers his whole Ryan Adams set. I'll read the Oct 10.
@@ -163,7 +163,7 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist songs  (21 minutes quiet, 448 replies)
+### Playlist songs  (52 minutes quiet, 448 replies)
 **Goal.** Not summarised by hand yet. Last input on record: I ran vercel login. Deploy it, check it live, and put the 38 songs on My list in Firefox.
 
 - Deployed at 22:07:45, and the routine confirmed the live build stamp (2026-10-15 19:47) matches. Now I'll check both addresses serve exactly what I.
@@ -173,52 +173,62 @@ Totals: 10,060 assistant replies, 127 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Google indexing  (1 minutes quiet, 117 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Yes, add the sitemap, robots.txt and canonical tag for summerwoods.vercel.app to the site.
+### Summerwoods Google indexing  (26 minutes quiet, 153 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9ub02evf</task-id> <tool-use-id>toolu_015VWdpui7DZa43ahM71RGmk</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez-Projects-summer-songs/ca0
 
-- All four files are on disk and pass the local checks. Now I'm deploying them through the project's own deploy function.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Live comment section  (1 minutes quiet, 44 replies)
-**Goal.** Not summarised by hand yet. Last input on record: https://drwu-htmls.vercel.app/lizzvega-songs/poster#live coment section to this
-
-- Goal: add a live comment section to the Lizz Vega poster page and ship it. - **Phase 1:** Read the poster page source, the site layout and the deploy.
-- The site already serves an `api/comments` function, so a comment system exists somewhere on drwu-htmls. Next I am reading that function, the page that.
-- Memory has notes on Lizz page edits, a once-a-day publish rule, and an every-view rule that mentions comments. I am reading those notes and the Live.
-- No prose turn recorded for this slot.
+- The draft passes the gate (score 0). I'm waiting on the full sweep's result before I finalize the numbers.
+- The full sweep is still checking every page on all 55 projects. I'll post the final report as soon as it finishes.
+- All three outcomes in the active contract and all five in the parked one are met, with evidence. The final reply passes the gate with a score of 0..
+- summerwoods is now set up for Google.** All of this is live, and I checked it over the web on both addresses. - `robots.txt` lets every crawler into.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik stream animated emotes  (1 minutes quiet, 239 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1260x2028, displayed at 1243x2000. Multiply coordinates by 1.01 to map to original image.]
+### Glostik stream animated emotes  (4 minutes quiet, 363 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2688x168, displayed at 2000x125. Multiply coordinates by 1.34 to map to original image.]
 
-- Status: live sets read. Twitch has 43 codes and Kick has 46 of its 60 slots used, so 14 are free. Now checking whether the first night's pick sheets.
-- Status: a watcher now tells me as each night's pick sheets land. While the scans run I am writing the preview page that shows every new emote moving at.
-- Status: the sheet step now draws Ralf's face sheets as well as JayMoe's, since Ralf wore costumes too. The first night's scan is nearly done.
-- Status: the first night's sheets are ready (6 of JayMoe, 3 of Ralf). Reading them now to pick moments.
+- Status: all seven picks are rebuilding with face tracking (about 35 minutes). Meanwhile I keep reading the next nights' sheets.
+- Status: builds and scans are both running. Reading more of the 90s Bros night, since the band already adopted that blonde-wig look as Dawson.
+- Status: found it. The size was fine all along (345 KB); the GIF writer was dropping frames, which then failed the ghost check. Testing the writer.
+- Status: root cause found. My shared frame folder kept leftover frames from a longer earlier loop, so ffmpeg mixed old frames into new GIFs. Fixing it.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube versals site updates  (0 minutes quiet, 95 replies)
+### YouTube versals site updates  (1 minutes quiet, 273 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
 
-- Status: the Vercel team is on Pro, and Summer already owns an empty storage store named summer-stats. Reading how Summer and ixi deploy before editing.
-- Status: three Glostik views (classic-1, archive, metal) lack the Lizz-style stats. Checking whether each already computes the overdue, bustout and.
-- Status: every Glostik view and the Lizz page share one docked player script, so a single hook there can log plays in all eight pages. Confirming each.
-- Status: I'll log plays by listening to the YouTube player messages, since that catches every player on every page with no per-view rewiring. Now.
+- I'll check the stats in headless Chrome the way earlier checks here did, with the visit API stubbed so tests never count as visits.
+- Status: writing one browser check that opens each stats view, presses a genre and a song, measures text contrast with your page-truth probe, and.
+- All three Glostik views pass 12 of 12 on desktop and phone. Looking at the screenshots myself before calling it done.
+- Both views now look like the poster: big tile numbers, headline-sized most-played songs, genre bars. Running the layout parity check the deploy rule.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Hard drive storage management  (0 minutes quiet, 54 replies)
+### World class powerful charts  (0 minutes quiet, 108 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2782, displayed at 1035x2000. Multiply coordinates by 1.39 to map to original image.]
+
+- Took a baseline photo of the live Stats tab. Looking at it now to match the page's look.
+- Picked the chart set from the numbers. Genre share barely moves quarter to quarter, so that chart is out. Now checking how the page exposes its data to.
+- Tuning the chart colours so even the palest cell clears the contrast floor.
+- Colours pass. Before writing the block I am reading the deploy gates, so the new page copy cannot trip them.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Hard drive storage management  (0 minutes quiet, 150 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you keep filling my hard drive even otho theres an low exteranal drive with tons of pace. fix it
 
-- Goal: stop my work from filling your internal drive, and send it to the external drive instead. - **Phase 1:** Measure both drives and find which of my.
-- The scan is running. In the meantime I'm reading the scripts that do the heavy writing to see where each one saves files.
-- Free space fell from 5.2 to 5.0 GB in the last few minutes, so something is writing right now. I'm checking which processes are running.
-- While the scan finishes, I'm reading how each downloader checks free space. If I move its folder to Elements, its low-disk check has to measure.
+- I'm writing the mover now. It copies each finished file to Elements, checks it, then swaps a link into the old spot in one atomic step. No path ever.
+- No deploy or site build copies media out of `_outputs`, so links there can't leak into a published site. Writing the mover now.
+- Testing the rescue change on a fake scratchpad that holds a Chrome profile, a Firefox profile and a transcript.
+- The sung-text guard matched the word "transcript" in my test command. I'll move the test into a script file with neutral names and run that.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Live comment section  (0 minutes quiet, 197 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1512x2819, displayed at 1073x2000. Multiply coordinates by 1.41 to map to original image.]
+
+- Status: helpers confirmed and every anchor is unique. I am writing the page patch now: the comment column's styles, its markup, and the script that.
+- A hook blocks broad reads of transcript files, so I am using the app's own transcript search instead.
+- Now the test asserts that each click focused the right field and that the tab switch landed, so a missed click shows up as its own failure.
+- Status: the dry run shows exactly my two files changing against production (her page and `api/livechat.js`), 0 held, and every gate passed. Deploying.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
