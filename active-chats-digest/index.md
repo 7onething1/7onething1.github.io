@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-15 20:10 CDT. 13 chats read from transcripts.
+Built 2026-10-15 20:40 CDT. 14 chats read from transcripts.
 
 ## Headline
 
-All 13 chats ended on a gate block, 0 on a message from Brandon.
+All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 8,330 assistant replies, 96 MB of transcript.
+Totals: 8,660 assistant replies, 100 MB of transcript.
 
 ## Do yourself
 
@@ -43,7 +43,7 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### YouTube live view counts  (1.7 days quiet, 395 replies)
+### YouTube live view counts  (1.8 days quiet, 395 replies)
 **Goal.** Not summarised by hand yet. Last input on record: put the counter on ixi and summer but hidden make sure allgoogle crawlers it it soon
 
 - The list call doesn't decrypt. Trying the single-variable endpoint, which can:
@@ -63,7 +63,7 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summer woods add-to-list feature  (1.6 days quiet, 505 replies)
+### Summer woods add-to-list feature  (1.7 days quiet, 505 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>by7iu7wk7</task-id> <tool-use-id>toolu_01LXRsPSYpsJbEspmZJMzJqP</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/ac6895dd-76e5-446a-a691-2
 
 - Status: all fixes are live and documented. Two last chores: shut down my two local test servers, and update the checklist tracker with the evidence.
@@ -73,7 +73,7 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (3.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (3.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (3.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (3.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (2.8 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (3.4 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,42 +103,52 @@ Totals: 8,330 assistant replies, 96 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (1.1 hours quiet, 771 replies)
+### Lyric placement over rhythm guitar  (25 minutes quiet, 784 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
-- No existing tool writes GPIF from Songsterr data. The vendored converter writes GP5 only, and gpif_swap.py needs an existing export to swap into..
-- Duplicates fixed, one favorite per song That was my mistake. I only checked AI tabs against other AI tabs, by exact artist and title. So I starred a.
 - The other chat found a known-answer failure in my converter. On Glory Box s10155 one guitar part is missing 2 of 166 notes after conversion. My guess.
 - I fixed a bug that the other chat found in my converter. - 🔴 **The bug:** on Glory Box s10155, two grace notes went missing when the converter rebuilt.
+- The other chat reports two false failures in my lyrics verifier. Its strict part diff fails on things a Songsterr editor publish re-encodes while every.
+- I fixed two more issues in /songsterr-finish that the other chat found while working on The Rip by Portishead. - 🟢 **The lyrics check was failing tabs.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Candlebox Far Behind guitar tab  (1 minutes quiet, 131 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/songsterr-finish # songsterr-finish Built 2026-10-15 from session c57cc972. Brandon: *"making sure its syncd and correcting
+### Lyrics placement chat  (25 minutes quiet, 759 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/3390.sock" from-session="local_2c226a28-699d-45f2-ba29-1af47395095a" from-name="Lyric placement over rhy
 
-- Still splitting stems; Demucs takes a few minutes. Meanwhile I'm preparing a Vocals track (sung-melody notes only) for a "Brandon edit" copy, so the.
-- Still waiting on the stem split. I'm writing the tool that adds a Vocals track with melody notes only. The words themselves will come from you, pasted.
-- The vocal graft passes its known-answer check: 494 sung notes in, 494 out, same times and pitches, zero lyric text written. Checking the stem split now.
+- Status: The Rip is live and verified. I'm closing out the bookkeeping: this request's contract, the earlier contract's open item for The Rip, and a.
+- The Rip is published with your words on its nylon rhythm guitar, final chorus included: [The Rip Brandon.
+- The other chat changed `diff_parts.py` to treat those two notation re-saves as the same content. A real vibrato loss still fails. I'm re-running the.
+- The Rip Brandon edit now passes the full check: the verifier exits 0 with a PASS. - **All 8 tracks match the original tab note for note.** Earlier, the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Candlebox Far Behind guitar tab  (18 minutes quiet, 239 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
+
+- The copy exists: "Far Behind Brandon edit", s7488774, draft revision r9773142, not yet published. Next, per your favorites rule, starring it, then.
+- Writing and testing the bar-fix tool now; it copies Darr's own G and E bars into bars 74 to 80 of both rhythm guitars, and touches nothing else.
+- The bar-fix tool passes its check: only bars 74 to 76 and 78 to 80 change on the two rhythm guitars, and the lead is untouched. The og_check job just.
+- I've finished the checks I can do without your OK, and the next step needs a download, so here is where it stands. **Is Darr's tab (s4927) correct?**.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Playlist songs  (1 minutes quiet, 19 replies)
+**Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
+
+- I'll start by finding the site's source and how its playlist is stored.
+- The live page is a "Summer Song Archive" for Summer Woods' YouTube streams. I'll pull the full page to see how its playlists work, and keep looking for.
+- The page is large, so I'll search it with Python. A guard hook blocked my recursive home search, so I'll use narrower finds.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Teach og_check about centered guitars  (1 minutes quiet, 38 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Background (from the session that started this one): Brandon ran /songsterr-finish on eight Portishead songs on 2026-10-15. Every measured tab failed og_check, the hard gate that blocks any 
+### Teach og_check about centered guitars  (0 minutes quiet, 179 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
 
-- The goal is to stop og_check from counting a guitar mixed to the middle as a missing part, and to keep every real failure failing. **Phase 1.** Read.
-- Reading is done. Next I check each Portishead folder's inputs, then measure the per-bar L/R numbers before touching the code.
-- Inside the pan bins the steel bars drop to a median of 0.119 (bar 20 falls from 0.83 to 0.06). Now the same measure on the six Portishead songs.
-- The delete-guard hook read my variable name `rm` as a delete command. I'll rename it and write the script with the Write tool.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lyrics placement chat  (0 minutes quiet, 710 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Add last and then publish
-
-- Status: your words are in the lyrics box (uploaded as a file). Checking that every letter arrived by comparing counts and a hash of the letters on both.
-- I'm waiting on your choice in the box: publish The Rip now, or add the last chorus's vocal notes first.
-- Got it: add the last chorus's vocal notes, re-align your words, then publish. That's your explicit OK to publish past the OG check. First I'm finding.
-- The publish dialog is up: "Publishing a tab will generate high-quality audio and make it visible to other users." You said publish, so I'm clicking.
+- The fifty-gates check now clears; three remain. I'll run each blocking checker directly for its findings.
+- Status: the code change is done and verified. I'm now clearing Brandon's fraud firewall by recording checkable evidence, adding real lookups for the.
+- Next, the evidence records. Each observed number will be computed from the saved files by code, never typed by hand.
+- All seven tab URLs return 200, and each canonical slug matches its song name. WebFetch could not decode the PDF but saved it locally, so I'll read the.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
