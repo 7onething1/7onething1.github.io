@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-15 19:09 CDT. 11 chats read from transcripts.
+Built 2026-10-15 19:40 CDT. 11 chats read from transcripts.
 
 ## Headline
 
 All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 7,951 assistant replies, 91 MB of transcript.
+Totals: 8,050 assistant replies, 92 MB of transcript.
 
 ## Do yourself
 
@@ -73,7 +73,7 @@ Totals: 7,951 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (2.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 7,951 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (2.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 7,951 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (1.8 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (2.3 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,7 +103,7 @@ Totals: 7,951 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (8 minutes quiet, 771 replies)
+### Lyric placement over rhythm guitar  (38 minutes quiet, 771 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
 - No existing tool writes GPIF from Songsterr data. The vendored converter writes GP5 only, and gpif_swap.py needs an existing export to swap into..
@@ -113,12 +113,12 @@ Totals: 7,951 assistant replies, 91 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (1 minutes quiet, 500 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
+### Lyrics placement chat  (16 minutes quiet, 599 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/impossible-guitar-parts # impossible-guitar-parts Brandon, 2026-08-11: **"still seeing impossible guitar parts and two guit
 
-- The summary is terse, so I'm running the firewall with JSON output to get each finding.
-- The controller wants structured evidence records, files proven on disk and URLs proven by status code, filed for each outcome. Plain text doesn't.
-- The three missing-song blockers are adjudicated GENUINE. Next I'm storing evidence records and getting their ids, so the met outcomes can point at them.
-- Say-it-plain wants the reply cut from 19 lines to 14, which is a real edit to the reply. Now running the fraud scan with the right flag, plus the.
+- The handoff file is written. Re-running the fraud firewall on the new draft to see what still blocks.
+- The fraud scan passes on this session's files now ("RESULT: PASS (context-only findings)"), and reference-class passes with the honest label. Final.
+- The reply passes plain-speech at 14 lines with a voice score of 0. Every gate that can clear is clear, and the one hold is yours by design. 🔵 The skill.
+- Recap: I ran /songsterr-finish on all eight Portishead songs, recorded your favorite rule as a hard gate, and answered your odd-meter question. Nothing.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
