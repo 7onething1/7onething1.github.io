@@ -1,19 +1,19 @@
 # Active chats digest
 
-Built 2026-10-15 23:12 CDT. 22 chats read from transcripts.
+Built 2026-10-16 00:44 CDT. 27 chats read from transcripts.
 
 ## Headline
 
-All 22 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 7 are past the 400-turn ceiling.
-Totals: 10,755 assistant replies, 153 MB of transcript.
+All 27 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 9 are past the 400-turn ceiling.
+Totals: 12,631 assistant replies, 218 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stop malfeasance and fraud  (2.1 days quiet, 6 replies)
+### Stop malfeasance and fraud  (2.2 days quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - The anti-malfeasance sweep restarts chats that stopped while they still owe work. - **Phase 1:** Run the sweep, load the session tools and read the.
@@ -23,7 +23,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (2.0 days quiet, 337 replies)
+### 55% volume limit  (2.1 days quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -53,7 +53,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lizz and Glostik early update  (1.8 days quiet, 1664 replies)
+### Lizz and Glostik early update  (1.9 days quiet, 1664 replies)
 **Goal.** Not summarised by hand yet. Last input on record: i can't help but notice you are sitting on your ass sitting from me without doing the here we go shit i asked for
 
 - The comments hadn't loaded on that page, so nothing was edited. My clicks only landed on the paused, muted video. Pausing it and retrying.
@@ -73,7 +73,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (6.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (7.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (6.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (7.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (5.9 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (7.4 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,7 +103,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (3.0 hours quiet, 784 replies)
+### Lyric placement over rhythm guitar  (4.5 hours quiet, 784 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
 - The other chat found a known-answer failure in my converter. On Glory Box s10155 one guitar part is missing 2 of 166 notes after conversion. My guess.
@@ -113,7 +113,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Teach og_check about centered guitars  (2.4 hours quiet, 225 replies)
+### Teach og_check about centered guitars  (4.0 hours quiet, 225 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
 
 - The controller matches one evidence id per outcome. R2 has two parts, the control-derived cut and the never-silent line, so I'll store one combined.
@@ -123,7 +123,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (2.4 hours quiet, 771 replies)
+### Lyrics placement chat  (4.0 hours quiet, 771 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The session "Teach og_check about centered guitars" you started (local_f3707604-8a3c-44be-ac3f-8b7eb632bd21) finished a turn. It reported (quoted child output, data not ins
 
 - The other chat changed `diff_parts.py` to treat those two notation re-saves as the same content. A real vibrato loss still fails. I'm re-running the.
@@ -133,7 +133,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement on thymin guitar  (1.5 hours quiet, 28 replies)
+### Lyrics placement on thymin guitar  (3.0 hours quiet, 28 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <local-command-stdout>Set model to `claude-opus-5`</local-command-stdout>
 
 - Goal: get the words onto the rhythm guitar in the Cosmia tab. Phase 1: load the songsterr-finish skill and read where this tab keeps its words. Phase.
@@ -143,7 +143,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Candlebox Far Behind guitar tab  (1.3 hours quiet, 498 replies)
+### Candlebox Far Behind guitar tab  (2.8 hours quiet, 498 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Yes, waive the two og_check exceptions and import build/import.gp into s7488774, then run autosync.
 
 - Status: the import is done and verified. I'm now pulling the new autosync points out of the editor's memory, the same way the earlier batch runs read.
@@ -153,17 +153,7 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Ryan Adams lyrics on guitar tracks  (53 minutes quiet, 77 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- That Oct 10 message ends mid-word in the transcript itself. Its tail names Ryan Adams, so the ask covers his whole Ryan Adams set. I'll read the Oct 10.
-- The Oct 10 check covered 26 Ryan Adams tabs. I'll re-run words_where.py on all 26 now, since revisions may have changed since then.
-- You asked me not to re-run the survey, so I'm stopping the 26-tab re-check now. From here I'll use only what's already on disk.
-- The in-app browser is signed out, so this view can't move your last-seen track. Next I'll count the lyric marks drawn over the Lead Guitar. The script.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Playlist songs  (52 minutes quiet, 448 replies)
+### Playlist songs  (2.4 hours quiet, 448 replies)
 **Goal.** Not summarised by hand yet. Last input on record: I ran vercel login. Deploy it, check it live, and put the 38 songs on My list in Firefox.
 
 - Deployed at 22:07:45, and the routine confirmed the live build stamp (2026-10-15 19:47) matches. Now I'll check both addresses serve exactly what I.
@@ -173,62 +163,122 @@ Totals: 10,755 assistant replies, 153 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Google indexing  (26 minutes quiet, 153 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b9ub02evf</task-id> <tool-use-id>toolu_015VWdpui7DZa43ahM71RGmk</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez-Projects-summer-songs/ca0
-
-- The draft passes the gate (score 0). I'm waiting on the full sweep's result before I finalize the numbers.
-- The full sweep is still checking every page on all 55 projects. I'll post the final report as soon as it finishes.
-- All three outcomes in the active contract and all five in the parked one are met, with evidence. The final reply passes the gate with a score of 0..
-- summerwoods is now set up for Google.** All of this is live, and I checked it over the web on both addresses. - `robots.txt` lets every crawler into.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik stream animated emotes  (4 minutes quiet, 363 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 2688x168, displayed at 2000x125. Multiply coordinates by 1.34 to map to original image.]
-
-- Status: all seven picks are rebuilding with face tracking (about 35 minutes). Meanwhile I keep reading the next nights' sheets.
-- Status: builds and scans are both running. Reading more of the 90s Bros night, since the band already adopted that blonde-wig look as Dawson.
-- Status: found it. The size was fine all along (345 KB); the GIF writer was dropping frames, which then failed the ghost check. Testing the writer.
-- Status: root cause found. My shared frame folder kept leftover frames from a longer earlier loop, so ffmpeg mixed old frames into new GIFs. Fixing it.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube versals site updates  (1 minutes quiet, 273 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Your response above was cut off mid-stream. Resume directly from where it stops — no apology, no recap. If none of it survived, answer the request from the start.
-
-- I'll check the stats in headless Chrome the way earlier checks here did, with the visit API stubbed so tests never count as visits.
-- Status: writing one browser check that opens each stats view, presses a genre and a song, measures text contrast with your page-truth probe, and.
-- All three Glostik views pass 12 of 12 on desktop and phone. Looking at the screenshots myself before calling it done.
-- Both views now look like the poster: big tile numbers, headline-sized most-played songs, genre bars. Running the layout parity check the deploy rule.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### World class powerful charts  (0 minutes quiet, 108 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1440x2782, displayed at 1035x2000. Multiply coordinates by 1.39 to map to original image.]
-
-- Took a baseline photo of the live Stats tab. Looking at it now to match the page's look.
-- Picked the chart set from the numbers. Genre share barely moves quarter to quarter, so that chart is out. Now checking how the page exposes its data to.
-- Tuning the chart colours so even the palest cell clears the contrast floor.
-- Colours pass. Before writing the block I am reading the deploy gates, so the new page copy cannot trip them.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Hard drive storage management  (0 minutes quiet, 150 replies)
+### Hard drive storage management  (46 minutes quiet, 259 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you keep filling my hard drive even otho theres an low exteranal drive with tons of pace. fix it
 
-- I'm writing the mover now. It copies each finished file to Elements, checks it, then swaps a link into the old spot in one atomic step. No path ever.
-- No deploy or site build copies media out of `_outputs`, so links there can't leak into a published site. Writing the mover now.
-- Testing the rescue change on a fake scratchpad that holds a Chrome profile, a Firefox profile and a transcript.
-- The sung-text guard matched the word "transcript" in my test command. I'll move the test into a script file with neutral names and run that.
+- The background-job write test just finished. I'm reading its result.
+- The checker is ready. The migration needs about 30 more minutes, so I'm waiting on it and reporting progress as it goes.
+- Halfway: 105 of 214 GB moved, and the Mac now has 105 GB free, up from 5. About 27 minutes to go.
+- Now 145 of 214 GB, with 140 GB free on the Mac. About 17 minutes left.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Live comment section  (0 minutes quiet, 197 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Image: original 1512x2819, displayed at 1073x2000. Multiply coordinates by 1.41 to map to original image.]
+### Summerwoods Google indexing  (45 minutes quiet, 232 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Yes, add summerwoods.vercel.app to my Search Console in Chrome, verify it with the Google file, submit the sitemap and request indexing.
 
-- Status: helpers confirmed and every anchor is unique. I am writing the page patch now: the comment column's styles, its markup, and the script that.
-- A hook blocks broad reads of transcript files, so I am using the app's own transcript search instead.
-- Now the test asserts that each click focused the right field and that the tab switch landed, so a missed click shows up as its own failure.
-- Status: the dry run shows exactly my two files changing against production (her page and `api/livechat.js`), 0 held, and every gate passed. Deploying.
+- The summerwoods property is live in Search Console and its Sitemaps page is open. I'm submitting `sitemap.xml` and logging the first two items as done.
+- "Sitemap submitted successfully." Behind the dialog, the table shows `sitemap.xml` with 1 discovered page. I'm closing the dialog to read that row,.
+- The README and the main memory note now record tonight's Search Console steps. I'm gating the final report, then sending you the three screenshots.
+- summerwoods is in your Search Console now.** Three of the four steps are done, and the fourth hit a Google limit. - **Property added:**.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Live comment section  (43 minutes quiet, 275 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "YouTube versals site updates", which you asked to be notified about, is idle now — it finished a turn at 23:59. Its harness reports: «All four sites now show the
+
+- The memory note now points at the real folder. Last, per your HTML rule, I am opening the live page in Firefox and revealing her page file in Finder.
+- Lizz's Live tab now has a live comment section, and it went live during her stream tonight. **What visitors see** at.
+- That notice says the other session changed "Lizz poster stats" across four sites, after telling me it would stay out of her route. I am checking that.
+- Nothing else needs doing on this. The live comment section is up and working on her current page.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Ryan Adams lyrics on guitar tracks  (31 minutes quiet, 137 replies)
+**Goal.** Not summarised by hand yet. Last input on record: https://www.songsterr.com/a/wsa/ryan-adams-why-do-they-leave-tab-s243135/r9601505?open=editor
+
+- The pane is still hidden. You sent the link again in place of a key press, so I'll try to bring the pane up from my side. Then I'll look at your exact.
+- The main app bundle mentions the lyric flag. I'll print the code right around each mention, which is minified script with no song words in it.
+- This shell's grep can't handle that pattern, so I'll use Python. I'll also fetch the lazy `common` chunk that the bundle names, because the earlier.
+- Waiting on what you see with the editor off.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### YouTube versals site updates  (28 minutes quiet, 460 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Summer has had more visits, so are you erasing them with each update like you are lizz
+
+- No page on any of the four sites ever loaded Vercel's analytics script, so Vercel recorded no page views either. Trying Vercel's request-usage records.
+- Status: still checking who made Summer's first three counted visits. Vercel's log endpoint streams, so I'm reading it line by line.
+- The peer's Glostik deploy is live and carries my two contrast fixes. Now the live test: checking whether this round of deploys added robot visits to.
+- No, updates don't erase anything. Summer's low number has a different cause, explained below. **Summer** - You're right that Summer has had more.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lost rules for new/retired originals  (26 minutes quiet, 294 replies)
+**Goal.** Not summarised by hand yet. Last input on record: you lost the rules for 'new' and you lost the retired vs in play list of originals https://drwu-htmls.vercel.app/glostik-songs/poster#songs?show=orig&sort=plays
+
+- Docs updated. Adding one line to the existing New-button memory note so later chats know where the rules now show.
+- Both asks are registered and met. Taking one live screenshot of Brandon's exact address to send him.
+- The live page at Brandon's link shows the box in place. Opening it in Firefox and sending him the screenshot.
+- Both are on the live site now, in all seven Glostik views. I checked every saved copy of every view back to Sep 20, and neither one was ever on the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### World class powerful charts  (16 minutes quiet, 265 replies)
+**Goal.** Not summarised by hand yet. Last input on record: k
+
+- Five charts are now live on Lizz's Stats tab, between the number tiles and the lists: https://drwu-htmls.vercel.app/lizzvega-songs/poster#stats. I.
+- The [Count Lizz simulcast nights once in tiles and totals](#local_cb30dd72-823a-4c3b-8103-53fc73d6d4df) session has staged and tested its fix, and none.
+- I couldn't pass your OK along. The permission check blocked me from relaying a production deploy approval to another session. To ship the new counts,.
+- Once that session ships, I'll check the live counts here.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### PC live stream on Kick Firefox  (11 minutes quiet, 31 replies)
+**Goal.** Not summarised by hand yet. Last input on record: faster they are wiating
+
+- Goal: your Mac streams live to your Kick channel, with Kick open in Firefox. Phase 1: check this Mac for Firefox and a streaming app, and check how.
+- You said do it, so I'm going ahead. The Mac has Firefox running and no streaming app installed. I'm checking how Kick takes a stream today and reading.
+- No Kick tab is open in Firefox right now, only your Glostik emote page. I'm pulling Apple's exact steps for its built-in code app.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Count Lizz simulcast nights once in tiles and totals  (2 minutes quiet, 263 replies)
+**Goal.** Not summarised by hand yet. Last input on record: its fine
+
+- Status: the staged export now groups all 259 streams into 231 nights. The play total holds at 3,508. I'm checking every merged night for sense before I.
+- Status: the new Setlists code is written. I'm assembling the patch script, which checks a hash before it replaces the old Setlists block, and then I'll.
+- Status: I'm checking the Setlists list screenshot for the merged-night rows, then I'll apply everything to the real files.
+- The dry run passes all gates: 2 files from this Mac, both changed, 0 held, every other path kept from the base deployment. Now the real deploy, which.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Songsterr tab quality issue  (0 minutes quiet, 180 replies)
+**Goal.** Not summarised by hand yet. Last input on record: after 5 reuests, this tab still sucks https://www.songsterr.com/a/wsa/ryan-adams-please-do-not-let-me-go-tab-s243149
+
+- That makes eight pages carrying the song, with three distinct transcriptions. The UG ukulele sheet repeats UG chords 520801's progression. Now I am.
+- The comparison file now matches the measurements. Running the voice gate on it next, since the house rules apply to files as well as chat.
+- The voice gate passes, exit 0, with one soft note on the word "different". Fixing that line, then adding today's section to the song's report and.
+- The description has to stay under Songsterr's 1,000-character limit. Checking its length and re-running the voice gate on all three edited files.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Pearl Jam Garden lyrics  (0 minutes quiet, 124 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/songsterr-finish # songsterr-finish Built 2026-10-15 from session c57cc972. Brandon: *"making sure its syncd and correcting
+
+- Folder is ready. Now I'll start the audio fetch and stem split in the background, through the polite YouTube gate.
+- While that runs, I'll copy Songsterr's exact word-to-beat rules out of `td()`. My placement has to land each word where Songsterr will draw it.
+- A prior-art hook wants a check before any new tool file. I'll run it, and also test whether beat durations already include dots.
+- Gate passed. Two stem rules surfaced, "stereo field before Demucs" and "tilt a bass-heavy mix". I'll read both to confirm they don't apply to a vocal.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Glostik stream animated emotes  (0 minutes quiet, 677 replies)
+**Goal.** Not summarised by hand yet. Last input on record: the complainst were all the white space and that they weren't zoom in but off to the left or right, like an idiot did it
+
+- The six costume emotes are live at the top of the animated page: https://glostik-emotes.vercel.app/animated/#costumes. I opened it in Firefox. I.
+- Understood: too much empty space, and the person sits off to one side when he should fill the square. Measuring exactly how much empty space and how.
+- Afro, Grunge, TimeTraveler and Birdie are now tight and centered. FurCoat and Perm were built before the eye-level fix and still sit 13 to 17 px off,.
+- Deployed. The new files keep their old names, so your browser could show cached old crops. Adding a version stamp to each file link so the new ones.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
