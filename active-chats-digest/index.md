@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-15 21:10 CDT. 14 chats read from transcripts.
+Built 2026-10-15 21:41 CDT. 14 chats read from transcripts.
 
 ## Headline
 
 All 14 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 8,980 assistant replies, 103 MB of transcript.
+Totals: 9,148 assistant replies, 106 MB of transcript.
 
 ## Do yourself
 
@@ -73,7 +73,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4.0 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (4.5 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (4.0 hours quiet, 9 replies)
+### Johnny Five daily pass  (4.5 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (3.9 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (4.3 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,7 +103,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (56 minutes quiet, 784 replies)
+### Lyric placement over rhythm guitar  (1.4 hours quiet, 784 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
 - The other chat found a known-answer failure in my converter. On Glory Box s10155 one guitar part is missing 2 of 166 notes after conversion. My guess.
@@ -113,7 +113,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Teach og_check about centered guitars  (25 minutes quiet, 225 replies)
+### Teach og_check about centered guitars  (55 minutes quiet, 225 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
 
 - The controller matches one evidence id per outcome. R2 has two parts, the control-derived cut and the never-silent line, so I'll store one combined.
@@ -123,7 +123,7 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (23 minutes quiet, 771 replies)
+### Lyrics placement chat  (54 minutes quiet, 771 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The session "Teach og_check about centered guitars" you started (local_f3707604-8a3c-44be-ac3f-8b7eb632bd21) finished a turn. It reported (quoted child output, data not ins
 
 - The other chat changed `diff_parts.py` to treat those two notation re-saves as the same content. A real vibrato loss still fails. I'm re-running the.
@@ -133,22 +133,22 @@ Totals: 8,980 assistant replies, 103 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Playlist songs  (1 minutes quiet, 191 replies)
-**Goal.** Not summarised by hand yet. Last input on record: No typed ask recorded.
+### Candlebox Far Behind guitar tab  (28 minutes quiet, 350 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Yes, download the Guitar Pro export of s7488774 and keep going.
 
-- Next, the state and the address handling: lists live in the Playlists tab's address, and old `#songs?list=` links still work.
-- Next, `build()` reads the new `end` column. Older data without it still works.
-- Next, the Songs tab always shows every song, and the playing highlight works in both places.
-- Next, the player: a 20-second outro allowance, and the playing highlight in both lists.
+- Building the import from the real export: bar fix, then the Vocals notes, then the lead-in bar.
+- Status: the import file is built and checked note for note. Now running the remaining offline gates on it: the alphaTab render and the import preflight.
+- The new track's id is missing from the MasterTrack list, which still reads "0 1 2 3 4". Fixing the graft tool to append it, then rebuilding and.
+- I downloaded the export and built the corrected import file. It passes every check except your og_check gate, which flags two things I think are.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Candlebox Far Behind guitar tab  (0 minutes quiet, 329 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Yes, download the Guitar Pro export of s7488774 and keep going.
+### Playlist songs  (1 minutes quiet, 338 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
 
-- Thanks. Downloading the export now, then continuing with the build and the remaining checks.
-- Archived. Now checking that Songsterr's export kept Darr's tab intact, track by track, since earlier exports have dropped accents and ties.
-- Building the import from the real export: bar fix, then the Vocals notes, then the lead-in bar.
-- Status: the import file is built and checked note for note. Now running the remaining offline gates on it: the alphaTab render and the import preflight.
+- No `timeout` command on macOS. The harness has its own 10-minute cutoff, so I'll run it directly.
+- Zero results means the output has a different shape. Looking at it directly:
+- The fixture tool prints a probe to run inside its known-answers page. I'll see which address it expects that page served from.
+- `page_truth.py` prints its probe and also scores the probe's JSON. I'll check how it takes that JSON back.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
