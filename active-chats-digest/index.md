@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-15 19:40 CDT. 11 chats read from transcripts.
+Built 2026-10-15 20:10 CDT. 13 chats read from transcripts.
 
 ## Headline
 
-All 11 chats ended on a gate block, 0 on a message from Brandon.
+All 13 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 8,050 assistant replies, 92 MB of transcript.
+Totals: 8,330 assistant replies, 96 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### 55% volume limit  (1.8 days quiet, 337 replies)
+### 55% volume limit  (1.9 days quiet, 337 replies)
 **Goal.** Not summarised by hand yet. Last input on record: turn it off
 
 - 🟩 Volume limit is on at 45% - 🟩 **The limit is 45% as of 01:54:38**, and both config files read 45. - 🟥 **Your H87 was at 77** with Firefox playing,.
@@ -33,7 +33,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Vercel deployment  (1.7 days quiet, 88 replies)
+### Summerwoods Vercel deployment  (1.8 days quiet, 88 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
 
 - Opening a reply in the Sep 29 thread and filling in the follow-up. Nothing gets sent yet.
@@ -73,7 +73,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (2.5 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (3.0 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
@@ -83,7 +83,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (2.5 hours quiet, 9 replies)
+### Johnny Five daily pass  (3.0 hours quiet, 9 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - daily check: PASS - There were no open band requests, so no request got a status today. - Eight new To Learn songs came in on the two sites, all listed.
@@ -93,7 +93,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Newsradio/community scripts automation  (2.3 hours quiet, 3670 replies)
+### Newsradio/community scripts automation  (2.8 hours quiet, 3670 replies)
 **Goal.** Not summarised by hand yet. Last input on record: not full
 
 - The thread tab is open again. I'm reading the latest server state before sending anything.
@@ -103,7 +103,7 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyric placement over rhythm guitar  (38 minutes quiet, 771 replies)
+### Lyric placement over rhythm guitar  (1.1 hours quiet, 771 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
 
 - No existing tool writes GPIF from Songsterr data. The vendored converter writes GP5 only, and gpif_swap.py needs an existing export to swap into..
@@ -113,12 +113,32 @@ Totals: 8,050 assistant replies, 92 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics placement chat  (16 minutes quiet, 599 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/impossible-guitar-parts # impossible-guitar-parts Brandon, 2026-08-11: **"still seeing impossible guitar parts and two guit
+### Candlebox Far Behind guitar tab  (1 minutes quiet, 131 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/songsterr-finish # songsterr-finish Built 2026-10-15 from session c57cc972. Brandon: *"making sure its syncd and correcting
 
-- The handoff file is written. Re-running the fraud firewall on the new draft to see what still blocks.
-- The fraud scan passes on this session's files now ("RESULT: PASS (context-only findings)"), and reference-class passes with the honest label. Final.
-- The reply passes plain-speech at 14 lines with a voice score of 0. Every gate that can clear is clear, and the one hold is yours by design. 🔵 The skill.
-- Recap: I ran /songsterr-finish on all eight Portishead songs, recorded your favorite rule as a hard gate, and answered your odd-meter question. Nothing.
+- Still splitting stems; Demucs takes a few minutes. Meanwhile I'm preparing a Vocals track (sung-melody notes only) for a "Brandon edit" copy, so the.
+- Still waiting on the stem split. I'm writing the tool that adds a Vocals track with melody notes only. The words themselves will come from you, pasted.
+- The vocal graft passes its known-answer check: 494 sung notes in, 494 out, same times and pitches, zero lyric text written. Checking the stem split now.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Teach og_check about centered guitars  (1 minutes quiet, 38 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Background (from the session that started this one): Brandon ran /songsterr-finish on eight Portishead songs on 2026-10-15. Every measured tab failed og_check, the hard gate that blocks any 
+
+- The goal is to stop og_check from counting a guitar mixed to the middle as a missing part, and to keep every real failure failing. **Phase 1.** Read.
+- Reading is done. Next I check each Portishead folder's inputs, then measure the per-bar L/R numbers before touching the code.
+- Inside the pan bins the steel bars drop to a median of 0.119 (bar 20 falls from 0.83 to 0.06). Now the same measure on the six Portishead songs.
+- The delete-guard hook read my variable name `rm` as a delete command. I'll rename it and write the script with the Write tool.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lyrics placement chat  (0 minutes quiet, 710 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Add last and then publish
+
+- Status: your words are in the lyrics box (uploaded as a file). Checking that every letter arrived by comparing counts and a hash of the letters on both.
+- I'm waiting on your choice in the box: publish The Rip now, or add the last chorus's vocal notes first.
+- Got it: add the last chorus's vocal notes, re-align your words, then publish. That's your explicit OK to publish past the OG check. First I'm finding.
+- The publish dialog is up: "Publishing a tab will generate high-quality audio and make it visible to other users." You said publish, so I'm clicking.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
