@@ -1,199 +1,19 @@
 # Active chats digest
 
-Built 2026-10-16 17:39 CDT. 28 chats read from transcripts.
+Built 2026-10-17 10:34 CDT. 11 chats read from transcripts.
 
 ## Headline
 
-All 28 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 9 are past the 400-turn ceiling.
-Totals: 11,318 assistant replies, 200 MB of transcript.
+All 11 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 2 are past the 400-turn ceiling.
+Totals: 2,102 assistant replies, 27 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Newsradio/community scripts automation  (1.0 days quiet, 3670 replies)
-**Goal.** Not summarised by hand yet. Last input on record: not full
-
-- The thread tab is open again. I'm reading the latest server state before sending anything.
-- I sent "next" at 17:16 and I'm checking that it landed.
-- The "next" landed. Restarting the 4-minute timer was blocked by the permission check, so I'm logging the tick and updating the state file first.
-- The loop is running again for now, but the 4-minute timer won't come back until you approve it. **Restarted after the reboot** - **Disk:** it has 23 GB.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lyric placement over rhythm guitar  (21.4 hours quiet, 784 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="uds:/tmp/cc-socks/9266.sock" from-session="local_27a13a01-0476-4d89-b6bb-a50c34c0706e" from-name="Lyrics placement chat" f
-
-- The other chat found a known-answer failure in my converter. On Glory Box s10155 one guitar part is missing 2 of 166 notes after conversion. My guess.
-- I fixed a bug that the other chat found in my converter. - 🔴 **The bug:** on Glory Box s10155, two grace notes went missing when the converter rebuilt.
-- The other chat reports two false failures in my lyrics verifier. Its strict part diff fails on things a Songsterr editor publish re-encodes while every.
-- I fixed two more issues in /songsterr-finish that the other chat found while working on The Rip by Portishead. - 🟢 **The lyrics check was failing tabs.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Teach og_check about centered guitars  (20.9 hours quiet, 225 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
-
-- The controller matches one evidence id per outcome. R2 has two parts, the control-derived cut and the never-silent line, so I'll store one combined.
-- All five outcomes are closed on verified evidence ids. Now the shortened closing draft (14 lines, sources and paths attached), then the firewall again.
-- The fraud firewall is CLEAR on every checker (exit 0), and reference-class passed when run by hand. I'll add both results to the hand-over note, then.
-- og_check now counts a centered guitar on both sides, and nothing was imported, published or copied on Songsterr. I changed the brief's rule after the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lyrics placement chat  (20.9 hours quiet, 771 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <system-reminder> The session "Teach og_check about centered guitars" you started (local_f3707604-8a3c-44be-ac3f-8b7eb632bd21) finished a turn. It reported (quoted child output, data not ins
-
-- The other chat changed `diff_parts.py` to treat those two notation re-saves as the same content. A real vibrato loss still fails. I'm re-running the.
-- The Rip Brandon edit now passes the full check: the verifier exits 0 with a PASS. - **All 8 tracks match the original tab note for note.** Earlier, the.
-- The og_check session reported back. I'm verifying its claims on disk before relaying: the backup, its evidence folder, and that the known answers still.
-- The OG check now recognizes a single guitar mixed to the center, and its two Ryan Adams test cases still give the same answers. Every Portishead tab.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lyrics placement on thymin guitar  (19.9 hours quiet, 28 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <local-command-stdout>Set model to `claude-opus-5`</local-command-stdout>
-
-- Goal: get the words onto the rhythm guitar in the Cosmia tab. Phase 1: load the songsterr-finish skill and read where this tab keeps its words. Phase.
-- What I measured on s203428 (`r3475608`, Joanna Newsom, "Cosmia", by RyRy6, created via AI):
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Candlebox Far Behind guitar tab  (19.7 hours quiet, 498 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Yes, waive the two og_check exceptions and import build/import.gp into s7488774, then run autosync.
-
-- Status: the import is done and verified. I'm now pulling the new autosync points out of the editor's memory, the same way the earlier batch runs read.
-- The browser's local storage holds no clock arrays; the draft may live in the browser's database instead. Checking that, and confirming after the reload.
-- Status: the draft is intact. The sync endpoint wants the revision number, so I'm reading the autosync result through it now, numbers only.
-- The Brandon edit copy is ready except for the words, and only you can add those. Nothing is published yet. **Is Darr's tab correct?** Mostly, with.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Playlist songs  (19.3 hours quiet, 448 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I ran vercel login. Deploy it, check it live, and put the 38 songs on My list in Firefox.
-
-- Deployed at 22:07:45, and the routine confirmed the live build stamp (2026-10-15 19:47) matches. Now I'll check both addresses serve exactly what I.
-- The live `data.json` is 445,110 bytes, the same size as the local copy. I'll fetch the live one and look at how it stores songs.
-- Seven of your 57 are on Lizz's site. I'll record that in your tracker, then wrap up.
-- The site changes are live, the checks pass on the live site, and your 38 songs are on My list in Firefox. - **Live:** deployed at 22:07. Both.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Live comment section  (17.6 hours quiet, 275 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Cross-session idle notice] "YouTube versals site updates", which you asked to be notified about, is idle now — it finished a turn at 23:59. Its harness reports: «All four sites now show the
-
-- The memory note now points at the real folder. Last, per your HTML rule, I am opening the live page in Firefox and revealing her page file in Finder.
-- Lizz's Live tab now has a live comment section, and it went live during her stream tonight. **What visitors see** at.
-- That notice says the other session changed "Lizz poster stats" across four sites, after telling me it would stay out of her route. I am checking that.
-- Nothing else needs doing on this. The live comment section is up and working on her current page.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### YouTube versals site updates  (17.4 hours quiet, 460 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Summer has had more visits, so are you erasing them with each update like you are lizz
-
-- No page on any of the four sites ever loaded Vercel's analytics script, so Vercel recorded no page views either. Trying Vercel's request-usage records.
-- Status: still checking who made Summer's first three counted visits. Vercel's log endpoint streams, so I'm reading it line by line.
-- The peer's Glostik deploy is live and carries my two contrast fixes. Now the live test: checking whether this round of deploys added robot visits to.
-- No, updates don't erase anything. Summer's low number has a different cause, explained below. **Summer** - You're right that Summer has had more.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Lost rules for new/retired originals  (17.3 hours quiet, 294 replies)
-**Goal.** Not summarised by hand yet. Last input on record: you lost the rules for 'new' and you lost the retired vs in play list of originals https://drwu-htmls.vercel.app/glostik-songs/poster#songs?show=orig&sort=plays
-
-- Docs updated. Adding one line to the existing New-button memory note so later chats know where the rules now show.
-- Both asks are registered and met. Taking one live screenshot of Brandon's exact address to send him.
-- The live page at Brandon's link shows the box in place. Opening it in Firefox and sending him the screenshot.
-- Both are on the live site now, in all seven Glostik views. I checked every saved copy of every view back to Sep 20, and neither one was ever on the.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### World class powerful charts  (17.2 hours quiet, 265 replies)
-**Goal.** Not summarised by hand yet. Last input on record: k
-
-- Five charts are now live on Lizz's Stats tab, between the number tiles and the lists: https://drwu-htmls.vercel.app/lizzvega-songs/poster#stats. I.
-- The [Count Lizz simulcast nights once in tiles and totals](#local_cb30dd72-823a-4c3b-8103-53fc73d6d4df) session has staged and tested its fix, and none.
-- I couldn't pass your OK along. The permission check blocked me from relaying a production deploy approval to another session. To ship the new counts,.
-- Once that session ships, I'll check the live counts here.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Glostik stream animated emotes  (16.9 hours quiet, 684 replies)
-**Goal.** Not summarised by hand yet. Last input on record: the complainst were all the white space and that they weren't zoom in but off to the left or right, like an idiot did it
-
-- Afro, Grunge, TimeTraveler and Birdie are now tight and centered. FurCoat and Perm were built before the eye-level fix and still sit 13 to 17 px off,.
-- Deployed. The new files keep their old names, so your browser could show cached old crops. Adding a version stamp to each file link so the new ones.
-- Live and verified: all 24 GIFs on the page match the new tight versions byte for byte, and the section is still first.
-- All six are re-cut and live at https://glostik-emotes.vercel.app/animated/#costumes, still first on the page. I opened it in Firefox. **Before and.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Count Lizz simulcast nights once in tiles and totals  (16.9 hours quiet, 282 replies)
-**Goal.** Not summarised by hand yet. Last input on record: its fine
-
-- Status: I'm checking the Setlists list screenshot for the merged-night rows, then I'll apply everything to the real files.
-- The dry run passes all gates: 2 files from this Mac, both changed, 0 held, every other path kept from the base deployment. Now the real deploy, which.
-- Status: the evidence is saved. I'm updating the shared hand-over note and then wrapping up.
-- Both changes are live on Lizz Vega's poster page: each simulcast night counts once, and Setlists shows each night as one row. It went out as deploy.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Pearl Jam Garden lyrics  (16.6 hours quiet, 234 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- The blocker is recorded as genuine, and the remaining work is queued. I'll update the task list and confirm the transcript file that the paste tool.
-- Quick status: I'm checking that Chrome is signed in to Songsterr. That's a read-only look at the home page.
-- Signed in: Songsterr's account-only endpoint answers 200, and no sign-in button shows. I'll confirm the account name the way the skill's favorite check.
-- Chrome is signed in to Songsterr: the account's favorites list reads back with 283 tabs, and Garden isn't among them yet. I'll close the tab I opened.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ryan Adams lyrics on guitar tracks  (16.6 hours quiet, 148 replies)
-**Goal.** Not summarised by hand yet. Last input on record: you fuck, you took the lyrics off please do not let me go, i was performing it live
-
-- This shell's grep can't handle that pattern, so I'll use Python. I'll also fetch the lazy `common` chunk that the bundle names, because the earlier.
-- Waiting on what you see with the editor off.
-- I'm checking Please Do Not Let Me Go right now, starting with its live revision and its words.
-- Waiting on whether the Vocals link shows the words.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Songsterr tab quality issue  (16.5 hours quiet, 287 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Yes, publish the fixed Please Do Not Let Me Go tab to s243149.
-
-- Both runs exit 1, so this is not verified yet. The first run read the old revision, and the second read the new one. Reading the full output to see.
-- Now the records: the report's live line and open items, the stop rule's "used" note, and a saved copy of the verification output.
-- Every outcome on the checklist is met, and the signed-out check shows r9776533 as the live revision. One last check: the public page's HTTP status.
-- The fixed tab is live on Songsterr as [revision 9776533](https://www.songsterr.com/a/wsa/ryan-adams-please-do-not-let-me-go-tab-s243149/r9776533), and.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (15.9 hours quiet, 6 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user for tool use]
-
-- Goal: run the anti-malfeasance sweep and restart any chat that quit with work still owed. Phase 1: run the stall sweep and read the three tiers. Phase.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (15.9 hours quiet, 11 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
-
-- I'll run the anti-malfeasance sweep now. Goal: find chats from the last 24 hours that stopped while they still owed work, and order each one back to.
-- Sweep ran clean: 3 tier1, 8 tier2, 5 tier3. Now matching each target to its app session.
-- Matched three targets by title plus timestamp. Now re-reading each contract at send time.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### PC live stream on Kick Firefox  (15.9 hours quiet, 195 replies)
+### PC live stream on Kick Firefox  (1.4 days quiet, 195 replies)
 **Goal.** Not summarised by hand yet. Last input on record: you maxed out so much cpu that the camera can't funtion you fuck
 
 - I've stopped. Kick shows you live, and I won't run anything else. - I paused the three transcription jobs that were eating your CPU. They stay paused.
@@ -203,7 +23,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chrome kick bad  (14.9 hours quiet, 128 replies)
+### Chrome kick bad  (1.3 days quiet, 128 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Yes, delete the seven extra camera copies from my Kick Studio scene.
 
 - Kick asks for a confirm on each delete, so nothing got removed yet. Your saved scene is unchanged. Looking at the confirm box before I press anything.
@@ -213,7 +33,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Hard drive storage management  (13.7 hours quiet, 283 replies)
+### Hard drive storage management  (1.3 days quiet, 283 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_f8088715-c304-4438-8a8f-82efbbb1b01c" name="Volume 45% limit and final chats"> Resume order from the "Volume 45% lim
 
 - The session restarted at about 23:58. That killed the shell running my last check (exit code 137), so my reply to your two questions never went out..
@@ -223,7 +43,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Summerwoods Google indexing  (13.6 hours quiet, 268 replies)
+### Summerwoods Google indexing  (1.3 days quiet, 268 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_f8088715-c304-4438-8a8f-82efbbb1b01c" name="Volume 45% limit and final chats"> Resume order from the "Volume 45% lim
 
 - The window is narrow, so the inspect box has collapsed into a search icon. Opening it and inspecting the home page:
@@ -233,27 +53,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics on rhythm guitar in Songsterr tabs  (13.1 hours quiet, 466 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_f8088715-c304-4438-8a8f-82efbbb1b01c" name="Volume 45% limit and final chats"> Resume order from the "Volume 45% lim
-
-- Recording your publish lift where the upload-stop exceptions live, and correcting the old "no rename control" note, since the publish flow does rename.
-- Now the project memory note, with the publish route and today's result.
-- Blocker recorded. Now the adjudicator ruling, then queueing both drafts with exact next steps and the titles I'd suggest.
-- The adjudicator rules it GENUINE (blocks R1, no session stop). Both drafts are queued. Checking how the contract tool marks a blocked outcome, so R1.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Volume 45% limit and final chats  (12.8 hours quiet, 435 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_a95e5650-2ef7-47f3-865a-9fdc63e7824d" name="Lyrics on rhythm guitar in Songsterr tabs"> R1 in contract 91e6cab4 is c
-
-- Two last fixes. The handoff described the scan in my own words, and the scanner wants its real output line. Adding the handoff also makes the count 6.
-- Everything reads clean. The six-file scan prints "No fraud patterns detected", and the firewall reads CLEAR. G20 still counts turns, so I'm checking.
-- G20 clears once the reply names the handoff path, and the closing's Files line does. Reading the final block once so my reply matches the checked file.
-- 🔵 **Volume is capped at 45 percent, and 10 of your last 15 chats are finished**. Two more were automated sweep runs, and this chat did their job. - 🟢.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (7.0 hours quiet, 10 replies)
+### Johnny Five daily pass  (24.0 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
 - I'll start with the two steps that need no shell approval, then work from what the daily check says.
@@ -263,7 +63,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (5 minutes quiet, 5 replies)
+### Stop malfeasance and fraud  (17.0 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while they still owed work, and order them.
@@ -273,7 +73,7 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (4 minutes quiet, 10 replies)
+### Stop malfeasance and fraud  (16.8 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped while still owing work, and send each a resume order.
@@ -283,12 +83,42 @@ Totals: 11,318 assistant replies, 200 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Go live success metrics  (0 minutes quiet, 148 replies)
-**Goal.** Not summarised by hand yet. Last input on record: update the lates live data
+### Go live success metrics  (8.6 hours quiet, 181 replies)
+**Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
-- All the data is in and the full report is written. I'm tightening the reply so it reads fast.
-- Where your account stands (@brandonpagetarot)** - You have 264 followers and 28 posts, with 55,343 views across all of them. - You haven't posted since.
-- The one comment came from a viewer named "Blourno Blocked me" during Live 2. It said "Yo Duke I need to tell u something." I'm re-opening both lives.
-- Yes, both lives together got 8 likes and 1 comment. Live 1 got 6 likes, and Live 2 got 2 likes plus the comment. - **The comment:** "Yo Duke I need to.
+- The longest watch time was about 50 seconds, from nick (@nicksetticase) on Live 1.** - **Live 1:** Lisa Munoz, Markie2L and tommyandsandraharper came.
+- Yes, keep going live, and better sound is worth working on. The 77% is only about views. - On likes you beat 39% of creators at your level, and on.
+- I didn't open Chrome after you stopped me. You can do all of this yourself while you're live. **Phone app, for the current song** - Post a comment with.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Stop malfeasance and fraud  (8.6 hours quiet, 6 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
+
+- I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while they still owed work, and make them.
+- Both scripts are present. Running the sweep.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Volume 45% limit and final chats  (2 minutes quiet, 503 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I don't want anything going more than once a day, and summer only goes once a week, ixi twice
+
+- I'm still finding Summer's and ixi's stream days. The info folder only holds one stream, so I'm reading the site data next.
+- Building the new schedule now. One last check first: the Glostik processor has one loop marker, so I'm confirming it ends on its own.
+- The scheduled task went through. Stop malfeasance now runs once a day, around noon. Confirming that, then closing yesterday's stale paused-jobs item.
+- The plan is saved, and the stale item is closed. Next I'm recording your rule in memory, then queuing the launchd step with its blocker so it can't get.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lyrics on rhythm guitar in Songsterr tabs  (0 minutes quiet, 513 replies)
+**Goal.** Not summarised by hand yet. Last input on record: we have a skill about renamign as brandon edit
+
+- "Camarillo Brillo Brandon edit" by Frank Zappa is published: meta 200, not on moderation, Vocals intact. Now Immortal Soul, the same way.
+- The title reads "The Immortal Soul Of Mundo Cani Brandon edit" by Appleseed Cast. Saving, then publishing.
+- "The Immortal Soul Of Mundo Cani Brandon edit" by Appleseed Cast is published too: meta 200, not on moderation, Vocals intact. Checking both while.
+- Both read as published and LINES while signed out (Camarillo Brillo 412 syllables, Immortal Soul 18). The built-in browser closed overnight, so I'm.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
