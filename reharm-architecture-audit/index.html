@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reharm architecture: the fresh local check</title>
+<meta name="description" content="The September 10 Claude Code audit re-measured against Jacks-iMac on 2026-10-17: what held, what did not, and the three-phase remediation plan.">
+<style>
+  :root{
+    color-scheme: light;
+    --cream:#f4ecd8;
+    --card:#fbf6e9;
+    --ink:#161310;
+    --muted:#5e564a;
+    --rule:#ddd0b4;
+    --teal:#2f6b6b;
+    --mustard:#c98f1b;
+    --rose:#b2524f;
+    --olive:#6b7340;
+    --plum:#6d4a63;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.58;font-size:17px;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:2.6rem 16px 5rem}
+  header{border-bottom:3px double var(--rule);padding-bottom:1.3rem;margin-bottom:2rem}
+  .kicker{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--rose);margin:0 0 .5rem
+  }
+  h1{font-size:2rem;line-height:1.16;margin:0 0 .5rem;font-weight:600}
+  .sub{color:var(--muted);margin:.4rem 0 0;font-size:1rem}
+  .meta{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.74rem;color:var(--muted);margin-top:.9rem
+  }
+  h2{
+    font-size:1.26rem;margin:2.6rem 0 .3rem;font-weight:600;
+    border-left:5px solid var(--teal);padding-left:.6rem
+  }
+  h2.alt{border-left-color:var(--mustard)}
+  h2.warn{border-left-color:var(--rose)}
+  h2.ok{border-left-color:var(--olive)}
+  h3{font-size:1.02rem;margin:1.5rem 0 .25rem;font-weight:600;color:var(--plum)}
+  p{margin:.55rem 0}
+  .lede{font-size:1.06rem}
+  b,strong{font-weight:600}
+  .verdicts{display:grid;gap:.7rem;margin:1.4rem 0 0}
+  .v{
+    background:var(--card);border:1px solid var(--rule);border-radius:3px;
+    padding:.75rem .9rem;display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start
+  }
+  .tag{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.64rem;
+    letter-spacing:.08em;text-transform:uppercase;color:#fff;
+    padding:.22rem .44rem;border-radius:2px;white-space:nowrap;margin-top:.15rem
+  }
+  .t-held{background:var(--olive)}
+  .t-wrong{background:var(--rose)}
+  .t-unver{background:var(--muted)}
+  .t-worse{background:var(--mustard)}
+  .v p{margin:0;font-size:.95rem}
+  .v p + p{margin-top:.3rem;color:var(--muted);font-size:.88rem}
+  table{
+    width:100%;border-collapse:collapse;margin:.9rem 0 .3rem;font-size:.9rem;
+    background:var(--card);border:1px solid var(--rule)
+  }
+  th,td{padding:.48rem .6rem;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.7rem;
+    letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600
+  }
+  td.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  .up{color:var(--rose);font-weight:600}
+  .down{color:var(--olive);font-weight:600}
+  .zero{color:var(--rose);font-weight:600}
+  pre{
+    background:#efe6ce;border:1px solid var(--rule);border-left:4px solid var(--teal);
+    padding:.7rem .8rem;overflow-x:auto;font-size:.79rem;line-height:1.5;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:.8rem 0;border-radius:2px
+  }
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
+    background:#eadfc4;padding:.08em .3em;border-radius:2px
+  }
+  pre code{background:none;padding:0;font-size:1em}
+  .note{
+    background:#f0e4d0;border:1px solid var(--rule);border-left:4px solid var(--mustard);
+    padding:.7rem .85rem;margin:1rem 0;font-size:.92rem;border-radius:2px
+  }
+  .note.red{border-left-color:var(--rose);background:#f2e2dd}
+  .note .lbl{
+    display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem
+  }
+  ol,ul{margin:.5rem 0 .5rem 1.15rem;padding:0}
+  li{margin:.3rem 0;font-size:.95rem}
+  .phases{display:grid;gap:1rem;margin-top:1rem}
+  .ph{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--teal);padding:.95rem 1rem;border-radius:3px}
+  .ph:nth-child(2){border-top-color:var(--mustard)}
+  .ph:nth-child(3){border-top-color:var(--plum)}
+  .ph .n{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--muted)
+  }
+  .ph h4{margin:.15rem 0 .4rem;font-size:1.06rem;font-weight:600}
+  .exit{
+    margin-top:.6rem;padding-top:.5rem;border-top:1px dashed var(--rule);
+    font-size:.87rem;color:var(--muted)
+  }
+  .exit b{color:var(--ink)}
+  .toc{background:var(--card);border:1px solid var(--rule);padding:.85rem 1rem;border-radius:3px;margin:1.6rem 0 0}
+  .toc .lbl{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--muted)
+  }
+  .toc ol{margin:.4rem 0 0 1.15rem}
+  .toc a{color:var(--teal);text-decoration:none;border-bottom:1px solid #b9ccc8}
+  .toc a:hover{border-bottom-color:var(--teal)}
+  footer{margin-top:3rem;padding-top:1.1rem;border-top:3px double var(--rule);font-size:.84rem;color:var(--muted)}
+  footer a{color:var(--teal)}
+  @media (max-width:560px){
+    body{font-size:16px}
+    h1{font-size:1.58rem}
+    .wrap{padding:1.8rem 16px 4rem}
+    .v{grid-template-columns:1fr}
+    table{font-size:.83rem}
+    th,td{padding:.4rem .45rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">Measured re-check · Jacks-iMac</p>
+  <h1>Reharm architecture: what the fresh local check found</h1>
+  <p class="sub lede">The September 10 Claude Code audit asked for one thing before anyone acted on it, which was a fresh local check of its own configuration claims. This is that check, run on 2026-10-17 against the machine the audit describes.</p>
+  <p class="meta">hostname <b>Jacks-iMac</b> · 621 transcripts scanned · 25 project directories · 47 hooks read</p>
+</header>
+
+<div class="toc">
+  <span class="lbl">Contents</span>
+  <ol>
+    <li><a href="#verdicts">The four verdicts</a></li>
+    <li><a href="#hooks">The named hook scripts do not exist</a></li>
+    <li><a href="#context">The baseline grew, and its biggest item was uncounted</a></li>
+    <li><a href="#engine">The engine is empty rather than half-built</a></li>
+    <li><a href="#totals">The session totals are not reproducible here</a></li>
+    <li><a href="#plan">The three-phase plan</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ol>
+</div>
+
+<h2 id="verdicts">The four verdicts</h2>
+<p>The diagnosis is right about the cost per turn and right about the engine being unfinished. Four of its specific, actionable claims do not survive the local check, and the largest single context item in the system is one it never counted.</p>
+
+<div class="verdicts">
+  <div class="v">
+    <span class="tag t-held">Held</span>
+    <div>
+      <p><b>Per-turn context cost is real.</b> Measured <b>625,521 cache-read tokens per assistant turn</b> on September 10, against the audit's figure of roughly 556,000 for the Shiner session.</p>
+      <p>Confirmed by independent measurement of the transcript's own usage records. This is the claim that carries the remediation.</p>
+    </div>
+  </div>
+  <div class="v">
+    <span class="tag t-wrong">Wrong target</span>
+    <div>
+      <p><b>The three scripts the audit says to edit do not exist.</b> <code>run_gates.py</code>, <code>completion_stop_hook.py</code> and <code>no_stop_gate_hook.py</code> return nothing from a <code>find</code> over all of <code>~/.claude</code>.</p>
+      <p>The real Stop chain is 17 hooks under different names. Following the instruction verbatim would edit nothing and report success.</p>
+    </div>
+  </div>
+  <div class="v">
+    <span class="tag t-worse">Worse than stated</span>
+    <div>
+      <p><b>The engine has zero bytes of executable Python.</b> The audit describes a CLI that could import and inspect files with three commands missing. There is no CLI.</p>
+      <p>Eight empty <code>__init__.py</code> files, ten empty directories, and a <code>SKILL.md</code> that already marks the package <b>not implemented</b>.</p>
+    </div>
+  </div>
+  <div class="v">
+    <span class="tag t-unver">Unverified</span>
+    <div>
+      <p><b>The headline totals are not reproducible on this Mac.</b> Twelve concurrent sessions, 1,610 assistant turns, 496,941,520 cache-read tokens. September 10 here holds <b>1 session, 70 turns, 43,786,490 tokens</b>.</p>
+      <p>Brandon runs two Macs. A MacBookPro scan is the one diagnostic this machine cannot run, so these four figures stay labelled unverified rather than refuted.</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="warn" id="hooks">The named hook scripts do not exist</h2>
+<p>The audit attributes 204 of 251 blocked stopping attempts to three scripts and directs that two of them have their recursive stopping behaviour removed.</p>
+
+<pre><code>$ find /Users/drwu/.claude -name run_gates.py \
+    -o -name completion_stop_hook.py -o -name no_stop_gate_hook.py
+(no results)</code></pre>
+
+<p>What <code>~/.claude/settings.json</code> actually wires is <b>47 hooks across six events</b>:</p>
+
+<table>
+  <thead><tr><th>Event</th><th>Hooks</th><th>Reading</th></tr></thead>
+  <tbody>
+    <tr><td>Stop</td><td class="num up">17</td><td>Every session end runs all 17 in sequence</td></tr>
+    <tr><td>PreToolUse</td><td class="num">13</td><td>Runs on every single tool call</td></tr>
+    <tr><td>UserPromptSubmit</td><td class="num">9</td><td>Injects text into every turn</td></tr>
+    <tr><td>PostToolUse</td><td class="num">4</td><td></td></tr>
+    <tr><td>SessionStart</td><td class="num">3</td><td></td></tr>
+    <tr><td>Notification</td><td class="num">1</td><td></td></tr>
+  </tbody>
+</table>
+
+<p>Of 15 Stop hooks inspected, <b>11 emit a block decision</b>. The audit directs edits to two scripts. The retry-bound target covers eleven files.</p>
+
+<div class="note red">
+  <span class="lbl">The one that hides</span>
+  <p><code>completion_stop_gate.py</code> emits no block decision and no <code>exit(2)</code>, so a grep for the word <i>block</i> misses it entirely. A comment at line 301 records its prior failure mode: it reached Claude as <b>"No stderr output" with no reason attached</b>. A hook that blocks without a readable reason produces the expensive retry loop the audit describes and leaves no evidence of why.</p>
+</div>
+
+<h2 class="alt" id="context">The baseline grew, and its biggest item was uncounted</h2>
+<p>The audit put the per-turn baseline at 40,401 tokens. Measured today it is <b>49,989</b>, and the growth is almost entirely skill descriptions.</p>
+
+<table>
+  <thead><tr><th>Item</th><th>Audit</th><th>Measured</th><th>Change</th></tr></thead>
+  <tbody>
+    <tr><td>Skill descriptions</td><td class="num">23,134</td><td class="num">41,486</td><td class="num up">+79%</td></tr>
+    <tr><td>Project CLAUDE.md</td><td class="num">4,125</td><td class="num">3,535</td><td class="num down">&minus;14%</td></tr>
+    <tr><td>MEMORY.md</td><td class="num">10,438</td><td class="num">4,968</td><td class="num down">&minus;52%</td></tr>
+    <tr><td>Global <code>~/.claude/CLAUDE.md</code></td><td class="num">2,704</td><td class="num zero">absent</td><td class="num">stale line</td></tr>
+    <tr><td><b>Auto-loaded total</b></td><td class="num"><b>40,401</b></td><td class="num"><b>49,989</b></td><td class="num up"><b>+24%</b></td></tr>
+    <tr><td>POINTERS.md</td><td class="num">not counted</td><td class="num">53,281</td><td class="num">retrieval only</td></tr>
+  </tbody>
+</table>
+
+<p>That table holds two findings. The first is that <b>169 skills stay enabled against 27 disabled</b>, so the roster grows faster than it is pruned, and 150 of those skills carry a front-matter description averaging 276 tokens each.</p>
+
+<p>The second is <code>POINTERS.md</code> at <b>53,281 tokens</b>, larger than the entire audited baseline. It is absent from the audit, and it is also absent from this session's own context, because it is reached by grep rather than loaded. That makes it the one piece of the system already built the right way, and <b>the pattern the skill roster should copy</b>.</p>
+
+<h2 class="warn" id="engine">The engine is empty rather than half-built</h2>
+<p>The audit reports a CLI that could inspect and import files with <code>map</code>, <code>generate</code> and <code>write-midi</code> missing, and major components left as stubs. Every file in the skill, with byte sizes:</p>
+
+<pre><code>  7035  SKILL.md
+  5771  reference/berklee-reharmonization.md
+  4917  reference/corpus-map.md
+  7330  reference/ted-greene-modern-chord-progressions.md
+ 16916  schemas/reharm-ir.schema.json
+     0  src/reharm_craft/__init__.py
+     0  src/reharm_craft/analysis/__init__.py
+     0  src/reharm_craft/exporters/__init__.py
+     0  src/reharm_craft/importers/__init__.py
+     0  src/reharm_craft/instruments/__init__.py
+     0  src/reharm_craft/search/__init__.py
+     0  src/reharm_craft/transforms/__init__.py
+     0  src/reharm_craft/verify/__init__.py
+
+empty dirs: bin/ scripts/ tests/{unit,property,integration,golden}
+            examples/reports fixtures/{incomplete_evidence,midi_only,gp_full}</code></pre>
+
+<p>Zero bytes of executable Python, and no <code>reharm*.py</code> anywhere under <code>~/Projects</code>, <code>~/.claude</code> or <code>~/New Desktop</code>. The schema and the three reference documents are real and usable.</p>
+
+<div class="note">
+  <span class="lbl">The skill already says so</span>
+  <p><code>SKILL.md</code> line 41 marks <code>bin/reharm</code> and the Python package <b>not implemented</b>, and line 44 states the skill answers analysis only "until <code>bin/reharm doctor</code> exists and exits 0." The documentation is accurate. The audit's description of a working import path is what does not match.</p>
+  <p>This makes the work <b>cheaper than the audit assumed</b>. There is no half-built code to repair, and there is a settled 16,916-byte IR schema to build against.</p>
+</div>
+
+<h2 id="totals">The session totals are not reproducible here</h2>
+<p>Scanned all 621 transcripts across all 25 project directories under <code>~/.claude/projects</code>, filtering on in-record timestamps rather than file modification time.</p>
+
+<pre><code>sessions with 2026-09-10 activity : 1
+assistant turns                   : 70
+real user messages                : 11
+cache_read tokens                 : 43,786,490
+output tokens                     : 52,533
+turns per user message            : 6.4</code></pre>
+
+<table>
+  <thead><tr><th>Figure</th><th>Audit</th><th>Measured here</th><th>Ratio</th></tr></thead>
+  <tbody>
+    <tr><td>Concurrent sessions</td><td class="num">12</td><td class="num">1</td><td class="num">12&times;</td></tr>
+    <tr><td>Assistant turns</td><td class="num">1,610</td><td class="num">70</td><td class="num">23&times;</td></tr>
+    <tr><td>Cache-read tokens</td><td class="num">496,941,520</td><td class="num">43,786,490</td><td class="num">11&times;</td></tr>
+    <tr><td>Turns per user request</td><td class="num">77</td><td class="num">6.4</td><td class="num">12&times;</td></tr>
+    <tr><td><b>Cache-read per turn</b></td><td class="num"><b>~556,000</b></td><td class="num"><b>625,521</b></td><td class="num down"><b>agrees</b></td></tr>
+  </tbody>
+</table>
+
+<p>Retention does not explain the gap. <code>cleanupPeriodDays</code> is <b>36500</b>, transcripts run from 2026-05-05 to 2026-10-17 across 98 distinct dates, and all thirty days of September are present.</p>
+
+<div class="note">
+  <span class="lbl">Three open readings, and this machine cannot separate them</span>
+  <ol>
+    <li><b>The twelve sessions ran on the MacBookPro.</b> Brandon runs two Macs and this check covers one, so a second-Mac scan settles it.</li>
+    <li><b>The counts are inflated.</b> 1,610 turns against a measured 70 is a factor of 23.</li>
+    <li><b>A different counting rule.</b> Counting every <code>user</code>-role record including tool results moves the denominator the opposite way and still does not reach 1,610.</li>
+  </ol>
+  <p>The bottom row of the table is what matters for the remediation, and it holds: <b>the per-turn cost is confirmed by two independent measurements</b>. The aggregate totals are labelled unverified and are not quoted as fact until the MacBookPro is scanned.</p>
+</div>
+
+<h2 class="ok" id="plan">The three-phase plan</h2>
+<p>Ordered so that the cheapest fix with the widest effect comes first, and so that no phase's evidence depends on a phase that has not closed.</p>
+
+<div class="phases">
+  <div class="ph">
+    <span class="n">Phase 1</span>
+    <h4>Bound the supervisor and shrink the baseline</h4>
+    <p>Add a per-session block counter to each of the <b>11 blocking Stop hooks</b>, ceiling of two consecutive blocks on the same reason, third attempt passes through with one line that states the hook and the unmet condition. Make <code>completion_stop_gate.py</code> carry a reason on every non-pass path. Then move the long trigger lists out of each front-matter <code>description</code> into the skill body, following the POINTERS.md pattern.</p>
+    <p>The Stop chain goes first because every later phase ends in a stop, so an unbounded block loop on a phase-2 stop costs a multiple of what it costs today. Edit the hook scripts rather than <code>settings.json</code>, which is a contested file and where the audit records a permissions deadlock.</p>
+    <div class="exit"><b>Exit:</b> each of the 11 hooks passes a block-block-pass test; measured auto-loaded baseline under 25,000 tokens, down from 49,989; cache-read per turn re-measured against today's 625,521.</div>
+  </div>
+  <div class="ph">
+    <span class="n">Phase 2</span>
+    <h4>Build the engine against the schema, tests first</h4>
+    <p>A greenfield build with the data contract already settled by the 16,916-byte IR schema. Minimum surface: <code>doctor</code>, <code>import</code>, <code>map</code>, <code>generate</code>, <code>write-midi</code>, <code>verify</code>. <code>doctor</code> exits 0 only when the other five run on the bundled fixture.</p>
+    <p>The note-level tests are written before the generator that must pass them, because the audit records two gates that passed on the wrong question: a scorer that rewarded unchanged harmony with 102, and a melody collision check that compared against chord roots and so let compound minor ninths through. Each test is run against its recorded bad input first and must fail there before it is trusted on good input.</p>
+    <div class="exit"><b>Exit:</b> <code>bin/reharm doctor</code> exits 0, and every note-level test fails on its recorded bad case then passes on the fix. <b>Watch:</b> a fixed-shape exporter writes a full-size empty MIDI and exits 0, so <code>verify</code> reopens the file and counts notes against the input.</div>
+  </div>
+  <div class="ph">
+    <span class="n">Phase 3</span>
+    <h4>One song, then the outstanding scan</h4>
+    <p>One Shiner song end to end: mapped, three harmonically distinct candidates, melody and bass preserved, MIDI exported, reopened, and passing the phase-2 tests with named bars and pitches. One song per pass. Then the MacBookPro transcript scan, which closes the only diagnostic this machine cannot run.</p>
+    <p>The showcase is rebuilt from the phase-1 and phase-3 measurements side by side: baseline before and after, cache-read per turn before and after, block counts before and after, and the per-candidate test results.</p>
+    <div class="exit"><b>Exit:</b> three candidates on disk, tests passing, page live at http 200, fraud check green. <b>Goal metric:</b> model turns per verified playable arrangement, undefined today because the count of verified playable arrangements is zero.</div>
+  </div>
+</div>
+
+<h2 id="provenance">Provenance</h2>
+<p>Every figure on this page was produced by a command on this machine on 2026-10-17. The sibling document holds the full command list.</p>
+
+<table>
+  <thead><tr><th>Claim</th><th>How it was measured</th></tr></thead>
+  <tbody>
+    <tr><td>47 hooks, 17 on Stop</td><td><code>python3</code> over <code>~/.claude/settings.json</code></td></tr>
+    <tr><td>11 of 15 Stop hooks block</td><td><code>grep -cE '"decision".*block'</code> per file</td></tr>
+    <tr><td>Three audit-named scripts absent</td><td><code>find ~/.claude -name &lt;each&gt;</code></td></tr>
+    <tr><td>169 enabled, 27 disabled skills</td><td><code>ls</code> over <code>skills/</code> and <code>skills_disabled/</code></td></tr>
+    <tr><td>41,486 description tokens</td><td>regex over front-matter in 150 <code>SKILL.md</code> files, chars/4</td></tr>
+    <tr><td>Context file sizes</td><td><code>wc -c</code>, chars/4</td></tr>
+    <tr><td>POINTERS.md not auto-loaded</td><td>absent from this session's own context</td></tr>
+    <tr><td>Engine byte sizes</td><td><code>find . -type f -exec ls -la</code></td></tr>
+    <tr><td>Sept 10 transcript figures</td><td>timestamp-filtered scan of 621 transcripts, exact <code>usage</code> fields</td></tr>
+    <tr><td>Retention not the cause</td><td><code>cleanupPeriodDays</code> = 36500, 98 dates present</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <span class="lbl">Accuracy boundaries</span>
+  <p><b>Token counts from files are estimates</b> at chars/4, correct to within roughly 10% for English prose. <b>Transcript token counts are exact</b>, read from each record's <code>usage</code> field.</p>
+  <p><b>Labelled unverified:</b> the twelve-session count, the 1,610-turn count, the 496,941,520-token total, the 251 blocked stops, and the attribution of 204 of them to three scripts that do not exist here.</p>
+</div>
+
+<footer>
+  <p>Measured on Jacks-iMac, 2026-10-17. Source document: the September 10 Claude Code audit. Sibling notes: <a href="reharm-architecture-audit.md">reharm-architecture-audit.md</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>
