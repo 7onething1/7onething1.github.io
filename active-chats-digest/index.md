@@ -1,12 +1,12 @@
 # Active chats digest
 
-Built 2026-10-17 10:34 CDT. 11 chats read from transcripts.
+Built 2026-10-17 11:10 CDT. 11 chats read from transcripts.
 
 ## Headline
 
 All 11 chats ended on a gate block, 0 on a message from Brandon.
 0 need a Brandon action. 2 are past the 400-turn ceiling.
-Totals: 2,102 assistant replies, 27 MB of transcript.
+Totals: 2,405 assistant replies, 30 MB of transcript.
 
 ## Do yourself
 
@@ -23,7 +23,7 @@ Totals: 2,102 assistant replies, 27 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Chrome kick bad  (1.3 days quiet, 128 replies)
+### Chrome kick bad  (1.4 days quiet, 128 replies)
 **Goal.** Not summarised by hand yet. Last input on record: Yes, delete the seven extra camera copies from my Kick Studio scene.
 
 - Kick asks for a confirm on each delete, so nothing got removed yet. Your saved scene is unchanged. Looking at the confirm box before I press anything.
@@ -53,17 +53,7 @@ Totals: 2,102 assistant replies, 27 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (24.0 hours quiet, 10 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- I'll start with the two steps that need no shell approval, then work from what the daily check says.
-- Johnny Five daily pass, 2026-10-16** - **daily check:** PASS, file stamped `2026-10-16T10:20` on MacBookPro - **tabs check:** PASS, 10 of 10 tabs.
-- Summary** - **daily check:** PASS, 2026-10-16T10:20, MacBookPro, 10 of 10 tabs answered - **requests:** none open in the Johnny Five queue, so no ids.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (17.0 hours quiet, 5 replies)
+### Stop malfeasance and fraud  (17.6 hours quiet, 5 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while they still owed work, and order them.
@@ -73,7 +63,7 @@ Totals: 2,102 assistant replies, 27 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Stop malfeasance and fraud  (16.8 hours quiet, 10 replies)
+### Stop malfeasance and fraud  (17.4 hours quiet, 10 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped while still owing work, and send each a resume order.
@@ -83,17 +73,7 @@ Totals: 2,102 assistant replies, 27 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Go live success metrics  (8.6 hours quiet, 181 replies)
-**Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
-
-- The longest watch time was about 50 seconds, from nick (@nicksetticase) on Live 1.** - **Live 1:** Lisa Munoz, Markie2L and tommyandsandraharper came.
-- Yes, keep going live, and better sound is worth working on. The 77% is only about views. - On likes you beat 39% of creators at your level, and on.
-- I didn't open Chrome after you stopped me. You can do all of this yourself while you're live. **Phone app, for the current song** - Post a comment with.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (8.6 hours quiet, 6 replies)
+### Stop malfeasance and fraud  (9.2 hours quiet, 6 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
 - I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while they still owed work, and make them.
@@ -103,22 +83,42 @@ Totals: 2,102 assistant replies, 27 MB of transcript.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Volume 45% limit and final chats  (2 minutes quiet, 503 replies)
-**Goal.** Not summarised by hand yet. Last input on record: I don't want anything going more than once a day, and summer only goes once a week, ixi twice
+### Go live success metrics  (9.2 hours quiet, 181 replies)
+**Goal.** Not summarised by hand yet. Last input on record: The app was quit while you were working. Please continue from where you left off.
 
-- I'm still finding Summer's and ixi's stream days. The info folder only holds one stream, so I'm reading the site data next.
-- Building the new schedule now. One last check first: the Glostik processor has one loop marker, so I'm confirming it ends on its own.
-- The scheduled task went through. Stop malfeasance now runs once a day, around noon. Confirming that, then closing yesterday's stale paused-jobs item.
-- The plan is saved, and the stale item is closed. Next I'm recording your rule in memory, then queuing the launchd step with its blocker so it can't get.
+- The longest watch time was about 50 seconds, from nick (@nicksetticase) on Live 1.** - **Live 1:** Lisa Munoz, Markie2L and tommyandsandraharper came.
+- Yes, keep going live, and better sound is worth working on. The 77% is only about views. - On likes you beat 39% of creators at your level, and on.
+- I didn't open Chrome after you stopped me. You can do all of this yourself while you're live. **Phone app, for the current song** - Post a comment with.
+- No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Lyrics on rhythm guitar in Songsterr tabs  (0 minutes quiet, 513 replies)
-**Goal.** Not summarised by hand yet. Last input on record: we have a skill about renamign as brandon edit
+### Johnny Five daily pass  (34 minutes quiet, 10 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
-- "Camarillo Brillo Brandon edit" by Frank Zappa is published: meta 200, not on moderation, Vocals intact. Now Immortal Soul, the same way.
-- The title reads "The Immortal Soul Of Mundo Cani Brandon edit" by Appleseed Cast. Saving, then publishing.
-- "The Immortal Soul Of Mundo Cani Brandon edit" by Appleseed Cast is published too: meta 200, not on moderation, Vocals intact. Checking both while.
-- Both read as published and LINES while signed out (Camarillo Brillo 412 syllables, Immortal Soul 18). The built-in browser closed overnight, so I'm.
+- Goal:** run the Johnny Five daily pass for Glostik — report the daily check, the public tabs and the band queue, then work any open band requests and.
+- Daily pass ran clean on MacBookPro, and the check file carries today's date. **daily check:** PASS, 2026-10-17T10:20 on MacBookPro **tabs check:**.
+- Summary of the pass:** - daily check: PASS, file dated 2026-10-17T10:20 on MacBookPro - tabs check: PASS, 10 of 10 tabs answered, 0 new items on either.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lyrics on rhythm guitar in Songsterr tabs  (8 minutes quiet, 626 replies)
+**Goal.** Not summarised by hand yet. Last input on record: skip glostik
+
+- Updating the memory note, its index line, the skill's Step 4 and the sorter so the next check picks the part closest to a rhythm guitar.
+- Running the updated sorter on the saved data, without touching the report, to confirm it picks the right part on the tabs this rule affects.
+- Songsterr's code holds a lyrics editor chunk (LyricsModalEditor) and a per-song lyrics file. I'll read that editor chunk for any built-in way to.
+- Building the click list: the 33 tabs where your own "Transcribe with AI" click can bring in words, each with a direct editor link.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Volume 45% limit and final chats  (1 minutes quiet, 693 replies)
+**Goal.** Not summarised by hand yet. Last input on record: I do not see the aliases
+
+- Clowns' alias is in the new folder. Making Little Bird's alias the same way.
+- Both aliases are in the T7 folder. Taking a look at that folder in Finder to confirm they show as aliases.
+- Confirmed in Finder. The new folder on the T7 shows Clowns and Little Bird as aliases, plus Happiness's stems. Saving your correction to memory so new.
+- The split is running in the background. The runner will bring me back when the last song is done, and then I'll run the check on all 8 sets.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
