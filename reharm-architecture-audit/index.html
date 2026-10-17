@@ -213,17 +213,47 @@
   </tbody>
 </table>
 
-<p>Of the 14 Python Stop gates, <b>11 emit a block decision</b>. The audit directs edits to two scripts. The retry-bound target covers eleven files.</p>
+<p><b>All 14 Python Stop gates can block.</b> The audit directs edits to two scripts, so the retry-bound target covers fourteen files.</p>
+
+<div class="note red">
+  <span class="lbl">My first census was wrong, and it understated the problem</span>
+  <p>An earlier pass of this page said 11 of 14. That came from grepping for a <code>"decision"</code> block field and a literal <code>exit(2)</code>, which misses the <code>return 2</code> plus <code>sys.exit(main())</code> form. Three gates block that way and were miscounted as silent: <code>completion_stop_gate.py</code>, <code>chat_link_gate.py</code> and <code>chat_donelink_gate.py</code>.</p>
+  <p>Direct proof rather than inference: <b>five of these gates blocked this very session</b>, including two of the three I had called non-blocking. A grep for the word <i>block</i> is the wrong instrument for a census of blocking.</p>
+</div>
+
+<div class="note red">
+  <span class="lbl">The chain does not short-circuit, so the cost compounds</span>
+  <p>Whether a block at one gate stops the rest from running decides how expensive an unmet stop
+  is. This session answered it by accident. On one Stop event, gates at positions <b>5, 6, 8 and
+  13</b> all blocked and all reported, so the chain ran past the block at position 5 and kept going
+  to position 13.</p>
+  <p>That means a single unmet stop can collect refusals from up to fourteen gates at once, and
+  each refusal costs a fresh turn carrying the whole conversation. <b>Bounding only the first
+  blocker would do nothing.</b> Every gate needs its own counter, which is what makes the
+  block-block-pass test the first item of Phase 1 rather than a detail inside it.</p>
+</div>
 
 <div class="note">
   <span class="lbl">These counts are a snapshot, and one moved during the review</span>
   <p>Hook counts change while sessions run. The first read at <b>13:0x</b> returned <b>17</b> Stop entries. A re-read at <b>13:41</b> returned <b>16</b>, because <code>settings.json</code> was written at <b>13:28:06</b> by one of the two other sessions live on this machine, which left a backup named <code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code>.</p>
-  <p>Diffing that backup against the current file shows the removed entry was an <b>empty-string command</b>, so the executable count was <b>16 both before and after</b>. The earlier 17 counted a blank placeholder. The eleven blocking gates are unaffected, and all eleven are genuinely wired to Stop.</p>
+  <p>Diffing that backup against the current file shows the removed entry was an <b>empty-string command</b>, so the executable count was <b>16 both before and after</b>. The earlier 17 counted a blank placeholder. The blocking census below is unaffected by the edit, and all 14 Python gates are genuinely wired to Stop.</p>
 </div>
 
-<div class="note red">
-  <span class="lbl">The one that hides</span>
-  <p><code>completion_stop_gate.py</code> emits no block decision and no <code>exit(2)</code>, so a grep for the word <i>block</i> misses it entirely. A comment at line 301 records its prior failure mode: it reached Claude as <b>"No stderr output" with no reason attached</b>. A hook that blocks without a readable reason produces the expensive retry loop the audit describes and leaves no evidence of why.</p>
+<div class="note">
+  <span class="lbl">One gate is already solved, and it is the pattern to copy</span>
+  <p>An earlier pass of this page called <code>completion_stop_gate.py</code> a silent blocker and
+  read the comment at its line 301 as a live defect. Both readings were wrong. It blocks with
+  <code>return 2</code> through <code>sys.exit(main())</code>, and line 302 writes the refusal
+  reason to stderr before it does.</p>
+  <p>That line-301 comment <b>documents a bug that was already fixed</b> on 2026-09-14, when 45
+  refusals reached Claude with no reason because the text went to stdout. A regression test ships
+  with the fix and passes today, measuring <b>exit 2 with 596 characters of stderr</b>.</p>
+  <p>It is also <b>already bounded</b>, at <code>HARD_CAP = 25</code> with a
+  <code>COMPLETION_GATE_CAP</code> override, and its counter is keyed per session. It even carries
+  the fix for the trap the other thirteen will hit: on 2026-09-14 every counter read 1, because the
+  refusal feedback was itself being counted as a fresh user record and resetting the count. So the
+  real target is <b>the 13 gates with no bound</b>, and the work is to copy this one rather than
+  invent a mechanism.</p>
 </div>
 
 <h2 class="alt" id="context">The baseline grew, and its biggest item was uncounted</h2>
@@ -313,9 +343,9 @@ turns per user message            : 6.4</code></pre>
   <div class="ph">
     <span class="n">Phase 1</span>
     <h4>Bound the supervisor and shrink the baseline</h4>
-    <p>Add a per-session block counter to each of the <b>11 blocking Stop hooks</b>, ceiling of two consecutive blocks on the same reason, third attempt passes through with one line that states the hook and the unmet condition. Make <code>completion_stop_gate.py</code> carry a reason on every non-pass path. Then move the long trigger lists out of each front-matter <code>description</code> into the skill body, following the POINTERS.md pattern.</p>
+    <p>Add a per-session block counter to each of the <b>13 unbounded Stop gates</b>, copying the <code>HARD_CAP</code> shape <code>completion_stop_gate.py</code> already uses, with a ceiling of two consecutive blocks on the same reason and a third attempt that passes through stating the hook and the unmet condition. Avoid the trap that gate documents, where every counter read 1 because the refusal feedback was itself counted as a fresh user record. Then move the long trigger lists out of each front-matter <code>description</code> into the skill body, following the POINTERS.md pattern.</p>
     <p>The Stop chain goes first because every later phase ends in a stop, so an unbounded block loop on a phase-2 stop costs a multiple of what it costs today. Edit the hook scripts rather than <code>settings.json</code>, which is a contested file and where the audit records a permissions deadlock.</p>
-    <div class="exit"><b>Exit:</b> each of the 11 hooks passes a block-block-pass test; measured auto-loaded baseline under 25,000 tokens, down from 49,989; cache-read per turn re-measured against today's 625,521.</div>
+    <div class="exit"><b>Exit:</b> each of the 13 unbounded gates passes a block-block-pass test; measured auto-loaded baseline under 25,000 tokens, down from 49,989; cache-read per turn re-measured against today's 625,521.</div>
   </div>
   <div class="ph">
     <span class="n">Phase 2</span>
@@ -340,7 +370,9 @@ turns per user message            : 6.4</code></pre>
   <thead><tr><th>Claim</th><th>How it was measured</th></tr></thead>
   <tbody>
     <tr><td>46 hook entries, 16 on Stop</td><td><code>python3</code> over <code>~/.claude/settings.json</code></td></tr>
-    <tr><td>11 of 14 Python Stop gates block</td><td><code>grep -cE '"decision".*block'</code> per file</td></tr>
+    <tr><td>14 of 14 Python Stop gates block</td><td>per-file census of <code>return 2</code>, <code>exit(2)</code> and <code>"decision"</code>, plus 5 gates observed blocking this session</td></tr>
+    <tr><td>Stop chain does not short-circuit</td><td>positions 5, 6, 8 and 13 all blocked on one Stop event in this session</td></tr>
+    <tr><td><code>completion_stop_gate</code> blocks, reports and is bounded</td><td><code>return 2</code> at lines 294 and 303, stderr at 302, <code>HARD_CAP</code> at 38; <code>gate_repair_regression_2026_09_14.py</code> passes</td></tr>
     <tr><td>Three audit-named scripts absent</td><td><code>find ~/.claude -name &lt;each&gt;</code></td></tr>
     <tr><td>169 enabled, 27 disabled skills</td><td><code>ls</code> over <code>skills/</code> and <code>skills_disabled/</code></td></tr>
     <tr><td>41,486 description tokens</td><td>regex over front-matter in 150 <code>SKILL.md</code> files, chars/4</td></tr>
