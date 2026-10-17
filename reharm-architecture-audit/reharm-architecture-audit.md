@@ -27,7 +27,13 @@ Full remediation prompt and plan: `~/Projects/_outputs/reharm-architecture-remed
 
 ## Counts are a snapshot
 
-The first read at 13:0x returned 17 Stop entries; a re-read at 13:41 returned 16. `settings.json` was written at 13:28:06 by one of the two other live sessions, leaving `settings.json.bak-before-guitar-evaluator-off-2026-10-17`. The removed entry was an empty-string command, so the executable count was 16 both before and after. The blocking census is unaffected by that edit and all 14 Python gates are wired to Stop.
+The first read at 13:0x returned 17 Stop entries; a re-read at 13:41 returned 16. `settings.json` was written at 13:28:06 by one of the two other live sessions, leaving `settings.json.bak-before-guitar-evaluator-off-2026-10-17`. The removed entry was **an LLM prompt-judge**, a `{"type": "prompt"}` hook rather than a script, turned off at Brandon's request; verbatim copy at `hooks/DISABLED-guitar-completion-evaluator-2026-10-17.json`. So Stop held **17 executable hooks before and 16 after**. An earlier pass of this file called it a blank placeholder, which was wrong: the extraction read each hook's `command` key, and a prompt-judge hook has none.
+
+## The 17th hook was the audit's own thesis
+
+That prompt-judge instructs that if Claude "says it is stopping, pausing, queuing work, leaving an item for later, asking whether it should continue" it must return INCOMPLETE and direct Claude to continue, with its reason fed back as Claude's next instruction. A `type: "prompt"` hook also spends a full model call on every stop, which no script in the chain does. The session log records it looping about 12 turns on a blocked external dependency before being switched off, which is that session's report rather than a measurement here. The audit asked for recursive stopping to be removed from two scripts that do not exist; the real instance was this, and Brandon had already removed it.
+
+The 14-gate blocking census is unaffected and all 14 Python gates are wired to Stop.
 
 ## My own census was wrong, in the direction that understated the problem
 

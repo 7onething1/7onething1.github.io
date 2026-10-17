@@ -142,7 +142,7 @@
   <p class="kicker">Measured re-check · Jacks-iMac</p>
   <h1>Reharm architecture: what the fresh local check found</h1>
   <p class="sub lede">The September 10 Claude Code audit asked for one thing before anyone acted on it, which was a fresh local check of its own configuration claims. This is that check, run on 2026-10-17 against the machine the audit describes.</p>
-  <p class="meta">hostname <b>Jacks-iMac</b> · 621 transcripts scanned · 24 project directories · 46 hook entries read at 13:0x</p>
+  <p class="meta">hostname <b>Jacks-iMac</b> · 621 transcripts scanned · 24 project directories · 47 hook entries at 13:0x, 46 after</p>
 </header>
 
 <div class="toc">
@@ -222,6 +222,22 @@
 </div>
 
 <div class="note red">
+  <span class="lbl">The 17th hook was the audit's own thesis, running until this afternoon</span>
+  <p>That prompt-judge is worth reading, because it is the recursive stop the audit describes, built
+  on purpose. It instructs: if Claude <i>"says it is stopping, pausing, queuing work, leaving an
+  item for later, asking whether it should continue"</i> then return INCOMPLETE and direct Claude to
+  perform the remaining work. Its reason text is fed back as Claude's next instruction.</p>
+  <p>Two costs follow. A <code>type: "prompt"</code> hook spends <b>a full model call on every
+  stop</b>, which no script in the chain does. And a judge told to refuse any stop that mentions
+  queuing will refuse stops it cannot clear. The session log for this machine records it <b>looping
+  about 12 turns on a blocked external dependency</b> before it was switched off, which is that
+  session's report rather than a measurement of mine.</p>
+  <p>The audit asked for recursive stopping to be removed from two scripts that do not exist. The
+  real instance was a prompt-judge, and Brandon had already removed it hours before this page was
+  first written.</p>
+</div>
+
+<div class="note red">
   <span class="lbl">The chain does not short-circuit, so the cost compounds</span>
   <p>Whether a block at one gate stops the rest from running decides how expensive an unmet stop
   is. This session answered it by accident. On one Stop event, gates at positions <b>5, 6, 8 and
@@ -236,7 +252,15 @@
 <div class="note">
   <span class="lbl">These counts are a snapshot, and one moved during the review</span>
   <p>Hook counts change while sessions run. The first read at <b>13:0x</b> returned <b>17</b> Stop entries. A re-read at <b>13:41</b> returned <b>16</b>, because <code>settings.json</code> was written at <b>13:28:06</b> by one of the two other sessions live on this machine, which left a backup named <code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code>.</p>
-  <p>Diffing that backup against the current file shows the removed entry was an <b>empty-string command</b>, so the executable count was <b>16 both before and after</b>. The earlier 17 counted a blank placeholder. The blocking census below is unaffected by the edit, and all 14 Python gates are genuinely wired to Stop.</p>
+  <p>Diffing that backup shows what was removed: the 17th Stop hook was <b>an LLM prompt-judge</b>, a
+  <code>{"type": "prompt"}</code> entry rather than a script, and it was turned off at Brandon's
+  request. Its verbatim copy sits at
+  <code>hooks/DISABLED-guitar-completion-evaluator-2026-10-17.json</code>. So Stop held <b>17
+  executable hooks before the edit and 16 after</b>. The 14-gate blocking census below is
+  unaffected, and all 14 Python gates are genuinely wired to Stop.</p>
+  <p><b>An earlier pass of this page called that entry a blank placeholder, which was wrong.</b> The
+  extraction read each hook's <code>command</code> key, and a prompt-judge hook has none, so a live
+  model-call hook was recorded as an empty string.</p>
 </div>
 
 <div class="note">
@@ -370,6 +394,7 @@ turns per user message            : 6.4</code></pre>
   <thead><tr><th>Claim</th><th>How it was measured</th></tr></thead>
   <tbody>
     <tr><td>46 hook entries, 16 on Stop</td><td><code>python3</code> over <code>~/.claude/settings.json</code></td></tr>
+    <tr><td>17th Stop hook was an LLM prompt-judge, now disabled</td><td><code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code> diffed against current, plus <code>hooks/DISABLED-guitar-completion-evaluator-2026-10-17.json</code></td></tr>
     <tr><td>14 of 14 Python Stop gates block</td><td>per-file census of <code>return 2</code>, <code>exit(2)</code> and <code>"decision"</code>, plus 5 gates observed blocking this session</td></tr>
     <tr><td>Stop chain does not short-circuit</td><td>positions 5, 6, 8 and 13 all blocked on one Stop event in this session</td></tr>
     <tr><td><code>completion_stop_gate</code> blocks, reports and is bounded</td><td><code>return 2</code> at lines 294 and 303, stderr at 302, <code>HARD_CAP</code> at 38; <code>gate_repair_regression_2026_09_14.py</code> passes</td></tr>
