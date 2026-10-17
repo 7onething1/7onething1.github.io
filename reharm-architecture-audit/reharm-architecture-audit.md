@@ -53,7 +53,7 @@ Eight empty `__init__.py` files. Empty `bin/`, `scripts/`, `tests/{unit,property
 
 ## Three-phase plan
 
-1. **Bound the supervisor, shrink the baseline.** Block counter on each of the 13 unbounded Stop gates, copying `completion_stop_gate`'s `HARD_CAP` shape, ceiling 2, third attempt passes and states the reason. Move trigger lists out of front-matter. Exit: block-block-pass test green, baseline under 25,000.
+1. **Bound the supervisor, shrink the baseline.** ONE session-wide retry budget shared by every gate, copying `completion_stop_gate`'s `HARD_CAP` mechanics. Thirteen separate counters at two retries each would admit up to twenty-six extra turns, and the chain does not short-circuit, so all thirteen fire on the same event and per-gate ceilings multiply where they should cap. Each gate records its reason against the shared budget; when it is spent, the chain reports every unresolved condition and lets the session end, with failed musical verification staying marked failed. Move trigger lists out of front-matter. Exit: alternating-reason test still ends the session within budget, baseline under 25,000.
 2. **Build the engine, tests first.** `doctor import map generate write-midi verify`; `doctor` exits 0 only when the five run on the fixture. Tests fail on their recorded bad case before being trusted. Exit: `bin/reharm doctor` exit 0.
 3. **One song, then the MacBookPro scan.** One Shiner song, three distinct candidates, melody and bass preserved, exported, reopened, tested by bar and pitch. Exit: live page at http 200, fraud check green.
 
