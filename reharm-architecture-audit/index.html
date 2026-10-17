@@ -217,7 +217,7 @@
 
 <div class="note">
   <span class="lbl">These counts are a snapshot, and one moved during the review</span>
-  <p>Hook counts are live-mutating state. The first read at <b>13:0x</b> returned <b>17</b> Stop entries. A re-read at <b>13:41</b> returned <b>16</b>, because <code>settings.json</code> was written at <b>13:28:06</b> by one of the two other sessions live on this machine, which left a backup named <code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code>.</p>
+  <p>Hook counts change while sessions run. The first read at <b>13:0x</b> returned <b>17</b> Stop entries. A re-read at <b>13:41</b> returned <b>16</b>, because <code>settings.json</code> was written at <b>13:28:06</b> by one of the two other sessions live on this machine, which left a backup named <code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code>.</p>
   <p>Diffing that backup against the current file shows the removed entry was an <b>empty-string command</b>, so the executable count was <b>16 both before and after</b>. The earlier 17 counted a blank placeholder. The eleven blocking gates are unaffected, and all eleven are genuinely wired to Stop.</p>
 </div>
 
