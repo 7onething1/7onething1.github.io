@@ -142,7 +142,7 @@
   <p class="kicker">Measured re-check · Jacks-iMac</p>
   <h1>Reharm architecture: what the fresh local check found</h1>
   <p class="sub lede">The September 10 Claude Code audit asked for one thing before anyone acted on it, which was a fresh local check of its own configuration claims. This is that check, run on 2026-10-17 against the machine the audit describes.</p>
-  <p class="meta">hostname <b>Jacks-iMac</b> · 621 transcripts scanned · 25 project directories · 47 hooks read</p>
+  <p class="meta">hostname <b>Jacks-iMac</b> · 621 transcripts scanned · 24 project directories · 46 hook entries read at 13:0x</p>
 </header>
 
 <div class="toc">
@@ -173,7 +173,7 @@
     <span class="tag t-wrong">Wrong target</span>
     <div>
       <p><b>The three scripts the audit says to edit do not exist.</b> <code>run_gates.py</code>, <code>completion_stop_hook.py</code> and <code>no_stop_gate_hook.py</code> return nothing from a <code>find</code> over all of <code>~/.claude</code>.</p>
-      <p>The real Stop chain is 17 hooks under different names. Following the instruction verbatim would edit nothing and report success.</p>
+      <p>The real Stop chain is 16 hooks under different names. Following the instruction verbatim would edit nothing and report success.</p>
     </div>
   </div>
   <div class="v">
@@ -195,25 +195,31 @@
 <h2 class="warn" id="hooks">The named hook scripts do not exist</h2>
 <p>The audit attributes 204 of 251 blocked stopping attempts to three scripts and directs that two of them have their recursive stopping behaviour removed.</p>
 
-<pre><code>$ find /Users/drwu/.claude -name run_gates.py \
-    -o -name completion_stop_hook.py -o -name no_stop_gate_hook.py
+<pre><code>$ find /Users/drwu/.claude \( -name run_gates.py \
+    -o -name completion_stop_hook.py -o -name no_stop_gate_hook.py \)
 (no results)</code></pre>
 
-<p>What <code>~/.claude/settings.json</code> actually wires is <b>47 hooks across six events</b>:</p>
+<p>What <code>~/.claude/settings.json</code> actually wires is <b>46 hook entries across six events</b>:</p>
 
 <table>
   <thead><tr><th>Event</th><th>Hooks</th><th>Reading</th></tr></thead>
   <tbody>
-    <tr><td>Stop</td><td class="num up">17</td><td>Every session end runs all 17 in sequence</td></tr>
-    <tr><td>PreToolUse</td><td class="num">13</td><td>Runs on every single tool call</td></tr>
-    <tr><td>UserPromptSubmit</td><td class="num">9</td><td>Injects text into every turn</td></tr>
-    <tr><td>PostToolUse</td><td class="num">4</td><td></td></tr>
+    <tr><td>Stop</td><td class="num up">16</td><td>14 Python gates plus 2 shell one-liners, none scoped by matcher</td></tr>
+    <tr><td>PreToolUse</td><td class="num">13</td><td>Matcher-scoped: <code>Bash</code> 9, <code>Write|Edit|NotebookEdit</code> 2, <code>Agent|Task</code> 1, <code>AskUserQuestion</code> 1</td></tr>
+    <tr><td>UserPromptSubmit</td><td class="num">9</td><td>7 on every user prompt, 2 wrapped in <code>once_per_session.py</code></td></tr>
+    <tr><td>PostToolUse</td><td class="num">4</td><td>Scoped to <code>Write|Edit|MultiEdit|NotebookEdit</code></td></tr>
     <tr><td>SessionStart</td><td class="num">3</td><td></td></tr>
     <tr><td>Notification</td><td class="num">1</td><td></td></tr>
   </tbody>
 </table>
 
-<p>Of 15 Stop hooks inspected, <b>11 emit a block decision</b>. The audit directs edits to two scripts. The retry-bound target covers eleven files.</p>
+<p>Of the 14 Python Stop gates, <b>11 emit a block decision</b>. The audit directs edits to two scripts. The retry-bound target covers eleven files.</p>
+
+<div class="note">
+  <span class="lbl">These counts are a snapshot, and one moved during the review</span>
+  <p>Hook counts are live-mutating state. The first read at <b>13:0x</b> returned <b>17</b> Stop entries. A re-read at <b>13:41</b> returned <b>16</b>, because <code>settings.json</code> was written at <b>13:28:06</b> by one of the two other sessions live on this machine, which left a backup named <code>settings.json.bak-before-guitar-evaluator-off-2026-10-17</code>.</p>
+  <p>Diffing that backup against the current file shows the removed entry was an <b>empty-string command</b>, so the executable count was <b>16 both before and after</b>. The earlier 17 counted a blank placeholder. The eleven blocking gates are unaffected, and all eleven are genuinely wired to Stop.</p>
+</div>
 
 <div class="note red">
   <span class="lbl">The one that hides</span>
@@ -268,7 +274,7 @@ empty dirs: bin/ scripts/ tests/{unit,property,integration,golden}
 </div>
 
 <h2 id="totals">The session totals are not reproducible here</h2>
-<p>Scanned all 621 transcripts across all 25 project directories under <code>~/.claude/projects</code>, filtering on in-record timestamps rather than file modification time.</p>
+<p>Scanned all 621 transcripts across all 24 project directories under <code>~/.claude/projects</code>, filtering on in-record timestamps rather than file modification time.</p>
 
 <pre><code>sessions with 2026-09-10 activity : 1
 assistant turns                   : 70
@@ -328,13 +334,13 @@ turns per user message            : 6.4</code></pre>
 </div>
 
 <h2 id="provenance">Provenance</h2>
-<p>Every figure on this page was produced by a command on this machine on 2026-10-17. The sibling document holds the full command list.</p>
+<p>Every measured figure on this page was produced by a command on this machine on 2026-10-17. Figures in the audit column are quoted from the source document and were not re-derived. The sibling document holds the full command list.</p>
 
 <table>
   <thead><tr><th>Claim</th><th>How it was measured</th></tr></thead>
   <tbody>
-    <tr><td>47 hooks, 17 on Stop</td><td><code>python3</code> over <code>~/.claude/settings.json</code></td></tr>
-    <tr><td>11 of 15 Stop hooks block</td><td><code>grep -cE '"decision".*block'</code> per file</td></tr>
+    <tr><td>46 hook entries, 16 on Stop</td><td><code>python3</code> over <code>~/.claude/settings.json</code></td></tr>
+    <tr><td>11 of 14 Python Stop gates block</td><td><code>grep -cE '"decision".*block'</code> per file</td></tr>
     <tr><td>Three audit-named scripts absent</td><td><code>find ~/.claude -name &lt;each&gt;</code></td></tr>
     <tr><td>169 enabled, 27 disabled skills</td><td><code>ls</code> over <code>skills/</code> and <code>skills_disabled/</code></td></tr>
     <tr><td>41,486 description tokens</td><td>regex over front-matter in 150 <code>SKILL.md</code> files, chars/4</td></tr>

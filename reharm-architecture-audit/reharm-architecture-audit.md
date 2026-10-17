@@ -8,7 +8,7 @@ Full remediation prompt and plan: `~/Projects/_outputs/reharm-architecture-remed
 | Verdict | Claim | Measured |
 |---|---|---|
 | **Held** | per-turn context cost ~556,000 | **625,521** cache-read per assistant turn |
-| **Wrong target** | edit `run_gates.py`, `completion_stop_hook.py`, `no_stop_gate_hook.py` | none of the three exists; real chain is **17 Stop hooks**, 11 of 15 inspected emit a block decision |
+| **Wrong target** | edit `run_gates.py`, `completion_stop_hook.py`, `no_stop_gate_hook.py` | none of the three exists; real chain is **16 Stop hooks** (14 Python gates plus 2 shell one-liners), 11 of the 14 Python gates emit a block decision |
 | **Worse than stated** | CLI imports and inspects, 3 commands missing | **zero bytes of executable Python**; `SKILL.md` line 41 already marks it not implemented |
 | **Unverified** | 12 sessions, 1,610 turns, 496,941,520 tokens | Sept 10 here: **1 session, 70 turns, 43,786,490 tokens**; MacBookPro unscanned |
 
@@ -24,6 +24,10 @@ Full remediation prompt and plan: `~/Projects/_outputs/reharm-architecture-remed
 | POINTERS.md | not counted | **53,281**, retrieval only |
 
 `POINTERS.md` is larger than the whole audited baseline and is correctly kept out of it, reached by grep. It is the pattern the skill roster should copy.
+
+## Counts are a snapshot
+
+The first read at 13:0x returned 17 Stop entries; a re-read at 13:41 returned 16. `settings.json` was written at 13:28:06 by one of the two other live sessions, leaving `settings.json.bak-before-guitar-evaluator-off-2026-10-17`. The removed entry was an empty-string command, so the executable count was 16 both before and after. The eleven blocking gates are unaffected and all eleven are wired to Stop.
 
 ## The hook that hides
 
