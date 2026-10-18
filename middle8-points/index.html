@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Middle 8, ten points per video</title>
+<meta name="description" content="Ten grounded points from every Middle 8 video, each linked to its timestamp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f4ecd8;--paper:#fbf5e6;--ink:#1c1a17;--rust:#b5533b;--teal:#3f7c78;
+        --gold:#c98a2b;--olive:#7d7a3a;--line:#d9cdb0;--mute:#6b6553;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.55}
+  a{color:var(--teal)}
+  header{padding:44px 24px 18px;max-width:1040px;margin:0 auto;text-align:center}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7rem;margin:.15em 0;letter-spacing:.2px}
+  .sub{color:var(--olive);font-weight:600}
+  .note{max-width:860px;margin:16px auto;padding:13px 17px;background:#efe4c8;
+        border:1px solid var(--line);border-radius:10px;font-size:.93rem;text-align:left}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0 4px}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:9px 15px;min-width:116px}
+  .stat b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:var(--rust);line-height:1.1}
+  .stat span{font-size:.76rem;text-transform:uppercase;letter-spacing:.7px;color:var(--mute)}
+  main{max-width:1040px;margin:0 auto;padding:10px 20px 90px}
+  .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 14px}
+  #q{flex:1;min-width:220px;padding:10px 13px;border:1px solid var(--line);border-radius:9px;
+     background:var(--paper);color:var(--ink);font-size:.95rem}
+  .count{color:var(--mute);font-size:.86rem}
+  .grid{display:grid;gap:13px}
+  .card{display:flex;gap:15px;background:var(--paper);border:1px solid var(--line);
+        border-radius:12px;padding:15px 17px;align-items:flex-start}
+  .rank{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;font-weight:700;
+        color:var(--rust);min-width:52px;text-align:center;line-height:1.1}
+  .bd{flex:1;min-width:0}
+  .ttl{margin:0 0 5px;font-size:1.1rem;font-weight:650}
+  .ttl a{color:var(--teal);text-decoration:none}
+  .ttl a:hover{text-decoration:underline}
+  .meta{color:var(--gold);font-weight:700;font-size:.84rem;margin-bottom:7px}
+  .meta em{color:var(--mute);font-weight:500;font-style:normal}
+  .teaser{color:var(--ink);font-size:.93rem;margin:0 0 8px}
+  .go{display:inline-block;font-size:.84rem;font-weight:700;text-decoration:none;color:#fff;
+      background:var(--teal);padding:6px 12px;border-radius:7px}
+  .go:hover{background:#345f5c}
+  ol.points{margin:10px 0 0;padding-left:0;list-style:none;counter-reset:p}
+  ol.points li{counter-increment:p;position:relative;padding:13px 15px 13px 54px;margin:0 0 10px;
+      background:var(--paper);border:1px solid var(--line);border-radius:11px}
+  ol.points li::before{content:counter(p);position:absolute;left:14px;top:12px;
+      font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--rust)}
+  .ts{display:inline-block;margin-top:7px;font-size:.8rem;font-weight:700;text-decoration:none;
+      color:var(--rust);background:#f0e3c6;border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+  .ts:hover{background:#e7d7b4}
+  .back{display:inline-block;margin:0 0 16px;font-size:.88rem;color:var(--teal);text-decoration:none}
+  footer{max-width:1040px;margin:0 auto;padding:0 20px 60px;color:var(--mute);font-size:.82rem}
+  @media(max-width:620px){h1{font-size:2rem}.card{flex-direction:column;gap:8px}.rank{text-align:left}}
+</style></head>
+<body>
+<header>
+  <h1>Middle 8, ten points per video</h1>
+  <div class="sub">Every video on the channel, read down to its ten most interesting claims</div>
+  <div class="stats"><div class="stat"><b>1</b><span>videos</span></div><div class="stat"><b>10</b><span>points</span></div><div class="stat"><b>1,365</b><span>words read</span></div><div class="stat"><b>107</b><span>on channel</span></div></div>
+  <div class="note">Captions for every Middle 8 video were pulled through the paced YouTube gate, then each transcript was read down to the ten claims that carry the most information. Each point links back to its moment in the video. The full transcripts stay offline; what is published here is the excerpt layer.</div>
+  <div class="note"><b>Still harvesting.</b> 1 of 107 videos carry their ten points so far. The remaining 106 are queued behind the paced caption puller and land on the next build.</div>
+</header>
+<main>
+  <div class="tools"><input id="q" placeholder="Search titles and points, e.g. Bowie, post-punk, label"><span class="count" id="c">1 videos</span></div>
+  <div class="grid" id="g">
+<article class="card" data-s="the last time tv made a band  on 3 march 2014 future islands played seasons on letterman, and samuel t. herring turned four minutes of network tv into a prowling, chest-pounding, growling performance that became the most watched clip on the show&#x27;s youtube channel. the claim the video is built on: that night was close to the last time a network television stage could hand millions of people their next favourite band, arriving just as those portals started to close. the scale of the old monoculture, measured: the beatles on ed sullivan in 1964 drew roughly 73 million viewers, close to 40 percent of the country. three other portal moments carry the argument: bowie playing starman on top of the pops in 1972, nirvana&#x27;s mtv unplugged set in 1993, and adele&#x27;s stripped-down 2011 brits performance that sent someone like you to number one. letterman&#x27;s 33-year run ended the year after the future islands set, closing a stage that had introduced us audiences to r.e.m., oasis and foo fighters. the hard number behind the decline: musical bookings across the big three networks fell from roughly 800 a year to around 200 by 2023, as fallon and kimmel leaned into the clip economy. the replacements are performance-first formats built for replay. npr&#x27;s tiny desk is the clearest case, where anderson .paak&#x27;s 2016 set alone cleared 100 million views and is credited with spiking his ticket sales, streams and festival invites, with kexp&#x27;s 20 to 30 minute sessions and colors studios filling the same slot. the overnight-success read is wrong. future islands formed in north carolina in 2006, moved to baltimore, and had three albums and hundreds of club, dive-bar and basement shows behind them before letterman, so they had no tv version of themselves to invent. 2014 was the narrow window where both systems worked at once: letterman still averaged about 2.8 million viewers that season while the internet was primed to clip anything remarkable, and the upload passed a million views inside a week. seasons was named the number one song of 2014 by pitchfork, nme, spin and consequence, and herring&#x27;s own reading of the mockery is the sharpest moment in the video: art should be polarizing at its best, and anyone who watches the clip and recoils should simply not come to a show.">
+  <div class="rank">1</div>
+  <div class="bd">
+    <p class="ttl"><a href="sf2MjuePK-k/">The Last Time TV Made a Band </a></p>
+    <div class="meta">8:06 &middot; <em>1,365 words &middot; 10 points</em></div>
+    <p class="teaser">On 3 March 2014 Future Islands played Seasons on Letterman, and Samuel T. Herring turned four minutes of network TV into a prowling, chest-pounding, growling performance that became the most watched clip on the show&#x27;s YouTube channel.</p>
+    <a class="go" href="sf2MjuePK-k/">Read the ten points</a>
+  </div>
+</article>
+  </div>
+</main>
+<footer>Channel: <a href="https://www.youtube.com/@Middle8" target="_blank" rel="noopener">youtube.com/@Middle8</a>. Built 17 October 2026.</footer>
+<script>
+const q=document.getElementById("q"),g=document.getElementById("g"),c=document.getElementById("c");
+q.addEventListener("input",()=>{const t=q.value.toLowerCase().trim();let n=0;
+ for(const el of g.children){const hit=!t||el.dataset.s.includes(t);el.style.display=hit?"":"none";if(hit)n++;}
+ c.textContent=n+" video"+(n==1?"":"s");});
+</script>
+</body></html>
