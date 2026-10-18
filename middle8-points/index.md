@@ -1,6 +1,6 @@
 # Middle 8, ten points per video
 
-106 of 107 channel videos covered, 1,060 points, 201,862 words of transcript read.
+107 of 107 channel videos covered, 1,070 points, 203,350 words of transcript read.
 
 Captions pulled through the paced YouTube gate, each transcript read down to its ten most informative claims, every point linked to its moment in the video. Full transcripts stay offline.
 
@@ -84,32 +84,33 @@ Captions pulled through the paced YouTube gate, each transcript read down to its
 78. [The Genius of IGOR](wI-fyoZqBQI/) - 13:01, 10 points
 79. [How LIL NAS X Created The Most Popular Song Ever](scbbVSeKS4I/) - 8:21, 10 points
 80. [When a debut album redefines indie rock](avVH9oai5fs/) - 8:34, 10 points
-81. [The Darker Meaning Behind HEY YA!](J_fHZkgk980/) - 6:51, 10 points
-82. [How LED ZEPPELIN Made Their Fourth Album](o-lsl7Smo3E/) - 11:26, 10 points
-83. [KID A, The Greatest Left Turn In Music History](QzpSKfXneZw/) - 10:51, 10 points
-84. [Is OK COMPUTER The Best Album Ever?](nYYMIYWEdwQ/) - 9:10, 10 points
-85. [Let’s talk about Vampire Weekend’s Original Trilogy](ZiLwA_3rOcI/) - 10:50, 10 points
-86. [The Authenticity of LANA DEL REY](DMqd7GdBdkE/) - 15:46, 10 points
-87. [Animal Collective really had 4 perfect albums in a row](FizhZKDc4yY/) - 10:41, 10 points
-88. [What Ever Happened To THE STROKES?](o8bdGW1B0YQ/) - 10:41, 10 points
-89. [The Future of Rock Is Looking More Female](slx5RTnOCmw/) - 10:11, 10 points
-90. [What Happened To Mainstream Rock Music?!](Yo1AZl1S2gc/) - 9:45, 10 points
-91. [How LORDE Changed Pop Music](sQjGZaM3EFo/) - 7:20, 10 points
-92. [Why Is MR. BRIGHTSIDE Still On The Charts?](Jqkzu1UVEm0/) - 7:15, 10 points
-93. [NONAGON INFINITY: The Never-Ending Album](U_NIbWNM8vg/) - 5:31, 10 points
-94. [What Happened to THE BLACK KEYS?](phjBGQkcBOM/) - 12:05, 10 points
-95. [How SEVEN NATION ARMY Became A Stadium Chant](yYrvRAXF5ZU/) - 7:12, 10 points
-96. [How FEEL IT STILL Became A Hit](21TPBup7_Dk/) - 9:30, 10 points
-97. [BON IVER + KANYE WEST, Finding Your Voice](iNLHkliQRys/) - 7:46, 10 points
-98. [Did The Verve Steal BITTER SWEET SYMPHONY?](I_s90-Hi2ZY/) - 7:47, 10 points
-99. [Are ARCTIC MONKEYS Big In America?](TgBsotpXZq8/) - 12:43, 10 points
-100. [When you're willing to suffer for your art](cVmJQ70A5Ew/) - 9:10, 10 points
-101. [Does GRETA VAN FLEET Sound Too Much like LED ZEPPELIN?](22O7uNV_UJ0/) - 7:45, 10 points
-102. [What Happened to MGMT?](IMMlwjWyHxA/) - 11:25, 10 points
-103. [How LCD SOUNDSYSTEM Started Making Music](6fm6Eg_V1Uk/) - 8:56, 10 points
-104. [How TAME IMPALA Makes Music](tTz3NV5ZE0E/) - 9:01, 10 points
-105. [This Is Your Mind On Music](DKH2noRb2A4/) - 5:32, 10 points
-106. [Introduction to KING GIZZARD & THE LIZARD WIZARD](hjjCW6_fuXU/) - 10:00, 10 points
+81. [When your debut album gets stolen and leaked](6oCIhgep34w/) - 8:50, 10 points
+82. [The Darker Meaning Behind HEY YA!](J_fHZkgk980/) - 6:51, 10 points
+83. [How LED ZEPPELIN Made Their Fourth Album](o-lsl7Smo3E/) - 11:26, 10 points
+84. [KID A, The Greatest Left Turn In Music History](QzpSKfXneZw/) - 10:51, 10 points
+85. [Is OK COMPUTER The Best Album Ever?](nYYMIYWEdwQ/) - 9:10, 10 points
+86. [Let’s talk about Vampire Weekend’s Original Trilogy](ZiLwA_3rOcI/) - 10:50, 10 points
+87. [The Authenticity of LANA DEL REY](DMqd7GdBdkE/) - 15:46, 10 points
+88. [Animal Collective really had 4 perfect albums in a row](FizhZKDc4yY/) - 10:41, 10 points
+89. [What Ever Happened To THE STROKES?](o8bdGW1B0YQ/) - 10:41, 10 points
+90. [The Future of Rock Is Looking More Female](slx5RTnOCmw/) - 10:11, 10 points
+91. [What Happened To Mainstream Rock Music?!](Yo1AZl1S2gc/) - 9:45, 10 points
+92. [How LORDE Changed Pop Music](sQjGZaM3EFo/) - 7:20, 10 points
+93. [Why Is MR. BRIGHTSIDE Still On The Charts?](Jqkzu1UVEm0/) - 7:15, 10 points
+94. [NONAGON INFINITY: The Never-Ending Album](U_NIbWNM8vg/) - 5:31, 10 points
+95. [What Happened to THE BLACK KEYS?](phjBGQkcBOM/) - 12:05, 10 points
+96. [How SEVEN NATION ARMY Became A Stadium Chant](yYrvRAXF5ZU/) - 7:12, 10 points
+97. [How FEEL IT STILL Became A Hit](21TPBup7_Dk/) - 9:30, 10 points
+98. [BON IVER + KANYE WEST, Finding Your Voice](iNLHkliQRys/) - 7:46, 10 points
+99. [Did The Verve Steal BITTER SWEET SYMPHONY?](I_s90-Hi2ZY/) - 7:47, 10 points
+100. [Are ARCTIC MONKEYS Big In America?](TgBsotpXZq8/) - 12:43, 10 points
+101. [When you're willing to suffer for your art](cVmJQ70A5Ew/) - 9:10, 10 points
+102. [Does GRETA VAN FLEET Sound Too Much like LED ZEPPELIN?](22O7uNV_UJ0/) - 7:45, 10 points
+103. [What Happened to MGMT?](IMMlwjWyHxA/) - 11:25, 10 points
+104. [How LCD SOUNDSYSTEM Started Making Music](6fm6Eg_V1Uk/) - 8:56, 10 points
+105. [How TAME IMPALA Makes Music](tTz3NV5ZE0E/) - 9:01, 10 points
+106. [This Is Your Mind On Music](DKH2noRb2A4/) - 5:32, 10 points
+107. [Introduction to KING GIZZARD & THE LIZARD WIZARD](hjjCW6_fuXU/) - 10:00, 10 points
 
 Channel: https://www.youtube.com/@Middle8
 Built 17 October 2026.
