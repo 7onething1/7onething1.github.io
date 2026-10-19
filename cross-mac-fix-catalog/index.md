@@ -8,8 +8,8 @@ Host: GitHub Pages (`7onething1.github.io`). This Mac does not deploy drwu-htmls
 
 Brandon: "I didn't mention everything its fixed its a lot, find all"
 
-He had already corrected me once for claiming the MacBook found no faster setting. This is the full
-sweep of what the two Macs have shipped each other through iCloud `sfg/`.
+He had already corrected me once for claiming the MacBook found no faster setting. He had to say it twice. The first pass swept iCloud `sfg/` only and was reported as "all of it".
+There are TWO channels.
 
 ## Headline
 
@@ -68,3 +68,30 @@ cannot pass as applied.
 
 `catalog_sfg.py` and `build_catalog_page.py` in this session's scratchpad. Every figure on the page
 is generated from `sfg_catalog.json` rather than typed by hand.
+
+## The channel the first sweep missed, added 2026-10-19 15:35
+
+`sfg/` carries bundles of skills, hooks and payload files. **`SVG/` carries 884 handoff documents**,
+76 of them mentioning the MacBook, and that is where its own fix log lives. The two richest come
+from one MacBookPro session running a self-paced `/loop` for roughly twelve hours with no user
+input: `[MACBOOK-OVERNIGHT-2026-09-03] handoff.md` and the one from the day before.
+
+| What the overnight loop found | Status on Jacks-iMac, checked 2026-10-19 |
+|---|---|
+| `MEMORY.md` has a hard 200-line cap that silently truncates trailing index entries; it reached 208 and hid eight rules, one recording a working DrumSep install, so a later session derived the opposite and blocked three queue items on an installed tool | Safe at 117 lines, but the rule never arrived here so nothing watched the count |
+| Two venv roots, `~/venvs/` and `~/.venvs/`; enumerating one reported a package absent from all and blocked work | Confirmed: 9 under `~/venvs/` including `audio_midi_311`, 2 under `~/.venvs/` |
+| `transcript_chalkboard.py` exists twice and drifted; the chiron copy wins on `sys.path` and does not strip YouTube bleep markers, so bleeps reached tarot narration | Confirmed, drift exactly 27 lines (tarot 1785, chiron 1790), bleep refs 4 against 3 |
+| `kit_to_drum_rack_v4.py` is a fossil dated one day before its fix, still on the GM map, triggering racks at G#5 instead of C1 | **Still broken here.** `midi-drum-analysis/tools/` maps ClosedHat 42 and OpenHat 46 at lines 34 to 37, against the white-keys-from-C1 rule. The `ableton-rack-builder/` sibling is clean |
+| `/ask` cites files that no longer exist in six of ten domains | Not re-measured here |
+
+**None of the four memory files those findings produced exists on this Mac.** Two defects are still
+live five months on, and the memory-cap rule was never watched for. Written down now as
+`reference_svg_channel_holds_the_macbook_fix_log.md` and
+`feedback_a_shipped_fix_with_no_index_line_is_invisible.md`, both with `MEMORY.md` index lines at
+lines 99 and 100, count re-checked at 117 against the 195 threshold.
+
+## Still open, named rather than quietly dropped
+
+The drum-rack GM-map fossil is a code fix inside a skill's output format. It has a clean sibling to
+copy from, but changing how a shipped skill writes racks needs Brandon's call rather than my
+initiative, so it is reported and not touched.

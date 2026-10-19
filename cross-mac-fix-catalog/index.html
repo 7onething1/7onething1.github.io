@@ -48,7 +48,7 @@
 <div class="wrap">
 
 <h1>Cross-Mac Fix Catalog</h1>
-<p class="sub">2026-10-19, Jacks-iMac. Every bundle the two Macs have shipped each other through iCloud <code>sfg/</code>, what each one fixed, and whether this machine actually has it. Brandon said the other Mac has fixed a lot and told me to find all of it. 34 bundles carry 653 payload files between them.</p>
+<p class="sub">2026-10-19, Jacks-iMac. Every bundle the two Macs have shipped each other through iCloud <code>sfg/</code>, what each one fixed, and whether this machine actually has it. Brandon said the other Mac has fixed a lot and told me to find all of it. He had to say it twice, because the first sweep covered only one of the two channels. 34 bundles carry 653 payload files between them.</p>
 
 <div class="verdict">
   <b>The MacBook has been shipping fixes back for five months, and this Mac never installed most of them.</b>
@@ -62,6 +62,24 @@
   <div class="card bad"><div class="n">26</div><div class="l">bundles with a gap</div></div>
   <div class="card ok"><div class="n">8</div><div class="l">fully applied</div></div>
 </div>
+
+<h2>The channel the first sweep missed entirely</h2>
+<div class="verdict" style="border-left-color:var(--amber)">
+  <b>There are two cross-Mac channels, and sweeping one is not sweeping both.</b>
+  <code>sfg/</code> carries bundles of skills, hooks and payload files, and that is what the table below covers. <code>SVG/</code> carries <b>884 handoff documents</b>, 76 of which mention the MacBook, and that is where the MacBook's own fix log lives. I reported the <code>sfg/</code> sweep as "all of it" before opening <code>SVG/</code> at all.
+</div>
+<p>The two richest documents there come from one session on MacBookPro running a self-paced <code>/loop</code> for roughly twelve hours with no user input: <code>[MACBOOK-OVERNIGHT-2026-09-03] handoff.md</code> and its predecessor from the day before. That is the autonomous overnight operation Brandon was describing, recorded in its own words. Here is what it found, and what each one looks like on this Mac today.</p>
+<table>
+<thead><tr><th>What the overnight loop found</th><th>Status on Jacks-iMac, checked 2026-10-19</th></tr></thead>
+<tbody>
+<tr><td><code>MEMORY.md</code> has a hard 200-line cap that silently truncates its trailing index entries. It reached 208 lines and hid eight rules. One recorded a working DrumSep install, so a later session derived the opposite and blocked three queue items on a tool that was installed and had already run.</td><td><span class="tag ok">safe at 117 lines</span> The rule never arrived here, so nothing was watching the count. Checked and written down this afternoon.</td></tr>
+<tr><td>Two venv roots exist, <code>~/venvs/</code> and <code>~/.venvs/</code>. A test that enumerated only one reported a package absent from every venv and blocked real work.</td><td><span class="tag warn">confirmed here</span> 9 under <code>~/venvs/</code> including <code>audio_midi_311</code>, 2 under <code>~/.venvs/</code>.</td></tr>
+<tr><td><code>transcript_chalkboard.py</code> exists twice and has drifted. The chiron copy wins on <code>sys.path</code> and does not strip YouTube bleep markers, so profanity bleeps reached the tarot narration.</td><td><span class="tag bad">confirmed here</span> Drift is exactly 27 lines, matching their figure: tarot 1785 lines, chiron 1790, bleep references 4 against 3.</td></tr>
+<tr><td><code>kit_to_drum_rack_v4.py</code> is a fossil dated one day before the fix that corrected it. It still uses the GM map, which makes racks trigger at G#5 instead of C1.</td><td><span class="tag bad">still broken here</span> The <code>midi-drum-analysis/tools/</code> copy maps ClosedHat to 42 and OpenHat to 46 at lines 34 to 37, against the white-keys-from-C1 rule in CLAUDE.md. Its <code>ableton-rack-builder/</code> sibling has none of them.</td></tr>
+<tr><td><code>/ask</code> cites files that no longer exist in six of ten domains.</td><td><span class="tag warn">not re-measured</span> Stated rather than assumed either way.</td></tr>
+</tbody>
+</table>
+<div class="note"><b>None of the four memory files those findings produced exists on this Mac.</b> Not one. So two of the defects are still live here five months later, and the fix for a third was never watched for. That is the same failure as the meter fix below, one layer out: the work was done, the writeup was shipped, and nothing carried it into the file that loads every session.</div>
 
 <h2>The one that mattered most</h2>
 <div class="note" style="border-left-color:var(--brick)"><b><code>skill-sync-2026-08-12-session-audit-meter-fix</code>.</b> Its own first line says the other Mac's copy of <code>analyze.py</code> inflates every token figure and <b>reports a batching rate that cannot ever be non-zero</b>. The cause: Claude Code writes one JSONL record per content block, so a message carrying three parallel calls becomes three records of one call each, and a per-record test never sees a batched turn. This Mac's <code>analyze.py</code> does carry the fix, dated 2026-08-12, so its 6% reading is sound. <b>My own hand-rolled parser did not</b>, which is how I came to publish a 0.0% rate for this session and build a hook on it. Re-measured keyed on <code>message.id</code>: record-split ratio 2.41, 128 tool turns, 42 batched, <b>32.8%</b>. The hook carried the same defect and would have fired forever on a well-batched session; it is fixed and re-proved on 8 of 8 controls. One file from that bundle, <code>remeasure.py</code>, is still missing here.</div>
