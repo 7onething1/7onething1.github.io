@@ -40,10 +40,11 @@ Batching has been a hard gate in `CLAUDE.md` since 2026-07-19 and has its own me
 prose, and prose produced 6%. Of the 52 hooks on this Mac, none measured tool-call shape. Every
 hard gate that actually holds here holds because something runs and refuses.
 
-## The three checks that shipped
+## The four checks that shipped
 
-All three read a signal the audit measured, print one line, and return zero on every path, so none
-can block a tool call. Each was proven against inputs with known answers in BOTH directions first,
+The first three read a signal the audit measured. The fourth reads one the audit does not measure at
+all, found by parsing this session's own transcript. All print one line and return zero on every
+path, so none can block a tool call. Each was proven against inputs with known answers in BOTH directions first,
 because on 2026-08-29 a fix on this Mac passed its single positive control, shipped, and then failed
 a negative control already sitting on disk.
 
@@ -52,12 +53,13 @@ a negative control already sitting on disk.
 | `batch_streak_gate.py` | PostToolUse, `Bash\|Read\|Grep\|Glob` | 5 of 5 (3 quiet, 4 fire, 5 quiet, 8 fire, 4-then-batched quiet) |
 | `write_tool_nudge.py` | PreToolUse, `Bash` | 14 of 14 (5 positives fired, 9 negatives quiet) |
 | `duplicate_read_gate.py` | PostToolUse, `Read` | 10 of 10 (fires on the 3rd read and every 3rd after) |
+| `invocation_failure_gate.py` | PostToolUse, `Bash` | 11 of 11 (6 positives, all real failures from this session; 5 negatives) |
 
 Each also exits 0 on malformed stdin, an empty payload, a missing file and the wrong tool.
 
-Settings backups: `settings.json.bak-pre-batch-streak-20261019-143412` and
-`settings.json.bak-pre-write-dup-20261019-144123`. After wiring: 4 PreToolUse entries,
-3 PostToolUse entries, 7 UserPromptSubmit hooks, 14 top-level keys, all intact.
+Settings backups: `.bak-pre-batch-streak-20261019-143412`, `.bak-pre-write-dup-20261019-144123` and
+`.bak-pre-invocation-20261019-145327`. After wiring: 4 PreToolUse entries, 4 PostToolUse entries,
+7 UserPromptSubmit hooks, 14 top-level keys, all intact.
 
 ### What each negative control protects
 
@@ -67,10 +69,13 @@ scratchpad. Without those exclusions it would fire on most commands and be ignor
 
 ## Not done, and not claimed
 
-All three of the audit's named anti-patterns now have a running check. Two limits remain, and
-neither is hidden. Each check is a nudge rather than a refusal, deliberately: blocking a shell
-redirect would break legitimate pipelines. And whether the session that wired them picked up the new
-settings is unverified, since the settings watcher only watches directories that held a settings
-file when the session began; a new session loads all three for certain.
+All three anti-patterns the audit reports now have a running check, and a fourth pattern the audit
+cannot see has one too: calls spent guessing an invocation, 12 of 126 results in this session, 9.5%,
+found only by parsing the transcript directly. Three limits remain, and
+none is hidden. Each check is a nudge rather than a refusal, deliberately: blocking a shell
+redirect would break legitimate pipelines. The fourth also fires on a log that merely quotes a
+failure. And whether the session that wired them loaded them is now settled: it did not, proven by
+probe at 14:46, because the settings watcher only watches directories that held a settings file when
+the session began. A new session loads all four.
 
 No Vercel deploy, per the standing rule that this Mac ships to GitHub Pages.

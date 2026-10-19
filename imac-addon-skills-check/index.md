@@ -36,3 +36,11 @@ reports the job unfinished. Sort by mtime first.
 
 No Vercel deploy, per the standing rule that this Mac ships to GitHub Pages. Nothing written back
 into iCloud `sfg/`. Nothing inside `skills-plugin/` or `~/.claude/skills` moved, renamed or edited.
+
+## Correction, 2026-10-19 14:50
+
+The first version of this page repeated the how-to's keep list verbatim, including
+`kate-truth-seekers-tea`. Counted directly afterwards: **14 tarot and chiron skills exist under
+`~/.claude/skills`**, and no directory matching kate, truth or seeker exists at all. The Kate combo
+material the how-to references lives on the MacBook. Nothing was removed on this Mac; one keep-list
+name was never here. The page now states the counted list rather than the inherited one.
