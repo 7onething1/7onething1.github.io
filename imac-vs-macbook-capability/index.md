@@ -23,7 +23,7 @@ a topic in one document as the absence of a thing. The filesystem says otherwise
 | Claim | Verdict | Evidence |
 |---|---|---|
 | It took off skills | Confirmed, by two mechanisms | 26 in `~/.claude/skills_disabled` (24 auto-disabled 2026-07-17, reason `unused+unreferenced`) against 179 active; 13 add-ons in `~/.claude/skills/.trash`, 9 left in `~/.claude/skills/synced` |
-| Runs parallel things automatically | Confirmed, running now | 41 `com.drwu.*` plists on disk, 40 loaded; n8n live at PID 914, reveal-server 897, claude-gpu-watch 905, arena-throttle-proxy 885, clip-sync 891; one 07:00 crontab entry |
+| Runs parallel things automatically | Confirmed, running now | 41 `com.drwu.*` plists on disk, 40 loaded; n8n holding PID 914 at measurement, reveal-server 897, claude-gpu-watch 905, arena-throttle-proxy 885, clip-sync 891; one 07:00 crontab entry |
 | Has gates that are better | Confirmed as a direction | `completion_stop_gate.py`, `no_idle_stop_gate.py`, `stop_gate.py`, `quit_gate.py`, `notation_evidence_gate.py`, `verdict_gate.py`, `gpif_share_gate.py`, `drum_reality_gate.py`, `impossible_gate.py` all arrived from MacBook bundles in iCloud `sfg/` |
 | Automatically creates sub chats | Capability present, blocked by policy | `~/CLAUDE.md` line 13 forbids subagents and parallel chats; `opus_spawn_gate.py` hard-denies `Agent|Task` until `~/.claude/.opus_ok` is touched (15-minute one-shot) |
 
