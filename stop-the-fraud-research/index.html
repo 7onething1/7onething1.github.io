@@ -62,6 +62,7 @@
     <li><a href="#data">The ledger nobody was reading</a></li>
     <li><a href="#fp">The false-positive tax</a></li>
     <li><a href="#built">What was built today</a></li>
+    <li><a href="#cost">The finding that indicts this page</a></li>
     <li><a href="#open">What is still open</a></li>
   </ol>
 </nav>
@@ -176,9 +177,30 @@
 </table>
 <p>Every one is a nudge rather than a refusal, so none of them can spend the Stop budget, and each returns zero on malformed input so none can break a tool call.</p>
 
-<h2 id="open">7. What is still open, and why I did not do it</h2>
+<h2 id="cost">7. The finding that indicts this page</h2>
+<div class="verdict bad">
+  <b>Every mechanism on this page costs about 52 ms of Python interpreter startup, and the three nudges added while writing it made each Bash call roughly 156 ms slower.</b>
+  That was measured only after Brandon asked for more honesty, which is the wrong order. A research page about stopping waste, produced by adding waste, is worth saying out loud.
+</div>
+<pre>hook latency on ONE Bash call     695 ms across 12 processes
+a do-nothing python hook           51.8 ms   &lt;- the floor every hook pays
+therefore interpreter startup      622 ms
+all twelve hooks' logic combined   ~13 ms
+the three nudges added today      ~156 ms, almost entirely startup
+
+after consolidating those three into one process:
+processes per Bash call            12 -> 11
+measured saving                    22 ms   (the prediction was 52 ms)
+my nudges still cost              ~104 ms per Bash call</pre>
+<p>The consolidation was proved by <b>equivalence rather than by fresh fixtures</b>: every original control was run through both the old script and the new entry point, and all 33 paired cases returned identical verdicts, 40 of 40 correct overall. That is a stronger test than the ones below it on this page, and it is still author-written.</p>
+
+<h3>The controls on this page are weak evidence, and here is the proof</h3>
+<div class="note" style="border-left-color:var(--brick)"><b>Every "N of N controls" figure above was written by the same author as the code it tests, in the same hour.</b> A fixture cannot catch a misunderstanding it shares with the code. The demonstration is on this page already: <code>batch_streak_gate.py</code> passed 5 of 5 of its own controls and was still wrong, because every fixture counted tool calls per JSONL record exactly as the buggy code did. The bug surfaced only when an outside document described the real record-split behaviour. Treat those counts as evidence that the logic matches its author's intent, and as nothing more.</div>
+<p><b>None of the six hooks has fired once in production.</b> They are not loaded in the session that wrote them, so the honest status is written and self-tested, unverified in use. <code>claude_nudges.py</code> now appends one line per firing to <code>~/.claude/_state/nudge_ledger.jsonl</code>, which starts at zero, so the question of whether they ever fire and whether they are right when they do becomes answerable. The three test firings were moved aside rather than removed.</p>
+
+<h2 id="open">8. What is still open, and why I did not do it</h2>
 <div class="note"><b>The claim parser needs the fix, and I am the wrong one to make it.</b> The parser lives inside <code>completion_stop_gate.py</code>, the gate that judges whether my claims are honest. A model quietly editing the rule that grades it has an obvious conflict of interest, however correct the patch looks. The defect is reported with its four instances and the remedy is small: skip fenced code spans, and do not read a digit sequence inside a token like <code>sha256</code> as a quantity. That is Brandon's call to make or to delegate.</div>
-<p>Two further items are stated here rather than quietly dropped. The <b>4 refusals with no reason recorded</b> mean the dispatcher drops the cause on one path, which should be traced before anyone trusts the cause table as complete. And the labeled tally above comes from one session of labeling, so the false-positive rate it prints is a floor rather than a measurement.</p>
+<p>Three further items are stated here rather than quietly dropped. <b>Nine blocking safety gates still run one process each, about 470 ms per Bash call</b>, and consolidating them behind one dispatcher would recover most of it; that one was left alone because a bug in such a dispatcher drops a refusal silently, where a bug in the nudge dispatcher only costs time. The <b>4 refusals with no reason recorded</b> mean the dispatcher drops the cause on one path, which should be traced before anyone trusts the cause table as complete. And the labeled tally above comes from one session of labeling, so the false-positive rate it prints is a floor rather than a measurement.</p>
 
 <footer>
 Every figure here was generated from <code>gate_ledger_2026-10-19.json</code> rather than typed, built by <code>~/.claude/skills/_shared/gate_ledger.py</code> reading <code>~/.claude/stop_budget_state/</code>. The prose-versus-gate comparison comes from <code>session-audit/analyze.py</code> over the 30 most recent transcripts and from this session's own transcript parsed by <code>message.id</code>. Prior art for the ledger was checked through <code>prior_art_gate.py</code> before it was built, decision logged as build with its reason.

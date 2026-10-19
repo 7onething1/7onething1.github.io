@@ -104,3 +104,46 @@ One word in the gates' own refusal messages is on the house banned word list, an
 reads text with markup removed, so the verbatim string fails the check. That single word is
 substituted for display on the page, the substitution is listed there, and nothing else in the cause
 text is changed.
+
+## The finding that indicts this page, added 2026-10-19 16:45
+
+Every mechanism described above costs about 52 ms of Python interpreter startup, and the three
+nudges added while writing this page made each Bash call roughly 156 ms slower. That was measured
+only after Brandon asked for more honesty, which is the wrong order.
+
+```
+hook latency on ONE Bash call     695 ms across 12 processes
+a do-nothing python hook           51.8 ms   <- the floor every hook pays
+therefore interpreter startup      622 ms
+all twelve hooks' logic combined   ~13 ms
+the three nudges added today      ~156 ms, almost entirely startup
+
+after consolidating those three into one process:
+processes per Bash call            12 -> 11
+measured saving                    22 ms   (the prediction was 52 ms)
+my nudges still cost              ~104 ms per Bash call
+```
+
+The consolidation was proved by equivalence rather than with fresh fixtures: every original control
+ran through both the old script and the new entry point, 33 paired cases returned identical
+verdicts, 40 of 40 correct overall.
+
+### The controls on this page are weak evidence
+
+Every "N of N controls" figure here was written by the same author as the code it tests, in the same
+hour. A fixture cannot catch a misunderstanding it shares with the code, and the demonstration is
+already on the page: `batch_streak_gate.py` passed 5 of 5 of its own controls and was still wrong,
+because every fixture counted tool calls per JSONL record exactly as the buggy code did. Those
+counts show the logic matches its author's intent and nothing more.
+
+**None of the six hooks has fired once in production.** They are not loaded in the session that wrote
+them, so the honest status is written and self-tested, unverified in use. `claude_nudges.py` now
+appends one line per firing to `~/.claude/_state/nudge_ledger.jsonl`, starting at zero, so that
+question becomes answerable. The three test firings were moved aside rather than removed.
+
+### The large win left on the table
+
+Nine blocking safety gates still run one process each, about 470 ms per Bash call. Consolidating
+them behind one dispatcher would recover most of that, and `stop_dispatch.py` proves the pattern
+works here. Left alone deliberately: a bug in such a dispatcher drops a refusal silently, where a
+bug in the nudge dispatcher only costs time. That is Brandon's call.
