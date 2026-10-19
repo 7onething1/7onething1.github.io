@@ -71,6 +71,8 @@
   Its own first finding was that switching off 52 unused skills buys nothing: they load as bare names, roughly 1,300 characters of an 88,000-token start. The waiting is the model thinking. So the gain came from the list of mistakes, not from configuration, and the same method applied here turns up one failure far larger than anything on the MacBook's list.
 </div>
 
+<div class="note" style="border-left-color:var(--brick)"><b>Correction, 2026-10-19 15:05.</b> An earlier version of this page reported this session at <b>0.0% batching across 64 tool turns</b>. That figure was wrong, and wrong for a documented reason. Claude Code writes <b>one JSONL record per content block</b>, so an assistant message carrying three parallel calls is written as three records of one call each. My hand-rolled parser counted per record, which can never see a batched turn. The MacBook chat found and fixed this exact defect on 2026-08-12 and shipped the fix through iCloud; <code>session-audit/analyze.py</code> here already carried it, so the 6% figure below is sound, but my own parser did not. Re-measured on this session keyed on <code>message.id</code>: record-split ratio <b>2.41</b>, tool turns <b>128</b>, batched <b>42</b>, rate <b>32.8%</b>. The first version of <code>batch_streak_gate.py</code> carried the same bug and would have fired forever on a well-batched session; it is fixed and re-proved on 8 of 8 controls, two of which are fully-batched sessions that must stay quiet.</div>
+
 <h2 id="scores">2. This Mac's numbers, from its own transcripts</h2>
 <p>Measured by <code>session-audit</code> over the 30 most recent sessions in <code>~/.claude/projects/-Users-drwu/</code>.</p>
 
@@ -80,10 +82,10 @@
     <div class="l">tool turns that batch</div>
     <div class="t">540 of 9,009. Target is above 40%.</div>
   </div>
-  <div class="card bad">
-    <div class="n">0.0%</div>
-    <div class="l">this session, before the fix</div>
-    <div class="t">64 tool turns, every one a single call.</div>
+  <div class="card ok">
+    <div class="n">32.8%</div>
+    <div class="l">this session, measured correctly</div>
+    <div class="t">128 tool turns by message.id, 42 batched. An earlier 0.0% here was my own parser bug.</div>
   </div>
   <div class="card warn">
     <div class="n">493</div>
@@ -206,7 +208,7 @@ fires it. The cost is one extra line, since it nudges and never blocks.</pre>
 <table>
 <thead><tr><th>Anti-pattern</th><th class="num">Measured</th><th>Measured by</th><th>State</th></tr></thead>
 <tbody>
-<tr><td>Serialized tool calls</td><td class="num">6%</td><td>session-audit</td><td>Running check, PostToolUse</td></tr>
+<tr><td>Serialized tool calls</td><td class="num">6%</td><td>session-audit (fixed meter)</td><td>Running check, PostToolUse, corrected 2026-10-19</td></tr>
 <tr><td>Shell redirects in place of the Write tool</td><td class="num">493</td><td>session-audit</td><td>Running check, PreToolUse</td></tr>
 <tr><td>Re-reading a file already read</td><td class="num">35 worst case</td><td>session-audit</td><td>Running check, PostToolUse</td></tr>
 <tr><td>Calls spent guessing an invocation</td><td class="num">12 of 126, 9.5%</td><td>transcript parsed by hand</td><td>Running check, PostToolUse</td></tr>

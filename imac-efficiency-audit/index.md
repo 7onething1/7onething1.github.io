@@ -22,7 +22,7 @@ Applying that same method here found one failure larger than anything on the Mac
 | Measure | Observed | Target |
 |---|---|---|
 | Parallel tool-call rate, 30 sessions | 540 of 9,009 turns = 6% | above 40% |
-| This session before the fix | 64 tool turns, 0 batched = 0.0% | above 40% |
+| This session, measured by message.id | 128 tool turns, 42 batched = 32.8% | above 40% |
 | Bash share of tool calls | 8,413 | n/a |
 | Shell redirects in place of Write | 493 | under 10 |
 | Worst duplicate reads in one session | 35 | 0 |
@@ -79,3 +79,20 @@ probe at 14:46, because the settings watcher only watches directories that held 
 the session began. A new session loads all four.
 
 No Vercel deploy, per the standing rule that this Mac ships to GitHub Pages.
+
+## Correction, 2026-10-19 15:05
+
+An earlier version reported this session at **0.0% batching across 64 tool turns**. That was my own
+parser bug, not a real result. Claude Code writes ONE JSONL RECORD PER CONTENT BLOCK, so a message
+carrying three parallel calls becomes three records of one call each; counting per record can never
+see a batched turn. The MacBook documented and fixed this on 2026-08-12 in
+`sfg/skill-sync-2026-08-12-session-audit-meter-fix`, and `session-audit/analyze.py` on this Mac
+already carried the fix, which is why the 6% figure stands. My parser did not.
+
+Re-measured keyed on `message.id`: record-split ratio **2.41**, tool turns **128**, batched **42**,
+rate **32.8%**, 1.37 calls per turn, distribution `{1: 86, 2: 38, 3: 3, 4: 1}`.
+
+`batch_streak_gate.py` carried the same bug in its first version and would have fired permanently on
+a session that batches well. Fixed to key on `message.id` and re-proved on **8 of 8** controls,
+including two fully-batched fixtures (3 calls per message across 15 records, and 2 per message across
+8 records) that must stay quiet and do.
