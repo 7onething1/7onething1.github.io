@@ -40,27 +40,37 @@ Batching has been a hard gate in `CLAUDE.md` since 2026-07-19 and has its own me
 prose, and prose produced 6%. Of the 52 hooks on this Mac, none measured tool-call shape. Every
 hard gate that actually holds here holds because something runs and refuses.
 
-## The change that shipped
+## The three checks that shipped
 
-`~/.claude/hooks/batch_streak_gate.py`, wired as a `PostToolUse` hook on `Bash|Read|Grep|Glob` in
-`~/.claude/settings.json` (previous settings backed up to
-`settings.json.bak-pre-batch-streak-20261019-143412`).
+All three read a signal the audit measured, print one line, and return zero on every path, so none
+can block a tool call. Each was proven against inputs with known answers in BOTH directions first,
+because on 2026-08-29 a fix on this Mac passed its single positive control, shipped, and then failed
+a negative control already sitting on disk.
 
-Known-answer control, run before trusting it:
-
-| Fixture | Result | Expected |
+| Hook | Event and matcher | Controls |
 |---|---|---|
-| 3 single-call turns | quiet | quiet |
-| 4 single-call turns | fired | fired |
-| 5 single-call turns | quiet | quiet, between thresholds |
-| 8 single-call turns | fired | fired |
-| 4 singles then a batched turn | quiet | quiet |
-| malformed stdin / empty payload / missing file | exit 0 | exit 0 |
+| `batch_streak_gate.py` | PostToolUse, `Bash\|Read\|Grep\|Glob` | 5 of 5 (3 quiet, 4 fire, 5 quiet, 8 fire, 4-then-batched quiet) |
+| `write_tool_nudge.py` | PreToolUse, `Bash` | 14 of 14 (5 positives fired, 9 negatives quiet) |
+| `duplicate_read_gate.py` | PostToolUse, `Read` | 10 of 10 (fires on the 3rd read and every 3rd after) |
+
+Each also exits 0 on malformed stdin, an empty payload, a missing file and the wrong tool.
+
+Settings backups: `settings.json.bak-pre-batch-streak-20261019-143412` and
+`settings.json.bak-pre-write-dup-20261019-144123`. After wiring: 4 PreToolUse entries,
+3 PostToolUse entries, 7 UserPromptSubmit hooks, 14 top-level keys, all intact.
+
+### What each negative control protects
+
+`write_tool_nudge.py` stays quiet for `/dev/null`, a heredoc feeding python stdin, `curl -o
+/dev/null`, a bare `2>&1`, a comparison operator inside a test, and any redirect into the
+scratchpad. Without those exclusions it would fire on most commands and be ignored within a turn.
 
 ## Not done, and not claimed
 
-The 493 shell redirects and the duplicate reads have no mechanical check yet; both remain prose
-only. Whether this session's own settings watcher picked up the new hook is unverified, since the
-nudge only fires on a four-turn run of single calls; a new session loads it for certain.
+All three of the audit's named anti-patterns now have a running check. Two limits remain, and
+neither is hidden. Each check is a nudge rather than a refusal, deliberately: blocking a shell
+redirect would break legitimate pipelines. And whether the session that wired them picked up the new
+settings is unverified, since the settings watcher only watches directories that held a settings
+file when the session began; a new session loads all three for certain.
 
 No Vercel deploy, per the standing rule that this Mac ships to GitHub Pages.
