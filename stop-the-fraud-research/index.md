@@ -25,7 +25,7 @@ a blocking Stop gate
    a gate rather than by self-review                 -> holds
 ```
 
-So the question is not whether to gate. It is three specific defects in how the gating is wired.
+So gating is settled. What remains is three specific defects in how the gating is wired.
 
 ## Defect 1: a spent budget lets a failing session exit
 
@@ -79,8 +79,8 @@ Now measurable by `gate_ledger.py`. First labeled tally: 11 true_catch, 2 needs_
 | `duplicate_read_gate.py` | PostToolUse | 10 of 10 |
 | `invocation_failure_gate.py` | PostToolUse | 11 of 11 |
 
-Every one is a nudge rather than a refusal, so none can spend the Stop budget, and each returns zero
-on malformed input so none can break a tool call. Prior art for the ledger was checked through
+Every one is a nudge rather than a refusal, so they never spend the Stop budget, and each returns zero
+on malformed input so a malformed payload leaves the tool call alone. Prior art for the ledger was checked through
 `prior_art_gate.py` before building, with the decision logged as build and its reason recorded.
 
 ## Not done, and why
@@ -101,6 +101,6 @@ floor rather than a measurement.
 ## Display note
 
 One word in the gates' own refusal messages is on the house banned word list, and the voice checker
-reads text with markup removed, so the verbatim string cannot pass the check. That single word is
+reads text with markup removed, so the verbatim string fails the check. That single word is
 substituted for display on the page, the substitution is listed there, and nothing else in the cause
 text is changed.
