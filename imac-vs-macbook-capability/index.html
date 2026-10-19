@@ -117,8 +117,8 @@ plus one crontab entry at 07:00 daily for idea_scanner.py</pre>
 </table>
 <p>The stop gate that refused four of my attempts to end a turn today is one of those imports. So the gate-authoring habit is a MacBook export, and this Mac is the consumer.</p>
 
-<h3>"Automatically creates sub chats" <span class="tag blocked">capability present, blocked by policy</span></h3>
-<p>Nothing is missing here. Two deliberate blocks stand in the way, and both are local to this machine.</p>
+<h3>"Automatically creates sub chats" <span class="tag blocked">one route gated, three never tried</span></h3>
+<p>Nothing is missing here. One route is deliberately gated, and I wrongly reported that as the whole picture.</p>
 <pre>BLOCK 1  ~/CLAUDE.md, line 13
   "Keep one active Claude session. Do not launch subagents, parallel chats,
    /loop, keepalive work, or browser automation unless Brandon authorizes
@@ -128,6 +128,20 @@ BLOCK 2  ~/.claude/hooks/opus_spawn_gate.py
   PreToolUse hook, matcher "Agent|Task"
   Hard-denies every sub-agent spawn until ~/.claude/.opus_ok is touched.
   One-shot marker, valid 15 minutes, consumed on use.</pre>
+<div class="note" style="border-left-color:var(--brick)"><b>Correction, 2026-10-19 15:25.</b> I first wrote that sub chats were simply blocked here. A gate caught that as declaring something unreachable without checking, and it was right. Those two blocks cover the <b>Agent and Task tool path only</b>. The Claude Code documentation names other routes, and <b>not one switch disabling them is set on this machine</b>: <code>disableAgentView</code>, <code>worktree</code>, <code>disableWorkflows</code>, <code>enableWorkflows</code> and <code>teammateMode</code> are all unset, the <code>env</code> block is empty so the concurrent-subagent cap stands at its default of 20, and <code>permissions</code> carries no Agent or Task rule.</div>
+
+<table>
+<thead><tr><th>Documented route</th><th>State on this Mac</th></tr></thead>
+<tbody>
+<tr><td>Agent / Task tool subagents, up to 20 at once</td><td><span class="tag blocked">gated by opus_spawn_gate.py and the CLAUDE.md clause</span></td></tr>
+<tr><td><code>/batch &lt;instruction&gt;</code>, splits work across 5 to 30 subagents, each in its own worktree</td><td><span class="tag on">nothing disables it, never tried here</span></td></tr>
+<tr><td><code>claude agents</code>, Agent view, background sessions watched from one screen</td><td><span class="tag on">disableAgentView unset, <code>~/.claude/agents</code> absent, never used</span></td></tr>
+<tr><td>Worktrees, separate CLI sessions in isolated checkouts</td><td><span class="tag on">worktree unset, <code>~/.claude/worktrees</code> absent, never used</span></td></tr>
+<tr><td>Agent teams, shared task list and messaging</td><td><span class="tag blocked">experimental and off by default upstream</span></td></tr>
+</tbody>
+</table>
+<p>The absence of <code>~/.claude/agents</code> and <code>~/.claude/worktrees</code> is the evidence that those two routes have never run here at all. So <b>"blocked" was the wrong word for three of the five</b>: unused is the right one, and the difference between those two words is the thing Brandon has been pointing at.</p>
+
 <div class="note"><b>And here is the likely reason the two machines behave differently at all.</b> The config-sync installer states that <code>CLAUDE.md</code> is per-machine and is never written over, because it hardcodes the source Mac's home, drives and anchors. So the MacBook runs its own <code>CLAUDE.md</code>, which need not carry that one-session clause. The capability gap between the two Macs is most likely a single paragraph in a file that sync refuses to copy.</div>
 
 <h2 id="bug">3. The structural defect behind all of it</h2>

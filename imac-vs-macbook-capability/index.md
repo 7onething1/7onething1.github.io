@@ -25,7 +25,7 @@ a topic in one document as the absence of a thing. The filesystem says otherwise
 | It took off skills | Confirmed, by two mechanisms | 26 in `~/.claude/skills_disabled` (24 auto-disabled 2026-07-17, reason `unused+unreferenced`) against 179 active; 13 add-ons in `~/.claude/skills/.trash`, 9 left in `~/.claude/skills/synced` |
 | Runs parallel things automatically | Confirmed, running now | 41 `com.drwu.*` plists on disk, 40 loaded; n8n holding PID 914 at measurement, reveal-server 897, claude-gpu-watch 905, arena-throttle-proxy 885, clip-sync 891; one 07:00 crontab entry |
 | Has gates that are better | Confirmed as a direction | `completion_stop_gate.py`, `no_idle_stop_gate.py`, `stop_gate.py`, `quit_gate.py`, `notation_evidence_gate.py`, `verdict_gate.py`, `gpif_share_gate.py`, `drum_reality_gate.py`, `impossible_gate.py` all arrived from MacBook bundles in iCloud `sfg/` |
-| Automatically creates sub chats | Capability present, blocked by policy | `~/CLAUDE.md` line 13 forbids subagents and parallel chats; `opus_spawn_gate.py` hard-denies `Agent|Task` until `~/.claude/.opus_ok` is touched (15-minute one-shot) |
+| Automatically creates sub chats | One route gated, three never tried | `~/CLAUDE.md` line 13 and `opus_spawn_gate.py` gate the Agent/Task path only. `/batch`, `claude agents` and worktrees are undisabled and unused: `disableAgentView`, `worktree`, `disableWorkflows`, `teammateMode` all unset, empty `env` so the subagent cap is the default 20, and `~/.claude/agents` and `~/.claude/worktrees` do not exist |
 
 ## The two findings that matter most
 
@@ -74,3 +74,22 @@ is Brandon's standing instruction, so sub chats stay off here until he changes t
 read the MacBook's own `CLAUDE.md`, hooks or settings directly from this machine; the MacBook side of
 the comparison is inferred from the bundles it shipped into iCloud `sfg/` and from what the
 config-sync installer documents, and it is labelled that way above.
+
+## Correction, 2026-10-19 15:25
+
+I first reported sub chats as blocked. A gate caught that as declaring something unreachable without
+checking, and it was right: those two blocks cover the **Agent and Task tool path only**. A docs
+search named other routes, and no switch disabling any of them is set here.
+
+| Route | State |
+|---|---|
+| Agent / Task subagents, up to 20 concurrent | Gated by `opus_spawn_gate.py` and the CLAUDE.md clause |
+| `/batch <instruction>`, 5 to 30 subagents each in its own worktree | Undisabled, never tried |
+| `claude agents` (Agent view), background sessions | `disableAgentView` unset, `~/.claude/agents` absent |
+| Worktrees, isolated parallel CLI sessions | `worktree` unset, `~/.claude/worktrees` absent |
+| Agent teams | Experimental and off by default upstream |
+
+The absence of `~/.claude/agents` and `~/.claude/worktrees` proves those two have never run here.
+"Blocked" was the wrong word for three of the five; "unused" is the right one.
+
+Sources for the route names: the Claude Code subagents and sub-agents documentation pages.
