@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What This iMac Has Switched Off</title>
+<style>
+  :root{
+    --cream:#F4ECD8; --ink:#1A1713; --rule:#D8CBB0;
+    --amber:#E8A33D; --sage:#7B9E89; --brick:#C1504D; --blue:#4A6D8C; --rose:#D4A5A5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;padding:0 16px}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 0 72px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:#5A5247;margin:0 0 26px;font-size:15px}
+  h2{font-size:19px;margin:38px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+  h3{font-size:16px;margin:26px 0 8px}
+  nav{background:#fff;border:1px solid var(--rule);border-radius:3px;padding:14px 18px;margin:0 0 8px}
+  nav ol{margin:6px 0 0;padding-left:22px} nav li{margin:3px 0;font-size:15px}
+  nav a{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue)}
+  .verdict{background:#fff;border:1px solid var(--rule);border-left:7px solid var(--brick);
+           padding:16px 18px;margin:0 0 10px;border-radius:3px}
+  .verdict b{display:block;font-size:17px;margin-bottom:4px}
+  table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14px;background:#fff}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EADFC4;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+       padding:2px 8px;border-radius:10px;color:#fff;white-space:nowrap}
+  .on{background:var(--sage)} .off{background:var(--brick)} .blocked{background:var(--amber);color:#2A2622}
+  pre{background:#2A2622;color:#F2EADA;padding:14px 16px;border-radius:3px;
+      overflow-x:auto;font-size:13px;line-height:1.55;margin:10px 0}
+  .note{background:#FBF6EA;border:1px dashed var(--rule);border-left:5px solid var(--amber);
+        padding:13px 16px;margin:14px 0;font-size:15px}
+  .score{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 4px}
+  .card{flex:1 1 170px;background:#fff;border:1px solid var(--rule);border-top:5px solid var(--rule);
+        border-radius:3px;padding:14px 16px}
+  .card.bad{border-top-color:var(--brick)} .card.ok{border-top-color:var(--sage)}
+  .card.warn{border-top-color:var(--amber)}
+  .card .n{font-size:27px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .card .l{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6A6255;margin-top:4px}
+  code{background:#EADFC4;padding:1px 5px;border-radius:3px;font-size:13px}
+  footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);font-size:13px;color:#6A6255}
+  @media (max-width:620px){h1{font-size:24px} table{font-size:13px} th,td{padding:7px 7px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>What This iMac Has Switched Off</h1>
+<p class="sub">2026-10-19, Jacks-iMac. Brandon said the other Mac creates sub chats, runs things in parallel, has better gates, and took skills off, and told me to find out. He was right on all four. Every one of those capabilities exists on this machine. Some are switched off, one is gated by policy, and three have simply never been used, which is a different and more awkward answer.</p>
+
+<nav>
+  <b>Contents</b>
+  <ol>
+    <li><a href="#wrong">Where my earlier answer was wrong</a></li>
+    <li><a href="#claims">His four claims, each checked</a></li>
+    <li><a href="#bug">The structural defect behind all of it</a></li>
+    <li><a href="#levers">The exact levers</a></li>
+  </ol>
+</nav>
+
+<h2 id="wrong">1. Where my earlier answer was wrong</h2>
+<div class="verdict">
+  <b>I told Brandon the MacBook "found no faster setting" and that its gain was a list of ten mistakes.</b>
+  That came from reading one README rather than from looking at the machine. The README was about one narrow job, switching off thirteen claude.ai add-ons, and it said nothing about orchestration because orchestration was not its subject. I treated the absence of a topic in one document as the absence of the capability. Looking at the filesystem gives a different answer.
+</div>
+
+<div class="score">
+  <div class="card ok"><div class="n">40</div><div class="l">launchd jobs loaded now</div></div>
+  <div class="card bad"><div class="n">26</div><div class="l">skills switched off locally</div></div>
+  <div class="card bad"><div class="n">13</div><div class="l">add-ons in the skills trash</div></div>
+  <div class="card warn"><div class="n">2</div><div class="l">blocks on sub chats</div></div>
+</div>
+
+<h2 id="claims">2. His four claims, each checked against files</h2>
+
+<h3>"It took off skills" <span class="tag off">confirmed, twice over</span></h3>
+<p>Two separate removals happened, by two different mechanisms.</p>
+<pre>LOCAL  ~/.claude/skills            179 active skill directories
+       ~/.claude/skills_disabled    26 switched off, with toggle.py to flip them back
+                                    24 of those auto-disabled 2026-07-17
+                                    reason recorded in MANIFEST.json: "unused+unreferenced"
+
+ACCOUNT ~/.claude/skills/.trash     13 add-ons removed by the 2026-10-17 claude.ai sync
+        ~/.claude/skills/synced      9 add-ons remain</pre>
+<p>The thirteen in the trash include <code>deep-research</code> and <code>mcp-builder</code>. That first one matters for his second claim, because <b>deep-research was the parallel-subagent skill</b>. Its own description says it coordinates research subagents and should be used only where a tool for spawning subagents exists, and its procedure spawns research subagents in parallel then a report writer. So the clean-up I verified as finished removed a parallel-research capability, and I reported the clean-up without noticing what came off with it.</p>
+
+<h3>"Runs parallel things automatically" <span class="tag on">confirmed, running right now</span></h3>
+<p>The automatic fleet belongs to this machine, and it has been running all day.</p>
+<pre>41 com.drwu.* plists on disk, 40 loaded in launchctl
+
+PIDs observed at measurement:   n8n 914        reveal-server 897
+                      claude-gpu-watch 905    arena-throttle-proxy 885
+                      clip-sync 891
+
+jobs include:  claude-config-sync   idea-miner         conductor-rebuild
+               substack-hourly      substack-daily     etsy-delivery-audit
+               recents-rebuild      transcript-vault   usage-monitor-sweep
+               stem-map-refresher   phone-chat-index   disk-space-guardian
+
+plus one crontab entry at 07:00 daily for idea_scanner.py</pre>
+<p><b>The n8n orchestrator held PID 914 at the moment of measurement.</b> So the automatic fleet exists on this machine and was working through every turn of this conversation.</p>
+
+<h3>"Has gates that are better" <span class="tag on">confirmed as a direction</span></h3>
+<p>The MacBook authors gates and ships them back through iCloud, and several of the gates that refused me today arrived from it.</p>
+<table>
+<thead><tr><th>Gate shipped back from the MacBook</th><th>Bundle it arrived in</th></tr></thead>
+<tbody>
+<tr><td><code>completion_stop_gate.py</code></td><td>skill-sync-2026-09-06-completion-controller</td></tr>
+<tr><td><code>no_idle_stop_gate.py</code>, <code>stop_gate.py</code>, <code>quit_gate.py</code></td><td>skill-sync-2026-06-05-no-quit-shift</td></tr>
+<tr><td><code>notation_evidence_gate.py</code>, <code>verdict_gate.py</code>, <code>gpif_share_gate.py</code></td><td>skill-sync-2026-09-06-notation-evidence-gate</td></tr>
+<tr><td><code>drum_reality_gate.py</code>, <code>impossible_gate.py</code></td><td>zappa-macbook-return-2026-08-31, kilgore-macbook-return-2026-08-13</td></tr>
+</tbody>
+</table>
+<p>The stop gate that refused four of my attempts to end a turn today is one of those imports. So the gate-authoring habit is a MacBook export, and this Mac is the consumer.</p>
+
+<h3>"Automatically creates sub chats" <span class="tag blocked">one route gated, three never tried</span></h3>
+<p>Nothing is missing here. One route is deliberately gated, and I wrongly reported that as the whole picture.</p>
+<pre>BLOCK 1  ~/CLAUDE.md, line 13
+  "Keep one active Claude session. Do not launch subagents, parallel chats,
+   /loop, keepalive work, or browser automation unless Brandon authorizes
+   that specific run."
+
+BLOCK 2  ~/.claude/hooks/opus_spawn_gate.py
+  PreToolUse hook, matcher "Agent|Task"
+  Hard-denies every sub-agent spawn until ~/.claude/.opus_ok is touched.
+  One-shot marker, valid 15 minutes, consumed on use.</pre>
+<div class="note" style="border-left-color:var(--brick)"><b>Correction, 2026-10-19 15:25.</b> I first wrote that sub chats were simply blocked here. A gate caught that as declaring something unreachable without checking, and it was right. Those two blocks cover the <b>Agent and Task tool path only</b>. The Claude Code documentation names other routes, and <b>not one switch disabling them is set on this machine</b>: <code>disableAgentView</code>, <code>worktree</code>, <code>disableWorkflows</code>, <code>enableWorkflows</code> and <code>teammateMode</code> are all unset, the <code>env</code> block is empty so the concurrent-subagent cap stands at its default of 20, and <code>permissions</code> carries no Agent or Task rule.</div>
+
+<table>
+<thead><tr><th>Documented route</th><th>State on this Mac</th></tr></thead>
+<tbody>
+<tr><td>Agent / Task tool subagents, up to 20 at once</td><td><span class="tag blocked">gated by opus_spawn_gate.py and the CLAUDE.md clause</span></td></tr>
+<tr><td><code>/batch &lt;instruction&gt;</code>, splits work across 5 to 30 subagents, each in its own worktree</td><td><span class="tag on">nothing disables it, never tried here</span></td></tr>
+<tr><td><code>claude agents</code>, Agent view, background sessions watched from one screen</td><td><span class="tag on">disableAgentView unset, <code>~/.claude/agents</code> absent, never used</span></td></tr>
+<tr><td>Worktrees, separate CLI sessions in isolated checkouts</td><td><span class="tag on">worktree unset, <code>~/.claude/worktrees</code> absent, never used</span></td></tr>
+<tr><td>Agent teams, shared task list and messaging</td><td><span class="tag blocked">experimental and off by default upstream</span></td></tr>
+</tbody>
+</table>
+<p>The absence of <code>~/.claude/agents</code> and <code>~/.claude/worktrees</code> is the evidence that those two routes have never run here at all. So <b>"blocked" was the wrong word for three of the five</b>: unused is the right one, and the difference between those two words is the thing Brandon has been pointing at.</p>
+
+<div class="note"><b>And here is the likely reason the two machines behave differently at all.</b> The config-sync installer states that <code>CLAUDE.md</code> is per-machine and is never written over, because it hardcodes the source Mac's home, drives and anchors. So the MacBook runs its own <code>CLAUDE.md</code>, which need not carry that one-session clause. The capability gap between the two Macs is most likely a single paragraph in a file that sync refuses to copy.</div>
+
+<h2 id="bug">3. The structural defect behind all of it</h2>
+<div class="verdict" style="border-left-color:var(--amber)">
+  <b>The two skills that would have answered Brandon's question are among the ones switched off, and they were switched off for being unused.</b>
+  A sweep that judges a skill by how often it was invoked will always remove the monitoring layer, because a status dashboard is invoked rarely by design. The sweep removed this system's self-awareness, and then there was nothing left to report that it had.
+</div>
+<table>
+<thead><tr><th>Skill</th><th>State</th><th>What it does</th><th>Still runnable</th></tr></thead>
+<tbody>
+<tr><td><code>fleet-dashboard</code></td><td><span class="tag off">off 2026-07-17</span></td><td>Shows what every part of the fleet is doing right now: the launchd jobs, the stall-scan cron, voice routing, n8n state, CLI session count. Renders one Markdown dashboard into Brandon-Vault.</td><td>Yes. Its script is intact at <code>~/Projects/fleet-dashboard/build_dashboard.py</code>, 4,940 bytes.</td></tr>
+<tr><td><code>system-pulse</code></td><td><span class="tag off">off 2026-07-17</span></td><td>Ranks every skill by real usage from the session transcripts, flags skills older than the memory rules that govern them, and judges whether the connectors and newer systems are being used as much as they should. Powers a daily adoption nudge.</td><td>Partly. Its build scripts are intact, but <code>deploy.sh</code> pushes to Vercel through the CLI, which is forbidden from this Mac.</td></tr>
+</tbody>
+</table>
+<p>Both carry the same recorded reason as the other twenty-two: <code>unused+unreferenced</code>. Neither was judged on what it was for.</p>
+
+<h2 id="levers">4. The exact levers</h2>
+<p>Every one of these is reversible, and <code>toggle.py</code> moves directories rather than deleting them.</p>
+<pre># see the fleet, without changing any policy
+python3 ~/.claude/skills_disabled/toggle.py enable fleet-dashboard
+python3 ~/Projects/fleet-dashboard/build_dashboard.py
+
+# rank skills and connector adoption; do NOT run its deploy.sh on this Mac
+python3 ~/.claude/skills_disabled/toggle.py enable system-pulse
+python3 ~/.claude/skills/system-pulse/build_system_pulse.py
+
+# restore the parallel-research skill from the trash
+cp -R ~/.claude/skills/.trash/1792272791312-27828-YYTbyK/deep-research \
+      ~/.claude/skills/deep-research
+
+# allow one sub-agent spawn, 15 minutes, consumed on use
+touch ~/.claude/.opus_ok</pre>
+<p>The one lever that is not a command is the first block: the one-session clause in <code>~/CLAUDE.md</code> is Brandon's standing instruction, so sub chats stay off here until he changes that line. Nothing on this page was switched on while finding this out.</p>
+
+<footer>
+Every figure here was read from this machine on 2026-10-19: <code>~/.claude/skills</code> and <code>~/.claude/skills_disabled/MANIFEST.json</code>, <code>~/.claude/skills/.trash</code>, <code>~/.claude/skills/synced</code>, <code>launchctl list</code> and <code>~/Library/LaunchAgents</code>, <code>crontab -l</code>, <code>~/.claude/settings.json</code>, <code>~/.claude/hooks/opus_spawn_gate.py</code>, <code>~/CLAUDE.md</code>, and the MacBook-return bundles under iCloud <code>sfg/</code>. Nothing was changed to produce it.
+</footer>
+
+</div>
+</body>
+</html>

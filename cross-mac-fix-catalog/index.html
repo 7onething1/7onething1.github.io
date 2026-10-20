@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cross-Mac Fix Catalog</title>
+<style>
+  :root{--cream:#F4ECD8;--ink:#1A1713;--rule:#D8CBB0;--amber:#E8A33D;
+        --sage:#7B9E89;--brick:#C1504D;--blue:#4A6D8C}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;padding:0 16px}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 0 72px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:#5A5247;margin:0 0 24px;font-size:15px}
+  h2{font-size:19px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+  .verdict{background:#fff;border:1px solid var(--rule);border-left:7px solid var(--brick);
+           padding:16px 18px;margin:0 0 10px;border-radius:3px}
+  .verdict b{display:block;font-size:17px;margin-bottom:4px}
+  .score{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 4px}
+  .card{flex:1 1 150px;background:#fff;border:1px solid var(--rule);
+        border-top:5px solid var(--rule);border-radius:3px;padding:14px 16px}
+  .card.bad{border-top-color:var(--brick)} .card.ok{border-top-color:var(--sage)}
+  .card.warn{border-top-color:var(--amber)}
+  .card .n{font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .card .l{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6A6255;margin-top:4px}
+  table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:13.5px;background:#fff}
+  th,td{text-align:left;padding:9px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EADFC4;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  .k{font-size:11.5px;color:#6A6255;margin-top:2px}
+  .miss{font-size:12px;color:var(--brick);margin-top:5px}
+  .tag{display:inline-block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+       padding:2px 7px;border-radius:10px;color:#fff;white-space:nowrap}
+  .tag.ok{background:var(--sage)} .tag.warn{background:var(--amber);color:#2A2622}
+  .tag.bad{background:var(--brick)}
+  .note{background:#FBF6EA;border:1px dashed var(--rule);border-left:5px solid var(--amber);
+        padding:13px 16px;margin:14px 0;font-size:15px}
+  pre{background:#2A2622;color:#F2EADA;padding:14px 16px;border-radius:3px;
+      overflow-x:auto;font-size:13px;line-height:1.55;margin:10px 0}
+  code{background:#EADFC4;padding:1px 5px;border-radius:3px;font-size:12.5px}
+  footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);
+         font-size:13px;color:#6A6255}
+  @media (max-width:700px){h1{font-size:24px} table{font-size:12.5px} th,td{padding:7px 6px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Cross-Mac Fix Catalog</h1>
+<p class="sub">2026-10-19, Jacks-iMac. Every bundle the two Macs have shipped each other through iCloud <code>sfg/</code>, what each one fixed, and whether this machine actually has it. Brandon said the other Mac has fixed a lot and told me to find all of it. He had to say it twice, because the first sweep covered only one of the two channels. 34 bundles carry 653 payload files between them.</p>
+
+<div class="verdict">
+  <b>The MacBook has been shipping fixes back for five months, and this Mac never installed most of them.</b>
+  Of 653 payload files across 34 bundles, 401 are byte-identical here, 85 exist but have drifted, and <b>167 are not on this machine at all</b>. The three bundles the MacBook sent back as finished work are the worst: 51 files, of which only 3 are byte-identical and 38 are missing.
+</div>
+
+<div class="score">
+  <div class="card ok"><div class="n">401</div><div class="l">byte-identical here</div></div>
+  <div class="card warn"><div class="n">85</div><div class="l">present but drifted</div></div>
+  <div class="card bad"><div class="n">167</div><div class="l">not on this Mac</div></div>
+  <div class="card bad"><div class="n">26</div><div class="l">bundles with a gap</div></div>
+  <div class="card ok"><div class="n">8</div><div class="l">fully applied</div></div>
+</div>
+
+<h2>The channel the first sweep missed entirely</h2>
+<div class="verdict" style="border-left-color:var(--amber)">
+  <b>There are two cross-Mac channels, and sweeping one is not sweeping both.</b>
+  <code>sfg/</code> carries bundles of skills, hooks and payload files, and that is what the table below covers. <code>SVG/</code> carries <b>884 handoff documents</b>, 76 of which mention the MacBook, and that is where the MacBook's own fix log lives. I reported the <code>sfg/</code> sweep as "all of it" before opening <code>SVG/</code> at all.
+</div>
+<p>The two richest documents there come from one session on MacBookPro running a self-paced <code>/loop</code> for roughly twelve hours with no user input: <code>[MACBOOK-OVERNIGHT-2026-09-03] handoff.md</code> and its predecessor from the day before. That is the autonomous overnight operation Brandon was describing, recorded in its own words. Here is what it found, and what each one looks like on this Mac today.</p>
+<table>
+<thead><tr><th>What the overnight loop found</th><th>Status on Jacks-iMac, checked 2026-10-19</th></tr></thead>
+<tbody>
+<tr><td><code>MEMORY.md</code> has a hard 200-line cap that silently truncates its trailing index entries. It reached 208 lines and hid eight rules. One recorded a working DrumSep install, so a later session derived the opposite and blocked three queue items on a tool that was installed and had already run.</td><td><span class="tag ok">safe at 117 lines</span> The rule never arrived here, so nothing was watching the count. Checked and written down this afternoon.</td></tr>
+<tr><td>Two venv roots exist, <code>~/venvs/</code> and <code>~/.venvs/</code>. A test that enumerated only one reported a package absent from every venv and blocked real work.</td><td><span class="tag warn">confirmed here</span> 9 under <code>~/venvs/</code> including <code>audio_midi_311</code>, 2 under <code>~/.venvs/</code>.</td></tr>
+<tr><td><code>transcript_chalkboard.py</code> exists twice and has drifted. The chiron copy wins on <code>sys.path</code> and does not strip YouTube bleep markers, so profanity bleeps reached the tarot narration.</td><td><span class="tag bad">confirmed here</span> Drift is exactly 27 lines, matching their figure: tarot 1785 lines, chiron 1790, bleep references 4 against 3.</td></tr>
+<tr><td><code>kit_to_drum_rack_v4.py</code> is a fossil dated one day before the fix that corrected it. It still uses the GM map, which makes racks trigger at G#5 instead of C1.</td><td><span class="tag bad">still broken here</span> The <code>midi-drum-analysis/tools/</code> copy maps ClosedHat to 42 and OpenHat to 46 at lines 34 to 37, against the white-keys-from-C1 rule in CLAUDE.md. Its <code>ableton-rack-builder/</code> sibling has none of them.</td></tr>
+<tr><td><code>/ask</code> cites files that no longer exist in six of ten domains.</td><td><span class="tag warn">not re-measured</span> Stated rather than assumed either way.</td></tr>
+</tbody>
+</table>
+<div class="note"><b>None of the four memory files those findings produced exists on this Mac.</b> Not one. So two of the defects are still live here five months later, and the fix for a third was never watched for. That is the same failure as the meter fix below, one layer out: the work was done, the writeup was shipped, and nothing carried it into the file that loads every session.</div>
+
+<h2>The one that mattered most</h2>
+<div class="note" style="border-left-color:var(--brick)"><b><code>skill-sync-2026-08-12-session-audit-meter-fix</code>.</b> Its own first line says the other Mac's copy of <code>analyze.py</code> inflates every token figure and <b>reports a batching rate that cannot ever be non-zero</b>. The cause: Claude Code writes one JSONL record per content block, so a message carrying three parallel calls becomes three records of one call each, and a per-record test never sees a batched turn. This Mac's <code>analyze.py</code> does carry the fix, dated 2026-08-12, so its 6% reading is sound. <b>My own hand-rolled parser did not</b>, which is how I came to publish a 0.0% rate for this session and build a hook on it. Re-measured keyed on <code>message.id</code>: record-split ratio 2.41, 128 tool turns, 42 batched, <b>32.8%</b>. The hook carried the same defect and would have fired forever on a well-batched session; it is fixed and re-proved on 8 of 8 controls. One file from that bundle, <code>remeasure.py</code>, is still missing here.</div>
+
+<h2>Every bundle, with install status</h2>
+<table>
+<thead><tr><th>Bundle</th><th>What it shipped</th><th class="num">Files</th><th class="num">Same</th><th class="num">Drift</th><th class="num">Gone</th><th>State</th></tr></thead>
+<tbody>
+<tr>
+  <td><b>inbox</b><div class="k">remote inbox &middot; 2026-10-19</div></td>
+  <td>REMOTE -&gt; Brandons-MacBook-Pro: take the stem knowledge, then finish 8.28. From: Jacks-iMac (`/Users/drwu`)<div class="miss">not here: <code>analyze_midi.py</code>, <code>lyrics.py</code>, <code>rewrite_v2_with_lyrics.py</code>, <code>analyze_midi_data_driven.py</code>, <code>2026-10-19-stem-map-bpm-keys-handoff--for-macbook.md</code>, <code>2026-05-02-the-honest-truth-of-the-person-on-your-mind-pick-a-card-time.md</code> and more</div></td>
+  <td class="num">107</td>
+  <td class="num">0</td>
+  <td class="num">8</td>
+  <td class="num">99</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-10-19-addon-skills</b><div class="k">skill sync &middot; 2026-10-19</div></td>
+  <td>iMac how-to: switch off the unused Anthropic add-on skills safely. Written by the MacBook chat on 2026-10-19 for the Dr Wu iMac. Brandon asked it to &quot;tell the other mac how to do this without breaking anything and learn from our m</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-10-19-annotate</b><div class="k">skill sync &middot; 2026-10-19</div></td>
+  <td>Install the `community-annotate` skill on the MacBook. Sent 2026-10-19 from Jacks-iMac over iCloud `sfg/`. This covers the skill half of</td>
+  <td class="num">9</td>
+  <td class="num">9</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>vercel-handoff-gilmore-episodes-2026-10-18</b><div class="k">handoff &middot; 2026-10-18</div></td>
+  <td>VERCEL HANDOFF, gilmore-girls-episodes, 2026-10-18</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>nanook-audio-audit-REQUEST-2026-10-17</b><div class="k">request to MacBook &middot; 2026-10-17</div></td>
+  <td>Provenance. Every statement in the README was measured on Jacks-iMac on 2026-10-17. Nothing was copied from the<div class="miss">not here: <code>nanook-hand-pass-2026-09-05-findings.json</code>, <code>impossible_gate-GRIDFIX-2026-10-17.json</code></div></td>
+  <td class="num">6</td>
+  <td class="num">4</td>
+  <td class="num"></td>
+  <td class="num">2</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>reharm-transcript-scan-REQUEST-2026-10-17</b><div class="k">request to MacBook &middot; 2026-10-17</div></td>
+  <td>Provenance of the iMac figures in README.md. Measured on Jacks-iMac, 2026-10-17, by the script in this folder plus the commands below.<div class="miss">not here: <code>scan_transcripts.py</code>, <code>inventory_reharm.py</code></div></td>
+  <td class="num">2</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num">2</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>ryan-adams-sync-skill-REQUEST-2026-10-17</b><div class="k">request to MacBook &middot; 2026-10-17</div></td>
+  <td>Provenance of this request. Nothing in this request was copied from the other Mac. Every local statement was measured on<div class="miss">not here: <code>nanook-s35865-imac-draft-output.json</code>, <code>nanook-known-answer-findings.json</code></div></td>
+  <td class="num">3</td>
+  <td class="num">1</td>
+  <td class="num"></td>
+  <td class="num">2</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>ryan-adams-sync-skill-macbook-return-2026-10-17</b><div class="k">MacBook return &middot; 2026-10-17</div></td>
+  <td>Provenance of this return. Everything was copied from this Mac. Nothing was rebuilt or rerun for the return.<div class="miss">not here: <code>save_score.py</code>, <code>recapo.py</code>, <code>browser_steps.md</code>, <code>plan.json</code>, <code>file_export.sh</code>, <code>results_table.json</code> and more</div></td>
+  <td class="num">28</td>
+  <td class="num">2</td>
+  <td class="num">6</td>
+  <td class="num">20</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>vercel-handoff-iximusic-2026-10-05</b><div class="k">handoff &middot; 2026-10-06</div></td>
+  <td>For the MacBook (Vercel owner): copy index.html into ~/Projects/drwu-htmls/public/iximusic/ and deploy. Readability pass from Jacks-iMac 2026-10-05; also live at https://7onething1.github.io/iximusic/</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>iris-docs-handoff-2026-09-14</b><div class="k">handoff &middot; 2026-09-15</div></td>
+  <td><i>no description shipped</i><div class="miss">not here: <code>IRIS_Compare_vs_Fork_2026-09-15.md</code>, <code>IRIS_Internal_Notes_2026-09-14.md</code>, <code>IRIS_Internal_Notes_2026-09-14.PRE_CORRECTION_2026-09-15.md</code></div></td>
+  <td class="num">5</td>
+  <td class="num">2</td>
+  <td class="num"></td>
+  <td class="num">3</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-09-14-yt-transcripts</b><div class="k">skill sync &middot; 2026-09-14</div></td>
+  <td><i>no description shipped</i></td>
+  <td class="num">14</td>
+  <td class="num">13</td>
+  <td class="num">1</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-09-06</b><div class="k">skill sync &middot; 2026-09-06</div></td>
+  <td>icloud_watcher.py for MacBookPro, requested 2026-09-06 18:42. Copied from Dr Wu iMac. Files here: `icloud_watcher.py` plus the launchd plist if one was found.<div class="miss">not here: <code>icloud_watcher.py</code></div></td>
+  <td class="num">14</td>
+  <td class="num">12</td>
+  <td class="num">1</td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-09-06-completion-controller</b><div class="k">skill sync &middot; 2026-09-06</div></td>
+  <td>INSTALL the completion-controller chain on the receiving Mac. From Jacks-iMac, 2026-09-06. Eight skills that decide whether a session may stop, from</td>
+  <td class="num">21</td>
+  <td class="num">12</td>
+  <td class="num">9</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-09-06-notation-evidence-gate</b><div class="k">skill sync &middot; 2026-09-06</div></td>
+  <td>REMOTE UPDATE -&gt; all active chats on the other Mac. From: Jacks-iMac, 2026-09-06.<div class="miss">not here: <code>REPLY-imac-density-operating-point-2026-09-06.md</code>, <code>REPLY-imac-to-macbook-2026-09-06-corroboration.md</code>, <code>residual_drift.py</code>, <code>gpif_drums.py</code>, <code>novelty_onsets.py</code>, <code>align_search.py</code> and more</div></td>
+  <td class="num">12</td>
+  <td class="num">3</td>
+  <td class="num">2</td>
+  <td class="num">7</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-09-05</b><div class="k">skill sync &middot; 2026-09-05</div></td>
+  <td><i>no description shipped</i></td>
+  <td class="num">5</td>
+  <td class="num">3</td>
+  <td class="num">2</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>zappa-macbook-return-2026-08-31</b><div class="k">MacBook return &middot; 2026-09-03</div></td>
+  <td>songsterr-zappa-paren-fix, MacBookPro tree. Rebuilt 2026-08-31 on MacBookPro after the `[ZAPPA-DRUM-REPAIR-2026-08-31]` handoff&#x27;s<div class="miss">not here: <code>bar-census-r8766102.json</code>, <code>revisions-412162.json</code>, <code>drum_reality_gate.py</code>, <code>pointers_check.py</code>, <code>INSTALL_VERIFY.sh</code>, <code>impossible_gate.SKILL-COPY.py</code> and more</div></td>
+  <td class="num">16</td>
+  <td class="num">0</td>
+  <td class="num">4</td>
+  <td class="num">12</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>kilgore-macbook-return-2026-08-13</b><div class="k">MacBook return &middot; 2026-08-13</div></td>
+  <td>Kilgore Trout, Phase 2 verification on the MacBook. Run 2026-08-13 on MacBookPro, home `/Users/brandonchavez`, against the iMac&#x27;s<div class="miss">not here: <code>audit_accuracy_nolibrosa.py</code>, <code>dip_analysis.py</code>, <code>DIP-EXPLAINED-2026-08-13.md</code>, <code>audit_ctied_capo0.json</code>, <code>dip_rescore.py</code>, <code>impossible_gate.WITH-NOTATION-CONFLICT.py</code></div></td>
+  <td class="num">7</td>
+  <td class="num">1</td>
+  <td class="num"></td>
+  <td class="num">6</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-08-13</b><div class="k">skill sync &middot; 2026-08-13</div></td>
+  <td>Community Canon Engine, cross-Mac handoff. Built 2026-08-13 on this Mac. Sent through iCloud `sfg/`, which is the only</td>
+  <td class="num">2</td>
+  <td class="num">1</td>
+  <td class="num">1</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-08-13-invisible-unicode-and-ledger</b><div class="k">skill sync &middot; 2026-08-13</div></td>
+  <td>Install: invisible-Unicode voice gate + ledger verifier. From **Jacks-iMac**, 2026-08-13. Channel is iCloud `sfg/`, the only sanctioned one.<div class="miss">not here: <code>apply.sh</code>, <code>selftest_invisible.py</code>, <code>invisible_block_only.py</code></div></td>
+  <td class="num">12</td>
+  <td class="num">7</td>
+  <td class="num">2</td>
+  <td class="num">3</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-08-12-impossible-guitar-parts</b><div class="k">skill sync &middot; 2026-08-12</div></td>
+  <td>impossible-guitar-parts, skill sync 2026-08-12. Grades guitar tablature against what a hand can physically do. Rewritten this</td>
+  <td class="num">3</td>
+  <td class="num">0</td>
+  <td class="num">3</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-08-12-prompt-tax</b><div class="k">skill sync &middot; 2026-08-12</div></td>
+  <td>skill-sync 2026-08-12: the skill-description prompt tax. A skill&#x27;s `description:` frontmatter is injected into **every single prompt**, whether or not the skill is ever used. The `SKILL.md` body is read only when the skill is invo<div class="miss">not here: <code>skills_disabled_toggle.py</code>, <code>reference_skill_description_prompt_tax.md</code></div></td>
+  <td class="num">3</td>
+  <td class="num">0</td>
+  <td class="num">1</td>
+  <td class="num">2</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-08-12-session-audit-meter-fix</b><div class="k">skill sync &middot; 2026-08-12</div></td>
+  <td>session-audit meter fix, sync 2026-08-12. token count by the record-split ratio and reports a 0% batching rate that cannot ever be non-zero.<div class="miss">not here: <code>remeasure.py</code></div></td>
+  <td class="num">8</td>
+  <td class="num">5</td>
+  <td class="num">2</td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-07-05</b><div class="k">skill sync &middot; 2026-07-05</div></td>
+  <td>FinderReveal , click-to-Finder handler for drwu-htmls boards. Registers a `finderreveal://&lt;path&gt;` URL scheme that runs `open -R` so a 📁 Finder<div class="miss">not here: <code>finder_reveal.py</code></div></td>
+  <td class="num">1</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>account-handoff-backup-2026-06-06-1118</b><div class="k">handoff &middot; 2026-06-06</div></td>
+  <td><i>no description shipped</i><div class="miss">not here: <code>settings.json</code></div></td>
+  <td class="num">349</td>
+  <td class="num">315</td>
+  <td class="num">33</td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>claude-handoff-2026-06-06</b><div class="k">handoff &middot; 2026-06-06</div></td>
+  <td>Receiving the 2026-06-06 chat handoff (attachmentcollective Mac). This package was COPIED off the iMac. Nothing on the iMac was changed.<div class="miss">not here: <code>receive_handoff.py</code>, <code>HANDOFF_MANIFEST.json</code></div></td>
+  <td class="num">2</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num">2</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-06-05</b><div class="k">skill sync &middot; 2026-06-05</div></td>
+  <td>INSTALL , chiron-matilda-rws-video on a fresh Mac. ## Step 1: Copy the skill folder</td>
+  <td class="num">9</td>
+  <td class="num">5</td>
+  <td class="num">4</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-06-05-no-quit-shift</b><div class="k">skill sync &middot; 2026-06-05</div></td>
+  <td>no-quit-shift + no_idle_stop_gate , cross-Mac install bundle. Built 2026-06-05 from the patched stop_gate.py that respects the universal</td>
+  <td class="num">7</td>
+  <td class="num">1</td>
+  <td class="num">6</td>
+  <td class="num"></td>
+  <td><span class="tag warn">drifted</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-30</b><div class="k">skill sync &middot; 2026-05-31</div></td>
+  <td><i>no description shipped</i></td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-31-context7-and-32hacks-memory</b><div class="k">skill sync &middot; 2026-05-31</div></td>
+  <td><i>no description shipped</i><div class="miss">not here: <code>APPLY_ON_MAC2.md</code></div></td>
+  <td class="num">5</td>
+  <td class="num">4</td>
+  <td class="num"></td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-27</b><div class="k">skill sync &middot; 2026-05-27</div></td>
+  <td><i>no description shipped</i><div class="miss">not here: <code>MANIFEST.md</code></div></td>
+  <td class="num">1</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-20</b><div class="k">skill sync &middot; 2026-05-20</div></td>
+  <td>Consolidated skill delta , Jacks-iMac → MacBook (2026-05-20). ## Apply on the MacBook (additive, backs up anything overwritten)</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-19</b><div class="k">skill sync &middot; 2026-05-19</div></td>
+  <td>SKILL SYNC , MIDI + Audio updates (2026-05-15 → 2026-05-19). ## Read this first (safety)</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-19-book-validation</b><div class="k">skill sync &middot; 2026-05-19</div></td>
+  <td>SKILL SYNC , book-publish-pipeline validation gate (2026-05-19). A hard-gate validator that makes book-publishing quality non-skippable. Adds `validate_book.py` (new file) and a small section to `SKILL.md` documenting the gate. Af</td>
+  <td class="num">0</td>
+  <td class="num">0</td>
+  <td class="num"></td>
+  <td class="num"></td>
+  <td><span class="tag ok">complete</span></td>
+</tr>
+<tr>
+  <td><b>skill-sync-2026-05-19-midi-gates</b><div class="k">skill sync &middot; 2026-05-19</div></td>
+  <td><i>no description shipped</i><div class="miss">not here: <code>EXTRACT.md</code></div></td>
+  <td class="num">2</td>
+  <td class="num">1</td>
+  <td class="num"></td>
+  <td class="num">1</td>
+  <td><span class="tag bad">incomplete</span></td>
+</tr>
+</tbody>
+</table>
+
+<h2>How install status was judged</h2>
+<pre>A payload file counts as INSTALLED only when a file of the same basename exists
+under one of these roots AND its sha256 matches the copy in the bundle:
+
+  ~/.claude/hooks        ~/.claude/skills        ~/.claude/skills_disabled
+  ~/.claude/projects/-Users-drwu/memory          ~/Projects        ~/scripts
+
+A same-named file whose digest differs is reported as DRIFTED rather than as
+installed, so a stale local copy cannot pass as applied. Punctuation in the extracted descriptions is normalised to commas, since the
+house voice ruleset bans the em-dash and these are truncated summaries rather
+than attributed quotations. Request bundles this
+Mac SENT are included for completeness; their "missing" files are usually
+outputs that only ever existed on the other machine, which is why the per-row
+detail matters more than the total.</pre>
+
+<footer>
+Built from a single pass over iCloud <code>sfg/</code> on 2026-10-19 by <code>catalog_sfg.py</code>, with every figure on this page generated from <code>sfg_catalog.json</code> rather than typed. Nothing in <code>sfg/</code> was written or changed to produce it, per the standing rule that the iCloud channel is read before it is written.
+</footer>
+
+</div>
+</body>
+</html>

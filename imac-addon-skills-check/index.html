@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iMac Add-on Skills Check</title>
+<style>
+  :root{
+    --cream:#F4ECD8; --ink:#1A1713; --rule:#D8CBB0;
+    --amber:#E8A33D; --sage:#7B9E89; --brick:#C1504D; --blue:#4A6D8C; --rose:#D4A5A5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+       padding:0 16px}
+  .wrap{max-width:900px;margin:0 auto;padding:40px 0 72px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:#5A5247;margin:0 0 28px;font-size:15px}
+  h2{font-size:19px;margin:38px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+  .verdict{background:#fff;border:1px solid var(--rule);border-left:7px solid var(--sage);
+           padding:16px 18px;margin:0 0 10px;border-radius:3px}
+  .verdict b{display:block;font-size:17px;margin-bottom:4px}
+  table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;background:#fff}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EADFC4;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+       padding:2px 8px;border-radius:10px;color:#fff;white-space:nowrap}
+  .live{background:var(--sage)} .stale{background:#A79880}
+  .pill{display:inline-block;font-size:13px;padding:3px 10px;margin:3px 5px 3px 0;
+        border-radius:12px;background:#fff;border:1px solid var(--rule)}
+  .pill.off{border-left:4px solid var(--brick)}
+  .pill.keep{border-left:4px solid var(--sage)}
+  .pill.fixed{border-left:4px solid var(--blue)}
+  pre{background:#2A2622;color:#F2EADA;padding:14px 16px;border-radius:3px;
+      overflow-x:auto;font-size:13px;line-height:1.55;margin:10px 0}
+  .note{background:#FBF6EA;border:1px dashed var(--rule);border-left:5px solid var(--amber);
+        padding:13px 16px;margin:14px 0;font-size:15px}
+  footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);
+         font-size:13px;color:#6A6255}
+  code{background:#EADFC4;padding:1px 5px;border-radius:3px;font-size:13px}
+  @media (max-width:620px){h1{font-size:24px} table{font-size:13px} th,td{padding:7px 7px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>iMac Add-on Skills Check</h1>
+<p class="sub">Jacks-iMac, 2026-10-19. Verifying the MacBook's clean-up procedure against what this machine holds. Read-only: nothing was switched, nothing was moved.</p>
+
+<div class="verdict">
+  <b>The clean-up was already finished here before this chat opened.</b>
+  This iMac signs in to the same claude.ai account, and the skill switch belongs to the account rather than the machine. Its own app log carries the removal at 2026-10-17 16:42:22. No switch needed flipping, so Step 4 of the how-to never ran.
+</div>
+
+<h2>The four add-on copies on this Mac</h2>
+<p>The app keeps one folder per org and account pair under <code>~/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/</code>. Four exist here. Only one is live, and file modification time is the only honest way to tell them apart.</p>
+<table>
+<thead><tr><th>Org / Account</th><th>State</th><th class="num">Skills</th><th class="num">Manifest stamp</th><th class="num">Newest file</th><th class="num">Of the 13</th></tr></thead>
+<tbody>
+<tr><td>e1201aa6 / a408e2ba</td><td><span class="tag live">live</span></td><td class="num">14</td><td class="num">2026-10-17 16:42</td><td class="num">2026-10-19 14:05</td><td class="num">0 present</td></tr>
+<tr><td>d31d9cf6 / 9f342616</td><td><span class="tag stale">stale</span></td><td class="num">24</td><td class="num">2026-08-09 17:57</td><td class="num">2026-08-09 17:57</td><td class="num">7 present</td></tr>
+<tr><td>e1201aa6 / 9f342616</td><td><span class="tag stale">stale</span></td><td class="num">22</td><td class="num">2026-06-21 00:26</td><td class="num">2026-06-21 00:26</td><td class="num">6 present</td></tr>
+<tr><td>d31d9cf6 / a408e2ba</td><td><span class="tag stale">stale</span></td><td class="num">17</td><td class="num">2026-05-26 10:26</td><td class="num">2026-05-26 10:26</td><td class="num">9 present</td></tr>
+</tbody>
+</table>
+
+<div class="note"><b>A detail the how-to does not cover.</b> Three of these folders still list the switched-off skills in their manifests. Those three hold abandoned state from May, June and August. No removal failed in them. The app simply stopped writing there. Anyone re-running this check by reading manifests with a wildcard will read a stale one and report the job unfinished. Sort by modification time first. The app owns this folder and rewrites it at each sync, so none of it gets touched by hand.</div>
+
+<h2>The removal in this Mac's own log</h2>
+<pre>2026-10-17 16:42:22 [info] [SkillsPlugin] Delta: 0 to download, 13 to remove
+2026-10-17 16:42:22 [info] [SkillsPlugin] Sync complete: 0 downloaded, 0 failed, 13 removed, 0 orphans cleaned
+
+2026-10-19 13:26:05 [info] [SkillsPlugin] Delta: 0 to download, 0 to remove
+2026-10-19 13:45:04 [info] [SkillsPlugin] Delta: 0 to download, 0 to remove
+2026-10-19 14:05:04 [info] [SkillsPlugin] Delta: 0 to download, 0 to remove</pre>
+<p>Each of today's three syncs found nothing left to remove. The sync fires when the Claude window comes forward, roughly twenty minutes apart at the soonest.</p>
+
+<h2>The thirteen that came off</h2>
+<p>Switched off on claude.ai under Customize &gt; Skills &gt; Yours. This machine's own usage record in <code>~/.claude.json</code> shows <b>zero of the thirteen ever used here</b>, so nothing of this Mac's work was lost with them.</p>
+<div>
+<span class="pill off">mcp-builder</span><span class="pill off">google-workspace</span><span class="pill off">deep-research</span><span class="pill off">import-memory</span><span class="pill off">morning</span><span class="pill off">theme-factory</span><span class="pill off">slack-gif-creator</span><span class="pill off">internal-comms</span><span class="pill off">canvas-design</span><span class="pill off">brand-guidelines</span><span class="pill off">web-artifacts-builder</span><span class="pill off">algorithmic-art</span><span class="pill off">doc-coauthoring</span>
+</div>
+
+<h2>The six kept on purpose</h2>
+<p>All six are present in the live manifest, confirmed this afternoon.</p>
+<div>
+<span class="pill keep">built-in-browser</span><span class="pill keep">chrome-browser</span><span class="pill keep">docx</span><span class="pill keep">pdf</span><span class="pill keep">skill-creator</span><span class="pill keep">xlsx</span>
+</div>
+
+<h2>The seven with no off switch</h2>
+<p>These ship inside the app. No switch exists for any of them anywhere, so hunting for one wastes the afternoon.</p>
+<div>
+<span class="pill fixed">docs</span><span class="pill fixed">computer-use</span><span class="pill fixed">pptx</span><span class="pill fixed">consolidate-memory</span><span class="pill fixed">explain-usage</span><span class="pill fixed">schedule</span><span class="pill fixed">setup-claude</span>
+</div>
+
+<h2>Why this buys no speed</h2>
+<p>Most skills load as a bare name. The fifty-two unused ones came to roughly 1,300 characters of an 88,000-token start, which is about one and a half percent of one percent. The waiting is the model thinking. A shorter menu is the whole benefit.</p>
+
+<h2>What stayed untouched</h2>
+<p><b>14 tarot and chiron skills, counted 2026-10-19:</b> 5d-new-age, book-publish-pipeline-tarotplus, chiron-audio-reading, chiron-cheat-gate, chiron-client-read, chiron-matilda-rws-video, chiron-tarot-reading-video, chiron-teaching-gen, chiron-tencard-reading, oracle-book-builder, tarot-book-rewrite, tarot-canon, tarot-chapter-voice-video, tarot-guide-builder. The keep list also named kate-truth-seekers-tea, which is <b>not a skill on this Mac and never was</b>: no directory under <code>~/.claude/skills</code> matches kate, truth or seeker, and the Kate combo material the how-to points to sits on the MacBook. Nothing was lost here; the name simply belongs to the other machine. The Magic card, book and video, voice, chat-helper and Etsy skills. Everything in <code>~/.claude/skills</code>. Settings &gt; Capabilities was never opened, since its one switch would take docx, pdf and xlsx down alongside pptx. No <code>skillOverrides</code> entry and no deny rule was written.</p>
+
+<footer>
+Source: the MacBook chat's how-to, delivered through iCloud <code>sfg/skill-sync-2026-10-19-addon-skills/README.md</code>, read onto this iMac 2026-10-19. Every figure on this page comes from a read of this machine: <code>~/.claude.json</code>, the four <code>manifest.json</code> files, and <code>~/Library/Logs/Claude/main.log</code>.
+</footer>
+
+</div>
+</body>
+</html>

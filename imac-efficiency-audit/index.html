@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iMac Efficiency Audit</title>
+<style>
+  :root{
+    --cream:#F4ECD8; --ink:#1A1713; --rule:#D8CBB0;
+    --amber:#E8A33D; --sage:#7B9E89; --brick:#C1504D; --blue:#4A6D8C; --rose:#D4A5A5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+       padding:0 16px}
+  .wrap{max-width:940px;margin:0 auto;padding:40px 0 72px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:#5A5247;margin:0 0 26px;font-size:15px}
+  h2{font-size:19px;margin:38px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--rule)}
+  h3{font-size:16px;margin:24px 0 8px}
+  nav{background:#fff;border:1px solid var(--rule);border-radius:3px;padding:14px 18px;margin:0 0 8px}
+  nav ol{margin:6px 0 0;padding-left:22px}
+  nav li{margin:3px 0;font-size:15px}
+  nav a{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue)}
+  .score{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 4px}
+  .card{flex:1 1 180px;background:#fff;border:1px solid var(--rule);
+        border-top:5px solid var(--rule);border-radius:3px;padding:14px 16px}
+  .card.bad{border-top-color:var(--brick)} .card.ok{border-top-color:var(--sage)}
+  .card.warn{border-top-color:var(--amber)}
+  .card .n{font-size:27px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .card .l{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6A6255;margin-top:4px}
+  .card .t{font-size:13px;color:#5A5247;margin-top:6px}
+  table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14px;background:#fff}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:#EADFC4;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  pre{background:#2A2622;color:#F2EADA;padding:14px 16px;border-radius:3px;
+      overflow-x:auto;font-size:13px;line-height:1.55;margin:10px 0}
+  .note{background:#FBF6EA;border:1px dashed var(--rule);border-left:5px solid var(--amber);
+        padding:13px 16px;margin:14px 0;font-size:15px}
+  .verdict{background:#fff;border:1px solid var(--rule);border-left:7px solid var(--sage);
+           padding:16px 18px;margin:0 0 10px;border-radius:3px}
+  .verdict b{display:block;font-size:17px;margin-bottom:4px}
+  code{background:#EADFC4;padding:1px 5px;border-radius:3px;font-size:13px}
+  footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--rule);
+         font-size:13px;color:#6A6255}
+  @media (max-width:620px){h1{font-size:24px} table{font-size:13px} th,td{padding:7px 7px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>iMac Efficiency Audit</h1>
+<p class="sub">2026-10-19, Jacks-iMac. What the MacBook chat wrote down about its own wasted time, measured against what this Mac actually does, with the one mechanical change that came out of it.</p>
+
+<nav>
+  <b>Contents</b>
+  <ol>
+    <li><a href="#verdict">The short answer</a></li>
+    <li><a href="#scores">This Mac's numbers</a></li>
+    <li><a href="#macbook">What the MacBook learned</a></li>
+    <li><a href="#gap">Where the prose gate failed</a></li>
+    <li><a href="#fix">The four checks that shipped</a></li>
+    <li><a href="#rest">What is still unguarded</a></li>
+  </ol>
+</nav>
+
+<h2 id="verdict">1. The short answer</h2>
+<div class="verdict">
+  <b>The MacBook did not find a faster setting. It wrote its wasted time down as ten named mistakes, each with an executable fix.</b>
+  Its own first finding was that switching off 52 unused skills buys nothing: they load as bare names, roughly 1,300 characters of an 88,000-token start. The waiting is the model thinking. So the gain came from the list of mistakes, not from configuration, and the same method applied here turns up one failure far larger than anything on the MacBook's list.
+</div>
+
+<div class="note" style="border-left-color:var(--brick)"><b>Correction, 2026-10-19 15:05.</b> An earlier version of this page reported this session at <b>0.0% batching across 64 tool turns</b>. That figure was wrong, and wrong for a documented reason. Claude Code writes <b>one JSONL record per content block</b>, so an assistant message carrying three parallel calls is written as three records of one call each. My hand-rolled parser counted per record, which can never see a batched turn. The MacBook chat found and fixed this exact defect on 2026-08-12 and shipped the fix through iCloud; <code>session-audit/analyze.py</code> here already carried it, so the 6% figure below is sound, but my own parser did not. Re-measured on this session keyed on <code>message.id</code>: record-split ratio <b>2.41</b>, tool turns <b>128</b>, batched <b>42</b>, rate <b>32.8%</b>. The first version of <code>batch_streak_gate.py</code> carried the same bug and would have fired forever on a well-batched session; it is fixed and re-proved on 8 of 8 controls, two of which are fully-batched sessions that must stay quiet.</div>
+
+<h2 id="scores">2. This Mac's numbers, from its own transcripts</h2>
+<p>Measured by <code>session-audit</code> over the 30 most recent sessions in <code>~/.claude/projects/-Users-drwu/</code>.</p>
+
+<div class="score">
+  <div class="card bad">
+    <div class="n">6%</div>
+    <div class="l">tool turns that batch</div>
+    <div class="t">540 of 9,009. Target is above 40%.</div>
+  </div>
+  <div class="card ok">
+    <div class="n">32.8%</div>
+    <div class="l">this session, measured correctly</div>
+    <div class="t">128 tool turns by message.id, 42 batched. An earlier 0.0% here was my own parser bug.</div>
+  </div>
+  <div class="card warn">
+    <div class="n">493</div>
+    <div class="l">echo redirects</div>
+    <div class="t">Writing files by shell instead of the Write tool.</div>
+  </div>
+  <div class="card warn">
+    <div class="n">35</div>
+    <div class="l">worst duplicate reads</div>
+    <div class="t">Same file re-read 35 times in one session.</div>
+  </div>
+  <div class="card ok">
+    <div class="n">99.4%</div>
+    <div class="l">cache hit ratio</div>
+    <div class="t">Context is being preserved properly.</div>
+  </div>
+  <div class="card ok">
+    <div class="n">16</div>
+    <div class="l">skill invocations</div>
+    <div class="t">Above the threshold of 10 per 30 sessions.</div>
+  </div>
+</div>
+
+<table>
+<thead><tr><th>Measure</th><th class="num">Observed</th><th class="num">Target</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>Parallel tool-call rate</td><td class="num">6%</td><td class="num">above 40%</td><td>The dominant waste. Nearly every independent call is its own round trip.</td></tr>
+<tr><td>Bash share of all tool calls</td><td class="num">8,413</td><td class="num">n/a</td><td>Bash is 9 of every 10 calls, so batching Bash is where the whole gain sits.</td></tr>
+<tr><td>Agent dispatches</td><td class="num">0</td><td class="num">n/a</td><td>Correct here. Standing policy forbids subagents without permission.</td></tr>
+<tr><td>Output tokens, 30 sessions</td><td class="num">8,624,650</td><td class="num">n/a</td><td>Each serialized turn re-pays the per-turn overhead.</td></tr>
+<tr><td>Model mix</td><td class="num">99% Opus</td><td class="num">n/a</td><td>Matches the standing instruction to use Opus for all work.</td></tr>
+</tbody>
+</table>
+
+<h2 id="macbook">3. What the MacBook learned, in its own terms</h2>
+<p>Ten mistakes, each paired with a fix. Six are about picking the wrong route and paying for it in round trips.</p>
+<table>
+<thead><tr><th class="num">#</th><th>The waste</th><th>The fix it recorded</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Judged "unused" from one machine's record, while the switch covers the whole account</td><td>Read every machine's record before flipping anything</td></tr>
+<tr><td class="num">2</td><td>Summarized 32 items in five groups covering only 26</td><td>List every name, or use groups that cover all of them</td></tr>
+<tr><td class="num">3</td><td>Globbed chat logs; the guard blocked both reads</td><td>Name each file by its full path</td></tr>
+<tr><td class="num">4</td><td>Used PIPESTATUS in zsh, which has no such variable, so a check never ran</td><td>Drop the pipe and read the exit status directly</td></tr>
+<tr><td class="num">5</td><td>Its grep is ugrep and rejected a bounded-repeat pattern</td><td>Search large files with a short Python script</td></tr>
+<tr><td class="num">6</td><td>Tried the browser pane, which had no sign-in</td><td>Go straight to the signed-in browser</td></tr>
+<tr><td class="num">7</td><td>Read a missing switch on a reloaded page as a failure</td><td>Verify from the list count, not the item page</td></tr>
+<tr><td class="num">8</td><td>Watched a folder for 25 minutes</td><td>Read the application log and wait for the window to come forward</td></tr>
+<tr><td class="num">9</td><td>Ran the voice gate in hard mode without the local-only flag</td><td>Pass the flag that keeps the check on the machine</td></tr>
+<tr><td class="num">10</td><td>Spent almost four minutes thinking about a yes-or-no question</td><td>Answer from the numbers first, in a few short lines</td></tr>
+</tbody>
+</table>
+
+<h2 id="gap">4. Where this Mac's written gate failed</h2>
+<p>Batching has been a hard gate in <code>CLAUDE.md</code> since the 2026-07-19 session audit, and it has a memory file of its own. Both are prose. Here is what prose produced:</p>
+<pre>CLAUDE.md, since 2026-07-19 : "independent tool calls go out in ONE block, target above 40%"
+measured 2026-10-19         : 540 of 9,009 turns batched = 6%
+one session the same day    : 64 tool turns, 0 batched = 0.0%</pre>
+<div class="note"><b>The lesson generalizes past batching.</b> Of the 52 hooks on this Mac, none measured tool-call shape. Every other hard gate that holds here holds because something runs and refuses: the deploy gate, the delete block, the voice gate, the stop gate. The rules that live only in a document are the ones that drift, and the measurement is how you tell which is which.</div>
+
+<h2 id="fix">5. The four checks that shipped</h2>
+<p>The first three read a signal the audit measured. The fourth reads one the audit does not measure at all, found by parsing this session's own transcript. Each prints a single line, and returns zero on every path, so none of them can block a tool call. Each was run against inputs with known answers in both directions before being wired.</p>
+
+<h3>batch_streak_gate.py, PostToolUse on Bash, Read, Grep and Glob</h3>
+<p>Counts tool calls per assistant turn and speaks when four turns in a row have each carried one call, then stays quiet until the next multiple of four. A batched turn clears the run.</p>
+<pre>3 singles        -> quiet     (expected quiet)
+4 singles        -> FIRED     (expected fire)
+5 singles        -> quiet     (expected quiet, between thresholds)
+8 singles        -> FIRED     (expected fire)
+4 then batched   -> quiet     (expected quiet)
+5 of 5 correct, plus malformed stdin / empty payload / missing file all exit 0</pre>
+
+<h3>write_tool_nudge.py, PreToolUse on Bash</h3>
+<p>Flags a command that writes a file through a shell redirect: echo, printf, a cat heredoc, or tee. Silent for <code>/dev/null</code> and for throwaway fixtures under the scratchpad, where a redirect is the right tool.</p>
+<pre>POSITIVES (5 of 5 fired)
+  echo into a home file        echo "hi" > ~/notes.txt
+  append into the vault        echo "x" >> Brandon-Vault/Daily/2026-10-19.md
+  cat heredoc into a .py       cat > ~/x.py &lt;&lt;'EOF'
+  tee into a report            python3 run.py | tee _outputs/r.txt
+  printf into a file           printf "a\n" > ~/a.txt
+
+NEGATIVES (9 of 9 stayed quiet)
+  echo to /dev/null            heredoc to python stdin
+  curl -o /dev/null            echo into the scratchpad
+  tee into the scratchpad      plain ls
+  grep piped to tail           a bare 2>&amp;1
+  a comparison operator in a test
+
+14 of 14 correct, plus 3 malformed-input cases all exit 0</pre>
+
+<h3>duplicate_read_gate.py, PostToolUse on Read</h3>
+<p>Counts reads per real path per session and speaks on the third read, then every third after it. Different spellings of one file collapse to a single count, and a read that asked for a line range is told so rather than scolded.</p>
+<pre>reads 1, 2       -> quiet     reads 4, 5  -> quiet     read 7 -> quiet
+read 3           -> FIRED     read 6      -> FIRED
+a second path counted on its own, firing on its own third read
+
+10 of 10 correct, state file held 7 and 3, plus 4 malformed-input cases all exit 0</pre>
+
+<h3>invocation_failure_gate.py, PostToolUse on Bash</h3>
+<p>Speaks when a command failed because its invocation was guessed: a wrong flag position, a wrong subcommand, a binary this Mac does not have, a path belonging to the other Mac, a zsh glob that matched nothing, or a validator refusing the record shape it was handed. Each message carries the specific remedy rather than a scold.</p>
+<pre>POSITIVES (6 of 6 fired, every one a failure this session really produced)
+  argparse flag position       unrecognized arguments: --json
+  wrong subcommand             invalid choice: 'list'
+  binary absent                command not found: jq
+  other-Mac path               can't open ai-tells-corpus/ai_tells_gate.py
+  zsh unmatched glob           no matches found: ~/.claude/skills/*clean*
+  validator shape refusal      evidence id(s) do not resolve to a record
+
+NEGATIVES (5 of 5 stayed quiet)
+  plain success        an http 200 check      a passing gate
+  the word error used in prose                a file listing
+
+11 of 11 correct, plus 3 malformed-input cases all exit 0
+
+KNOWN FALSE POSITIVE, disclosed: reading a log that QUOTES a failure
+fires it. The cost is one extra line, since it nudges and never blocks.</pre>
+
+<div class="note"><b>Why negative controls and not just positives.</b> On 2026-08-29 a cymbal-detection fix on this Mac passed its one positive control, shipped, and then failed a negative control that was already on disk at the time. Each of these three carries both halves, so a check that simply fires on everything would have shown up as a wrong answer rather than as a success.</div>
+
+<h2 id="rest">6. What is still unguarded</h2>
+<table>
+<thead><tr><th>Anti-pattern</th><th class="num">Measured</th><th>Measured by</th><th>State</th></tr></thead>
+<tbody>
+<tr><td>Serialized tool calls</td><td class="num">6%</td><td>session-audit (fixed meter)</td><td>Running check, PostToolUse, corrected 2026-10-19</td></tr>
+<tr><td>Shell redirects in place of the Write tool</td><td class="num">493</td><td>session-audit</td><td>Running check, PreToolUse</td></tr>
+<tr><td>Re-reading a file already read</td><td class="num">35 worst case</td><td>session-audit</td><td>Running check, PostToolUse</td></tr>
+<tr><td>Calls spent guessing an invocation</td><td class="num">12 of 126, 9.5%</td><td>transcript parsed by hand</td><td>Running check, PostToolUse</td></tr>
+</tbody>
+</table>
+<div class="note"><b>The fourth row is the one the audit could not see.</b> <code>session-audit</code> reports batching, redirects, duplicate reads, skill and agent counts, and cache health. It has no measure for a call that failed because its flags were guessed, so nothing counted those until this session's transcript was parsed directly: <b>12 of 126 tool results, 9.5%</b>, five of them a validator rejecting a record shape and three a wrong flag or subcommand. A scorecard only governs what it thinks to count, which is the same lesson one layer up from the prose gates.</div>
+<p>Three limits remain, none of them hidden. Every check is a nudge rather than a refusal, chosen so that a block never breaks a legitimate pipeline. The fourth fires on a log that merely quotes a failure. And whether the session that wired them loaded them is now settled: it did not, proven by probe at 14:46, because the settings watcher only watches directories that held a settings file when the session began. A new session loads all four.</p>
+
+<footer>
+Every figure on this page was read from this machine on 2026-10-19: <code>session-audit/analyze.py</code> over the 30 most recent session transcripts, a direct parse of this session's own transcript, <code>~/.claude/settings.json</code>, and the MacBook's how-to delivered through iCloud <code>sfg/skill-sync-2026-10-19-addon-skills/README.md</code>. Report saved at <code>~/Projects/_outputs/session-audit/session_eval_2026-10-19.txt</code>.
+</footer>
+
+</div>
+</body>
+</html>
