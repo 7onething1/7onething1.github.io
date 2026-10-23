@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gilmore Girls: Episode-Level Index</title>
+<style>
+  :root{
+    --gb-peach:#F1BB7B; --gb-coral:#FD6467; --gb-orange:#D67236; --gb-pink:#E6A0C4;
+    --gb-lav:#C6CDF7; --gb-rose:#D8A499; --gb-blue:#7294D4; --gb-maroon:#5B1A18;
+    --ink:#111111; --paper:#fbf2ea; --card:#fffdf9; --line:#ecdcc9; --muted:#333333;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:1060px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:6px solid var(--gb-coral);padding-bottom:20px}
+  .kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gb-maroon);font-weight:800}
+  h1{font-size:2.25rem;margin:.18em 0 .12em;line-height:1.1;color:var(--gb-maroon)}
+  .sub{color:var(--muted);font-size:.98rem;max-width:800px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.78rem;font-weight:700}
+  .chip b{color:var(--gb-orange)}
+  .grid-s1{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+  .ep-dot{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;border:1px solid var(--line)}
+  .done{background:var(--gb-peach);color:var(--gb-maroon)}
+  .pend{background:#efe7dc;color:#b7a791}
+  h2{font-size:1.05rem;margin:0}
+  .ep{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin-top:16px;border-left:7px solid var(--gb-blue)}
+  .ep .code{font-size:.72rem;font-weight:800;color:var(--gb-blue);letter-spacing:.06em}
+  .ep .title{font-size:1.18rem;font-weight:800;margin:.1em 0 .4em;color:var(--gb-maroon)}
+  .theme{font-size:.92rem;background:linear-gradient(transparent 60%,#F1BB7B66 60%);display:inline;padding:0 2px}
+  .lab{font-weight:800;color:var(--gb-orange);text-transform:uppercase;letter-spacing:.05em;font-size:.68rem;display:block;margin-top:12px}
+  .beats{margin:6px 0 0;padding-left:18px}
+  .beats li{font-size:.86rem;margin:5px 0}
+  .beats q{font-style:italic;color:var(--gb-maroon)}
+  .arc{font-size:.85rem;color:var(--ink);margin:5px 0 0}
+  .arc b{color:var(--gb-coral)}
+  footer{margin-top:54px;border-top:6px solid var(--gb-peach);padding-top:16px;color:var(--muted);font-size:.82rem}
+  footer b{color:var(--ink)}
+  @media(max-width:540px){h1{font-size:1.6rem}}
+</style>
+<style id="kidmode-css">
+.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+body.kids .mode-btn{background:#B4503E}
+body.kids .mode-btn::before{content:"🧒  "}
+#kidpanel{display:none}
+body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
+body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
+body.kids #kidpanel b{color:#B4503E}
+body.kids{font-size:1.04em}
+</style>
+</head>
+<body>
+
+<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Gilmore Girls, episode by episode</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
+<div class="wrap">
+<header>
+  <div class="kicker">Gilmore Girls · episode-level anatomy index</div>
+  <h1>Gilmore Girls, episode by episode</h1>
+  <p class="sub">An episode-level analysis index on the TV-anatomy-OS pattern: per episode, a scene map, the character arcs, and the theme, each grounded in verbatim lines from the local transcripts. Built one episode per pass; the index now spans into Season 3.</p>
+  <div class="chips">
+    <span class="chip"><b>21</b> of 22 season-1 episodes</span>
+    <span class="chip"><b>22</b> of 22 season-2 episodes</span>
+    <span class="chip"><b>14</b> of 22 season-3 episodes</span>
+    <span class="chip"><b>153</b> episodes inventoried</span>
+    <span class="chip"><b>3</b> artifacts per episode</span>
+    <span class="chip">verbatim-grounded</span>
+  </div>
+  <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gb-maroon);margin-top:18px">Season 1</div>
+  <div class="grid-s1" id="grid"></div>
+  <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gb-maroon);margin-top:14px">Season 2</div>
+  <div class="grid-s1" id="grid2"></div>
+  <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gb-maroon);margin-top:14px">Season 3</div>
+  <div class="grid-s1" id="grid3"></div>
+</header>
+
+<h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:34px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 1</h2>
+<div id="episodes"></div>
+<h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:40px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 2</h2>
+<div id="episodes-s2"></div>
+<h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:40px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 3</h2>
+<div id="episodes-s3"></div>
+
+<footer>
+  <p><b>Method.</b> Each episode's transcript at <code>~/Projects/tv-scripts/text/GilmoreGirls-*.txt</code> is grepped for its load-bearing beats, and every claim is anchored to a verbatim line. Scene map, character arcs, and theme map mirror the community-agentic-os per-episode schema. One episode per pass; this page redeploys as the index grows.</p>
+  <p id="palette"></p>
+</footer>
+</div>
+
+<script>
+const EPS = [
+ {code:"S01E01", title:"Pilot",
+  theme:"Rory's ambition (Chilton) has a price Lorelai cannot pay alone, so the cost of the daughter's future is reconciliation with the mother's past.",
+  beats:[
+   {t:"Luke's diner home base", q:"It's the best coffee in town."},
+   {t:"The Chilton letter, plot engine", q:"we'd be happy to accept her once the first semester's tuition is received."},
+   {t:"Elation, then the catch", q:"You're going to Chilton!"},
+   {t:"Money forces the family reunion", q:"Hi, Mom."}
+  ],
+  arc:"Lorelai's independence collides with the one debt she cannot dodge. Rory's wanting drives the sacrifice. Emily holds the money. Luke is seeded from minute one."},
+ {code:"S01E02", title:"The Lorelais' First Day at Chilton",
+  theme:"The price of entering an elite world: social exposure, academic pressure, and a standing family obligation. Ambition is not free.",
+  beats:[
+   {t:"First-day nerves", q:"I can't be late on my first day of school."},
+   {t:"Meeting the gatekeeper", q:"Gilmore, I'm Headmaster Charleston."},
+   {t:"Class as curriculum", q:"especially for Russia's moneyed class"},
+   {t:"The Friday deal goes live", q:"Dinner, Friday night."}
+  ],
+  arc:"Rory crosses into Chilton and finds it harder and colder. Emily's Friday dinner becomes the lever that keeps Lorelai in orbit."},
+ {code:"S01E03", title:"Kill Me Now",
+  theme:"The world Lorelai fled is not poison to the next generation. Rory bonds with the grandparents' world over golf.",
+  beats:[
+   {t:"The sport requirement", q:"She needs to learn a sport, and Richard can teach her a sport."},
+   {t:"Lorelai's dread", q:"I'm half-expecting this big, 'Save me!' call to come in."},
+   {t:"Emily stage-manages it", q:"make this a memorable day for her."},
+   {t:"Richard and Rory bond", q:"I will teach her to golf, as promised by you."}
+  ],
+  arc:"Lorelai feels the sting of watching Rory enjoy the life she rejected. Richard steps into a warm grandfather role. The family rift heals through the granddaughter."},
+ {code:"S01E04", title:"The Deer Hunters",
+  theme:"Self-worth fused to achievement, and the first crack. Rory's 'smart one' identity takes its first real hit.",
+  beats:[
+   {t:"Chilton resets the curve", q:"You may have been the smartest at Stars Hollow, but it's different here."},
+   {t:"The unforgiving test", q:"This test will be hard, and there will be no make-ups."},
+   {t:"The D-grade scare", q:"A 'D,' however, that would be cause for concern."},
+   {t:"Overcorrection", q:"I have to study."}
+  ],
+  arc:"Rory's perfect-student armor slips and she overcorrects into joyless cramming. Lorelai is the counterweight. The deer turns the crisis into comic release."},
+ {code:"S01E05", title:"Cinnamon's Wake",
+  theme:"The town as found family, and two generations falling in love at once, with love braided into the school world.",
+  beats:[
+   {t:"The town mourns a cat", q:"Funeral's on Thursday."},
+   {t:"Max Medina enters", q:"It's Max Medina calling."},
+   {t:"Dean develops", q:"I'm Dean."},
+   {t:"The Gilmore deflection voice", q:"contemplating the reunification of the two Koreas"}
+  ],
+  arc:"Lorelai's first sustained romance arrives through Rory's teacher. Rory's romance runs parallel. Stars Hollow holds the family with chosen-family warmth."},
+ {code:"S01E06", title:"Rory's Birthday Parties",
+  theme:"Two worlds compete for one daughter, money becomes leverage, and love is expressed as control.",
+  beats:[
+   {t:"Lorelai claims the home party", q:"she will have her party at home on Friday, and that's it."},
+   {t:"The loan weaponized", q:"I didn't intend for this loan to become a constant source of blackmail."},
+   {t:"Emily's competing party", q:"Rory's birthday party is Saturday night."},
+   {t:"Two worlds collide", q:"The Emily and Richard Gilmore Psycho Museum?"}
+  ],
+  arc:"Dueling parties make the tug-of-war literal. Lorelai names the blackmail dynamic. Rory is the prize and the bridge, belonging to both worlds without choosing."},
+ {code:"S01E07", title:"Kiss and Tell",
+  theme:"The best-friend mother, tested by Rory's first romance: whether closeness survives Rory needing some privacy too.",
+  beats:[
+   {t:"The first kiss, reported", q:"I got kissed."},
+   {t:"At Doose's, Aisle 3", q:"On Aisle 3."},
+   {t:"The cornstarch alibi", q:"I have very important thickening needs"},
+   {t:"Lorelai as confidante", q:"So, tell me everything."}
+  ],
+  arc:"Rory steps into teenage romance while still wanting her mother as confidante. Lorelai chooses confidante over disciplinarian, the defining Gilmore parenting style."},
+ {code:"S01E08", title:"Love & War & Snow",
+  theme:"Wonder under the wit: the snow lets Lorelai drop the deflection and show open romanticism.",
+  beats:[
+   {t:"The town battle reenactment", q:"the anniversary of the legendary Battle of Stars Hollow"},
+   {t:"Lorelai and snow", q:"Everything's magical when it snows."},
+   {t:"Max arrives", q:"Lorelai, it's Max. Medina, Max Medina."},
+   {t:"The romantic snow night", q:"the best things in my life have happened when it snowed"}
+  ],
+  arc:"Lorelai's romance moves from setup to real feeling on the snow night with Max. Rory is snowed in at Hartford, keeping the two-worlds split alive."},
+ {code:"S01E09", title:"Rory's Dance",
+  theme:"Trust versus suspicion across three generations: an innocent all-nighter as a Rorschach test for who gets the benefit of the doubt.",
+  beats:[
+   {t:"Emily learns of the formal", q:"I read my Chilton newsletter."},
+   {t:"Rory resists", q:"Because I hate dances."},
+   {t:"Banter at full speed", q:"basing all your dance opinions on one viewing of Sixteen Candles"},
+   {t:"The all-nighter rupture", q:"My mom doesn't know about Dean."}
+  ],
+  arc:"Rory's innocent all-nighter forces her to defend her judgment. Lorelai trusts her, Emily assumes the worst, and the gap is the whole family in miniature."},
+ {code:"S01E10", title:"Forgiveness and Stuff",
+  theme:"A crisis forces forgiveness: Richard's collapse makes the family's grievances feel small and opens the way to reconciliation.",
+  beats:[
+   {t:"Luke's warmth", q:"You made me a Santa burger."},
+   {t:"Richard collapses", q:"My father's in the hospital."},
+   {t:"Rory's run-on panic", q:"Why is he in the hospital? How bad is it?"},
+   {t:"Luke shows up for Lorelai", q:"I'll get you a burger."}
+  ],
+  arc:"The health scare strips everyone's defenses. Fear suspends the Lorelai-Emily war, and Luke's care for Lorelai gets one of its early warm beats."},
+ {code:"S01E11", title:"Paris is Burning",
+  theme:"Cruelty as displaced pain: Paris's home is falling apart, so her sharpness at school is grief wearing armor.",
+  beats:[
+   {t:"The teacher-dating problem named", q:"He's a teacher."},
+   {t:"Rory caught in the middle", q:"if I start thinking of you as a Max, it just seems like it'll get too confusing"},
+   {t:"The skating invitation", q:"What if we invite Max to go skating with us?"},
+   {t:"Paris's home falling apart", q:"Paris' parents' divorce is getting very ugly."}
+  ],
+  arc:"Lorelai's romance with Max blurs the school line, and Paris's classroom cruelty is revealed to be displaced pain from a divorce at home."},
+ {code:"S01E12", title:"Double Date",
+  theme:"The courage of the small leap: Sookie risks asking Jackson out, and a nervous step forward becomes the episode's quiet bravery.",
+  beats:[
+   {t:"Sookie pines for Jackson", q:"Jackson? Would you like to go to dinner sometime with me? Okay."},
+   {t:"The double date arranged", q:"I was thinking that you and Dean could come with us so it isn't that big of a deal."},
+   {t:"Sookie's anxiety spirals", q:"there's psycho killers"},
+   {t:"The date as ensemble farce", q:"Spores, molds, and fungus."}
+  ],
+  arc:"Sookie takes the nervous leap and asks Jackson out, with Lorelai cushioning it as a double date. The secondary-couple romance the show builds gets its start."},
+ {code:"S01E13", title:"Concert Interruptus",
+  theme:"The limit of the cool parent: Lorelai's fun-mom role is tested when responsibility for other people's teenagers lands on her.",
+  beats:[
+   {t:"The Bangles tickets", q:"four fabulous tickets to The Bangles at the Pastorella theater"},
+   {t:"The Chilton circle widens", q:"Bye, Madeline. Bye, Louise."},
+   {t:"Truth versus the easier lie", q:"She decided to be stupid and tell her mother the truth"},
+   {t:"The sneak-off crisis", q:"She wanted to go to a rock concert with us tonight in New York."}
+  ],
+  arc:"Lorelai takes a carful of Chilton girls to a New York concert. When Madeline and Louise slip off with boys, the cool-mom role hits its responsibility limit."},
+ {code:"S01E14", title:"That Damn Donna Reed",
+  theme:"Choice is the whole point: Rory's feminist critique of the perfect-housewife image deepens into compassion for women who never had the choice.",
+  beats:[
+   {t:"The Donna Reed flashpoint", q:"the quintessential '50s mom with the perfect '50s family?"},
+   {t:"Rory's feminist critique", q:"the whole concept that her one point in life is to serve somebody else"},
+   {t:"The argument with Dean", q:"Please tell me how we began arguing about The Donna Reed Show."},
+   {t:"The empathy turn", q:"she has a choice and Donna Reed didn't"}
+  ],
+  arc:"Rory and Dean's first real values clash over the Donna Reed housewife ideal. Rory complicates her own critique by recognizing the women who had no choice."},
+ {code:"S01E15", title:"Christopher Returns",
+  theme:"The road not taken: Rory's father arrives and the family that never formed flickers into view, beautiful and impossible.",
+  beats:[
+   {t:"Christopher arrives", q:"You're Rory's father."},
+   {t:"Lorelai's pull toward him", q:"whenever I do, it's always Christopher"},
+   {t:"The town adopts Rory", q:"we're all like Rory's parents around here and I'm one of her mothers"},
+   {t:"The elder-generation blame", q:"My worst fashion choices, my big-hair days, it was all with Christopher."}
+  ],
+  arc:"Christopher's visit briefly makes Lorelai, Rory, and him look like the nuclear family that never was. The grandparents' old judgment reopens the wound."},
+ {code:"S01E16", title:"Star-Crossed Lovers and Other Strangers",
+  theme:"Young love against the family calendar: Rory and Dean's three-month milestone collides with the standing grandparents' dinner.",
+  beats:[
+   {t:"The three-month anniversary", q:"That's when I gave you the bracelet and that's when I figure this whole thing started."},
+   {t:"Dean's big plan", q:"Dean apparently has some big, fancy evening planned for us."},
+   {t:"The Friday-dinner collision", q:"Rory and Dean are having their three-month anniversary on Friday."},
+   {t:"Emily's indifference", q:"Do you know how much Emily Gilmore will not care about your anniversary?"}
+  ],
+  arc:"Rory's romantic anniversary runs straight into the Friday dinner obligation. First love at full earnestness meets the family calendar that does not bend."},
+ {code:"S01E17", title:"The Breakup, Part 2",
+  theme:"Permission to feel: Lorelai prescribes wallowing as a ritual, and the over-controlled Rory has to learn to let grief land.",
+  beats:[
+   {t:"The breakup reported", q:"He just broke up with me."},
+   {t:"Lorelai prescribes wallowing", q:"Just sit in the dark, watch a sad movie and have a good long cry."},
+   {t:"Rory resists the wallow", q:"I don't want to wallow."},
+   {t:"The keepsakes sting", q:"The first time Dean came over, he picked it up."}
+  ],
+  arc:"Rory's first heartbreak arrives and Lorelai's cure is to wallow on purpose. The episode is about giving grief room instead of powering through it."},
+ {code:"S01E18", title:"The Third Lorelai",
+  theme:"The pattern repeats up the matriline: the controlling-care dynamic echoes a generation above Emily, and the show gives its hardest character an origin.",
+  beats:[
+   {t:"Trix enters", q:"Your mother is God? So, God is a woman."},
+   {t:"Rory named after the original", q:"I was named after her."},
+   {t:"Rory reminds Trix of her", q:"Grandpa says I remind him of her."},
+   {t:"Empathy for Emily", q:"I hope she and Grandma get along."}
+  ],
+  arc:"The great-grandmother Trix arrives and outranks Emily, offering Rory a trust fund. Watching Emily get judged by her own mother-in-law makes her sympathetic."},
+ {code:"S01E19", title:"Emily in Wonderland",
+  theme:"The self-made life, seen and validated: Emily spends a day in the working world Lorelai built and finds it real and worthy.",
+  beats:[
+   {t:"The inn idea surfaces", q:"toying with the idea of opening our own place together"},
+   {t:"The dreamed numbers", q:"$150,000 of construction, and we're open for business"},
+   {t:"Emily enters Lorelai's world", q:"We'll build a new kitchen, Sookie."},
+   {t:"The culture clash", q:"'NSYNC or 98 Degrees? What kind of sick joke is this?"}
+  ],
+  arc:"The inn dream is seeded with Sookie, and Emily visits the Independence Inn. The class gaze inverts, looking down from Hartford at a working life with its own dignity."},
+ {code:"S01E20", title:"P.S. I Lo...",
+  theme:"The fear of saying it: Rory froze when Dean said I love you, and Lorelai names the commitment fear she does not want to pass down.",
+  beats:[
+   {t:"Max and Lorelai upgrade to a date", q:"instead of a phone call we should have a date. Let's have dinner."},
+   {t:"Luke cannot buy a gift", q:"I don't know how to buy gifts. I don't like to buy gifts."},
+   {t:"The reveal of the freeze", q:"And you didn't say anything? No."},
+   {t:"Lorelai's confession", q:"I'd hate to think that I raised a kid who couldn't say 'I love you.'"}
+  ],
+  arc:"Rory's breakup traces to the moment she said nothing back, and she runs to Hartford. Lorelai admits her own lack of commitment skills is the trait she fears handing down."},
+ {code:"S01E21", title:"Love, Daisies and Troubadours",
+  theme:"The Season 1 finale: love spoken out loud at last. Both Gilmore women say the words in the same hour, paying off the previous episode's fear of saying it.",
+  beats:[
+   {t:"Rory finally says it to Dean", q:"Because I love you, you idiot."},
+   {t:"The botched mid-fight proposal", q:"A proposal has to be something more than the desperate desire to end a bickering match."},
+   {t:"A thousand yellow daisies", q:"A thousand yellow daisies. That's right, there's exactly a thousand of them."},
+   {t:"Max's real proposal", q:"I proposed because I love you."},
+   {t:"The dual reveal", q:"You first! Me first!"}
+  ],
+  arc:"Rory crosses the threshold her mother named and reconciles with Dean. Max meets Lorelai's stated ideal with a thousand daisies and a proposal from conviction. The season ends with both women rushing to share their news at once."}
+];
+
+const EPS2 = [
+ {code:"S02E01", title:"Sadie, Sadie",
+  theme:"The Season 2 premiere lives in the aftermath of a yes given before the heart settled. Lorelai is engaged to Max and quietly unsure, and the ring that is too big becomes the whole episode's metaphor.",
+  beats:[
+   {t:"The yes is confirmed", q:"You said yes."},
+   {t:"The ambivalence surfaces", q:"I haven't made my mind up about the 'yes' or 'no' part"},
+   {t:"Sadie, Sadie", q:"Sadie, Sadie, married lady"},
+   {t:"Emily blindsided", q:"She's getting married, and she didn't tell us."},
+   {t:"The ring that does not fit", q:"It's too big."}
+  ],
+  arc:"Lorelai is engaged but unsettled, refusing to fantasize about the wedding and refusing to take the ring off to size it. Emily is wounded by being kept outside the news and goes to war over Rory dating Dean. The premiere ends on a commitment that is real but loose on the hand."},
+ {code:"S02E02", title:"Hammers and Veils",
+  theme:"The wedding machinery starts and reopens the oldest Gilmore wound. The dressed-up hammer is the episode's metaphor: a pretty surface laid over something hard, the veil over Lorelai's doubt.",
+  beats:[
+   {t:"Veil anxiety", q:"Max will realize he's made a horrible mistake."},
+   {t:"The dressed-up hammer", q:"She takes things that aren't pretty, and makes them pretty"},
+   {t:"The mirrored wound", q:"had told everyone else in the world before she bothered to tell her mother"},
+   {t:"A wedding screws up a family", q:"There's nothing like a wedding to screw up a family."},
+   {t:"Max leaves with a warning", q:"Just don't let her change the date."}
+  ],
+  arc:"Lorelai manages her doubt by managing veil lengths and party logistics. The engagement forces her to face that she hurt Emily the same way Emily has long hurt her, by keeping the news outside. Sookie's surprise shower celebrates while the family fractures, and Max flies out on a line that foreshadows the season's risk."},
+ {code:"S02E03", title:"Red Light on the Wedding Night",
+  theme:"A turning point. The town installs a literal traffic light while Lorelai nears her wedding, and both arrive at the same instruction: stop. Luke builds the wedding canopy, the gesture shows her what she lacks with Max, and she calls it off.",
+  beats:[
+   {t:"The literal red light", q:"You can't stop progress, Luke! Traffic light."},
+   {t:"Luke builds the huppah", q:"It's a huppah. It's for your wedding."},
+   {t:"Naming the right person", q:"that one person who's willing to put up with all your crap and doesn't want to change you"},
+   {t:"The thing no one had done", q:"No one has ever made me a huppah before."},
+   {t:"The call-off", q:"Because I didn't want to try on my wedding dress every night."}
+  ],
+  arc:"The huppah crystallizes what Lorelai is missing, and she chooses honesty over a wedding's momentum, ending the engagement and turning the energy into a road trip with Rory. Luke's act of building the canopy for her to marry another man is the show's purest early statement of his feeling, the unnamed answer to her own description of the right person."},
+ {code:"S02E04", title:"The Road Trip to Harvard",
+  theme:"The aftermath of the called-off wedding becomes a reset. An aimless drive lands at Harvard, seeing Rory belong there reframes Lorelai's own life, and she turns the breakup into the decision to finally open her inn.",
+  beats:[
+   {t:"The aimless road trip", q:"to drive and land someplace we've never been"},
+   {t:"They land at Harvard", q:"I'm actually standing outside of Harvard."},
+   {t:"Rory fits there", q:"Seeing Rory there, in a dorm room, in a classroom, She fit."},
+   {t:"The chuppah is kept", q:"It can be a beautiful archway in our yard."},
+   {t:"The inn decision", q:"Sookie and I are finally gonna open that inn."}
+  ],
+  arc:"The road trip turns grief into direction. Watching Rory belong at Harvard forces Lorelai to ask what her own future is, and she answers by committing to the inn she and Sookie have only dreamed about. She keeps Luke's chuppah as a garden archway, holding what it meant while letting the wedding go."},
+ {code:"S02E05", title:"Nick & Nora/Sid & Nancy",
+  theme:"A landmark episode: Jess arrives. The title asks which kind of pairing a relationship will be, the functional Nick and Nora or the doomed Sid and Nancy, and lines up its couples to test the question.",
+  beats:[
+   {t:"Luke takes in Jess", q:"A bed? For Jess. My nephew."},
+   {t:"Why Jess comes", q:"he's heading for something bad and rather than handle it herself, she's given up"},
+   {t:"The dinner verdict", q:"This was not Nick and Nora. This was Sid and Nancy."},
+   {t:"Luke lays down the law", q:"You will not drift. I won't let it happen."},
+   {t:"The hidden depth", q:"You've read this before. About 40 times."}
+  ],
+  arc:"Jess enters pre-labeled as trouble, pulls a disappearing act and steals from the town, then the episode undercuts the label with the read-to-pieces book in Rory's bag. Luke becomes a reluctant guardian against a mother who gave up, and Rory names Jess 'Dodger', the Artful Dodger, the spark of two readers recognizing each other."},
+ {code:"S02E06", title:"Presenting Lorelai Gilmore",
+  theme:"Rory chooses to come out as a debutante, entering the society world her mother fled. The title names the inversion: a Lorelai Gilmore presented to society, the opposite of the original's rebellion.",
+  beats:[
+   {t:"Rory chooses to come out", q:"I'm coming out. Out of what? Out into society."},
+   {t:"Christopher has changed", q:"Sherrie made it clear I was gonna lose her if I didn't start getting it together."},
+   {t:"The presentation", q:"Daughter of Christopher Hayden and Lorelai Gilmore."},
+   {t:"The verdict on the night", q:"having Dad around was great."},
+   {t:"The loneliness coda", q:"if there's ever anything you want to talk about with me, you can."}
+  ],
+  arc:"Rory survives the curtsy she finds humiliating and keeps the part that mattered, her father's presence. Lorelai watches her own rebellion reversed and faces a Christopher freshly settled with Sherry, the old what-if quietly shutting. Emily's hoped-for night sours, and the episode measures everyone by whether they have someone to talk to."},
+ {code:"S02E07", title:"Like Mother, Like Daughter",
+  theme:"Rory is flagged as a Chilton loner, and the fix sends both Gilmore women into the social institutions they would normally mock. The title names the mirror: conforming on purpose because the prize is worth the costume.",
+  beats:[
+   {t:"The loner charge", q:"He pulled out a file and told me I was a bad Chilton Mom."},
+   {t:"The title spoken", q:"Like mother, like daughter."},
+   {t:"Lorelai joins the Booster Club", q:"I'll hang out with their moms and we'll get into Harvard."},
+   {t:"Rory and the Puffs", q:"The Puffs have been number one for at least the last 50 years."},
+   {t:"The possessive tell", q:"I just think it would be a little weird if you started dating a Chilton mom."}
+  ],
+  arc:"The lifelong rebel joins the Booster Club and walks a charity runway to protect Rory's standing, while Rory is courted by the hereditary Puffs sorority. The closing Luke beat exposes Lorelai's unspoken jealousy when she asks him not to date a club mom, and his directions-to-Hartford deflection turns the tension into the show's signature bickering."},
+ {code:"S02E08", title:"The Ins and Outs of Inns",
+  theme:"The inn dream becomes a business, and the episode's deeper subject is refuge: who takes a person in, and who would send them home. Emily and Mia finally meet.",
+  beats:[
+   {t:"The Dragonfly surfaces", q:"We'd actually like to buy it. Buy the Dragonfly?"},
+   {t:"The partners recommit", q:"It'll be the most exciting two years of our lives."},
+   {t:"Emily seeks out Mia", q:"I just wanted to meet the woman who helped raise my daughter."},
+   {t:"Two philosophies of help", q:"I would've wanted her to find someone who would send her home."},
+   {t:"The boxful of pictures", q:"Do you have pictures? From back then?"}
+  ],
+  arc:"Lorelai and Sookie move the inn from dream to legal entity and make an offer on the Dragonfly, planting a seed later seasons pay off. The emotional core is Emily quietly visiting Mia, the woman who took in the runaway Lorelai and baby Rory: their two philosophies of help, shelter versus return, lay the whole Emily-Lorelai rift bare, and Emily's request for old pictures is her grief made plain."},
+ {code:"S02E09", title:"Run Away, Little Boy",
+  theme:"The past keeps arriving as unfinished business, and the episode is about what to keep and what to send back. A wedding present for a wedding that will not happen, and a first-kiss secret that shadows a current romance, both force an honesty about things that are over. The boy who kept pushing finally runs off for good.",
+  beats:[
+   {t:"The wedding present for a canceled wedding", q:"We're thinking it's a wedding present."},
+   {t:"Lorelai refuses to pretend", q:"As I am not getting married, neither God's law nor Emily Post allows me to keep this."},
+   {t:"The Romeo and Juliet assignment", q:"each group will assume responsibility for one act of Romeo and Juliet which will be performed a week from Sunday."},
+   {t:"Paris casts against the obvious", q:"I'm the director and I'll decide who's born to be what. And Brad is Romeo."},
+   {t:"The kiss secret corners Rory", q:"That Tristin and I, that we kissed at that stupid party."},
+   {t:"Tristin runs away for good", q:"I guess that's something I can ponder at military school."}
+  ],
+  arc:"Lorelai will not keep the ice-cream maker because keeping it would mean pretending the engagement still stands, so the episode makes her insist on the truth of a wedding that ended. Rory is cornered by the staged intimacy of the school play and the real kiss it echoes, and her instinct is to tell Dean before the secret does. Tristin's break-in writes him out of the show, the boy who runs away rather than grow up where anyone can see him."},
+ {code:"S02E10", title:"The Bracebridge Dinner",
+  theme:"A canceled corporate booking becomes an open house for the whole town, and the episode is about who gets pulled inside the circle when the walls come down. Underneath the sleigh rides and the Old English, two marriages are quietly failing the same test: whether happiness has to be confessed before it counts.",
+  beats:[
+   {t:"The snowed-in corporate group", q:"They're stuck in Chicago. The dinner's off."},
+   {t:"Lorelai throws the doors open", q:"Let's invite everyone."},
+   {t:"Jess owns the lie he told", q:"So I decided to keep Jess with me. I told him that his mom wanted him to come home."},
+   {t:"Rory confronts Jess in the sleigh", q:"Luke told me it was his idea that I should stay. It wasn't his idea."},
+   {t:"Richard's confession to Emily", q:"And then, suddenly, I heard myself resign. Just like that."},
+   {t:"Emily names what was taken from her", q:"And you chose not to tell me, your own wife?"}
+  ],
+  arc:"Sookie's months of planning collapse when the Bracebridge clients get snowed in, and Lorelai's fix, opening the empty inn to the whole town, turns a corporate loss into the show's first real ensemble set piece. Underneath the horse-drawn sleighs and mangled Old English, Jess's kind lie to Rory about why he is really staying unravels the moment she hears the truth from Luke instead of him. The episode ends on its real subject: Richard quit his job days ago and hid his relief from Emily rather than risk her disappointment, and her hurt is not about the money, it is about being kept outside a happiness that was hers to share."},
+ {code:"S02E11", title:"Secrets and Loans",
+  theme:"Every offer of help in this episode arrives with a price tag attached, paid in money or in independence. A secret told without permission turns out to be its own kind of loan, taken out against someone else's trust, and the hour spends itself figuring out what the interest looks like.",
+  beats:[
+   {t:"Kirk names the real damage", q:"Your foundation has lost its structural integrity."},
+   {t:"The number Lorelai cannot picture", q:"That's how unfamiliar $15,000 and I are with each other."},
+   {t:"Luke's offer gets called what it is", q:"Luke, that's a loan."},
+   {t:"Rory breaks the direct order", q:"I told you several times that asking my parents was not an option."},
+   {t:"Lorelai sets her terms with the bank", q:"I would appreciate it if you would treat me just like any other person who's walking in off the street and asking for a loan."},
+   {t:"Emily claims her new territory", q:"I'm going to be having my DAR meetings at the inn from now on."}
+  ],
+  arc:"Kirk's termite inspection turns a cracked porch board into a $15,000 foundation problem, and every institution Lorelai turns to for help extracts payment in something other than interest. Luke offers to front the repair money as a favor and gets caught the moment Lorelai names it out loud as a loan, and Emily turns a bank appointment Lorelai never asked for into a co-signed loan complete with standing DAR meetings at the inn. Underneath it, Rory breaks her mother's direct order not to ask Emily for money, a smaller version of the same instinct that makes Lorelai refuse help in the first place, love that keeps trying to fix things nobody gave it permission to fix. Lane's own secret, a cheerleading tryout hidden from Rory for weeks, resolves the same way the money plot does, with both pairs naming the thing honestly instead of circling it."},
+ {code:"S02E12", title:"Richard in Stars Hollow",
+  theme:"A retired man with nothing left to supervise starts supervising his family instead, and the episode is about how much scrutiny love can survive before it starts to look like judgment.",
+  beats:[
+   {t:"Emily plans the mausoleum annex over dinner", q:"Now, of course, there's a slot open for me, Richard, you, and Rory. But after the two of you, that's it."},
+   {t:"Emily admits Richard's retirement has turned him watchful", q:"He's always here watching me and noticing when I move a vase, and I don't know."},
+   {t:"Paris declares war on the Oppenheimer Award", q:"I want to be those people. I want to cause that pain."},
+   {t:"Emily's SOS to get Richard out of her house for a day", q:"The man is driving me insane. I am going to go insane."},
+   {t:"Richard's grapefruit standoff at Luke's", q:"Before my pancakes this morning, I need half a grapefruit preferably one that tastes like a doughnut."},
+   {t:"Richard overrules Lorelai on Dean's car", q:"I will not have my granddaughter driving around in a contraption you put together in auto shop."},
+   {t:"The blowup names what retirement actually feels like", q:"I am an annoyance to my wife and a burden to my daughter. I hope that you never have to learn what that feels like."}
+  ],
+  arc:"Emily's mausoleum small talk at the start of the hour is really about running out of room, and the same fear drives the whole episode once Richard's retirement leaves him with nothing to manage but the people around him. Emily ships him off to Lorelai for a day of peace, and what plays as comedy, the grapefruit he insists on ordering at Luke's, the business call he corrects, the mechanic he makes recheck Dean's car twice, is really a man trying to prove he still knows how to run something. He oversteps hardest on Rory, pushing Yale over her settled Harvard plan and refusing to let her accept Dean's car until it passes his standard, and Lorelai's fight with him at the door strips the comedy off: he is not being difficult for its own sake, he is finding out in real time what it feels like to be obsolete, and he says so plainly before he leaves without eating."},
+ {code:"S02E13", title:"A-Tisket, A-Tasket",
+  theme:"A town ritual that puts courtship up for public bidding, and the episode is about how badly people want to be chosen without having to admit they want it.",
+  beats:[
+   {t:"Lorelai names the auction's old-fashioned bargain", q:"The women make a nice lunch basket, the men bid on it and the world rotates backwards on its axis."},
+   {t:"Jess outbids Dean for Rory's basket", q:"sold to the nice young hoodlum in the back for $90"},
+   {t:"Dean drops the argument and asks plainly", q:"I don't want you to go."},
+   {t:"Lorelai drafts Luke rather than buy her own basket", q:"only you can save me from the double pathetic"},
+   {t:"Luke admits what the ritual is actually for", q:"Just having someone who you love, or have some kind of crazy crush on bid on your basket and then share a romantic lunch."},
+   {t:"Henry ends it over the logistics of secrecy", q:"A date where we need a secret plan and a two-honk drive-by"},
+   {t:"Mrs. Kim's rules collide with their own purpose", q:"I do all of this so you don't get hurt, and now you are hurt."},
+   {t:"Emily backs Lorelai, which is the problem", q:"on this matter, I happen to agree with you 100%"},
+   {t:"Lorelai refuses the role her mother just handed her", q:"I can't be your eyes and your ears and your brain"}
+  ],
+  arc:"The basket auction sorts everyone by what they are willing to say out loud. Sookie packs an elaborate basket and Jackson refuses to bid on it, because the real question between them was never lunch but the lease he asked her about and she answered too casually, and they settle it by skipping past living together to an engagement. Lorelai will drag Luke out of his own diner rather than bid on her own basket, and Luke, who claims he only participates to get his rain gutters cleaned, is the one who describes the tradition as being chosen by someone who loves you, which neither of them picks up. Jess buys Rory's basket to needle Dean and gets a whole afternoon out of it, and Dean, having lost the bidding, goes to Lorelai instead of Rory, which turns a picnic into a fight about judgment. Lane's plan collapses for the same reason all of it does, because Henry is unwilling to date someone who can only be reached through a decoy cousin and a broken payphone, and Mrs. Kim, hearing her daughter is hurt, discovers her rules produced the injury they were built to prevent. The hour ends with Emily endorsing Lorelai's stand against Jess so completely that Lorelai goes upstairs and withdraws it, because hearing her own argument in her mother's mouth tells her exactly what it costs."},
+ {code:"S02E14", title:"It Should Have Been Lorelai",
+  theme:"Christopher turns up settled and attached, and the episode is about the future everyone had quietly assigned to Lorelai, and what it costs to watch someone else move into it.",
+  beats:[
+   {t:"Lane, home-schooled into house arrest, measures her shrinking life", q:"My world has become very small."},
+   {t:"Paris runs the debate like a stopwatch", q:"You're only doing 135 WPM."},
+   {t:"Sherrie takes Lorelai aside to disclaim any bond", q:"you should not feel like you need to get to know me."},
+   {t:"Emily interrogates Christopher as an unfit family man", q:"A family man shouldn't ride a motorcycle."},
+   {t:"Emily names the grievance and the title with it", q:"It should have been you."},
+   {t:"Christopher refuses Lorelai's revelation as a gift", q:"How dare you put that on me?"}
+  ],
+  arc:"Christopher arrives with Sherrie, the girlfriend who has finally helped him get his life in order, and the hour measures everyone against a future that was supposed to happen and did not. Sherrie takes Lorelai aside to say they never have to become friends, a kindness that doubles as an eviction notice, since she and Christopher are building the family Lorelai was once penciled into. At Friday dinner Emily runs Christopher through an interrogation about his new Volvo, historical-home mold, and whether a family man should still ride a motorcycle, every question a stand-in for the charge she saves for Lorelai upstairs, that the settled life Christopher now offers Sherrie should have been hers. Lorelai converts her mother's accusation into a confession, telling Christopher she kept him in reserve for years and wrecked every real relationship including the one with Max as she waited, then presents this as gratitude for finally letting her go, and he throws it back, because saying the thing out loud does not settle it, it just hands him a new grievance to carry home. Lane runs the same theme in miniature, home-schooled into house arrest on a five-minute daily phone ration, mounting an elaborate secret operation to take delivery of one single, another daughter certain someone else has decided what is good for her."},
+ {code:"S02E15", title:"Lost and Found",
+  theme:"Two searches run side by side, one for a bigger place to live and one for a missing bracelet, and both of them measure the distance between what a person says they are attached to and what they actually do about it.",
+  beats:[
+   {t:"Lorelai reframes Luke's clutter as a square-footage problem", q:"You need to move."},
+   {t:"Luke cracks at 6 a.m. and declares the move", q:"I can't live like this anymore."},
+   {t:"Jess refuses to choose a place, and says why", q:"Nobody asked me if I wanted to move to Stars Hollow, but I'm here."},
+   {t:"Lorelai turns the single bed into a verdict on his life", q:"Never, ever date a guy who owns a single bed."},
+   {t:"Luke walks away from Taylor's building and his rules", q:"'Cause I'm a 2-inch-grass kind of guy."},
+   {t:"Jess sends Rory back to the one place she has not looked", q:"Things you lose are usually in front of your face."},
+   {t:"Jess converts the recovered bracelet into evidence", q:"why did it take her two weeks to figure out it was gone?"},
+   {t:"Luke answers Lorelai's push with a cashier's check", q:"So I bought the building!"}
+  ],
+  arc:"Luke's apartment stops working the week Jess finally unpacks, and Lorelai's diagnosis, that no amount of storage bins fixes a room built to be an office, sends him out with a tape measure and a teenager who will not pick a place, because picking one would mean admitting he expects to stay. Lorelai then walks Luke through an imaginary date that dead-ends at his single bed, reads the furniture as a statement about how much room he has left for another person, and he answers by buying the entire building in a blind rage, which lands him on the opposite side of a property line from Taylor, who is quietly assembling the town one lease and one regulation grass height at a time. The bracelet plot runs the same test on Rory, who tears the house apart looking for a gift she swears never leaves her wrist, and Jess, who took it, steers her to look under her own bed and then uses the two weeks it took her to notice as proof that the thing meant less than everyone says. Lorelai catches him coming out of Rory's room and names it as cruelty aimed at Rory rather than a move against Dean, and the hour closes on Luke asking whether something is going on between those two, with both adults insisting it would be great."},
+ {code:"S02E16", title:"There's the Rub",
+  theme:"A weekend engineered to force closeness between Emily and Lorelai fails at every scheduled activity, and the only thing that holds is one small act they choose to commit together.",
+  beats:[
+   {t:"Emily attaches herself to the gift she is giving away", q:"The certificate is for two."},
+   {t:"Emily names what Lorelai has been doing all day", q:"You've made it your mission to be as miserable as possible."},
+   {t:"Lorelai offers an exit from the spa menu", q:"Vicious trollop or the wide world of mung beans?"},
+   {t:"Emily reclassifies one dance as a marital offense", q:"I practically cheated on your father."},
+   {t:"Emily asks the question the whole trip was built around", q:"Why can't we have what you and Rory have?"},
+   {t:"Lorelai answers with a rule that cannot be transferred", q:"Rory and I are best friends, Mom."},
+   {t:"The stolen robe becomes the smallest workable bond", q:"it's something we did."},
+   {t:"Rory moves Paris into a new category after the cover story", q:"I'm doing this because it's what you do with friends."}
+  ],
+  arc:"Emily wins a two-person spa certificate at a DAR fundraiser and hands it to Lorelai with herself already attached to it, which sets the weekend's real subject, whether closeness can be produced by scheduling. Lorelai works the itinerary as an evasion route while Emily has every appointment rebooked as a pair, so the facial, the mud bath and the couple's massage become one argument staged in different rooms, and the escape to a steak house holds right up until a stranger asks Emily to dance and she reclassifies the entire evening as a betrayal of Richard, then bills Lorelai for engineering it. What survives is far smaller than the trip that was booked, one stolen bathrobe folded into a suitcase, which Lorelai proposes because it is achievable and shared, and Emily takes the deal only after asking why she and Lorelai cannot have what Lorelai and Rory have. Rory runs the same experiment in miniature, since Paris invites herself in, stays for dinner, invents a story about liking Jess to cover for Rory's lie to Dean, and is moved into the friend category on the strength of that single act."},
+ {code:"S02E17", title:"Dead Uncles and Vegetables",
+  theme:"Luke keeps a promise to his dead father on behalf of an uncle nobody liked, and the town he refuses to belong to answers the obligation he could not meet alone.",
+  beats:[
+   {t:"Luke asks for rooms without saying what they are for", q:"Like, nine."},
+   {t:"Every relative finds a reason to stay home", q:"Not one is coming to Louie's funeral."},
+   {t:"The re-enactors give the reason out loud", q:"We all hated Louie."},
+   {t:"The casket will not close because of what Louie is taking with him", q:"Because of the stuff."},
+   {t:"Luke solves it himself rather than cut the corner", q:"I found a casket for my 160-pound uncle and his 140 pounds of stuff."},
+   {t:"Lorelai does the arithmetic Sookie skipped", q:"50% off a load of money is still half a load of money."},
+   {t:"Lorelai names the bride Emily was actually dressing", q:"Mine."},
+   {t:"Taylor's description of Louie follows Luke to the grave", q:"That ain't me, is it?"},
+   {t:"The wake turns out not to be for the dead man", q:"Think it might be for you."}
+  ],
+  arc:"Louie Danes dies in Orlando and Luke inherits a funeral he is arranging for a man he did not like, on a promise made to his father, which turns the episode into a running test of what an obligation is worth once the affection behind it is gone. Every source of help withdraws in sequence, the nine relatives he booked rooms for all decline, the war re-enactors refuse because Louie kicked their dogs and threw tools at them, and the casket itself will not shut over the hoard Louie demanded be buried with him, so each refusal pushes the work further onto the one person who never wanted it. Luke breaks, proposes dumping the thing in an open hole, then drives to Hartford and buys a bigger casket instead, and the distinction between what he says and what he does is the whole measure of him. Lorelai runs the parallel case at the inn, pulling Sookie out of Emily's escalating wedding and forcing the real question of whose wedding Emily was designing, and the answer, hers, is the one Emily has been building toward since the mushrooms arrived. The town closes both threads by throwing a wake that is not for Louie, and Jess, who unlocked the door and went back to sleep, gets folded into Stars Hollow against his stated objection."},
+ {code:"S02E18", title:"Back in the Saddle Again",
+  theme:"Richard discovers through a granddaughter's school project that retirement has taken his purpose from him, while Dean learns from Lorelai that the harder he holds on to Rory the less of her he keeps.",
+  beats:[
+   {t:"Emily shames Richard out of his refusal", q:"I'm incredibly disappointed in you, Richard."},
+   {t:"Richard turns a class project into a corporation and hands Rory his seat", q:"Rory, you are group leader, which translates into chairman of the board which means you sit at the head of the table."},
+   {t:"Lorelai tells Dean to stop calling", q:"Let her come to you for a change."},
+   {t:"Richard insists the loss is not his own", q:"This is not my project! This is their project."},
+   {t:"The locked study produces a verdict on retirement", q:"I don't want to be retired."},
+   {t:"Lorelai reads the evening Rory chose over Dean", q:"She likes Jess, doesn't she?"}
+  ],
+  arc:"Rory needs a business advisor for the Chilton fair and Richard declines her in the first hour, and it takes Emily naming what the refusal costs to send him back to a project he then absorbs completely, moving the meetings to his dining room, adding a deluxe model to Paris's first-aid kit, and seating Rory at the head of his own table. The loss to a locker alarm that does not work exposes how much of himself he put in, since the scene he makes with the headmaster is the scene of a man whose stake is personal while he claims it is for the children, and the afternoon behind the study door ends with him announcing he will go into business for himself. Dean runs the opposite case, fourteen messages in three hours and a car washed unasked, and Lorelai coaches him toward space in the belief that it will restore what he is afraid of losing. Michel's collapse over a mother who now asks questions shows what distance protects, and the episode closes on the cost of the advice working, as Rory declines to call Dean and heads to Luke's, which Lorelai reads correctly."},
+ {code:"S02E19", title:"Teach Me Tonight",
+  theme:"Luke enlists Rory to pull Jess back toward school, and when the tutoring night ends in a wrecked car and a fractured wrist, Lorelai turns the whole year of Luke's guardianship into the charge.",
+  beats:[
+   {t:"Luke asks Rory to tutor his failing nephew", q:"I was wondering if you could tutor Jess."},
+   {t:"Luke explains to a wary Lorelai why it has to be Rory", q:"He needs to see somebody he respects doing what he should be doing."},
+   {t:"On the ice cream run Jess tells Rory his plan", q:"I'm never going to college."},
+   {t:"Lorelai finds Luke after the hospital and assigns the blame", q:"That little punk nephew of yours almost killed my kid tonight."},
+   {t:"Christopher drives through the night and sets his priorities out loud", q:"Rory comes first."},
+   {t:"The movie night crowd hears where Jess went", q:"All I know is that Jess is gone."}
+  ],
+  arc:"The episode opens on Taylor handing Lorelai the movie-night crown in a fit of pique, and the comic trap of that gift, a distributor list of titles nobody has heard of, runs beside a heavier handoff as Luke leaves a principal's office with a flunking nephew and asks Rory to carry him. Lorelai registers her doubt in the kitchen and yields to Luke's reasoning that Jess will only follow someone he respects, and the night bears out both of them, since Jess answers a Clash lyric for a grade, lends Rory a punk history, and admits in the car that he has already written off college. The swerve that puts Rory in a cast converts Lorelai's unspoken worry into an accusation, and Luke's answer that he had an obligation to his nephew meets her answer that he had one to the town, to her, and to Rory, until both walk off cursing. Christopher arrives before dawn with the apology their last fight lacked, and by the time Kirk's short film plays before The Yearling, Luke has put Jess on a bus to his mother, which reaches Lorelai as town gossip."},
+ {code:"S02E20", title:"Help Wanted",
+  theme:"With Jess gone and Luke off fishing, everyone around Rory settles the accident by pinning it on the absent boy, and Rory spends the week pushing back until she claims her share of the blame out loud at her grandfather's launch party.",
+  beats:[
+   {t:"Lorelai waves off her fight with Luke on the way to a closed diner", q:"It's over, we're fine."},
+   {t:"Rory reports how Dean took the letter about the accident", q:"Instead, he gave me his corn."},
+   {t:"Richard stalls on hiring anyone to replace Margie", q:"A man's secretary sets the tone for the entire enterprise."},
+   {t:"Lane walks out of the new music store with a calling", q:"I'm gonna be a drummer!"},
+   {t:"In the hall at the party Lorelai refuses to share out the blame", q:"When my daughter comes home broken I get to hate the guy who broke her."},
+   {t:"Luke returns and Rory tells him what nobody else will hear", q:"It wasn't his fault."}
+  ],
+  arc:"The episode splits the Gilmores between two rebuilding jobs, as Lorelai spends her afternoons unpacking Richard's new consulting office and Rory spends hers absorbing the town's sympathy for a cast. Richard's retirement turns into the Gilmore Group, and his dependence on a departed secretary shows in a supply store tour and in his refusal to hire the qualified Karen, a stall that ends only when Lorelai says she has her own job and he takes it as a rebuke. Taylor, Babette, and Dean each forgive Rory by treating Jess as the whole cause, and the pattern breaks at the party when Emily learns of the accident and Rory declares she urged Jess to keep driving, which sends mother and daughter into a hallway fight that settles nothing. Lane bargains her way onto a drum kit on Bible group nights, and the week closes at Luke's counter, where Rory gives Luke the verdict the town withheld and he agrees with it."},
+ {code:"S02E21", title:"Lorelai's Graduation Day",
+  theme:"Lorelai gets a commencement of her own at last, and the parents she refused to invite arrive with a film crew while the one guest she actually wanted is on a bus back from New York.",
+  beats:[
+   {t:"Lorelai sums up three years of night classes", q:"I despise academics."},
+   {t:"She explains to Rory why Emily and Richard stay off the list", q:"I humiliated them."},
+   {t:"Rory takes the invitation to Hartford behind her mother's back", q:"Mom doesn't know I'm here."},
+   {t:"Emily turns a community college auditorium into a shoot", q:"Raul is my cameraman."},
+   {t:"Rory tells Jess in Washington Square why she cut school", q:"Because you didn't say goodbye."},
+   {t:"Lorelai names the empty seat rather than the excuse", q:"My best friend should have been there."}
+  ],
+  arc:"Finals week leaves Lorelai declaring her whole education worthless, and Rory talks her into walking at the ceremony anyway, right up to the moment the guest list reaches Hartford and Lorelai closes it, telling the story of the pregnancy that cost her Vassar and, she believes, any chance of being forgiven. Rory takes the tickets to her grandparents herself, presents the case like a deposition with terms attached, and leaves Emily and Richard to decide in private, which they do by arriving hours early with a cameraman, a sound man, and a corsage delivered by a runner. The comedy of that entrance runs against the graduating class deciding Lorelai is the rich girl they came here to resent, and she answers that she takes nothing from her parents except a corsage and her daughter's tuition. Rory meanwhile boards a bus to New York on an impulse she cannot explain, eats a hot dog with Jess, finds a signed Go-Go's record as the perfect gift, and loses both the record and the ceremony to a closed interstate, so the night ends with Lorelai refusing the elaborate penance list and telling her that the trip means something Rory is not ready to hear."}
+ ,{code:"S02E22", title:"I Can't Get Started",
+  theme:"The Season 2 finale stages Sookie's wedding as the frame for three reunions, and each one Lorelai wanted most is taken back before the ceremony is over.",
+  beats:[
+   {t:"Emily reads a week's notice as an insult", q:"So this is a pity invite?"},
+   {t:"Lorelai finds Luke polite and unreachable after the accident", q:"I want Luke back."},
+   {t:"Paris recruits Rory as her running mate for likeability", q:"You will soften my image."},
+   {t:"Sookie melts down over pink icing the night before", q:"I want number one to last."},
+   {t:"Jess turns up in the apartment over the diner", q:"I want to come back."},
+   {t:"Christopher takes the phone call at the wedding", q:"Sherry's pregnant."}
+  ],
+  arc:"Lorelai carries a late wedding invitation to Hartford and watches Emily turn it into a grievance, while at the diner Luke answers her apology with coffee, doughnuts, and a courtesy that tells her the friendship has cooled since Rory's hospital visit. Paris learns from her own poll that Chilton trusts her competence and dislikes her, so she drafts Rory onto the ticket with the threat of a Harvard rejection, and Rory campaigns while hoping to lose a summer in a Washington dorm with her. Christopher arrives for the cast removal, admits he and Sherry are separating, and on the eve of the wedding he and Lorelai sleep together and agree to try for the family they never had, which Lorelai confides to a panicking Sookie in her wedding dress. The next day Emily and Richard attend to prove they can rise above an insult, Jess talks his way back into Luke's apartment and finds Rory at the reception, and Christopher leaves before the vows because Sherry is pregnant, so Lorelai walks down the aisle for Sookie with the picture she waited years for gone and Rory decides on Washington."}
+
+];
+
+const EPS3 = [
+ {code:"S03E01", title:"Those Lazy-Hazy-Crazy Days",
+  theme:"The premiere brings everyone home from the summer with the damage intact, and mother and daughter spend the same day learning that the person they wanted has gone to somebody else.",
+  beats:[
+   {t:"A dream Lorelai asks to have re-analyzed", q:"you are secretly in love with Luke"},
+   {t:"Paris falls apart before a first date in Washington", q:"not genetically set up for it."},
+   {t:"Rory admits what happened at Sookie's wedding", q:"I kissed him."},
+   {t:"Lorelai draws the line at the festival", q:"kissing another guy is not being with Dean"},
+   {t:"Richard breaks with Emily over whose family Christopher owes", q:"Lorelai had her chance for a family, she walked away from it."},
+   {t:"Luke reopens the diner for a stranger named Mimi", q:"first time customers are on the house."}
+  ],
+  arc:"Lorelai opens the season on a dream in which Luke cooks her breakfast and talks to her pregnant stomach, and when Rory calls it love from a Washington dorm room, Lorelai rejects the reading and asks for another one. Sookie spends the episode repainting and refurnishing the house she now shares with Jackson until he is frightened of his own living room, a domestic comedy running underneath the question Lorelai cannot answer about what a shared life is supposed to look like. At the End of Summer Madness festival Rory sees Jess with another girl, confesses the kiss she has been carrying since the wedding, and takes her mother's verdict that Dean is being treated badly, then settles the thing the way she settles everything, with a list. The Friday dinner splits Richard from Emily over whether Christopher belongs to Sherry's baby or to Rory, and the night ends at the closed diner, where Lorelai walks in as a first-time customer named Mimi so that she and Luke can make up without either of them having to apologize."}
+,
+ {code:"S03E02", title:"Haunted Leg",
+  theme:"The episode puts both Gilmores in front of people who have already decided what their lives ought to look like, and it ends with Rory refusing for the first time to be understanding about it.",
+  beats:[
+   {t:"Lorelai wants a better illness than a head cold", q:"my leg is haunted."},
+   {t:"Kirk asks at the inn, with a two week buffer for the virus", q:"I was just wondering if you would like to have dinner with me?"},
+   {t:"Francie corners Rory in the bathroom about Paris", q:"I want you to go back to Margaret Thatcher and tell her to play ball."},
+   {t:"Emily's lunch at Luke's turns out to have an agenda", q:"A family life doesn't just happen, Lorelai."},
+   {t:"Rory stops extending her father the understanding", q:"Go be somebody else's dad!"},
+   {t:"Jess makes Rory say out loud where she stands", q:"Are you still with Dean?"}
+  ],
+  arc:"Lorelai spends the week nursing a cold and a mouse at the inn, and the running joke about wanting a more impressive illness sets up an episode where every small annoyance is covering something larger. Kirk asks her to dinner with two weeks of lead time for the virus to clear, and she turns him down with the actual reason, that she is not over the shock of what happened with Christopher, which is the first time she says it to anyone. At Chilton, Rory gets pulled into a bathroom by Francie and taught how student government really runs, then goes back and talks Paris into trading the hemline vote for goodwill, the first piece of political brokering she has ever done. Emily's lunch at Luke's turns into an ambush about Christopher, and when Christopher shows up at Friday dinner because forty-five calls have gone unreturned, Rory drops the understanding she has offered him her whole life and sends him upstairs alone, leaving Lorelai to tell him that the situation he built is the situation they are standing in."}
+,
+ {code:"S03E03", title:"Application Anxiety",
+  theme:"The Harvard application turns every adult's anxiety into Rory's, and the episode keeps asking whose dream the Ivy League actually is, the child's or the parents'.",
+  beats:[
+   {t:"The college seminar Rory organized condemns her essay topic", q:"If I read one more over-adulating piece of prose about Hillary Clinton and her profound influence"},
+   {t:"Mother and daughter panic in Emily's hallway", q:"Yes, I'm freaking out!"},
+   {t:"Taylor takes Luke's empty space by town vote", q:"I'm talking about eminent domain, my friend."},
+   {t:"Carol, the Springsteen daughter in the bunny suit, names the family track", q:"If you like being on the conveyor belt, then good for you."},
+   {t:"Dean asks what happens to them next year", q:"When you leave for Harvard do we break up?"},
+   {t:"Darren's voicemail answers the week's fear", q:"Rory, you are tailor-made for Harvard."}
+  ],
+  arc:"The application arrives while Lorelai and Rory are watching The Brady Bunch Variety Hour, and they agree on the spot to tell people Rory was reading Dead Souls, the first small performance in an episode about presenting yourself to judges. The Chilton seminar Rory and Paris set up hears a Princeton admissions officer dismiss exactly the Hillary Clinton essay Rory planned, then Emily's magazine statistics finish the job, and Lorelai, who came in as the calm one, ends up panicking louder than her daughter. The alumni lunch in Westport is a house of dinner-table quizzes and Harvard pennants, and upstairs Rory meets Carol, the daughter who got off the conveyor belt, which forces her to insist the dream is her own and to thank her mother for never putting her on it. Around the Harvard plot Taylor seizes Luke's empty storefront by town vote for a soda shop, Lane meets Dave Rygalski through her band ad, and Dean asks outright whether Harvard ends them, so when Darren's voicemail says pack your bags, Rory spends the afternoon with her mother and nobody picks up a pen."}
+,
+ {code:"S03E04", title:"One's Got Class and the Other One Dyes",
+  theme:"Two public statements go wrong in the same afternoon, Lane's purple hair and Lorelai's career talk, and both women find that the story people want from them is the one they did not come to tell.",
+  beats:[
+   {t:"The band outgrows whisper-volume practice and Dave refuses to lose his drummer", q:"There's no way you're gonna become our Pete Best."},
+   {t:"Mrs. Kim answers Lane's stammered pitch with a stack of church colleges", q:"Every one in this pile approved by me and Reverend Melmin."},
+   {t:"Lane chooses hair dye as the statement she cannot take back", q:"Nothing's gonna change unless I change it, and now's the time."},
+   {t:"The Stars Hollow High class ignores the inn and asks about Rory", q:"Didn't you get pregnant when you were sixteen?"},
+   {t:"The PTA mothers ambush Lorelai in the street", q:"Sounds like you just flaunted your mistakes."},
+   {t:"Jess turns Luke's lecture about Shane back on Luke", q:"I'm not playing Golden Retriever, hoping one day she'll turn around and fall in my arms."}
+  ],
+  arc:"Dave, Zach and Brian cannot play above a murmur in the music shop, so the band plans a Hartford rehearsal space and Lane is left needing three blocks of time a week that her mother will never grant. When she finally tries to ask, Mrs. Kim hands her twenty-three pre-approved religious college applications, and Lane answers with purple hair, a statement made in bleach and Salad Water that confesses her love for Dave along the way and then goes back to black the moment her mother's car pulls in. Lorelai talks Luke into sharing the career-day slot at their old high school, where a trophy case photo of Butch Danes and Sissy undoes him before he speaks, and the students steer her talk from running an inn to her pregnancy at sixteen and whether Rory would exist with different timing. Debbie Fincher's gang of mothers then accuses her of advertising teen pregnancy, and at the apartment Luke's lecture about the girl hidden in Jess's closet ends with Jess naming Luke's own hopeless waiting on Lorelai, the one charge Luke cannot answer."}
+,
+ {code:"S03E05", title:"Eight O'Clock at the Oasis",
+  theme:"Every favor in the episode arrives with strings the giver never mentioned, and Lorelai learns that a date her mother helped arrange belongs partly to her mother's world, down to who gets poured the first cup of tea.",
+  beats:[
+   {t:"Dwight the new neighbor gives Lorelai the tour of his lawn and his divorce", q:"Welcome to The Oasis!"},
+   {t:"Lorelai finally asks Emily at Friday dinner for paddle seventeen", q:"Peyton and I kind of hit it off and I wondered if you possibly had his number"},
+   {t:"Emily hears that the date was a dud and refuses to let the concert go", q:"You are extremely judgmental, Lorelai."},
+   {t:"Richard explains the DAR tea order behind his wife's anger", q:"in her world it is very, very important that she have the first cup of tea."},
+   {t:"Doris calls the oasis and reveals whose board games they are", q:"I want my board games back!"},
+   {t:"Lorelai apologizes to Emily in the kitchen and offers to go anyway", q:"if you really want me to, I will go to the Bowie concert with him."}
+  ],
+  arc:"Dwight moves into Beenie Morrison's old place, calls it his oasis from a terrible marriage, and talks Lorelai into watering his new lawn, then adds African violets, then a third daily soaking, each favor growing past what she agreed to. At the Society Matrons League auction Emily is hailed as the Cobra, and Lorelai trades Merlot jokes with a man holding paddle seventeen, then has to ask her mother over flavorless pork for his name and number, which Emily treats as a small triumph. The date with Peyton Sanders is two and a half hours about a Jaguar and a wine list, and when Lorelai cancels the Bowie concert, Emily calls her judgmental and Richard phones to explain that Peyton's mother could cost Emily her place at the DAR tea table. The Oasis turns out to be a runaway husband's hideout when his wife Doris leaves a message demanding the games back, Jess fixes the stuck spigot for a soaked Rory just as Dean's page comes in, and Lorelai ends the episode apologizing for forgetting that her date was never only hers, offering the concert as the price."},
+ {code:"S03E06", title:"Take the Deviled Eggs",
+  theme:"Everyone in the episode is keeping a quiet account of someone else, and Lorelai hears at a Boston baby shower that the weekend she spent with Christopher is the reason he went home to Sherry a better father.",
+  beats:[
+   {t:"Jess explains the car to Luke, down to the seller", q:"I saved up my pennies and I bought the car from Gypsy."},
+   {t:"Rory admits she has been talking to Christopher for a month", q:"I just kind of felt like I was betraying you or something."},
+   {t:"Sherry thanks Lorelai over potato salad for the man Christopher became", q:"He came back a changed man."},
+   {t:"Lorelai melts down in the bathroom after rearranging the medicine cabinet", q:"I just wanna rearrange her whole house."},
+   {t:"Luke finally learns where the car money came from", q:"I move stock around on a forklift."},
+   {t:"Lorelai and Rory throw the party leftovers at Jess car", q:"It made a good sound, too."}
+  ],
+  arc:"Jess turns up behind the wheel of a car bought from Gypsy, and Luke spends the episode tracing the money, first through the paperwork, then through the ten dollars missing from the register, then through a search of Jess's room that Jess catches, until he admits to twelve hours a week on a Wal-Mart forklift, vest and all. Sherry's invitation brings out that Rory has been emailing her father, and Lorelai drives her to Boston for the shower, where Sherry pulls her inside, shows off the alphabetized CDs and the scheduled Cesarean, and plans Rory's Harvard weekends two point seven miles from her door. Sherry's gratitude is the blow: she credits the wedding weekend for Christopher's return as a devoted father, and Lorelai takes it quietly, then goes to pieces in the bathroom with Rory over the name G.G. and the brunch jazz. Driving home with a plate of deviled eggs Sherry insisted they take, Lorelai lets Rory talk her into egging Jess's car for catharsis, while in the square the Town Loner unrolls a banner nobody reads and the protest Taylor tried to ban goes ahead anyway."},
+ {code:"S03E07", title:"They Shoot Gilmores, Don't They?",
+  theme:"A twenty-four hour dance marathon forces every couple to stay touching and keep moving, and the strain exposes who is actually holding on to whom until Dean says out loud what the whole town has watched for months.",
+  beats:[
+   {t:"Lorelai recruits Rory as her marathon partner", q:"Plus, we got the whole mother/daughter gimmick going for us."},
+   {t:"Jamie returns from Princeton and takes Paris back", q:"However, not talking to you has turned out to be impossible."},
+   {t:"Sookie confesses she half agreed to Jackson's plan", q:"All of a sudden, completely out of the blue, Jackson announces he wants four in four."},
+   {t:"Luke and Lorelai talk about children over a broken heel", q:"if I ever happen to meet the right person, another kid might be nice."},
+   {t:"Dean breaks up with Rory in front of the gym", q:"Everyone can see, Rory! Everyone."},
+   {t:"Rory refuses to let her mother call Dean a jerk", q:"He was right about all of it."}
+  ],
+  arc:"Stanley Appleman's wife sees a photo of Lorelai and pulls him from the marathon, so Lorelai talks Rory out of a weekend of watching with Dean, and Rory buys the Saturday by asking Paris to postpone the Franklin, which Paris allows because Jamie has turned up from Princeton and Paris will not let go of his hand. On the floor the rules are simple, stay touching and keep moving, and the couples around Lorelai buckle under them: Sookie's half-yes to four kids in four years sends Jackson storming off the floor, and while Lorelai leaves Rory in Dean's care to dance and Luke glues her sixty-year-old heel back together at the diner he and Lorelai trade careful answers about whether either of them would want a child with the right person. Rory spends her ten-minute breaks sniping at Jess, who sits in front of the dance floor with Shane, and when she tells him to leave, Dean answers for her that he is no longer her boyfriend and lays out, in front of everyone, what the whole room has seen. Rory will not let her mother call him a jerk and agrees he was right about all of it; then she says she has something to take care of and leaves the floor, leaving Lorelai alone on the floor as Kirk and Donna Delain take the trophy a fifth straight year."},
+ {code:"S03E08", title:"Let the Games Begin",
+  theme:"A day trip to Yale that Richard sells as nostalgia turns out to be a planned admissions interview, and each adult who tries to steer Rory, Luke with his door rules and Richard with his alumnus leverage, finds that she will go along with almost anything she is asked to do and resents being set up for it.",
+  beats:[
+   {t:"Luke walks in on Rory and Jess and lays down house rules", q:"All right, first off, when she is up here, that door stays open."},
+   {t:"Richard invites Rory to see Yale", q:"I certainly would love to show it to you."},
+   {t:"Richard springs the admissions interview", q:"His name is Harris Fellows, and he just happens to be the Dean of Admissions."},
+   {t:"Richard and Lorelai fight outside the building", q:"Her future is more important than your pride."},
+   {t:"Rory tells Richard what the ambush cost her", q:"I like to be prepared."},
+   {t:"Rory climbs a tree to apologize to Dean", q:"I really did love you."}
+  ],
+  arc:"Rory and Jess are an open item after the dance, and when Luke walks in on the two of them standing a foot apart in his apartment he lays down house rules, an open door, separate seats, home by nine on weekdays, which Jess gets around the same night with a car-part errand that leaves him and Rory alone long enough to kiss. At dinner over Emily's walnut salads Richard invites Rory to Yale while he attends a Whiffenpoof reunion, and Lorelai calls it manipulation but goes along; on campus the trip goes well, with Emily outing Richard as a gallery lothario who claims he was engaged to Linny Lott when she turned up in a blue dress, until Richard walks Rory into the office of Harris Fellows, Yale's Dean of Admissions, for an interview he arranged in advance. Outside, Lorelai accuses her father of lying to all of them, Richard tells her she knows nothing about college because she never went, and Emily sends her to the cab with the point that Yale would let Rory live at home, while Rory, coming out of an interview where she named Gloria Estefan as her role model, tells Richard she would have done it if he had only asked and would have done it right. That night Rory climbs a tree outside Dean's house to apologize for how she treated him, then tells Lorelai the evening was eventful and saves the details for tomorrow."},
+ {code:"S03E09", title:"A Deep-Fried Korean Thanksgiving",
+  theme:"Four Thanksgiving dinners in one day give every household a chance to show how it hides what it does not want seen, and the last table is the one where a hidden college application comes out in front of the guests.",
+  beats:[
+   {t:"Emily comes to the inn to summon Lorelai to Thanksgiving", q:"I want you there, Lorelai."},
+   {t:"The Gilmores find out that skipping Luke's would hurt him", q:"We disappointed Luke."},
+   {t:"Rory pulls away from Jess's kiss outside the market", q:"We shouldn't flaunt it."},
+   {t:"Lane's Dave plays hymns at the Kims' table under cover", q:"This bible belongs to God, but is being used by Dave Rygalski."},
+   {t:"Emily follows Lorelai outside after the Yale reveal", q:"You hate us that much."},
+   {t:"Dean stops avoiding Jess on the street", q:"This is my town"}
+  ],
+  arc:"Emily drives to the inn to end weeks of dodged calls and claims Thanksgiving, which turns the holiday into a four-stop schedule of the Kims, Sookie, Luke and Hartford, and the Gilmores add Luke back the moment they see that being dropped actually disappoints him. Each stop runs on concealment: Lane passes off her bandmate Dave as a Christian guitarist her mother hired to play five hours of hymns, Rory asks Jess to keep their kissing out of sight of Doose's and the town, and Sookie loses her turkey to Jackson's vat of peanut oil. In Hartford a dinner guest's polite questions about safety schools drag out that Rory applied to Yale, and Lorelai accuses her parents of working on Rory behind her back while the French guests watch, until Emily tells her outside that she cannot let Rory have one piece of their lives. The night closes on Dean squaring up to Jess and announcing that he is done hiding in his own town, so the episode ends with three secrets in the open and nothing resolved about any of them."},
+ {code:"S03E10", title:"That'll Do, Pig",
+  theme:"Two households take an outsider's judgment for a verdict: Emily is ruled by her mother-in-law's approval at the Gilmore table, and Rory brings Dean back as a friend and Jess reads him as a rival.",
+  beats:[
+   {t:"Dean comes back with a four-year college plan and an offer", q:"Is there a way we could be friends?"},
+   {t:"Trix sends Lorelai away from the carnival and into the grown-up dinner", q:"Dinner will be for the grown-ups."},
+   {t:"Lorelai teaches Emily to laugh at Trix's disapproval", q:"You just need a system, a new mindset."},
+   {t:"Rory turns on Francie after the hijacked council vote", q:"All bets are off."},
+   {t:"Jess tells Dean what the friendship is really for", q:"Rory and I are just friends, just like you and Rory were just friends."},
+   {t:"Emily makes the green beans outlast Trix's twelve-minute courses", q:"Fine, we will wait."}
+  ],
+  arc:"Dean brings back Rory's books and CDs, then over pie at Weston's tells her he applied to a four-year college because of her, and asks if they can be friends, which she accepts without telling Jess. Richard's sixtieth birthday brings his mother Trix in unannounced from London, and her steady correction of Emily, from the foyer to the guest room to the gifts kept in the basement, sends Emily into a panic over Lorelai's furniture until Lorelai hands her the one tool that ever worked against Emily herself, which is to find the disapproval funny. At Chilton, Francie calls the meeting Paris cancelled and pushes the prom to the Wadsworth Mansion, and Rory tells her the truce is over. The carnival puts Rory, Jess, Dean and Clara on one midway, Jess calls the friendship a pity move to Dean's face, and at the inn Emily stretches four green beans across Trix's schedule while Trix announces she is moving back to Hartford, so Emily's one small win of the night arrives with her biggest critic about to live close by."},
+ {code:"S03E11", title:"I Solemnly Swear",
+  theme:"Three households take one statement as the whole verdict: Emily turns Lorelai's deposition into an indictment, Paris reads Francie's photographs as proof, and Joe hears a plan to bust a friend's chops as a date.",
+  beats:[
+   {t:"Emily fires Gerta for clomping and gets sued for wrongful termination", q:"She was not performing her duties as I wished them to be performed."},
+   {t:"Emily argues that paying top dollar makes exactness a purchase, not a flaw", q:"Let someone else pay first class and ride in steerage, not me."},
+   {t:"Lorelai says no three times and is moved by the one word that still works", q:"Lorelai, there is something called family loyalty."},
+   {t:"Francie offers a truce in the parking garage so the photographs will mean something", q:"I wanna stop this war, this vendetta, this Sicilian thing."},
+   {t:"Paris takes the planted pictures as the entire case and fences the verdict", q:"I know you two have been meeting behind my back."},
+   {t:"Jackson hears the apology dinner as a confession before Sookie can finish it", q:"You ruined Creedence for me!"}
+  ],
+  arc:"Emily fires a maid named Gerta for walking loudly, gets sued for wrongful termination, and presses Lorelai into a deposition under the heading of family loyalty, then reads the transcript back to her over a dinner kept warm, sarcastic sure and Ben Hur reference included. Lorelai and Sookie pay seventy-five dollars for a two-hour inn course that teaches them nothing and ends in a real estate pitch, and the one thing they carry home is Sookie's old Deerhill friend Joe, who has taken their plan to harass a former coworker as the date he spent ten years not asking for. Sookie cooks Jackson every dish he loves with Creedence playing, and he hears the apology as a confession before she can explain that the flirting was accidental. At Chilton, Francie proposes a truce in the parking garage, photographs it, feeds the pictures to Paris as something shoved into her own locker, and Paris delivers her verdict through a fencing drill, which leaves Rory eating lunch with Louise and Madeline and Lorelai taking a Saturday coffee date from Alex, who says the word out loud so nobody has to guess."},
+ {code:"S03E12", title:"Lorelai Out of Water",
+  theme:"A small lie told to be pleasant hardens into an identity, and the hour measures what each woman will pay to keep up a version of herself somebody else already believes.",
+  beats:[
+   {t:"Sookie hears Lorelai claim she fishes and prices the claim immediately", q:"I also bodysurf and walk on the moon without a space suit."},
+   {t:"Sookie explains the frog collection as a kindness she never took back", q:"He has the best time buying them for me, so I just let him buy them."},
+   {t:"Luke answers the library books by renting her a trout pool instead of a lake", q:"Gotta crawl before you can walk."},
+   {t:"Luke gets the real reason out of her and hands over his own gear anyway", q:"You can borrow one of mine if you want."},
+   {t:"Paris turns student council into a tribunal and reads the charges aloud", q:"I hold in my hand evidence accusing one Rory Gilmore of committing high crimes and misdemeanors."},
+   {t:"Lane counts the Kim marriages and finds the supply of weddings running out", q:"They mate for life, like the loons."}
+  ],
+  arc:"Lorelai tells Alex she likes fishing because the honest answer at a coffee tasting would have been cold, wet and smelly, and by the time Sookie lays out the frog figurines she has accepted for a decade, the lie has already booked a Sunday. She studies for the date out of library books with Rory, casts a corked hook into a rented trout pool she names after fourth graders, and walks away with a borrowed pole and tackle box once Luke pulls the real reason out of her, which is the quietest thing in the episode. At Chilton the pretending turns adversarial, with Paris reading out espionage and treason at a student council meeting and Headmaster Charleston ending the feud by naming the one thing both girls actually want, a Harvard recommendation he says he would hate to have to write twice. Lane runs the longest negotiation of the three, trading dress approval, chaperone approval and four family dinners for a maybe on the prom, and spends the last Kim wedding doing the bride's makeup with Rory, admitting she does not like Jess, and noticing there are almost no cousins left to marry."},
+ {code:"S03E13", title:"Dear Emily and Richard",
+  theme:"A flashback episode that runs Sherry's labor alongside 1984, when four parents in a Hartford living room settled what Lorelai's pregnancy would cost and never put the question to her.",
+  beats:[
+   {t:"Richard forbids the backpacking plan at Friday dinner", q:"It's not safe. I forbid it."},
+   {t:"Christopher drafts the note that gives the episode its title", q:"Dear Richard and Emily, I don't belong here, I'm going somewhere else"},
+   {t:"The coming out dress stops zipping before the portrait", q:"It's not the zipper, it's the dress."},
+   {t:"Richard assigns the two of them a life they are not asked about", q:"They will get married, they will live here, and Christopher will go to work at my company."},
+   {t:"Rory, left alone at the hospital with Sherry, calls for her mother", q:"I need my Mommy, and dammit, I don't care who knows it!"},
+   {t:"Christopher's first thought at the nursery glass", q:"So, I guess we should get married."}
+  ],
+  arc:"Emily mails over her own hotel guides after Friday dinner shuts down the hostel plan, and the books open the episode's flashbacks to 1984, where a sixteen year old Lorelai and Christopher are planning the same trip out of the Gilmore liquor cabinet. The pregnancy surfaces through a dress that will not zip for a coming out portrait, and Emily's first move is to blame the dressmaker and book the photographer for the following week. The parents' conference has Straub arguing that Christopher should be spared, Francine asking whether there are places that take girls like that, and Richard closing it with a marriage, a house and a job at his company, all of it decided within earshot of the two people it was about. In the present Rory is left alone at Boston Memorial with a woman whose friends all went back to work, Lorelai drives up and finds her Xeroxing status reports for a stranger in labor, and the night ends with Christopher offering marriage at the nursery glass and Lorelai answering her own dinner question by driving to Hartford to install a DVD player for her mother."},
+ {code:"S03E14", title:"Swan Song",
+  theme:"The episode runs on private systems, the timed routes and ten minute patrols and agreed signals people build so they never have to say the thing out loud.",
+  beats:[
+   {t:"Emily proves she was told nothing by counting the Friday dinners", q:"You very abruptly stopped mentioning him eleven dinners ago"},
+   {t:"Lorelai names the maneuver that got Jess invited to Hartford", q:"She's like Lyndon Johnson with the Senate, effortless."},
+   {t:"Luke's system for policing his own apartment", q:"I go up there every ten minutes pretending to get something"},
+   {t:"Jess arrives half an hour late with a black eye and closes the subject", q:"It's a long story, I don't wanna bore you."},
+   {t:"Rory reads Dean into the silence and the dinner collapses", q:"In that whole speech, I didn't hear you deny it."},
+   {t:"The real cause, given only to Luke in the diner", q:"I was attacked by a swan."}
+  ],
+  arc:"Emily opens with eleven counted dinners of evidence that nobody tells her anything, converts the grievance into an invitation, and Lorelai watches the whole move land from across the table. The systems pile up from there: Lane and Dave route around Mrs. Kim with a timed walk down Peach and a fence behind Al's, Luke patrols his own apartment on a ten minute clock with a box of props to keep Rory and Jess honest, and the Gilmores keep agreeing they need a signal without ever inventing one. Jess turns up in Hartford half an hour late with a black eye he will not account for, Rory fills the silence with Dean, and the night ends with Jess walking out and Rory sleeping in her grandmother's guest room, with Emily the only person at that table who behaved well. The eye was a swan at Larson's Dock, a story Jess surrenders only under Luke's refusal to let him leave, and Luke's real lesson is that the family comes in the package with the girl. The last scene is the one system that gets repaired instead of exposed, Rory walking back her claim that she never thinks about it and asking her mother to be told just before."}
+];
+
+function clean(s){return (s||"").replace(/[—–]/g,", ").replace(/…|\.\.\./g,",").replace(/ ,/g,",");}
+document.getElementById('palette').innerHTML = "<b>Palette: The Grand Budapest Hotel</b> (Wes Anderson). Built 2026-06-11.";
+
+function dotGrid(prefix, doneSet){
+  let g="";
+  for(let e=1;e<=22;e++){
+    const code = prefix+String(e).padStart(2,"0");
+    g += `<div class="ep-dot ${doneSet.has(code)?'done':'pend'}" title="${code}">${e}</div>`;
+  }
+  return g;
+}
+function renderEps(list){
+  return list.map(e=>`
+  <div class="ep">
+    <div class="code">${e.code}</div>
+    <div class="title">${clean(e.title)}</div>
+    <div class="theme">${clean(e.theme)}</div>
+    <span class="lab">Scene beats</span>
+    <ul class="beats">${e.beats.map(b=>`<li>${clean(b.t)}: <q>"${clean(b.q)}"</q></li>`).join('')}</ul>
+    <span class="lab">Arcs</span>
+    <p class="arc">${clean(e.arc)}</p>
+  </div>`).join('');
+}
+
+const done1 = new Set(EPS.map(e=>e.code));
+const done2 = new Set(EPS2.map(e=>e.code));
+document.getElementById('grid').innerHTML = dotGrid("S01E", done1);
+document.getElementById('grid2').innerHTML = dotGrid("S02E", done2);
+document.getElementById('episodes').innerHTML = renderEps(EPS);
+document.getElementById('episodes-s2').innerHTML = renderEps(EPS2);
+const done3 = new Set(EPS3.map(e=>e.code));
+document.getElementById('grid3').innerHTML = dotGrid("S03E", done3);
+document.getElementById('episodes-s3').innerHTML = renderEps(EPS3);
+</script>
+
+</body>
+</html>
