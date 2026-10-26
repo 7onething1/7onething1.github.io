@@ -60,28 +60,28 @@
 <body><div class="wrap">
 <header>
 <h1>Automation Audit and Change Report</h1>
-<p class="sub">A continuation controller that works, nine defects found by testing it,
-and one permission click standing between it and running unattended. 26 October 2026.</p>
+<p class="sub">A continuation controller that works, ten defects found by testing it,
+and a queue it finished on its own standing between it and running unattended. 26 October 2026.</p>
 <div class="meta">
 <b>Machine:</b> Jacks-iMac &middot; <b>Cost of everything below:</b> $0 &middot;
 <b>Code written:</b> 1,596 lines across two skills &middot;
-<b>Defects found in my own work:</b> 9 &middot;
+<b>Defects found in my own work:</b> 10 &middot;
 <b>Improvements reverted after testing:</b> 1
 </div>
 </header>
-<nav><h2>Contents</h2><ol><li><a href="#ask">1. The seven asks, and where each one stands</a></li><li><a href="#controller">2. The continuation controller</a></li><li><a href="#audit">3. The 23 October page against the actual machine</a></li><li><a href="#changed">4. What actually changed today, all of it free</a></li><li><a href="#lyrics">5. The lyrics problem</a></li><li><a href="#bugs">6. Nine defects in my own work, found by testing it</a></li><li><a href="#second">7. Second pass, run after the work was finished</a></li><li><a href="#remaining">8. What is unfinished, and why</a></li></ol></nav>
+<nav><h2>Contents</h2><ol><li><a href="#ask">1. The seven asks, and where each one stands</a></li><li><a href="#controller">2. The continuation controller</a></li><li><a href="#audit">3. The 23 October page against the actual machine</a></li><li><a href="#changed">4. What actually changed today, all of it free</a></li><li><a href="#lyrics">5. The lyrics problem</a></li><li><a href="#beforeafter">5. Before and after, where it is measurable</a></li><li><a href="#rigor">6. The rigor dial, read from Game-Studios</a></li><li><a href="#bugs">7. Ten defects in my own work, found by testing it</a></li><li><a href="#second">8. Second pass, run after the work was finished</a></li><li><a href="#remaining">9. What is unfinished, and why</a></li></ol></nav>
 <h2 class="sec" id="ask">1. The seven asks, and where each one stands</h2>
 <p class="secnote">Status of every numbered item in the brief, with the evidence that
 backs it. An item with no evidence beside it is marked unfinished rather than done.</p>
 <table>
 <tr><th>#</th><th>Ask</th><th>Status</th><th>Evidence</th></tr>
-<tr><td class="n">1</td><td>Five-minute automatic continuation</td><td class="n">Built and tested, one OS consent pending</td><td>1,103 lines across 4 modules, 23 logged events, 4 checkpoints, a live recovery and a live migration</td></tr>
+<tr><td class="n">1</td><td>Five-minute automatic continuation</td><td class="n"><b>Running unattended</b></td><td>20 launchd runs, last exit code 0. It sent 3 nudges, closed 5 queue steps and marked the work complete with no one at the keyboard.</td></tr>
 <tr><td class="n">2</td><td>Revisit the X.com conversation against reality</td><td class="n">Done</td><td>All 8 recommendations checked against this machine, 4 of 5 free actions were never implemented</td></tr>
-<tr><td class="n">3</td><td>Verify and improve, not box ticking</td><td class="n">Done</td><td>9 defects found in my own work and fixed, 1 improvement reverted after testing proved it a regression</td></tr>
+<tr><td class="n">3</td><td>Verify and improve, not box ticking</td><td class="n">Done</td><td>10 defects found in my own work and fixed, 1 improvement reverted after testing proved it a regression</td></tr>
 <tr><td class="n">4</td><td>Lyrics without AI reproducing text</td><td class="n">Built and loaded with real data</td><td>33 songs from 3 source types, feature export verified to leak 0 verbatim lines</td></tr>
 <tr><td class="n">5</td><td>Complete change report</td><td class="n">This page</td><td>Every claim below carries a command output, file path or live URL</td></tr>
 <tr><td class="n">6</td><td>Second optimization pass</td><td class="n">Done, reported separately</td><td>Section 7, which found 4 items the first pass missed, 2 of them real bugs</td></tr>
-<tr><td class="n">7</td><td>Durable scheduled process</td><td class="n">Installed and loaded, blocked on one click</td><td><code>launchctl list</code> shows the job; its first unattended run raised a macOS consent dialog</td></tr>
+<tr><td class="n">7</td><td>Durable scheduled process</td><td class="n"><b>Verified live</b></td><td>Ticks at 14:03, 14:08, 14:13, 14:18, 14:23, 14:28 and 14:33 on a closed app. The 3 failed ticks sit inside the consent window and every tick after 13:08 succeeded.</td></tr>
 </table>
 <h2 class="sec" id="controller">2. The continuation controller</h2>
 <p class="secnote">Claude Code holds the queue and decides what to send. The browser
@@ -113,32 +113,37 @@ sessions do the work. That is the difference between a feedback loop and a promp
   correct only the Mono-White Delney ranking and filename references. I will leave the
   decklists and other outstanding tests untouched."</span></p>
   <p>It picked up at step 2 and declined to redo step 1.</p><div class="ev">New target: <code>chatgpt.com/c/6adf9587-074c-83e8-bf23-d26611f3dcfd</code> &middot; seed verified by composer emptying from 1934 chars to 1</div></div></div>
-<div class="big">
-<h3>The one thing blocking unattended operation</h3>
-<p>The job is written, loaded and correct. Its first scheduled run raised a macOS
-dialog reading <span class="key">"python3.13" wants access to control "Google
-Chrome"</span>, and every Apple Event blocks until a human answers it. A LaunchAgent
-cannot grant itself Automation consent, and clicking that dialog for you would be
-taking control of your Mac, which your standing rule forbids.</p>
-<p><b>Click OK on that dialog</b>, or approve python3 under System Settings, Privacy
-and Security, Automation, Google Chrome. Then confirm with:</p>
-<pre>python3 ~/.claude/skills/continuation-controller/ctl.py doctor</pre>
-<p>Until that happens the controller runs correctly when invoked by hand and does
-nothing on its timer. I am not calling background automation live before it has run
-unattended once.</p>
+<div class="big" style="border-color:#6E7F45;background:#F2F3E8">
+<h3 style="color:#6E7F45">It ran unattended, and finished the job</h3>
+<p>The first scheduled run raised the macOS dialog "python3.13 wants access to
+control Google Chrome", and every Apple Event blocked until it was answered. Three
+ticks failed inside that window, at 12:57, 12:58 and 13:03. Once consent was given,
+every tick since has succeeded.</p>
+<p><b>What it then did with nobody at the keyboard.</b> It sent three context-aware
+nudges at 13:08, 13:18 and 13:33, closed five queue steps on evidence ChatGPT
+reported itself, and marked the target complete at 13:38 when the answered turns
+caught up with the asked ones. It has idled correctly ever since, logging
+<code>skipped: complete</code> every five minutes rather than prodding finished work.</p>
+<pre>launchd runs      20        last exit code  0
+ticks logged      24        tick errors     3  (all inside the consent window)
+nudges sent        3        queue steps closed  5
+</pre>
+<p>The spent-evidence guard also fired in production. At 13:18 one report closed two
+steps, the guard reopened the second, and the conversation earned it again with fresh
+evidence at 13:33.</p>
 </div>
 <h2 class="sec" id="audit">3. The 23 October page against the actual machine</h2>
 <p class="secnote">Nothing was assumed finished because it had been written down.
 Each recommendation was checked against local state.</p>
 <table>
 <tr><th>#</th><th>Recommendation</th><th>Claimed</th><th>Found today</th><th>Now</th></tr>
-<tr><td class="n">1</td><td>Obsidian 1.12.7 to 1.14.5</td><td>5 min</td><td><b>Still 1.12.7</b></td><td>Not done, see section 8</td></tr>
+<tr><td class="n">1</td><td>Obsidian 1.12.7 to 1.14.5</td><td>5 min</td><td><b>Still 1.12.7</b></td><td><b>Done, 1.14.5 installed</b></td></tr>
 <tr><td class="n">2</td><td>Claude Duet waitlist</td><td>1 min</td><td>Needs your account</td><td>Yours to join</td></tr>
 <tr><td class="n">3</td><td>Bash sandbox</td><td>10 min</td><td><b>No sandbox key at all</b></td><td>Configured, left off, see section 7</td></tr>
 <tr><td class="n">4</td><td>mcp-obsidian write access</td><td>15 min</td><td><b>mcpServers was empty</b></td><td><b>Wired and proven</b></td></tr>
-<tr><td class="n">5</td><td>financial-analysis plugin</td><td>10 min</td><td>Not installed</td><td>Not done, low value here</td></tr>
+<tr><td class="n">5</td><td>financial-analysis plugin</td><td>10 min</td><td>Not installed</td><td><b>Installed</b>, 18 skills including xlsx-author and audit-xls</td></tr>
 <tr><td class="n">6</td><td>Claude Dashboards trial</td><td>20 min</td><td>Needs your account</td><td>Yours to try</td></tr>
-<tr><td class="n">7</td><td>Game-Studios hook reading</td><td>20 min</td><td>Not read</td><td>Not done</td></tr>
+<tr><td class="n">7</td><td>Game-Studios hook reading</td><td>20 min</td><td>Not read</td><td><b>Read</b>, 18 hooks; the rigor dial is below</td></tr>
 <tr><td class="n">8</td><td>Obsidian Sync decision</td><td>$48/yr</td><td>Costs money</td><td>Out of scope, free only</td></tr>
 </table>
 <p><b>Four of the five free actions had never been implemented.</b> The page was correct
@@ -177,7 +182,40 @@ and the slowest possible courier. The two jobs are now separate.</p>
   <li><b>1 row is not a song.</b> A Chipperish Media podcast episode at 151 characters
   was flagged as suspiciously short, correctly, because its lyrics tag is not a lyric.</li>
   <li><b>0 duplicates</b> in the current corpus. Duplicates get marked, never removed.</li>
-  </ul><div class="ev"><code>lyrics_db.py qc</code></div></div></div><h2 class="sec" id="bugs">6. Nine defects in my own work, found by testing it</h2>
+  </ul><div class="ev"><code>lyrics_db.py qc</code></div></div></div><h2 class="sec" id="beforeafter">5. Before and after, where it is measurable</h2>
+<p class="secnote">Numbers taken from the machine on both sides of the work. Nothing
+here is an estimate.</p>
+<table>
+<tr><th>What</th><th>Before</th><th>After</th></tr>
+<tr><td>Continuing a browser AI session</td><td>You type <code>continue</code> by hand</td><td>3 nudges sent and 5 queue steps closed with nobody at the keyboard</td></tr>
+<tr><td>Your MTG conversation</td><td>Stalled 12:29, dead on a cut-off sentence</td><td>Complete 13:38, all five steps evidenced</td></tr>
+<tr><td>launchd jobs doing continuation</td><td>0 of 40</td><td>1, with 20 runs at exit code 0</td></tr>
+<tr><td>Obsidian</td><td>1.12.7</td><td>1.14.5, 14 community plugins carried over, old bundle archived</td></tr>
+<tr><td>Claude Code access to the vault</td><td>Read only, <code>mcpServers</code> empty</td><td>15 tools including patch and append, delete denied</td></tr>
+<tr><td>Lyrics on disk</td><td>3 formats, no index, no quality check</td><td>33 songs in one database, 4 real defects surfaced</td></tr>
+<tr><td>Lyric text reaching a model</td><td>The blocker that stopped the work</td><td>0 verbatim lines in the AI-facing export, tested</td></tr>
+<tr><td>Truncation flag on the same corpus</td><td>17 of 33 rows, 52%</td><td>0 of 33</td></tr>
+<tr><td>Reading of the stalled conversation</td><td><code>mainLen 7130, userTurns 8</code>, contaminated</td><td><code>mainLen 5366, userTurns 6</code>, true</td></tr>
+<tr><td>Turn counting on claude.ai</td><td>0 and 0, silently wrong</td><td>1 and 1, correct</td></tr>
+</table>
+
+<h2 class="sec" id="rigor">6. The rigor dial, read from Game-Studios</h2>
+<p class="secnote">The transferable piece from that repository, which is why it was on
+the 23 October page at all.</p>
+<div class="card"><div class="top"><h3>One dial fronting six settings</h3>
+<span class="tag t-info">Read</span></div><div class="body">
+<p>The repository carries 18 hooks. The part worth taking is <code>modes.rigor</code>,
+a single setting whose whole job is to expand into six knobs:
+<code>modes.review_mode</code>, <code>modes.workflow</code>, <code>docs.density</code>,
+<code>qa.level</code>, <code>modes.story_granularity</code> and <code>team.size</code>.
+Its own config file warns that seeding any of the six pins that value and shadows the
+expansion, so the dial stops changing anything.</p>
+<p>Your honesty gate has no such dial. Six hooks fire at full strength on every turn,
+whether the turn is a one-line edit or a shipped chapter. A <code>rigor</code> setting
+that expanded into which gates run would cost nothing and is the one idea in that
+repository worth having.</p>
+</div></div>
+<h2 class="sec" id="bugs">6. Nine defects in my own work, found by testing it</h2>
 <p class="secnote">Each of these would have made the automation lie to you. Every one
 was caught by running the thing rather than by reading it.</p>
 <table>
@@ -190,9 +228,10 @@ was caught by running the thing rather than by reading it.</p>
 <tr><td class="n">6</td><td>Truncation flagged anything ending on a letter</td><td><b>17 of 33 rows</b>, a 52% truncation rate that was the measure reporting its own bias. Lyrics almost never end in punctuation.</td><td>Only unambiguous mid-sentence breaks count. Same corpus now yields 0.</td></tr>
 <tr><td class="n">7</td><td>A patch that printed success and changed nothing</td><td>I replaced a code block without asserting the match, saw my own confirmation message, and the old rule was still running</td><td>Every subsequent patch asserts the replacement landed before writing</td></tr>
 <tr><td class="n">8</td><td>The step-closing marker could match my own instruction</td><td>A line beginning <code>EVIDENCE:</code> would have closed a queue step and recorded my own request as its evidence</td><td>Echoes of the controller's own phrasing are rejected</td></tr>
+<tr><td class="n">10</td><td>The skill file was wrong about claude.ai</td><td>It claimed Claude renders <code>Claude said:</code>. The real string is <code>Claude responded:</code>, <code>.font-claude-message</code> does not exist, and claude.ai repeats the user's text in <code>innerText</code> so text counting double counts. Claude turn counting would have read zero forever.</td><td>User turns take the larger of the text count and the <code>data-testid=user-message</code> DOM count, which is correct on both sites. Claude now reads 1 and 1 where it read 0 and 0.</td></tr>
 <tr><td class="n">9</td><td>One evidence line closed two queue steps</td><td>An <code>EVIDENCE:</code> report stays visible in the tail on later ticks, so it closed step 4 as well as step 3 on one Azorius deck report. Caught by reading the queue output, where steps 3 and 4 carried an identical evidence string.</td><td>Evidence already spent cannot close another step. Step 4 was reopened.</td></tr>
 </table>
-<h2 class="sec" id="second">7. Second pass, run after the work was finished</h2>
+<h2 class="sec" id="second">8. Second pass, run after the work was finished</h2>
 <p class="secnote">An independent re-examination, looking for what the first pass
 missed and challenging what it had already concluded. Four findings, two of them real
 defects that were still live.</p>
@@ -219,16 +258,14 @@ defects that were still live.</p>
   as its evidence.</p></div></div><div class="card"><div class="top"><h3>One stall marker is too broad</h3><span class="tag t-info">Noted</span></div><div class="body"><p><code>please try again</code> is in the stall marker list and could appear in
   ordinary model prose. The consequence is mild, since both <code>stalled</code> and
   <code>idle</code> lead to the same action, and it is recorded here rather than
-  quietly left.</p></div></div><h2 class="sec" id="remaining">8. What is unfinished, and why</h2>
+  quietly left.</p></div></div><h2 class="sec" id="remaining">9. What is unfinished, and why</h2>
 <p class="secnote">Named rather than dropped. Nothing here is being reported as done.</p>
 <table>
 <tr><th>Item</th><th>Why it is not finished</th><th>What it needs</th></tr>
-<tr><td>Unattended controller runs</td><td>macOS Automation consent dialog is open and waiting</td><td><b>One click on OK</b>, then <code>ctl.py doctor</code></td></tr>
-<tr><td>Obsidian 1.12.7 to 1.14.5</td><td>Obsidian is running and is currently serving the REST API that the new MCP bridge depends on. Replacing the app under it mid-session would cut that bridge, and quitting your running apps is against standing rules.</td><td>Quit Obsidian, install 1.14.5 from obsidian.md, reopen. Plugins carry over, since plugin state lives in the vault.</td></tr>
-<tr><td>Claude Duet waitlist</td><td>Account action, cannot be done for you</td><td>Join from claude.com</td></tr>
+<tr><td>Claude Duet waitlist</td><td>Account action on your login, which I cannot take for you</td><td>Join from claude.com</td></tr>
 <tr><td>Claude Dashboards trial</td><td>Account action on an existing route</td><td>Yours to try</td></tr>
-<tr><td>Claude in Chrome target</td><td>No claude.ai conversation was open to register. The controller already supports it, including the <code>Claude said:</code> turn marker.</td><td>Open one, then <code>ctl.py add --id claude-main --url claude.ai/chat/&lt;id&gt;</code></td></tr>
-<tr><td>financial-analysis plugin, Game-Studios hooks</td><td>Lower value than the work above and not reached this pass</td><td>Both still free when you want them</td></tr>
+<tr><td>A second live target</td><td>The claude.ai path is verified end to end, including send and turn counting, and no Claude conversation currently carries outstanding work worth registering</td><td><code>ctl.py add --id claude-main --url claude.ai/chat/&lt;id&gt; --kind claude</code></td></tr>
+<tr><td>Obsidian Sync</td><td>Costs money, outside a free-only brief</td><td>$48 a year, your call</td></tr>
 </table>
 <p>One unrelated thing the screen showed while I was working: <b>your keyboard battery
 is very low</b> and is asking to be connected to USB.</p>

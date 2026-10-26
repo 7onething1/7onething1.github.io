@@ -1,22 +1,22 @@
 # Automation Audit and Change Report, 26 October 2026
 
-A continuation controller that works, nine defects found by testing it, and one
-permission click standing between it and running unattended.
+A continuation controller that ran unattended and finished the job, ten defects
+found by testing it, and a free upgrade reverted for breaking two standing gates.
 
 Machine: Jacks-iMac. Cost of everything below: $0. Code written: 1,596 lines across
-two skills. Defects found in my own work: 9. Improvements reverted after testing: 1.
+two skills. Defects found in my own work: 10. Improvements reverted after testing: 1.
 
 ## The seven asks
 
 | # | Ask | Status |
 |---|---|---|
-| 1 | Five-minute automatic continuation | Built and tested, one OS consent pending |
+| 1 | Five-minute automatic continuation | Running unattended, 20 launchd runs at exit 0 |
 | 2 | Revisit the X.com conversation against reality | Done, 4 of 5 free actions had never been implemented |
-| 3 | Verify and improve | Done, 9 defects fixed, 1 improvement reverted as a regression |
+| 3 | Verify and improve | Done, 10 defects fixed, 1 improvement reverted as a regression |
 | 4 | Lyrics without AI reproducing text | Built, 33 songs loaded, 0 verbatim lines in the AI-facing export |
 | 5 | Complete change report | This page |
 | 6 | Second optimization pass | Done, reported separately |
-| 7 | Durable scheduled process | Installed and loaded, blocked on one click |
+| 7 | Durable scheduled process | Verified live on a closed app |
 
 ## The controller
 
@@ -35,9 +35,24 @@ the true reason, and `ctl.py migrate` seeded a fresh chat from the verified
 checkpoint, carried the finished step across with its evidence, and re-pointed the
 target. ChatGPT picked up at step 2 and declined to redo step 1.
 
-**Blocking item:** macOS raised "python3.13 wants access to control Google Chrome".
-Click OK, then run
-`python3 ~/.claude/skills/continuation-controller/ctl.py doctor`.
+**It then ran unattended.** The first scheduled run raised "python3.13 wants access
+to control Google Chrome" and three ticks failed inside that consent window. Once it
+was answered, the controller sent three nudges at 13:08, 13:18 and 13:33, closed five
+queue steps on evidence ChatGPT reported itself, and marked the work complete at
+13:38. 20 launchd runs, last exit code 0, 3 errors all inside the consent window.
+
+## Before and after
+
+| What | Before | After |
+|---|---|---|
+| Continuing a browser AI session | You type `continue` | 3 nudges, 5 steps closed, nobody at the keyboard |
+| Your MTG conversation | Stalled 12:29 on a cut-off sentence | Complete 13:38, all five steps evidenced |
+| launchd jobs doing continuation | 0 of 40 | 1, 20 runs at exit 0 |
+| Obsidian | 1.12.7 | 1.14.5, 14 plugins carried over |
+| Claude Code vault access | Read only, `mcpServers` empty | 15 tools, patch and append, delete denied |
+| Lyric text reaching a model | The blocker | 0 verbatim lines in the export |
+| Truncation flag, same corpus | 17 of 33 | 0 of 33 |
+| Turn counting on claude.ai | 0 and 0 | 1 and 1 |
 
 ## Nine defects found by testing my own work
 
@@ -50,6 +65,7 @@ Click OK, then run
 7. A patch printed success and changed nothing, because I never asserted the match.
 8. The step-closing marker could match the controller's own instruction.
 9. One `EVIDENCE:` line closed two queue steps, because the report stays visible in the tail on later ticks.
+10. The skill file claimed claude.ai renders `Claude said:`. It renders `Claude responded:`, so Claude turn counting read zero forever.
 
 ## Lyrics
 
@@ -62,7 +78,6 @@ in Beach House lyrics) and 1 podcast episode wrongly holding a lyrics tag.
 
 ## Unfinished
 
-- Unattended controller runs: one macOS consent click.
-- Obsidian 1.12.7 to 1.14.5: Obsidian is running and serving the REST API the new MCP bridge uses.
-- Claude Duet waitlist, Claude Dashboards: your account.
-- Claude in Chrome target: no claude.ai conversation was open to register.
+- Claude Duet waitlist, Claude Dashboards: account actions on your login.
+- A second live target: the claude.ai path is verified end to end, and no Claude conversation currently carries outstanding work worth registering.
+- Obsidian Sync at $48 a year: outside a free-only brief.
