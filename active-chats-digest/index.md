@@ -1,184 +1,134 @@
 # Active chats digest
 
-Built 2026-10-25 11:10 CDT. 17 chats read from transcripts.
+Built 2026-10-26 11:10 CDT. 12 chats read from transcripts.
 
 ## Headline
 
-All 17 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 5 are past the 400-turn ceiling.
-Totals: 6,924 assistant replies, 101 MB of transcript.
+All 12 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 4 are past the 400-turn ceiling.
+Totals: 5,971 assistant replies, 69 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Guitar videos for Lisa  (2.0 days quiet, 215 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Firefox
+### Teach og_check about centered guitars  (10.6 days quiet, 225 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fraud-firewall # fraud-firewall ## Why it exists Brandon, 2026-09-07 19:37: **"find out which chat wrote the fake numbers a
 
-- You mean Firefox, where your Messenger chats should already be unlocked. My computer-control tools normally let me read a browser's screen without.
-- Read access is what I need here, since you pointed me at Firefox. I'm confirming the request.
-- You declined the Firefox access request, so I'll stop there and won't ask again on my own. I'll add that to the blocker record. Lisa's chat is still.
-- I can't see Firefox because the access request was declined. - **Firefox:** I opened Lisa's Messenger chat in a new Firefox tab on your Mac. Even with.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Ableton export ignoring selection  (1.7 days quiet, 23 replies)
-**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
-
-- I'll check this Mac first: which Ableton version is installed, whether it updated today, and what today's exports look like. Phase 1: Find the.
-- Ableton did not update today. You're on Live 11 Suite 11.3.43, installed 2025-10-19. Now I'll check the log and today's files.
-- Today's exports are on your Desktop: riff 1 through riff 4 and Untitled 2. Next I'll measure their lengths and read the Ableton log around each export.
-- A safety hook blocked my first command because it started with a move into the Desktop folder. I'll re-run it with full paths and narrow the log search.
+- The controller matches one evidence id per outcome. R2 has two parts, the control-derived cut and the never-silent line, so I'll store one combined.
+- All five outcomes are closed on verified evidence ids. Now the shortened closing draft (14 lines, sources and paths attached), then the firewall again.
+- The fraud firewall is CLEAR on every checker (exit 0), and reference-class passed when run by hand. I'll add both results to the hand-over note, then.
+- og_check now counts a centered guitar on both sides, and nothing was imported, published or copied on Songsterr. I changed the brief's rule after the.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Glostik, Lizz Verga, and Shea updates  (20.0 hours quiet, 389 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bm5mk7j8m</task-id> <task-id>byasji5bc</task-id> <task-id>br91d4jv1</task-id> <task-id>__orphan_summary__:shell</task-id> <status>stopped</status> <summary>3 bac
-
-- Nobody won a shirt in yesterday's 3 PM live, at least not on the recording. - **0:05:** she opened a giveaway. Anyone who sent a gift was entered, and.
-- Nobody won a shirt yesterday, as far as the recordings show. I checked both of her October 22 lives: - **14:36, 22 minutes:** almost all singing. The.
-- Seven Brandon mentions across all 76 streams read. Now pulling yesterday's setlists, plus the song she played right after each mention.
-- Brandon mentions:** 7 in total, from her talk between songs across all 76 streams read so far (Aug 13 to Oct 22). Times are Central.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Eject black ASAP  (18.6 hours quiet, 40 replies)
-**Goal.** Not summarised by hand yet. Last input on record: eject black
-
-- `diskutil` reported "Disk disk2 ejected", but `disk2` was still listed straight after. I'll check again now to see whether it really detached or the.
-- `disk2` is a Samsung T7 Shield (the drive named Black), and it came straight back after the eject. I'll try once more and check whether the USB device.
-- Black is ejected, and you can unplug it right now. - Black is your 2 TB Samsung T7 Shield, formatted NTFS. It shows up as `disk2`. - It wasn't mounted,.
-- Black is ejected, and you've already unplugged it. - Finder unmounted and ejected Black at 4:29:05 PM, and my eject confirmed it at 4:29:37. - The.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Fix Magnolia Mountain sync on Songsterr  (18.0 hours quiet, 56 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_555684d1-ed23-4d21-9aac-7fd49cd2b353" name="Songsterr chats"> Magnolia Mountain s7354541 sync fix, handed over from 
-
-- The Songsterr chats session confirmed base r9600222 and the 90-bar file, so I own Magnolia now. Its staging loop is still driving Chrome on other.
-- Brandon says another chat is doing this, so I'm stopping all Magnolia work and checking which chat that is.
-- I am the sub chat named in STATE.md, so I'm checking which other chat is also working on Magnolia.
-- I stopped working on Magnolia, and Songsterr chats has it again. - [Songsterr chats](#local_555684d1-ed23-4d21-9aac-7fd49cd2b353) staged the Magnolia.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Chat completion review  (17.8 hours quiet, 617 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bvc1hjx9s</task-id> <tool-use-id>toolu_01RdBh9HBNubk2PS6tp2W77W</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez-Projects-summer-songs/4a2
-
-- Confirmed so far: **3 tabs are really out of sync, and all three are the Oct 22 lead-in versions.** - **Magnolia Mountain:** 2 bars off, about 7.7.
-- Songsterr chats has fixes staged for all three broken tabs, and I checked them independently. Each fix takes out the empty lead-in bars, so every bar.
-- Amy is in sync too. Its rhythm lines up, and its first note lands 0.05 seconds off. The audit is complete, so I'm writing up the record.
-- The sync audit is done. 3 of your 33 tabs are out of sync, and the other 30 play in time.** **Out of sync** - **Magnolia Mountain:** 2 bars off, about.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Pavement My Tabs guitars, rebuilt the 9f way  (17.3 hours quiet, 1363 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_555684d1-ed23-4d21-9aac-7fd49cd2b353" name="Songsterr chats"> Understood. I'm off Chrome and off Billie s7390249 and
-
-- The staged export carries all 36 slides on Guit 2, in exactly the planned bars. Publishing Carrot Rope for real.
-- Carrot Rope is published as r9962217, up from r9645758. Verifying it signed out, and counting the slides on the live Guit 2 part.
-- Both are live now. - **Billie:** live as revision r9962201. Guit 2's chords in bars 24 and 40 now match UG's chord sheet. The other tracks and your.
-- Songsterr chats ran its own check on Carrot Rope and confirmed that all 36 bridge slides survived Songsterr's import. That matches what I found, and.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Chrome extension polling ChatGPT/Claude  (15.4 hours quiet, 388 replies)
-**Goal.** Not summarised by hand yet. Last input on record: stop
-
-- 7:25:27 pm, sent: the previous answer came back from the reload at its full 2,992 characters, matching the on-screen copy.
-- 7:35:27 pm, sent: the previous answer came back from the reload at its full 2,484 characters, matching the on-screen copy.
-- 7:45:34 pm, sent: the previous answer is saved at its full 2,646 characters. The first check read only 46 because the page was still drawing, so I made.
-- I've stopped the loop, and no jobs are scheduled now. The last "next" went out at 7:45 pm, and I closed the Claude tab I was sending from. ChatGPT's.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Songsterr chats  (14.7 hours quiet, 919 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <cross-session-message from="local_23290f2c-07ba-49ba-b35a-5dea16f7321c" name="Songsterr my tabs setup"> The parent chat is taking the five dead-video 
-
-- Night Birds' signed-out check is running. It will confirm the new revision is served, with 59 bars on 59 points, and every track matching the file.
-- Night Birds is verified. Revision 9962623 is served, all 7 tracks match the file, and its 59 bars sit on 59 points. One last check: that its words came.
-- Night Birds is live, and I checked it from a signed-out browser. - Every track matches the file. The rhythm guitar now plays UG's shapes a half step.
-- The parent chat is now syncing the five dead-video tabs with the permission you gave it. Those are Why Do They Leave?, Damn Sam, To Be Young, In My.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Website stream content  (14.2 hours quiet, 131 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/page-truth # page-truth ## Why it exists Brandon, 2026-09-21, opening the live Lizz Vega archive: **"what the actual fuck"*
-
-- Sydney's and Summer's queues are clean today, with no bars in any title, so the fault is Nathan's alone for now. Waiting on the first pull and transcript.
-- The 40 streams are running now. Live, the site still shows 7, and it fills in as each batch publishes. **Your ask, item by item** 1. 🟢 **Found the new.
-- The live data matches the build. The page answers 200 with 12 of 81 streams, and the 5 new ones carry 17 to 22 songs each. Now the visitor check,.
-- Five of the 40 new streams are live and checked, and the other 35 are downloaded and transcribing. **Progress** - 🟢 **The live page now shows 12 of 81.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Songsterr my tabs setup  (13.8 hours quiet, 1966 replies)
-**Goal.** Not summarised by hand yet. Last input on record: This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation. <tools-used-before-summary>Agent, Bash
-
-- Node 23 has a built-in WebSocket, so I'll use that. The script opens each tab in a fresh, signed-out, muted Chrome, presses play, and reads which.
-- All five tabs now load the new video for a signed-out viewer. Next I'll check that each video plays and doesn't just load, and look at what Songsterr.
-- All five tabs check out: bar counts equal the new video's points, 124, 36, 140, 92 and 114. Next I'm writing the findings into the skill and memory so.
-- All five tabs play a working, synced video for every viewer. - **Proof:** I pressed play on each tab, signed out and muted. Each one loaded its new.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Creating drum loops from stems  (13.7 hours quiet, 520 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- Checking `grade_drums.py`'s options and how it reads BPM before running it, so the comparison stays grade-only and nothing new gets generated.
-- Neither Python on this Mac has `pydub`, and the grader imports it through `loop_audio_utils.py`. Checking whether `grade_drums.py` can start here at all.
-- All three re-gate at score 0. The grader result belongs in the summary too, so I am adding one bullet there and a grader sheet to the workbook, then.
-- What the research found - 🟥 **Fixed grids jump at the seam.** A grid at the label tempo misses the next downbeat by more than 10 ms in **62% of 1,224.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (13.5 hours quiet, 13 replies)
+### Stop malfeasance and fraud  (23.0 hours quiet, 11 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
-- I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while still owing contracted outcomes, and.
-- Sweep ran clean, no SWEEP ERROR. One tier1 target, five tier2, one tier3. Loading the session tools.
-- Tier1 target matches a live session with a 7 ms timestamp delta. Re-reading its contract before sending.
+- I'll run the anti-malfeasance sweep now. Let me start with the detector.
+- Sweep ran clean, no SWEEP ERROR. One tier1 target, six tier2, one tier3. Now matching sessions in the app.
+- Tier1 target's timestamp does not line up with the app row. Checking archived sessions and re-verifying the contract before any send.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (13.5 hours quiet, 8 replies)
+### DraftKings 3:25 cash lineup research  (15.5 hours quiet, 115 replies)
+**Goal.** Not summarised by hand yet. Last input on record: [Request interrupted by user]
+
+- I built and saved the cash lineup for the **3:25 CT DraftKings Afternoon Turbo slate** (GB @ DET and LAR @ LV). Lock is about 25 minutes out. The.
+- The first lineup is already for the Afternoon Turbo (draft group 155202). So I'm reading "do a afternoon turbo" as **an entry for an Afternoon Turbo.
+- The Afternoon Turbo lineups are ready. **Lock is 3:25 CT, about 8 minutes from now.** I can't enter contests for you, because that spends money on your.
+- I'm reading "Evaluate" as **score the three Afternoon Turbo lineups** against what actually happened in GB @ DET and LAR @ LV. First I'll check the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Claude code setup automation optimization  (15.3 hours quiet, 54 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0/skills/claude-automation-recommender # Claude Automation Recommender
+
+- Goal: run the claude-code-setup automation recommender on your setup and make sure the setup is optimized. **Phase 1:** Load the recommender and.
+- The recommender is loaded. Next comes the inventory, covering settings, hooks, MCP servers, plugins, skills and context sizes, all read in one sweep.
+- No prose turn recorded for this slot.
+- No prose turn recorded for this slot.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Nathan, Lizz, and Glostik updates  (11.6 hours quiet, 241 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b6ja1sgx8</task-id> <tool-use-id>toolu_0154oMFc4LsnXHMEJsAre9Ay</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/5065848c-ad3f-4ca3-8f80-f
+
+- The faces step finished: it found the face in 554 of 564 stream samples. The build and deploy are next.
+- The build ran with the skip in place: **2,895 songs, 2,966 plays, and 188 of 223 streams read**. The Monday build had 3,076 songs and 3,149 plays. The.
+- ixi's update job finished with exit 0. I'm reading its deploy line and checking the live page myself. The checks are whether the live data matches the.
+- Nathan and ixi are both updated now. I fetched each live page myself, and each one matches its local build byte for byte. **Nathan**.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### PC crash investigation  (11.5 hours quiet, 231 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Another Claude session sent a message: <agent-message from="a7487d8a6b8828480"> [Subagent hand-back] The text below is the final report of a subagent this session delegated to. It is model o
+
+- The Haiku-requested test agent replied "ok". Now the key check: which model actually ran it. I'm pulling only the model name from its transcript.
+- The model fix works in a live test. I spawned a subagent that asked for Haiku, and it ran entirely on Opus 5.5. From now on, every subagent in every.
+- The fifty-gates subagent reports its fix is done, with tests passing. I'm not taking its word for it. I'm rerunning its self-test myself and checking.
+- Parallel work is back on in every chat, and every subagent now runs on Opus. ### What's fixed - 🟩 **Opus subagents work again in every chat.** I tested.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Chrome ChatGPT five-minute reminders  (10.2 hours quiet, 305 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>bqxv0mbc9</task-id> <tool-use-id>toolu_01EFAL7TRsN5KfsBWGBYK96y</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/d2877596-c0c2-4303-bd63-e
+
+- The tick is running, and I'll post its result when it finishes.
+- SKIP: the previous tick is still waiting on ChatGPT.
+- The tick is running, and I'll post its result when it finishes.
+- SKIP: the previous tick is still waiting on ChatGPT.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lyrics placement chat  (5.9 hours quiet, 1506 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [finiah all don't ask me questions]: Not satisfied. The condition is 'finiah all don't ask me questions', i.e. finish everything without asking Brandon questions. The tra
+
+- An artist spelled "Portihead" slipped past my filter, along with an "Unknown Artist2". Checking their titles too.
+- No Songsterr tab exists for Hunter, Small or Nylon Smile under any spelling, as of today. Next is Ultimate Guitar. Checking how the earlier UG search.
+- Both blockers are adjudicated GENUINE, with every route now on record.
+- The Portishead goal isn't fully finished: two items can only move with you. I checked every route that didn't need you, and none could finish them. - 🔴.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Phish 1994 fall jam compilation  (5.5 hours quiet, 587 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/songsterr-rebuild # songsterr-rebuild UG supplies the human model. The recording decides whether each written bar happened.
+
+- The report draft builds from the saved data, with Bozeman filled in and nine rows pending. I am waiting on the next results, the Columbia jam and then.
+- The tempo column and the double-time note are in the report builder. I am waiting on the last four, Ann Arbor, Bangor, Minneapolis and St. Petersburg,.
+- The closing summary passes the voice gate with exit 0. It flags one banned word, "before", so I am rewording that line in the summary and the report.
+- 🎸 All ten jams are on Songsterr - 🟪 **All ten jam cuts are transcribed on Songsterr.** The count ran from **28 down to 18**, one transcription per cut,.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Songsterr chat completion  (4.6 hours quiet, 1146 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/fifty-gates # fifty-gates The gate list lives in `gates_def.py` and the runner in `run_gates.py`, both in this folder. It r
+
+- A command that re-reads the source counts as producing the figure. So I'll re-check Badfish's 0.277 against the sibling audit's own log, the real source.
+- Confirmed from its own log and JSON: Badfish's median fit is 0.277, with 14 of 63 bars weak. Writing the final closing draft and running the firewall.
+- Only the chat-length gate still fires: 1,142 turns against a ceiling of 400. Its fix is to stop working here, so this report ends my work in this chat.
+- Fools Rush In failed its guitar check at 6:15.** The rhythm guitar sounds off key in five of 76 bars. - The draft stays private, so nothing wrong went.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Lyrics on rhythm guitar in Songsterr tabs  (4.2 hours quiet, 1539 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Stop hook feedback: [finiah all don't ask me questions]: Not satisfied. The last completion_controller decide returned stop_allowed: False with 'REFUSED: 2 required outcome(s) still open: R4
+
+- The held build is sitting there as a draft ("Revert all the changes" is enabled). Reverting it.
+- Songsterr asks "Are you sure you want to reset all edits?" The only edits are my held import from the dry run, so I'm confirming Reset.
+- The Everybody Hurts editor reads "No changes to reset" again, and its live tab is untouched at r9808106. Closing the Chrome tab and wrapping up.
+- Everything is done except the missing words, and those can only come from the songs' own lyrics. **Done today** - **Fools Rush In:** live as "Fools.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (34 minutes quiet, 11 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
-- daily check: FAIL.** The file is from today, 2026-10-24T10:31, written on MacBookPro. **tabs check: FAIL.** All 10 tabs gave no list, every one at http.
+- I'll start with the two steps that need no shell approval beyond `hostname -s`.
+- Hostname is `MacBookPro`, the right Mac. Reading the daily check file now.
+- Johnny Five daily pass, 2026-10-26** Mac confirmed as `MacBookPro`, so every path in this pass belongs here. - **daily check:** PASS, file stamped.
 - No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Creative writing session  (11.5 hours quiet, 29 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Look at <pasted_content id="c088"> that might be the least dirty or nasth thing ever Jalena laughs, thoroughly unimpressed with her own restraint. “God, you're right. That sounded like a Hal
-
-- Goal:** find a chat app or setup that writes Jalena as explicitly as you asked. **Phase 1.** Check this Mac's chip, memory, and the local AI tools.
-- The voice gate passed, so the answer is ready.
-- What to use - 🟩 **SillyTavern with OpenRouter** is the setup that will not water her down. SillyTavern adds **no filter of its own**, so the model you.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (34 minutes quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- Johnny Five daily pass, 2026-10-25** Host confirmed as `MacBookPro`, so every path in this pass belongs to this Mac. **daily check:** PASS, file dated.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stem this  (17 minutes quiet, 238 replies)
-**Goal.** Not summarised by hand yet. Last input on record: /plugin install claude-code-setup@claude-plugins-official
-
-- This is the terminal's plugin command, and it can't run as a slash command here, so I'll run the same install through the `claude` CLI. First I'm.
-- The install reports success: `claude-code-setup@claude-plugins-official`, at user scope. Next I'm confirming it shows as enabled and listing what it adds.
-- It's installed and enabled. It adds one skill and no hooks. Logging the evidence with the tracker, then closing out.
-- The plugin is installed and turned on. - **I installed claude-code-setup 1.0.0 from the official marketplace.** The CLI confirmed `Successfully.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
