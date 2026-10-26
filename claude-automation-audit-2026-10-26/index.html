@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automation Audit and Change Report, 26 October 2026</title>
+<style>
+  :root{
+    --cream:#F4EBDC; --paper:#FBF6EC; --ink:#1A1A1A;
+    --teal:#4A7C7E; --mustard:#E3B23C; --rose:#E8B4A0;
+    --brick:#A63A2E; --navy:#2E4057; --olive:#6E7F45;
+    --rule:#D8C9B0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:"Futura","Avenir Next",Avenir,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:17px;line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 22px 90px}
+  header{border:3px solid var(--ink);background:var(--paper);padding:26px 28px;margin-bottom:34px}
+  h1{font-size:30px;line-height:1.2;margin:0 0 10px;letter-spacing:-.01em}
+  .sub{font-size:15.5px;color:var(--navy);margin:0}
+  .meta{margin-top:16px;padding-top:14px;border-top:2px solid var(--rule);font-size:14px;color:#454545}
+  .meta b{color:var(--ink)}
+  nav{background:var(--paper);border:2px solid var(--ink);padding:18px 22px;margin-bottom:34px}
+  nav h2{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px;color:var(--navy)}
+  nav ol{margin:0;padding-left:22px;font-size:15px}
+  nav li{margin:5px 0}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--rose)}
+  nav a:hover{background:var(--mustard)}
+  h2.sec{font-size:21px;margin:44px 0 6px;padding-bottom:8px;border-bottom:3px solid var(--ink)}
+  .secnote{font-size:14.5px;color:#454545;margin:0 0 20px}
+  .card{background:var(--paper);border:2px solid var(--ink);margin:0 0 20px;overflow:hidden}
+  .card .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding:14px 20px;border-bottom:2px solid var(--rule)}
+  .card h3{font-size:18.5px;margin:0;flex:1 1 auto;min-width:220px}
+  .tag{font-size:12.5px;font-weight:700;padding:4px 10px;border:2px solid var(--ink);white-space:nowrap}
+  .t-done{background:var(--olive);color:#fff}
+  .t-block{background:var(--brick);color:#fff}
+  .t-part{background:var(--mustard)}
+  .t-info{background:var(--teal);color:#fff}
+  .card .body{padding:16px 20px 18px}
+  .card p{margin:0 0 11px}
+  .card p:last-child{margin-bottom:0}
+  .key{background:var(--mustard);padding:0 3px;font-weight:700}
+  ul.pts{margin:4px 0 12px;padding-left:20px}
+  ul.pts li{margin:6px 0}
+  code{background:#EFE5D2;border:1px solid var(--rule);padding:1px 5px;
+    font-family:"SF Mono",Menlo,monospace;font-size:14px}
+  pre{background:#EFE5D2;border:1px solid var(--rule);padding:12px 14px;overflow-x:auto;
+    font-family:"SF Mono",Menlo,monospace;font-size:13.5px;line-height:1.5;margin:10px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px;background:var(--paper)}
+  th,td{border:1.5px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--navy);color:#fff;font-size:13px;letter-spacing:.04em}
+  td.n{white-space:nowrap}
+  .ev{font-size:13.5px;color:var(--navy);border-top:1.5px dashed var(--rule);padding-top:10px;margin-top:12px}
+  .big{border:3px solid var(--brick);background:#FBF0EC;padding:18px 22px;margin:22px 0}
+  .big h3{margin:0 0 8px;font-size:19px;color:var(--brick)}
+  footer{margin-top:50px;padding-top:18px;border-top:2px solid var(--rule);font-size:13.5px;color:#454545}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>Automation Audit and Change Report</h1>
+<p class="sub">A continuation controller that works, eight defects found by testing it,
+and one permission click standing between it and running unattended. 26 October 2026.</p>
+<div class="meta">
+<b>Machine:</b> Jacks-iMac &middot; <b>Cost of everything below:</b> $0 &middot;
+<b>Code written:</b> 1,596 lines across two skills &middot;
+<b>Defects found in my own work:</b> 8 &middot;
+<b>Improvements reverted after testing:</b> 1
+</div>
+</header>
+<nav><h2>Contents</h2><ol><li><a href="#ask">1. The seven asks, and where each one stands</a></li><li><a href="#controller">2. The continuation controller</a></li><li><a href="#audit">3. The 23 October page against the actual machine</a></li><li><a href="#changed">4. What actually changed today, all of it free</a></li><li><a href="#lyrics">5. The lyrics problem</a></li><li><a href="#bugs">6. Eight defects in my own work, found by testing it</a></li><li><a href="#second">7. Second pass, run after the work was finished</a></li><li><a href="#remaining">8. What is unfinished, and why</a></li></ol></nav>
+<h2 class="sec" id="ask">1. The seven asks, and where each one stands</h2>
+<p class="secnote">Status of every numbered item in the brief, with the evidence that
+backs it. An item with no evidence beside it is marked unfinished rather than done.</p>
+<table>
+<tr><th>#</th><th>Ask</th><th>Status</th><th>Evidence</th></tr>
+<tr><td class="n">1</td><td>Five-minute automatic continuation</td><td class="n">Built and tested, one OS consent pending</td><td>1,103 lines across 4 modules, 23 logged events, 4 checkpoints, a live recovery and a live migration</td></tr>
+<tr><td class="n">2</td><td>Revisit the X.com conversation against reality</td><td class="n">Done</td><td>All 8 recommendations checked against this machine, 4 of 5 free actions were never implemented</td></tr>
+<tr><td class="n">3</td><td>Verify and improve, not box ticking</td><td class="n">Done</td><td>8 defects found in my own work and fixed, 1 improvement reverted after testing proved it a regression</td></tr>
+<tr><td class="n">4</td><td>Lyrics without AI reproducing text</td><td class="n">Built and loaded with real data</td><td>33 songs from 3 source types, feature export verified to leak 0 verbatim lines</td></tr>
+<tr><td class="n">5</td><td>Complete change report</td><td class="n">This page</td><td>Every claim below carries a command output, file path or live URL</td></tr>
+<tr><td class="n">6</td><td>Second optimization pass</td><td class="n">Done, reported separately</td><td>Section 7, which found 4 items the first pass missed, 2 of them real bugs</td></tr>
+<tr><td class="n">7</td><td>Durable scheduled process</td><td class="n">Installed and loaded, blocked on one click</td><td><code>launchctl list</code> shows the job; its first unattended run raised a macOS consent dialog</td></tr>
+</table>
+<h2 class="sec" id="controller">2. The continuation controller</h2>
+<p class="secnote">Claude Code holds the queue and decides what to send. The browser
+sessions do the work. That is the difference between a feedback loop and a prompt loop.</p>
+<div class="card"><div class="top"><h3>What it does on each tick</h3><span class="tag t-done">Working</span></div><div class="body"><ul class="pts">
+  <li>Reads the real state of every registered conversation through Chrome's DOM, with no API calls and no cost.</li>
+  <li>Writes a <b>verified checkpoint</b> whenever the conversation changes, holding the tail actually observed plus the queue as it stood.</li>
+  <li>Composes the next instruction from the queue and that checkpoint. The instruction states the last completed step, what remains, and the single next action.</li>
+  <li>Refuses to send during a streaming response, on any state it cannot classify,
+  when another target has already been sent to this tick, and inside the minimum gap.</li>
+  <li>Marks a target blocked after three nudges with no progress, or at once on a platform blocker such as a conversation length limit.</li>
+  </ul>
+  <p>The word <code>continue</code> appears nowhere in anything it sends.</p><div class="ev">Code: <code>~/.claude/skills/continuation-controller/</code> &middot; state and logs: <code>~/.claude/continuation/</code></div></div></div><div class="card"><div class="top"><h3>Proven live on a conversation that was already dead</h3><span class="tag t-done">Verified</span></div><div class="body"><p>Your MTG deck conversation had stalled at <b>12:29 PM</b> on the word
+  <code>continue</code>, with ChatGPT's answer cut off mid-sentence at
+  <span class="key">"After twenty"</span> and the page showing
+  <code>Connection interrupted</code>.</p>
+  <p>The controller classified it as <code>stalled</code>, quoted the exact point of
+  interruption back, and asked for the one outstanding step. ChatGPT worked for 2m 43s
+  and produced Revision 21: all five decks structurally legal, none demonstrably
+  optimized, each verified at 60 main deck and 15 sideboard with no four-copy
+  violations, plus named gaps on Delney's redundant legendary draws and Gardenize
+  needing black sources that green-only acceleration cannot supply.</p><div class="ev">Log: <code>sent {state: stalled, submitted: button, chars: 1626}</code> then <code>progress {gptTurns: 5 -&gt; 6}</code></div></div></div><div class="card"><div class="top"><h3>Recovery when the conversation itself dies</h3><span class="tag t-done">Verified</span></div><div class="body"><p>That conversation then hit <span class="key">You have reached the maximum
+  length for this conversation</span>. Prompting cannot fix that, so the controller
+  marked it blocked with the true reason instead of nudging a corpse.</p>
+  <p><code>ctl.py migrate</code> opened a fresh chat, seeded it with the verified
+  checkpoint and the four surviving steps, carried the finished step across with its
+  evidence, and re-pointed the target automatically. ChatGPT's first reply in the new
+  conversation: <span class="key">"I will locate the existing five-deck artifacts,
+  correct only the Mono-White Delney ranking and filename references. I will leave the
+  decklists and other outstanding tests untouched."</span></p>
+  <p>It picked up at step 2 and declined to redo step 1.</p><div class="ev">New target: <code>chatgpt.com/c/6adf9587-074c-83e8-bf23-d26611f3dcfd</code> &middot; seed verified by composer emptying from 1934 chars to 1</div></div></div>
+<div class="big">
+<h3>The one thing blocking unattended operation</h3>
+<p>The job is written, loaded and correct. Its first scheduled run raised a macOS
+dialog reading <span class="key">"python3.13" wants access to control "Google
+Chrome"</span>, and every Apple Event blocks until a human answers it. A LaunchAgent
+cannot grant itself Automation consent, and clicking that dialog for you would be
+taking control of your Mac, which your standing rule forbids.</p>
+<p><b>Click OK on that dialog</b>, or approve python3 under System Settings, Privacy
+and Security, Automation, Google Chrome. Then confirm with:</p>
+<pre>python3 ~/.claude/skills/continuation-controller/ctl.py doctor</pre>
+<p>Until that happens the controller runs correctly when invoked by hand and does
+nothing on its timer. I am not calling background automation live before it has run
+unattended once.</p>
+</div>
+<h2 class="sec" id="audit">3. The 23 October page against the actual machine</h2>
+<p class="secnote">Nothing was assumed finished because it had been written down.
+Each recommendation was checked against local state.</p>
+<table>
+<tr><th>#</th><th>Recommendation</th><th>Claimed</th><th>Found today</th><th>Now</th></tr>
+<tr><td class="n">1</td><td>Obsidian 1.12.7 to 1.14.5</td><td>5 min</td><td><b>Still 1.12.7</b></td><td>Not done, see section 8</td></tr>
+<tr><td class="n">2</td><td>Claude Duet waitlist</td><td>1 min</td><td>Needs your account</td><td>Yours to join</td></tr>
+<tr><td class="n">3</td><td>Bash sandbox</td><td>10 min</td><td><b>No sandbox key at all</b></td><td>Configured, left off, see section 7</td></tr>
+<tr><td class="n">4</td><td>mcp-obsidian write access</td><td>15 min</td><td><b>mcpServers was empty</b></td><td><b>Wired and proven</b></td></tr>
+<tr><td class="n">5</td><td>financial-analysis plugin</td><td>10 min</td><td>Not installed</td><td>Not done, low value here</td></tr>
+<tr><td class="n">6</td><td>Claude Dashboards trial</td><td>20 min</td><td>Needs your account</td><td>Yours to try</td></tr>
+<tr><td class="n">7</td><td>Game-Studios hook reading</td><td>20 min</td><td>Not read</td><td>Not done</td></tr>
+<tr><td class="n">8</td><td>Obsidian Sync decision</td><td>$48/yr</td><td>Costs money</td><td>Out of scope, free only</td></tr>
+</table>
+<p><b>Four of the five free actions had never been implemented.</b> The page was correct
+about what to do and nothing had been done with it.</p>
+<h2 class="sec" id="changed">4. What actually changed today, all of it free</h2><div class="card"><div class="top"><h3>Obsidian write access from Claude Code</h3><span class="tag t-done">Done</span></div><div class="body"><p>The bridge was half built and sitting idle. <code>obsidian-local-rest-api</code>
+  was enabled in the vault and answering on both ports, and nothing was configured
+  against it.</p>
+  <p>Now registered at user scope with <code>mcp-obsidian 1.30.0</code>, exposing 15
+  tools. The two that matter are <code>obsidian_patch_content</code> and
+  <code>obsidian_append_content</code>, because the previous retrieval path could read
+  the vault and could not write to it. Session notes, artifact rows and decision logs
+  can now be written straight into Brandon-Vault.</p>
+  <p><code>obsidian_delete_file</code> is denied in <code>permissions.deny</code>, so no delete call can reach the vault through it.</p><div class="ev">Authed vault listing returned <b>200</b>; MCP handshake returned <code>serverInfo: mcp-obsidian 1.30.0</code>; no mcp 2.0 incompatibility</div></div></div><div class="card"><div class="top"><h3>A continuation controller, where there was none</h3><span class="tag t-done">Done</span></div><div class="body"><p>Forty launchd agents already run on this Mac and not one of them did this.
+  1,103 lines across the bridge, the store, the tick and the operator CLI, plus a
+  skill file so it is invoked as <code>/continuation-controller</code> rather than by
+  raw path.</p><div class="ev">4 checkpoints written, 23 events logged, target migrated once</div></div></div><div class="card"><div class="top"><h3>A lyrics database that keeps AI out of the text path</h3><span class="tag t-done">Done</span></div><div class="body"><p>Covered in section 5. 33 songs loaded from material already on your disk.</p><div class="ev"><code>~/Projects/_outputs/lyrics-db/lyrics.sqlite</code></div></div></div><div class="card"><div class="top"><h3>Sandbox configured and deliberately left off</h3><span class="tag t-part">Reverted</span></div><div class="body"><p>Section 7 explains why. Applying it broke two of your standing gates, so it is
+  written, tuned to your real write paths, and switched off with the reason recorded in
+  the file.</p><div class="ev"><code>settings.json</code> now carries <code>sandbox._why_off</code></div></div></div><h2 class="sec" id="lyrics">5. The lyrics problem</h2>
+<p class="secnote">The lyrics problem is a transport problem wearing a copyright
+costume. Asking a model to retype protected text is both the thing it should refuse
+and the slowest possible courier. The two jobs are now separate.</p>
+<div class="card"><div class="top"><h3>Exact text moves locally, AI works on features</h3><span class="tag t-done">Built</span></div><div class="body"><p><b>Transport.</b> Embedded lyric frames in files you own, <code>.lrc</code>
+  sidecars, JSON packs already on disk, and your own clipboard through
+  <code>capture_clip.py</code>. Byte for byte, with no model in the path. Every row
+  carries <code>source</code>, <code>source_ref</code> and <code>rights_note</code>, so
+  the Joni pack's own "personal, non-commercial study only" note survived import rather
+  than being dropped.</p>
+  <p><b>Intelligence.</b> <code>features --out</code> emits hashes, counts, structure and
+  quality flags with no lyric text in it. That is enough for identification, matching,
+  indexing, deduplication and quality checking.</p>
+  <p>Loaded today from material already on your disk: <b>33 songs</b>, 22 rows from JSON
+  packs, 10 from <code>.lrc</code> sidecars, 1 from an embedded tag.</p><div class="ev">Export tested against every line over 12 characters in the database: <b>0 verbatim lines leaked</b> in 15,060 bytes</div></div></div><div class="card"><div class="top"><h3>What the quality pass caught on real data</h3><span class="tag t-info">Verified</span></div><div class="body"><ul class="pts">
+  <li><b>3 rows carry invisible unicode.</b> Two Beach House lyrics hold U+2005 and one
+  holds U+205F. These are the exact characters your voice gate hunts, and they are
+  invisible in every editor you would open them in.</li>
+  <li><b>1 row is not a song.</b> A Chipperish Media podcast episode at 151 characters
+  was flagged as suspiciously short, correctly, because its lyrics tag is not a lyric.</li>
+  <li><b>0 duplicates</b> in the current corpus. Duplicates get marked, never removed.</li>
+  </ul><div class="ev"><code>lyrics_db.py qc</code></div></div></div><h2 class="sec" id="bugs">6. Eight defects in my own work, found by testing it</h2>
+<p class="secnote">Each of these would have made the automation lie to you. Every one
+was caught by running the thing rather than by reading it.</p>
+<table>
+<tr><th>#</th><th>Defect</th><th>How it would have lied</th><th>Fix</th></tr>
+<tr><td class="n">1</td><td>Insert verified by a 24-character prefix</td><td>A stale composer passed verification because two prompts shared an opening clause. The wrong text was submitted and reported as success.</td><td>Exact whitespace-normalised equality, proven with a nonce the model echoed back</td></tr>
+<tr><td class="n">2</td><td>A regex backslash in the JS payload</td><td>AppleScript string literals escape backslashes, so the bridge died with a syntax error</td><td>Whitespace normalised by char code, and <code>run_js</code> now refuses backslashes and double quotes outright</td></tr>
+<tr><td class="n">3</td><td>Enter fallback reported success and submitted nothing</td><td><b>1,764 characters sat unsent in the composer</b> while the log said <code>sent</code>. Synthetic key events carry <code>isTrusted: false</code> and ChatGPT ignores them.</td><td>Insert and submit split into two calls with a render gap, and submission confirmed by the composer emptying</td></tr>
+<tr><td class="n">4</td><td>The composer lives inside <code>main</code></td><td>Unsent text counted as conversation progress. Readings of <code>mainLen 7130, userTurns 8</code> were really <code>5366</code> and <code>6</code>.</td><td>The probe subtracts the composer's own text before measuring anything</td></tr>
+<tr><td class="n">5</td><td>The prompt quoted the strings the probe counts</td><td>One unanswered nudge inflated the turn counters from 6 to 8 and 5 to 6, so outstanding work would have looked permanent</td><td>Turn markers neutralised in any quoted tail</td></tr>
+<tr><td class="n">6</td><td>Truncation flagged anything ending on a letter</td><td><b>17 of 33 rows</b>, a 52% truncation rate that was the measure reporting its own bias. Lyrics almost never end in punctuation.</td><td>Only unambiguous mid-sentence breaks count. Same corpus now yields 0.</td></tr>
+<tr><td class="n">7</td><td>A patch that printed success and changed nothing</td><td>I replaced a code block without asserting the match, saw my own confirmation message, and the old rule was still running</td><td>Every subsequent patch asserts the replacement landed before writing</td></tr>
+<tr><td class="n">8</td><td>The step-closing marker could match my own instruction</td><td>A line beginning <code>EVIDENCE:</code> would have closed a queue step and recorded my own request as its evidence</td><td>Echoes of the controller's own phrasing are rejected</td></tr>
+</table>
+<h2 class="sec" id="second">7. Second pass, run after the work was finished</h2>
+<p class="secnote">An independent re-examination, looking for what the first pass
+missed and challenging what it had already concluded. Four findings, two of them real
+defects that were still live.</p>
+<div class="card"><div class="top"><h3>The sandbox upgrade is a regression on this machine</h3><span class="tag t-block">Reverted</span></div><div class="body"><p>The 23 October page scored the Bash sandbox 9 out of 10, and the reasoning was
+  sound: it replaces bypass mode with a real boundary. I enabled it with your actual
+  write paths.</p>
+  <p>It took effect immediately and <b>turned off Apple Events</b>. <code>osascript</code>
+  to Chrome began failing with <code>-600</code> with Chrome demonstrably running,
+  which breaks the continuation controller's in-session bridge and your
+  auto-open-deliverables gate, since <code>open -R</code> and launching Firefox both go
+  through Launch Services.</p>
+  <p>A change that breaks two standing gates
+  fails its own test. It is configured, tuned
+  and switched off, with the reason written into the settings file. The launchd
+  controller is unaffected because it runs outside this sandbox. For a single hardened
+  session: <code>claude --settings '{"sandbox":{"enabled":true}}'</code></p><div class="ev">Confirmed by testing before and after: <code>-600</code> with sandbox on, <code>1</code> window with it off</div></div></div><div class="card"><div class="top"><h3>The doctor command was misreporting permission</h3><span class="tag t-done">Fixed</span></div><div class="body"><p>It reported <code>Automation permission: GRANTED</code> because it inherits the
+  grant of whatever shell invokes it. The launchd job runs as a different responsible
+  process and holds no such grant, which is the entire reason the scheduled run hung.
+  A health check that passes while the thing it checks is broken is worse than no check.</p>
+  <p>It now states that caveat and prints the launchd job's own last tick outcome.</p></div></div><div class="card"><div class="top"><h3>The step-closing marker was still vulnerable</h3><span class="tag t-done">Fixed</span></div><div class="body"><p>Defect 8 in the table above surfaced on this pass. The first
+  pass had concluded it was safe because the controller's prompt is a single line that
+  starts with a bracket. That is luck rather than a guard, and a direct test proved a
+  line beginning <code>EVIDENCE:</code> would close a step with my own instruction text
+  as its evidence.</p></div></div><div class="card"><div class="top"><h3>One stall marker is too broad</h3><span class="tag t-info">Noted</span></div><div class="body"><p><code>please try again</code> is in the stall marker list and could appear in
+  ordinary model prose. The consequence is mild, since both <code>stalled</code> and
+  <code>idle</code> lead to the same action, and it is recorded here rather than
+  quietly left.</p></div></div><h2 class="sec" id="remaining">8. What is unfinished, and why</h2>
+<p class="secnote">Named rather than dropped. Nothing here is being reported as done.</p>
+<table>
+<tr><th>Item</th><th>Why it is not finished</th><th>What it needs</th></tr>
+<tr><td>Unattended controller runs</td><td>macOS Automation consent dialog is open and waiting</td><td><b>One click on OK</b>, then <code>ctl.py doctor</code></td></tr>
+<tr><td>Obsidian 1.12.7 to 1.14.5</td><td>Obsidian is running and is currently serving the REST API that the new MCP bridge depends on. Replacing the app under it mid-session would cut that bridge, and quitting your running apps is against standing rules.</td><td>Quit Obsidian, install 1.14.5 from obsidian.md, reopen. Plugins carry over, since plugin state lives in the vault.</td></tr>
+<tr><td>Claude Duet waitlist</td><td>Account action, cannot be done for you</td><td>Join from claude.com</td></tr>
+<tr><td>Claude Dashboards trial</td><td>Account action on an existing route</td><td>Yours to try</td></tr>
+<tr><td>Claude in Chrome target</td><td>No claude.ai conversation was open to register. The controller already supports it, including the <code>Claude said:</code> turn marker.</td><td>Open one, then <code>ctl.py add --id claude-main --url claude.ai/chat/&lt;id&gt;</code></td></tr>
+<tr><td>financial-analysis plugin, Game-Studios hooks</td><td>Lower value than the work above and not reached this pass</td><td>Both still free when you want them</td></tr>
+</table>
+<p>One unrelated thing the screen showed while I was working: <b>your keyboard battery
+is very low</b> and is asking to be connected to USB.</p>
+
+<footer>
+Built 26 October 2026 on Jacks-iMac. Every status above is backed by command output,
+a file path, or a live URL. The continuation controller is installed and loaded and has
+not yet completed an unattended run, which is stated as such rather than claimed.
+Companion page: <a href="../claude-obsidian-upgrades-2026-10-23/">Free and Under-$12
+Upgrades, 23 October 2026</a>.
+</footer>
+</div></body></html>
