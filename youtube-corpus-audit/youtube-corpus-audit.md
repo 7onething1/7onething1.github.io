@@ -60,6 +60,19 @@ Rebuildable in full from the intact raw indexes. No video needs re-fetching.
 
 **Not deletions**: `yt-manifestation-research` (index is `[]`), `yt-davidbennett-piano` and `yt-vaknin-grannon-research` (never fetched), `yt-walk-in-strict-research` (stopped at the fetch gate), `yt-cross-corpus` (report-only by design), `yt-timeline-jumping-research` (scratch consumed into a 188 KB dossier).
 
+## Fixed in this pass
+
+- **Row floor on both index builders.** `normalize_indexes.py` and `build_lesson_index.py` now share `write_with_row_floor()`: it refuses to replace an index when the new pass yields fewer keys, saves the rejected output as `<name>.json.rejected`, keeps a `.bak-<date>`, and exits 2. `--allow-shrink` is the only override. Proven by running the real builder on 5 of 35 Trey summaries: raw indexes held at 89/254/93, three `.rejected` files written, exit 2, corpus byte-identical. Caveat: self-authored tests, not yet fired on an unplanned run.
+- **Registry repointed.** The dead `~/Desktop/yt-iximusic` now points at `~/New Desktop/yt-iximusic`. Music domain went 0 to **189 files** (64 Music Books + 125 yt-iximusic). The second music path was never missing, so it was left alone. Backups beside both files.
+- **`ensure_ollama.py` probe fixed.** It asked `/api/tags` and called that healthy. It now requests a real embedding with an 8 s budget and prints DEGRADED with the cause and fix.
+- **Board card staged.** A card for this page was added to `/indexes-board` (File & Asset Maps, count 6 to 7). It is local only, since the board is a Vercel route and this Mac is gated off Vercel deploys.
+
+## The reason /ask could not answer any of this
+
+The live ollama server (pid 1991, up 3 days 22 hours) executes from `/Users/drwu/.Trash/Ollama.app/Contents/Resources/ollama`. The app was trashed and the running server was never restarted. It answers `/api/tags` and lists all six models, and it can no longer spawn a model runner, so `/api/embeddings` and `/api/embed` both returned http 000 after 25 s and 30 s. 91% of memory was free, ruling out memory pressure, and the `ollama` CLI is gone from PATH.
+
+So `/ask` has been running with its corpus, vault and memory layers dead. **Its "0 relevant cited results" means not searched, never nothing there.** This audit was done by reading the filesystem and handoff docs directly. The repair needs Ollama.app restored and the server restarted, which restarts a running process, so it is left for Brandon.
+
 ## Provenance
 
 Counts come from a directory walk of `~/New Desktop/yt-*`, `~/Projects/yt-*` and the vault nest, reading key counts out of each index JSON; staged `delete/` folders excluded from byte totals. The Trey spec column is the handoff doc `SVG/[YT] transcripts skill + Trey corpus.md`, not a reconstruction. The T7 Shield figure for `Anatomy-Jams` audio (3.17 GB) is read from `~/Projects/stem-map/` and is **unverified**, because the drive is unmounted. No file was moved, renamed or deleted to produce the page.
@@ -68,4 +81,5 @@ Counts come from a directory walk of `~/New Desktop/yt-*`, `~/Projects/yt-*` and
 
 - `reference_yt_corpora_buried_in_vault_nest`
 - `reference_phish_trey_lesson_corpus_location`
+- `reference_ask_semantic_layers_dead_ollama_in_trash`
 - `feedback_normalize_indexes_has_no_row_count_floor`
