@@ -107,9 +107,11 @@ running process, so it is left for Brandon.</p></div>
 &ldquo;/ask embed server already up&rdquo; at every session start. That is a liveness check that cannot fail the way
 the tool fails, so it green-lit a dead embed path. It now requests a real embedding with an 8 second budget and prints
 a DEGRADED warning naming the cause and the fix.</p>
-<p class="so"><b>Proof.</b> Run against the live dead path it reports DEGRADED in 8 seconds and exits 0. Backup kept at
-<code>ensure_ollama.py.bak-before-embed-probe-2026-10-26</code>. The healthy-case cost is <b>unmeasured</b>, because the
-embed path is still dead.</p></div>
+<p class="so"><b>Proof, and it has now fired for real.</b> The app was quit and this session resumed, and the hook printed
+the full DEGRADED warning unprompted at SessionStart, naming the lost model runner and the fix. That is an unplanned
+production firing rather than a fixture written for it, so the earlier &ldquo;not proven in production&rdquo; caveat is
+retired. Backup kept at <code>ensure_ollama.py.bak-before-embed-probe-2026-10-26</code>. The healthy-case cost stays
+<b>unmeasured</b>, because the embed path is still dead.</p></div>
 <h2>Fixed in this pass</h2>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>Row floor on both index builders</h3><p class="why"><code>normalize_indexes.py</code> and <code>build_lesson_index.py</code> now route every index write through one shared <code>write_with_row_floor()</code>. It reads the key count already on disk, refuses to replace the file when the new pass produces fewer keys, saves the rejected output as <code>&lt;name&gt;.json.rejected</code>, keeps a <code>.bak-&lt;date&gt;</code> of the file it does replace, and exits 2. A <code>--allow-shrink</code> flag is the only override.</p><p class="so"><b>Proof.</b> Tested against the real Trey corpus by running the real builder on 5 of its 35 summaries: all three raw indexes held at 89 / 254 / 93 keys, three <code>.rejected</code> files were written, exit code 2, and the corpus files came back byte-identical. Five unit cases also pass, including the exact 52 to 20 technique drop. Caveat: these tests are self-authored and the gate has still to fire on an unplanned production run.</p></div>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>Registry repointed and rescanned</h3><p class="why">The dead <code>~/Desktop/yt-iximusic</code> path in <code>refresh_registry.py</code> now points at <code>~/New Desktop/yt-iximusic</code>, where the 130 files actually live. The second music path was left alone because it was never missing.</p><p class="so"><b>Proof.</b> The music domain went from 0 files to 189 on a live rescan dated 2026-10-26. Backups kept beside both files.</p></div>

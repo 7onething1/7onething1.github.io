@@ -64,7 +64,7 @@ Rebuildable in full from the intact raw indexes. No video needs re-fetching.
 
 - **Row floor on both index builders.** `normalize_indexes.py` and `build_lesson_index.py` now share `write_with_row_floor()`: it refuses to replace an index when the new pass yields fewer keys, saves the rejected output as `<name>.json.rejected`, keeps a `.bak-<date>`, and exits 2. `--allow-shrink` is the only override. Proven by running the real builder on 5 of 35 Trey summaries: raw indexes held at 89/254/93, three `.rejected` files written, exit 2, corpus byte-identical. Caveat: self-authored tests, not yet fired on an unplanned run.
 - **Registry repointed.** The dead `~/Desktop/yt-iximusic` now points at `~/New Desktop/yt-iximusic`. Music domain went 0 to **189 files** (64 Music Books + 125 yt-iximusic). The second music path was never missing, so it was left alone. Backups beside both files.
-- **`ensure_ollama.py` probe fixed.** It asked `/api/tags` and called that healthy. It now requests a real embedding with an 8 s budget and prints DEGRADED with the cause and fix.
+- **`ensure_ollama.py` probe fixed, and it has fired for real.** It asked `/api/tags` and called that healthy. It now requests a real embedding with an 8 s budget and prints DEGRADED with the cause and fix. The app was quit and this session resumed, and the hook printed the full warning unprompted at SessionStart, so this is an unplanned production firing and the earlier "not proven in production" caveat is retired.
 - **Board card staged.** A card for this page was added to `/indexes-board` (File & Asset Maps, count 6 to 7). It is local only, since the board is a Vercel route and this Mac is gated off Vercel deploys.
 
 ## The reason /ask could not answer any of this
