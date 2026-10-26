@@ -60,16 +60,16 @@
 <body><div class="wrap">
 <header>
 <h1>Automation Audit and Change Report</h1>
-<p class="sub">A continuation controller that works, eight defects found by testing it,
+<p class="sub">A continuation controller that works, nine defects found by testing it,
 and one permission click standing between it and running unattended. 26 October 2026.</p>
 <div class="meta">
 <b>Machine:</b> Jacks-iMac &middot; <b>Cost of everything below:</b> $0 &middot;
 <b>Code written:</b> 1,596 lines across two skills &middot;
-<b>Defects found in my own work:</b> 8 &middot;
+<b>Defects found in my own work:</b> 9 &middot;
 <b>Improvements reverted after testing:</b> 1
 </div>
 </header>
-<nav><h2>Contents</h2><ol><li><a href="#ask">1. The seven asks, and where each one stands</a></li><li><a href="#controller">2. The continuation controller</a></li><li><a href="#audit">3. The 23 October page against the actual machine</a></li><li><a href="#changed">4. What actually changed today, all of it free</a></li><li><a href="#lyrics">5. The lyrics problem</a></li><li><a href="#bugs">6. Eight defects in my own work, found by testing it</a></li><li><a href="#second">7. Second pass, run after the work was finished</a></li><li><a href="#remaining">8. What is unfinished, and why</a></li></ol></nav>
+<nav><h2>Contents</h2><ol><li><a href="#ask">1. The seven asks, and where each one stands</a></li><li><a href="#controller">2. The continuation controller</a></li><li><a href="#audit">3. The 23 October page against the actual machine</a></li><li><a href="#changed">4. What actually changed today, all of it free</a></li><li><a href="#lyrics">5. The lyrics problem</a></li><li><a href="#bugs">6. Nine defects in my own work, found by testing it</a></li><li><a href="#second">7. Second pass, run after the work was finished</a></li><li><a href="#remaining">8. What is unfinished, and why</a></li></ol></nav>
 <h2 class="sec" id="ask">1. The seven asks, and where each one stands</h2>
 <p class="secnote">Status of every numbered item in the brief, with the evidence that
 backs it. An item with no evidence beside it is marked unfinished rather than done.</p>
@@ -77,7 +77,7 @@ backs it. An item with no evidence beside it is marked unfinished rather than do
 <tr><th>#</th><th>Ask</th><th>Status</th><th>Evidence</th></tr>
 <tr><td class="n">1</td><td>Five-minute automatic continuation</td><td class="n">Built and tested, one OS consent pending</td><td>1,103 lines across 4 modules, 23 logged events, 4 checkpoints, a live recovery and a live migration</td></tr>
 <tr><td class="n">2</td><td>Revisit the X.com conversation against reality</td><td class="n">Done</td><td>All 8 recommendations checked against this machine, 4 of 5 free actions were never implemented</td></tr>
-<tr><td class="n">3</td><td>Verify and improve, not box ticking</td><td class="n">Done</td><td>8 defects found in my own work and fixed, 1 improvement reverted after testing proved it a regression</td></tr>
+<tr><td class="n">3</td><td>Verify and improve, not box ticking</td><td class="n">Done</td><td>9 defects found in my own work and fixed, 1 improvement reverted after testing proved it a regression</td></tr>
 <tr><td class="n">4</td><td>Lyrics without AI reproducing text</td><td class="n">Built and loaded with real data</td><td>33 songs from 3 source types, feature export verified to leak 0 verbatim lines</td></tr>
 <tr><td class="n">5</td><td>Complete change report</td><td class="n">This page</td><td>Every claim below carries a command output, file path or live URL</td></tr>
 <tr><td class="n">6</td><td>Second optimization pass</td><td class="n">Done, reported separately</td><td>Section 7, which found 4 items the first pass missed, 2 of them real bugs</td></tr>
@@ -177,7 +177,7 @@ and the slowest possible courier. The two jobs are now separate.</p>
   <li><b>1 row is not a song.</b> A Chipperish Media podcast episode at 151 characters
   was flagged as suspiciously short, correctly, because its lyrics tag is not a lyric.</li>
   <li><b>0 duplicates</b> in the current corpus. Duplicates get marked, never removed.</li>
-  </ul><div class="ev"><code>lyrics_db.py qc</code></div></div></div><h2 class="sec" id="bugs">6. Eight defects in my own work, found by testing it</h2>
+  </ul><div class="ev"><code>lyrics_db.py qc</code></div></div></div><h2 class="sec" id="bugs">6. Nine defects in my own work, found by testing it</h2>
 <p class="secnote">Each of these would have made the automation lie to you. Every one
 was caught by running the thing rather than by reading it.</p>
 <table>
@@ -190,6 +190,7 @@ was caught by running the thing rather than by reading it.</p>
 <tr><td class="n">6</td><td>Truncation flagged anything ending on a letter</td><td><b>17 of 33 rows</b>, a 52% truncation rate that was the measure reporting its own bias. Lyrics almost never end in punctuation.</td><td>Only unambiguous mid-sentence breaks count. Same corpus now yields 0.</td></tr>
 <tr><td class="n">7</td><td>A patch that printed success and changed nothing</td><td>I replaced a code block without asserting the match, saw my own confirmation message, and the old rule was still running</td><td>Every subsequent patch asserts the replacement landed before writing</td></tr>
 <tr><td class="n">8</td><td>The step-closing marker could match my own instruction</td><td>A line beginning <code>EVIDENCE:</code> would have closed a queue step and recorded my own request as its evidence</td><td>Echoes of the controller's own phrasing are rejected</td></tr>
+<tr><td class="n">9</td><td>One evidence line closed two queue steps</td><td>An <code>EVIDENCE:</code> report stays visible in the tail on later ticks, so it closed step 4 as well as step 3 on one Azorius deck report. Caught by reading the queue output, where steps 3 and 4 carried an identical evidence string.</td><td>Evidence already spent cannot close another step. Step 4 was reopened.</td></tr>
 </table>
 <h2 class="sec" id="second">7. Second pass, run after the work was finished</h2>
 <p class="secnote">An independent re-examination, looking for what the first pass
