@@ -1,0 +1,3837 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://drwu-htmls.vercel.app/glostik-songs/poster">
+<script>
+// THE FRONT DOOR. glostiksongs.com 301s onto this path, so whatever this script does IS what the
+// domain lands on. Brandon, 2026-09-20: "it has to be the landing page, and that has to be what
+// Glostiksongs without a dash dot com redirects to." The Ballroom page is that landing page and
+// nothing overrides it, not a stored pin and not a previous visit.
+//
+// The DEST map that used to sit here is gone on purpose. It read a saved layout and forwarded to
+// it, which is why he kept arriving at /glostik-songs/experimental after the default was changed:
+// his browser still held the old pin and the pin beat the default. Once the forward below became
+// unconditional the map could never be read again, so leaving it in was a trap for whoever edits
+// this next. Every named route serves its own layout now, so a person who wants one bookmarks it.
+//
+//   ?classic  this page, the classic layout, no forward
+//   ?stay     this page, no forward, for checking it without bouncing
+(function () {
+  if (/[?&](classic|stay)\b/.test(location.search)) return;
+  location.replace('/glostik-songs/poster' + location.search + location.hash);
+})();
+</script>
+<title>Glostik Song Library</title>
+<meta name="description" content="Every song Glostik has played on stream.">
+<meta name="theme-color" content="#F4EFE6">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23C97B84'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23F4EFE6' font-family='Georgia'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4EFE6; --ink:#14110E; --rose:#C97B84; --mustard:#D9A441;
+  --teal:#4A7C72; --dust:#8A7E6D; --rule:#DED5C6; --panel:#FBF8F2;
+  --tap:44px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--cream); color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.45;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+
+header{padding:22px 0 12px}
+h1{
+  font-family:'Cormorant Garamond',Georgia,serif; font-weight:700;
+  font-size:clamp(30px,8vw,46px); line-height:1.05; margin:0 0 4px;
+  letter-spacing:-.01em;
+}
+.sub{color:var(--dust);font-size:14px;margin:0}
+.sub b{color:var(--teal);font-weight:600}
+
+nav{
+  position:sticky; top:0; z-index:30; background:var(--cream);
+  padding:10px 0 8px; border-bottom:1px solid var(--rule);
+  margin:0 -16px; padding-left:16px; padding-right:16px;
+}
+.tabs{display:flex;gap:6px;margin-bottom:8px}
+.tab{
+  flex:1; min-height:var(--tap); border:1px solid var(--rule); background:var(--panel);
+  border-radius:11px; font:600 14px Inter,sans-serif; color:var(--dust); cursor:pointer;
+}
+.tab[aria-selected=true]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+/* Brandon, 2026-09-18: "Make the To Learn Bold and bigger font". Same rule in new/index.html. */
+#tab-learn{font-weight:800;font-size:16.5px}
+
+.search{
+  width:100%; min-height:var(--tap); padding:11px 14px; font-size:16px;
+  border:1px solid var(--rule); border-radius:11px; background:var(--panel);
+  color:var(--ink); font-family:inherit;
+}
+.search::placeholder{color:var(--dust)}
+.search:focus{outline:2px solid var(--teal);outline-offset:-1px}
+
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto; min-height:34px; padding:6px 13px; border-radius:999px;
+  border:1px solid var(--rule); background:var(--panel); color:var(--dust);
+  font:500 13px Inter,sans-serif; cursor:pointer; white-space:nowrap;
+}
+.chip[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.chip.sortchip[aria-pressed=true]{background:var(--mustard);color:var(--ink);border-color:var(--mustard)}
+.chip.genrechip[aria-pressed=true]{background:var(--rose);color:#fff;border-color:var(--rose)}
+.chip .n{opacity:.6;font-size:11px;margin-left:2px}
+
+.count{color:var(--dust);font-size:13px;padding:10px 2px 6px;font-family:'JetBrains Mono',Menlo,monospace}
+
+ul{list-style:none;margin:0;padding:0}
+.song{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--rule); border-radius:12px; background:var(--panel);
+  padding:11px 13px; margin-bottom:7px;
+}
+.song:active{background:#F2ECE0}
+.song{position:relative}
+.song .cardart{float:left;width:104px;height:104px;border-radius:8px;object-fit:cover;margin:0 12px 6px 0;box-shadow:0 1px 5px rgba(0,0,0,.3)}
+.song .t{font-weight:600;font-size:16px;line-height:1.25}
+.song .a{color:var(--dust);font-size:14px;margin-top:1px}
+.song .guest{color:var(--rose);font-weight:600}
+/* the guest on a setlist row, from the row that names her. Brandon, 2026-09-20: "into the mystic its with
+   lizz always is, and is followed by one week bare naked ladies how the fuck didyo umiss that" */
+.row .guest{color:var(--rose);font-weight:600;font-size:13px}
+/* No record: the date is where the sources stop, and the badge marks that absence. */
+.song .last .norec{opacity:.75;font-style:italic}
+.song .last{color:var(--dust);font-size:13px;margin-top:4px;
+  font-family:'JetBrains Mono',Menlo,monospace}
+.song .last b{color:var(--teal);font-weight:500}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:7px}
+.pill{
+  font:500 11px 'JetBrains Mono',Menlo,monospace; padding:2px 7px; border-radius:999px;
+  border:1px solid var(--rule); color:var(--dust); background:var(--cream);
+}
+.pill.cat{border-color:var(--teal);color:var(--teal)}
+.pill.hot{border-color:var(--mustard);color:#8a6410;background:#FBF1DC}
+
+details.stream{border:1px solid var(--rule);border-radius:12px;background:var(--panel);margin-bottom:7px;overflow:hidden}
+details.stream>summary{
+  list-style:none; cursor:pointer; padding:12px 13px; min-height:var(--tap);
+  display:flex; justify-content:space-between; gap:10px; align-items:baseline;
+}
+details.stream>summary::-webkit-details-marker{display:none}
+.sd{font-weight:600;font-size:15px}
+.st{color:var(--dust);font-size:13px;display:block;font-weight:400;margin-top:1px}
+.sn{font:500 12px 'JetBrains Mono',Menlo,monospace;color:var(--teal);flex:0 0 auto}
+.rows{border-top:1px solid var(--rule);padding:4px 0}
+.row{display:flex;gap:10px;padding:9px 13px;text-decoration:none;color:inherit;min-height:var(--tap);align-items:baseline}
+.row:active{background:#F2ECE0}
+.row time{font:500 12px 'JetBrains Mono',Menlo,monospace;color:var(--teal);flex:0 0 62px}
+.row span{font-size:15px}
+.row em{color:var(--dust);font-style:normal;font-size:13px}
+
+.stat{display:flex;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid var(--rule);border-radius:12px;background:var(--panel);margin-bottom:7px}
+.stat b{font-family:'JetBrains Mono',Menlo,monospace;font-weight:500;color:var(--teal)}
+.stat .dim{color:var(--dust);font-style:normal;font-size:13px;margin-left:4px}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;margin:22px 0 9px;font-weight:700}
+.warn{border-left:2px solid var(--acid,#B8E02E);padding-left:11px;margin-top:10px}
+.lead{color:var(--dust);font-size:14px;margin:0 0 12px;line-height:1.5}
+.lead b{color:var(--teal)}
+.lead code{font:500 12px 'JetBrains Mono',Menlo,monospace;background:var(--panel);
+  border:1px solid var(--rule);border-radius:5px;padding:1px 5px;color:var(--ink)}
+#addform{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.btnrow{display:flex;gap:7px;flex-wrap:wrap}
+.btn{flex:1 1 150px;min-height:var(--tap);padding:10px 14px;border-radius:11px;
+  border:1px solid var(--rule);background:var(--panel);color:var(--ink);
+  font:600 15px Inter,sans-serif;cursor:pointer}
+.btn:active{background:#F2ECE0}
+.btn.go{background:var(--teal);color:#fff;border-color:var(--teal)}
+.learn{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--rule);
+  border-radius:12px;background:var(--panel);padding:11px 13px;margin-bottom:7px}
+.learn .body{flex:1;min-width:0}
+.learn .t{font-weight:600;font-size:16px;line-height:1.25}
+.learn .a{color:var(--dust);font-size:14px}
+.learn .w{color:var(--dust);font-size:13px;margin-top:4px;font-style:italic}
+.learn.done .t{text-decoration:line-through;color:var(--dust)}
+.tick{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--rule);
+  display:grid;place-items:center;font-size:14px;color:var(--dust);background:var(--cream)}
+.learn.done .tick{border-color:var(--teal);color:var(--teal)}
+.sugg{display:block;width:100%;text-align:left;border:1px solid var(--rule);border-radius:12px;
+  background:var(--panel);padding:10px 13px;margin-bottom:7px;cursor:pointer;
+  font:inherit;color:inherit;min-height:var(--tap)}
+.sugg:active{background:#F2ECE0}
+.sugg .t{font-weight:600;font-size:15px}
+.sugg .w{color:var(--dust);font-size:13px;margin-top:2px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom));
+  background:var(--ink);color:var(--cream);padding:11px 18px;border-radius:11px;font-size:14px;
+  z-index:80;box-shadow:0 6px 20px rgba(0,0,0,.22);max-width:calc(100vw - 32px)}
+.empty{color:var(--dust);text-align:center;padding:36px 12px;font-size:15px}
+#talk{border-top:1px solid var(--rule);margin-top:30px;padding-top:6px}
+#talk h2{margin-top:16px}
+.visits{color:var(--dust);font-size:13px;font-family:'JetBrains Mono',Menlo,monospace;margin:0 0 12px}
+.visits b{color:var(--teal);font-weight:500}
+#cform{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+textarea.search{resize:vertical;min-height:84px;line-height:1.45;font-family:inherit}
+.cmt{border:1px solid var(--rule);border-radius:12px;background:var(--panel);
+  padding:11px 13px;margin-bottom:7px}
+.cmt .who{font-weight:600;font-size:14px}
+.cmt .when{color:var(--dust);font-size:12px;font-family:'JetBrains Mono',Menlo,monospace;
+  margin-left:7px;font-weight:400}
+.cmt .body{font-size:15px;margin-top:5px;white-space:pre-wrap;overflow-wrap:anywhere}
+footer{color:var(--dust);font-size:12px;padding:26px 0 10px;border-top:1px solid var(--rule);margin-top:26px}
+footer a{color:var(--teal)}
+#fixform{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+#liveform{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.lnight h3{font:600 16px Inter,sans-serif;margin:16px 0 6px}
+.lnight h3 .gn{font:400 12px 'JetBrains Mono',Menlo,monospace;color:var(--dust);margin-left:6px}
+details.lold>summary{cursor:pointer}
+.lset{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.lrow{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:8px 2px;border-bottom:1px solid var(--rule)}
+.lrow .pos{font:12px 'JetBrains Mono',Menlo,monospace;color:var(--dust)}
+.lrow .ls{font-weight:600}
+.lrow .la{color:var(--dust)}
+.lrow .lw{margin-left:auto;font:11.5px 'JetBrains Mono',Menlo,monospace;color:var(--dust);white-space:nowrap}
+.lnone{color:var(--dust);font-size:14px}
+select.search{-webkit-appearance:none;appearance:none;cursor:pointer}
+.band{display:flex;gap:14px;align-items:center}
+.band img{width:68px;height:68px;border-radius:50%;object-fit:cover;flex:0 0 auto;
+  border:2px solid var(--rule);background:var(--panel)}
+.credit{color:var(--dust);font-size:12px;margin:8px 0 0}
+.credit a{color:var(--teal)}
+details.stream>summary .thumb{width:96px;height:54px;border-radius:7px;object-fit:cover;
+  flex:0 0 auto;background:var(--rule);align-self:center}
+details.stream>summary .sd{flex:1;min-width:0}
+@media (max-width:420px){ .tab{font-size:13px;padding:0 4px;flex:1 1 auto;white-space:nowrap} .band img{width:56px;height:56px} }
+/* To Learn stays the largest tab on a phone, and the six tabs still fit a 360 px screen. */
+@media (max-width:420px){ .tabs{gap:4px} .tab{padding:0 3px} #tab-learn{font-size:14.5px} }
+@media (max-width:380px){ .tab{font-size:12px} #tab-learn{font-size:14px} }
+[hidden]{display:none!important}
+.newlay{display:inline-block;margin-top:9px;font:600 13px Inter,sans-serif;color:var(--ink);text-decoration:none;
+  border:1px solid var(--rule);background:var(--panel);border-radius:999px;padding:6px 12px}
+.newlay:active{background:#F2ECE0}
+.newlay.donate{margin-left:6px;border-color:var(--rose)}
+#band{margin-top:26px}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.btile{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;border-radius:10px;background:var(--rule)}
+.btile img{width:100%;height:100%;object-fit:cover;display:block}
+.btile span{position:absolute;left:6px;bottom:6px;font:600 10.5px Inter,sans-serif;color:#fff;background:rgba(20,17,14,.62);
+  padding:4px 6px;border-radius:4px}
+.mh{font:600 17px Inter,sans-serif;margin:18px 0 8px}
+.mstrip{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.mstrip a{flex:0 0 110px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#fff}
+.mstrip img{width:100%;height:100%;object-fit:cover;display:block}
+.row .art{flex:0 0 56px;width:56px;height:56px;border-radius:6px;align-self:center;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.28)}
+.refresh{margin:9px 0 0;color:var(--dust);font-size:12.5px;line-height:1.45}
+.refresh b{color:var(--ink);font-family:'JetBrains Mono',Menlo,monospace;font-weight:500;font-size:11.5px}
+@media (min-width:640px){ .tabs{max-width:420px} }
+</style>
+
+<style id="glostik-inpage-player-css">
+/* The docked player, shared by every Glostik layout. Colours are written out rather than taken
+   from a layout's tokens, so the same block sits correctly on a cream page and a black one. */
+#gp{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:9000;
+  width:clamp(300px,31vw,460px);background:#12150F;border:1px solid #2A2F24;
+  box-shadow:0 18px 44px -12px rgba(0,0,0,.85);font-family:system-ui,sans-serif;
+  animation:gpdock .22s cubic-bezier(.2,.8,.2,1)}
+#gp[hidden]{display:none}
+@keyframes gpdock{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#gp .gph{display:flex;align-items:center;gap:10px;padding:9px 10px 9px 12px;
+  border-bottom:1px solid #2A2F24}
+#gp .gph b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font:600 13px/1.25 system-ui,sans-serif;color:#EDEAE0}
+#gp .gpat{flex:0 0 auto;font:400 10px/1 ui-monospace,Menlo,monospace;color:#B8E02E}
+#gp a.gpy,#gp button.gpx{flex:0 0 auto;cursor:pointer;display:grid;place-items:center;height:24px;
+  padding:0 9px;border:1px solid #2A2F24;background:none;color:#8B9184;text-decoration:none;
+  font:700 9px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+#gp a.gpy:hover,#gp button.gpx:hover{background:#B8E02E;color:#0B0D0A;border-color:#B8E02E}
+#gp .gpf{position:relative;aspect-ratio:16/9;background:#000}
+#gp .gpf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#gp .gpn{margin:0;padding:8px 12px 10px;font:400 10.5px/1.5 ui-monospace,Menlo,monospace;color:#5A6055}
+#gp .gpn a{color:#8B9184}
+@media (max-width:900px){
+  #gp{right:0;left:0;bottom:0;width:auto;border-left:0;border-right:0;border-bottom:0}
+  #gp .gph b{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){#gp{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="band">
+      <img src="https://ugc.production.linktr.ee/b767ae13-fef6-4928-b0d3-cce8cddaf8ef_20260328-153917.jpeg?io=true&amp;size=avatar-v3_0"
+           alt="Glostik" width="68" height="68" referrerpolicy="no-referrer" onerror="this.remove()">
+      <div>
+        <h1>Glostik Song Library</h1>
+        <p class="sub">Every song caught on a stream. Tap one to open the video <b>at the second it starts</b>.</p>
+        <a class="newlay" id="newlay" href="/glostik-songs/new"
+           onclick="try{localStorage.setItem('glostik-layout-4','new')}catch(e){}">New layout</a>
+        <a class="newlay donate" href="https://streamelements.com/glostikofficial/tip" target="_blank" rel="noopener"
+           aria-label="Donate to Glostik">Donate</a>
+        <p class="refresh">This page changed on Sep 18. If it still looks old, refresh it:
+          <b>Ctrl+Shift+R</b> on a PC, <b>Cmd+Shift+R</b> on a Mac.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-songs"   aria-selected="true"  aria-controls="p-songs">Songs</button>
+      <button class="tab" role="tab" id="tab-streams" aria-selected="false" aria-controls="p-streams">Setlists</button>
+      <button class="tab" role="tab" id="tab-live"    aria-selected="false" aria-controls="p-live">Live</button>
+      <button class="tab" role="tab" id="tab-learn"   aria-selected="false" aria-controls="p-learn">To Learn</button>
+      <button class="tab" role="tab" id="tab-fix"     aria-selected="false" aria-controls="p-fix">Corrections</button>
+      <button class="tab" role="tab" id="tab-stats"   aria-selected="false" aria-controls="p-stats">Stats</button>
+    </div>
+    <input class="search" id="q" type="search" inputmode="search" autocomplete="off"
+           placeholder="Search a song, an artist, a genre">
+    <div class="chips" id="filters">
+      <button class="chip" data-f="all"    aria-pressed="true">All</button>
+      <button class="chip" data-f="cat"    aria-pressed="false">In the catalog</button>
+      <button class="chip" data-f="rare"   aria-pressed="false">Rare</button>
+      <button class="chip" data-f="orig"   aria-pressed="false">Glostik originals</button>
+      <button class="chip" data-f="lizz"   aria-pressed="false">Lizz Vega</button>
+      <button class="chip" data-f="soon"   aria-pressed="false">Kinda due</button>
+      <button class="chip" data-f="never"  aria-pressed="false">Never played on stream</button>
+    </div>
+    <div class="chips" id="sorts">
+      <button class="chip sortchip" data-s="recent" aria-pressed="true">Last played</button>
+      <button class="chip sortchip" data-s="gap"    aria-pressed="false" title="Days between the last two times they played it">Days Between</button>
+      <button class="chip sortchip" data-s="plays"  aria-pressed="false">Most played</button>
+      <button class="chip sortchip" data-s="song"   aria-pressed="false">Song A to Z</button>
+      <button class="chip sortchip" data-s="band"   aria-pressed="false">Band A to Z</button>
+      <button class="chip sortchip" data-s="genre"  aria-pressed="false">Genre</button>
+    </div>
+    <div class="chips" id="genres"></div>
+  </nav>
+
+  <main>
+    <section id="p-songs">
+      <h2 id="seclabel" hidden></h2>
+      <p class="count" id="count">Loading the library…</p>
+      <ul id="list"></ul>
+    </section>
+    <section id="p-streams" hidden><p class="count" id="scount"></p><div id="streams"></div></section>
+    <section id="p-live" hidden>
+      <h2>Live set</h2>
+      <p class="lead">Watching the band right now? Add each song as they play it, and everyone on this page sees
+         the set grow. <a href="https://www.youtube.com/@glostikofficial/live" target="_blank" rel="noopener">Watch the stream</a></p>
+      <form id="liveform" autocomplete="off">
+        <input class="search" id="livesong" type="text" list="livesongs" maxlength="140" required
+               placeholder="What did they just play?">
+        <input class="search" id="livename" type="text" maxlength="40" placeholder="Your name, optional">
+        <div class="btnrow"><button class="btn go" type="submit" id="livesend">Add it</button></div>
+      </form>
+      <datalist id="livesongs"></datalist>
+      <p class="count" id="livestatus" role="status" aria-live="polite"></p>
+      <div id="livesets"></div>
+    </section>
+    <section id="p-learn" hidden>
+      <h2>Request a song</h2>
+      <p class="lead">Want them to learn a song? Send the title and the artist below. Your request
+         goes on the list right away, and it gets checked off once the band plays it on stream.</p>
+      <p class="lead warn">This is also fair warning: they may ask for a live learn, which means picking your song up on the night and working it out on stream.</p>
+      <form id="addform" autocomplete="off">
+        <input class="search" id="newsong" type="text" placeholder="Song title" maxlength="80" required>
+        <input class="search" id="newartist" type="text" placeholder="Artist" maxlength="60">
+        <input class="search" id="newname" type="text" placeholder="Your name, optional" maxlength="40">
+        <input class="search" id="newtip" type="text" inputmode="decimal" placeholder="Amount donated, optional" maxlength="12">
+        <input class="search" id="newtipname" type="text" placeholder="Name on the donation" maxlength="40">
+        <input class="search" id="newnote" type="text" placeholder="Note, optional" maxlength="200">
+        <div class="btnrow">
+          <button class="btn go" type="submit" id="sendbtn">Send request</button>
+        </div>
+      </form>
+      <p class="count" id="reqstatus" role="status" aria-live="polite"></p>
+      <h2>On the list</h2>
+      <p class="count" id="lcount"></p>
+      <ul id="learnlist"></ul>
+    </section>
+    <section id="p-fix" hidden>
+      <h2>Submit a correction</h2>
+      <p class="lead">See a song with the wrong name, the wrong band or the wrong time? Send the fix in
+         the form below. It goes to the person who keeps this list, and it gets checked against the
+         video before anything on the page changes.</p>
+      <form id="fixform" autocomplete="off">
+        <select class="search" id="fixstream" aria-label="Which stream">
+          <option value="">Which stream? Pick one if you know it</option>
+        </select>
+        <input class="search" id="fixtime" type="text" inputmode="numeric" maxlength="8"
+               placeholder="Time in the video, like 2:43:14">
+        <input class="search" id="fixlisted" type="text" maxlength="80" placeholder="What the list says now">
+        <input class="search" id="fixcorrect" type="text" maxlength="120" required
+               placeholder="What it should be: song and band">
+        <input class="search" id="fixname" type="text" maxlength="40" placeholder="Your name, optional">
+        <input class="search" id="fixnote" type="text" maxlength="200" placeholder="Anything else, optional">
+        <div class="btnrow">
+          <button class="btn go" type="submit" id="fixsend">Send correction</button>
+        </div>
+      </form>
+      <p class="count" id="fixstatus" role="status" aria-live="polite"></p>
+    </section>
+    <section id="p-stats" hidden><div id="stats"></div></section>
+  </main>
+
+  <section id="band" hidden>
+    <h2>Glostik around the web</h2>
+    <p class="lead">Photos and art from the band's own pages. Tap one to visit where it lives.</p>
+    <div class="bgrid" id="bgrid"></div>
+    <h3 class="mh">Merch</h3>
+    <div class="mstrip" id="mstrip"></div>
+  </section>
+
+  <section id="talk">
+    <h2>Leave a comment</h2>
+    <p class="visits" id="visits">…</p>
+    <form id="cform" autocomplete="off">
+      <input class="search" id="cname" type="text" maxlength="40" placeholder="Your name, optional">
+      <textarea class="search" id="ctext" rows="3" maxlength="600" required
+                placeholder="Say something about the songs, or ask for one"></textarea>
+      <div class="btnrow">
+        <button class="btn go" type="submit" id="csend">Post it</button>
+      </div>
+    </form>
+    <p class="count" id="cstatus"></p>
+    <ul id="clist"></ul>
+  </section>
+
+  <footer>
+    Built from the audited workbook, <span id="built"></span>.
+    Times come from the video, so a tap lands on the song.
+    <a href="https://www.youtube.com/@GlostikOfficial/streams">Glostik on YouTube</a>
+    <p class="credit">The band photo and the stream pictures come from Glostik's own pages, used with their
+      permission. <a href="https://linktr.ee/glostik" target="_blank" rel="noopener">Find Glostik everywhere</a> · <a href="https://streamelements.com/glostikofficial/tip" target="_blank" rel="noopener">Donate to the band</a></p>
+  </footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const TOP_N = 50;   // the cap on the most-played section
+// Last played is the order a first visit sees, and the genre chips below always show. Brandon, 2026-09-18: "No i didn't mean genre default sort, i meant Genre button decompressed".
+const state = { filter:'all', sort:'recent', q:'', genres:new Set(),
+                songs:[], plays:[], streams:[], learn:[], suggest:[] };
+const esc = s => String(s??'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Absolute, not relative. Vercel serves this page at /glostik-songs with no redirect to a
+// trailing slash, so a relative 'data.json' resolved against the site root and 404d. A local
+// server that only answers /glostik-songs/ hides that, which is how it shipped broken.
+const DATA = '/glostik-songs/data.json';
+
+fetch(DATA).then(r => {
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}).then(d => {
+  const key = cols => row => Object.fromEntries(cols.map((c,i) => [c, row[i]]));
+  state.songs   = d.songs.map(key(d.song_cols));
+  state.plays   = d.plays.map(key(d.play_cols));
+  state.streams = d.streams.map(key(d.stream_cols));
+  /* THE RECORD HAS A HOLE, AND IT IS THREE AND A HALF YEARS WIDE. The request log runs
+     2021-01-25 through 2022 and then stops: four rows in 2023, none in 2024, none in 2025.
+     The stream videos, the other source, begin 2026-07-26. A song whose newest date sits before
+     the videos begin was not necessarily shelved, the record ends there. 222 of 711 songs sit in
+     that hole. Brandon, 2026-09-20, on Pink Floyd's Pigs: "it hasn't been played since 2022, and
+     that's what the YouTube links, but then the page is saying it was played 43 days ago. Both of
+     these things are not true." Read from the data so it stays true as the corpus grows. */
+  state.recResumes = state.streams.reduce(function (m, s) { return s.date && s.date < m ? s.date : m; }, '9999-99-99');
+  state.learn   = (d.learn || []).map(key(d.learn_cols || []));
+  state.suggest = (d.suggest || []).map(key(d.suggest_cols || []));
+  state.retired = (d.retired || []).map(key(d.retired_cols || []));
+  $('#built').textContent = d.built;
+
+  // One frame of the band per original, cut from their own videos by originals_art.py. Covers by other
+  // artists keep their iTunes art, and an original with neither now shows the band instead of nothing.
+  fetch('/glostik-songs/originals_art.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : null)
+    .then(a => {
+      if (!a || !a.songs) return;
+      let hung = 0;
+      state.songs.forEach(s => {
+        const hit = a.songs[s.song];
+        if (hit && !s.art) { s.bandimg = '/glostik-songs/' + hit.img; hung++; }
+      });
+      if (hung) render();
+    }).catch(() => {});
+
+  // One button per genre, biggest first, each one a toggle. Pressing several shows all of them.
+  const counts = {};
+  state.songs.forEach(s => { if (s.genre) counts[s.genre] = (counts[s.genre] || 0) + 1; });
+  $('#genres').innerHTML = Object.entries(counts)
+    .sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([g,n]) => `<button class="chip genrechip" data-g="${esc(g)}" aria-pressed="false">`
+      + `${esc(g)} <span class="n">${n}</span></button>`).join('');
+
+  render(); renderStreams(); renderStats(); renderLearn(); fillFixStreams();
+  fillLiveSongs(); loadLive();
+}).catch(e => {
+  $('#count').textContent = 'The song data could not load (' + e.message + '). Reload the page.';
+});
+
+function dateLabel(iso){
+  // Parsed at midday so a timezone behind UTC cannot shift the date back a day.
+  const d = new Date(iso + 'T12:00:00');
+  if (isNaN(d)) return iso;
+  const sameYear = d.getFullYear() === new Date().getFullYear();
+  return d.toLocaleDateString(undefined,
+    sameYear ? {month:'short', day:'numeric'} : {month:'short', day:'numeric', year:'numeric'});
+}
+
+// The private columns of the source workbook are not exported, so there is nothing here to
+// filter on and nothing to draw. This file is served publicly, so it does not name them either.
+function matches(s){
+  // No genres pressed means every genre, which is what someone expects on first load.
+  if (state.genres.size && !state.genres.has(s.genre)) return false;
+  if (state.filter === 'cat'   && !s.catalog) return false;
+  // Rare: played 3 times or fewer. Brandon, 2026-09-18: "3 times is rare".
+  if (state.filter === 'rare'  && !(s.plays <= 3)) return false;
+  if (state.filter === 'orig'  && !/^glostik/i.test(s.artist)) return false;
+  // Lizz Vega, the guest singer. Brandon, 2026-09-18: "make a lizz vega button too".
+  if (state.filter === 'lizz'  && !/\blizz\b/i.test(s.with || '')) return false;
+  // Brandon, 2026-09-20, on Johnny Cash's Hurt, five plays and 51 days ago, which the page said nothing about: overdue needed ten plays and a full year, so the whole middle of the range went unmarked. "make kinda due to cover 15-365 days". 234 songs sit in that band.
+  if (state.filter === 'soon'  && !(s.days !== '' && s.days >= 15 && s.days < 365)) return false;
+  if (state.filter === 'never' && s.plays > 0) return false;
+  if (!state.q) return true;
+  return (s.song + ' ' + s.artist + ' ' + s.genre).toLowerCase().includes(state.q);
+}
+
+function render(){
+  let rows = state.songs.filter(matches);
+  // Songs from one night tie on days, so the clock time of each one's newest play on video (lastat)
+  // breaks the tie and the night's closer comes first. Ties used to fall back to play count, which put
+  // Atlantic City (46 plays, 2:30:29 into Sep 18) above the three originals that closed that night.
+  // Brandon, 2026-09-19: "It's listed as the last song, but the last few songs are always originals."
+  const byRecent = (a,b) => (a.days === '' ? 1e9 : a.days) - (b.days === '' ? 1e9 : b.days) || (b.lastat || 0) - (a.lastat || 0);
+  const by = {
+    recent: byRecent,
+    // Last gap: days between the last play on record and the play before it, longest first. Brandon,
+    // 2026-09-19: "add a column. Column called last gap". A song with one date on record has none and sorts last.
+    gap:    (a,b) => (b.gap === '' ? -1 : b.gap) - (a.gap === '' ? -1 : a.gap) || byRecent(a,b),
+    plays:  (a,b) => b.plays - a.plays,
+    song:   (a,b) => a.song.localeCompare(b.song) || a.artist.localeCompare(b.artist),
+    band:   (a,b) => a.artist.localeCompare(b.artist) || a.song.localeCompare(b.song),
+    genre:  (a,b) => String(a.genre).localeCompare(String(b.genre))
+                     || a.artist.localeCompare(b.artist) || a.song.localeCompare(b.song),
+  }[state.sort];
+  rows.sort(by);
+
+  // Most played is a top-50 section, not a 565-row list sorted by plays. Past about fifty the
+  // counts flatten out and the ranking stops meaning anything, so the cap is where the list
+  // still says something.
+  const capped = state.sort === 'plays' && rows.length > TOP_N;
+  const shown = capped ? rows.slice(0, TOP_N) : rows;
+
+  $('#seclabel').textContent = state.sort === 'plays' ? `Most played, top ${TOP_N}` : '';
+  $('#seclabel').hidden = state.sort !== 'plays';
+  $('#count').textContent = capped
+    ? `showing the top ${TOP_N} of ${rows.length}`
+    : shown.length + (shown.length === 1 ? ' song' : ' songs');
+  $('#list').innerHTML = shown.length ? shown.map(card).join('')
+    : '<li class="empty">Nothing matches that. Try a shorter search.</li>';
+}
+
+function card(s){
+  const pills = [];
+  if (s.catalog) pills.push('<span class="pill cat">catalog</span>');
+  if (s.plays >= 10) pills.push(`<span class="pill hot">${s.plays} plays</span>`);
+  else if (s.plays > 0) pills.push(`<span class="pill">${s.plays} play${s.plays>1?'s':''}</span>`);
+  else pills.push('<span class="pill">never on a video</span>');
+  if (s.genre) pills.push(`<span class="pill">${esc(s.genre)}</span>`);
+  // Tempo and key, copied from SongBPM. Brandon, 2026-09-18: "add BPM and key".
+  if (s.bpm) pills.push(`<span class="pill" title="${[s.half && s.half + ' half-time', s.double && s.double + ' double-time']
+    .filter(Boolean).map(x => 'Or ' + esc(x) + '. ').join('')}From SongBPM">${esc(s.bpm)} BPM</span>`);
+  if (s.key) pills.push(`<span class="pill">${esc(s.key)}</span>`);
+  // The actual date, not only "8 days ago": a relative age is easy to read and impossible to
+  // check against a setlist, and the date is what someone comparing notes actually wants.
+  // The date and nothing else. "yesterday" reads fine on the day it is written and says less
+  // every day after, and it cannot be checked against a setlist the way a date can.
+  // Last gap: the days between the last play on record and the play before it, as on the new layout.
+  const gap = s.gap === '' ? '' : s.gap >= 365 ? `${(s.gap / 365.25).toFixed(1)} years` : s.gap === 1 ? '1 day' : `${s.gap} days`;
+  // A Glostik original no stream video caught links a live video from the band's own uploads ("ext"), and
+  // the card says so. Brandon, 2026-09-19: "find online youtube video of glostik live performances of
+  // orginals and add them in linked like others".
+  const live = s.ext ? ' · <b>live video</b>' : '';
+  const last = s.last
+    ? `<div class="last">Last played <b>${esc(dateLabel(s.last))}</b>${gap ? ` · last gap <b>${gap}</b>` : ''}${live}${s.last < state.recResumes ? `<span class="norec" title="The request log stops in 2022 and the stream videos begin ${esc(dateLabel(state.recResumes))}. Nothing on file covers the years between, so this date is where the record ends. The band may well have played it since."> · no record after this</span>` : ''}</div>`
+    : (s.ext ? '<div class="last">Live video on YouTube</div>' : '<div class="last">Never caught on a video</div>');
+  const open = s.watch ? `href="${esc(s.watch)}" target="_blank" rel="noopener"` : 'aria-disabled="true"';
+  // The guest label reads the credit on the song's newest play (withlast), so a night Lizz missed never
+  // reads "with Lizz". The Lizz Vega button keeps reading "with", every song she has sung on.
+  // Brandon, 2026-09-19: "last night was not a with lizz close my eyes forever".
+  const guest = s.withlast ?? s.with;
+  const pic = s.art || s.bandimg;
+  return `<li><a class="song" ${open}>
+    ${pic ? `<img class="cardart" src="${esc(pic)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}
+    <div class="t">${esc(s.song)}</div>
+    <div class="a">${esc(s.artist)}${guest ? ` <span class="guest">with ${esc(guest)}</span>` : ''}</div>
+    ${last}
+    <div class="meta">${pills.join('')}</div>
+  </a></li>`;
+}
+
+function renderStreams(){
+  $('#scount').textContent = state.streams.length + ' streams, ' + state.plays.length + ' songs played';
+  const byVid = {};
+  state.plays.forEach(p => (byVid[p.vid] = byVid[p.vid] || []).push(p));
+  // Album covers on the newest two shows only. Brandon, 2026-09-18: "add for the last two shows".
+  const artVids = new Set([...state.streams].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 2).map(x => x.vid));
+  $('#streams').innerHTML = state.streams.map(st => {
+    const rows = (byVid[st.vid] || []).slice().sort((a,b) => secs(a.time) - secs(b.time));
+    const body = rows.map(p => {
+      const s = state.songs[p.song_id] || {};
+      return `<a class="row" href="https://www.youtube.com/watch?v=${esc(st.vid)}&t=${secs(p.time)}s" target="_blank" rel="noopener">
+        <time>${esc(p.time)}</time>${(s.art || s.bandimg) ? `<img class="art" src="${esc(s.art || s.bandimg)}" alt="" title="${esc(s.album || (s.bandimg ? 'Glostik' : ''))}" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}
+        <span>${esc(s.song || p.name || '—')} <em>${esc(s.artist || '')}</em>${p.with ? ` <span class="guest">with ${esc(p.with)}</span>` : ''}</span></a>`;
+    }).join('');
+    const d = new Date(st.date + 'T12:00:00');
+    const nice = d.toLocaleDateString(undefined, {weekday:'short', month:'short', day:'numeric', year:'numeric'});
+    return `<details class="stream" data-vid="${esc(st.vid)}"><summary>
+        <img class="thumb" src="https://i.ytimg.com/vi/${esc(st.vid)}/mqdefault.jpg" alt="" width="96" height="54"
+             loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="sd">${nice}<span class="st">${esc(st.title)}</span></span>
+        <span class="sn">${st.songs} songs</span>
+      </summary><div class="rows">${body}</div></details>`;
+  }).join('');
+}
+
+function secs(t){
+  const p = String(t).split(':').map(Number);
+  while (p.length < 3) p.unshift(0);
+  return p[0]*3600 + p[1]*60 + p[2];
+}
+
+function renderStats(){
+  const s = state.songs;
+  const n = f => s.filter(f).length;
+  const onVideo = new Set(state.plays.filter(p => p.vid).map(p => p.song_id));
+  const genres = {};
+  s.forEach(x => genres[x.genre] = (genres[x.genre] || 0) + 1);
+  const top = Object.entries(genres).sort((a,b) => b[1]-a[1]);
+  const line = (k,v) => `<div class="stat"><span>${esc(k)}</span><b>${v}</b></div>`;
+  $('#stats').innerHTML =
+    '<h2>The library</h2>' +
+    line('Songs', s.length) +
+    line('In the catalog', n(x => x.catalog)) +
+    line('Glostik originals', n(x => /^glostik/i.test(x.artist))) +
+    line('Never caught on a video', s.filter((x, i) => !onVideo.has(i)).length) +
+    line('Played once only', n(x => x.plays === 1)) +
+    '<h2>On video</h2>' +
+    line('Streams', state.streams.length) +
+    line('Songs played', state.plays.length) +
+    line('Hours of stream', state.streams.reduce((a,b) => a + (b.hours||0), 0).toFixed(1)) +
+    '<h2>By genre</h2>' + top.map(([k,v]) => line(k, v)).join('') +
+    '<h2>Retired</h2>' + ((state.retired || []).length
+      ? '<p class="lead">Songs the band has stopped playing.</p>' +
+        state.retired.map(r => `<div class="stat"><span>${esc(r.song)} <em class="dim">${esc(r.artist)}</em></span>`
+          + `<b>${r.since ? esc(dateLabel(r.since)) : ''}</b></div>`).join('')
+      : '<p class="lead">Nothing retired.</p>');
+}
+
+// ---- To Learn -------------------------------------------------------------
+// Two sources make one list. /api/learn holds every request people send from the form below,
+// and each one shows here at once. data.json carries to_learn.json as learn_queue.py keeps it:
+// the 3:00 run's `pull` copies each request onto it, and `check` ticks one off once a setlist
+// carries the song. export_web.py leaves out dropped rows and private notes, and a request's
+// note never reaches the page. Brandon, 2026-09-17: "it doesnt actually put it on the list".
+function toast(msg){
+  const el = document.createElement('div');
+  el.className = 'toast'; el.textContent = msg; el.setAttribute('role','status');
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3200);
+}
+function ident(s, a){
+  const k = x => String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  return k(a) + '|' + k(s);
+}
+
+// Requests people have sent, read from /api/learn: one row per song, no notes and no ids. A request
+// sent from this page shows at once, before the server list catches up, because the store's listing
+// is eventually consistent (api/_blob.js).
+state.requests = [];
+const sentHere = new Map();
+
+function localDay(iso){
+  const d = new Date(iso);
+  if (isNaN(d)) return String(iso || '').slice(0, 10);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+async function fetchRequests(){
+  try {
+    const r = await fetch('/api/learn', {cache: 'no-store'});
+    const j = await r.json();
+    state.requests = Array.isArray(j.requests) ? j.requests : [];
+  } catch { /* the reviewed songs below still show */ }
+  if ((state.songs || []).length) renderLearn();
+}
+
+/* The songs people asked for Lizz to sing, kept apart so the main list stays short.
+   Brandon, 2026-09-20, naming six by hand; the rest are caught by their own wording. */
+var FOR_LIZZ_NAMES = [
+  "since i've been wrong|mars volta",
+  "weird fishes/arpeggi|radiohead",
+  "dont close your eyes|kix",
+  "three libras|a perfect circle",
+  "castles made of sand|jimi",
+  "angry johnny|poe"
+];
+function lizzKey(song, artist) {
+  return (String(song || '') + '|' + String(artist || '')).toLowerCase()
+    .replace(/[^a-z0-9|/' ]+/g, '').replace(/\s+/g, ' ').trim();
+}
+function forLizz(r) {
+  if (!r) return false;
+  if (/\blizz\b/i.test((r.song || '') + ' ' + (r.artist || '') + ' ' + (r.why || ''))) return true;
+  return FOR_LIZZ_NAMES.indexOf(lizzKey(r.song, r.artist)) >= 0;
+}
+function renderLearn(){
+  // Live requests first, newest first, then the list from data.json (open, then played). A request
+  // the nightly pull already copied onto that list keeps its "requested" line there, so its date
+  // and its number of asks stay on the page after 3:00. A dropped row never shows: export_web.py
+  // leaves those out and this filter is a second guard.
+  const curated = (state.learn || [])
+    .filter(r => r.status === 'open' || r.status === 'learned')
+    .sort((a,b) => (a.status !== 'open') - (b.status !== 'open'));
+  const have = new Set(curated.map(r => ident(r.song, r.artist)));
+  const asked = new Map();
+  [...sentHere.values(), ...(state.requests || [])].forEach(r => {
+    const k = ident(r.song, r.artist);
+    if (!asked.has(k)) asked.set(k, r);
+  });
+  const live = [...asked.values()].filter(r => !have.has(ident(r.song, r.artist)));
+  const played = new Map((state.songs || []).filter(s => s.plays > 0).map(s => [ident(s.song, s.artist), s]));
+  const open = curated.filter(r => r.status === 'open').length + live.length;
+  const done = curated.length - curated.filter(r => r.status === 'open').length;
+  $('#lcount').textContent = (open + done)
+    ? `${open} on the list` + (done ? `, ${done} already played` : '')
+    : 'Nothing on the list yet. Send the first request.';
+
+  const item = (r, isDone, meta) => {
+    const inner = `<span class="tick">${isDone ? '✓' : ''}</span><div class="body"><div class="t">${esc(r.song)}</div>
+        <div class="a">${esc(r.artist || '')}</div><div class="meta">${meta}</div></div>`;
+    return isDone && r.watch
+      ? `<li><a class="learn done" href="${esc(r.watch)}" target="_blank" rel="noopener">${inner}</a></li>`
+      : `<li><div class="learn${isDone ? ' done' : ''}">${inner}</div></li>`;
+  };
+  const askedMeta = r => {
+    const bits = [`requested ${dateLabel(localDay(r.last || r.first))}`];
+    if (r.times > 1) bits.push(`${r.times} asks`);
+    if (r.name) bits.push(`from ${r.name}`);
+    const s = played.get(ident(r.song, r.artist));
+    const pill = s ? `<span class="pill cat">they play this, last ${esc(dateLabel(s.last))}</span>` : '';
+    return `<span class="pill">${esc(bits.join(' · '))}</span>${pill}`;
+  };
+  // split into the main list and the ones asked for Lizz
+  const liveMain = live.filter(r => !forLizz(r)), liveLizz = live.filter(r => forLizz(r));
+  const curMain = curated.filter(r => !forLizz(r)), curLizz = curated.filter(r => forLizz(r));
+  const liveHtml = liveMain.map(r => item(r, false, askedMeta(r)));
+  const liveLizzHtml = liveLizz.map(r => item(r, false, askedMeta(r)));
+  const drawCurated = r => {
+    if (r.status === 'learned')
+      return item(r, true, r.learned ? `<span class="pill cat">played ${esc(dateLabel(r.learned))}</span>` : '');
+    const a = asked.get(ident(r.song, r.artist));
+    return item(r, false, a ? askedMeta(a) : '');
+  };
+  const curatedHtml = curMain.map(drawCurated);
+  const curLizzHtml = curLizz.map(drawCurated);
+  const lizzAll = [...liveLizzHtml, ...curLizzHtml];
+  $('#learnlist').innerHTML = [...liveHtml, ...curatedHtml].join('')
+    + (lizzAll.length
+        ? '<li class="lhead"><b>For a night with Lizz</b><span>' + lizzAll.length
+          + ' song' + (lizzAll.length === 1 ? '' : 's') + ' people asked for her to sing. '
+          + 'They are kept apart so the main list stays short.</span></li>' + lizzAll.join('')
+        : '');
+}
+
+// Send one request. It goes on the list above at once, and the line under the form says so and
+// stays until the next send. Song, artist and note clear after a send and the name stays, so a
+// person sending three does not retype it. A rate limit shows the server's own words.
+$('#addform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const song = $('#newsong').value.trim();
+  const artist = $('#newartist').value.trim();
+  const name = $('#newname').value.trim();
+  const note = $('#newnote').value.trim();
+  // Brandon, 2026-09-20: "it should have a box for amount donated and user name who donated". The
+  // site cannot see a payment, so it records what the person says they sent and carries it to
+  // Brandon in the note the request already delivers. Nothing here handles money.
+  const tipAmt = ($('#newtip') ? $('#newtip').value.trim() : '');
+  const tipWho = ($('#newtipname') ? $('#newtipname').value.trim() : '');
+  const note2 = [note, tipAmt ? ('donated ' + tipAmt + (tipWho ? ' as ' + tipWho : '')) : '']
+    .filter(Boolean).join(' | ');
+  const status = $('#reqstatus');
+  if (!song) { status.textContent = 'Add the song title first.'; return; }
+  const btn = $('#sendbtn');
+  btn.disabled = true;
+  status.textContent = 'Sending your request.';
+  try {
+    const r = await fetch('/api/learn', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({song, artist, name, note: note2}),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) {
+      const now = new Date().toISOString();
+      const k = ident(song, artist);
+      const prev = (state.requests || []).find(x => ident(x.song, x.artist) === k);
+      sentHere.set(k, {song, artist, name, first: prev ? prev.first : now, last: now,
+                       times: prev ? prev.times + 1 : 1});
+      $('#newsong').value = ''; $('#newartist').value = ''; $('#newnote').value = '';
+      if ($('#newtip')) $('#newtip').value = ''; if ($('#newtipname')) $('#newtipname').value = '';
+      status.textContent = `Request sent. ${song}${artist ? ' by ' + artist : ''} is on the list now.`;
+      renderLearn();
+      setTimeout(fetchRequests, 5000);
+    } else {
+      status.textContent = j.error ? `Not sent: ${j.error}.` : 'That did not send. Try again in a minute.';
+    }
+  } catch {
+    status.textContent = 'That did not send. Check the connection and try again.';
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+fetchRequests();
+
+// ---- Corrections ----------------------------------------------------------
+// Brandon, 2026-09-18: "add a similar to learn tab thats submit a correction". A correction goes to
+// /api/fix, which keeps it private and pushes it to Brandon's phone. Nothing typed here shows on the
+// page, because a correction is a claim about the list and the video decides it, never the form.
+function fillFixStreams(){
+  const opts = state.streams.slice()
+    .sort((a,b) => String(b.date).localeCompare(String(a.date)))
+    .map(st => {
+      const d = new Date(st.date + 'T12:00:00');
+      const nice = isNaN(d) ? st.date : d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+      const t = String(st.title || '').slice(0, 48);
+      return `<option value="${esc(st.vid)}">${esc(nice)}${t ? ' · ' + esc(t) : ''}</option>`;
+    });
+  $('#fixstream').innerHTML = '<option value="">Which stream? Pick one if you know it</option>' + opts.join('');
+}
+
+$('#fixform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const vid = $('#fixstream').value;
+  const time = $('#fixtime').value.trim();
+  const listed = $('#fixlisted').value.trim();
+  const correct = $('#fixcorrect').value.trim();
+  const name = $('#fixname').value.trim();
+  const note = $('#fixnote').value.trim();
+  const status = $('#fixstatus');
+  if (!correct) { status.textContent = 'Add what the song should be first.'; return; }
+  if (time && !/^\d{1,2}(:\d{1,2}){1,2}$/.test(time)) {
+    status.textContent = 'Write the time like 2:43:14, or leave it empty.'; return;
+  }
+  const btn = $('#fixsend');
+  btn.disabled = true;
+  status.textContent = 'Sending your correction.';
+  try {
+    const r = await fetch('/api/fix', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({vid, time, listed, correct, name, note}),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) {
+      $('#fixtime').value = ''; $('#fixlisted').value = ''; $('#fixcorrect').value = ''; $('#fixnote').value = '';
+      status.textContent = 'Thanks, your correction was sent. It gets checked against the video before the list changes.';
+    } else {
+      status.textContent = j.error ? `Not sent: ${j.error}.` : 'That did not send. Try again in a minute.';
+    }
+  } catch {
+    status.textContent = 'That did not send. Check the connection and try again.';
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// ---- visits and comments --------------------------------------------------
+// Both live in /api, backed by the project's Vercel Blob store. The page never writes storage
+// itself, so a visitor cannot forge a count or a comment id. A visit is counted once per browser
+// session, not per render, so opening a tab and clicking around is one visit.
+const SESSION = 'glostik-counted';
+
+function when(iso){
+  const d = new Date(iso), now = new Date();
+  const mins = Math.round((now - d) / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  if (mins < 1440) return Math.round(mins/60) + 'h ago';
+  return d.toLocaleDateString(undefined, {month:'short', day:'numeric'});
+}
+
+async function countVisit(){
+  let counted = false;
+  try { counted = sessionStorage.getItem(SESSION) === '1'; } catch {}
+  try {
+    const r = await fetch('/api/visits', { method: counted ? 'GET' : 'POST', cache:'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    try { sessionStorage.setItem(SESSION, '1'); } catch {}
+    $('#visits').innerHTML = `<b>${d.total.toLocaleString()}</b> `
+      + (d.total === 1 ? 'visit' : 'visits') + `, <b>${d.today.toLocaleString()}</b> today`;
+  } catch {
+    $('#visits').textContent = 'The visit count is not reachable right now.';
+  }
+}
+
+async function loadComments(){
+  try {
+    const r = await fetch('/api/comments', { cache:'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    const list = d.comments || [];
+    $('#cstatus').textContent = list.length
+      ? list.length + (list.length === 1 ? ' comment' : ' comments')
+      : 'No comments yet. Be the first.';
+    $('#clist').innerHTML = list.map(c => `<li class="cmt">
+        <div class="who">${esc(c.name)}<span class="when">${esc(when(c.at))}</span></div>
+        <div class="body">${esc(c.text)}</div></li>`).join('');
+  } catch {
+    $('#cstatus').textContent = 'Comments are not reachable right now.';
+  }
+}
+
+$('#cform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = $('#ctext').value.trim();
+  if (!text) return;
+  const btn = $('#csend');
+  btn.disabled = true; btn.textContent = 'Posting…';
+  try {
+    const r = await fetch('/api/comments', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ name: $('#cname').value.trim(), text }),
+    });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) { toast(d.error || ('That did not post (' + r.status + ')')); }
+    else { $('#ctext').value = ''; toast('Posted.'); await loadComments(); }
+  } catch {
+    toast('That did not post. Try again in a moment.');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Post it';
+  }
+});
+
+countVisit();
+loadComments();
+
+$('#genres').addEventListener('click', e => {
+  const b = e.target.closest('.genrechip'); if (!b) return;
+  const g = b.dataset.g;
+  const on = !state.genres.has(g);
+  if (on) state.genres.add(g); else state.genres.delete(g);
+  b.setAttribute('aria-pressed', on);
+  render();
+});
+$('#q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+$('#filters').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  state.filter = b.dataset.f;
+  [...$('#filters').children].forEach(c => c.setAttribute('aria-pressed', c === b));
+  render();
+});
+$('#sorts').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  state.sort = b.dataset.s;
+  [...$('#sorts').children].forEach(c => c.setAttribute('aria-pressed', c === b));
+  render();
+});
+// ---- live: the set in progress, the same /api/live the new layout reads -----------------------------
+// Brandon, 2026-09-18: "add a tab for live sets in progress. And me and the community will try to
+// comment and keep track of the current songs played so far."
+let liveRows = [], liveNight = '';
+function fillLiveSongs(){
+  $('#livesongs').innerHTML = state.songs.map(s => `<option value="${esc(s.song + ' - ' + s.artist)}">`).join('');
+}
+async function loadLive(){
+  try {
+    const r = await fetch('/api/live', { cache:'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    liveRows = d.rows || []; liveNight = d.night || '';
+    renderLive();
+  } catch {
+    $('#livestatus').textContent = 'The live set is not reachable right now.';
+  }
+}
+function renderLive(){
+  const nights = new Map();
+  for (const x of liveRows) { if (!nights.has(x.night)) nights.set(x.night, []); nights.get(x.night).push(x); }
+  const order = [...nights.keys()].sort().reverse();
+  const tonight = nights.get(liveNight) || [];
+  const row = (x, k) => `<li class="lrow"><span class="pos">${String(k + 1).padStart(2, '0')}</span>`
+    + `<span class="ls">${esc(x.song)}</span><span class="la">${esc(x.artist)}</span>`
+    + `<span class="lw">${esc(new Date(x.at).toLocaleTimeString(undefined, {hour:'numeric', minute:'2-digit'}))}${x.name ? ' · ' + esc(x.name) : ''}</span></li>`;
+  const block = n => {
+    const rows = nights.get(n), live = n === liveNight;
+    const label = live ? 'Tonight' : new Date(n + 'T12:00:00').toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+    const head = `<h3>${esc(label)}<span class="gn">${rows.length} ${rows.length === 1 ? 'song' : 'songs'}${live ? ' so far' : ''}</span></h3>`;
+    const body = `<ol class="lset">${rows.map(row).join('')}</ol>`;
+    return live ? `<div class="lnight">${head}${body}</div>` : `<details class="lnight lold"><summary>${head}</summary>${body}</details>`;
+  };
+  $('#livesets').innerHTML = (tonight.length ? '' : '<p class="lnone">Nothing posted tonight yet. When the stream starts, add the first song they play.</p>')
+    + order.map(block).join('');
+}
+$('#liveform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const raw = $('#livesong').value.trim();
+  if (!raw) return;
+  const cut = raw.lastIndexOf(' - ');
+  const song = cut > 0 ? raw.slice(0, cut).trim() : raw, artist = cut > 0 ? raw.slice(cut + 3).trim() : '';
+  const btn = $('#livesend'), status = $('#livestatus');
+  btn.disabled = true; status.textContent = 'Adding it.';
+  try {
+    const r = await fetch('/api/live', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ song, artist, name: $('#livename').value.trim() }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) {
+      $('#livesong').value = '';
+      status.textContent = j.dup ? `${song} is on tonight's list already.` : `Added ${song}.`;
+      await loadLive();
+    } else status.textContent = j.error || ('That did not post (' + r.status + ').');
+  } catch {
+    status.textContent = 'That did not post. Try again in a moment.';
+  } finally {
+    btn.disabled = false;
+  }
+});
+$('#tab-live').addEventListener('click', () => loadLive());
+setInterval(() => { if (!$('#p-live').hidden && !document.hidden) loadLive(); }, 30000);
+// ---- pictures from the band's own sites -----------------------------------------------------------
+// Brandon, 2026-09-18: "add as well way more pics from the other sites to our sites". band_pics.py writes
+// gallery.json from Twitch, Patreon, the merch store, the tip page and the band's release, and every picture
+// links back to where it lives. Named after data.json on purpose: the sync gate reads the first JSON path.
+const GALLERY = '/glostik-songs/gallery.json';
+fetch(GALLERY, { cache:'no-store' }).then(r => r.ok ? r.json() : null).then(g => {
+  if (!g || !(g.photos || []).length) return;
+  $('#bgrid').innerHTML = g.photos.map(p => `<a class="btile" href="${esc(p.href)}" target="_blank" rel="noopener" title="${esc(p.site)}">`
+    + `<img src="${esc(p.img)}" alt="${esc(p.alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">`
+    + `<span>${esc(p.site)}</span></a>`).join('');
+  $('#mstrip').innerHTML = (g.merch || []).map(m => `<a href="${esc(m.href)}" target="_blank" rel="noopener" aria-label="Glostik merch">`
+    + `<img src="${esc(m.img)}" alt="${esc(m.alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></a>`).join('');
+  $('#band').hidden = false;
+}).catch(() => {});
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => {
+    const on = x === t;
+    x.setAttribute('aria-selected', on);
+    $('#' + x.getAttribute('aria-controls')).hidden = !on;
+  });
+  const songsTab = t.id === 'tab-songs';
+  $('#q').hidden = !songsTab; $('#filters').hidden = !songsTab;
+  $('#sorts').hidden = !songsTab; $('#genres').hidden = !songsTab;
+  window.scrollTo({top:0});
+}));
+</script>
+
+<div id="gp" hidden role="region" aria-label="Now playing">
+  <div class="gph"><b id="gpt"></b><span class="gpat" id="gpa"></span>
+    <a class="gpy" id="gpy" target="_blank" rel="noopener">YouTube</a>
+    <button class="gpx" id="gpx" type="button" aria-label="Close the player">Close</button></div>
+  <div class="gpf" id="gpfr"></div>
+  <p class="gpn" id="gpn"></p>
+</div>
+<script id="glostik-inpage-player-js">
+/* Any link to a YouTube video on this page plays here instead of opening a tab. Brandon asked for
+   in-page playback and for clicking the album art to act as play; every layout already links its
+   art to the video, so one listener gives both, in every layout, without touching their rows. */
+(function () {
+  var gp = document.getElementById('gp');
+  if (!gp) return;
+  var esc = function (s) { return String(s == null ? '' : s)
+    .replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  function clock(n) {
+    n = Math.max(0, n | 0);
+    var h = Math.floor(n / 3600), m = Math.floor(n % 3600 / 60), s = n % 60;
+    var p = function (x) { return (x < 10 ? '0' : '') + x; };
+    return h ? h + ':' + p(m) + ':' + p(s) : m + ':' + p(s);
+  }
+  function readWatch(url) {
+    var u = String(url || '');
+    var m = u.match(/[?&]v=([\w-]{6,})/) || u.match(/youtu\.be\/([\w-]{6,})/);
+    if (!m) return null;
+    var t = u.match(/[?&](?:t|start)=(\d+)/);
+    return { vid: m[1], at: t ? +t[1] : 0 };
+  }
+  function label(a) {
+    var li = a.closest('li,tr,.r,.ln,.card');
+    var t = li && (li.querySelector('.rt,.tt,.t,.c-song button,[role=rowheader] button'));
+    var who = li && (li.querySelector('.c-art,.ra,.by,.who'));
+    if (t) return t.textContent.trim() + (who ? ' \u2014 ' + who.textContent.trim() : '');
+    return a.getAttribute('aria-label') || a.title || 'Glostik';
+  }
+  function play(w, name, href) {
+    document.getElementById('gpt').textContent = name || '';
+    document.getElementById('gpa').textContent = w.at ? clock(w.at) : '';
+    document.getElementById('gpy').href = href || ('https://www.youtube.com/watch?v=' + w.vid + '&t=' + w.at + 's');
+    var src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(w.vid)
+      + '?start=' + (w.at | 0) + '&autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    document.getElementById('gpfr').innerHTML = '<iframe src="' + esc(src) + '" title="' + esc(name || 'Glostik')
+      + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen"'
+      + ' referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+    // A standing way out rather than a warning: nothing here can see inside a cross-origin frame,
+    // so a timer that guessed at failure would contradict a video that was playing.
+    document.getElementById('gpn').innerHTML = 'Playing at ' + esc(clock(w.at)) + '. <a href="'
+      + esc(document.getElementById('gpy').href) + '" target="_blank" rel="noopener">Open it on YouTube</a> instead.';
+    gp.hidden = false;
+  }
+  function stop() {
+    document.getElementById('gpfr').innerHTML = '';
+    document.getElementById('gpn').innerHTML = '';
+    gp.hidden = true;
+  }
+  document.getElementById('gpx').addEventListener('click', stop);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !gp.hidden) stop(); });
+  document.addEventListener('click', function (e) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    var a = e.target.closest && e.target.closest('a[href*="youtube.com/watch"], a[href*="youtu.be/"]');
+    if (!a || a.closest('#gp')) return;
+    var w = readWatch(a.getAttribute('href'));
+    if (!w) return;
+    e.preventDefault();
+    play(w, label(a), a.getAttribute('href'));
+  }, true);
+})();
+</script>
+
+
+
+
+<style id="glostik-my-list-css">
+#gml-note{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:9100;
+  padding:9px 16px;background:#12150F;border:1px solid #B8E02E;color:#EDEAE0;
+  font:600 12px/1.3 system-ui,sans-serif;box-shadow:0 10px 30px -8px rgba(0,0,0,.8);
+  opacity:0;pointer-events:none;transition:opacity .2s ease}
+#gml-note.on{opacity:1;pointer-events:auto}
+#gml-note a{color:#B8E02E;margin-left:9px}
+.gml{cursor:pointer;display:inline-grid;place-items:center;width:22px;height:22px;padding:0;
+  margin-left:7px;vertical-align:middle;border:1px solid rgba(128,128,128,.45);background:none;
+  color:inherit;opacity:.55;font:400 13px/1 system-ui,sans-serif;
+  transition:opacity .14s ease,background .14s ease,color .14s ease,border-color .14s ease}
+.gml:hover,.gml:focus-visible{opacity:1;background:#B8E02E;color:#0B0D0A;border-color:#B8E02E}
+.gml.on{opacity:1;background:#B8E02E;color:#0B0D0A;border-color:#B8E02E;font-weight:700}
+</style>
+<div id="gml-note" role="status" aria-live="polite"></div>
+<script id="glostik-my-list-widget">
+/* One list across every view. Storage can be blocked or cleared, so every read and write is
+   guarded and the page behaves the same when it comes back empty. */
+(function () {
+  var KEY = 'glostik-my-list';
+  var LIST_AT = '/glostik-songs/experimental#songs?list=mine';
+  function read() {
+    try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; }
+    catch (e) { return []; }
+  }
+  function write(a) { try { localStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {} }
+  var mine = read();
+  var key = function (song, artist) { return (String(song) + '|||' + String(artist)).toLowerCase(); };
+
+  var note = document.getElementById('gml-note'), noteTimer = null;
+  function say(text, n) {
+    note.innerHTML = text + ' <a href="' + LIST_AT + '">' + n + ' on your list</a>';
+    note.classList.add('on');
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(function () { note.classList.remove('on'); }, 3200);
+  }
+
+  function songsOf() {
+    // a top-level const does not attach to window, so ask for the bare name, guarded
+    try { if (typeof state !== 'undefined' && state && Array.isArray(state.songs)) return state.songs; } catch (e) {}
+    try { if (window.state && Array.isArray(window.state.songs)) return window.state.songs; } catch (e) {}
+    return null;
+  }
+  var SONG_SEL = '.plate-song, .tt, .rt, .t, .c-song button, [role=rowheader] button';
+  // metal puts an ORIGINAL badge, the genre and a catalog note in the same row of spans, so the
+  // first span is not always the artist. Take the first one that is none of those.
+  var BAND_SEL = '.by, .a, .c-art, .ra, .band';
+  var SKIP = /^(original|catalog|rare|debut|overdue|kinda due|retired|bustout)/i;
+  function bandOf(row) {
+    var direct = row.querySelector(BAND_SEL);
+    if (direct && direct.textContent.trim()) return direct.textContent.trim();
+    var spans = row.querySelectorAll('.plate-meta span');
+    for (var i = 0; i < spans.length; i++) {
+      var t = spans[i].textContent.trim();
+      if (t && !SKIP.test(t) && !spans[i].classList.contains('orig-mark')
+          && !spans[i].classList.contains('g') && !spans[i].classList.contains('tag')) return t;
+    }
+    return '';
+  }
+  function rowSong(row) {
+    var songs = songsOf();
+    var i = row.getAttribute && row.getAttribute('data-i');
+    if (songs && i !== null && i !== '' && songs[+i]) return songs[+i];
+    // metal keeps its songs in a closure, so read the row itself
+    var t = row.querySelector(SONG_SEL);
+    if (t && t.textContent.trim()) {
+      return {song: t.textContent.trim(), artist: bandOf(row)};
+    }
+    return null;
+  }
+  function paint(btn, on) {
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.textContent = on ? '\u2713' : '+';
+    btn.title = on ? 'On your list' : 'Add to your list';
+  }
+  function mount() {
+    var rows = document.querySelectorAll('li.r, li.ln, .song, .plate, li[data-i]');
+    for (var n = 0; n < rows.length; n++) {
+      var row = rows[n];
+      if (row.querySelector('.gml')) continue;
+      var s = rowSong(row);
+      if (!s || !s.song) continue;
+      var k = key(s.song, s.artist);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gml';
+      btn.setAttribute('data-gml', k);
+      btn.setAttribute('aria-label', 'Add ' + s.song + ' to your list');
+      paint(btn, mine.indexOf(k) >= 0);
+      // never inside the title: a title is read as text by screen readers and by checkers, and a
+      // button dropped into it turns "Ripple" into "Ripple+".
+      var host = row.querySelector('.c-plays, .plate-meter, .meta') || row;
+      btn.setAttribute('data-gml-ctl', '1');
+      host.appendChild(btn);
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-gml]');
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var k = b.getAttribute('data-gml'), at = mine.indexOf(k);
+    if (at >= 0) mine.splice(at, 1); else mine.push(k);
+    write(mine);
+    paint(b, at < 0);
+    document.querySelectorAll('[data-gml="' + k.replace(/"/g, '') + '"]').forEach(function (x) { paint(x, at < 0); });
+    say(at < 0 ? 'Added.' : 'Removed.', mine.length);
+  }, true);
+
+  // rows are redrawn on every sort, filter and search, so watch rather than mount once
+  var pending = null;
+  new MutationObserver(function () {
+    clearTimeout(pending);
+    pending = setTimeout(mount, 120);
+  }).observe(document.body, {childList: true, subtree: true});
+  setTimeout(mount, 900);
+  setTimeout(mount, 2600);
+})();
+</script>
+
+<!-- glostik-extras -->
+
+<style id="glostik-extras-css">
+#gx.gxs{--x-i:var(--m-bone,var(--ink,#E5E5E5));--x-d:var(--m-dim,var(--ink-2,#7D8792));
+  --x-l:var(--m-rule,var(--rule,rgba(128,128,128,.22)));
+  --x-f:var(--m-plate,var(--hover,rgba(128,128,128,.07)));
+  --x-h:var(--m-hot,var(--acid,#B8E02E));
+  margin:40px auto 0;padding:0 var(--m-gut,var(--gut,18px)) 70px;
+  max-width:var(--m-page,var(--page,1240px));color:var(--x-i)}
+.gxs h2{margin:34px 0 4px;font:700 13px/1 ui-monospace,Menlo,monospace;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--x-h)}
+.gxs p.lead{margin:0 0 12px;font:400 13px/1.6 inherit;color:var(--x-d);max-width:62ch}
+.gxs .count{display:flex;flex-wrap:wrap;gap:1px;background:var(--x-l);border:1px solid var(--x-l);
+  margin-top:10px}
+.gxs .count div{flex:1 1 130px;background:var(--x-f);padding:12px 14px}
+.gxs .count b{display:block;font:700 24px/1 inherit;color:var(--x-i)}
+.gxs .count span{font:400 9.5px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--x-d)}
+.gxs .live{margin-top:10px;border:1px solid var(--x-l);background:var(--x-f)}
+.gxs .live .fr{position:relative;aspect-ratio:16/9;background:#000}
+.gxs .live iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gxs .live p{margin:0;padding:11px 14px;font:400 12px/1.5 inherit;color:var(--x-d)}
+.gxs .live a{color:var(--x-h)}
+.gxs form{display:grid;gap:9px;margin:10px 0 6px}
+.gxs .two{display:grid;gap:9px;grid-template-columns:minmax(0,1fr) minmax(0,220px)}
+.gxs input,.gxs textarea{width:100%;padding:9px 10px;background:var(--x-f);
+  border:1px solid var(--x-l);color:var(--x-i);font:400 13px/1.4 inherit}
+.gxs textarea{min-height:84px;resize:vertical}
+.gxs input:focus,.gxs textarea:focus{outline:2px solid var(--x-h);outline-offset:-1px}
+.gxs button.go{cursor:pointer;justify-self:start;padding:10px 18px;border:1px solid var(--x-h);
+  background:var(--x-h);color:#111;font:700 11px/1 ui-monospace,Menlo,monospace;
+  letter-spacing:.12em;text-transform:uppercase}
+.gxs button.go:hover{filter:brightness(1.15)}
+.gxs button.go:disabled{opacity:.5;cursor:default}
+.gxs .msg{margin:2px 0 0;font:400 12px/1.5 inherit;color:var(--x-d);min-height:1.2em}
+.gxs .msg.ok{color:var(--x-h)}
+.gxs .topic{border-top:1px solid var(--x-l);padding:14px 0}
+.gxs .topic h3{margin:0;font:700 15px/1.3 inherit;color:var(--x-i)}
+.gxs .topic .by{font:400 10px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--x-d);margin-top:3px}
+.gxs .topic .body{margin:7px 0 0;font:400 13.5px/1.6 inherit;white-space:pre-wrap;
+  overflow-wrap:anywhere}
+.gxs .reps{margin:9px 0 0;padding:0 0 0 14px;border-left:2px solid var(--x-l);list-style:none}
+.gxs .reps li{padding:7px 0;font:400 13px/1.55 inherit;white-space:pre-wrap;overflow-wrap:anywhere}
+.gxs .reps .by{margin:0 0 2px}
+.gxs .rep{cursor:pointer;margin-top:8px;padding:5px 10px;border:1px solid var(--x-l);
+  background:none;color:var(--x-d);font:700 9.5px/1 ui-monospace,Menlo,monospace;
+  letter-spacing:.1em;text-transform:uppercase}
+.gxs .rep:hover{background:var(--x-h);color:#111;border-color:var(--x-h)}
+.gxs .repbox{display:none;margin-top:8px}
+.gxs .repbox.on{display:grid;gap:8px}
+</style>
+
+<section id="gx" class="gxs" aria-label="Live, forum and visits">
+  <h2>Watch the stream</h2>
+  <p class="lead" id="gx-live-lead">Checking whether they are playing right now.</p>
+  <div class="live" id="gx-live" hidden>
+    <div class="fr" id="gx-live-fr"></div>
+    <p>Playing now on the band's channel. <a id="gx-live-out" href="https://www.youtube.com/@glostikofficial/live"
+       target="_blank" rel="noopener">Open it on YouTube</a></p>
+  </div>
+
+  <h2>Forum</h2>
+  <p class="lead">Start a thread or answer one. Anyone with the link can read and post, so be decent
+     about it.</p>
+  <form id="gx-new" autocomplete="off">
+    <div class="two">
+      <input id="gx-t" maxlength="120" required placeholder="What is the thread about?">
+      <input id="gx-n" maxlength="40" placeholder="Your name, optional">
+    </div>
+    <textarea id="gx-b" maxlength="4000" required placeholder="Say it here"></textarea>
+    <button class="go" type="submit" id="gx-send">Start the thread</button>
+  </form>
+  <p class="msg" id="gx-msg" role="status" aria-live="polite"></p>
+  <div id="gx-topics"></div>
+
+  <h2>Visits</h2>
+  <div class="count" id="gx-count"></div>
+</section>
+
+<script id="glostik-extras">
+/* Three things every view should have had: the visit counter that only two of them kept, the
+   band's live stream watchable on the page while they are playing, and a forum. Self-contained,
+   own ids, colours taken from whichever view it lands in. */
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s)
+    .replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var when = function (iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    var mins = Math.round((Date.now() - d.getTime()) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + ' min ago';
+    if (mins < 1440) return Math.round(mins / 60) + 'h ago';
+    return d.toLocaleDateString(undefined, {month: 'short', day: 'numeric'});
+  };
+
+  /* ── the counter ────────────────────────────────────────────────────────────────────────── */
+  // classic 1 and classic 2 already print a count in their comment section; this block is the
+  // home for every other view, and it does not put a second one on a page that has one.
+  var hadOwn = !!document.getElementById('visits');
+  if (hadOwn) {
+    var sec = $('gx-count');
+    sec.previousElementSibling.style.display = 'none';
+    sec.style.display = 'none';
+  }
+  fetch('/api/visits', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: '{}'})
+    .then(function (r) { return r.json(); })
+    .catch(function () { return fetch('/api/visits').then(function (r) { return r.json(); }); })
+    .then(function (v) {
+      if (!v) return;
+      $('gx-count').innerHTML =
+        '<div><b>' + esc(String(v.total != null ? v.total : '-')) + '</b><span>visits in all</span></div>'
+        + '<div><b>' + esc(String(v.today != null ? v.today : '-')) + '</b><span>today</span></div>';
+    }).catch(function () {
+      $('gx-count').innerHTML = '<div><b>-</b><span>visits are not reachable</span></div>';
+    });
+
+  /* ── the live stream, shown only while they are actually playing ─────────────────────────── */
+  /* THIS ASKED THE WRONG ROUTE FOR TWO WEEKS. It read /api/live for d.live / d.liveVideo / d.vid /
+     d.video. live.js has never returned any of those: its contract is { night, rows }, the
+     community's running song sheet. So `on` was false on every load and the embed never appeared,
+     including while 80 people were watching. Brandon, 2026-09-20: "the live tab doesn't have the
+     current live stream youtube inline like we asked 100 times".
+
+     The fallback URL was broken too. channel=UCglostikofficial is the handle with UC glued on the
+     front, and that endpoint needs a real channel id. The id is UCahz33G0lrNDto1ql1692qA, taken
+     from the channel page's own canonical link. Both faults had to be fixed, since either one
+     alone still leaves an empty tab.
+
+     /api/onair answers the one question and says which video. */
+  var LIVE_CHANNEL = 'UCahz33G0lrNDto1ql1692qA';
+  function liveCheck() {
+    fetch('/api/onair', {cache: 'no-store'}).then(function (r) { return r.json(); })
+      .then(function (d) {
+        var vid = d && (d.video || d.liveVideo || d.vid);
+        var on = !!(d && d.live);
+        if (!on) {
+          $('gx-live').hidden = true;
+          $('gx-live-lead').textContent = 'Nobody is playing right now. When the stream starts it '
+            + 'shows up here and you can watch it without leaving the page.';
+          return;
+        }
+        var who = d.watching ? (' ' + d.watching + ' watching.') : '';
+        $('gx-live-lead').textContent = 'They are playing right now.' + who;
+        var src = vid
+          ? 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid)
+            + '?autoplay=0&rel=0&modestbranding=1&playsinline=1'
+          : 'https://www.youtube-nocookie.com/embed/live_stream?channel=' + LIVE_CHANNEL + '&autoplay=0';
+        var fr = $('gx-live-fr'), have = fr.querySelector('iframe');
+        /* Replace when the video changed. A stream that ends and a new one that starts share this
+           element, and keeping the first iframe would pin the tab to a stream that is over. */
+        if (!have || fr.getAttribute('data-vid') !== String(vid || 'channel')) {
+          fr.innerHTML = '<iframe src="' + esc(src) + '" title="Glostik, live"'
+            + ' allow="encrypted-media; picture-in-picture; fullscreen"'
+            + ' referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+          fr.setAttribute('data-vid', String(vid || 'channel'));
+        }
+        $('gx-live').hidden = false;
+      }).catch(function () {
+        $('gx-live-lead').textContent = 'Cannot tell whether they are playing right now.';
+      });
+  }
+  liveCheck();
+  setInterval(function () { if (!document.hidden) liveCheck(); }, 60000);
+
+  /* ── the forum ──────────────────────────────────────────────────────────────────────────── */
+  function post(body) {
+    return fetch('/api/forum', {method: 'POST', headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify(body)})
+      .then(function (r) {
+        return r.json().catch(function () { return {}; })
+          .then(function (j) { return {r: r, j: j}; });
+      });
+  }
+  function load() {
+    fetch('/api/forum', {cache: 'no-store'}).then(function (r) { return r.json(); })
+      .then(function (j) {
+        var ts = j.topics || [];
+        $('gx-topics').innerHTML = ts.length ? ts.map(function (t) {
+          var reps = (t.replies || []).map(function (r) {
+            return '<li><div class="by">' + esc(r.name || 'Anonymous') + ' · ' + esc(when(r.at))
+              + '</div>' + esc(r.text) + '</li>';
+          }).join('');
+          return '<div class="topic" data-id="' + esc(t.id) + '">'
+            + '<h3>' + esc(t.title) + '</h3>'
+            + '<div class="by">' + esc(t.name || 'Anonymous') + ' · ' + esc(when(t.at))
+            + ((t.replies || []).length ? ' · ' + t.replies.length + ' repl'
+               + ((t.replies || []).length === 1 ? 'y' : 'ies') : '') + '</div>'
+            + '<p class="body">' + esc(t.text) + '</p>'
+            + (reps ? '<ul class="reps">' + reps + '</ul>' : '')
+            + '<button class="rep" type="button">Reply</button>'
+            + '<form class="repbox" autocomplete="off">'
+            + '<input class="rn" maxlength="40" placeholder="Your name, optional">'
+            + '<textarea class="rb" maxlength="4000" required placeholder="Your reply"></textarea>'
+            + '<button class="go" type="submit">Post the reply</button>'
+            + '<p class="msg" role="status" aria-live="polite"></p></form></div>';
+        }).join('') : '<p class="lead">No threads yet. Start the first one.</p>';
+      }).catch(function () {
+        $('gx-topics').innerHTML = '<p class="lead">The forum is not reachable right now.</p>';
+      });
+  }
+
+  $('gx-new').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = $('gx-send'), m = $('gx-msg');
+    b.disabled = true; m.className = 'msg'; m.textContent = 'Posting…';
+    post({title: $('gx-t').value.trim(), text: $('gx-b').value.trim(), name: $('gx-n').value.trim()})
+      .then(function (res) {
+        if (res.r.ok) {
+          m.className = 'msg ok'; m.textContent = 'Posted.';
+          $('gx-t').value = ''; $('gx-b').value = '';
+          load();
+        } else { m.textContent = res.j.error || 'That did not post.'; }
+      }).catch(function () { m.textContent = 'That did not post. Try again in a moment.'; })
+      .then(function () { b.disabled = false; });
+  });
+
+  $('gx-topics').addEventListener('click', function (e) {
+    var r = e.target.closest('.rep');
+    if (!r) return;
+    var box = r.nextElementSibling;
+    box.classList.toggle('on');
+    if (box.classList.contains('on')) box.querySelector('.rb').focus();
+  });
+  $('gx-topics').addEventListener('submit', function (e) {
+    var f = e.target.closest('.repbox');
+    if (!f) return;
+    e.preventDefault();
+    var topic = f.closest('.topic').dataset.id;
+    var btn = f.querySelector('button.go'), m = f.querySelector('.msg');
+    btn.disabled = true; m.className = 'msg'; m.textContent = 'Posting…';
+    post({parent: topic, text: f.querySelector('.rb').value.trim(),
+          name: f.querySelector('.rn').value.trim()})
+      .then(function (res) {
+        if (res.r.ok) { load(); } else { m.textContent = res.j.error || 'That did not post.'; }
+      }).catch(function () { m.textContent = 'That did not post.'; })
+      .then(function () { btn.disabled = false; });
+  });
+
+  load();
+})();
+</script>
+<!-- /glostik-extras -->
+
+
+
+
+<!-- glostik-stars -->
+<style id="glostik-stars-css">
+.gsr{display:inline-flex;align-items:center;gap:1px;margin-left:8px;vertical-align:middle}
+.gsr .gsb{cursor:pointer;padding:0 1px;border:0;background:none;color:inherit;opacity:.28;
+  font:400 14px/1 system-ui,sans-serif;transition:opacity .12s ease,color .12s ease}
+.gsr .gsb:hover,.gsr .gsb:focus-visible{opacity:1;color:#E0B23A}
+.gsr .gsb.avg{opacity:.6}
+.gsr .gsb.mine{opacity:1;color:#E0B23A}
+.gsr .gsn{margin-left:5px;font:600 11px/1 system-ui,sans-serif;opacity:.75}
+.gsr .gsc{margin-left:3px;font:400 10.5px/1 system-ui,sans-serif;opacity:.5}
+#gs-say{position:fixed;inset:0;z-index:9200;display:none;place-items:center;
+  background:rgba(8,8,10,.62);padding:18px}
+#gs-say.on{display:grid}
+#gs-say .gsbox{width:min(440px,100%);background:#14150F;border:1px solid #6E7350;color:#EDEAE0;
+  padding:18px 18px 16px;font:400 14px/1.45 system-ui,sans-serif;
+  box-shadow:0 22px 60px -18px rgba(0,0,0,.85)}
+#gs-say h3{margin:0 0 2px;font:700 16px/1.25 system-ui,sans-serif}
+#gs-say .gss{color:#E0B23A;letter-spacing:2px;margin:0 0 10px;font-size:15px}
+#gs-say p.gsw{margin:0 0 12px;font-size:12.5px;opacity:.72}
+#gs-say input,#gs-say textarea{width:100%;margin:0 0 9px;padding:8px 10px;background:#0D0E0A;
+  border:1px solid #4A4E33;color:#EDEAE0;font:inherit;font-size:14px}
+#gs-say textarea{min-height:72px;resize:vertical}
+#gs-say .gsrow{display:flex;gap:9px;align-items:center}
+#gs-say button{cursor:pointer;padding:9px 15px;border:0;font:600 14px/1 system-ui,sans-serif}
+#gs-say .gsgo{background:#B8E02E;color:#0B0D0A}
+#gs-say .gsno{background:none;color:#EDEAE0;border:1px solid #4A4E33}
+#gs-say .gsmsg{margin:9px 0 0;font-size:12.5px;opacity:.8;min-height:1em}
+</style>
+<div id="gs-say" role="dialog" aria-modal="true" aria-label="Say something about this song">
+  <form class="gsbox" id="gs-form" autocomplete="off">
+    <h3 id="gs-title">This song</h3>
+    <p class="gss" id="gs-stars"></p>
+    <p class="gsw">Your star is already counted. A donation is never required, and this site cannot
+       see a payment. The amount below is only what you say you sent through the band's own tip
+       page.</p>
+    <input id="gs-name" maxlength="40" placeholder="Your name, optional">
+    <textarea id="gs-text" maxlength="600" placeholder="Anything you want to say about it"></textarea>
+    <input id="gs-tip" maxlength="12" inputmode="decimal" placeholder="Amount you sent, optional">
+    <div class="gsrow"><button class="gsgo" type="submit">Send it</button>
+      <button class="gsno" type="button" id="gs-skip">No thanks</button></div>
+    <p class="gsmsg" id="gs-msg" role="status" aria-live="polite"></p>
+  </form>
+</div>
+<script id="glostik-stars-widget">
+/* Five stars on every song row, sharing one store with the experimental page. */
+(function () {
+  if (window.__gstars) return;
+  window.__gstars = 1;
+
+  var MINE_KEY = 'glostik-my-stars';
+  var VOTER_KEY = 'glostik-voter';
+  var VOTES = {};
+  var MINE = {};
+  try { MINE = JSON.parse(localStorage.getItem(MINE_KEY) || '{}') || {}; } catch (e) { MINE = {}; }
+  function saveMine() { try { localStorage.setItem(MINE_KEY, JSON.stringify(MINE)); } catch (e) {} }
+
+  /* Who this browser is, for the one-star-per-person rule. The IP cannot do this job: the same
+     caller was handed two addresses inside a minute and counted twice. */
+  function voterId() {
+    try {
+      var v = localStorage.getItem(VOTER_KEY);
+      if (!v) { v = 'v' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(VOTER_KEY, v); }
+      return v;
+    } catch (e) { return ''; }
+  }
+
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  };
+  /* The same key experimental 2 writes, so a star given here is the star it counts. */
+  var key = function (song, artist) { return (String(song) + '|||' + String(artist)).toLowerCase(); };
+
+  function songsOf() {
+    try { if (typeof state !== 'undefined' && state && Array.isArray(state.songs)) return state.songs; } catch (e) {}
+    try { if (window.state && Array.isArray(window.state.songs)) return window.state.songs; } catch (e) {}
+    return null;
+  }
+  var SONG_SEL = '.plate-song, .tt, .rt, .t, .c-song button, [role=rowheader] button';
+  var BAND_SEL = '.by, .a, .c-art, .ra, .band';
+  var SKIP = /^(original|catalog|rare|debut|overdue|kinda due|retired|bustout)/i;
+  function bandOf(row) {
+    var direct = row.querySelector(BAND_SEL);
+    if (direct && direct.textContent.trim()) return direct.textContent.trim();
+    var spans = row.querySelectorAll('.plate-meta span');
+    for (var i = 0; i < spans.length; i++) {
+      var t = spans[i].textContent.trim();
+      if (t && !SKIP.test(t) && !spans[i].classList.contains('orig-mark')
+          && !spans[i].classList.contains('g') && !spans[i].classList.contains('tag')) return t;
+    }
+    return '';
+  }
+  function rowSong(row) {
+    var songs = songsOf();
+    var i = row.getAttribute && row.getAttribute('data-i');
+    if (songs && i !== null && i !== '' && songs[+i]) return songs[+i];
+    var t = row.querySelector(SONG_SEL);
+    if (t && t.textContent.trim()) return { song: t.textContent.trim(), artist: bandOf(row) };
+    return null;
+  }
+
+  function paint(el) {
+    var k = el.getAttribute('data-gsr');
+    var v = VOTES[k] || { n: 0, avg: 0 };
+    var yours = MINE[k] || 0;
+    var lit = yours || Math.round(v.avg);
+    var bs = el.querySelectorAll('.gsb');
+    for (var i = 0; i < bs.length; i++) {
+      bs[i].className = 'gsb' + (i + 1 <= lit ? (yours ? ' mine' : ' avg') : '');
+      bs[i].title = yours ? 'You gave it ' + yours : v.n ? v.avg + ' from ' + v.n : 'Not rated yet';
+    }
+    var n = el.querySelector('.gsn'), c = el.querySelector('.gsc');
+    n.textContent = v.n ? v.avg : '';
+    c.textContent = v.n ? v.n : '';
+  }
+
+  var placement = null;
+  function relocate(box, row) {
+    row.appendChild(box);
+    box.style.marginLeft = '0';
+    if (window.getComputedStyle(row).display.indexOf('grid') >= 0) {
+      box.style.gridColumn = '1 / -1';
+      box.style.justifySelf = 'end';
+    }
+  }
+
+  function mount() {
+    var rows = document.querySelectorAll('li.r, li.ln, .song, .plate, li[data-i]');
+    for (var n = 0; n < rows.length; n++) {
+      var row = rows[n];
+      if (row.querySelector('.gsr')) continue;
+      var s = rowSong(row);
+      if (!s || !s.song) continue;
+      var k = key(s.song, s.artist);
+      var box = document.createElement('span');
+      box.className = 'gsr';
+      box.setAttribute('data-gsr', k);
+      box.setAttribute('role', 'group');
+      box.setAttribute('aria-label', 'Rate ' + s.song + ' out of five');
+      var html = '';
+      for (var i = 1; i <= 5; i++) {
+        html += '<button class="gsb" type="button" data-star="' + i + '" aria-label="' + i
+          + ' out of 5">\u2605</button>';
+      }
+      box.innerHTML = html + '<b class="gsn"></b><i class="gsc"></i>';
+      /* Never inside the title. A button dropped into a title turns "Ripple" into "Ripple+", which
+         is what happened the first time the add-to-list control went in. */
+      var host = row.querySelector('.c-plays, .plate-meter, .meta') || row;
+      host.appendChild(box);
+      /* That host is a fixed grid cell in some layouts. The metal view gives it 7.5rem and the
+         stars are 94px, so they spilled into the next cell and were painted over by it. Measured
+         once, on the first row, then applied to every row: a rect wider than its host means the
+         control belongs on a line of its own. */
+      if (placement === null) {
+        var hr = host.getBoundingClientRect(), br = box.getBoundingClientRect();
+        placement = (br.right > hr.right + 2 || br.width > hr.width + 2) ? 'row' : 'host';
+      }
+      if (placement === 'row') relocate(box, row);
+      paint(box);
+    }
+  }
+  function repaint() {
+    var all = document.querySelectorAll('.gsr');
+    for (var i = 0; i < all.length; i++) paint(all[i]);
+  }
+
+  function load() {
+    fetch('/api/song', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { if (!j) return; VOTES = j.songs || {}; repaint(); })
+      .catch(function () { /* the store is not reachable; the rows still work */ });
+  }
+
+  function post(k, extra) {
+    var body = { key: k, voter: voterId() };
+    for (var p in extra) if (Object.prototype.hasOwnProperty.call(extra, p)) body[p] = extra[p];
+    return fetch('/api/song', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); });
+  }
+
+  var say = document.getElementById('gs-say');
+  function openSay(k, n, label) {
+    document.getElementById('gs-title').textContent = label || 'This song';
+    document.getElementById('gs-stars').textContent = new Array(n + 1).join('\u2605');
+    document.getElementById('gs-msg').textContent = '';
+    document.getElementById('gs-text').value = '';
+    document.getElementById('gs-tip').value = '';
+    say.dataset.key = k;
+    say.classList.add('on');
+    document.getElementById('gs-text').focus();
+  }
+  function closeSay() { say.classList.remove('on'); }
+  document.getElementById('gs-skip').addEventListener('click', closeSay);
+  say.addEventListener('click', function (e) { if (e.target === say) closeSay(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSay(); });
+
+  document.getElementById('gs-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var k = say.dataset.key;
+    var text = document.getElementById('gs-text').value.trim();
+    var tip = document.getElementById('gs-tip').value.trim();
+    var name = document.getElementById('gs-name').value.trim();
+    if (!text && !tip) { closeSay(); return; }
+    document.getElementById('gs-msg').textContent = 'Sending.';
+    post(k, { text: text, tip: tip, name: name }).then(function (res) {
+      if (!res.ok) { document.getElementById('gs-msg').textContent = res.j.error || 'That did not send.'; return; }
+      if (res.j.song) { VOTES[k] = res.j.song; repaint(); }
+      closeSay();
+    }).catch(function () { document.getElementById('gs-msg').textContent = 'That did not send.'; });
+  });
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.gsb');
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var box = b.closest('.gsr'), k = box.getAttribute('data-gsr'), n = +b.getAttribute('data-star');
+    MINE[k] = n;
+    saveMine();
+    paint(box);
+    post(k, { stars: n }).then(function (res) {
+      if (res.ok && res.j.song) { VOTES[k] = res.j.song; repaint(); }
+      var label = k.split('|||');
+      openSay(k, n, label[0] ? label[0].replace(/^./, function (c) { return c.toUpperCase(); }) : '');
+    }).catch(function () {});
+  }, true);
+
+  /* Rows are redrawn on every sort, filter and search, so watch rather than mount once. */
+  var pending = null;
+  new MutationObserver(function () {
+    clearTimeout(pending);
+    pending = setTimeout(mount, 120);
+  }).observe(document.body, { childList: true, subtree: true });
+  setTimeout(mount, 900);
+  setTimeout(mount, 2600);
+  load();
+})();
+</script>
+<!-- /glostik-stars -->
+<!-- glostik-tabs ---------------------------------------------------------------------------------
+     Brandon asked twice for a forum tab and a feature request tab, then asked plainly where the
+     comment box lives. Measured on 2026-09-20 it had four homes across six layouts: a section
+     called "Leave a comment" in both classics, the Links tab in experimental 2, a panel in metal
+     and in archive, and nothing at all in experimental 1. That spread is the drift the all-views
+     gate exists to catch.
+
+     Three tabs, the same three in every view, in a strip of their own that sits directly above the
+     page's own panels. The first build pushed these into the host's tab strip and a browser run
+     showed why that was wrong: experimental 2 already carries twelve tabs in a strip that scrolls
+     sideways, so tabs thirteen through fifteen were off the right edge and unreachable, which is
+     the opposite of an answer to "wheres the forum tab".
+
+     It moves the existing comment box and the existing forum onto the tabs rather than building
+     second copies, so each view keeps the wiring it already had, and it moves the live stream
+     embed onto the Live tab, which is what Brandon asked for.
+
+     Self-contained. Own ids, own class prefix, colours read from whichever view it lands in.
+-->
+<style id="glostik-tabs-css">
+#gt-own{margin:0 0 18px}
+#gt-own.gt-solo{margin:34px 0 0;padding-top:22px;border-top:1px solid var(--rule,rgba(128,128,128,.3))}
+#gt-own .gt-strip{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 4px}
+#gt-own .gt-say{font:600 11.5px/1 inherit;letter-spacing:.09em;text-transform:uppercase;opacity:.55;
+  margin-right:4px}
+#gt-own .gt-tab{font:600 14px/1 inherit;cursor:pointer;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--rule,rgba(128,128,128,.42));background:transparent;color:inherit}
+#gt-own .gt-tab:hover{border-color:var(--x-h,#c8963e)}
+#gt-own .gt-tab[aria-selected=true]{background:var(--ink,#141414);color:var(--cream,#f7f3e8);
+  border-color:var(--ink,#141414)}
+.gt-pane .gt-h{font:700 19px/1.2 inherit;margin:0 0 4px}
+.gt-pane .gt-lead{font-size:14px;opacity:.75;margin:0 0 14px;max-width:62ch}
+.gt-pane .gt-form{display:grid;gap:9px;max-width:640px;margin:0 0 14px}
+.gt-pane .gt-in{font:inherit;font-size:15px;padding:9px 11px;border-radius:9px;width:100%;
+  border:1px solid var(--rule,rgba(128,128,128,.42));background:transparent;color:inherit}
+.gt-pane textarea.gt-in{min-height:76px;resize:vertical}
+.gt-pane .gt-go{font:600 15px/1 inherit;cursor:pointer;padding:10px 16px;border-radius:9px;border:0;
+  background:var(--ink,#141414);color:var(--cream,#f7f3e8);justify-self:start}
+.gt-pane .gt-msg{font-size:13.5px;opacity:.8;margin:0 0 14px;min-height:1em}
+.gt-pane .gt-secret{position:relative;aspect-ratio:16/9;max-width:980px;margin:0 0 14px;
+  background:#000;border-radius:10px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.gt-pane .gt-secret iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.gt-pane .gt-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:760px}
+.gt-pane .gt-row{display:flex;gap:12px;align-items:flex-start;padding:11px 13px;border-radius:11px;
+  border:1px solid var(--rule,rgba(128,128,128,.28))}
+.gt-pane .gt-vote{flex:0 0 auto;cursor:pointer;min-width:54px;text-align:center;padding:6px 4px;
+  border-radius:9px;border:1px solid var(--rule,rgba(128,128,128,.42));background:transparent;
+  color:inherit;font:600 12.5px/1.3 inherit}
+.gt-pane .gt-vote[aria-pressed=true]{background:var(--x-h,#c8963e);border-color:var(--x-h,#c8963e);color:#141414}
+.gt-pane .gt-vote b{display:block;font-size:16px}
+.gt-pane .gt-body{flex:1 1 auto;min-width:0}
+.gt-pane .gt-text{margin:0 0 3px;font-size:15px;line-height:1.45;overflow-wrap:anywhere}
+.gt-pane .gt-by{font-size:12.5px;opacity:.65}
+.gt-pane .gt-done{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--x-h,#c8963e)}
+</style>
+<script id="glostik-tabs">
+/* Comments, Forum and Requests, on a tab, in every view. */
+(function () {
+  if (window.__gtabs) return;
+  window.__gtabs = 1;
+
+  var D = document;
+  var $ = function (s, r) { return (r || D).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || D).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  };
+  var when = function (iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) + ', '
+      + d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  };
+
+  /* One token per browser, the same one the stars and the note box already use. An IP cannot do
+     this job: Vercel handed one caller two different addresses inside a minute, and a one vote
+     per person rule counted that person twice. */
+  var voter = '';
+  try {
+    voter = localStorage.getItem('glostik-voter') || '';
+    if (!voter) {
+      voter = Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('glostik-voter', voter);
+    }
+  } catch (e) { voter = ''; }
+
+  var TABS = [
+    { id: 'talk', label: 'Comments' },
+    { id: 'forum', label: 'Forum' },
+    { id: 'asks', label: 'Feature Requests' },
+    { id: 'secret', label: 'Secret Stream' }
+  ];
+
+  /* ---- where the page keeps its own panels ---------------------------------------------------
+     Two idioms. The classics use .tab with aria-controls and the hidden attribute. Experimental 2
+     uses .tb with data-tab and a .panel that carries the class on. Three views have no panels at
+     all, and those get a box of ours. */
+  var proto = $('.tab[aria-controls]') || $('.tb[data-tab]');
+  var hostPane = null;
+  if (proto) {
+    hostPane = proto.hasAttribute('aria-controls')
+      ? D.getElementById(proto.getAttribute('aria-controls'))
+      : $('.panel');
+  }
+  var paneBox = hostPane ? hostPane.parentElement : null;
+  var firstPane = null;
+  var GUT = '';
+
+  var wrap = D.createElement('section');
+  wrap.id = 'gt-own';
+  wrap.setAttribute('aria-label', 'Comments, forum and requests');
+  var strip = D.createElement('nav');
+  strip.className = 'gt-strip';
+  strip.setAttribute('role', 'tablist');
+  var say = D.createElement('span');
+  say.className = 'gt-say';
+  say.textContent = 'Talk to the band';
+  strip.appendChild(say);
+  wrap.appendChild(strip);
+
+  /* Placement, learned the hard way. The first build put this beside the panel container, which
+     made it a direct child of body in every layout, and a headless run found it sitting under the
+     fixed header in experimental 2 and under the left rail in experimental 1 and archive. It
+     belongs inside the content column, directly above the first panel. */
+  if (paneBox) {
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      if (firstPane) return;
+      if ((el.id && el.id.indexOf('p-') === 0) || (el.classList && el.classList.contains('panel'))) firstPane = el;
+    });
+    paneBox.insertBefore(wrap, firstPane || paneBox.firstChild);
+  } else {
+    /* Not inside main. The metal view rebuilds its own main in one innerHTML write, which took
+       this section and the forum nodes it had been given with it, and a later click found
+       gx-topics gone. Beside the extras section instead, which is a body child and survives. */
+    wrap.className = 'gt-solo';
+    paneBox = D.createElement('div');
+    paneBox.className = 'gt-box';
+    wrap.appendChild(paneBox);
+    var anchor = $('#gx') || $('#gp-panels') || $('footer');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor);
+    else D.body.appendChild(wrap);
+  }
+
+  /* A body-level section starts at the window edge, and three layouts hang a fixed rail there, so
+     it lands underneath. Measured on 2026-09-20: the extras section sat at x=100 in experimental 1
+     and archive while their content column starts at 317, which put the forum and the visit
+     counter behind the rail. Borrow the content column's own offset. */
+  function alignToMain() {
+    var m = $('main');
+    if (!m) return;
+    var ml = parseFloat(window.getComputedStyle(m).marginLeft) || 0;
+    [wrap, $('#gx')].forEach(function (el) {
+      if (!el || el.parentElement !== D.body) return;
+      el.style.marginLeft = ml > 40 ? ml + 'px' : '';
+    });
+  }
+  alignToMain();
+  window.addEventListener('resize', alignToMain);
+
+  /* Wear the panel's own gutter. Without it the strip and the panes sit flush against the content
+     column's left edge while everything beside them is inset, and the first word reads as clipped.
+     Experimental 2 puts no padding on the panel itself and puts it on the blocks inside, so look
+     one level down when the panel measures zero. */
+  function gutterFrom(pane) {
+    if (!pane) return;
+    var pl = window.getComputedStyle(pane).paddingLeft;
+    if (!(parseFloat(pl) > 0) && pane.firstElementChild) {
+      pl = window.getComputedStyle(pane.firstElementChild).paddingLeft;
+    }
+    if (parseFloat(pl) > 0) { GUT = pl; wrap.style.paddingLeft = pl; wrap.style.paddingRight = pl; }
+  }
+
+  gutterFrom(firstPane);
+
+  TABS.forEach(function (t) {
+    var b = D.createElement('button');
+    b.type = 'button';
+    b.id = 'tab-gt' + t.id;
+    b.className = 'gt-tab';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'gtp-' + t.id);
+    b.setAttribute('aria-selected', 'false');
+    b.textContent = t.label;
+    strip.appendChild(b);
+
+    var p = D.createElement('section');
+    p.id = 'gtp-' + t.id;
+    /* Wearing the host's panel class matters: experimental 2 clears the class on every panel when
+       one of its own tabs is clicked, so ours stands down without being told. */
+    p.className = (((hostPane && hostPane.className) || '') + ' gt-pane').replace(/\bon\b/g, '').trim();
+    p.setAttribute('role', 'tabpanel');
+    p.setAttribute('aria-label', t.label);
+    p.hidden = true;
+    if (GUT) { p.style.paddingLeft = GUT; p.style.paddingRight = GUT; }
+    paneBox.appendChild(p);
+  });
+
+  function panes() {
+    var out = [];
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      var ok = (el.id && (el.id.indexOf('p-') === 0 || el.id.indexOf('gtp-') === 0))
+        || (el.classList && el.classList.contains('panel'));
+      if (ok) out.push(el);
+    });
+    return out;
+  }
+
+  /* Scroll until the strip can actually be clicked, rather than modelling what is pinned above
+     it. The modelled version measured the element at the very top of the window and missed the
+     poster view's second pinned band stacked under its nav, so the strip still landed behind it.
+     Asking the page what is on top is the only read that cannot be fooled by a layout it has
+     never seen. */
+  function ensureClickable(el) {
+    for (var i = 0; i < 16; i++) {
+      var r = el.getBoundingClientRect();
+      if (r.width && r.height) {
+        var x = r.left + Math.min(24, r.width / 2);
+        var hit = D.elementFromPoint(x, r.top + r.height / 2);
+        if (hit && (el === hit || el.contains(hit))) {
+          // The centre being reachable still leaves the top edge tucked under the bar above it.
+          if (i > 0 && window.pageYOffset > 0) window.scrollTo({ top: Math.max(0, window.pageYOffset - 16) });
+          return true;
+        }
+      }
+      if (window.pageYOffset <= 0) return false;
+      window.scrollTo({ top: Math.max(0, window.pageYOffset - 32) });
+    }
+    return false;
+  }
+
+  var loaded = {};
+  function show(id) {
+    var mine = D.getElementById('gtp-' + id);
+    panes().forEach(function (el) {
+      var on = el === mine;
+      el.hidden = !on;
+      el.classList.toggle('on', on);
+    });
+    $$('.gt-tab', strip).forEach(function (b) {
+      b.setAttribute('aria-selected', String(b.id === 'tab-gt' + id));
+    });
+    /* The search row belongs to the song table. Both newer layouts hide it off a body attribute,
+       and the first classic hides four controls by hand, so do both. */
+    ['#q', '#filters', '#sorts', '#genres', '#qwipe'].forEach(function (s) {
+      var e = $(s); if (e) e.hidden = true;
+    });
+    try { D.body.dataset.tab = 'gt' + id; } catch (e) {}
+    var y = wrap.getBoundingClientRect().top + window.pageYOffset - 10;
+    window.scrollTo({ top: y < 0 ? 0 : y });
+    ensureClickable(strip.querySelector('.gt-tab') || strip);
+    if (!loaded[id]) {
+      loaded[id] = 1;
+      if (id === 'asks') loadAsks();
+      if (id === 'talk') loadFallback();
+      /* The player is built on first open rather than on page load, so a visitor who never
+         touches this tab never pulls video. */
+      if (id === 'secret') secretFrame();
+    }
+  }
+
+  $$('.gt-tab', strip).forEach(function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); show(b.id.slice(6)); });
+  });
+
+  /* When a host tab is clicked the host restores its own pane. Ours has to stand down, and the
+     hidden flags we set on its panes have to come off, since the newer layout only toggles a class
+     and would otherwise leave a panel hidden and on at the same time. */
+  D.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('[role=tab]') : null;
+    if (!b || b.classList.contains('gt-tab')) return;
+    /* Capture, so this runs before the host's own handler and everything is in place by the time
+       it draws. A deferred version of this looked fine by hand and failed the headless check,
+       because nothing had run yet when the check read the page. */
+    TABS.forEach(function (t) {
+      var p = D.getElementById('gtp-' + t.id);
+      if (p) { p.hidden = true; p.classList.remove('on'); }
+    });
+    $$('.gt-tab', strip).forEach(function (x) { x.setAttribute('aria-selected', 'false'); });
+    panes().forEach(function (p) {
+      if (!p.classList.contains('gt-pane')) p.hidden = false;
+    });
+  }, true);
+
+  /* ---- move what already exists onto the new tabs -------------------------------------------- */
+  function moveInto(pane, nodes) {
+    nodes.forEach(function (n) { if (n && n.parentNode && pane) pane.appendChild(n); });
+  }
+  function groupFrom(h) {
+    var out = [h], n = h.nextElementSibling;
+    while (n && n.tagName !== 'H2') { out.push(n); n = n.nextElementSibling; }
+    return out;
+  }
+
+  var gx = $('#gx');
+  if (gx) {
+    var forumNodes = [], liveNodes = [];
+    $$('h2', gx).forEach(function (h) {
+      var t = (h.textContent || '').trim().toLowerCase();
+      if (t.indexOf('forum') === 0) forumNodes = groupFrom(h);
+      if (t.indexOf('watch') === 0) liveNodes = groupFrom(h);
+    });
+    /* The extras stylesheet is scoped to a class rather than to the section's id, so carrying the
+       class across keeps the forum looking like the forum once it lives on a tab. Without this the
+       form lost every rule the moment it left #gx. */
+    var fp = D.getElementById('gtp-forum');
+    if (fp && forumNodes.length) fp.classList.add('gxs');
+    moveInto(fp, forumNodes);
+    /* The live embed belongs on the Live tab, which is where somebody goes looking for it. */
+    var livePane = D.getElementById('p-live') || D.getElementById('gp-live');
+    if (livePane && liveNodes.length) { livePane.classList.add('gxs'); moveInto(livePane, liveNodes); }
+  }
+
+  /* The comment box: one whole section in the classics and in metal, a loose run of nodes inside
+     the Links tab of experimental 2. Moving the real nodes keeps each view's own wiring. */
+  var talkPane = D.getElementById('gtp-talk');
+  var whole = $('#talk') || $('#gp-say');
+  if (whole) {
+    moveInto(talkPane, [whole]);
+  } else if ($('#cform')) {
+    var f = $('#cform'), run = [], head = f.previousElementSibling;
+    if (head && /phead|chead|head/.test(head.className || '')) run.push(head);
+    run.push(f);
+    var n = f.nextElementSibling, guard = 0;
+    while (n && guard++ < 6) { run.push(n); if (n.id === 'clist') break; n = n.nextElementSibling; }
+    moveInto(talkPane, run);
+  }
+
+  /* ---- experimental 1 had no comment box at all, so build one -------------------------------- */
+  var fallback = !talkPane.firstElementChild;
+  if (fallback) {
+    talkPane.innerHTML =
+      '<h2 class="gt-h">Say something</h2>'
+      + '<p class="gt-lead">One box, open to anyone with the link. Be decent about it.</p>'
+      + '<form class="gt-form" id="gt-cform" autocomplete="off">'
+      + '<input class="gt-in" id="gt-cname" maxlength="40" placeholder="Your name, optional">'
+      + '<textarea class="gt-in" id="gt-ctext" maxlength="600" required placeholder="Say something about the songs, or ask for one"></textarea>'
+      + '<button class="gt-go" type="submit">Post it</button></form>'
+      + '<p class="gt-msg" id="gt-cmsg" role="status" aria-live="polite"></p>'
+      + '<ul class="gt-list" id="gt-clist"></ul>';
+    $('#gt-cform').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = $('#gt-ctext').value.trim();
+      if (!text) return;
+      $('#gt-cmsg').textContent = 'Sending.';
+      fetch('/api/comments', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: $('#gt-cname').value, text: text })
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (j.error) { $('#gt-cmsg').textContent = j.error; return; }
+        $('#gt-ctext').value = '';
+        $('#gt-cmsg').textContent = 'Posted.';
+        loadFallback(true);
+      }).catch(function () { $('#gt-cmsg').textContent = 'That did not send.'; });
+    });
+  }
+
+  function loadFallback(force) {
+    if (!fallback) return;
+    var box = $('#gt-clist');
+    if (!box || (box.childElementCount && !force)) return;
+    fetch('/api/comments').then(function (r) { return r.json(); }).then(function (j) {
+      var list = j.comments || [];
+      box.innerHTML = list.length
+        ? list.map(function (c) {
+            return '<li class="gt-row"><div class="gt-body"><p class="gt-text">' + esc(c.text)
+              + '</p><span class="gt-by">' + esc(c.name || 'Anonymous') + ', ' + when(c.at)
+              + '</span></div></li>';
+          }).join('')
+        : '<li class="gt-by">Nothing yet. Be the first.</li>';
+    }).catch(function () { box.innerHTML = '<li class="gt-by">The comments did not load.</li>'; });
+  }
+
+  /* ---- Secret Stream -------------------------------------------------------------------------
+     Brandon, 2026-09-20: "make a tab called Secret Stream. with the link to the secretstream.tv
+     that will play in there. Yeah, in line. In line. In line. Listen to me."
+
+     IT PLAYS HERE, it does not send anybody away. secretstream.tv 301s to kick.com/glostiktv, so
+     the band's second channel is a Kick channel. Kick serves an embeddable player at
+     player.kick.com/<channel>, measured 2026-09-20: http 200 with no X-Frame-Options and no CSP
+     frame-ancestors, so it is allowed to sit in a frame here.
+
+     The frame is built only when the tab is first opened. A player that loads on every page view
+     would start pulling video for every visitor who never asked for it, and this page is already
+     heavy. */
+  var secretPane = D.getElementById('gtp-secret');
+  secretPane.innerHTML =
+    '<h2 class="gt-h">Secret Stream</h2>'
+    + '<p class="gt-lead">The other channel, playing here. It goes live without warning, so if the '
+    + 'picture is dark nobody is on yet.</p>'
+    + '<div class="gt-secret" id="gt-secret-fr"></div>'
+    + '<p class="gt-lead"><a href="https://secretstream.tv" target="_blank" rel="noopener">'
+    + 'secretstream.tv</a> opens it on its own if you would rather watch it there.</p>';
+
+  function secretFrame() {
+    var box = D.getElementById('gt-secret-fr');
+    if (!box || box.querySelector('iframe')) return;
+    box.innerHTML = '<iframe src="https://player.kick.com/glostiktv?autoplay=false"'
+      + ' title="Glostik, the secret stream" allowfullscreen'
+      + ' allow="autoplay; fullscreen; picture-in-picture; encrypted-media"'
+      + ' referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+  }
+
+  /* ---- Requests ------------------------------------------------------------------------------
+     Brandon: "wheres the forum tab or the feature request tab". Votes order the list, so it reads
+     as a queue rather than a pile. */
+  var asksPane = D.getElementById('gtp-asks');
+  asksPane.innerHTML =
+    '<h2 class="gt-h">Ask for a feature</h2>'
+    + '<p class="gt-lead">Something you want this site to do. Vote on the ones already here and the '
+    + 'list sorts itself, most wanted at the top.</p>'
+    + '<form class="gt-form" id="gt-aform" autocomplete="off">'
+    + '<input class="gt-in" id="gt-aname" maxlength="40" placeholder="Your name, optional">'
+    + '<textarea class="gt-in" id="gt-atext" maxlength="600" required placeholder="What should it do?"></textarea>'
+    + '<button class="gt-go" type="submit">File it</button></form>'
+    + '<p class="gt-msg" id="gt-amsg" role="status" aria-live="polite"></p>'
+    + '<ul class="gt-list" id="gt-alist"></ul>';
+
+  var mine = {};
+  try { mine = JSON.parse(localStorage.getItem('glostik-my-asks') || '{}') || {}; } catch (e) { mine = {}; }
+  function remember() { try { localStorage.setItem('glostik-my-asks', JSON.stringify(mine)); } catch (e) {} }
+
+  function drawAsks(list) {
+    var box = $('#gt-alist');
+    if (!list.length) { box.innerHTML = '<li class="gt-by">Nothing filed yet. Ask for something.</li>'; return; }
+    box.innerHTML = list.map(function (a) {
+      return '<li class="gt-row">'
+        + '<button class="gt-vote" type="button" data-id="' + esc(a.id) + '" aria-pressed="'
+        + (mine[a.id] ? 'true' : 'false') + '" aria-label="Vote for this request">'
+        + '<b>' + a.votes + '</b>want</button>'
+        + '<div class="gt-body"><p class="gt-text">' + esc(a.text) + '</p>'
+        + '<span class="gt-by">' + esc(a.name || 'Anonymous') + ', ' + when(a.at)
+        + (a.done ? ' <span class="gt-done">shipped</span>' : '')
+        + '</span></div></li>';
+    }).join('');
+  }
+
+  function loadAsks() {
+    var box = $('#gt-alist');
+    box.innerHTML = '<li class="gt-by">Loading.</li>';
+    fetch('/api/requests').then(function (r) { return r.json(); }).then(function (j) {
+      drawAsks(j.asks || []);
+    }).catch(function () { box.innerHTML = '<li class="gt-by">The list did not load.</li>'; });
+  }
+
+  $('#gt-aform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = $('#gt-atext').value.trim();
+    if (!text) return;
+    $('#gt-amsg').textContent = 'Sending.';
+    fetch('/api/requests', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text, name: $('#gt-aname').value, voter: voter })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (j.error) { $('#gt-amsg').textContent = j.error; return; }
+      $('#gt-atext').value = '';
+      $('#gt-amsg').textContent = 'Filed. It starts with your own vote.';
+      if (j.ask) { mine[j.ask.id] = 1; remember(); }
+      loadAsks();
+    }).catch(function () { $('#gt-amsg').textContent = 'That did not send.'; });
+  });
+
+  asksPane.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('.gt-vote') : null;
+    if (!b) return;
+    var id = b.dataset.id;
+    b.disabled = true;
+    fetch('/api/requests', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ vote: id, voter: voter })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      b.disabled = false;
+      if (j.error) { $('#gt-amsg').textContent = j.error; return; }
+      if (j.mine) mine[id] = 1; else delete mine[id];
+      remember();
+      loadAsks();
+    }).catch(function () { b.disabled = false; });
+  });
+})();
+</script>
+<!-- /glostik-tabs -->
+<!-- lizz-lives -->
+<style>
+/* Scoped to #lzl. Every colour is read off the host panel at runtime and written to these
+   variables, because the extras block shipped hardcoded fallbacks that fell through to a
+   dark-page default on the poster sheet and measured 1.08:1 against its own plate. Reading the
+   host cannot get the contrast wrong, whatever the view is called. */
+#lzl{--lz-fg:#111;--lz-bg:transparent;--lz-dim:#6b6b6b;--lz-line:rgba(128,128,128,.32);
+     --lz-chip:rgba(128,128,128,.13);--lz-on:rgba(128,128,128,.30);
+     margin:22px 0 4px;color:var(--lz-fg);font-size:14px;line-height:1.45}
+#lzl *{box-sizing:border-box}
+#lzl .lzh{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:4px}
+#lzl .lzh h3{margin:0;font-size:1.05em;font-weight:700;letter-spacing:.01em}
+#lzl .lzsub{color:var(--lz-dim);font-size:.86em}
+#lzl .lznote{color:var(--lz-dim);font-size:.8em;margin:6px 0 10px;max-width:74ch}
+#lzl .lzbar{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+#lzl button.lzb{font:inherit;font-size:.84em;cursor:pointer;color:var(--lz-fg);
+  background:var(--lz-chip);border:1px solid var(--lz-line);border-radius:999px;
+  padding:4px 11px;white-space:nowrap}
+#lzl button.lzb[aria-pressed="true"]{background:var(--lz-on);font-weight:700}
+#lzl button.lzb:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+#lzl .lzgrid{display:grid;gap:8px}
+#lzl .lzrow{display:grid;grid-template-columns:104px minmax(0,1fr) auto;gap:11px;
+  align-items:center;padding:7px 8px;border:1px solid var(--lz-line);border-radius:8px;
+  text-decoration:none;color:inherit}
+#lzl .lzrow:hover,#lzl .lzrow:focus-visible{background:var(--lz-chip)}
+#lzl .lzrow:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+#lzl .lzthumb{width:104px;aspect-ratio:16/9;object-fit:cover;border-radius:5px;
+  background:var(--lz-chip);display:block}
+#lzl .lzt{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#lzl .lzm{color:var(--lz-dim);font-size:.83em;margin-top:2px;
+  display:flex;flex-wrap:wrap;gap:4px 9px}
+#lzl .lzp{font-size:.74em;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  border:1px solid var(--lz-line);border-radius:4px;padding:1px 5px}
+#lzl .lzd{text-align:right;font-variant-numeric:tabular-nums;font-size:.86em;
+  color:var(--lz-dim);white-space:nowrap}
+#lzl .lzmore{margin-top:11px}
+/* 9 of her 231 nights answer http 200 and still refuse to play: 8 YouTube nights report
+   status UNPLAYABLE to a signed-out visitor, and Kick has deleted one VOD while leaving
+   its channel page standing. Measured 2026-09-22. Her own archive says so on the night;
+   this block renders the same record, so it says the same thing. */
+#lzl .lzx{font-size:.74em;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+  border:1px solid currentColor;border-radius:4px;padding:1px 5px;color:#B4463C}
+#lzl .lzh{flex-wrap:wrap}
+#lzl .lzsite{margin-left:auto;text-decoration:none;white-space:nowrap}
+#lzl .lzpending{opacity:.72;font-style:italic}
+#lzl .lzerr{color:var(--lz-dim)}
+@media (max-width:640px){
+  #lzl .lzrow{grid-template-columns:72px minmax(0,1fr);row-gap:3px}
+  #lzl .lzthumb{width:72px}
+  #lzl .lzd{grid-column:2;text-align:left}
+  #lzl .lzt{white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){#lzl *{transition:none!important;animation:none!important}}
+</style>
+<section id="lzl" aria-labelledby="lzl-h" hidden>
+  <div class="lzh">
+    <h3 id="lzl-h">Lizz Vega, past lives</h3>
+    <span class="lzsub" id="lzl-sub"></span>
+    <!-- Brandon, 2026-09-22: "link her site from the glostik page". Her own archive already
+         existed at /lizzvega-songs/poster and nothing on this site pointed at it, so the only
+         way in was typing the URL. It sits in this block's header because this block is where
+         a visitor is already reading about her. -->
+    <a class="lzb lzsite" href="/lizzvega-songs/poster">Her song archive</a>
+  </div>
+  <p class="lznote" id="lzl-note"></p>
+  <div class="lzbar" id="lzl-src" role="group" aria-label="Filter past lives by platform"></div>
+  <div class="lzbar" id="lzl-sort" role="group" aria-label="Order the past lives"></div>
+  <div class="lzgrid" id="lzl-grid"></div>
+  <div class="lzmore"><button class="lzb" type="button" id="lzl-more" hidden></button></div>
+  <p class="lzsub" id="lzl-status" role="status" aria-live="polite"></p>
+</section>
+<script>
+/* Lizz Vega's past livestreams, under the Live tab, in every view.
+
+   She streams on two platforms and they cover different eras. Kick prunes its VODs so it holds a
+   short recent window; YouTube keeps the archive. Both are shown and each row says which it is.
+
+   Dates. A row shows a date only when one is provable: Kick's own created_at, a date the streamer
+   typed into her title, or an exact per-video lookup. The channel listing's approximate_date was
+   tested on 2026-09-20 against the 30 self-dated titles and matched 0 of 30, median error 220
+   days, so it is discarded rather than displayed. A row with no provable date says "date pending"
+   and keeps the channel's real order. Nothing here is guessed.
+
+   Placement: inside #livesets' panel where a view has the native Live panel, otherwise inside the
+   extras block's #gx-live, which add_extras.py puts in every view. Never as a sibling of the panel
+   container, since a body child lands under the fixed header in experimental 2 and under the left
+   rail in experimental 1 and archive. */
+(function () {
+  'use strict';
+  var SRC = '/glostik-songs/lizz_lives.json', PAGE = 24;
+  var root = document.getElementById('lzl');
+  if (!root || root.dataset.lzReady) return;
+  root.dataset.lzReady = '1';
+
+  /* ---- placement, measured rather than assumed ---------------------------------------- */
+  function visible(el) {
+    /* #gx-live is the "they are live right now" embed and sits at display:none whenever the band
+       is offline, which is nearly always. Anchoring to it put the block in an invisible home in
+       metal, experimental-1 and archive. So a hidden candidate is climbed out of rather than
+       used, and the block lands on the nearest ancestor a visitor can actually see. */
+    var n = el, guard = 0;
+    while (n && n !== document.body && guard++ < 12) {
+      var cs = getComputedStyle(n);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || n.hidden) { n = n.parentElement; continue; }
+      return n;
+    }
+    return n && n !== document.body ? n : null;
+  }
+  function host() {
+    var sets = document.getElementById('livesets');
+    if (sets && sets.parentNode) return { el: sets.parentNode, after: sets };
+    /* gp-live is the extras block's live PANEL and stays visible; gx-live is the embed inside it.
+       gp-live is written by that block at runtime in some views, so this is resolved here rather
+       than by a scan of the file on disk. */
+    var order = ['gp-live', 'p-live', 'gx-live'];
+    for (var i = 0; i < order.length; i++) {
+      var el = document.getElementById(order[i]);
+      if (!el) continue;
+      var v = visible(el);
+      if (v) return { el: v, after: null };
+    }
+    return null;
+  }
+  var h = host();
+  if (!h) { return; }                       /* no Live surface in this view, stay out of the way */
+  if (h.after && h.after.nextSibling) h.el.insertBefore(root, h.after.nextSibling);
+  else h.el.appendChild(root);
+
+  /* ---- take the palette off the host, so contrast cannot fall through ------------------ */
+  function paint() {
+    var probe = h.el, cs = null, bg = 'transparent', fg = '';
+    try { cs = getComputedStyle(probe); } catch (e) { return; }
+    fg = cs.color || '';
+    var n = probe;
+    while (n && n !== document.documentElement) {
+      var c = getComputedStyle(n).backgroundColor;
+      if (c && c !== 'transparent' && !/rgba\(0,\s*0,\s*0,\s*0\)/.test(c)) { bg = c; break; }
+      n = n.parentElement;
+    }
+    if (fg) root.style.setProperty('--lz-fg', fg);
+    if (bg !== 'transparent') root.style.setProperty('--lz-bg', bg);
+    var m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(fg || '');
+    if (m) {
+      var r = +m[1], g = +m[2], b = +m[3];
+      root.style.setProperty('--lz-dim', 'rgba(' + r + ',' + g + ',' + b + ',.62)');
+      root.style.setProperty('--lz-line', 'rgba(' + r + ',' + g + ',' + b + ',.28)');
+      root.style.setProperty('--lz-chip', 'rgba(' + r + ',' + g + ',' + b + ',.10)');
+      root.style.setProperty('--lz-on', 'rgba(' + r + ',' + g + ',' + b + ',.24)');
+    }
+  }
+
+  /* ---- helpers ------------------------------------------------------------------------- */
+  function hrs(s) {
+    if (!s) return '';
+    var t = Math.round(s / 60);
+    return t >= 60 ? (Math.floor(t / 60) + 'h ' + (t % 60) + 'm') : (t + 'm');
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g,
+      function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+  function nice(d) {
+    if (!d) return '';
+    var p = d.split('-');
+    var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return M[(+p[1] || 1) - 1] + ' ' + (+p[2]) + ', ' + p[0];
+  }
+
+  var rows = [], src = 'all', sort = 'new', shown = PAGE;
+
+  var SORTS = [
+    { k: 'new',  label: 'Newest', cmp: function (a, b) {
+        if (!!a.date !== !!b.date) return a.date ? -1 : 1;
+        if (a.date && b.date && a.date !== b.date) return a.date < b.date ? 1 : -1;
+        return a.order - b.order; } },
+    { k: 'old',  label: 'Oldest', cmp: function (a, b) {
+        if (!!a.date !== !!b.date) return a.date ? -1 : 1;
+        if (a.date && b.date && a.date !== b.date) return a.date < b.date ? -1 : 1;
+        return b.order - a.order; } },
+    { k: 'long', label: 'Longest', cmp: function (a, b) {
+        return (b.seconds || 0) - (a.seconds || 0); } }
+  ];
+
+  function pick() {
+    var out = rows.filter(function (r) { return src === 'all' || r.platform === src; });
+    var s = SORTS.filter(function (x) { return x.k === sort; })[0] || SORTS[0];
+    return out.slice().sort(s.cmp);
+  }
+
+  function chips() {
+    var counts = { all: rows.length, youtube: 0, kick: 0 };
+    rows.forEach(function (r) { if (counts[r.platform] != null) counts[r.platform]++; });
+    var names = { all: 'All', youtube: 'YouTube', kick: 'Kick' };
+    var bar = document.getElementById('lzl-src');
+    bar.innerHTML = '';
+    ['all', 'youtube', 'kick'].forEach(function (k) {
+      if (!counts[k]) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'lzb'; b.dataset.s = k;
+      b.setAttribute('aria-pressed', String(src === k));
+      b.textContent = names[k] + ' ' + counts[k];
+      b.addEventListener('click', function () { src = k; shown = PAGE; draw(); });
+      bar.appendChild(b);
+    });
+    var sb = document.getElementById('lzl-sort');
+    sb.innerHTML = '';
+    SORTS.forEach(function (s) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'lzb'; b.dataset.s = s.k;
+      b.setAttribute('aria-pressed', String(sort === s.k));
+      b.textContent = s.label;
+      b.addEventListener('click', function () { sort = s.k; shown = PAGE; draw(); });
+      sb.appendChild(b);
+    });
+  }
+
+  function draw() {
+    var list = pick(), slice = list.slice(0, shown);
+    var grid = document.getElementById('lzl-grid');
+    grid.innerHTML = slice.map(function (r) {
+      var when = r.date
+        ? '<span>' + esc(nice(r.date)) + '</span>'
+        : '<span class="lzpending">date pending</span>';
+      var day = r.day_n ? '<span>Day ' + r.day_n + '</span>' : '';
+      /* YouTube's mqdefault bakes black bars into the image for anything not 16:9, so object-fit
+         cannot crop them out. mq2 is a frame from the video itself at a true 320x180, which is the
+         same reason the rest of this site uses mq2 for its per-stream stills. Falls back to
+         mqdefault for any id that has no storyboard frame. */
+      var th = r.thumb
+        ? '<img class="lzthumb" loading="lazy" alt="" src="' + esc(r.thumb) + '"'
+          + (r.thumb_fallback ? ' onerror="this.onerror=null;this.src=\'' + esc(r.thumb_fallback) + '\'"' : '')
+          + '>'
+        : '<span class="lzthumb"></span>';
+      return '<a class="lzrow" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">'
+        + th
+        + '<span><span class="lzt">' + esc(r.title || 'Untitled stream') + '</span>'
+        + '<span class="lzm"><span class="lzp">' + esc(r.platform) + '</span>' + when + day + (r.playable === false ? '<span class="lzx">will not play</span>' : '') + '</span></span>'
+        + '<span class="lzd">' + esc(hrs(r.seconds)) + '</span></a>';
+    }).join('');
+    chips();
+    var more = document.getElementById('lzl-more');
+    if (list.length > shown) {
+      more.hidden = false;
+      more.textContent = 'Show ' + Math.min(PAGE, list.length - shown) + ' more of ' + list.length;
+    } else { more.hidden = true; }
+    document.getElementById('lzl-status').textContent =
+      'Showing ' + slice.length + ' of ' + list.length + '.';
+  }
+
+  document.getElementById('lzl-more').addEventListener('click', function () {
+    shown += PAGE; draw();
+    var g = document.getElementById('lzl-grid');
+    var kids = g.children;
+    if (kids[shown - PAGE]) kids[shown - PAGE].focus();
+  });
+
+  fetch(SRC, { cache: 'no-store' }).then(function (r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(function (d) {
+    rows = (d && d.lives) || [];
+    if (!rows.length) { root.hidden = true; return; }
+    root.hidden = false;
+    paint();
+    var dated = rows.filter(function (r) { return r.date; }).length;
+    var secs = rows.reduce(function (a, r) { return a + (r.seconds || 0); }, 0);
+    document.getElementById('lzl-sub').textContent =
+      rows.length + ' streams, ' + Math.round(secs / 3600) + ' hours on record';
+    var note = document.getElementById('lzl-note');
+    var pend = rows.length - dated;
+    note.textContent = 'Her own streams, from '
+      + 'YouTube and Kick. Kick clears older recordings, so YouTube carries the back catalogue.'
+      + (pend ? ' ' + pend + ' of these have no confirmed date yet and say so; '
+                + 'the rest are exact.' : '');
+    draw();
+  }).catch(function (e) {
+    root.hidden = false;
+    document.getElementById('lzl-grid').innerHTML =
+      '<p class="lzerr">Past lives could not be loaded right now.</p>';
+    document.getElementById('lzl-status').textContent = String(e && e.message || e);
+  });
+})();
+</script>
+<!-- /lizz-lives -->
+
+
+<style id="glostik-words-css">
+#gw-own{margin:26px 0 8px}
+#gw-own.gw-solo{margin:44px auto 0;max-width:var(--m-page,1240px);padding:0 var(--m-gut,18px)}
+#gw-own .gw-strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#gw-own .gw-say{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.6;margin-right:4px}
+#gw-own .gw-tab{font:600 14px/1 inherit;cursor:pointer;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.42)));background:transparent;color:inherit}
+#gw-own .gw-tab:hover{border-color:var(--x-h,var(--m-hot,#c8963e))}
+#gw-own .gw-tab[aria-selected=true]{background:var(--ink,var(--m-bone,#141414));
+  color:var(--cream,var(--m-plate,#f7f3e8));border-color:var(--ink,var(--m-bone,#141414))}
+.gw-pane{display:none}
+.gw-pane.on{display:block}
+.gw-pane[hidden]{display:none}
+.gw-pane .gw-h{font:700 19px/1.2 inherit;margin:0 0 4px}
+.gw-pane .gw-lead{font-size:14px;opacity:.75;margin:0 0 14px;max-width:62ch}
+.gw-pane .gw-count{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.55;margin:0 0 10px}
+.gw-pane ul.gw-list{list-style:none;margin:0;padding:0}
+.gw-pane li.gw-row{border-top:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.28)))}
+.gw-pane .gw-open{display:flex;width:100%;gap:11px;align-items:center;cursor:pointer;
+  background:transparent;border:0;color:inherit;font:inherit;text-align:left;padding:11px 2px}
+.gw-pane .gw-open:hover{opacity:.72}
+.gw-pane .gw-n{font:600 11px/1 ui-monospace,Menlo,monospace;opacity:.45;min-width:22px}
+.gw-pane .gw-cov{width:44px;height:44px;object-fit:cover;border-radius:5px;flex:none;
+  background:var(--rule,rgba(128,128,128,.2))}
+.gw-pane .gw-t{font-weight:600;flex:1 1 auto}
+.gw-pane .gw-meta{font:400 12px/1 inherit;opacity:.55;flex:none}
+.gw-pane .gw-caret{opacity:.5;flex:none;transition:transform .15s}
+.gw-pane .gw-row.on .gw-caret{transform:rotate(90deg)}
+.gw-pane .gw-words{display:none;white-space:pre-wrap;font:400 14.5px/1.72 inherit;
+  padding:4px 2px 20px 77px;max-width:64ch;opacity:.92}
+.gw-pane .gw-row.on .gw-words{display:block}
+.gw-pane .gw-sub{margin:2px 0 0;font:400 12px/1.5 inherit;opacity:.6;max-width:60ch}
+.gw-pane .gw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;
+  margin-top:6px}
+.gw-pane .gw-tile{display:block;text-decoration:none;color:inherit}
+.gw-pane .gw-tile img{display:block;width:100%;height:150px;object-fit:cover;border-radius:7px;
+  background:var(--rule,rgba(128,128,128,.2))}
+.gw-pane .gw-tile span{display:block;margin-top:6px;font:400 12px/1.4 inherit;opacity:.72}
+.gw-pane .gw-shopall{margin:18px 0 0}
+.gw-pane .gw-shopall a{font-weight:600;color:inherit}
+@media (max-width:560px){
+  .gw-pane .gw-words{padding-left:33px}
+  .gw-pane .gw-cov{width:36px;height:36px}
+}
+</style>
+
+<script id="glostik-words">
+/* The band's own words, their playlists and their shop, on tabs, in every layout.
+
+   Sixth in the family that add_player.py, add_mylist.py, add_panels.py, add_extras.py and
+   add_tabs.py started. Brandon's standing gate is that a change lands in every view in the same
+   pass. Measured 2026-09-21: lyrics and playlists existed only in experimental 2 and poster, and
+   merch was a tab in those two and a strip in the other three, so five of seven views were short.
+
+   The block brings its own strip and its own panes and fetches its own data, so it never reads
+   the host page's state and does not care how that page is built. Placement, gutter and the
+   stand-down handler are taken from add_tabs_block.html, which learned them the hard way against
+   the fixed header in experimental 2 and the left rail in experimental 1 and archive.
+
+   Nothing here reprints anyone else's words. lyrics.json holds only Glostik's own songs, posted
+   by the band in their own channel. */
+(function () {
+  "use strict";
+  var D = document;
+  function $(s, r) { return (r || D).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || D).querySelectorAll(s)); }
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function num(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+  var ROOT = '/glostik-songs/';
+  var TABS = [
+    { id: 'words', label: 'Lyrics' },
+    { id: 'lists', label: 'Playlists' },
+    { id: 'merch', label: 'Merch' }
+  ];
+
+  /* ---- mount, in the host's own idiom ---------------------------------------------------- */
+  var proto = $('.tab[aria-controls]') || $('.tb[data-tab]');
+  var hostPane = null;
+  if (proto) {
+    hostPane = proto.hasAttribute('aria-controls')
+      ? D.getElementById(proto.getAttribute('aria-controls'))
+      : $('.panel');
+  }
+  var paneBox = hostPane ? hostPane.parentElement : null;
+  var firstPane = null;
+  var GUT = '';
+
+  var wrap = D.createElement('section');
+  wrap.id = 'gw-own';
+  wrap.setAttribute('aria-label', 'Lyrics, playlists and merch');
+  var strip = D.createElement('nav');
+  strip.className = 'gw-strip';
+  strip.setAttribute('role', 'tablist');
+  var say = D.createElement('span');
+  say.className = 'gw-say';
+  say.textContent = "The band's own";
+  strip.appendChild(say);
+  wrap.appendChild(strip);
+
+  /* Inside the content column, directly above the first panel. A body-level placement put the
+     earlier blocks under the fixed header and the left rail. */
+  if (paneBox) {
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      if (firstPane) return;
+      if ((el.id && el.id.indexOf('p-') === 0) ||
+          (el.classList && el.classList.contains('panel'))) firstPane = el;
+    });
+    paneBox.insertBefore(wrap, firstPane || paneBox.firstChild);
+  } else {
+    /* The metal view rebuilds its main in one innerHTML write and takes any child with it, so
+       sit beside a body-level section that survives. */
+    wrap.className = 'gw-solo';
+    paneBox = D.createElement('div');
+    paneBox.className = 'gw-box';
+    wrap.appendChild(paneBox);
+    var anchor = $('#gt-own') || $('#gx') || $('#gp-panels') || $('footer');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor);
+    else D.body.appendChild(wrap);
+  }
+
+  /* Three layouts hang a fixed rail at the window edge, so borrow the content column's offset. */
+  function alignToMain() {
+    var m = $('main');
+    if (!m) return;
+    var ml = parseFloat(window.getComputedStyle(m).marginLeft) || 0;
+    if (wrap.parentElement !== D.body) return;
+    wrap.style.marginLeft = ml > 40 ? ml + 'px' : '';
+  }
+  alignToMain();
+  window.addEventListener('resize', alignToMain);
+
+  /* Wear the host panel's own gutter, or the gutter one level down when the panel has none. */
+  function gutterFrom(pane) {
+    if (!pane) return;
+    var pl = window.getComputedStyle(pane).paddingLeft;
+    if (!(parseFloat(pl) > 0) && pane.firstElementChild) {
+      pl = window.getComputedStyle(pane.firstElementChild).paddingLeft;
+    }
+    if (parseFloat(pl) > 0) { GUT = pl; wrap.style.paddingLeft = pl; wrap.style.paddingRight = pl; }
+  }
+  gutterFrom(firstPane);
+
+  TABS.forEach(function (t) {
+    var b = D.createElement('button');
+    b.type = 'button';
+    b.id = 'tab-gw' + t.id;
+    b.className = 'gw-tab';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-controls', 'gwp-' + t.id);
+    b.setAttribute('aria-selected', 'false');
+    b.textContent = t.label;
+    strip.appendChild(b);
+
+    var p = D.createElement('section');
+    p.id = 'gwp-' + t.id;
+    p.className = 'gw-pane';
+    p.setAttribute('role', 'tabpanel');
+    p.setAttribute('aria-labelledby', b.id);
+    p.hidden = true;
+    if (GUT) { p.style.paddingLeft = GUT; p.style.paddingRight = GUT; }
+    paneBox.appendChild(p);
+  });
+
+  function panes() {
+    var out = [];
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      var ok = (el.id && (el.id.indexOf('p-') === 0 || el.id.indexOf('gtp-') === 0 ||
+                          el.id.indexOf('gwp-') === 0))
+        || (el.classList && el.classList.contains('panel'));
+      if (ok) out.push(el);
+    });
+    return out;
+  }
+
+  /* Ask the page what is on top rather than modelling what is pinned above the strip. */
+  function ensureClickable(el) {
+    for (var i = 0; i < 16; i++) {
+      var r = el.getBoundingClientRect();
+      if (r.width && r.height) {
+        var x = r.left + Math.min(24, r.width / 2);
+        var hit = D.elementFromPoint(x, r.top + r.height / 2);
+        if (hit && (el === hit || el.contains(hit))) {
+          if (i > 0 && window.pageYOffset > 0) {
+            window.scrollTo({ top: Math.max(0, window.pageYOffset - 16) });
+          }
+          return true;
+        }
+      }
+      if (window.pageYOffset <= 0) return false;
+      window.scrollTo({ top: Math.max(0, window.pageYOffset - 32) });
+    }
+    return false;
+  }
+
+  var loaded = {};
+  function show(id) {
+    var mine = D.getElementById('gwp-' + id);
+    panes().forEach(function (el) {
+      var on = el === mine;
+      el.hidden = !on;
+      el.classList.toggle('on', on);
+    });
+    $$('.gw-tab', strip).forEach(function (b) {
+      b.setAttribute('aria-selected', String(b.id === 'tab-gw' + id));
+    });
+    /* The search row belongs to the song table. Two layouts hide it off a body attribute and the
+       first classic hides its controls by hand, so do both. */
+    ['#q', '#filters', '#sorts', '#genres', '#qwipe'].forEach(function (s) {
+      var e = $(s); if (e) e.hidden = true;
+    });
+    try { D.body.dataset.tab = 'gw' + id; } catch (e) {}
+    var y = wrap.getBoundingClientRect().top + window.pageYOffset - 10;
+    window.scrollTo({ top: y < 0 ? 0 : y });
+    ensureClickable(strip.querySelector('.gw-tab') || strip);
+    if (!loaded[id]) { loaded[id] = 1; fill(id); }
+  }
+
+  $$('.gw-tab', strip).forEach(function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); show(b.id.slice(6)); });
+  });
+
+  /* When any other tab is clicked ours stands down and the hidden flags come off, since the
+     newer layouts only toggle a class and would leave a panel hidden and on at once. Capture, so
+     this runs before the host's own handler. */
+  D.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('[role=tab]') : null;
+    if (!b || b.classList.contains('gw-tab')) return;
+    TABS.forEach(function (t) {
+      var p = D.getElementById('gwp-' + t.id);
+      if (p) { p.hidden = true; p.classList.remove('on'); }
+    });
+    $$('.gw-tab', strip).forEach(function (x) { x.setAttribute('aria-selected', 'false'); });
+    panes().forEach(function (p) {
+      if (!p.classList.contains('gw-pane') && !p.classList.contains('gt-pane')) p.hidden = false;
+    });
+  }, true);
+
+  /* ---- the record, fetched by this block alone -------------------------------------------- */
+  var CAT = null;          // [{artist, song, genre, plays, art, last, catalog}]
+  var WORDS = null;        // lowercased song title -> the band's own words
+  var LISTS = null;        // playlists.json
+  var GAL = null;          // gallery.json
+
+  function getJSON(name) {
+    return fetch(ROOT + name, { cache: 'no-store' }).then(function (r) {
+      return r.ok ? r.json() : null;
+    }).catch(function () { return null; });
+  }
+
+  function catalog() {
+    if (CAT) return Promise.resolve(CAT);
+    return getJSON('data.json').then(function (d) {
+      CAT = [];
+      if (!d || !d.song_cols || !d.songs) return CAT;
+      var c = {};
+      d.song_cols.forEach(function (n, i) { c[n] = i; });
+      d.songs.forEach(function (r) {
+        CAT.push({
+          artist: r[c.artist], song: r[c.song], genre: r[c.genre],
+          plays: Number(r[c.plays]) || 0, art: r[c.art],
+          last: r[c.last], catalog: r[c.catalog]
+        });
+      });
+      return CAT;
+    });
+  }
+
+  /* ---- Lyrics ------------------------------------------------------------------------------ */
+  function fillWords(box) {
+    Promise.all([catalog(), getJSON('lyrics.json')]).then(function (res) {
+      var songs = res[0] || [], ly = res[1] || {};
+      WORDS = {};
+      var src = ly.songs || {};
+      Object.keys(src).forEach(function (k) { WORDS[String(k).toLowerCase()] = src[k]; });
+
+      var own = songs.filter(function (x) {
+        return String(x.artist || '').trim().toLowerCase() === 'glostik';
+      }).sort(function (a, b) {
+        return (b.plays - a.plays) || String(a.song).localeCompare(String(b.song));
+      });
+      var withWords = own.filter(function (x) {
+        return WORDS[String(x.song || '').toLowerCase()];
+      });
+
+      if (!withWords.length) {
+        box.innerHTML = '<h2 class="gw-h">Lyrics</h2>' +
+          '<p class="gw-lead">The words load with the rest of the record. Give it a moment.</p>';
+        return;
+      }
+      box.innerHTML = '<h2 class="gw-h">Lyrics</h2>' +
+        '<p class="gw-lead">The words to these belong to Glostik, so they are the band&#39;s to ' +
+        'post. Open any row to read them here on the page. The rest of the catalog is other ' +
+        'people&#39;s songs, so their words are not reprinted here.</p>' +
+        '<p class="gw-count">' + num(withWords.length) + ' of ' + num(own.length) +
+        ' songs they wrote</p>' +
+        '<ul class="gw-list">' + withWords.map(function (x, i) {
+          var w = WORDS[String(x.song).toLowerCase()];
+          return '<li class="gw-row">' +
+            '<button type="button" class="gw-open" aria-expanded="false">' +
+            '<span class="gw-n">' + String(i + 1).padStart(2, '0') + '</span>' +
+            (x.art ? '<img class="gw-cov" src="' + esc(x.art) + '" alt="" width="44" height="44" ' +
+                     'loading="lazy" decoding="async" referrerpolicy="no-referrer">'
+                   : '<span class="gw-cov" aria-hidden="true"></span>') +
+            '<span class="gw-t">' + esc(x.song) + '</span>' +
+            '<span class="gw-meta">' + num(x.plays) + ' played</span>' +
+            '<span class="gw-caret" aria-hidden="true">&rsaquo;</span>' +
+            '</button>' +
+            '<div class="gw-words">' + esc(w) + '</div>' +
+            '</li>';
+        }).join('') + '</ul>';
+    });
+  }
+
+  /* ---- Playlists --------------------------------------------------------------------------- */
+  function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+  function autoLists(songs) {
+    var by = {};
+    songs.forEach(function (x) { if (x.genre) (by[x.genre] = by[x.genre] || []).push(x); });
+    var out = [];
+    Object.keys(by).sort().forEach(function (g) {
+      var pool = by[g];
+      if (pool.length < 6) return;   // a genre of three is not a playlist
+      var top = pool.slice().sort(function (a, b) { return b.plays - a.plays; }).slice(0, 20);
+      out.push({
+        id: 'top-' + slug(g), name: 'Most played: ' + g, auto: true,
+        note: 'The ' + top.length + ' of ' + pool.length + ' ' + g +
+              ' songs they have played most.',
+        songs: top.map(function (x) { return { song: x.song, artist: x.artist }; })
+      });
+    });
+    var debuts = songs.filter(function (x) { return x.catalog; })
+      .sort(function (a, b) { return String(b.catalog).localeCompare(String(a.catalog)); })
+      .slice(0, 20);
+    if (debuts.length) {
+      out.unshift({
+        id: 'debuts', name: 'Latest debuts', auto: true,
+        note: 'The ' + debuts.length + ' songs most recently added to the catalog.',
+        songs: debuts.map(function (x) { return { song: x.song, artist: x.artist }; })
+      });
+    }
+    return out;
+  }
+
+  function listCard(p) {
+    return '<li class="gw-row">' +
+      '<button type="button" class="gw-open" aria-expanded="false">' +
+      '<span class="gw-n">' + (p.songs.length < 100 ? String(p.songs.length).padStart(2, '0')
+                                                    : p.songs.length) + '</span>' +
+      '<span class="gw-t">' + esc(p.name) +
+      (p.by ? ' <span class="gw-meta">by ' + esc(p.by) + '</span>' : '') + '</span>' +
+      '<span class="gw-meta">' + (p.auto ? 'from the record' : 'by hand') + '</span>' +
+      '<span class="gw-caret" aria-hidden="true">&rsaquo;</span>' +
+      '</button>' +
+      '<div class="gw-words">' + (p.note ? esc(p.note) + '\n\n' : '') +
+      p.songs.map(function (s, i) {
+        return String(i + 1).padStart(2, '0') + '  ' + s.song +
+               (s.artist ? '  — ' + s.artist : '');
+      }).join('\n') + '</div></li>';
+  }
+
+  function fillLists(box) {
+    Promise.all([catalog(), getJSON('playlists.json')]).then(function (res) {
+      var songs = res[0] || [];
+      LISTS = res[1] || {};
+      var hand = (LISTS.playlists || []).map(function (p) {
+        return { id: p.id, name: p.name, by: p.by, note: p.note, songs: p.songs || [] };
+      });
+      var auto = autoLists(songs);
+      box.innerHTML = '<h2 class="gw-h">Playlists</h2>' +
+        '<p class="gw-lead">Lists somebody wrote by hand, and lists worked out from the record. ' +
+        'Open one to see what is on it. Nothing here is copied and no audio is cut.</p>' +
+        '<p class="gw-count">' + (hand.length + auto.length) + ' playlists</p>' +
+        '<ul class="gw-list">' +
+        hand.map(listCard).join('') + auto.map(listCard).join('') +
+        '</ul>';
+    });
+  }
+
+  /* ---- Merch ------------------------------------------------------------------------------- */
+  function fillMerch(box) {
+    getJSON('gallery.json').then(function (g) {
+      GAL = g || {};
+      var merch = GAL.merch || [];
+      if (!merch.length) {
+        box.innerHTML = '<h2 class="gw-h">Merch</h2>' +
+          '<p class="gw-lead">The shop list loads with the rest of the record. Give it a moment.</p>';
+        return;
+      }
+      box.innerHTML = '<h2 class="gw-h">Merch</h2>' +
+        '<p class="gw-lead">Everything Glostik sells, read from their own shop. Every picture ' +
+        'opens that item on the shop.</p>' +
+        '<p class="gw-count">' + merch.length + ' items</p>' +
+        '<div class="gw-grid">' + merch.map(function (m) {
+          return '<a class="gw-tile" href="' + esc(m.href) + '" target="_blank" rel="noopener">' +
+            '<img src="' + esc(m.img) + '" alt="' + esc(m.alt || '') + '" loading="lazy" ' +
+            'decoding="async" referrerpolicy="no-referrer">' +
+            '<span>' + esc(m.alt || m.site || '') + '</span></a>';
+        }).join('') + '</div>' +
+        '<p class="gw-shopall"><a href="https://glostik-shop.fourthwall.com/" target="_blank" ' +
+        'rel="noopener">Open the whole shop &rarr;</a></p>';
+    });
+  }
+
+  function fill(id) {
+    var box = D.getElementById('gwp-' + id);
+    if (!box) return;
+    box.innerHTML = '<p class="gw-lead">Loading&#8230;</p>';
+    if (id === 'words') fillWords(box);
+    if (id === 'lists') fillLists(box);
+    if (id === 'merch') fillMerch(box);
+  }
+
+  /* A row opens in place. Delegated, so it works for rows drawn after this ran. */
+  D.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest ? e.target.closest('.gw-open') : null;
+    if (!b) return;
+    var row = b.parentElement;
+    var on = row.classList.toggle('on');
+    b.setAttribute('aria-expanded', String(on));
+  });
+})();
+</script>
+<style id="glostik-retired-css">
+#gr-own{margin:26px 0 8px}
+#gr-own.gr-solo{margin:44px auto 0;max-width:var(--m-page,1240px);padding:0 var(--m-gut,18px)}
+#gr-own .gr-strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#gr-own .gr-say{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.6;margin-right:4px}
+#gr-own .gr-tab{font:600 14px/1 inherit;cursor:pointer;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.42)));background:transparent;color:inherit}
+#gr-own .gr-tab:hover{border-color:var(--x-h,var(--m-hot,#c8963e))}
+#gr-own .gr-tab[aria-selected=true]{background:var(--ink,var(--m-bone,#141414));
+  color:var(--cream,var(--m-plate,#f7f3e8));border-color:var(--ink,var(--m-bone,#141414))}
+.gr-pane{display:none}
+.gr-pane.on{display:block}
+.gr-pane[hidden]{display:none}
+.gr-pane .gr-h{font:700 19px/1.2 inherit;margin:0 0 4px}
+.gr-pane .gr-lead{font-size:14px;opacity:.75;margin:0 0 14px;max-width:62ch}
+.gr-pane .gr-count{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.55;margin:0 0 10px}
+.gr-pane ul.gr-list{list-style:none;margin:0;padding:0}
+.gr-pane li.gr-row{border-top:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.28)));
+  display:flex;gap:11px;align-items:baseline;padding:11px 2px}
+.gr-pane .gr-n{font:600 11px/1 ui-monospace,Menlo,monospace;opacity:.45;min-width:22px}
+.gr-pane .gr-t{font-weight:600;flex:1 1 auto}
+.gr-pane .gr-a{font:400 13px/1.4 inherit;opacity:.62;flex:none}
+.gr-pane .gr-d{font:400 12px/1 ui-monospace,Menlo,monospace;opacity:.5;flex:none;min-width:84px;
+  text-align:right}
+@media (max-width:560px){
+  .gr-pane li.gr-row{flex-wrap:wrap}
+  .gr-pane .gr-d{text-align:left;min-width:0}
+}
+</style>
+
+<script id="glostik-retired">
+/* The songs the band retired, on a tab of their own, in every layout.
+
+   Brandon, 2026-09-21: "the original tab is only the songs i gave you, retire the rest on a
+   retired tab". The 23 retired songs were already published in data.json and already rendered,
+   inside the Stats panel under a heading, which is not a tab. A live browser read of the poster
+   page on 2026-09-21 found the rows in section #p-stats with no retired entry in the tab strip.
+
+   Seventh in the family that add_player.py, add_mylist.py, add_panels.py, add_extras.py,
+   add_tabs.py and add_words.py started: one self-contained block with its own ids, dropped in
+   before the closing body tag of any view. It fetches data.json itself and never reads the host
+   page's state, so it does not care how that page is built.
+
+   Mount, gutter borrow and the stand-down handler are taken verbatim from add_words_block.html,
+   which learned them against the fixed header in experimental 2 and the left rail in
+   experimental 1 and archive, and against the metal view, which rebuilds its main in one
+   innerHTML write and takes any child with it. */
+(function () {
+  'use strict';
+  var D = document;
+  function $(s, r) { return (r || D).querySelector(s); }
+  if (D.getElementById('gr-own')) return;
+
+  /* ---- mount, in the host's own idiom ---------------------------------------------------- */
+  var proto = $('.tab[aria-controls]') || $('.tb[data-tab]');
+  var hostPane = null;
+  if (proto) {
+    hostPane = proto.hasAttribute('aria-controls')
+      ? D.getElementById(proto.getAttribute('aria-controls'))
+      : $('.panel');
+  }
+  var paneBox = hostPane ? hostPane.parentElement : null;
+  var firstPane = null;
+
+  var wrap = D.createElement('section');
+  wrap.id = 'gr-own';
+  wrap.setAttribute('aria-label', 'Retired songs');
+  var strip = D.createElement('nav');
+  strip.className = 'gr-strip';
+  strip.setAttribute('role', 'tablist');
+  var say = D.createElement('span');
+  say.className = 'gr-say';
+  say.textContent = 'Off the list';
+  strip.appendChild(say);
+  wrap.appendChild(strip);
+
+  if (paneBox) {
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      if (firstPane) return;
+      if ((el.id && el.id.indexOf('p-') === 0) ||
+          (el.classList && el.classList.contains('panel'))) firstPane = el;
+    });
+    paneBox.insertBefore(wrap, firstPane || paneBox.firstChild);
+  } else {
+    wrap.className = 'gr-solo';
+    paneBox = D.createElement('div');
+    paneBox.className = 'gr-box';
+    wrap.appendChild(paneBox);
+    var anchor = $('#gw-own') || $('#gt-own') || $('#gx') || $('#gp-panels') || $('footer');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor);
+    else D.body.appendChild(wrap);
+  }
+
+  /* Three layouts hang a fixed rail at the window edge, so borrow the content column's offset. */
+  function alignToMain() {
+    if (!wrap.classList.contains('gr-solo')) return;
+    var main = $('main') || $('.field');
+    if (!main) return;
+    var r = main.getBoundingClientRect();
+    if (r.width > 0) {
+      wrap.style.maxWidth = r.width + 'px';
+      wrap.style.marginLeft = (r.left + window.scrollX) + 'px';
+      wrap.style.marginRight = '0';
+    }
+  }
+
+  /* ---- the tab and its pane -------------------------------------------------------------- */
+  var btn = D.createElement('button');
+  btn.type = 'button';
+  btn.className = 'gr-tab';
+  btn.id = 'gr-tab-retired';
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-selected', 'false');
+  btn.setAttribute('aria-controls', 'gr-pane-retired');
+  btn.setAttribute('data-tab', 'retired');
+  btn.textContent = 'Retired';
+  strip.appendChild(btn);
+
+  var pane = D.createElement('section');
+  pane.className = 'gr-pane';
+  pane.id = 'gr-pane-retired';
+  pane.setAttribute('role', 'tabpanel');
+  pane.setAttribute('aria-labelledby', 'gr-tab-retired');
+  pane.hidden = true;
+  pane.innerHTML = '<h3 class="gr-h">Retired</h3>' +
+    '<p class="gr-lead">Songs the band took off the list. The record stays so a play from ' +
+    'before the call still has somewhere to belong.</p>' +
+    '<p class="gr-count" id="gr-count">loading</p>' +
+    '<ul class="gr-list" id="gr-list"></ul>';
+  paneBox.appendChild(pane);
+
+  function show(on) {
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    pane.hidden = !on;
+    pane.classList.toggle('on', !!on);
+    if (on) alignToMain();
+  }
+  btn.addEventListener('click', function () { show(pane.hidden); });
+
+  /* A host tab click stands this one down, so two panes are never open at once. This listens on
+     the capture phase so it runs before the host's own handler. */
+  D.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest && e.target.closest('.tab,.tb,[data-tab]');
+    if (t && !wrap.contains(t)) show(false);
+  }, true);
+  window.addEventListener('resize', alignToMain);
+
+  /* ---- the rows -------------------------------------------------------------------------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function pretty(d) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(d || ''));
+    if (!m) return esc(d);
+    var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][+m[2] - 1];
+    return M + ' ' + (+m[3]) + ', ' + m[1];
+  }
+
+  fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+    var cols = d.retired_cols || ['song', 'artist', 'since'];
+    var iS = cols.indexOf('song'), iA = cols.indexOf('artist'), iD = cols.indexOf('since');
+    var rows = (d.retired || []).slice();
+    /* Newest call first, then by title, so the most recent decision reads at the top. */
+    rows.sort(function (a, b) {
+      var x = String(b[iD] || ''), y = String(a[iD] || '');
+      return x < y ? -1 : x > y ? 1 : String(a[iS] || '').localeCompare(String(b[iS] || ''));
+    });
+    var cnt = D.getElementById('gr-count');
+    var list = D.getElementById('gr-list');
+    if (!rows.length) {
+      cnt.textContent = 'nothing retired';
+      return;
+    }
+    cnt.textContent = rows.length + (rows.length === 1 ? ' song' : ' songs') + ' retired';
+    list.innerHTML = rows.map(function (r, n) {
+      return '<li class="gr-row">' +
+        '<span class="gr-n">' + (n + 1) + '</span>' +
+        '<span class="gr-t">' + esc(r[iS]) + '</span>' +
+        '<span class="gr-a">' + esc(r[iA]) + '</span>' +
+        '<span class="gr-d">' + pretty(r[iD]) + '</span>' +
+        '</li>';
+    }).join('');
+  }).catch(function () {
+    var cnt = D.getElementById('gr-count');
+    if (cnt) cnt.textContent = 'retired list unavailable';
+  });
+
+  alignToMain();
+})();
+</script>
+<style id="glostik-logos-css">
+#gl-own{margin:26px 0 8px}
+#gl-own.gl-solo{margin:44px auto 0;max-width:var(--m-page,1240px);padding:0 var(--m-gut,18px)}
+#gl-own .gl-strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#gl-own .gl-say{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.6;margin-right:4px}
+#gl-own .gl-tab{font:600 14px/1 inherit;cursor:pointer;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.42)));background:transparent;color:inherit}
+#gl-own .gl-tab:hover{border-color:var(--x-h,var(--m-hot,#c8963e))}
+#gl-own .gl-tab[aria-selected=true]{background:var(--ink,var(--m-bone,#141414));
+  color:var(--cream,var(--m-plate,#f7f3e8));border-color:var(--ink,var(--m-bone,#141414))}
+.gl-pane{display:none}
+.gl-pane.on{display:block}
+.gl-pane[hidden]{display:none}
+.gl-pane .gl-h{font:700 19px/1.2 inherit;margin:0 0 4px}
+.gl-pane .gl-lead{font-size:14px;opacity:.75;margin:0 0 16px;max-width:62ch}
+.gl-pane .gl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.gl-pane .gl-card{border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.28)));
+  border-radius:9px;overflow:hidden}
+.gl-pane .gl-pair{display:grid;grid-template-columns:1fr 1fr}
+.gl-pane .gl-half{display:flex;align-items:center;justify-content:center;padding:18px 10px;
+  min-height:96px}
+.gl-pane .gl-onlight{background:#f4f1ea}
+.gl-pane .gl-ondark{background:#16161a}
+.gl-pane .gl-half img{max-width:100%;max-height:60px;display:block}
+.gl-pane .gl-foot{display:flex;align-items:baseline;gap:8px;padding:9px 11px;
+  border-top:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.28)))}
+.gl-pane .gl-name{font-weight:600;font-size:13px;flex:1 1 auto;text-transform:capitalize}
+.gl-pane .gl-dl{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;color:inherit;opacity:.62}
+.gl-pane .gl-dl:hover{opacity:1;text-decoration:underline}
+.gl-pane .gl-note{font-size:12.5px;opacity:.6;margin:16px 0 0;max-width:62ch}
+</style>
+
+<script id="glostik-logos">
+/* The band's logo marks, on a tab, in every layout.
+
+   Brandon, 2026-09-21: "put some of those logos that we got on our logo chat on the emote
+   submission page for Glostik and on the actual real website". The marks were written to
+   public/glostik-songs/img/logos at 20:47 that evening, 24 files, six designs in dark and light
+   as both SVG and PNG, and a contact sheet at img/logos/index.html. Measured the same hour:
+   zero files anywhere in the site referenced any of them, so they were published and invisible.
+
+   Eighth in the family that add_player.py, add_mylist.py, add_panels.py, add_extras.py,
+   add_tabs.py, add_words.py and add_retired.py started: one self-contained block with its own
+   ids, dropped in before the closing body tag of any view.
+
+   Each mark shows on both a light and a dark swatch, because the seven layouts do not agree on
+   a background and a single tone would vanish in half of them. Mount, gutter borrow and the
+   stand-down handler are taken from add_words_block.html. */
+(function () {
+  'use strict';
+  var D = document;
+  function $(s, r) { return (r || D).querySelector(s); }
+  if (D.getElementById('gl-own')) return;
+
+  /* No loading="lazy" on these. The pane is built hidden, and a lazy image created inside a
+     hidden container never loads, even after the container is shown and scrolled into view:
+     measured 2026-09-21 on the live metal view, 0 of 12 loaded while a fresh Image() with the
+     same URL loaded at 512px and the asset answered 200 as image/svg+xml. Twelve small marks
+     cost nothing to load eagerly. */
+  var MARKS = ['wordmark', 'badge', 'monogram', 'pick', 'stick', 'wave'];
+  var BASE = 'img/logos/glostik-';
+
+  /* ---- mount, in the host's own idiom ---------------------------------------------------- */
+  var proto = $('.tab[aria-controls]') || $('.tb[data-tab]');
+  var hostPane = null;
+  if (proto) {
+    hostPane = proto.hasAttribute('aria-controls')
+      ? D.getElementById(proto.getAttribute('aria-controls'))
+      : $('.panel');
+  }
+  var paneBox = hostPane ? hostPane.parentElement : null;
+  var firstPane = null;
+
+  var wrap = D.createElement('section');
+  wrap.id = 'gl-own';
+  wrap.setAttribute('aria-label', 'Logo marks');
+  var strip = D.createElement('nav');
+  strip.className = 'gl-strip';
+  strip.setAttribute('role', 'tablist');
+  var say = D.createElement('span');
+  say.className = 'gl-say';
+  say.textContent = 'The marks';
+  strip.appendChild(say);
+  wrap.appendChild(strip);
+
+  if (paneBox) {
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      if (firstPane) return;
+      if ((el.id && el.id.indexOf('p-') === 0) ||
+          (el.classList && el.classList.contains('panel'))) firstPane = el;
+    });
+    paneBox.insertBefore(wrap, firstPane || paneBox.firstChild);
+  } else {
+    wrap.className = 'gl-solo';
+    paneBox = D.createElement('div');
+    paneBox.className = 'gl-box';
+    wrap.appendChild(paneBox);
+    var anchor = $('#gr-own') || $('#gw-own') || $('#gt-own') || $('#gx') ||
+                 $('#gp-panels') || $('footer');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor);
+    else D.body.appendChild(wrap);
+  }
+
+  function alignToMain() {
+    if (!wrap.classList.contains('gl-solo')) return;
+    var main = $('main') || $('.field');
+    if (!main) return;
+    var r = main.getBoundingClientRect();
+    if (r.width > 0) {
+      wrap.style.maxWidth = r.width + 'px';
+      wrap.style.marginLeft = (r.left + window.scrollX) + 'px';
+      wrap.style.marginRight = '0';
+    }
+  }
+
+  /* ---- the tab and its pane -------------------------------------------------------------- */
+  var btn = D.createElement('button');
+  btn.type = 'button';
+  btn.className = 'gl-tab';
+  btn.id = 'gl-tab-logos';
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-selected', 'false');
+  btn.setAttribute('aria-controls', 'gl-pane-logos');
+  btn.setAttribute('data-tab', 'logos');
+  btn.textContent = 'Logos';
+  strip.appendChild(btn);
+
+  var cards = MARKS.map(function (m) {
+    return '<div class="gl-card">' +
+      '<div class="gl-pair">' +
+        '<span class="gl-half gl-onlight">' +
+          '<img src="' + BASE + m + '-dark.svg" alt="Glostik ' + m + ' mark, dark">' +
+        '</span>' +
+        '<span class="gl-half gl-ondark">' +
+          '<img src="' + BASE + m + '-light.svg" alt="Glostik ' + m + ' mark, light">' +
+        '</span>' +
+      '</div>' +
+      '<div class="gl-foot">' +
+        '<span class="gl-name">' + m + '</span>' +
+        '<a class="gl-dl" href="' + BASE + m + '-dark.svg" download>svg</a>' +
+        '<a class="gl-dl" href="' + BASE + m + '-dark.png" download>png</a>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  var pane = D.createElement('section');
+  pane.className = 'gl-pane';
+  pane.id = 'gl-pane-logos';
+  pane.setAttribute('role', 'tabpanel');
+  pane.setAttribute('aria-labelledby', 'gl-tab-logos');
+  pane.hidden = true;
+  pane.innerHTML = '<h3 class="gl-h">Logo marks</h3>' +
+    '<p class="gl-lead">Six marks, each on a light and a dark ground so you can see which one ' +
+    'suits your background. The download links give the dark version; the light files sit ' +
+    'beside them with a -light suffix.</p>' +
+    '<div class="gl-grid">' + cards + '</div>' +
+    '<p class="gl-note">Every mark is also on one sheet at ' +
+    '<a href="img/logos/">img/logos/</a>, in SVG and PNG.</p>';
+  paneBox.appendChild(pane);
+
+  function show(on) {
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    pane.hidden = !on;
+    pane.classList.toggle('on', !!on);
+    if (on) alignToMain();
+  }
+  btn.addEventListener('click', function () { show(pane.hidden); });
+
+  D.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest && e.target.closest('.tab,.tb,[data-tab]');
+    if (t && !wrap.contains(t)) show(false);
+  }, true);
+  window.addEventListener('resize', alignToMain);
+
+  alignToMain();
+})();
+</script>
+<style id="glostik-autoplay-css">
+#gap-own{margin:26px 0 8px}
+#gap-own.gap-solo{margin:44px auto 0;max-width:var(--m-page,1240px);padding:0 var(--m-gut,18px)}
+#gap-own .gap-strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#gap-own .gap-say{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.6;margin-right:4px}
+#gap-own .gap-tab{font:600 14px/1 inherit;cursor:pointer;padding:9px 14px;border-radius:999px;
+  border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.42)));background:transparent;color:inherit}
+#gap-own .gap-tab:hover{border-color:var(--x-h,var(--m-hot,#c8963e))}
+#gap-own .gap-tab[aria-selected=true]{background:var(--ink,var(--m-bone,#141414));
+  color:var(--cream,var(--m-plate,#f7f3e8));border-color:var(--ink,var(--m-bone,#141414))}
+.gap-pane{display:none}
+.gap-pane.on{display:block}
+.gap-pane[hidden]{display:none}
+.gap-pane .gap-h{font:700 19px/1.2 inherit;margin:0 0 4px}
+.gap-pane .gap-lead{font-size:14px;opacity:.75;margin:0 0 14px;max-width:62ch}
+.gap-pane .gap-count{font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.55;margin:0 0 10px}
+.gap-pane ul.gap-lists{list-style:none;margin:0;padding:0}
+.gap-pane li.gap-list{border-top:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.28)))}
+.gap-pane .gap-head{display:flex;width:100%;gap:11px;align-items:center;cursor:pointer;
+  background:transparent;border:0;color:inherit;font:inherit;text-align:left;padding:11px 2px}
+.gap-pane .gap-head:hover{opacity:.72}
+.gap-pane .gap-n{font:600 11px/1 ui-monospace,Menlo,monospace;opacity:.45;min-width:26px}
+.gap-pane .gap-name{font-weight:600;flex:1 1 auto}
+.gap-pane .gap-meta{font:400 12px/1 inherit;opacity:.55;flex:none}
+.gap-pane .gap-go{font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;
+  text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:6px 12px;
+  background:transparent;color:inherit;cursor:pointer;flex:none}
+.gap-pane .gap-go:hover{border-color:var(--x-h,var(--m-hot,#c8963e))}
+.gap-pane .gap-songs{display:none;margin:0 0 14px;padding:0;list-style:none}
+.gap-pane li.gap-list.on .gap-songs{display:block}
+.gap-pane .gap-song{display:flex;gap:10px;align-items:baseline;padding:7px 2px 7px 30px;
+  font-size:13.5px;border-top:1px dotted var(--rule,rgba(128,128,128,.22))}
+.gap-pane .gap-song button{background:transparent;border:0;color:inherit;font:inherit;
+  text-align:left;cursor:pointer;flex:1 1 auto;padding:0}
+.gap-pane .gap-song button:hover{text-decoration:underline}
+.gap-pane .gap-song.playing{font-weight:700}
+.gap-pane .gap-song.playing::before{content:'\25B6';font-size:10px;opacity:.8;
+  margin-left:-14px;margin-right:4px}
+.gap-pane .gap-song.noplay{opacity:.45}
+.gap-pane .gap-song .gap-by{opacity:.55;font-size:12px;flex:none}
+#gap-deck{position:sticky;bottom:0;z-index:40;margin-top:14px;
+  border:1px solid var(--rule,var(--m-rule,rgba(128,128,128,.4)));border-radius:10px;
+  overflow:hidden;background:var(--ink,var(--m-bone,#141414));
+  color:var(--cream,var(--m-plate,#f7f3e8))}
+#gap-deck[hidden]{display:none}
+#gap-deck .gap-frame{aspect-ratio:16/9;width:100%;display:block;background:#000}
+#gap-deck .gap-bar{display:flex;gap:10px;align-items:center;padding:9px 12px;font-size:13px}
+#gap-deck .gap-now{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#gap-deck .gap-btn{background:transparent;border:1px solid currentColor;border-radius:999px;
+  color:inherit;font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 11px;cursor:pointer;flex:none}
+#gap-deck .gap-btn:hover{opacity:.75}
+</style>
+
+<script id="glostik-autoplay">
+/* A playlist you can actually play, and that moves to the next song on its own.
+
+   Brandon, contract 082ba856: "Custom Playlist tab with sub-playlists" and "jump from song to
+   song". The Playlists tab shipped without either half. Measured 2026-09-21: listCard() in
+   add_words_block.html renders a playlist's songs as one plain text block, an index, a title and
+   an artist joined by newlines, with no anchor, no button and no video id anywhere. The only
+   click handler toggles the row open. So "autoplay the next song" had no first song to start
+   from, and views_gate reported the feature missing in all seven views for as long as it existed.
+
+   This block is self-contained on purpose. Each of the seven layouts builds its own in-page
+   player differently, and driving all seven from outside is how a cross-view feature turns into
+   seven hand edits that drift. It brings its own deck: one YouTube iframe, its own queue, and its
+   own ENDED handler. Nothing here reads or touches the host page's player.
+
+   A song is playable when data.json carries a watch url for it, which is 531 of 691 songs. The
+   rest still list, marked as not playable, because a playlist that silently drops entries lies
+   about what is on it.
+
+   Ninth in the family that add_player.py, add_mylist.py, add_panels.py, add_extras.py,
+   add_tabs.py, add_words.py, add_retired.py and add_logos.py started. */
+(function () {
+  'use strict';
+  var D = document;
+  function $(s, r) { return (r || D).querySelector(s); }
+  if (D.getElementById('gap-own')) return;
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  /* Fold a title the way two spellings of it share an identity, so "Where The Corn Don't Grow"
+     in a playlist finds "Where Corn Don't Grow" in the record. */
+  function key(s) {
+    return String(s == null ? '' : s).toLowerCase().replace(/’/g, "'")
+      .replace(/&/g, ' and ').replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  /* ---- mount, in the host's own idiom ---------------------------------------------------- */
+  var proto = $('.tab[aria-controls]') || $('.tb[data-tab]');
+  var hostPane = null;
+  if (proto) {
+    hostPane = proto.hasAttribute('aria-controls')
+      ? D.getElementById(proto.getAttribute('aria-controls'))
+      : $('.panel');
+  }
+  var paneBox = hostPane ? hostPane.parentElement : null;
+  var firstPane = null;
+
+  var wrap = D.createElement('section');
+  wrap.id = 'gap-own';
+  wrap.setAttribute('aria-label', 'Playlists that play');
+  var strip = D.createElement('nav');
+  strip.className = 'gap-strip';
+  strip.setAttribute('role', 'tablist');
+  var say = D.createElement('span');
+  say.className = 'gap-say';
+  say.textContent = 'Put it on';
+  strip.appendChild(say);
+  wrap.appendChild(strip);
+
+  if (paneBox) {
+    Array.prototype.forEach.call(paneBox.children, function (el) {
+      if (firstPane) return;
+      if ((el.id && el.id.indexOf('p-') === 0) ||
+          (el.classList && el.classList.contains('panel'))) firstPane = el;
+    });
+    paneBox.insertBefore(wrap, firstPane || paneBox.firstChild);
+  } else {
+    wrap.className = 'gap-solo';
+    paneBox = D.createElement('div');
+    paneBox.className = 'gap-box';
+    wrap.appendChild(paneBox);
+    var anchor = $('#gl-own') || $('#gr-own') || $('#gw-own') || $('#gt-own') ||
+                 $('#gx') || $('#gp-panels') || $('footer');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(wrap, anchor);
+    else D.body.appendChild(wrap);
+  }
+
+  function alignToMain() {
+    if (!wrap.classList.contains('gap-solo')) return;
+    var main = $('main') || $('.field');
+    if (!main) return;
+    var r = main.getBoundingClientRect();
+    if (r.width > 0) {
+      wrap.style.maxWidth = r.width + 'px';
+      wrap.style.marginLeft = (r.left + window.scrollX) + 'px';
+      wrap.style.marginRight = '0';
+    }
+  }
+
+  /* ---- the tab ---------------------------------------------------------------------------- */
+  var btn = D.createElement('button');
+  btn.type = 'button';
+  btn.className = 'gap-tab';
+  btn.id = 'gap-tab-play';
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-selected', 'false');
+  btn.setAttribute('aria-controls', 'gap-pane-play');
+  btn.setAttribute('data-tab', 'autoplay');
+  btn.textContent = 'Play a list';
+  strip.appendChild(btn);
+
+  var pane = D.createElement('section');
+  pane.className = 'gap-pane';
+  pane.id = 'gap-pane-play';
+  pane.setAttribute('role', 'tabpanel');
+  pane.setAttribute('aria-labelledby', 'gap-tab-play');
+  pane.hidden = true;
+  pane.innerHTML = '<h3 class="gap-h">Play a list</h3>' +
+    '<p class="gap-lead">Press play on a list and it runs start to finish on its own, moving to ' +
+    'the next song when one ends. Open a list to jump straight to any song in it.</p>' +
+    '<p class="gap-count" id="gap-count">loading</p>' +
+    '<ul class="gap-lists" id="gap-lists"></ul>' +
+    '<div id="gap-deck" hidden>' +
+      '<div id="gap-frame" class="gap-frame"></div>' +
+      '<div class="gap-bar">' +
+        '<span class="gap-now" id="gap-now"></span>' +
+        '<button type="button" class="gap-btn" id="gap-prev">Prev</button>' +
+        '<button type="button" class="gap-btn" id="gap-next">Next</button>' +
+        '<button type="button" class="gap-btn" id="gap-stop">Stop</button>' +
+      '</div>' +
+    '</div>';
+  paneBox.appendChild(pane);
+
+  function show(on) {
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    pane.hidden = !on;
+    pane.classList.toggle('on', !!on);
+    if (on) { alignToMain(); load(); }
+  }
+  btn.addEventListener('click', function () { show(pane.hidden); });
+  D.addEventListener('click', function (e) {
+    var t = e.target && e.target.closest && e.target.closest('.tab,.tb,[data-tab]');
+    if (t && !wrap.contains(t)) show(false);
+  }, true);
+  window.addEventListener('resize', alignToMain);
+
+  /* ---- the record ------------------------------------------------------------------------- */
+  var LISTS = null, BY_KEY = null, loaded = false;
+
+  function watchOf(row, ix) {
+    var w = row[ix.watch] || '';
+    var m = /[?&]v=([\w-]{11})/.exec(w);
+    if (!m) return null;
+    var t = /[?&]t=(\d+)/.exec(w);
+    return { vid: m[1], start: t ? parseInt(t[1], 10) : 0 };
+  }
+
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    Promise.all([
+      fetch('data.json', { cache: 'no-store' }).then(function (r) { return r.json(); }),
+      fetch('playlists.json', { cache: 'no-store' }).then(function (r) { return r.json(); }),
+    ]).then(function (res) {
+      var d = res[0], p = res[1];
+      var ix = {};
+      (d.song_cols || []).forEach(function (c, n) { ix[c] = n; });
+      BY_KEY = {};
+      (d.songs || []).forEach(function (row) {
+        var k = key(row[ix.song]);
+        if (!BY_KEY[k]) BY_KEY[k] = { song: row[ix.song], artist: row[ix.artist], play: watchOf(row, ix) };
+      });
+      LISTS = (p.playlists || []).map(function (pl) {
+        var songs = (pl.songs || []).map(function (s) {
+          var hit = BY_KEY[key(s.song)];
+          return { song: s.song, artist: s.artist || (hit && hit.artist) || '',
+                   play: hit && hit.play ? hit.play : null };
+        });
+        return { name: pl.name, by: pl.by, songs: songs,
+                 playable: songs.filter(function (s) { return s.play; }).length };
+      });
+      draw();
+    }).catch(function () {
+      var c = D.getElementById('gap-count');
+      if (c) c.textContent = 'the lists could not load';
+    });
+  }
+
+  function draw() {
+    var c = D.getElementById('gap-count'), box = D.getElementById('gap-lists');
+    if (!LISTS || !LISTS.length) { c.textContent = 'no lists on file'; return; }
+    c.textContent = LISTS.length + (LISTS.length === 1 ? ' list' : ' lists');
+    box.innerHTML = LISTS.map(function (pl, li) {
+      return '<li class="gap-list" data-li="' + li + '">' +
+        '<div class="gap-head" role="button" tabindex="0">' +
+          '<span class="gap-n">' + String(pl.songs.length).padStart(2, '0') + '</span>' +
+          '<span class="gap-name">' + esc(pl.name) +
+            (pl.by ? ' <span class="gap-meta">by ' + esc(pl.by) + '</span>' : '') + '</span>' +
+          '<span class="gap-meta">' + pl.playable + ' playable</span>' +
+          '<button type="button" class="gap-btn gap-go" data-play="' + li + '">Play</button>' +
+        '</div>' +
+        '<ul class="gap-songs">' + pl.songs.map(function (s, si) {
+          return '<li class="gap-song' + (s.play ? '' : ' noplay') +
+            '" data-li="' + li + '" data-si="' + si + '">' +
+            (s.play ? '<button type="button" data-jump="' + li + ':' + si + '">' + esc(s.song) + '</button>'
+                    : '<span>' + esc(s.song) + '</span>') +
+            '<span class="gap-by">' + esc(s.artist) + (s.play ? '' : ' · no video on file') +
+            '</span></li>';
+        }).join('') + '</ul></li>';
+    }).join('');
+  }
+
+  /* open and close a list, play a list, jump to one song */
+  pane.addEventListener('click', function (e) {
+    var go = e.target.closest ? e.target.closest('[data-play]') : null;
+    if (go) { e.stopPropagation(); start(+go.getAttribute('data-play'), 0); return; }
+    var jump = e.target.closest ? e.target.closest('[data-jump]') : null;
+    if (jump) {
+      var pair = jump.getAttribute('data-jump').split(':');
+      start(+pair[0], +pair[1]);
+      return;
+    }
+    var head = e.target.closest ? e.target.closest('.gap-head') : null;
+    if (head) head.parentElement.classList.toggle('on');
+  });
+
+  /* ---- the deck --------------------------------------------------------------------------- */
+  var player = null, queue = [], at = -1, apiReady = null;
+
+  function ytApi() {
+    if (apiReady) return apiReady;
+    apiReady = new Promise(function (res) {
+      if (window.YT && window.YT.Player) return res(window.YT);
+      var prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (typeof prev === 'function') prev();
+        res(window.YT);
+      };
+      if (!$('script[src*="youtube.com/iframe_api"]')) {
+        var sc = D.createElement('script');
+        sc.src = 'https://www.youtube.com/iframe_api';
+        D.head.appendChild(sc);
+      }
+    });
+    return apiReady;
+  }
+
+  function mark() {
+    Array.prototype.forEach.call(pane.querySelectorAll('.gap-song.playing'), function (el) {
+      el.classList.remove('playing');
+    });
+    var cur = queue[at];
+    if (!cur) return;
+    var el = pane.querySelector('.gap-song[data-li="' + cur.li + '"][data-si="' + cur.si + '"]');
+    if (el) {
+      el.classList.add('playing');
+      el.closest('.gap-list').classList.add('on');
+    }
+    var now = D.getElementById('gap-now');
+    if (now) now.textContent = (at + 1) + ' of ' + queue.length + '  ·  ' +
+      cur.song + (cur.artist ? '  ·  ' + cur.artist : '');
+  }
+
+  function cue(i) {
+    if (i < 0 || i >= queue.length) return stop();
+    at = i;
+    var s = queue[at];
+    mark();
+    ytApi().then(function () {
+      if (!player) {
+        player = new window.YT.Player('gap-frame', {
+          videoId: s.play.vid,
+          playerVars: { start: s.play.start, autoplay: 1, rel: 0, playsinline: 1 },
+          events: {
+            onReady: function (e) { e.target.playVideo(); },
+            /* The whole point of this block. 0 is ENDED. */
+            onStateChange: function (e) { if (e.data === 0) cue(at + 1); },
+            /* A video that cannot be embedded would otherwise stall the list forever. */
+            onError: function () { cue(at + 1); },
+          },
+        });
+      } else {
+        player.loadVideoById({ videoId: s.play.vid, startSeconds: s.play.start });
+      }
+    });
+  }
+
+  function start(li, si) {
+    var pl = LISTS && LISTS[li];
+    if (!pl) return;
+    queue = [];
+    pl.songs.forEach(function (s, n) {
+      if (s.play) queue.push({ li: li, si: n, song: s.song, artist: s.artist, play: s.play });
+    });
+    if (!queue.length) return;
+    var from = 0;
+    for (var n = 0; n < queue.length; n++) if (queue[n].si >= si) { from = n; break; }
+    D.getElementById('gap-deck').hidden = false;
+    cue(from);
+  }
+
+  function stop() {
+    if (player && player.stopVideo) player.stopVideo();
+    D.getElementById('gap-deck').hidden = true;
+    Array.prototype.forEach.call(pane.querySelectorAll('.gap-song.playing'), function (el) {
+      el.classList.remove('playing');
+    });
+    at = -1;
+  }
+
+  pane.addEventListener('click', function (e) {
+    if (e.target.id === 'gap-next') cue(at + 1);
+    if (e.target.id === 'gap-prev') cue(at - 1);
+    if (e.target.id === 'gap-stop') stop();
+  });
+
+  alignToMain();
+})();
+</script>
+<script id="glostik-nav-tidy">
+/* Brandon, 2026-09-22: "remove the large block containing the three small buttons labeled
+   off the list, the marks, and put it on". Those are three separate sections stacked under
+   the comments bar: gap-own (Play a list), gr-own (Retired) and gl-own (Logos), each about
+   44px of page holding one button. Play a list goes outright, because the top nav already
+   carries a Playlists tab and a second way into the same place is a second row of nothing.
+   Retired and Logos keep working and move up beside Merch in the nav's own button style.
+   Their panes leave the wrappers first, or removing a wrapper would take the content with it.
+   Nothing new is added here: every control in this block already existed on the page.
+
+   The moved button is replaced by a clone carrying one fresh listener. Measured 2026-09-22:
+   moving the original into the nav left it opening and never closing, because the host's own
+   nav router answered the same click and undid the toggle. The clone drops every old listener,
+   and stopPropagation keeps the router out of it. */
+(function () {
+  var D = document;
+  /* The nav is found through the Merch tab rather than by a container id. Measured 2026-09-22:
+     id="navwrap" exists in the poster layout alone, so an earlier version of this guard matched
+     nothing on the other six and quietly did nothing while looking installed. The Merch tab
+     exists in all seven, and the buttons beside it are the nav by definition. */
+  function navOf() {
+    /* Found by what the button says, because the attribute differs per layout. Measured
+       2026-09-22: poster uses button.tb[data-tab=merch] inside #navwrap, and new, metal and
+       the rest use button.gw-tab#tab-gwmerch inside nav.gw-strip with no data-tab at all. An
+       earlier version keyed on data-tab="merch" and so matched poster alone, which left the
+       other six looking patched while nothing had moved. The strips themselves are excluded,
+       or the finder could pick the very row it is meant to empty. */
+    var all = [].slice.call(D.querySelectorAll('button'));
+    for (var i = 0; i < all.length; i++) {
+      var b = all[i];
+      if (!/^merch\b/i.test((b.textContent || '').trim())) continue;
+      if (b.closest && b.closest('#gr-own, #gl-own, #gap-own')) continue;
+      if (b.parentElement && b.parentElement.querySelectorAll('button').length >= 3) return b;
+    }
+    return null;
+  }
+  /* The redundant strip goes wherever another way into Playlists already exists, which is every
+     layout. That part does not need a nav to relocate into, so it runs on its own. */
+  function dropDuplicate() {
+    var dup = D.getElementById('gap-own');
+    if (!dup) return;
+    var other = [].slice.call(D.querySelectorAll('button,a')).filter(function (e) {
+      return /playlist/i.test(e.textContent || '') && !dup.contains(e)
+             && e.getBoundingClientRect().width > 0;
+    });
+    if (other.length) dup.remove();
+  }
+
+  function tidy() {
+    dropDuplicate();
+    var merch = navOf();
+    var nav = merch && merch.parentElement;
+    /* Only the poster layout carries a nav bar with a Merch tab. Measured 2026-09-22: the other
+       six have three data-tab elements in total, the strips themselves, so there is nowhere to
+       move Retired and Logos to and the strips are the only way in. Leaving them is the honest
+       outcome there, rather than removing a control and stranding its pane. */
+    if (!nav || !merch) return true;
+    var main = D.querySelector('main.field') || D.querySelector('main') || D.body;
+
+    var anchor = merch;
+    [['gr-own', 'gr-tab-retired', 'gr-pane-retired'],
+     ['gl-own', 'gl-tab-logos', 'gl-pane-logos']].forEach(function (p) {
+      var own = D.getElementById(p[0]), btn = D.getElementById(p[1]);
+      if (!own || !btn) return;
+      Array.prototype.slice.call(own.children).forEach(function (kid) {
+        if (kid.contains(btn)) return;
+        main.appendChild(kid);
+      });
+      var pane = D.getElementById(p[2]);
+      var fresh = btn.cloneNode(true);
+      fresh.className = merch.className || 'tb';
+      fresh.removeAttribute('data-tab');
+      fresh.setAttribute('aria-selected', 'false');
+      /* The button's own state is what decides, rather than the pane's. The block that built
+         this pane also listens for a click on a host nav tab and stands the pane down, and the
+         button now sits in that nav, so reading pane.hidden inside the handler read a value
+         another listener was about to change. Measured 2026-09-22: the pane opened on every
+         click and never closed. The state is applied on the next tick, after that listener has
+         had its turn. */
+      fresh.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!pane) return;
+        var opening = fresh.getAttribute('aria-selected') !== 'true';
+        fresh.setAttribute('aria-selected', opening ? 'true' : 'false');
+        setTimeout(function () {
+          pane.hidden = !opening;
+          pane.classList.toggle('on', opening);
+          if (opening) pane.scrollIntoView({ block: 'nearest' });
+        }, 0);
+      });
+      if (pane) { pane.hidden = true; pane.classList.remove('on'); }
+      anchor.insertAdjacentElement('afterend', fresh);
+      anchor = fresh;
+      own.remove();
+    });
+    return true;
+  }
+  var n = 0;
+  (function go() { if (tidy() || ++n > 80) return; setTimeout(go, 150); })();
+})();
+</script>
+<script id="glostik-first-play">
+/* Brandon, 2026-09-22: "can we make first site lauch play glostic in spotify or apple. music and
+   when they click a youtube song link the youtube replaces the spotify player".
+
+   The dock opens on load carrying Glostik's own Spotify artist embed, and the first song a
+   visitor clicks takes the dock over, because the page's own play() writes the YouTube iframe
+   into the same frame element. No second player is added and no layout moves.
+
+   On autoplay, plainly: a browser will not start audio before someone has touched the page, and
+   Spotify's embed has no parameter that changes that. So this mounts the player ready with one
+   tap to go, rather than claiming a sound that would never arrive.
+
+   Two dock shapes exist on this site. poster and experimental use #player with #playerF and
+   #playerT; classic, new, experimental-1, archive and metal use #gp with #gpfr and #gpt. Both
+   are handled, because a Glostik change lands in every layout in the same pass. */
+(function () {
+  var D = document;
+  var ART = '5WMHdFK82ux92ltgn4Xvzx';
+  var SPOT = 'https://open.spotify.com/embed/artist/' + ART + '?utm_source=generator';
+  var APPLE = 'https://music.apple.com/us/artist/glostik/1011981767';
+  var DISMISSED = 'glostik-first-play-closed';
+
+  function shape() {
+    var f = D.getElementById('playerF');
+    if (f) return { frame: f, dock: D.getElementById('player'), title: D.getElementById('playerT'),
+                    note: D.getElementById('playerNote') };
+    f = D.getElementById('gpfr');
+    if (f) return { frame: f, dock: D.getElementById('gp'), title: D.getElementById('gpt'),
+                    note: D.getElementById('gpn') };
+    return null;
+  }
+
+  function mount() {
+    var s = shape();
+    if (!s || !s.dock || !s.frame) return false;
+    try { if (sessionStorage.getItem(DISMISSED)) return true; } catch (e) {}
+    if (s.frame.querySelector('iframe')) return true;   // a song already has the dock, leave it
+
+    s.frame.innerHTML = '<iframe id="glostikSpotify" src="' + SPOT + '"'
+      + ' title="Glostik on Spotify" loading="lazy"'
+      + ' style="width:100%;height:100%;min-height:152px;border:0"'
+      + ' allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+    if (s.title) s.title.textContent = 'Glostik on Spotify';
+    if (s.note) {
+      s.note.innerHTML = 'Press play for the band. Or hear them on <a href="' + APPLE + '"'
+        + ' target="_blank" rel="noopener">Apple Music</a>. Open any song below and the video'
+        + ' takes this player over.';
+      s.note.setAttribute('data-first-play', '1');
+    }
+    s.dock.hidden = false;
+
+    /* The dock is handed over the moment the page writes a video into the same frame. Watching
+       the frame is what makes that work for every route into play(), rather than guessing at
+       which click started it. */
+    new MutationObserver(function () {
+      var f = s.frame.querySelector('iframe');
+      if (f && f.id !== 'glostikSpotify') {
+        if (s.note && s.note.getAttribute('data-first-play')) {
+          s.note.removeAttribute('data-first-play');
+          if (/Press play for the band/.test(s.note.textContent || '')) s.note.innerHTML = '';
+        }
+      }
+    }).observe(s.frame, { childList: true, subtree: true });
+
+    /* Closing it is remembered for this visit only, so the band still leads on the next one. */
+    var x = D.getElementById('playerX') || D.getElementById('gpx');
+    if (x) x.addEventListener('click', function () {
+      try { sessionStorage.setItem(DISMISSED, '1'); } catch (e) {}
+    });
+    return true;
+  }
+
+  var n = 0;
+  function go() { if (mount() || ++n > 80) return; setTimeout(go, 150); }
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', go); else go();
+})();
+</script>
+</body>
+</html>

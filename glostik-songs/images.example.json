@@ -1,0 +1,65 @@
+{
+  "_README": [
+    "Rename this file to images.json and the experimental Song Archive picks it up on the next load.",
+    "No page edit is needed. The page fetches /glostik-songs/images.json, merges it over its own",
+    "defaults, and carries on without it when the file is absent (it answers 404 today, on purpose).",
+    "",
+    "Pictures are assigned BY PURPOSE, never by a path written into the markup. Four purposes, three",
+    "shapes, so a supplied collection can be curated rather than repeated:",
+    "",
+    "  console   the tall field behind the console head, cut by a hard diagonal.  portrait or any",
+    "            Only the first entry is drawn. Give it something that survives a",
+    "            heavy grayscale and a green wash, because that is what it gets.",
+    "",
+    "  break     the wide bands that sit between catalog sections, behind the      panoramic, about",
+    "            oversized era type. Cycled by section position, so no two         21:6 or wider",
+    "            neighbouring breaks take the same picture. Put the most",
+    "            photographic material here: this is where the band appears.",
+    "",
+    "  era       one picture per named era, keyed by the section label the         wide 16:9",
+    "            ordering produces. Keys that exist today: a four digit year",
+    "            (\"2021\" through \"2026\"), \"Past 7 days\", \"Past 30 days\",",
+    "            \"Past 90 days\", \"Past year\", \"Not played yet\", \"Most played\",",
+    "            \"Least played\", \"Longest gaps\", \"Shortest gaps\". An era with no",
+    "            entry borrows a frame from a stream of that year.",
+    "",
+    "  texture   graphic material rather than photography: Twitch emote art,       square",
+    "            posters, logos, stickers. Used in the break pool after the",
+    "            supplied photographs run out.",
+    "",
+    "Per entry:",
+    "  src     the image URL, or a path under /glostik-songs/img/ for a file kept in this repository",
+    "  alt     what the picture shows, for a screen reader. Required.",
+    "  credit  a short label: a venue, a date, a photographer",
+    "  alt2    optional smaller fallback, tried once if src fails to load",
+    "",
+    "Anything that fails to load hides its own box and the composition holds, because no part of the",
+    "layout depends on a picture being there. Delete this _README key in the real file."
+  ],
+  "console": [
+    {
+      "src": "/glostik-songs/img/band-portrait.jpg",
+      "alt": "Glostik, the whole band, standing",
+      "credit": "Example venue, 2026"
+    }
+  ],
+  "break": [
+    {
+      "src": "/glostik-songs/img/stage-wide.jpg",
+      "alt": "The band mid-set, wide from the back of the room",
+      "credit": "Example venue"
+    },
+    {
+      "src": "/glostik-songs/img/crowd.jpg",
+      "alt": "The room during a stream night",
+      "credit": "Stream night"
+    }
+  ],
+  "era": {
+    "2021": { "src": "/glostik-songs/img/era-2021.jpg", "alt": "The band in 2021", "credit": "2021" },
+    "Past 7 days": { "src": "/glostik-songs/img/latest-night.jpg", "alt": "The most recent stream", "credit": "This week" }
+  },
+  "texture": [
+    { "src": "/glostik-songs/img/emote-glosLUL.png", "alt": "Glostik Twitch emote" }
+  ]
+}

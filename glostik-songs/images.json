@@ -1,0 +1,7 @@
+{
+  "_README": "The live image manifest for the experimental Song Archive. Empty on purpose: until real photographs are supplied the pages draw the band's own gallery.json pictures and frames from the stream videos, and nothing here overrides them. Fill these four keys to take over. The shape, and what each purpose is for, is documented in images.example.json beside this file.",
+  "console": [],
+  "break": [],
+  "era": {},
+  "texture": []
+}

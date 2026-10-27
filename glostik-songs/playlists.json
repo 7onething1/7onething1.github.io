@@ -1,0 +1,455 @@
+{
+ "built": "2026-09-20T21:08:26",
+ "playlists": [
+  {
+   "id": "brandons-list",
+   "name": "Brandon's list",
+   "by": "Brandon",
+   "note": "Picked by hand. Mostly Floyd, Ozzy, Metallica and the Seattle end of the nineties, with a few that only ever turned up once.",
+   "songs": [
+    {
+     "song": "Have a Cigar",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Heaven Beside You",
+     "artist": "Alice In Chains"
+    },
+    {
+     "song": "Love Song",
+     "artist": "Tesla"
+    },
+    {
+     "song": "One",
+     "artist": "Metallica"
+    },
+    {
+     "song": "What's Up?",
+     "artist": "4 Non Blondes"
+    },
+    {
+     "song": "Dont Cry",
+     "artist": "Guns N' Roses"
+    },
+    {
+     "song": "Fade to Black",
+     "artist": "Metallica"
+    },
+    {
+     "song": "Roses are Free",
+     "artist": "Ween"
+    },
+    {
+     "song": "Epic",
+     "artist": "Faith No More"
+    },
+    {
+     "song": "Dancing in the Moonlight",
+     "artist": "King Harvest"
+    },
+    {
+     "song": "Symphony of Destruction",
+     "artist": "Megadeth"
+    },
+    {
+     "song": "Civil War",
+     "artist": "Guns N' Roses"
+    },
+    {
+     "song": "Sultans of Swing",
+     "artist": "Dire Straits"
+    },
+    {
+     "song": "Do It Again",
+     "artist": "Steely Dan"
+    },
+    {
+     "song": "Young Lust",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "No More Tears",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Unforgiven II",
+     "artist": "Metallica"
+    },
+    {
+     "song": "Aerials",
+     "artist": "System Of A Down"
+    },
+    {
+     "song": "Big Empty",
+     "artist": "Stone Temple Pilots"
+    },
+    {
+     "song": "The Game",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Fame",
+     "artist": "David Bowie"
+    },
+    {
+     "song": "Shot in the Dark",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Nothing Else Matters",
+     "artist": "Metallica"
+    },
+    {
+     "song": "Know Your Enemy",
+     "artist": "Rage Against the Machine"
+    },
+    {
+     "song": "Don't Let Me Down",
+     "artist": "The Beatles"
+    },
+    {
+     "song": "Rooster",
+     "artist": "Alice In Chains"
+    },
+    {
+     "song": "Patience",
+     "artist": "Guns N' Roses"
+    },
+    {
+     "song": "Knockin' on Heaven's Door",
+     "artist": "Bob Dylan"
+    },
+    {
+     "song": "Violent Pornography",
+     "artist": "System Of A Down"
+    },
+    {
+     "song": "Chase You Away",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Even the Losers",
+     "artist": "Tom Petty"
+    },
+    {
+     "song": "Bark at the Moon",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "November Rain",
+     "artist": "Guns N' Roses"
+    },
+    {
+     "song": "Float On",
+     "artist": "Modest Mouse"
+    },
+    {
+     "song": "Silver Stallion",
+     "artist": "The Highwaymen"
+    },
+    {
+     "song": "Yellow Ledbetter",
+     "artist": "Pearl Jam"
+    },
+    {
+     "song": "Interstate Love Song",
+     "artist": "Stone Temple Pilots"
+    },
+    {
+     "song": "You Don't Know How It Feels",
+     "artist": "Tom Petty"
+    },
+    {
+     "song": "Goodbye to Romance",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Willy Town",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Brick in the Wall",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Hey You",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Yoshimi Battles The Pink Robots Part 1",
+     "artist": "The Flaming Lips"
+    },
+    {
+     "song": "Welcome to the Machine",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Renegade",
+     "artist": "Styx"
+    },
+    {
+     "song": "Blackened",
+     "artist": "Metallica"
+    },
+    {
+     "song": "For Whom the Bell Tolls",
+     "artist": "Metallica"
+    },
+    {
+     "song": "Just Breathe",
+     "artist": "Pearl Jam"
+    },
+    {
+     "song": "Mother",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Traveling Moo",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Eclipse",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Brain Damage",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Comfortably Numb",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Band on the Run",
+     "artist": "Wings"
+    },
+    {
+     "song": "Vera",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Black",
+     "artist": "Pearl Jam"
+    },
+    {
+     "song": "High Enough",
+     "artist": "Damn Yankees"
+    },
+    {
+     "song": "The Joker",
+     "artist": "Steve Miller Band"
+    },
+    {
+     "song": "When the Children Cry",
+     "artist": "White Lion"
+    },
+    {
+     "song": "Riddle",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Mama, I'm Coming Home",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Silent Lucidity",
+     "artist": "Queensrÿche"
+    },
+    {
+     "song": "Crazy Train",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Time",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "One Arm Steve",
+     "artist": "Widespread Panic"
+    },
+    {
+     "song": "Black Hole Sun",
+     "artist": "Soundgarden"
+    },
+    {
+     "song": "Into The Mystic",
+     "artist": "Van Morrison"
+    },
+    {
+     "song": "See you on the Other Side",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Ordinary Average Guy",
+     "artist": "Joe Walsh"
+    },
+    {
+     "song": "Crazy on You",
+     "artist": "Heart"
+    },
+    {
+     "song": "Pigs",
+     "artist": "Pink Floyd"
+    }
+   ],
+   "notes": [
+    "Yoshimi: the September 8 performance in particular.",
+    "Four of these have no video on the site yet: Shot in the Dark, Violent Pornography, Even the Losers and Silver City Woman. The rows are here, the links are being found.",
+    "Three named are not in the catalog at all: a Tool song, a Pink Floyd 'Flash', and Bicep's 'Love'. Nothing was put in their place.",
+    "Silver Stallion stands in for 'Silver Nights', which is not a title the catalog carries."
+   ]
+  },
+  {
+   "id": "cheryl",
+   "name": "Cheryl",
+   "by": "Brandon",
+   "note": "Seventeen songs of roots rock and seventies radio, The Band, the Grateful Dead, Steve Miller, King Harvest, alongside the nineties alternative end, R.E.M., Weezer, Everclear, Smashing Pumpkins. Ozzy, Guns N' Roses and System Of A Down give it teeth. The Glostik original here is Regina.",
+   "songs": [
+    {
+     "song": "The Weight",
+     "artist": "The Band"
+    },
+    {
+     "song": "Dancing in the Moonlight",
+     "artist": "King Harvest"
+    },
+    {
+     "song": "Friend of the Devil",
+     "artist": "Grateful Dead"
+    },
+    {
+     "song": "Losing My Religion",
+     "artist": "R.E.M."
+    },
+    {
+     "song": "Fly Like An Eagle",
+     "artist": "Steve Miller Band"
+    },
+    {
+     "song": "Santa Monica",
+     "artist": "Everclear"
+    },
+    {
+     "song": "Cumbersome",
+     "artist": "Seven Mary Three"
+    },
+    {
+     "song": "Aerials",
+     "artist": "System Of A Down"
+    },
+    {
+     "song": "Patience",
+     "artist": "Guns N' Roses"
+    },
+    {
+     "song": "The Night They Drove Old Dixie Down",
+     "artist": "The Band"
+    },
+    {
+     "song": "No Excuses",
+     "artist": "Alice In Chains"
+    },
+    {
+     "song": "Regina",
+     "artist": "Glostik"
+    },
+    {
+     "song": "Bark at the Moon",
+     "artist": "Ozzy Osbourne"
+    },
+    {
+     "song": "Tweezer",
+     "artist": "Phish"
+    },
+    {
+     "song": "Buddy Holly",
+     "artist": "Weezer"
+    },
+    {
+     "song": "Tonight, Tonight",
+     "artist": "The Smashing Pumpkins"
+    },
+    {
+     "song": "Outside",
+     "artist": "Staind"
+    }
+   ]
+  },
+  {
+   "id": "ed",
+   "name": "Ed",
+   "by": "Brandon",
+   "note": "Seventeen songs built on long classic rock, Dire Straits, the Allman Brothers, Pink Floyd twice, Lynyrd Skynyrd, the Dead and Phish. Springsteen and Van Morrison carry the quieter middle. The grunge end arrives through Stone Temple Pilots, Soundgarden and Alice In Chains, and Metallica closes the loud side. The Glostik original here is The Game.",
+   "songs": [
+    {
+     "song": "Sultans of Swing",
+     "artist": "Dire Straits"
+    },
+    {
+     "song": "West LA Fadeaway",
+     "artist": "Grateful Dead"
+    },
+    {
+     "song": "Whipping Post",
+     "artist": "The Allman Brothers Band"
+    },
+    {
+     "song": "Atlantic City",
+     "artist": "Bruce Springsteen"
+    },
+    {
+     "song": "Rooster",
+     "artist": "Alice In Chains"
+    },
+    {
+     "song": "Into The Mystic",
+     "artist": "Van Morrison"
+    },
+    {
+     "song": "The Shape I'm In",
+     "artist": "The Band"
+    },
+    {
+     "song": "Have a Cigar",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Wish You Were Here",
+     "artist": "Pink Floyd"
+    },
+    {
+     "song": "Interstate Love Song",
+     "artist": "Stone Temple Pilots"
+    },
+    {
+     "song": "Plush",
+     "artist": "Stone Temple Pilots"
+    },
+    {
+     "song": "Black Hole Sun",
+     "artist": "Soundgarden"
+    },
+    {
+     "song": "Simple Man",
+     "artist": "Lynyrd Skynyrd"
+    },
+    {
+     "song": "Come Together",
+     "artist": "The Beatles"
+    },
+    {
+     "song": "Weekapaug Groove",
+     "artist": "Phish"
+    },
+    {
+     "song": "Seek & Destroy",
+     "artist": "Metallica"
+    },
+    {
+     "song": "The Game",
+     "artist": "Glostik"
+    }
+   ]
+  }
+ ]
+}

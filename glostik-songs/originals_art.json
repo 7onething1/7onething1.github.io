@@ -1,0 +1,332 @@
+{
+ "built": "2026-09-19",
+ "note": "One frame of the band per original, cut from the band's own Shorts and streams.",
+ "size": 320,
+ "songs": {
+  "Me": {
+   "img": "img/band/me.jpg",
+   "from_video": "Ed2J1htgrCQ",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Ed2J1htgrCQ_oar2.jpg"
+  },
+  "Right On": {
+   "img": "img/band/right-on.jpg",
+   "from_video": "Y3G2q4aUj6w",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Y3G2q4aUj6w_oardefault.jpg"
+  },
+  "Alibi": {
+   "img": "img/band/alibi.jpg",
+   "from_video": "Wm8Wagt5XlQ",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Wm8Wagt5XlQ_oardefault.jpg"
+  },
+  "427": {
+   "img": "img/band/427.jpg",
+   "from_video": "967BlKEYSjI",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/967BlKEYSjI_oar1.jpg"
+  },
+  "Chase Our Dreams": {
+   "img": "img/band/chase-our-dreams.jpg",
+   "from_video": "fBc6Bsi9zuQ",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/fBc6Bsi9zuQ_oar2.jpg"
+  },
+  "Silver City Woman": {
+   "img": "img/band/silver-city-woman.jpg",
+   "from_video": "9Suh0G4rM2k",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/9Suh0G4rM2k_oardefault.jpg"
+  },
+  "Bright Side": {
+   "img": "img/band/bright-side.jpg",
+   "from_video": "0Vz",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/0Vz_8S_I_1k_oar1.jpg"
+  },
+  "Bug Zapper": {
+   "img": "img/band/bug-zapper.jpg",
+   "from_video": "1tHouCDWDak",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/1tHouCDWDak_oardefault.jpg"
+  },
+  "Am I Sleeping": {
+   "img": "img/band/am-i-sleeping.jpg",
+   "from_video": "gocBDme-iAs",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/gocBDme-iAs_oardefault.jpg"
+  },
+  "The Secret": {
+   "img": "img/band/the-secret.jpg",
+   "from_video": "9DRdbi4Wnpc",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/9DRdbi4Wnpc_oar2.jpg"
+  },
+  "Better Things": {
+   "img": "img/band/better-things.jpg",
+   "from_video": "LK9mA07t9PA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/LK9mA07t9PA_oardefault.jpg"
+  },
+  "Lyin'": {
+   "img": "img/band/lyin.jpg",
+   "from_video": "MhtF7nWRdtk",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/MhtF7nWRdtk_oar1.jpg"
+  },
+  "The Game": {
+   "img": "img/band/the-game.jpg",
+   "from_video": "EoQUqIEl8bs",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/EoQUqIEl8bs_oardefault.jpg"
+  },
+  "Chase You Away": {
+   "img": "img/band/chase-you-away.jpg",
+   "from_video": "pGccV3R9-WE",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/pGccV3R9-WE_oardefault.jpg"
+  },
+  "Willy Town": {
+   "img": "img/band/willy-town.jpg",
+   "from_video": "44Nap1oHfXM",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/44Nap1oHfXM_oardefault.jpg"
+  },
+  "Traveling Moo": {
+   "img": "img/band/traveling-moo.jpg",
+   "from_video": "unRr-Y2Ysco",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/unRr-Y2Ysco_oardefault.jpg"
+  },
+  "Riddle": {
+   "img": "img/band/riddle.jpg",
+   "from_video": "OPZMysWfd4c",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/OPZMysWfd4c_oar2.jpg"
+  },
+  "Golem In The Shed": {
+   "img": "img/band/golem-in-the-shed.jpg",
+   "from_video": "Rr5FPHiuRoA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Rr5FPHiuRoA_oardefault.jpg"
+  },
+  "Highs and Lows": {
+   "img": "img/band/highs-and-lows.jpg",
+   "from_video": "gP9slGkknUo",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/gP9slGkknUo_oar1.jpg"
+  },
+  "Disco Smitty": {
+   "img": "img/band/disco-smitty.jpg",
+   "from_video": "6A6ia9Y-8nU",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/6A6ia9Y-8nU_oardefault.jpg"
+  },
+  "Missing": {
+   "img": "img/band/missing.jpg",
+   "from_video": "FmFFf2fgH1k",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/FmFFf2fgH1k_oardefault.jpg"
+  },
+  "Propaganda Soldier": {
+   "img": "img/band/propaganda-soldier.jpg",
+   "from_video": "wtVrLNAcOF0",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/wtVrLNAcOF0_oar2.jpg"
+  },
+  "Twisted": {
+   "img": "img/band/twisted.jpg",
+   "from_video": "VD6HFHGEk-o",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/VD6HFHGEk-o_oar2.jpg"
+  },
+  "Peppermint": {
+   "img": "img/band/peppermint.jpg",
+   "from_video": "0eYe10VO6Gg",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/0eYe10VO6Gg_oardefault.jpg"
+  },
+  "Factory": {
+   "img": "img/band/factory.jpg",
+   "from_video": "PTVM8bt3-Ec",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/PTVM8bt3-Ec_oar3.jpg"
+  },
+  "Piss Jug": {
+   "img": "img/band/piss-jug.jpg",
+   "from_video": "8yV0EswuLpU",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/8yV0EswuLpU_oardefault.jpg"
+  },
+  "Drunk Dad": {
+   "img": "img/band/drunk-dad.jpg",
+   "from_video": "t0fuD-gTp",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/t0fuD-gTp_I_oardefault.jpg"
+  },
+  "Walkin Apples": {
+   "img": "img/band/walkin-apples.jpg",
+   "from_video": "cxZVgOz79SI",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/cxZVgOz79SI_oardefault.jpg"
+  },
+  "Here We Go": {
+   "img": "img/band/here-we-go.jpg",
+   "from_video": "G6jgDfBbiYI",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/G6jgDfBbiYI_oardefault.jpg"
+  },
+  "Carry On": {
+   "img": "img/band/carry-on.jpg",
+   "from_video": "nlforPwL8NI",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/nlforPwL8NI_oardefault.jpg"
+  },
+  "Gonzo Tree": {
+   "img": "img/band/gonzo-tree.jpg",
+   "from_video": "W4n2gg6y",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/W4n2gg6y_Ao_oar2.jpg"
+  },
+  "Truck Fire": {
+   "img": "img/band/truck-fire.jpg",
+   "from_video": "N1m-dYKSyik",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/N1m-dYKSyik_oar2.jpg"
+  },
+  "Round and Round": {
+   "img": "img/band/round-and-round.jpg",
+   "from_video": "uAqdn9GEeno",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/uAqdn9GEeno_oar2.jpg"
+  },
+  "Brotherman": {
+   "img": "img/band/brotherman.jpg",
+   "from_video": "HiuVFwZtZu4",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/HiuVFwZtZu4_oardefault.jpg"
+  },
+  "Doin Time": {
+   "img": "img/band/doin-time.jpg",
+   "from_video": "6yfoB8ihe90",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/6yfoB8ihe90_oardefault.jpg"
+  },
+  "Psycho": {
+   "img": "img/band/psycho.jpg",
+   "from_video": "k2kCmSqFGAk",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/k2kCmSqFGAk_oar1.jpg"
+  },
+  "Burn Away": {
+   "img": "img/band/burn-away.jpg",
+   "from_video": "hFHgM-HZ9MA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/hFHgM-HZ9MA_oardefault.jpg"
+  },
+  "My Brudda": {
+   "img": "img/band/my-brudda.jpg",
+   "from_video": "hbYUe1ne6Rg",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/hbYUe1ne6Rg_oar3.jpg"
+  },
+  "Juicy Juice": {
+   "img": "img/band/juicy-juice.jpg",
+   "from_video": "Hk9MFrDbX6o",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Hk9MFrDbX6o_oardefault.jpg"
+  },
+  "Last Time": {
+   "img": "img/band/last-time.jpg",
+   "from_video": "jGSBTiFtDBw",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/jGSBTiFtDBw_oar3.jpg"
+  },
+  "Switch": {
+   "img": "img/band/switch.jpg",
+   "from_video": "25LAKfP3t9M",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/25LAKfP3t9M_oar2.jpg"
+  },
+  "Regina": {
+   "img": "img/band/regina.jpg",
+   "from_video": "F95FVW5BUEo",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/F95FVW5BUEo_oar2.jpg"
+  },
+  "Take Care": {
+   "img": "img/band/take-care.jpg",
+   "from_video": "zhR63-KmgHA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/zhR63-KmgHA_oardefault.jpg"
+  },
+  "Up on Mars": {
+   "img": "img/band/up-on-mars.jpg",
+   "from_video": "Ph5nboPkRxo",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Ph5nboPkRxo_oar2.jpg"
+  },
+  "You Won't Last": {
+   "img": "img/band/you-won-t-last.jpg",
+   "from_video": "3tmnfiRfFbc",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/3tmnfiRfFbc_oardefault.jpg"
+  },
+  "Cry Me A River": {
+   "img": "img/band/cry-me-a-river.jpg",
+   "from_video": "Ko",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Ko_9prBaDvU_oardefault.jpg"
+  },
+  "Thank You": {
+   "img": "img/band/thank-you.jpg",
+   "from_video": "LqgvkBF2yOk",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/LqgvkBF2yOk_oar3.jpg"
+  },
+  "Picture": {
+   "img": "img/band/picture.jpg",
+   "from_video": "ZCVKceeZ7wA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/ZCVKceeZ7wA_oar3.jpg"
+  },
+  "That Song": {
+   "img": "img/band/that-song.jpg",
+   "from_video": "735PvlLBVRg",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/735PvlLBVRg_oar2.jpg"
+  },
+  "One Time Shine": {
+   "img": "img/band/one-time-shine.jpg",
+   "from_video": "ZS9dSsYGKK8",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/ZS9dSsYGKK8_oar2.jpg"
+  },
+  "Back Room": {
+   "img": "img/band/back-room.jpg",
+   "from_video": "p-SP0XulmBU",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/p-SP0XulmBU_oardefault.jpg"
+  },
+  "Bust": {
+   "img": "img/band/bust.jpg",
+   "from_video": "Zsqu9V8Q0OE",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Zsqu9V8Q0OE_oardefault.jpg"
+  },
+  "All Eyes": {
+   "img": "img/band/all-eyes.jpg",
+   "from_video": "tRuxouBf2cQ",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/tRuxouBf2cQ_oar2.jpg"
+  },
+  "Broke": {
+   "img": "img/band/broke.jpg",
+   "from_video": "2emds17vZoE",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/2emds17vZoE_oar1.jpg"
+  },
+  "Lights Hit The Stage": {
+   "img": "img/band/lights-hit-the-stage.jpg",
+   "from_video": "H-",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/H-_widNI3Io_oardefault.jpg"
+  },
+  "Shure": {
+   "img": "img/band/shure.jpg",
+   "from_video": "x83VMGlzIxo",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/x83VMGlzIxo_oar2.jpg"
+  },
+  "Work It Out": {
+   "img": "img/band/work-it-out.jpg",
+   "from_video": "2RoioA7Vv2Y",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/2RoioA7Vv2Y_oardefault.jpg"
+  },
+  "Karl": {
+   "img": "img/band/karl.jpg",
+   "from_video": "3MXSq6FSFWI",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/3MXSq6FSFWI_oardefault.jpg"
+  },
+  "Fall Away": {
+   "img": "img/band/fall-away.jpg",
+   "from_video": "MZCiJYUtS-k",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/MZCiJYUtS-k_oardefault.jpg"
+  },
+  "Rooster": {
+   "img": "img/band/rooster.jpg",
+   "from_video": "ozYKO4CqSKA",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/ozYKO4CqSKA_oar2.jpg"
+  },
+  "Go": {
+   "img": "img/band/go.jpg",
+   "from_video": "sAZnhqMTeBU",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/sAZnhqMTeBU_oardefault.jpg"
+  },
+  "Brokedown in Boone County": {
+   "img": "img/band/brokedown-in-boone-county.jpg",
+   "from_video": "ZEqTjj3JZ0o",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/ZEqTjj3JZ0o_oardefault.jpg"
+  },
+  "KICK": {
+   "img": "img/band/kick.jpg",
+   "from_video": "Y8gta22RVSc",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/Y8gta22RVSc_oar1.jpg"
+  },
+  "The Road": {
+   "img": "img/band/the-road.jpg",
+   "from_video": "hMV0u9J0",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/hMV0u9J0_vY_oardefault.jpg"
+  },
+  "Not Alive": {
+   "img": "img/band/not-alive.jpg",
+   "from_video": "fCvHQdDIJ1E",
+   "source_file": "Projects/_outputs/glostik-emotes/source/shorts/fCvHQdDIJ1E_oardefault.jpg"
+  }
+ }
+}
