@@ -89,7 +89,7 @@ font-family:ui-monospace,Menlo,monospace;font-size:.78rem}
 <div class="cause"><span class="badge">CONFIRMED</span><h3>The corpus registry still points at the offloaded Desktop</h3><p class="why"><code>corpus_registry.json</code> reported the <b>music</b> domain as 0 documents with both paths marked <code>missing</code>. Only one of the two was really gone: <code>~/Desktop/yt-iximusic</code> holds 0 files, and the data is alive at <code>~/New Desktop/yt-iximusic</code> with 130 files. <code>~/Desktop/Brandon-Vault/20 Projects/Music Books</code> was never missing at all, it holds 197 files, so the registry reading was simply stale at <code>last_scanned: 2026-08-04</code>. <b>Fixed 2026-10-26:</b> the dead path was repointed and the registry rescanned, taking the music domain from 0 to <b>189 files</b>, which is exactly the figure <code>/indexes-board</code> had been advertising all along.</p><p class="so"><b>What it means.</b> The board was right and the registry was blind. Repointing one path restored the whole domain, so no music data was ever lost. Backups kept at <code>refresh_registry.py.bak-before-iximusic-repoint-2026-10-26</code> and <code>corpus_registry.json.bak-2026-10-26</code>.</p></div>
 <div class="cause un"><span class="badge un">UNATTRIBUTED</span><h3>yt-truthseekerstea lost 187 fetched transcripts</h3><p class="why"><code>fetch_run.log</code> records <code>Transcripts ok: 187/189</code> on 2026-05-29 08:37 and the 189-row <code>manifest.csv</code> of 25 KB survives beside it. The <code>transcripts/</code> directory is empty and its mtime is 2026-05-29 11:41, three hours after the successful fetch and eight days before the Desktop offload.</p><p class="so"><b>What it means.</b> The loss is real and the timestamp is exact, but no log names the process that emptied the directory. Calling this the offload, or any script, would be a guess, so it stays unattributed.</p></div>
 <h2>Why the retrieval index could not answer any of this</h2>
-<div class="cause"><span class="badge">CONFIRMED</span><h3>Ollama.app is in the Trash, so <code>/ask</code> cannot embed</h3>
+<div class="cause"><span class="badge">CONFIRMED</span><h3>Ollama.app was in the Trash, so <code>/ask</code> could not embed</h3>
 <p class="why">The live ollama server, pid 1991, up 3 days 22 hours, executes from
 <code>/Users/drwu/.Trash/Ollama.app/Contents/Resources/ollama</code>. The app was moved to the Trash and the running server was never
 restarted. The process survives because its binary stays open, so <code>/api/tags</code> answers in milliseconds and
@@ -100,8 +100,24 @@ One 53 MB ollama process sits there with no runner beside it, and 91% of memory 
 <p class="so"><b>What it means.</b> <code>/ask</code> has been running with its corpus, vault and memory layers dead,
 falling back to a coarse scan of chat transcripts. Its &ldquo;0 relevant cited results&rdquo; means <b>not searched</b>,
 never <b>nothing there</b>. This whole audit was done by reading the filesystem and the handoff docs directly, because
-the index could not be consulted. Restoring it needs Ollama.app put back and the server restarted, which restarts a
-running process, so it is left for Brandon.</p></div>
+the index could not be consulted.</p></div>
+<div class="cause clear"><span class="badge cl">RESOLVED</span><h3>Retrieval is live again, on Brandon's go-ahead</h3>
+<p class="why">Neither the Trash copy nor <code>/Applications/Ollama.app</code> existed by the time the repair ran, so
+there was nothing to put back. Homebrew carried the formula and began building <code>openssl@4</code> from source,
+since Ventura on x86_64 no longer receives bottles, which placed a long compile chain ahead of ollama itself. The route
+that worked was the vendor's own prebuilt server tarball, <code>ollama-darwin.tgz</code> v0.40.11, 181,324,349 bytes,
+sha256 <code>aea7d3f2e32371b7644a6e2ec8d4f26820a0e3965918cce8a46cef3e947f6291</code>. It is a flat tree of the
+<code>ollama</code> binary beside its <code>libggml</code> and <code>libllama</code> runners, so the tree has to stay
+together for the runner to load. It installed to <code>~/.local/opt/ollama-0.40.11</code> with a symlink at
+<code>/usr/local/bin/ollama</code>, which also returns the <code>ollama</code> CLI to PATH. The old root-owned dangling
+symlink was kept beside it as <code>ollama.dangling-symlink-kept-2026-10-26</code> rather than discarded.</p>
+<p class="so"><b>Proof.</b> The 0.24.0 server on the unlinked inode was stopped and pid 18600 now reports
+<b>0.40.11</b>, with all six models intact across the version jump. <code>/api/embeddings</code> and
+<code>/api/embed</code> each return <b>768 dimensions</b>, and <code>ask.embed()</code> returns 768.
+<code>corpus_test.py</code> reports <b>10 of 10 domains COVER, 100 / 100</b>. <code>/ask</code> on the music question
+returns <b>20 cited results in 35.7 seconds</b> with the vault, memory and corpus-registry layers all scoring above the
+0.60 gate, against 0 results before the repair. The layer indexes were intact throughout: vault 24,604 rows, domain
+2,781, memory 331, corpus 20.</p></div>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>The hook that called that server healthy</h3>
 <p class="why"><code>ensure_ollama.py</code> probed <code>/api/tags</code> with a 1 second timeout and printed
 &ldquo;/ask embed server already up&rdquo; at every session start. That is a liveness check that cannot fail the way
@@ -110,11 +126,15 @@ a DEGRADED warning naming the cause and the fix.</p>
 <p class="so"><b>Proof, and it has now fired for real.</b> The app was quit and this session resumed, and the hook printed
 the full DEGRADED warning unprompted at SessionStart, naming the lost model runner and the fix. That is an unplanned
 production firing rather than a fixture written for it, so the earlier &ldquo;not proven in production&rdquo; caveat is
-retired. Backup kept at <code>ensure_ollama.py.bak-before-embed-probe-2026-10-26</code>. The healthy-case cost stays
-<b>unmeasured</b>, because the embed path is still dead.</p></div>
+retired. Backup kept at <code>ensure_ollama.py.bak-before-embed-probe-2026-10-26</code>. The healthy-case cost is measured
+now as well: with the server repaired it prints &ldquo;/ask embed server up and embedding.&rdquo; in <b>0.36 s cold and
+0.19 s warm</b>, exit 0. One caveat for anyone testing it by hand, line 57 drains stdin to close the harness pipe, so
+run it as <code>python3 ensure_ollama.py &lt; /dev/null</code> or it blocks on stdin and looks like an ollama
+hang.</p></div>
 <h2>Fixed in this pass</h2>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>Row floor on both index builders</h3><p class="why"><code>normalize_indexes.py</code> and <code>build_lesson_index.py</code> now route every index write through one shared <code>write_with_row_floor()</code>. It reads the key count already on disk, refuses to replace the file when the new pass produces fewer keys, saves the rejected output as <code>&lt;name&gt;.json.rejected</code>, keeps a <code>.bak-&lt;date&gt;</code> of the file it does replace, and exits 2. A <code>--allow-shrink</code> flag is the only override.</p><p class="so"><b>Proof.</b> Tested against the real Trey corpus by running the real builder on 5 of its 35 summaries: all three raw indexes held at 89 / 254 / 93 keys, three <code>.rejected</code> files were written, exit code 2, and the corpus files came back byte-identical. Five unit cases also pass, including the exact 52 to 20 technique drop. Caveat: these tests are self-authored and the gate has still to fire on an unplanned production run.</p></div>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>Registry repointed and rescanned</h3><p class="why">The dead <code>~/Desktop/yt-iximusic</code> path in <code>refresh_registry.py</code> now points at <code>~/New Desktop/yt-iximusic</code>, where the 130 files actually live. The second music path was left alone because it was never missing.</p><p class="so"><b>Proof.</b> The music domain went from 0 files to 189 on a live rescan dated 2026-10-26. Backups kept beside both files.</p></div>
+<div class="cause clear"><span class="badge cl">FIXED</span><h3>93 stale music paths resolved inside the domain index</h3><p class="why">With embedding restored, the music domain answered its own question and cited <code>~/Desktop/yt-iximusic/shiner_book_inserts.md</code>, a path the offload had already killed. 93 of the 240 music rows in <code>domain_embeddings/index.jsonl</code> carried that dead prefix. Each was resolved to <code>~/New Desktop/yt-iximusic</code> under a test stronger than basename and byte size: the row's own stored chunk text had to be found inside the replacement file.</p><p class="so"><b>Proof.</b> 93 of 93 passed the text proof, 0 were flagged, and the row count held at 2,781 across the write, with a backup at <code>index.jsonl.bak-2026-10-26</code>. Dead music paths in the index are now <b>0</b>, and the re-run cites a file that exists on disk.</p></div>
 <h2>Ruled out, with the evidence</h2>
 <div class="cause clear"><span class="badge cl">CLEARED</span><h3>disk_space_guardian.sh</h3><p class="why">Read in full: it is report-and-alert only and says so in its header. It computes <code>df</code>, and on LOW or CRITICAL it runs <code>du</code> and <code>find</code> and sends an ntfy alert. It contains no delete, trash or move call, and it reports staged <code>delete/</code> folders by size without emptying them. Its log holds only state lines.</p><p class="so"><b>Verdict.</b> Not the deleter. Its log does show the disk repeatedly reaching LOW at 16&ndash;21 GB free, which is the pressure that motivates manual sweeps.</p></div>
 <div class="cause clear"><span class="badge cl">CLEARED</span><h3>Syncthing</h3><p class="why">No Syncthing config exists on this Mac. <code>~/Library/Application Support/Syncthing/config.xml</code> and <code>~/.config/syncthing/config.xml</code> are both absent, and there is no <code>.stversions</code> directory under the home folder, the Desktop or ~/New Desktop. It is banned and gone.</p><p class="so"><b>Verdict.</b> Cannot be the current cause. It remains the documented historical suspect, with no artifact left on disk to confirm or refute it.</p></div>

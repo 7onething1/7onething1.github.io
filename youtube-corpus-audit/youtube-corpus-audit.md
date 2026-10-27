@@ -64,14 +64,34 @@ Rebuildable in full from the intact raw indexes. No video needs re-fetching.
 
 - **Row floor on both index builders.** `normalize_indexes.py` and `build_lesson_index.py` now share `write_with_row_floor()`: it refuses to replace an index when the new pass yields fewer keys, saves the rejected output as `<name>.json.rejected`, keeps a `.bak-<date>`, and exits 2. `--allow-shrink` is the only override. Proven by running the real builder on 5 of 35 Trey summaries: raw indexes held at 89/254/93, three `.rejected` files written, exit 2, corpus byte-identical. Caveat: self-authored tests, not yet fired on an unplanned run.
 - **Registry repointed.** The dead `~/Desktop/yt-iximusic` now points at `~/New Desktop/yt-iximusic`. Music domain went 0 to **189 files** (64 Music Books + 125 yt-iximusic). The second music path was never missing, so it was left alone. Backups beside both files.
-- **`ensure_ollama.py` probe fixed, and it has fired for real.** It asked `/api/tags` and called that healthy. It now requests a real embedding with an 8 s budget and prints DEGRADED with the cause and fix. The app was quit and this session resumed, and the hook printed the full warning unprompted at SessionStart, so this is an unplanned production firing and the earlier "not proven in production" caveat is retired.
+- **`ensure_ollama.py` probe fixed, fired for real, and now measured.** It asked `/api/tags` and called that healthy. It now requests a real embedding with an 8 s budget and prints DEGRADED with the cause and fix. The app was quit and this session resumed, and the hook printed the full warning unprompted at SessionStart, so this is an unplanned production firing and the earlier "not proven in production" caveat is retired. Healthy-case cost is 0.36 s cold and 0.19 s warm. Testing note: line 57 drains stdin, so run it as `python3 ensure_ollama.py < /dev/null` or it blocks and looks like an ollama hang.
 - **Board card staged.** A card for this page was added to `/indexes-board` (File & Asset Maps, count 6 to 7). It is local only, since the board is a Vercel route and this Mac is gated off Vercel deploys.
 
 ## The reason /ask could not answer any of this
 
 The live ollama server (pid 1991, up 3 days 22 hours) executes from `/Users/drwu/.Trash/Ollama.app/Contents/Resources/ollama`. The app was trashed and the running server was never restarted. It answers `/api/tags` and lists all six models, and it can no longer spawn a model runner, so `/api/embeddings` and `/api/embed` both returned http 000 after 25 s and 30 s. 91% of memory was free, ruling out memory pressure, and the `ollama` CLI is gone from PATH.
 
-So `/ask` has been running with its corpus, vault and memory layers dead. **Its "0 relevant cited results" means not searched, never nothing there.** This audit was done by reading the filesystem and handoff docs directly. The repair needs Ollama.app restored and the server restarted, which restarts a running process, so it is left for Brandon.
+So `/ask` had been running with its corpus, vault and memory layers dead. **Its "0 relevant cited results" meant not searched, never nothing there.** This audit was done by reading the filesystem and handoff docs directly.
+
+## RESOLVED 2026-10-26, on Brandon's go-ahead
+
+Neither the Trash copy nor `/Applications/Ollama.app` existed by the time the repair ran, so there was nothing to put back. Homebrew carried the formula and began building `openssl@4` from source, since Ventura on x86_64 no longer receives bottles. The route that worked was the vendor's prebuilt server tarball.
+
+| step | evidence |
+|---|---|
+| installed | `ollama-darwin.tgz` v0.40.11, 181,324,349 bytes, sha256 `aea7d3f2e32371b7644a6e2ec8d4f26820a0e3965918cce8a46cef3e947f6291` |
+| location | `~/.local/opt/ollama-0.40.11`, symlinked to `/usr/local/bin/ollama`, which also returns the CLI to PATH |
+| old symlink | kept as `/usr/local/bin/ollama.dangling-symlink-kept-2026-10-26` |
+| server | pid 1991 (0.24.0, unlinked inode) stopped, pid 18600 reports 0.40.11, all six models intact |
+| embeds | `/api/embeddings` 768 dims, `/api/embed` 768 dims, `ask.embed()` 768 dims |
+| corpus_test.py | **10 of 10 domains COVER, 100 / 100**, music 0.655 |
+| /ask end to end | **20 cited results in 35.7 s**, vault + memory + corpus registry all scoring above the 0.60 gate, against 0 before |
+| layer indexes | intact throughout: vault 24,604 rows, domain 2,781, memory 331, corpus 20 |
+| hook healthy case | prints "/ask embed server up and embedding." in 0.36 s cold, 0.19 s warm, exit 0 |
+
+**93 stale music paths resolved in the same pass.** The restored embed showed the music domain citing `~/Desktop/yt-iximusic/shiner_book_inserts.md`, a path the offload had killed. 93 of 240 music rows carried that prefix. Each was resolved to `~/New Desktop/yt-iximusic` under a test stronger than basename and byte size: the row's own chunk text had to be present in the replacement file. 93 of 93 passed, 0 flagged, row count held at 2,781, backup at `domain_embeddings/index.jsonl.bak-2026-10-26`. Dead music paths are now 0.
+
+**The endpoint question is settled and the answer is to change nothing.** `ask.py` calls the deprecated `/api/embeddings` and `ensure_ollama.py` calls `/api/embed`. On 0.40.11 both work. `ask.py` stays on `/api/embeddings` because that is what built the stored index, so producer and consumer keep one normalization, and `ask.cosine` normalizes both anyway.
 
 ## Provenance
 
