@@ -117,7 +117,13 @@ symlink was kept beside it as <code>ollama.dangling-symlink-kept-2026-10-26</cod
 <code>corpus_test.py</code> reports <b>10 of 10 domains COVER, 100 / 100</b>. <code>/ask</code> on the music question
 returns <b>20 cited results in 35.7 seconds</b> with the vault, memory and corpus-registry layers all scoring above the
 0.60 gate, against 0 results before the repair. The layer indexes were intact throughout: vault 24,604 rows, domain
-2,781, memory 331, corpus 20.</p></div>
+2,781, memory 331, corpus 20.</p>
+<p class="so"><b>It survives a reboot.</b> <code>ensure_ollama.py</code> ends in a branch that runs
+<code>ollama serve</code> when the server is down, resolved off PATH, so that branch was dead for as long as the CLI was
+missing from PATH. Restoring the symlink reconnects it. Tested by killing the server and running the hook the way
+SessionStart does: it printed &ldquo;started ollama serve&rdquo;, pid 22825 came up on 0.40.11, an embed returned 768
+dimensions, and a second run reported healthy. The test is self-authored, and it ran the real hook against a really
+downed server, so the next session recovers without help.</p></div>
 <div class="cause clear"><span class="badge cl">FIXED</span><h3>The hook that called that server healthy</h3>
 <p class="why"><code>ensure_ollama.py</code> probed <code>/api/tags</code> with a 1 second timeout and printed
 &ldquo;/ask embed server already up&rdquo; at every session start. That is a liveness check that cannot fail the way

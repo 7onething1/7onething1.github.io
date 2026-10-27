@@ -88,6 +88,7 @@ Neither the Trash copy nor `/Applications/Ollama.app` existed by the time the re
 | /ask end to end | **20 cited results in 35.7 s**, vault + memory + corpus registry all scoring above the 0.60 gate, against 0 before |
 | layer indexes | intact throughout: vault 24,604 rows, domain 2,781, memory 331, corpus 20 |
 | hook healthy case | prints "/ask embed server up and embedding." in 0.36 s cold, 0.19 s warm, exit 0 |
+| survives reboot | the hook's `ollama serve` branch resolves off PATH, dead while the CLI was missing. Killed the server, ran the hook as SessionStart does: pid 22825 came up on 0.40.11 and embedded 768 dims |
 
 **93 stale music paths resolved in the same pass.** The restored embed showed the music domain citing `~/Desktop/yt-iximusic/shiner_book_inserts.md`, a path the offload had killed. 93 of 240 music rows carried that prefix. Each was resolved to `~/New Desktop/yt-iximusic` under a test stronger than basename and byte size: the row's own chunk text had to be present in the replacement file. 93 of 93 passed, 0 flagged, row count held at 2,781, backup at `domain_embeddings/index.jsonl.bak-2026-10-26`. Dead music paths are now 0.
 
