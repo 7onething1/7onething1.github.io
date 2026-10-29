@@ -40,27 +40,16 @@
   footer b{color:var(--ink)}
   @media(max-width:540px){h1{font-size:1.6rem}}
 </style>
-<style id="kidmode-css">
-.mode-btn{position:fixed;top:12px;right:12px;z-index:9999;padding:9px 16px;border:none;border-radius:999px;background:#4E8079;color:#fff;font:600 14px/1 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.22)}
-body.kids .mode-btn{background:#B4503E}
-body.kids .mode-btn::before{content:"🧒  "}
-#kidpanel{display:none}
-body.kids #kidpanel{display:block;max-width:760px;margin:62px auto 12px;background:#fff7e8;border:2px solid #4E8079;border-radius:18px;padding:20px 24px;font:18px/1.7 system-ui,-apple-system,sans-serif;color:#2b2820}
-body.kids #kidpanel h3{font-family:"Fredoka","Comic Sans MS",sans-serif;color:#4E8079;margin:0 0 8px;font-size:22px}
-body.kids #kidpanel b{color:#B4503E}
-body.kids{font-size:1.04em}
-</style>
 </head>
 <body>
 
-<div id="kidpanel"><h3>Kid mode 🧒</h3><p>This page is <b>Gilmore Girls, episode by episode</b>. It is one of the projects Brandon built and put online. The grown-up details are below, tap Grown-up mode to read them the normal way.</p></div>
 <div class="wrap">
 <header>
   <div class="kicker">Gilmore Girls · episode-level anatomy index</div>
   <h1>Gilmore Girls, episode by episode</h1>
   <p class="sub">An episode-level analysis index on the TV-anatomy-OS pattern: per episode, a scene map, the character arcs, and the theme, each grounded in verbatim lines from the local transcripts. Built one episode per pass; the index now spans into Season 3.</p>
   <div class="chips">
-    <span class="chip"><b>21</b> of 22 season-1 episodes</span>
+    <span class="chip"><b>21</b> of 21 season-1 episodes</span>
     <span class="chip"><b>22</b> of 22 season-2 episodes</span>
     <span class="chip"><b>22</b> of 22 season-3 episodes</span>
     <span class="chip"><b>153</b> episodes inventoried</span>
@@ -798,9 +787,9 @@ const EPS3 = [
 function clean(s){return (s||"").replace(/[—–]/g,", ").replace(/…|\.\.\./g,",").replace(/ ,/g,",");}
 document.getElementById('palette').innerHTML = "<b>Palette: The Grand Budapest Hotel</b> (Wes Anderson). Built 2026-06-11.";
 
-function dotGrid(prefix, doneSet){
+function dotGrid(prefix, doneSet, count){
   let g="";
-  for(let e=1;e<=22;e++){
+  for(let e=1;e<=count;e++){
     const code = prefix+String(e).padStart(2,"0");
     g += `<div class="ep-dot ${doneSet.has(code)?'done':'pend'}" title="${code}">${e}</div>`;
   }
@@ -821,12 +810,12 @@ function renderEps(list){
 
 const done1 = new Set(EPS.map(e=>e.code));
 const done2 = new Set(EPS2.map(e=>e.code));
-document.getElementById('grid').innerHTML = dotGrid("S01E", done1);
-document.getElementById('grid2').innerHTML = dotGrid("S02E", done2);
+document.getElementById('grid').innerHTML = dotGrid("S01E", done1, 21);
+document.getElementById('grid2').innerHTML = dotGrid("S02E", done2, 22);
 document.getElementById('episodes').innerHTML = renderEps(EPS);
 document.getElementById('episodes-s2').innerHTML = renderEps(EPS2);
 const done3 = new Set(EPS3.map(e=>e.code));
-document.getElementById('grid3').innerHTML = dotGrid("S03E", done3);
+document.getElementById('grid3').innerHTML = dotGrid("S03E", done3, 22);
 document.getElementById('episodes-s3').innerHTML = renderEps(EPS3);
 </script>
 
