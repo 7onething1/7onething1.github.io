@@ -1,0 +1,126 @@
+{
+ "updated": "2026-10-29T19:55:40Z",
+ "meta_period_id": 722,
+ "source": "Untapped.gg archetypes_by_event_scope_and_rank_v2",
+ "color_bitmask": "WUBRG: W=1,U=2,B=4,R=8,G=16",
+ "resources": {
+  "rare_wc": 5,
+  "mythic_wc": 9,
+  "deck_count": 17,
+  "best_mardu_wr": 61.89,
+  "best_mardu_deck": "Mardu Discard",
+  "best_mardu_matches": 900,
+  "best_all_wr": 61.89,
+  "best_all_deck": "Mardu Discard",
+  "collection_owned": 11836,
+  "collection_copies": 34551,
+  "gems": 45,
+  "gold": 14610,
+  "vault_progress": 92.3,
+  "collection_last_updated": "2026-10-28T22:46:14Z"
+ },
+ "archetypes": [
+  {
+   "label": "Mono-White Auras",
+   "cb": 1,
+   "wr": 55.64,
+   "matches": 12767
+  },
+  {
+   "label": "Mono-Black Demons",
+   "cb": 4,
+   "wr": 52.17,
+   "matches": 5716
+  },
+  {
+   "label": "Rakdos Fling",
+   "cb": 12,
+   "wr": 56.43,
+   "matches": 5368
+  },
+  {
+   "label": "Mono-White Lifegain",
+   "cb": 1,
+   "wr": 52.85,
+   "matches": 2390
+  },
+  {
+   "label": "Mono-Red Land Destruction",
+   "cb": 8,
+   "wr": 42.86,
+   "matches": 1141
+  },
+  {
+   "label": "Orzhov Skeletons",
+   "cb": 5,
+   "wr": 56.88,
+   "matches": 1104
+  },
+  {
+   "label": "Mono-White Heros",
+   "cb": 1,
+   "wr": 53.17,
+   "matches": 1040
+  },
+  {
+   "label": "Mardu Discard",
+   "cb": 13,
+   "wr": 61.89,
+   "matches": 900
+  },
+  {
+   "label": "Mono-Red Burn",
+   "cb": 8,
+   "wr": 51.4,
+   "matches": 749
+  },
+  {
+   "label": "Boros Tokens",
+   "cb": 9,
+   "wr": 55.22,
+   "matches": 335
+  },
+  {
+   "label": "Mono-White Angels",
+   "cb": 1,
+   "wr": 52.79,
+   "matches": 305
+  },
+  {
+   "label": "Mono-Red Aggro",
+   "cb": 8,
+   "wr": 52.75,
+   "matches": 273
+  },
+  {
+   "label": "Boros Heros",
+   "cb": 9,
+   "wr": 51.56,
+   "matches": 256
+  },
+  {
+   "label": "Orzhov Sacrifice",
+   "cb": 5,
+   "wr": 58.95,
+   "matches": 229
+  },
+  {
+   "label": "Boros Burn",
+   "cb": 9,
+   "wr": 53.25,
+   "matches": 169
+  },
+  {
+   "label": "Rakdos Monument",
+   "cb": 12,
+   "wr": 55.77,
+   "matches": 156
+  },
+  {
+   "label": "Mardu Thanos",
+   "cb": 13,
+   "wr": 36.67,
+   "matches": 30
+  }
+ ]
+}

@@ -1,0 +1,670 @@
+<title>Timeless decks, August 2026, scored against your collection</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+ :root{--bg:#f2ead8;--card:#fffaeb;--ink:#111111;--muted:#333333;--gold:#c9a227;
+   --hot:#B85450;--good:#4a5020;--line:#ddd2b4}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--ink);
+   font:15px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:22px}
+ .wrap{max-width:1140px;margin:0 auto}
+ h1{font-size:29px;line-height:1.2;margin:0 0 6px}
+ .lede{color:var(--muted);margin:0 0 18px}
+ .kpis{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+ .kpi{background:var(--card);border:1.5px solid var(--line);border-radius:10px;
+   padding:10px 14px;min-width:118px}
+ .kpi .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+ .kpi .val{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+ .note{background:var(--card);border-left:4px solid var(--gold);padding:12px 16px;
+   margin:14px 0;border-radius:0 8px 8px 0;font-size:13.5px}
+ .note.warn{border-left-color:var(--hot);background:#fdf1ee}
+ .rules{margin:0;padding-left:18px} .rules li{margin:3px 0}
+ .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--card);
+   border:1.5px solid var(--line);border-radius:10px;padding:10px;margin:14px 0}
+ button{font:inherit;font-weight:600;background:var(--card);color:var(--ink);
+   border:1.5px solid var(--ink);border-radius:20px;padding:6px 14px;cursor:pointer}
+ button.on{background:var(--ink);color:var(--card)}
+ button.cb,button.colb{font-size:13px;padding:5px 11px}
+ button.colb{min-width:36px}
+ .bar .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+ table{width:100%;border-collapse:collapse;background:var(--card);
+   border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+ th{background:#e7dfc9;text-align:left;padding:9px 10px;font-size:12px;
+   text-transform:uppercase;letter-spacing:.05em}
+ td{padding:9px 10px;border-top:1px solid var(--line);vertical-align:top}
+ td.n{color:var(--muted);font-variant-numeric:tabular-nums}
+ td.ci{white-space:nowrap}
+ .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+ .wc{font-size:18px}
+ .ttl .sub{font-size:12px;color:var(--muted);margin-top:2px}
+ .ttl a{color:#4a5020;margin-left:6px}
+ .pip{display:inline-block;width:17px;height:17px;line-height:17px;text-align:center;
+   border-radius:50%;font-size:10px;font-weight:700;margin-right:1px;color:#2b2b2b}
+ .pip-W{background:#d9cfae} .pip-U{background:#7fa8c9}
+ .pip-B{background:#6f6a63;color:#f2ead8} .pip-R{background:#c96a52}
+ .pip-G{background:#7d9a63} .pip-C{background:#cfc7b2}
+ .uc{display:inline-block;font-size:9px;font-weight:700;color:var(--muted);
+   margin-left:3px;cursor:help}
+ .src{display:inline-block;font-size:10px;font-weight:700;padding:0 6px;border-radius:8px;
+   margin-left:3px;cursor:help}
+ .src-real{background:#4a5020;color:#f2ead8}
+ .src-inf{background:#e7dfc9;color:#4a4636}
+ details summary{cursor:pointer;font-size:12px;font-weight:600;color:var(--muted)}
+ ul.cl{margin:6px 0 0;padding-left:16px;font-size:12.5px}
+ ul.cl .none{color:var(--good);list-style:none;margin-left:-16px}
+ .rar{font-size:9px;padding:0 4px;border-radius:6px;background:#e7dfc9;font-weight:700}
+ .rar-mythic{background:#e8b57a}
+ .lt{font-size:9px;color:var(--muted);font-weight:700}
+ /* land toggle: exactly one of each pair is ever in the document flow */
+ body .v-wl,body .c-wl{display:none}
+ body.lands-in .v-nl,body.lands-in .c-nl{display:none}
+ body.lands-in .v-wl{display:inline}
+ body.lands-in .c-wl{display:block}
+ footer{color:var(--muted);font-size:12.5px;margin:24px 0 40px}
+ @media (max-width:720px){ td,th{font-size:12px;padding:6px} }
+</style>
+<div class="wrap">
+<h1>Timeless decks, August 2026</h1>
+<p class="lede">37 decklists from 4 creators who are not in the
+Standard corpus, scored against your live Arena collection.</p>
+
+<div class="kpis">
+ <div class="kpi"><div class="lbl">Decklists</div><div class="val">37</div></div>
+ <div class="kpi"><div class="lbl">Creators</div><div class="val">4</div></div>
+ <div class="kpi"><div class="lbl">Under 10, no lands</div><div class="val">4</div></div>
+ <div class="kpi"><div class="lbl">Under 10, with lands</div><div class="val">2</div></div>
+ <div class="kpi"><div class="lbl">Median, no lands</div><div class="val">14</div></div>
+ <div class="kpi"><div class="lbl">Median, with lands</div><div class="val">22</div></div>
+</div>
+
+<div class="note warn"><b>Lands are most of the cost, and the button proves it.</b>
+Leaving lands out, the median deck needs <b>14</b> rare or mythic
+wildcards and <b>4 of 37</b> fit a 10-wildcard budget.
+Counting the mana base, the median jumps to <b>22</b> and only
+<b>2</b> still fit. Both numbers are computed off the lists and
+stored; the toggle swaps which one is shown rather than deriving one from the other.</div>
+
+<div class="note"><b>The rules.</b>
+<ul class="rules">
+<li><b>Sideboards are out, by the creator's own split.</b>
+ 33 of 37 lists came from Moxfield's API with
+ <code>mainboard</code> and <code>sideboard</code> as separate boards, so
+ <b>422 sideboard cards</b> are excluded because the creator
+ filed them there, not because they fell past card 60. Companions live in their own board
+ and are held out too, 8 of them. The
+ 4 lists typed into a description carry no board data and keep
+ the first-60 reading; they are badged <b>inferred split</b> on the page.</li>
+<li><b>Remove lands</b> is a toggle, on by default. Off, the mana base counts toward the
+ wildcards. Rare lands are the largest single cost in Timeless, which is why both numbers
+ ship rather than one.</li>
+<li><b>Colors</b> are read off required single-letter mana pips on nonland maindeck cards,
+ then kept only where the deck plays a source that can make them. The pip rule alone is
+ what the craft ranking uses and it broke here in a way specific to Timeless: a list titled
+ <i>Izzet Sneak and Show</i> read WUBRG and a <i>Simic Nadu</i> list read WUBG, every extra
+ colour coming from one card, Atraxa at {3}{G}{W}{U}{B}, which neither deck ever
+ casts. Both cheat her into play. Against the 21 decks whose own name states a colour pair,
+ the pip rule scored <b>67%</b> and adding the castability check scored <b>81%</b>. An
+ any-colour source such as Chrome Mox is not counted as evidence, since Scryfall lists it
+ as making all five while in play it makes exactly the one you imprinted. Colours set aside
+ this way show as a small grey <b>-WBG</b> beside the pips.
+ Read for <b>37 of 37</b> decks,
+ 12 of them trimmed.</li>
+<li><b>Different creators.</b> Chestheir, Griffin MTG, Priority Holder, Takobyte. Every creator in the
+ Standard corpus is excluded by name, so MTG Joe, CROKEYZ, d00mwake and LegenVD are all
+ deliberately absent even though they post Timeless.</li>
+<li><b>August 2026 only</b>, and <b>no rotation filter</b>: Timeless is eternal, so a
+ rotation limit here would be a check that always passes.</li>
+</ul></div>
+
+<div class="bar">
+ <button id="t-land" class="on" onclick="tLand(this)">Remove lands</button>
+ <span class="lbl" style="margin-left:8px">Show</span>
+ <button id="f-all" class="on" onclick="setF('all',this)">Everything</button>
+ <button id="f-10" onclick="setF('u10',this)">10 or fewer</button>
+ <button id="f-5" onclick="setF('u5',this)">5 or fewer</button>
+ <button id="f-0" onclick="setF('zero',this)">Zero</button>
+ <span class="lbl" style="margin-left:8px">Colour</span>
+ <button class="colb" data-c="W" onclick="tCol(this)">W</button><button class="colb" data-c="U" onclick="tCol(this)">U</button><button class="colb" data-c="B" onclick="tCol(this)">B</button><button class="colb" data-c="R" onclick="tCol(this)">R</button><button class="colb" data-c="G" onclick="tCol(this)">G</button>
+ <span class="lbl" style="margin-left:8px">Creator</span>
+ <button id="c-all" class="cb on" onclick="setC('',this)">All</button>
+ <button class="cb" onclick="setC('Chestheir',this)">Chestheir</button><button class="cb" onclick="setC('Griffin MTG',this)">Griffin MTG</button><button class="cb" onclick="setC('Priority Holder',this)">Priority Holder</button><button class="cb" onclick="setC('Takobyte',this)">Takobyte</button>
+</div>
+<p id="count" class="lede"></p>
+
+<table id="t"><thead><tr>
+ <th>#</th><th>Colours</th><th>Deck</th><th class="num">R/M<br>wildcards</th>
+ <th class="num">U/C<br>crafts</th><th class="num">Maindeck</th><th>What to craft</th>
+</tr></thead><tbody>
+<tr class="dk" data-nl="0" data-wl="9"
+  data-creator="Chestheir" data-colors="UBR" data-pub="2026-08-23">
+ <td class="n">1</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Metagame Izzet Tempo</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/XNyYZQPK1EGKZv_1ISj0RQ" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">0</span><span class="v-wl">9</span></td>
+ <td class="num">16</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li class=none>Nothing to craft. You own every rare and mythic here.</li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="0" data-wl="10"
+  data-creator="Chestheir" data-colors="UR" data-pub="2026-08-05">
+ <td class="n">2</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Lurrus Izzet Tempo</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/FI55WhNlsEqLWPLCm3kk8Q" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">0</span><span class="v-wl">10</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li class=none>Nothing to craft. You own every rare and mythic here.</li></ul>
+   <ul class="cl c-wl"><li><b>3x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="6" data-wl="16"
+  data-creator="Takobyte" data-colors="UR" data-pub="2026-08-12">
+ <td class="n">3</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Izzet Bilbo Tempo</b>
+  <div class="sub">Takobyte <span class="dt">2026-08-12</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/rllmAbniP0yDtHt31l6PNA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/JDnufOlO2nI" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">6</span><span class="v-wl">16</span></td>
+ <td class="num">18</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>4x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="7" data-wl="17"
+  data-creator="Griffin MTG" data-colors="WU" data-pub="2026-08-11">
+ <td class="n">4</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>UW Tempo</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 1 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/6WibjOSKoE-suEiU9gFPnw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">7</span><span class="v-wl">17</span></td>
+ <td class="num">20</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>3x</b> Fragment Reality <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>3x</b> Fragment Reality <span class="rar rar-rare">R</span></li><li><b>1x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="11" data-wl="19"
+  data-creator="Takobyte" data-colors="UB" data-pub="2026-08-24">
+ <td class="n">5</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>UB Bilbo Tempo</b>
+  <div class="sub">Takobyte <span class="dt">2026-08-24</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/nM5Ifu3szkyuxMEPHYKN3w" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/f10uaW9TF5Y" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">11</span><span class="v-wl">19</span></td>
+ <td class="num">11</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Nethergoyf <span class="rar rar-mythic">M</span></li><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Nethergoyf <span class="rar rar-mythic">M</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="11" data-wl="20"
+  data-creator="Chestheir" data-colors="UB" data-pub="2026-08-05">
+ <td class="n">6</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Stock UB (Level 0)</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/9bnQndFfGUmryiT8ZmORhw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">11</span><span class="v-wl">20</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="11" data-wl="20"
+  data-creator="Chestheir" data-colors="UB" data-pub="2026-08-30">
+ <td class="n">7</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Stock UB (Level 0)</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-30</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/9bnQndFfGUmryiT8ZmORhw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/OaIggpqAWg4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">11</span><span class="v-wl">20</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="12" data-wl="19"
+  data-creator="Chestheir" data-colors="UB" data-pub="2026-08-23">
+ <td class="n">8</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Metagame Dimir Shredder</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/kpD2JaBhWkeOZcNapVi8rw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">12</span><span class="v-wl">19</span></td>
+ <td class="num">6</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Dauthi Voidwalker <span class="rar rar-mythic">M</span></li><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Super Shredder <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Dauthi Voidwalker <span class="rar rar-mythic">M</span></li><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Super Shredder <span class="rar rar-mythic">M</span></li><li><b>2x</b> Verdant Catacombs <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Marsh Flats <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="12" data-wl="21"
+  data-creator="Chestheir" data-colors="UBG" data-pub="2026-08-23">
+ <td class="n">9</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-G">G</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>Metagame Tempo Reanimator</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/AFVVUirkmEmb6pA05sjFtw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">12</span><span class="v-wl">21</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="12" data-wl="21"
+  data-creator="Chestheir" data-colors="UB" data-pub="2026-08-23">
+ <td class="n">10</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Metagame Dimir Tempo</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/XbVkHK0T7UGtMfbPR9pdWw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">12</span><span class="v-wl">21</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>3x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>1x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="12" data-wl="22"
+  data-creator="Chestheir" data-colors="WU" data-pub="2026-08-23">
+ <td class="n">11</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>Metagame Azorious Tempo</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/lM2-34zzUUWWVallNu6FTA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">12</span><span class="v-wl">22</span></td>
+ <td class="num">18</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="12" data-wl="22"
+  data-creator="Griffin MTG" data-colors="UB" data-pub="2026-08-11">
+ <td class="n">12</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>dimir frog</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 1 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/zuN9GtSycEa5_0clnyFbNw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">12</span><span class="v-wl">22</span></td>
+ <td class="num">14</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>4x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>4x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="13" data-wl="21"
+  data-creator="Chestheir" data-colors="WBR" data-pub="2026-08-05">
+ <td class="n">13</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-B">B</span><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Mardu Energy</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/Ct5EuMDGUEK84fRLfAgTjg" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">13</span><span class="v-wl">21</span></td>
+ <td class="num">2</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>2x</b> Goblin Bombardment <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li><li><b>1x</b> Juggernaut Peddler <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>4x</b> Arid Mesa <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>4x</b> Marsh Flats <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Goblin Bombardment <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li><li><b>1x</b> Juggernaut Peddler <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="13" data-wl="23"
+  data-creator="Chestheir" data-colors="WU" data-pub="2026-08-14">
+ <td class="n">14</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>UW Riddler</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-14</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/rUyGz0JRNE-L9g7GD3U5ag" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/Ho50lkx10Zc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">13</span><span class="v-wl">23</span></td>
+ <td class="num">17</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="13" data-wl="23"
+  data-creator="Chestheir" data-colors="WU" data-pub="2026-08-31">
+ <td class="n">15</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>UW Riddler</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-31</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/rUyGz0JRNE-L9g7GD3U5ag" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/_gDtIotOB8o" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">13</span><span class="v-wl">23</span></td>
+ <td class="num">17</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="13" data-wl="23"
+  data-creator="Chestheir" data-colors="WU" data-pub="2026-08-30">
+ <td class="n">16</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>UW Riddler</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-30</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/rUyGz0JRNE-L9g7GD3U5ag" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/OaIggpqAWg4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">13</span><span class="v-wl">23</span></td>
+ <td class="num">17</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Wrath of the Skies <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="15"
+  data-creator="Griffin MTG" data-colors="B" data-pub="2026-08-11">
+ <td class="n">17</td>
+ <td class="ci"><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Mono Black</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 0 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/fH8FGuxuOkqAYaq0dLHhnQ" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">15</span></td>
+ <td class="num">4</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Urborg, Tomb of Yawgmoth <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="15"
+  data-creator="Griffin MTG" data-colors="B" data-pub="2026-08-10">
+ <td class="n">18</td>
+ <td class="ci"><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Timeless BO1 Ranked | MTG Arena</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-10</span> <span class="src src-inf" title="Typed into the description with no board data, so the maindeck is the first 60 cards in written order. 100% of distinct names resolve on Scryfall.">inferred split</span>
+  <a href="https://youtu.be/exduOTEOv0c" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">15</span></td>
+ <td class="num">4</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Urborg, Tomb of Yawgmoth <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="23"
+  data-creator="Chestheir" data-colors="UBG" data-pub="2026-08-15">
+ <td class="n">19</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-G">G</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>UB Reanimator</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-15</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/A-oNd8UluEW_EAHYaRprYA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/ITpKDtliROI" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">23</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="23"
+  data-creator="Chestheir" data-colors="UBG" data-pub="2026-08-05">
+ <td class="n">20</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-G">G</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>UB Reanimator</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/A-oNd8UluEW_EAHYaRprYA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">23</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="23"
+  data-creator="Chestheir" data-colors="UBG" data-pub="2026-08-30">
+ <td class="n">21</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-G">G</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>UB Reanimator</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-30</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/A-oNd8UluEW_EAHYaRprYA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/OaIggpqAWg4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">23</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>1x</b> Psychic Frog <span class="rar rar-rare">R</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="14" data-wl="24"
+  data-creator="Takobyte" data-colors="WU" data-pub="2026-08-13">
+ <td class="n">22</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>UW Bilbo Blink</b>
+  <div class="sub">Takobyte <span class="dt">2026-08-13</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/5nquDZPQwU-WZcUvKyAozQ" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/HxNqZXPifAo" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">14</span><span class="v-wl">24</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>3x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>2x</b> Force of Negation <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li><li><b>3x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>3x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>3x</b> Stifle <span class="rar rar-rare">R</span></li><li><b>2x</b> Force of Negation <span class="rar rar-mythic">M</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="15" data-wl="23"
+  data-creator="Chestheir" data-colors="WBR" data-pub="2026-08-23">
+ <td class="n">23</td>
+ <td class="ci"><span class="pip pip-W">W</span><span class="pip pip-B">B</span><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Metagame Mardu Energy</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard, 1 companion.">real board split</span>
+  <a href="https://moxfield.com/decks/HyiBXV5h_Eq5aXuHLx-a5Q" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">15</span><span class="v-wl">23</span></td>
+ <td class="num">2</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>3x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>2x</b> Goblin Bombardment <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>4x</b> Arid Mesa <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>4x</b> Marsh Flats <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>2x</b> Goblin Bombardment <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="15" data-wl="25"
+  data-creator="Priority Holder" data-colors="G" data-pub="2026-08-14">
+ <td class="n">24</td>
+ <td class="ci"><span class="pip pip-G">G</span></td>
+ <td class="ttl"><b>Landfall Enchantress | Timeless</b>
+  <div class="sub">Priority Holder <span class="dt">2026-08-14</span> <span class="src src-inf" title="Typed into the description with no board data, so the maindeck is the first 60 cards in written order. 100% of distinct names resolve on Scryfall.">inferred split</span>
+  <a href="https://mtggoldfish.com/deck/7911273" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/IACoyoys7w8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">15</span><span class="v-wl">25</span></td>
+ <td class="num">7</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Eidolon of Blossoms <span class="rar rar-rare">R</span></li><li><b>4x</b> Enchantress&#x27;s Presence <span class="rar rar-rare">R</span></li><li><b>4x</b> Exploration <span class="rar rar-rare">R</span></li><li><b>3x</b> Springheart Nantuko <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Eidolon of Blossoms <span class="rar rar-rare">R</span></li><li><b>4x</b> Enchantress&#x27;s Presence <span class="rar rar-rare">R</span></li><li><b>4x</b> Exploration <span class="rar rar-rare">R</span></li><li><b>3x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>3x</b> Springheart Nantuko <span class="rar rar-rare">R</span></li><li><b>3x</b> Verdant Catacombs <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Shifting Woodland <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Nurturing Peatland <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Yavimaya, Cradle of Growth <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="16" data-wl="16"
+  data-creator="Priority Holder" data-colors="B" data-pub="2026-08-30">
+ <td class="n">25</td>
+ <td class="ci"><span class="pip pip-B">B</span></td>
+ <td class="ttl"><b>Qualifier Weekend Day 1 with Scam | Bo3 Timeless</b>
+  <div class="sub">Priority Holder <span class="dt">2026-08-30</span> <span class="src src-inf" title="Typed into the description with no board data, so the maindeck is the first 60 cards in written order. 100% of distinct names resolve on Scryfall.">inferred split</span>
+  <a href="https://mtggoldfish.com/deck/7932593" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/sdn1Rehymks" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">16</span><span class="v-wl">16</span></td>
+ <td class="num">0</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>4x</b> Nethergoyf <span class="rar rar-mythic">M</span></li><li><b>2x</b> Overlord of the Balemurk <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>4x</b> Nethergoyf <span class="rar rar-mythic">M</span></li><li><b>2x</b> Overlord of the Balemurk <span class="rar rar-mythic">M</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="16" data-wl="22"
+  data-creator="Chestheir" data-colors="UB" data-pub="2026-08-05">
+ <td class="n">26</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-G</span></td>
+ <td class="ttl"><b>Turbo Reanimator Doomsday</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/w65ekBqjxkqLPNYyV5YGnA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">16</span><span class="v-wl">22</span></td>
+ <td class="num">16</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Pact of Negation <span class="rar rar-rare">R</span></li><li><b>4x</b> Vampiric Tutor <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Raph &amp; Mikey, Troublemakers <span class="rar rar-rare">R</span></li><li><b>1x</b> Worldspine Wurm <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Pact of Negation <span class="rar rar-rare">R</span></li><li><b>4x</b> Vampiric Tutor <span class="rar rar-rare">R</span></li><li><b>2x</b> Marsh Flats <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>2x</b> Verdant Catacombs <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Raph &amp; Mikey, Troublemakers <span class="rar rar-rare">R</span></li><li><b>1x</b> Worldspine Wurm <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="16" data-wl="24"
+  data-creator="Chestheir" data-colors="UR" data-pub="2026-08-05">
+ <td class="n">27</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-R">R</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-WBG</span></td>
+ <td class="ttl"><b>Izzet Sneak and Show </b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/YtV3dz4fE0GD-I5o2vQLxw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">16</span><span class="v-wl">24</span></td>
+ <td class="num">7</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Emrakul, the Aeons Torn <span class="rar rar-mythic">M</span></li><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>4x</b> Show and Tell <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Emrakul, the Aeons Torn <span class="rar rar-mythic">M</span></li><li><b>4x</b> Ponder <span class="rar rar-rare">R</span></li><li><b>4x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Show and Tell <span class="rar rar-mythic">M</span></li><li><b>1x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Petrified Hamlet <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="18" data-wl="19"
+  data-creator="Griffin MTG" data-colors="B" data-pub="2026-08-11">
+ <td class="n">28</td>
+ <td class="ci"><span class="pip pip-B">B</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-WURG</span></td>
+ <td class="ttl"><b>All Spells</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 0 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/hCjMhjBowkG6EMlVZF9IbQ" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">18</span><span class="v-wl">19</span></td>
+ <td class="num">14</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Prized Amalgam <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Persist <span class="rar rar-rare">R</span></li><li><b>1x</b> Progenitus <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>2x</b> Prized Amalgam <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Agadeem&#x27;s Awakening // Agadeem, the Undercrypt <span class="rar rar-mythic">M</span> <span class="lt">land</span></li><li><b>1x</b> Persist <span class="rar rar-rare">R</span></li><li><b>1x</b> Progenitus <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="19" data-wl="19"
+  data-creator="Chestheir" data-colors="W" data-pub="2026-08-05">
+ <td class="n">29</td>
+ <td class="ci"><span class="pip pip-W">W</span></td>
+ <td class="ttl"><b>Mono-White Stompy</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-05</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/tF27NEvdp0Oy1rTXsB5H3Q" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/vhNSyzq8Dd8" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">19</span><span class="v-wl">19</span></td>
+ <td class="num">6</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Sage of the Skies <span class="rar rar-rare">R</span></li><li><b>4x</b> Solitude <span class="rar rar-mythic">M</span></li><li><b>4x</b> Stoneforge Mystic <span class="rar rar-rare">R</span></li><li><b>1x</b> Batterskull <span class="rar rar-mythic">M</span></li><li><b>1x</b> Jennifer Walters // The Sensational She-Hulk <span class="rar rar-mythic">M</span></li><li><b>1x</b> Kaldra Compleat <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Sage of the Skies <span class="rar rar-rare">R</span></li><li><b>4x</b> Solitude <span class="rar rar-mythic">M</span></li><li><b>4x</b> Stoneforge Mystic <span class="rar rar-rare">R</span></li><li><b>1x</b> Batterskull <span class="rar rar-mythic">M</span></li><li><b>1x</b> Jennifer Walters // The Sensational She-Hulk <span class="rar rar-mythic">M</span></li><li><b>1x</b> Kaldra Compleat <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="21" data-wl="22"
+  data-creator="Chestheir" data-colors="R" data-pub="2026-08-23">
+ <td class="n">30</td>
+ <td class="ci"><span class="pip pip-R">R</span></td>
+ <td class="ttl"><b>Metagame Red Stompy</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/h6_M5agFxEym7p8OP4vbHw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">21</span><span class="v-wl">22</span></td>
+ <td class="num">4</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Broadside Bombardiers <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Fury <span class="rar rar-mythic">M</span></li><li><b>4x</b> Pyrogoyf <span class="rar rar-rare">R</span></li><li><b>3x</b> Magus of the Moon <span class="rar rar-rare">R</span></li><li><b>1x</b> Blood Moon <span class="rar rar-rare">R</span></li><li><b>1x</b> Hexing Squelcher <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Broadside Bombardiers <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Fury <span class="rar rar-mythic">M</span></li><li><b>4x</b> Pyrogoyf <span class="rar rar-rare">R</span></li><li><b>3x</b> Magus of the Moon <span class="rar rar-rare">R</span></li><li><b>1x</b> Blood Moon <span class="rar rar-rare">R</span></li><li><b>1x</b> Hexing Squelcher <span class="rar rar-rare">R</span></li><li><b>1x</b> Shatterskull Smashing // Shatterskull, the Hammer Pass <span class="rar rar-mythic">M</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="21" data-wl="27"
+  data-creator="Griffin MTG" data-colors="UB" data-pub="2026-08-11">
+ <td class="n">31</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-G</span></td>
+ <td class="ttl"><b>dimir reanimate</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 0 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/l89KzZ9SZ0CRjdj2i1wrJw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">21</span><span class="v-wl">27</span></td>
+ <td class="num">15</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Pact of Negation <span class="rar rar-rare">R</span></li><li><b>4x</b> Vampiric Tutor <span class="rar rar-rare">R</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>1x</b> Raph &amp; Mikey, Troublemakers <span class="rar rar-rare">R</span></li><li><b>1x</b> Show and Tell <span class="rar rar-mythic">M</span></li><li><b>1x</b> Worldspine Wurm <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Entomb <span class="rar rar-rare">R</span></li><li><b>4x</b> Pact of Negation <span class="rar rar-rare">R</span></li><li><b>4x</b> Vampiric Tutor <span class="rar rar-rare">R</span></li><li><b>2x</b> Marsh Flats <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Reanimate <span class="rar rar-rare">R</span></li><li><b>2x</b> Verdant Catacombs <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Raph &amp; Mikey, Troublemakers <span class="rar rar-rare">R</span></li><li><b>1x</b> Show and Tell <span class="rar rar-mythic">M</span></li><li><b>1x</b> Worldspine Wurm <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="22" data-wl="23"
+  data-creator="Chestheir" data-colors="B" data-pub="2026-08-23">
+ <td class="n">32</td>
+ <td class="ci"><span class="pip pip-B">B</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>Metagame Living End/B Stompy</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/84Bdg46Hj0KrWnscXJ9Sfg" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">22</span><span class="v-wl">23</span></td>
+ <td class="num">5</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>4x</b> Saint Elenda <span class="rar rar-mythic">M</span></li><li><b>3x</b> Sorin, Imperious Bloodlord <span class="rar rar-mythic">M</span></li><li><b>2x</b> Overlord of the Balemurk <span class="rar rar-mythic">M</span></li><li><b>1x</b> Living End <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Barrowgoyf <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Grief <span class="rar rar-mythic">M</span></li><li><b>4x</b> Saint Elenda <span class="rar rar-mythic">M</span></li><li><b>3x</b> Sorin, Imperious Bloodlord <span class="rar rar-mythic">M</span></li><li><b>2x</b> Overlord of the Balemurk <span class="rar rar-mythic">M</span></li><li><b>1x</b> Living End <span class="rar rar-mythic">M</span></li><li><b>1x</b> Urborg, Tomb of Yawgmoth <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="22" data-wl="34"
+  data-creator="Chestheir" data-colors="UBG" data-pub="2026-08-23">
+ <td class="n">33</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="pip pip-B">B</span><span class="pip pip-G">G</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-W</span></td>
+ <td class="ttl"><b>Metagame Simic Nadu</b>
+  <div class="sub">Chestheir <span class="dt">2026-08-23</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/rw8ha-J4h0S-5S4qFC8OAA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/wHUCMw1kUf4" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">22</span><span class="v-wl">34</span></td>
+ <td class="num">4</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Green Sun&#x27;s Zenith <span class="rar rar-rare">R</span></li><li><b>4x</b> Nadu, Winged Wisdom <span class="rar rar-rare">R</span></li><li><b>4x</b> Natural Order <span class="rar rar-mythic">M</span></li><li><b>4x</b> Once Upon a Time <span class="rar rar-rare">R</span></li><li><b>2x</b> Legolas&#x27;s Quick Reflexes <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Deathrite Shaman <span class="rar rar-rare">R</span></li><li><b>4x</b> Green Sun&#x27;s Zenith <span class="rar rar-rare">R</span></li><li><b>4x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>4x</b> Nadu, Winged Wisdom <span class="rar rar-rare">R</span></li><li><b>4x</b> Natural Order <span class="rar rar-mythic">M</span></li><li><b>4x</b> Once Upon a Time <span class="rar rar-rare">R</span></li><li><b>4x</b> Verdant Catacombs <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Legolas&#x27;s Quick Reflexes <span class="rar rar-rare">R</span></li><li><b>2x</b> Petrified Hamlet <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Yavimaya, Cradle of Growth <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="23" data-wl="23"
+  data-creator="Takobyte" data-colors="W" data-pub="2026-08-22">
+ <td class="n">34</td>
+ <td class="ci"><span class="pip pip-W">W</span></td>
+ <td class="ttl"><b>Mono White Tookens</b>
+  <div class="sub">Takobyte <span class="dt">2026-08-22</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/Z6lUSMhty0CS8UMeeKUeIw" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/OY1iuZFO290" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">23</span><span class="v-wl">23</span></td>
+ <td class="num">3</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>4x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>4x</b> Solitude <span class="rar rar-mythic">M</span></li><li><b>3x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ephemerate <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Guide of Souls <span class="rar rar-rare">R</span></li><li><b>4x</b> Phelia, Exuberant Shepherd <span class="rar rar-rare">R</span></li><li><b>4x</b> Solitude <span class="rar rar-mythic">M</span></li><li><b>3x</b> Ajani, Nacatl Pariah // Ajani, Nacatl Avenger <span class="rar rar-mythic">M</span></li><li><b>2x</b> Ephemerate <span class="rar rar-rare">R</span></li><li><b>2x</b> Ocelot Pride <span class="rar rar-mythic">M</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="23" data-wl="23"
+  data-creator="Takobyte" data-colors="U" data-pub="2026-08-15">
+ <td class="n">35</td>
+ <td class="ci"><span class="pip pip-U">U</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-R</span></td>
+ <td class="ttl"><b>Affinity Side-Door Bilbo</b>
+  <div class="sub">Takobyte <span class="dt">2026-08-15</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 15 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/QS-IuLsG6kabttfV0fEuRA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/Dlls8GZrguY" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">23</span><span class="v-wl">23</span></td>
+ <td class="num">7</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Drix Interlacer <span class="rar rar-rare">R</span></li><li><b>4x</b> Kappa Cannoneer <span class="rar rar-rare">R</span></li><li><b>4x</b> Mox Opal <span class="rar rar-mythic">M</span></li><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li><li><b>2x</b> Mox Amber <span class="rar rar-mythic">M</span></li><li><b>1x</b> Emry, Lurker of the Loch <span class="rar rar-rare">R</span></li><li><b>1x</b> Krang, Master Mind <span class="rar rar-rare">R</span></li><li><b>1x</b> Pinnacle Emissary <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Drix Interlacer <span class="rar rar-rare">R</span></li><li><b>4x</b> Kappa Cannoneer <span class="rar rar-rare">R</span></li><li><b>4x</b> Mox Opal <span class="rar rar-mythic">M</span></li><li><b>4x</b> Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar <span class="rar rar-mythic">M</span></li><li><b>2x</b> Bilbo, Thief in the Night <span class="rar rar-mythic">M</span></li><li><b>2x</b> Mox Amber <span class="rar rar-mythic">M</span></li><li><b>1x</b> Emry, Lurker of the Loch <span class="rar rar-rare">R</span></li><li><b>1x</b> Krang, Master Mind <span class="rar rar-rare">R</span></li><li><b>1x</b> Pinnacle Emissary <span class="rar rar-rare">R</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="23" data-wl="24"
+  data-creator="Griffin MTG" data-colors="R" data-pub="2026-08-11">
+ <td class="n">36</td>
+ <td class="ci"><span class="pip pip-R">R</span><span class="uc" title="These pips appear in the maindeck but the deck plays no source that makes them, so they cannot be cast. Almost always a reanimation or cheat target, Atraxa above all.">-B</span></td>
+ <td class="ttl"><b>Mono Red</b>
+  <div class="sub">Griffin MTG <span class="dt">2026-08-11</span> <span class="src src-real" title="Sideboard excluded by the creator's own Moxfield board split: 60 maindeck, 0 sideboard.">real board split</span>
+  <a href="https://moxfield.com/decks/T5mUKgL5akOMlHTDP4DczA" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/TYX-klnzMnc" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">23</span><span class="v-wl">24</span></td>
+ <td class="num">8</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Blood Moon <span class="rar rar-rare">R</span></li><li><b>4x</b> Broadside Bombardiers <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Fury <span class="rar rar-mythic">M</span></li><li><b>4x</b> Magus of the Moon <span class="rar rar-rare">R</span></li><li><b>3x</b> Pyrogoyf <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Blood Moon <span class="rar rar-rare">R</span></li><li><b>4x</b> Broadside Bombardiers <span class="rar rar-rare">R</span></li><li><b>4x</b> Chrome Mox <span class="rar rar-rare">R</span></li><li><b>4x</b> Fury <span class="rar rar-mythic">M</span></li><li><b>4x</b> Magus of the Moon <span class="rar rar-rare">R</span></li><li><b>3x</b> Pyrogoyf <span class="rar rar-rare">R</span></li><li><b>1x</b> Shatterskull Smashing // Shatterskull, the Hammer Pass <span class="rar rar-mythic">M</span> <span class="lt">land</span></li></ul></details></td>
+</tr><tr class="dk" data-nl="25" data-wl="32"
+  data-creator="Priority Holder" data-colors="U" data-pub="2026-08-23">
+ <td class="n">37</td>
+ <td class="ci"><span class="pip pip-U">U</span></td>
+ <td class="ttl"><b>Qualifier Play-In with Merfolk | Timeless</b>
+  <div class="sub">Priority Holder <span class="dt">2026-08-23</span> <span class="src src-inf" title="Typed into the description with no board data, so the maindeck is the first 60 cards in written order. 100% of distinct names resolve on Scryfall.">inferred split</span>
+  <a href="https://mtggoldfish.com/deck/7923374" target="_blank" rel="noopener">decklist</a> <a href="https://youtu.be/NTZ5XGRUVmg" target="_blank" rel="noopener">video</a></div></td>
+ <td class="num wc"><span class="v-nl">25</span><span class="v-wl">32</span></td>
+ <td class="num">8</td>
+ <td class="num">60</td>
+ <td><details><summary>what to craft</summary>
+   <ul class="cl c-nl"><li><b>4x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>4x</b> Harmonized Trio <span class="rar rar-rare">R</span></li><li><b>4x</b> Lord of Atlantis <span class="rar rar-mythic">M</span></li><li><b>4x</b> Master of the Pearl Trident <span class="rar rar-rare">R</span></li><li><b>4x</b> Mindspring Merfolk <span class="rar rar-rare">R</span></li><li><b>3x</b> Vodalian Hexcatcher <span class="rar rar-rare">R</span></li><li><b>2x</b> Mistcaller <span class="rar rar-rare">R</span></li></ul>
+   <ul class="cl c-wl"><li><b>4x</b> Harbinger of the Seas <span class="rar rar-rare">R</span></li><li><b>4x</b> Harmonized Trio <span class="rar rar-rare">R</span></li><li><b>4x</b> Lord of Atlantis <span class="rar rar-mythic">M</span></li><li><b>4x</b> Master of the Pearl Trident <span class="rar rar-rare">R</span></li><li><b>4x</b> Mindspring Merfolk <span class="rar rar-rare">R</span></li><li><b>3x</b> Vodalian Hexcatcher <span class="rar rar-rare">R</span></li><li><b>2x</b> Flooded Strand <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Mistcaller <span class="rar rar-rare">R</span></li><li><b>2x</b> Misty Rainforest <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>2x</b> Polluted Delta <span class="rar rar-rare">R</span> <span class="lt">land</span></li><li><b>1x</b> Scalding Tarn <span class="rar rar-rare">R</span> <span class="lt">land</span></li></ul></details></td>
+</tr>
+</tbody></table>
+
+<footer>
+<p><b>What was left out.</b> 14 August Timeless videos were fetched from these creators.</p>
+<ul><li><b>1</b> no list reachable</li></ul>
+<p>Three of the videos are metagame roundups linking many lists. Each list gets its own row.</p>
+<p>Wildcard counts depend on the Arena-id backfill of 2026-08-27, without which every
+Hobbit card reads as unowned.</p>
+<p>Companion to <a href="/mtga-buildable-decks">the Standard buildable list</a>,
+<a href="/mtga-mardu-craft">the craft ranking</a> and
+<a href="/mtg-creator-decks">the creator archive</a>.</p>
+</footer>
+</div>
+<script>
+var F='all', C='', COLS={}, LANDS_OUT=true;
+function wc(r){ return LANDS_OUT ? +r.dataset.nl : +r.dataset.wl; }
+function apply(){
+  var rows=[].slice.call(document.querySelectorAll('#t tbody tr.dk')), shown=0;
+  var want=Object.keys(COLS).filter(function(k){return COLS[k];});
+  rows.forEach(function(r){
+    var n=wc(r), ok=true;
+    if(F==='u10') ok = n<=10;
+    else if(F==='u5') ok = n<=5;
+    else if(F==='zero') ok = n===0;
+    if(ok && C) ok = r.dataset.creator===C;
+    /* a colour button asks "does the deck play this colour", so several are an AND */
+    if(ok && want.length){
+      var have=r.dataset.colors||'';
+      ok = want.every(function(k){ return have.indexOf(k)>=0; });
+    }
+    r.style.display = ok ? '' : 'none';
+    if(ok) shown++;
+  });
+  var live=rows.filter(function(r){return r.style.display!=='none'});
+  live.sort(function(a,b){ return wc(a)-wc(b); });
+  var tb=document.querySelector('#t tbody');
+  live.forEach(function(r,i){ tb.appendChild(r); r.querySelector('.n').textContent=i+1; });
+  document.getElementById('count').textContent =
+    'Showing ' + shown + ' of 37 decklists, wildcards counted ' +
+    (LANDS_OUT ? 'without lands' : 'with lands') +
+    (C ? ', ' + C + ' only' : '') + (want.length ? ', playing ' + want.join('') : '') + '.';
+}
+function tLand(b){ LANDS_OUT=!LANDS_OUT; b.classList.toggle('on',LANDS_OUT);
+  document.body.classList.toggle('lands-in',!LANDS_OUT); apply(); }
+function setF(v,b){ F=v; ['f-all','f-10','f-5','f-0'].forEach(function(i){
+  document.getElementById(i).classList.remove('on'); }); b.classList.add('on'); apply(); }
+function setC(v,b){ C=v;
+  [].slice.call(document.querySelectorAll('.cb')).forEach(function(x){x.classList.remove('on');});
+  b.classList.add('on'); apply(); }
+function tCol(b){ var k=b.dataset.c; COLS[k]=!COLS[k]; b.classList.toggle('on',COLS[k]); apply(); }
+apply();
+</script>
