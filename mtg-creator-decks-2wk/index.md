@@ -104,6 +104,15 @@ Two limits:
 ## Sorts
 
 - **Price to build.** Paper USD for the full list, cheapest Scryfall printing, basics excluded.
+- **Lands off.** Switches the price and wildcard badges to the non-land cards only, and
+  the sorting and the wildcard-budget highlight follow it, so the ranking is always on
+  the same basis as the number shown. Lands are identified from the Scryfall type line
+  rather than the card name, because a name test calls **Boomerang Basics** a land and
+  it is a Sorcery; a double-faced spell is judged by its front face. Across the priced
+  corpus the manabase is 50% of the median deck price, and 397 of
+  700 decks need fewer rare-plus-mythic wildcards without it. The buy link is
+  deliberately left alone: it still carts the complete deck, lands included, because
+  that is what you have to own to play it.
 - **Wildcards to build.** What Arena charges after subtracting owned cards, bucketed by
   rarity, sorted on rare-plus-mythic since that is the number that gates a build.
 - **Newest first.** Publish date descending. Undated decks sink, and anything from the
