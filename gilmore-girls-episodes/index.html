@@ -52,6 +52,7 @@
     <span class="chip"><b>21</b> of 21 season-1 episodes</span>
     <span class="chip"><b>22</b> of 22 season-2 episodes</span>
     <span class="chip"><b>22</b> of 22 season-3 episodes</span>
+    <span class="chip"><b>1</b> of 22 season-4 episodes</span>
     <span class="chip"><b>153</b> episodes inventoried</span>
     <span class="chip"><b>3</b> artifacts per episode</span>
     <span class="chip">verbatim-grounded</span>
@@ -62,6 +63,8 @@
   <div class="grid-s1" id="grid2"></div>
   <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gb-maroon);margin-top:14px">Season 3</div>
   <div class="grid-s1" id="grid3"></div>
+  <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gb-maroon);margin-top:14px">Season 4</div>
+  <div class="grid-s1" id="grid4"></div>
 </header>
 
 <h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:34px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 1</h2>
@@ -70,6 +73,8 @@
 <div id="episodes-s2"></div>
 <h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:40px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 3</h2>
 <div id="episodes-s3"></div>
+<h2 style="color:var(--gb-maroon);font-size:1.25rem;margin:40px 0 4px;border-bottom:3px solid var(--gb-orange);padding-bottom:4px;display:inline-block">Season 4</h2>
+<div id="episodes-s4"></div>
 
 <footer>
   <p><b>Method.</b> Each episode's transcript at <code>~/Projects/tv-scripts/text/GilmoreGirls-*.txt</code> is grepped for its load-bearing beats, and every claim is anchored to a verbatim line. Scene map, character arcs, and theme map mirror the community-agentic-os per-episode schema. One episode per pass; this page redeploys as the index grows.</p>
@@ -784,6 +789,24 @@ const EPS3 = [
   arc:"The Independence Inn closes for good in the week Rory graduates, and Lorelai answers it with champagne, Herb Alpert and a speech about new challenges that nobody at Sookie's table believes. The closing takes her steady income, so the Dragonfly bid she and Sookie had already won on Luke's inspection goes dead, and the Yale aid denial compounds it, since Richard's repaid seventy-five thousand dollars still reads on paper as money the household holds. Rory settles both problems in one visit to Hartford, offering Richard and Emily a loan repaid in installments plus a standing Friday night dinner, and she keeps it structured as a loan when Richard pushes to make it a gift. Lorelai hears the terms at the ceremony and names them as strings, which is where the episode gets its title, and Rory answers that the dinners were her own idea and obligate only her. The valedictory address names Richard and Emily twin pillars and puts Lorelai above every book Rory has lived inside, and the hour closes on three goodbyes, with Rory ending the Jess line on a silent phone call, Lorelai handing Luke one instruction about Nicole, and the two of them scratching reversed initials into a Chilton baseboard."},
 ];
 
+const EPS4 = [
+ {code:"S04E01", title:"Ballrooms and Biscotti",
+  theme:"Rory's planned last week at home shrinks to two days, and everyone who believed they held a claim on her time moves to collect it at once.",
+  beats:[
+   {t:"Lorelai lays out a scheduled goodbye week", q:"The final week of Rory Gilmore's life"},
+   {t:"A misread letter deletes the week", q:"My orientation is Saturday"},
+   {t:"Taylor prices the refused appearance as Yale distance", q:"Just consider yourself passed"},
+   {t:"Rory names the fear the fight leaves behind", q:"I don't want to be the anti-town girl"},
+   {t:"Rory holds the Hartford deal she signed alone", q:"This is why I get to go to Yale"},
+   {t:"Lorelai discovers the deal never bound her", q:"Oddly liberating feeling"},
+   {t:"Emily audits the trip against her own address book", q:"You didn't look up one of our friends?"},
+   {t:"Emily collects on the empty chair", q:"Tonight is my night with Rory"},
+   {t:"Luke's cruise returns three announcements at once", q:"We got married"},
+   {t:"Lorelai states the stake in the hostage night", q:"This is my last night with my daughter"},
+   {t:"The salvaged tradition arrives damaged and accepted", q:"They're all broken"}],
+  arc:"Lorelai and Rory land back in Stars Hollow with a written schedule for the last week before Yale, and a date Rory copied down wrong cuts that week to two days. The compression forces a triage, and the item Lorelai offers to cut is Friday night dinner, which Rory refuses because the dinners are the price she personally agreed to for her tuition. Lorelai registers in the same breath that the deal obligates Rory alone, skips Hartford for the first time, and Emily answers the empty chair by holding Rory through hours of taped ballroom-dancing competitions and informing Lorelai she is under no obligation to them any longer. Around that fight the town files its own claims, with Taylor reading the refused Ice Cream Queen appearance as Yale having already taken Rory, Kirk collecting on a forgotten souvenir, and Luke coming back from the cruise married to Nicole, expecting a child, and already arranging the divorce."},
+];
+
 function clean(s){return (s||"").replace(/[—–]/g,", ").replace(/…|\.\.\./g,",").replace(/ ,/g,",");}
 document.getElementById('palette').innerHTML = "<b>Palette: The Grand Budapest Hotel</b> (Wes Anderson). Built 2026-06-11.";
 
@@ -817,6 +840,9 @@ document.getElementById('episodes-s2').innerHTML = renderEps(EPS2);
 const done3 = new Set(EPS3.map(e=>e.code));
 document.getElementById('grid3').innerHTML = dotGrid("S03E", done3, 22);
 document.getElementById('episodes-s3').innerHTML = renderEps(EPS3);
+const done4 = new Set(EPS4.map(e=>e.code));
+document.getElementById('grid4').innerHTML = dotGrid("S04E", done4, 22);
+document.getElementById('episodes-s4').innerHTML = renderEps(EPS4);
 </script>
 
 </body>
