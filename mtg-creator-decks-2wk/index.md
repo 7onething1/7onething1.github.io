@@ -9,20 +9,20 @@ colors, archetype, and a spike-or-brew read. Generated 2026-10-30.
 
 | Measure | Value |
 |---|---|
-| Decks on the page | **73** |
-| With real price and wildcard numbers | **37** |
-| ├ from Moxfield (signed-in browser) | 0 |
-| ├ from Aetherhub (signed-in browser) | 0 |
+| Decks on the page | **66** |
+| With real price and wildcard numbers | **66** |
+| ├ from Moxfield (signed-in browser) | 27 |
+| ├ from Aetherhub (signed-in browser) | 2 |
 | ├ from the video description | 30 |
 | └ from MTGGoldfish | 7 |
-| Decklist walled | **36** |
+| Decklist walled | **0** |
 | Creators | 11 |
-| Carrying a publish date | 73 |
+| Carrying a publish date | 66 |
 | Newest video | 2026-10-30 |
-| Colors counted off the real list | 37 |
-| Colors taken from the creator's title | 21 |
-| Still unlabelled | 15 |
-| Dropped as not Standard | **26** |
+| Colors counted off the real list | 66 |
+| Colors taken from the creator's title | 0 |
+| Still unlabelled | 0 |
+| Dropped as not Standard | **33** |
 | Quarantined by the 2026-08-10 bans | **0** |
 
 ## Quarantined by the 2026-08-10 bans
@@ -31,7 +31,7 @@ Wizards banned 3 cards in Standard on 2026-08-10:
 **Badgermole Cub**, **Stormchaser's Talent**, **Gran-Gran**.
 Source: [Banned and Restricted Announcement, August 10, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-august-10-2026).
 
-**0 of 73 decks on this page run one of them.**
+**0 of 66 decks on this page run one of them.**
 
 | Card | Copies | Decks |
 |---|---|---|
@@ -53,8 +53,8 @@ is banned.
 
 ## What the format gate removed
 
-A title cannot tell you a format. 26 decks were held back because under
-90% of their card copies are Standard-legal per Scryfall: LegenVD 11, CovertGoBlue 6, CROKEYZ 4, d00mwake 3, Strictly Better MtG 2.
+A title cannot tell you a format. 33 decks were held back because under
+90% of their card copies are Standard-legal per Scryfall: LegenVD 18, CovertGoBlue 6, CROKEYZ 4, d00mwake 3, Strictly Better MtG 2.
 Those are Pauper lists, 100-card Brawl decks and Alchemy rebalances published on channels
 whose titles read as Arena Standard. Their prices were real numbers answering the wrong
 question. The split is clean, 182 decks at 97% legal or better against 13 at 58% or
@@ -67,23 +67,23 @@ from this build, so the ledger cannot drift from the page.
 
 | # | Asked | Chat | State |
 |---|---|---|---|
-| 1 | At least 7 decks per creator | 07-11 | 8 of 11 creators clear 7. Capped at the source: CovertGoBlue 6, from 60 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); PowrDragon 4, from 78 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); 💥ManaMan 1, from 49 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
+| 1 | At least 7 decks per creator | 07-11 | 7 of 11 creators clear 7. Capped at the source: CovertGoBlue 6, from 60 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); PowrDragon 4, from 78 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); LegenVD 2, from 45 videos the feed reached (18 fail the Standard-legality gate); 💥ManaMan 1, from 49 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
 | 2 | Read the description for deck links | 07-11 | 30 decks priced straight from the description |
-| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 9 spike, 63 standard, 1 brew |
+| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 8 spike, 57 standard, 1 brew |
 | 4 | Color buttons that work as OFF switches | 07-19 | Done. Every color starts on, clicking one hides every deck needing it |
-| 5 | Link the decklist host | 07-11 | 65 of 73 carry a Moxfield / Aetherhub / Goldfish link |
+| 5 | Link the decklist host | 07-11 | 58 of 66 carry a Moxfield / Aetherhub / Goldfish link |
 | 6 | Sort by price, and by wildcards, off the Arena export | 07-18 | Both sorts live, seeded from the collection export at 2026-10-28 |
-| 7 | Also link into kc-card-finder | 07-19 | 37 of 73 pass their full list to the finder |
-| 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 14 cards still read a generic label |
-| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 37 of 73 |
-| 10 | Creator name on each card when sorted by price | 07-24 | On all 73 cards, revealed the moment a global sort flattens the grid |
+| 7 | Also link into kc-card-finder | 07-19 | 66 of 66 pass their full list to the finder |
+| 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 0 cards still read a generic label |
+| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 66 of 66 |
+| 10 | Creator name on each card when sorted by price | 07-24 | On all 66 cards, revealed the moment a global sort flattens the grid |
 | 11 | Update for Ashlizzle's latest | 07-24 | 9 Ashlizzle decks, newest 2026-10-30 |
-| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 4 of 73 cards carry a measured gameplan, 3 of those also break out the cards past the first 60. 6 list their main cards as well |
+| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 7 of 66 cards carry a measured gameplan, 3 of those also break out the cards past the first 60. 4 list their main cards as well |
 
 ## What a gameplan says, and what it cannot
 
 Each **Gameplan** block is counted off that deck's own list against Scryfall mana
-value, type line and oracle text (4 of 73 decks; the rest have no
+value, type line and oracle text (7 of 66 decks; the rest have no
 reachable list). It reports the creature and spell split, the land count, the
 average mana value, how many cards cost one or two, where the curve tops out, and
 how many answers the list holds by category.
@@ -133,7 +133,7 @@ those nodes. That pass closed the last 74 decks on 2026-07-19.
 | Host | Links | Reached by |
 |---|---|---|
 | moxfield | 40 | signed-in browser |
-| aetherhub | 25 | signed-in browser |
+| aetherhub | 18 | signed-in browser |
 | untapped | 7 | video description |
 | mtggoldfish | 7 | anonymous HTTP |
 
