@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mooer GE150 Rig Sheet</title>
+<style>
+:root{
+  --cream:#F6EFE2; --paper:#FBF6EC; --ink:#1A1A1A;
+  --mustard:#E8B64C; --rose:#D4846F; --teal:#4A7C7E;
+  --red:#A8403A; --olive:#8A8B5C; --navy:#2E4057;
+  --line:#D8CDB8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);
+  font-family:"Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.6;padding:0 16px}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 0 80px}
+header{border-bottom:5px solid var(--navy);padding-bottom:18px;margin-bottom:28px}
+h1{font-size:2.5rem;letter-spacing:.02em;line-height:1.1}
+.sub{color:var(--navy);font-size:1.05rem;margin-top:8px;font-weight:600}
+.meta{font-size:.82rem;color:#6b6250;margin-top:10px}
+h2{font-size:1.5rem;margin:44px 0 14px;padding:8px 14px;background:var(--navy);color:var(--paper);
+  border-radius:3px}
+h3{font-size:1.1rem;margin:26px 0 8px;color:var(--red);border-bottom:2px solid var(--line);padding-bottom:4px}
+p{margin:10px 0}
+b,strong{font-weight:700}
+a{color:var(--teal)}
+ul,ol{margin:10px 0 10px 22px}
+li{margin:6px 0}
+.toc{background:var(--paper);border:2px solid var(--line);border-radius:4px;padding:18px 22px}
+.toc h2{all:unset;display:block;font-weight:700;font-size:1.1rem;margin-bottom:10px;
+  font-family:inherit;color:var(--navy)}
+.toc ol{margin-left:20px}
+.toc a{text-decoration:none;color:var(--ink);font-weight:600}
+.toc a:hover{color:var(--red)}
+.card{background:var(--paper);border-left:7px solid var(--mustard);
+  border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 20px;margin:16px 0;border-radius:0 4px 4px 0}
+.card.bad{border-left-color:var(--red)}
+.card.ok{border-left-color:var(--olive)}
+.card.ask{border-left-color:var(--teal)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 9px;border-radius:2px;color:var(--paper);margin-bottom:8px}
+.t-bad{background:var(--red)} .t-ok{background:var(--olive)}
+.t-fix{background:var(--mustard);color:var(--ink)} .t-ask{background:var(--teal)}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.9rem;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:var(--paper);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+tbody tr:nth-child(even){background:#F3ECDD}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+code{background:#EFE6D2;padding:1px 5px;border-radius:2px;font-size:.88em;
+  font-family:"SF Mono",Menlo,Consolas,monospace}
+pre{background:#EFE6D2;border:1px solid var(--line);padding:12px 14px;border-radius:3px;
+  overflow-x:auto;font-size:.82rem;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.blk{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--teal);
+  padding:12px 14px;border-radius:0 0 3px 3px}
+.blk h4{font-size:.95rem;color:var(--navy);margin-bottom:6px;letter-spacing:.04em}
+.blk table{margin:0;font-size:.84rem}
+.blk th,.blk td{border:none;border-bottom:1px solid var(--line);padding:4px 2px;background:none;color:var(--ink)}
+.blk th{text-transform:none;letter-spacing:0;font-weight:700;font-size:.84rem}
+.score{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.pill{background:var(--paper);border:2px solid var(--line);border-radius:3px;padding:8px 14px;
+  font-size:.85rem;font-weight:600}
+.pill b{color:var(--red);font-size:1.15rem;display:block}
+footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-size:.82rem;color:#6b6250}
+@media (max-width:640px){h1{font-size:1.7rem} .wrap{padding:24px 0 50px} table{font-size:.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Mooer GE150 Rig Sheet</h1>
+  <div class="sub">Why the editor saw nothing, what the current update is, and every preset recovered out of ChatGPT</div>
+  <div class="meta">Built 2026-11-02 on Jacks-iMac. Preset values recovered from 8 ChatGPT conversations plus the original code-interpreter cell. Nothing on this page was invented.</div>
+</header>
+
+<div class="score">
+  <div class="pill"><b>3</b>faults found</div>
+  <div class="pill"><b>12</b>tape presets rebuilt</div>
+  <div class="pill"><b>6</b>Mayer presets</div>
+  <div class="pill"><b>V2.1.3</b>newest firmware</div>
+  <div class="pill"><b>1</b>open question</div>
+</div>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#fix">Why the app did nothing, and the fix</a></li>
+    <li><a href="#updates">Updates: what you have against what exists</a></li>
+    <li><a href="#fork">The one open question: GE150 or GE150 Plus</a></li>
+    <li><a href="#pack">The 12 preset tape pack, rebuilt</a></li>
+    <li><a href="#cast">Appleseed Cast, the full block by block patch</a></li>
+    <li><a href="#mayer">Six John Mayer presets</a></li>
+    <li><a href="#pantera">Pantera, three records</a></li>
+    <li><a href="#capistan">El Capistan mapped onto GE150</a></li>
+    <li><a href="#prov">Where each number came from</a></li>
+  </ol>
+</nav>
+
+<h2 id="fix">1. Why the app did nothing, and the fix</h2>
+
+<div class="card bad">
+  <span class="tag t-bad">Fault 1</span>
+  <p><b>The pedal was never on the USB bus.</b> A full <code>system_profiler SPUSBDataType</code> sweep returned a Samsung T7 Shield, the Bluetooth controller, the FaceTime camera, a 2.4G receiver, and a PNY flash drive. No Mooer device, and no USB audio or MIDI interface of any kind. You confirmed this yourself, that the device had not been added yet.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">Fault 2</span>
+  <p><b>The app that was running is the firmware updater, not the editor.</b> The process alive on this Mac was <code>/Applications/GE150PLUS.app/Contents/MacOS/GE150PLUSUpdate</code>. That outer bundle has <code>CFBundleExecutable = GE150PLUSUpdate</code> and ships one firmware image at <code>Firmware/GE150PLUS_V2.1.3.mr</code>. Its only job is flashing. The preset editor is a second application nested inside it.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">Fault 3</span>
+  <p><b>A charge-only cable will look identical to a broken app.</b> The editor links <code>libusb-1.0.0.dylib</code> and <code>libhidapi.0.dylib</code>, so it reaches the pedal over raw USB and HID rather than over a MIDI port. It needs a true data cable on the pedal's USB editing port. With power-only wiring the pedal lights up and the editor still reports nothing attached.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">Fix, in order</span>
+  <ol>
+    <li>Plug the pedal into the Mac with a <b>data</b> USB cable, into the pedal's USB editing port, and power the pedal on.</li>
+    <li>Confirm the Mac sees it before opening anything: <code>system_profiler SPUSBDataType | grep -i mooer</code>. A line of output means you are clear to proceed. Silence means the cable or the port, so swap the cable first.</li>
+    <li>Launch <b>the editor</b>, which is the nested bundle, not the outer one:
+      <pre>open "/Applications/GE150PLUS.app/Contents/MacOS/GE150PLUS.app"</pre>
+      That path is already verified to launch on this Mac, process <code>GE150PLUS</code> under PID 28530 during this session.</li>
+    <li>Keep the outer <code>GE150PLUS.app</code> for firmware flashing only.</li>
+    <li>Back up your current device presets inside the editor before importing anything. Dragging a preset onto a DEVICE slot overwrites that slot.</li>
+  </ol>
+</div>
+
+<div class="card">
+  <span class="tag t-fix">Worth doing once</span>
+  <p>The bundle still carries a Firefox download quarantine flag, <code>com.apple.quarantine: 03c1;6ae6624b;Firefox</code>. It is correctly signed by <b>Shenzhen MOOER Audio Co., Ltd</b>, team ID <code>67DUZ7D49G</code>, so Gatekeeper will allow it. If macOS ever refuses to open it, clear the flag with <code>xattr -d com.apple.quarantine /Applications/GE150PLUS.app</code> rather than reinstalling.</p>
+</div>
+
+<h2 id="updates">2. Updates: what you have against what exists</h2>
+
+<table>
+  <thead><tr><th>Item</th><th>On this Mac</th><th>Newest published</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td>GE150 Plus editor</td><td>V2.1.3, from <code>config.ini</code> <code>AppVersion=V2.1.3</code></td><td>V2.1.3, Mac package dated 2026-08-13</td><td><b>Current</b></td></tr>
+    <tr><td>GE150 Plus firmware</td><td><code>GE150PLUS_V2.1.3.mr</code>, 1,158,272 bytes, bundled</td><td>V2.1.3, release notes stamped 2026.8</td><td><b>Current</b></td></tr>
+    <tr><td>GE150 Pro firmware</td><td>n/a</td><td>V2.1.4</td><td>Different model</td></tr>
+    <tr><td>GE150 Max firmware</td><td>n/a</td><td>V2.1.6</td><td>Different model</td></tr>
+    <tr><td>Original GE150 editor</td><td><b>Not installed</b></td><td>Separate download, separate page</td><td>See section 3</td></tr>
+  </tbody>
+</table>
+
+<p>You pulled this yourself on <b>2026-10-31 at 16:48</b>, from Mooer's GE150 Plus/Pro/Max download page, straight into <code>~/Downloads/GE150_Plus_V2.1.3_Mac.zip</code>. Firefox history records the whole chain, the product page then the CDN file. There is nothing newer to fetch for the Plus.</p>
+
+<h3>What V2.1.3 actually changed</h3>
+<p>The release notes that shipped inside your download say two things. It <b>added support for converting and importing NAM A2 models</b>, and it <b>fixed several known bugs</b>, with no detail given on which. The notes also set out how NAM loading works, and this part matters if you plan to load captures:</p>
+<ul>
+  <li>NAM A2 models load through the built-in converter.</li>
+  <li>NAM files can only be imported into the <b>AMP</b> module.</li>
+  <li>Pedal and amp head models belong in <b>PREAMP SAMPLE</b>.</li>
+  <li>Combined amp and cabinet models belong in <b>ENTIRE SAMPLE</b>.</li>
+</ul>
+
+<h2 id="fork">3. The one open question: GE150 or GE150 Plus</h2>
+
+<div class="card ask">
+  <span class="tag t-ask">Needs your answer</span>
+  <p><b>Every preset below was built for the original GE150, and the software you installed is for the GE150 Plus.</b> Those are two different preset formats. Mooer's own download page states that presets created on the Plus, Pro and Max cannot be imported back into the original GE150, and the families do not share an editor.</p>
+  <p>The evidence points both ways. The ChatGPT work from August and September names the original GE150 throughout, down to its 200 preset slots and its <code>.mo</code> file format. Your download from October 31 is the Plus package, and the Plus editor is what sits in <code>/Applications</code>.</p>
+  <p><b>If the pedal is an original GE150</b>, the 12 files are ready to import, and you need MOOER Studio for GE150 from the original GE150 download page, because the Plus editor will never see your pedal.</p>
+  <p><b>If the pedal is a GE150 Plus</b>, the installed editor is right, and the 12 <code>.mo</code> files will not import. In that case every setting on this page still transfers, dialed in by hand, because the amp, cab, delay and reverb values are what carry the sound.</p>
+  <p>One look at the pedal's faceplate settles it. Either way, nothing on this page is wasted.</p>
+</div>
+
+<h2 id="pack">4. The 12 preset tape pack, rebuilt</h2>
+
+<p>ChatGPT generated this pack as real <code>.mo</code> files and handed back a sandbox link. <b>That zip was never downloaded</b>, confirmed against both your Downloads folder and Firefox download history, and the sandbox has long since expired. The generator code survived inside the conversation, so the pack has been <b>rebuilt locally from that exact code</b>, with the same schema and the same twelve value sets.</p>
+
+<div class="card ok">
+  <span class="tag t-ok">Verified</span>
+  <p>12 of 12 files written. 12 of 12 pass JSON and schema validation, meaning the full nine block <code>effectModule</code>, <code>fileInfo.schema = "GE150 Preset"</code>, and delay <code>TYPE 4</code>, the Tape model. All 12 carry a <b>distinct</b> time, level and feedback triple, so these are twelve different settings rather than renamed copies. Not tested against a physical pedal, because the pedal is not connected.</p>
+</div>
+
+<table>
+  <thead><tr><th>#</th><th>Name</th><th>Target</th><th class="n">Time ms</th><th class="n">Dly Lvl</th><th class="n">Fdbk</th><th class="n">Rev Lvl</th><th class="n">Decay</th><th class="n">Gain</th></tr></thead>
+  <tbody>
+    <tr><td class="n">01</td><td><b>CAST MARE</b></td><td>Appleseed Cast, Mare Vitalis</td><td class="n">450</td><td class="n">34</td><td class="n">38</td><td class="n">22</td><td class="n">38</td><td class="n">30</td></tr>
+    <tr><td class="n">02</td><td><b>CAST LOWOWL</b></td><td>Appleseed Cast, Low Level Owl</td><td class="n">520</td><td class="n">42</td><td class="n">48</td><td class="n">30</td><td class="n">48</td><td class="n">27</td></tr>
+    <tr><td class="n">03</td><td><b>CAST SKY</b></td><td>Appleseed Cast, brighter</td><td class="n">380</td><td class="n">31</td><td class="n">34</td><td class="n">20</td><td class="n">33</td><td class="n">31</td></tr>
+    <tr><td class="n">04</td><td><b>CAST SWELL</b></td><td>Appleseed Cast, largest wash</td><td class="n">610</td><td class="n">46</td><td class="n">57</td><td class="n">32</td><td class="n">55</td><td class="n">25</td></tr>
+    <tr><td class="n">05</td><td><b>PAVE SLANT</b></td><td>Pavement, Slanted</td><td class="n">285</td><td class="n">21</td><td class="n">20</td><td class="n">13</td><td class="n">24</td><td class="n">34</td></tr>
+    <tr><td class="n">06</td><td><b>PAVE CROOK</b></td><td>Pavement, Crooked Rain</td><td class="n">355</td><td class="n">24</td><td class="n">27</td><td class="n">14</td><td class="n">26</td><td class="n">37</td></tr>
+    <tr><td class="n">07</td><td><b>PAVE GROUND</b></td><td>Pavement, Brighten the Corners</td><td class="n">430</td><td class="n">26</td><td class="n">31</td><td class="n">17</td><td class="n">30</td><td class="n">35</td></tr>
+    <tr><td class="n">08</td><td><b>BUILT TAPE</b></td><td>Built to Spill</td><td class="n">470</td><td class="n">31</td><td class="n">39</td><td class="n">23</td><td class="n">41</td><td class="n">29</td></tr>
+    <tr><td class="n">09</td><td><b>MODEST TAPE</b></td><td>Modest Mouse</td><td class="n">335</td><td class="n">28</td><td class="n">35</td><td class="n">18</td><td class="n">31</td><td class="n">32</td></tr>
+    <tr><td class="n">10</td><td><b>TAPE SLAP</b></td><td>Short slapback</td><td class="n">118</td><td class="n">20</td><td class="n">13</td><td class="n">12</td><td class="n">22</td><td class="n">30</td></tr>
+    <tr><td class="n">11</td><td><b>TAPE DUB</b></td><td>Dub repeats</td><td class="n">650</td><td class="n">39</td><td class="n">64</td><td class="n">25</td><td class="n">46</td><td class="n">24</td></tr>
+    <tr><td class="n">12</td><td><b>TAPE HUGE</b></td><td>Largest ambient tape</td><td class="n">720</td><td class="n">48</td><td class="n">70</td><td class="n">36</td><td class="n">62</td><td class="n">23</td></tr>
+  </tbody>
+</table>
+
+<p>Every preset also carries amp tone values. Presets 05, 06 and 09 use amp and cab <code>TYPE 0</code>, presets 04 and 12 use reverb <code>TYPE 1</code>, preset 06 uses reverb <code>TYPE 0</code>, and preset 08 uses reverb <code>TYPE 3</code>. All others sit on amp and cab <code>TYPE 1</code> with reverb <code>TYPE 4</code>, the Spring model. The complete grid is in <code>SETTINGS.tsv</code> and <code>SETTINGS.json</code> beside the presets.</p>
+
+<h3>The .mo format, for the record</h3>
+<p>The original GE150 editor reads <code>.mo</code> files, and they are plain JSON rather than an opaque blob, which is the only reason this pack could be rebuilt at all. The structure is three top level keys, <code>effectModule</code> holding all nine blocks, <code>Exp</code> for expression pedal assignment, and <code>fileInfo</code> for the device stamp.</p>
+<pre>{"effectModule":{"FX/COMP":{"TYPE":6,"SWITCH":0,"Data":{...}},
+  "DS/OD":{...},"AMP":{"TYPE":1,"SWITCH":1,"Data":{"GAIN":30,"BASS":48,
+  "MID":52,"TREBLE":58,"PRES":52,"MST":78}},"CAB":{...},"NS GATE":{...},
+  "EQ":{...},"MOD":{...},
+  "DELAY":{"TYPE":4,"SWITCH":1,"Data":{"LEVEL":34,"SUB-D":1,"TIME":450,"FEEDBACK":38}},
+  "REVERB":{"TYPE":4,"SWITCH":1,"Data":{"PRE DELAY":12,"LEVEL":22,"DECAY":38,"TONE":45}}},
+ "Exp":{...},
+ "fileInfo":{"app":"GE150 Edit","device":"MOOER GE150","preset_name":"CAST MARE",
+  "schema":"GE150 Preset"}}</pre>
+<p>Block type numbers are zero based, so Tape is delay <code>TYPE 4</code> and Spring is reverb <code>TYPE 4</code>.</p>
+
+<h2 id="cast">5. Appleseed Cast, the full block by block patch</h2>
+
+<p>This one was built against documented Chris Crisci gear, Fender Twin and Hot Rod DeVille 4x10 amps, with a Deluxe Memory Man, DL4, Boss digital delay, tremolo and Fulldrive on the board. The amp choice is Fender rather than high gain for that reason.</p>
+
+<div class="grid">
+  <div class="blk"><h4>FX / COMP</h4><table>
+    <tr><th>Model</th><td>YELLOW COMP</td></tr>
+    <tr><th>Sustain</th><td>35</td></tr><tr><th>Level</th><td>55</td></tr></table></div>
+  <div class="blk"><h4>DS / OD</h4><table>
+    <tr><th>Model</th><td>FULLDRV</td></tr>
+    <tr><th>Drive</th><td>18</td></tr><tr><th>Tone</th><td>48</td></tr><tr><th>Level</th><td>58</td></tr></table></div>
+  <div class="blk"><h4>AMP</h4><table>
+    <tr><th>Model</th><td>65 USTW, Fender 1965 Twin Reverb</td></tr>
+    <tr><th>Gain</th><td>32</td></tr><tr><th>Bass</th><td>48</td></tr><tr><th>Mid</th><td>54</td></tr>
+    <tr><th>Treble</th><td>58</td></tr><tr><th>Presence</th><td>52</td></tr><tr><th>Master</th><td>80</td></tr></table></div>
+  <div class="blk"><h4>CAB</h4><table>
+    <tr><th>Model</th><td>USBASS410, Fender Bassman 4x10</td></tr></table></div>
+  <div class="blk"><h4>NS</h4><table>
+    <tr><th>Model</th><td>NOISE KILLER</td></tr><tr><th>Threshold</th><td>18</td></tr></table></div>
+  <div class="blk"><h4>EQ</h4><table>
+    <tr><th>Model</th><td>MOOER G</td></tr>
+    <tr><th>100 Hz</th><td>-2 dB</td></tr><tr><th>250 Hz</th><td>0 dB</td></tr><tr><th>630 Hz</th><td>+1 dB</td></tr>
+    <tr><th>1.6 kHz</th><td>+2 dB</td></tr><tr><th>4 kHz</th><td>+1 dB</td></tr></table></div>
+  <div class="blk"><h4>MOD</h4><table><tr><th>Model</th><td>OFF</td></tr></table></div>
+  <div class="blk" style="border-top-color:var(--red)"><h4>DELAY, the important block</h4><table>
+    <tr><th>Model</th><td><b>TAPE</b></td></tr>
+    <tr><th>Level</th><td><b>34</b></td></tr><tr><th>Feedback</th><td><b>38</b></td></tr>
+    <tr><th>Time</th><td><b>450 ms</b></td></tr><tr><th>SUB-D</th><td><b>1/4</b></td></tr></table></div>
+  <div class="blk"><h4>REVERB</h4><table>
+    <tr><th>Model</th><td>SPRING</td></tr>
+    <tr><th>Level</th><td>22</td></tr><tr><th>Decay</th><td>38</td></tr><tr><th>Tone</th><td>45</td></tr></table></div>
+</div>
+
+<p><b>Playing notes that came with it.</b> Stay on the neck pickup, or neck plus bridge, with guitar volume around eight or nine. The patch stays articulate under light playing, and harder picking starts pushing the Fulldrive model.</p>
+<p><b>Two variants.</b> For the big Low Level Owl passages, raise delay level to about 40, feedback to 45, and spring to 28. For Mare Vitalis, keep the numbers above, because that record wants a more immediate attack and less wash.</p>
+<p><b>On SUB-D.</b> It sets the subdivision used by tap tempo, so 1/4 gives straight quarter note repeats and keeps the pattern from getting busy.</p>
+
+<h2 id="mayer">6. Six John Mayer presets</h2>
+
+<p>These lean on three models the GE150 happens to have, <b>CAROL CL</b> after a Two Rock Coral, <b>GOLD CLON</b> after a Klon Centaur, and <b>808</b> after a Tube Screamer. Mayer rigs have run Two Rock, Dumble, Tube Screamer, Klon, compressor, delay and spring reverb, so the ingredients line up unusually well. Keep them in six consecutive slots.</p>
+
+<table>
+  <thead><tr><th>Preset</th><th>Amp</th><th class="n">Gain</th><th class="n">Bass</th><th class="n">Mid</th><th class="n">Treble</th><th class="n">Pres</th><th class="n">Mst</th><th>Front end and time based</th></tr></thead>
+  <tbody>
+    <tr><td><b>1. Continuum clean</b><br><span style="font-size:.82rem">Slow Dancing territory</span></td><td>CAROL CL</td><td class="n">25</td><td class="n">45</td><td class="n">58</td><td class="n">55</td><td class="n">45</td><td class="n">80</td><td>Yellow Comp light, compression 30, output near unity. Spring reverb 22. Strat position four for the scooped rhythm sound, position five for more neck weight.</td></tr>
+    <tr><td><b>2. Gravity</b><br><span style="font-size:.82rem">warm lead and rhythm</span></td><td>CAROL CL</td><td class="n">32</td><td class="n">48</td><td class="n">64</td><td class="n">50</td><td class="n">40</td><td class="n">80</td><td>808 at Drive 18, Tone 43, Level 68. Roughly 300 ms subtle analog delay, spring reverb 25. Neck pickup for most leads.</td></tr>
+    <tr><td><b>3. Belief</b><br><span style="font-size:.82rem">harder attack, bigger mids</span></td><td>CAROL CL</td><td class="n">30</td><td class="n">42</td><td class="n">68</td><td class="n">58</td><td class="n">52</td><td class="n">82</td><td>GOLD CLON at Drive 25, Tone 48, Level 70. The pick attack carries this one.</td></tr>
+    <tr><td><b>4. Big live lead</b></td><td>CAROL OD</td><td class="n">38</td><td class="n">45</td><td class="n">62</td><td class="n">52</td><td class="n">48</td><td class="n">78</td><td>808 in front, Drive 20, Level 72. About 380 ms delay with low feedback. Broader and more sustaining.</td></tr>
+    <tr><td><b>5. Dead and Company</b></td><td>65 US TW</td><td class="n">24</td><td class="n">40</td><td class="n">62</td><td class="n">58</td><td class="n">55</td><td class="n">85</td><td>PURE BOOST with very little added gain, enough output to push the amp model. Reverb restrained.</td></tr>
+    <tr><td><b>6. Sob Rock</b><br><span style="font-size:.82rem">polished clean</span></td><td>65 US DX</td><td class="n">24</td><td class="n">46</td><td class="n">55</td><td class="n">57</td><td class="n">47</td><td class="n">78</td><td>Yellow Comp 25, subtle chorus 15, about 420 ms delay with low feedback, restrained reverb. Wider and softer in the upper mids than preset 1.</td></tr>
+  </tbody>
+</table>
+
+<p>The three that cover most playing without further tweaking are <b>Continuum Clean</b>, <b>Gravity</b>, and <b>Big Live Lead</b>.</p>
+
+<h2 id="pantera">7. Pantera, three records</h2>
+
+<p>Amp <b>PV5050 DS</b> with cab <b>PV 5050 412</b>, modeled on a Peavey 5150 and its 4x12. Starting from the Metal Zone model gets you further away, so start here.</p>
+
+<table>
+  <thead><tr><th>Setting</th><th>Base</th><th>Cowboys From Hell</th><th>Vulgar Display</th><th>Far Beyond Driven</th></tr></thead>
+  <tbody>
+    <tr><th>Gain</th><td class="n">55</td><td class="n">48</td><td class="n">55</td><td class="n">60</td></tr>
+    <tr><th>Bass</th><td class="n">58</td><td class="n">58</td><td class="n">58</td><td class="n">62</td></tr>
+    <tr><th>Mid</th><td class="n">24</td><td class="n">32</td><td class="n">22 to 25</td><td class="n">18</td></tr>
+    <tr><th>Treble</th><td class="n">70</td><td class="n">70</td><td class="n">70</td><td class="n">68</td></tr>
+    <tr><th>Presence</th><td class="n">72</td><td class="n">72</td><td class="n">72</td><td class="n">75</td></tr>
+    <tr><th>Noise gate</th><td class="n">60 to 70</td><td class="n">60 to 70</td><td class="n">60 to 70</td><td class="n">70</td></tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><b>808 in front</b> of the amp, Drive 5, Tone 55, Level 80.</li>
+  <li><b>Noise gate worked hard</b>, threshold 60 to 70, because this rhythm sound depends on abrupt stops.</li>
+  <li><b>Six band guitar EQ after the cab.</b> Pull the middle down a long way, roughly 400 through 800 Hz. Push upper mids and highs for pick attack. Keep the lowest band controlled so palm mutes stay defined.</li>
+  <li><b>Master</b> wherever your output level needs it.</li>
+  <li>The recorded sound has a sharp solid state character, so the patch gets closer when you resist piling on distortion.</li>
+</ul>
+
+<div class="card">
+  <span class="tag t-fix">Checked and found absent</span>
+  <p>There is no verifiable factory Pantera or Dimebag preset in the original GE150 factory set. Start from whichever factory preset on your unit already uses the PV5050 amp model and overwrite it. Preset names shift between firmware versions and user backups, so a fixed preset number cannot be promised. For reference the original GE150 has 200 slots, P001 to P050 for full range output, P051 to P100 for an amp return, and P101 to P150 for a normal amp input.</p>
+</div>
+
+<h2 id="capistan">8. El Capistan mapped onto GE150</h2>
+
+<p>You asked whether the GE150 covers the Strymon, so here is each El Capistan basis against the GE150 setting that reaches for it.</p>
+
+<table>
+  <thead><tr><th>El Capistan basis</th><th>GE150 setting</th></tr></thead>
+  <tbody>
+    <tr><td>Fixed A, short head</td><td>Tape Delay, SUB-D 1/16, Feedback 15 to 25, Level 20 to 25</td></tr>
+    <tr><td>Fixed B, medium head</td><td>Tape Delay, SUB-D dotted 1/8, Feedback 25 to 35, Level 22 to 28</td></tr>
+    <tr><td>Fixed C, long head</td><td>Tape Delay, SUB-D 1/4, Feedback 35 to 45, Level 25 to 32</td></tr>
+    <tr><td>Multi A, heads 1 and 2</td><td>Dual Delay, 1/16 plus dotted 1/8, Feedback 25 to 35</td></tr>
+    <tr><td>Multi B, heads 2 and 3</td><td>Dual Delay, dotted 1/8 plus 1/4, Feedback 30 to 40</td></tr>
+    <tr><td>Multi C, heads 1 and 3</td><td>Dual Delay, 1/16 plus 1/4, Feedback 30 to 40</td></tr>
+    <tr><td>Worn tape wobble</td><td>Tape Delay, 450 to 650 ms, Feedback 40, Level 28, Ana Chorus Rate 6, Depth 10, Mix 8</td></tr>
+    <tr><td>Dark aged repeats</td><td>Analog Delay, 450 to 600 ms, Feedback 35 to 45, Level 25</td></tr>
+    <tr><td>Tape echo with spring</td><td>Tape Delay as above, Spring Reverb Level 10 to 18, Decay 20 to 35</td></tr>
+    <tr><td>Runaway tape feedback</td><td>Tape Delay, Feedback 90 to 100, Level 15 to 20, expression pedal assigned to Feedback</td></tr>
+    <tr><td>Sound on Sound loop</td><td>GE150 Looper with Tape Delay around 400 ms, Feedback 45, Level 25</td></tr>
+    <tr style="background:#F0E4DC"><td><b>Crinkle, bias, head wear</b></td><td><b>No GE150 equivalent.</b> Its Tape model carries one fixed texture with no separate controls.</td></tr>
+  </tbody>
+</table>
+
+<p>At 120 BPM, sixteenth, dotted eighth and quarter notes come out to 125, 375 and 500 milliseconds, which are the divisions Strymon uses across its Fixed and Multi modes. The GE150 gives you Tape, Dual Delay, Spring, subdivision control, and an eighty second looper, so one row above is the only genuine gap.</p>
+
+<h2 id="prov">9. Where each number came from</h2>
+
+<table>
+  <thead><tr><th>Section</th><th>Source</th><th>Kind of evidence</th></tr></thead>
+  <tbody>
+    <tr><td>Faults 1 to 3, the fix</td><td><code>system_profiler SPUSBDataType</code>, <code>ps aux</code>, <code>plutil</code>, <code>codesign</code>, <code>lipo</code> on this Mac</td><td>Observed command output, 2026-11-02</td></tr>
+    <tr><td>Installed versions</td><td><code>/Applications/GE150PLUS.app/Contents/MacOS/config.ini</code> and <code>Firmware/GE150PLUS_V2.1.3.mr</code></td><td>Files on disk</td></tr>
+    <tr><td>V2.1.3 release notes</td><td><code>~/Downloads/GE150_Plus_V2.1.3_Mac/GE150_Plus_Firmware_V2.1.3_Update.html</code></td><td>Mooer's own notes, shipped in your download</td></tr>
+    <tr><td>Newest published versions</td><td>Mooer GE150 Plus/Pro/Max download page</td><td>Web search, 2026-11-02</td></tr>
+    <tr><td>Download date and chain</td><td>Firefox <code>places.sqlite</code></td><td>Browser history, 2026-10-31 16:48</td></tr>
+    <tr><td>12 preset pack</td><td>ChatGPT code-interpreter cell, conversation <i>Mooer GE150 Pantera Tone</i></td><td>Recovered generator source, rebuilt and validated locally</td></tr>
+    <tr><td>Appleseed Cast patch</td><td>Same conversation, assistant message with the full block table</td><td>Recovered text</td></tr>
+    <tr><td>Mayer presets</td><td>ChatGPT conversation <i>Mayer Sound Variations</i></td><td>Recovered text</td></tr>
+    <tr><td>Pantera settings</td><td>Same Pantera conversation</td><td>Recovered text</td></tr>
+    <tr><td>El Capistan map</td><td>ChatGPT conversation <i>Mooer GE150 Versus El Capistan</i></td><td>Recovered text</td></tr>
+    <tr><td>Effect and amp model names</td><td>ChatGPT conversation <i>GE-150 Effects List</i></td><td>Recovered text, 151 models across 9 blocks</td></tr>
+  </tbody>
+</table>
+
+<div class="card bad">
+  <span class="tag t-bad">Stated limits</span>
+  <ul>
+    <li>No preset has been tested on the pedal, because the pedal is not connected.</li>
+    <li>The tone settings came out of ChatGPT and carry its citations, which were not independently re-verified here against the Mooer manual.</li>
+    <li>The original sandbox zip is gone. What you have is a rebuild from the generator, matching value for value.</li>
+    <li>Whether the <code>.mo</code> files import at all depends on section 3.</li>
+  </ul>
+</div>
+
+<footer>
+  Mooer GE150 Rig Sheet, 2026-11-02. Preset files at
+  <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
+  Three faults observed on this Mac, twelve presets rebuilt and validated, one question left for you.
+</footer>
+
+</div>
+</body>
+</html>
