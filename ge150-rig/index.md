@@ -1,60 +1,76 @@
-# Mooer GE150 Rig Sheet
+# Mooer GE150 Pro Rig Sheet
 
 Live: https://7onething1.github.io/ge150-rig/
 
-Built 2026-11-02 on Jacks-iMac. Covers three things: why the editor saw nothing, what the
-current update is, and every GE150 preset recovered out of ChatGPT.
+Built 2026-11-02 on Jacks-iMac. Why the editor saw nothing, which update is the right one,
+and every GE150 preset recovered out of ChatGPT.
 
-## Three faults found
+## The headline
 
-1. **The pedal was never on the USB bus.** A full `system_profiler SPUSBDataType` sweep showed
-   a Samsung T7 Shield, Bluetooth, the FaceTime camera, a 2.4G receiver and a PNY flash drive.
-   No Mooer device. Brandon confirmed the device had not been added yet.
-2. **The running app was the firmware updater, not the editor.** The live process was
-   `/Applications/GE150PLUS.app/Contents/MacOS/GE150PLUSUpdate`. The editor is a nested bundle at
-   `/Applications/GE150PLUS.app/Contents/MacOS/GE150PLUS.app`.
-3. **A charge-only cable looks the same as a broken app.** The editor links `libusb-1.0.0.dylib`
-   and `libhidapi.0.dylib`, so it talks raw USB/HID, not MIDI, and needs a true data cable.
+**The pedal is a GE150 Pro, and every piece of software installed was the GE150 Plus build.**
+Confirmed from the USB descriptor once it was plugged in:
 
-## Update status
+```
+GE150Pro:
+  Product ID: 0x5703
+  Vendor ID:  0x0483  (STMicroelectronics)
+```
 
-| Item | On this Mac | Newest published |
-|---|---|---|
-| GE150 Plus editor | V2.1.3 (`config.ini`) | V2.1.3, 2026-08-13 |
-| GE150 Plus firmware | `GE150PLUS_V2.1.3.mr`, 1,158,272 bytes | V2.1.3, notes stamped 2026.8 |
-| GE150 Pro / Max | n/a | V2.1.4 / V2.1.6 |
+The Plus editor and Plus updater cannot talk to a Pro, so no cable and no language fix would
+ever have made that combination work.
 
-Already current. Downloaded 2026-10-31 16:48 per Firefox history. V2.1.3 added NAM A2 model
-conversion and import, plus unspecified bug fixes.
+## Five faults
 
-## Open question
+1. **The pedal was not on the USB bus** at the start. A full `system_profiler SPUSBDataType`
+   sweep showed no Mooer device.
+2. **The running app was the firmware updater, not the editor.** Live process was
+   `GE150PLUSUpdate`; the editor is nested at `.../MacOS/GE150PLUS.app`.
+3. **A charge-only cable looks like a broken app.** The editor links `libusb-1.0.0.dylib` and
+   `libhidapi.0.dylib`, so it speaks raw USB/HID, not MIDI.
+4. **The Chinese UI could not be switched from inside.** The updater's only buttons are
+   `closButton`, `messageBoxButton`, `openFileButton`, `startButton`. Language comes from
+   `config.ini` `CurrentLanguage` (0 Chinese, 1 English). Editing it in `/Applications` is
+   blocked by macOS 13 App Management, so a re-signed copy in an unprotected folder runs in
+   English. Proven by the app's own English dialog: "Error. The device is disconnected."
+5. **Wrong software line entirely.** Plus V2.1.3 installed against a Pro pedal.
 
-Every recovered preset targets the **original GE150** (`.mo`, `fileInfo.device = "MOOER GE150"`).
-The software installed is for the **GE150 Plus**. Mooer states presets do not move between the
-original GE150 and the Plus/Pro/Max family. One look at the faceplate settles which editor is
-needed. The tone values transfer by hand either way.
+## Correct package
+
+| Item | Value |
+|---|---|
+| Archive | `GE150_Pro_V2.1.4_Mac.zip`, 72,913,255 bytes, HTTP 200 |
+| Installer | `GE150PRO_V2.1.4_Mac_Setup.dmg`, 73,054,984 bytes |
+| Notes | `GE150_Pro_Firmware_V2.1.4_Update.html`, stamped 2026.8 |
+| Adds | NAM A2 model conversion and import, plus unspecified bug fixes |
+
+The direct CDN link returns 403; it must come through Mooer's signing endpoint
+(`mooeraudio.com/downfilebizce/get?n=...`), the same route the browser uses.
+Pro runs V2.1.4, Plus V2.1.3, Max V2.1.6.
 
 ## Recovered presets
 
-- **12 tape-echo presets** rebuilt from the original ChatGPT generator code, since the sandbox zip
-  was never downloaded and has expired. 12/12 validate, 12/12 distinct time/level/feedback.
-  4 Appleseed Cast, 3 Pavement, Built to Spill, Modest Mouse, slapback, dub, huge ambient.
+- **12 tape-echo presets** rebuilt from the original ChatGPT generator code, since the sandbox
+  zip was never downloaded and had expired. 12/12 validate, 12/12 distinct time/level/feedback.
 - **Appleseed Cast full patch**, all nine blocks, 65 USTW + USBASS410, TAPE 450 ms / level 34 /
   feedback 38, SPRING 22.
 - **6 John Mayer presets** on CAROL CL / CAROL OD / 65 US TW / 65 US DX.
-- **Pantera**, PV5050 DS + PV 5050 412, with per-record variants for Cowboys, Vulgar and
-  Far Beyond Driven.
+- **Pantera**, PV5050 DS + PV 5050 412, variants for Cowboys, Vulgar, Far Beyond Driven.
 - **El Capistan to GE150 map**, 12 rows, one documented gap (crinkle/bias/head wear).
+
+**These `.mo` files will not import into a Pro.** They declare `"device": "MOOER GE150"` and
+Mooer states the original and the Plus/Pro/Max family do not share a preset format. Every value
+still transfers by hand. Check model names against the Pro's own list, since it ships a larger
+model set than the original GE150 these settings were written for.
 
 ## Artifacts
 
-- Presets: `~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/` (12 `.mo`, SETTINGS.tsv,
-  SETTINGS.json, README.txt)
+- Presets: `~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/`
 - Zip: `~/Projects/_outputs/ge150/GE150_Appleseed_Pavement_Tape_Presets_2026-11-02.zip`
-- Page: `~/Projects/drwu-overflow/ge150-rig/index.html`
+- Pro installer: `~/Downloads/GE150_Pro_V2.1.4_Mac_2026-11-02/`
+- English Plus copy: `~/Projects/_outputs/ge150/GE150PLUS-EN.app`
 
 ## Stated limits
 
-No preset tested on hardware, because the pedal is not connected. Tone values carry ChatGPT's own
-citations and were not re-verified against the Mooer manual here. Whether the `.mo` files import
-depends on the model question above.
+No preset tested on hardware. Tone values carry ChatGPT's own citations and were not re-verified
+against the Mooer manual. The Pro's model-name list has not yet been checked against the settings
+on this page.

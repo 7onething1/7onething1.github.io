@@ -73,16 +73,16 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
 
 <header>
   <h1>Mooer GE150 Rig Sheet</h1>
-  <div class="sub">Why the editor saw nothing, what the current update is, and every preset recovered out of ChatGPT</div>
+  <div class="sub">A GE150 Pro running Plus software: five faults, the right V2.1.4 package, and every preset recovered out of ChatGPT</div>
   <div class="meta">Built 2026-11-02 on Jacks-iMac. Preset values recovered from 8 ChatGPT conversations plus the original code-interpreter cell. Nothing on this page was invented.</div>
 </header>
 
 <div class="score">
-  <div class="pill"><b>4</b>faults found</div>
+  <div class="pill"><b>5</b>faults found</div>
   <div class="pill"><b>12</b>tape presets rebuilt</div>
   <div class="pill"><b>6</b>Mayer presets</div>
-  <div class="pill"><b>V2.1.3</b>newest firmware</div>
-  <div class="pill"><b>1</b>open question</div>
+  <div class="pill"><b>V2.1.4</b>correct for Pro</div>
+  <div class="pill"><b>GE150 Pro</b>editor live in English</div>
 </div>
 
 <nav class="toc">
@@ -90,7 +90,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   <ol>
     <li><a href="#fix">Why the app did nothing, the Chinese UI, and the fixes</a></li>
     <li><a href="#updates">Updates: what you have against what exists</a></li>
-    <li><a href="#fork">The one open question: GE150 or GE150 Plus</a></li>
+    <li><a href="#fork">Settled: it is a GE150 Pro, and the software was wrong</a></li>
     <li><a href="#pack">The 12 preset tape pack, rebuilt</a></li>
     <li><a href="#cast">Appleseed Cast, the full block by block patch</a></li>
     <li><a href="#mayer">Six John Mayer presets</a></li>
@@ -180,15 +180,51 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   <li>Combined amp and cabinet models belong in <b>ENTIRE SAMPLE</b>.</li>
 </ul>
 
-<h2 id="fork">3. The one open question: GE150 or GE150 Plus</h2>
+<h2 id="fork">3. Settled: the pedal is a GE150 Pro, and the software was the wrong build</h2>
 
-<div class="card ask">
-  <span class="tag t-ask">Needs your answer</span>
-  <p><b>Every preset below was built for the original GE150, and the software you installed is for the GE150 Plus.</b> Those are two different preset formats. Mooer's own download page states that presets created on the Plus, Pro and Max cannot be imported back into the original GE150, and the families do not share an editor.</p>
-  <p>The evidence points both ways. The ChatGPT work from August and September names the original GE150 throughout, down to its 200 preset slots and its <code>.mo</code> file format. Your download from October 31 is the Plus package, and the Plus editor is what sits in <code>/Applications</code>.</p>
-  <p><b>If the pedal is an original GE150</b>, the 12 files are ready to import, and you need MOOER Studio for GE150 from the original GE150 download page, because the Plus editor will never see your pedal.</p>
-  <p><b>If the pedal is a GE150 Plus</b>, the installed editor is right, and the 12 <code>.mo</code> files will not import. In that case every setting on this page still transfers, dialed in by hand, because the amp, cab, delay and reverb values are what carry the sound.</p>
-  <p>One look at the pedal's faceplate settles it. Either way, nothing on this page is wasted.</p>
+<div class="card bad">
+  <span class="tag t-bad">Fault 5, the big one</span>
+  <p><b>The pedal is a GE150 Pro, and every piece of software installed was the GE150 Plus build.</b> The Plus editor and the Plus updater cannot talk to a Pro, so no cable and no language fix would ever have made that combination work.</p>
+  <p>Once the pedal was connected it named itself on the USB bus, which settles the model from the hardware rather than from memory:</p>
+  <pre>GE150Pro:
+  Product ID: 0x5703
+  Vendor ID:  0x0483  (STMicroelectronics)
+  Speed:      Up to 480 Mb/s</pre>
+  <p>It also enumerates as a USB audio device, so it appears under audio inputs and outputs as <code>GE150Pro</code> alongside the editing connection.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">Correct package, downloaded and verified</span>
+  <p>The Pro line runs its own release, <b>V2.1.4</b>, not the Plus V2.1.3. The direct CDN link returns 403, so it has to come through Mooer's signing endpoint, the same route the browser uses.</p>
+  <table style="margin-top:10px">
+    <thead><tr><th>Item</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Archive</td><td><code>GE150_Pro_V2.1.4_Mac.zip</code>, 72,913,255 bytes, HTTP 200</td></tr>
+      <tr><td>Installer</td><td><code>GE150PRO_V2.1.4_Mac_Setup.dmg</code>, 73,054,984 bytes</td></tr>
+      <tr><td>Notes</td><td><code>GE150_Pro_Firmware_V2.1.4_Update.html</code>, stamped 2026.8</td></tr>
+      <tr><td>What V2.1.4 adds</td><td>NAM A2 model conversion and import, plus unspecified bug fixes</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">What this costs the preset pack</span>
+  <p><b>The 12 <code>.mo</code> files will not import into a Pro.</b> They declare <code>"device": "MOOER GE150"</code> against the original GE150 editor, and Mooer states the original and the Plus/Pro/Max family do not share a preset format.</p>
+  <p>Every number in them still transfers. The amp, cab, drive, delay and reverb values are what carry the sound, so they go in by hand on the Pro. Check each model name against the Pro's own list as you go, since the Pro ships a larger model set than the original GE150 that these settings were written for.</p>
+  <p><b>Good news on that front.</b> The Pro's FX/COMP list reads <code>01 CRY WAH, 02 535 WAH, 03 AUTO WAH, 04 TALK WAH AH, 05 TALK WAH OH, 06 TOUCH WAH, 07 YELLOW COMP, 08 BLUE COMP, 09 S-COMP, 10 RED COMP, 11 LIMIT, 12 INTEL REDUCER</code>. The first eight are the original GE150 list in the same order, with four added. <b>YELLOW COMP</b>, which the Appleseed patch calls for, is right there at 07, so most model names carry straight across.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">Working, confirmed on screen</span>
+  <p><b>The GE150 Pro editor is open, in English, and reading your pedal.</b> Verified end state, with the pedal connected over USB:</p>
+  <ul>
+    <li>Window titled <b>GE150 PRO</b>, editor process running from the installed V2.1.4 bundle.</li>
+    <li>All nine blocks now render in English: <b>FX/COMP, DS/OD, AMP, CAB, NS GATE, EQ, MOD, DELAY, REVERB</b>. The earlier Chinese labels were a mid-load state, and a clean restart settled them.</li>
+    <li>Your own presets are listed off the device, including <b>21B That Summer, 21C Power Stack, 21D Phaser, 22A Not Cry Lead, 22B Not Cry Clean, 22C Softhearted, 22D Lofi Clean, 23A A Dream, 23B Black Hole, 23C Blue, 23D Illusion</b>.</li>
+    <li>Loaded preset <b>NovemberRain</b>, RHYTHM BPM 120, VOL 5, CAB-L and CAB-R both on.</li>
+    <li>Block editing is live: FX/COMP sitting on <b>07 YELLOW COMP</b> with ATTACK 50, THRES 50, RATIO 50, LEVEL 50.</li>
+  </ul>
+  <p>The Pro numbers presets by bank and slot, as in 22C, rather than the original GE150's P001 to P200. The empty <b>COMPUTER</b> panel on the left is where preset files load before being dragged onto a device slot.</p>
 </div>
 
 <h2 id="pack">4. The 12 preset tape pack, rebuilt</h2>
