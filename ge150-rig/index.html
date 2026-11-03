@@ -81,7 +81,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   <div class="pill"><b>5</b>faults found</div>
   <div class="pill"><b>12</b>tape presets rebuilt</div>
   <div class="pill"><b>6</b>Mayer presets</div>
-  <div class="pill"><b>V2.1.4</b>correct for Pro</div>
+  <div class="pill"><b>V2.1.4</b>ready to flash</div>
   <div class="pill"><b>GE150 Pro</b>editor live in English</div>
 </div>
 
@@ -91,6 +91,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#fix">Why the app did nothing, the Chinese UI, and the fixes</a></li>
     <li><a href="#updates">Updates: what you have against what exists</a></li>
     <li><a href="#fork">Settled: it is a GE150 Pro, and the software was wrong</a></li>
+    <li><a href="#firmware">The firmware update, and the error it threw</a></li>
     <li><a href="#pack">The 12 preset tape pack, rebuilt</a></li>
     <li><a href="#cast">Appleseed Cast, the full block by block patch</a></li>
     <li><a href="#mayer">Six John Mayer presets</a></li>
@@ -207,11 +208,48 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   </table>
 </div>
 
+<div class="card ok">
+  <span class="tag t-ok">Correction: the presets CAN import, once the firmware is current</span>
+  <p>I said earlier these <code>.mo</code> files would never load on a Pro. <b>Mooer's own V2.1.1 release notes say otherwise:</b> "Presets are now fully cross-compatible between GE150 Plus, GE150 Pro, and GE150 Max" and "GE150 presets can now be imported into GE150 Plus/Pro/Max." The restriction runs one way only, since presets made on the new models cannot go back to an original GE150.</p>
+  <p>So the 12-preset tape pack should import into your Pro <b>after</b> the firmware reaches V2.1.1 or later. The Pro editor already carries <code>*.mo</code> as a preset filter and a <code>Preset import successful !</code> message, which matches.</p>
+  <p>The Pro's model names also line up. Its FX/COMP list is <code>01 CRY WAH, 02 535 WAH, 03 AUTO WAH, 04 TALK WAH AH, 05 TALK WAH OH, 06 TOUCH WAH, 07 YELLOW COMP, 08 BLUE COMP, 09 S-COMP, 10 RED COMP, 11 LIMIT, 12 INTEL REDUCER</code>: the original GE150's eight in the same order, with four added. <b>YELLOW COMP</b>, which the Appleseed patch needs, sits at 07.</p>
+</div>
+
+<h2 id="firmware">3b. The firmware update, and the error it threw</h2>
+
 <div class="card bad">
-  <span class="tag t-bad">What this costs the preset pack</span>
-  <p><b>The 12 <code>.mo</code> files will not import into a Pro.</b> They declare <code>"device": "MOOER GE150"</code> against the original GE150 editor, and Mooer states the original and the Plus/Pro/Max family do not share a preset format.</p>
-  <p>Every number in them still transfers. The amp, cab, drive, delay and reverb values are what carry the sound, so they go in by hand on the Pro. Check each model name against the Pro's own list as you go, since the Pro ships a larger model set than the original GE150 that these settings were written for.</p>
-  <p><b>Good news on that front.</b> The Pro's FX/COMP list reads <code>01 CRY WAH, 02 535 WAH, 03 AUTO WAH, 04 TALK WAH AH, 05 TALK WAH OH, 06 TOUCH WAH, 07 YELLOW COMP, 08 BLUE COMP, 09 S-COMP, 10 RED COMP, 11 LIMIT, 12 INTEL REDUCER</code>. The first eight are the original GE150 list in the same order, with four added. <b>YELLOW COMP</b>, which the Appleseed patch calls for, is right there at 07, so most model names carry straight across.</p>
+  <span class="tag t-bad">What the updater actually said</span>
+  <p>Running the V2.1.4 updater against the connected pedal produced one dialog, read directly from the app:</p>
+  <pre>Error
+Equipment version is too low</pre>
+  <p><b>The cause is the pedal was in normal mode, not update mode.</b> It was enumerating as a USB audio device at the time, which only happens in normal operation. Mooer's procedure requires the unit be put into update mode first, before the software can talk to its bootloader.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">Mooer's update procedure, verbatim from their page</span>
+  <ol>
+    <li><b>Power on the unit while holding down footswitches A + B</b> to enter update mode. The screen will display "Updating".</li>
+    <li>Connect the GE150 Pro to your computer using the included USB cable.</li>
+    <li>Launch the editor software and start the update process.</li>
+    <li><b>Do not power off or disconnect the device during the update.</b></li>
+  </ol>
+  <p>Their own notes add: back up custom presets with the previous editor before updating, and always keep a backup of your tones. That is already done, verified below.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">Backup verified before any flash</span>
+  <p>A full device backup exists and was content-checked rather than assumed:</p>
+  <table style="margin-top:10px">
+    <thead><tr><th>Check</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Container header</td><td><code>MOOER</code> / <code>MOOER_GE150PRO</code> / <code>V1.0.0</code></td></tr>
+      <tr><td>Size</td><td>57,898 bytes</td></tr>
+      <tr><td>Real preset names found inside</td><td><b>18 of 18</b> checked, including NovemberRain, Crazy Diamond, Hotel Cali, Room335</td></tr>
+      <tr><td>Presets catalogued</td><td>203 extracted to a named-Table .xlsx</td></tr>
+      <tr><td>Two copies on the Desktop</td><td>byte-identical, md5 <code>0c56d37de1b01d88d7ac8ea46307bd6a</code></td></tr>
+      <tr><td>Safe copy</td><td><code>~/Projects/_outputs/ge150/backups/GE150PRO-device-backup-2026-11-02.backup</code></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="card ok">
