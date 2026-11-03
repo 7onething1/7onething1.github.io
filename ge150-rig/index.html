@@ -462,7 +462,36 @@ Equipment version is too low</pre>
     <li>Transfer to the pedal runs through drag, or the PRESET list's Copy / Paste / Clear / Rename menu, between
     the COMPUTER list and the 200 device slots.</li>
   </ul>
-  <p><strong>Not done:</strong> the twelve are not in the COMPUTER list and not on the pedal. The four backups are untouched.</p>
+  <p><strong>That diagnosis was incomplete.</strong> See the next card for the actual cause.</p>
+</div>
+
+<div class="card good">
+  <span class="tag t-good">2026-11-03 &middot; solved, twelve presets on the pedal</span>
+  <p>Two things were wrong, and the second one is the whole story.</p>
+  <ul>
+    <li><strong>The Pro preset schema is structurally different.</strong> A genuine Pro preset, pulled off the pedal
+    by dragging slot 33A into COMPUTER, is 2,440 bytes against our 958. Its <code>effectModule</code> keys are the
+    numeric strings <code>"0"</code> through <code>"8"</code>, not module names, and its <code>fileInfo</code> reads
+    <code>device: "GE150PRO"</code>, <code>app: "GE150PRO Edit"</code>, <code>schema: "GE150PRO Preset"</code>.
+    Parameter names differ too: <code>F.BACK</code> rather than <code>FEEDBACK</code>, <code>P.DELAY</code> rather
+    than <code>PRE DELAY</code>.</li>
+    <li><strong>The editor requires the filename to equal <code>preset_name</code>.</strong> Proven with a two-file
+    control: <code>ZZTESTA.mo</code> holding <code>preset_name "ZZTESTA"</code> appeared in the COMPUTER list, while
+    <code>zz_test_b_file.mo</code> holding <code>"ZZTESTB"</code>, byte-identical otherwise, did not. The same pair of
+    outcomes repeated with <code>CAST MARE.mo</code> against <code>01_CAST_MARE.mo</code>. This is why every earlier
+    import copied the file into the library and still showed nothing.</li>
+    <li><strong>The COMPUTER panel is reached by right-click, not the folder icon.</strong> Its menu is Add, Delete,
+    Refresh, Open This Directory. The folder icon only opens the library in Finder, which is where the
+    &ldquo;already exists&rdquo; message came from.</li>
+    <li><strong>No empty slots exist.</strong> All 200 are named, so the twelve went to 48A&ndash;50D, which the
+    existing <code>.backup</code> files restore.</li>
+  </ul>
+  <p><strong>On the pedal now:</strong> 48A TAPE HUGE, 48B TAPE DUB, 48C TAPE SLAP, 48D BUILT TAPE, 49A MODEST TAPE,
+  49B PAVE CROOK, 49C PAVE GROUND, 49D PAVE SLANT, 50A CAST SKY, 50B CAST SWELL, 50C CAST LOWOWL, 50D CAST MARE.</p>
+  <p><strong>Readback check:</strong> 48A and 48B were dragged back off the pedal into COMPUTER and compared field by
+  field against the files that were sent. TAPE HUGE returned TIME 720, F.BACK 70, LEVEL 48, DECAY 62, reverb LEVEL 36.
+  TAPE DUB returned TIME 650, F.BACK 64, LEVEL 39, DECAY 46, reverb LEVEL 25. Both matched on every delay and reverb
+  field. Master set: <code>~/Projects/_outputs/ge150/mo-pro-final/</code>.</p>
 </div>
 
 <footer>
