@@ -444,8 +444,29 @@ Equipment version is too low</pre>
   </ul>
 </div>
 
+<div class="card bad">
+  <span class="tag t-bad">2026-11-03 &middot; why the presets would not load</span>
+  <p>The twelve <code>.mo</code> files declared themselves as a plain GE150. Their <code>fileInfo</code> carried
+  <code>"schema": "GE150 Preset"</code> and <code>"app": "GE150 Edit"</code>. The Pro editor binary accepts only
+  <code>GE150PRO Preset</code> and <code>GE150PRO Edit</code>, both of which appear as literal strings inside
+  <code>GE150PRO.app/Contents/MacOS/GE150PRO.app/Contents/MacOS/GE150PRO</code>.</p>
+  <ul>
+    <li>The import itself worked. All twelve landed byte-identical in the editor's library at
+    <code>GE150PRO.app/Contents/MacOS/GE150PRO.app/Contents/MacOS/file/</code>, which is why a second attempt
+    reported that they already exist.</li>
+    <li>The COMPUTER panel is a session list, not a view of that folder, so it stays blank across a restart
+    no matter what sits in the library.</li>
+    <li><code>device</code> stays <code>MOOER GE150</code>. That is the only MOOER device string in the Pro binary.</li>
+    <li>Converted set: <code>~/Projects/_outputs/ge150/mo-pro/</code>, twelve files, schema and app renamed, every
+    other value untouched.</li>
+    <li>Transfer to the pedal runs through drag, or the PRESET list's Copy / Paste / Clear / Rename menu, between
+    the COMPUTER list and the 200 device slots.</li>
+  </ul>
+  <p><strong>Not done:</strong> the twelve are not in the COMPUTER list and not on the pedal. The four backups are untouched.</p>
+</div>
+
 <footer>
-  Mooer GE150 Rig Sheet, 2026-11-02. Preset files at
+  Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-03. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
   Three faults observed on this Mac, twelve presets rebuilt and validated, one question left for you.
 </footer>
