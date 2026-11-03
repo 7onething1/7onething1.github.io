@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EpochVerb Results</title>
+<meta name="description" content="EpochVerb, an original vintage digital reverb VST3 for Ableton Live 11: build, measurements, validation and listening examples.">
+<style>
+:root{
+  color-scheme: light;
+  --cream:#f3ead6; --cream-hi:#fbf6ea; --card:#fffaf0; --ink:#1d1a17; --ink-soft:#5d5449;
+  --rule:#d9ccb1; --orange:#c8553d; --teal:#3d7a78; --amber:#e39b32; --glass:#1f2422; --mint:#8fd3b6;
+  --pass:#2f6b4f; --open:#9a6a12;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Inter,"Segoe UI",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:0 16px 64px}
+header.top{background:var(--ink);color:var(--cream-hi);border-bottom:4px solid var(--orange)}
+header.top .in{max-width:1040px;margin:0 auto;padding:22px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+header.top h1{margin:0;font-size:30px;letter-spacing:.32em;font-weight:800}
+header.top .tag{font:600 12px/1.4 Menlo,ui-monospace,monospace;color:var(--amber);letter-spacing:.08em}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;padding:14px 0 4px;font-size:14px}
+nav.toc a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+nav.toc a:hover{color:var(--orange)}
+h2{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:44px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+p.lede{font-size:19px;max-width:760px;margin:22px 0 14px}
+.shot{margin:18px 0 6px;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(29,26,23,.18);border:1px solid var(--rule)}
+.shot img{display:block;width:100%;height:auto}
+.cap{font-size:13px;color:var(--ink-soft);margin:6px 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
+.stat b{display:block;font-size:24px;line-height:1.15}
+.stat span{font-size:13px;color:var(--ink-soft)}
+.stat.ok b{color:var(--pass)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:14px 16px}
+.card h3{margin:0 0 4px;font-size:15px;letter-spacing:.06em}
+.card p{margin:0 0 10px;font-size:14px;color:var(--ink-soft)}
+.card audio{width:100%;height:36px}
+.pill{display:inline-block;font:600 11px/1 Menlo,ui-monospace,monospace;padding:4px 7px;border-radius:4px;background:var(--glass);color:var(--amber);margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:var(--cream-hi);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tw{overflow-x:auto}
+.ok{color:var(--pass);font-weight:700}
+.open{color:var(--open);font-weight:700}
+.chart{background:var(--glass);border-radius:10px;padding:16px 16px 10px;color:var(--mint)}
+.chart svg{display:block;width:100%;height:auto}
+ol.check{padding-left:22px}
+ol.check li{margin:4px 0}
+code{font:13px Menlo,ui-monospace,monospace;background:var(--cream-hi);border:1px solid var(--rule);padding:1px 5px;border-radius:4px;word-break:break-all}
+.files li{margin:3px 0}
+footer{margin-top:48px;font-size:13px;color:var(--ink-soft)}
+@media (max-width:560px){header.top h1{font-size:22px;letter-spacing:.22em}p.lede{font-size:17px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><h1>EPOCHVERB</h1><span class="tag">VINTAGE DIGITAL REVERBERATOR · VST3 · ABLETON LIVE 11</span></div></header>
+<main>
+<nav class="toc" aria-label="Contents">
+  <a href="#listen">Listen</a><a href="#engines">Engines</a><a href="#measure">Measurements</a><a href="#reference">Reference</a><a href="#verified">Verified</a><a href="#open">Still to check in Live</a><a href="#limits">Limitations</a><a href="#files">Files</a>
+</nav>
+
+<p class="lede"><b>EpochVerb is a compiled, installed 64-bit VST3 reverb</b> with six original algorithms and three converter color modes. Ableton Live 11.3.43 scans it and loads it on an audio track.</p>
+
+<div class="shot"><img src="img/epochverb-gui.png" alt="EpochVerb interface: cream faceplate, algorithm and color buttons, dark decay display, 16 rotary controls" width="960" height="630"></div>
+<p class="cap">The interface as rendered by the plug-in's own editor code, preset Dreamy Guitar. It resizes from 760 to 1520 px wide.</p>
+
+<div class="stats">
+  <div class="stat ok"><b>47 / 47</b><span>Steinberg VST3 validator</span></div>
+  <div class="stat ok"><b>SUCCESS</b><span>pluginval, strictness 10</span></div>
+  <div class="stat ok"><b>69 / 69</b><span>host checks on the installed VST3</span></div>
+  <div class="stat ok"><b>105 / 105</b><span>DSP measurement rows pass</span></div>
+  <div class="stat ok"><b>Loaded</b><span>in Live 11.3.43 on an audio track</span></div>
+  <div class="stat"><b>10 items</b><span>still need you at the controls in Live</span></div>
+</div>
+
+<h2 id="listen">Listen</h2>
+<p>A synthetic phrase of six plucked notes and two snare hits, 35% wet. Every clip is loudness matched to -18 LUFS. These are offline renders from the same engine the plug-in runs.</p>
+<div class="grid">
+  <div class="card"><h3>Dry</h3><p>The phrase with no reverb.</p><audio controls preload="none" src="audio/phrase_dry.m4a"></audio></div>
+  <div class="card"><h3>Vintage Hall</h3><p><span class="pill">CLASSIC</span>3.5 s decay.</p><audio controls preload="none" src="audio/phrase_0_1.m4a"></audio></div>
+  <div class="card"><h3>Classic Plate</h3><p><span class="pill">CLASSIC</span>3.5 s decay.</p><audio controls preload="none" src="audio/phrase_1_1.m4a"></audio></div>
+  <div class="card"><h3>Warm Chamber</h3><p><span class="pill">CLASSIC</span>1.4 s decay.</p><audio controls preload="none" src="audio/phrase_2_1.m4a"></audio></div>
+  <div class="card"><h3>Deep Space</h3><p><span class="pill">CLASSIC</span>8 s decay, Attack 50%, deeper modulation.</p><audio controls preload="none" src="audio/phrase_3_1.m4a"></audio></div>
+  <div class="card"><h3>Dream Cloud</h3><p><span class="pill">CLASSIC</span>8 s decay, Attack 50%, deeper modulation.</p><audio controls preload="none" src="audio/phrase_4_1.m4a"></audio></div>
+  <div class="card"><h3>Nonlinear Gate</h3><p><span class="pill">CLASSIC</span>0.45 s gate.</p><audio controls preload="none" src="audio/phrase_5_1.m4a"></audio></div>
+  <div class="card"><h3>Hall, Early Digital</h3><p><span class="pill">EARLY</span>7 kHz bandwidth, 10-bit grain, sample-and-hold.</p><audio controls preload="none" src="audio/phrase_0_0.m4a"></audio></div>
+  <div class="card"><h3>Hall, Modern</h3><p><span class="pill">MODERN</span>Full bandwidth, clean.</p><audio controls preload="none" src="audio/phrase_0_2.m4a"></audio></div>
+</div>
+
+<h2 id="engines">Engines</h2>
+<div class="tw"><table>
+<thead><tr><th>Algorithm</th><th>Structure</th><th>Character</th></tr></thead>
+<tbody>
+<tr><td><b>Vintage Hall</b></td><td>8-line feedback delay network, Hadamard mixing, two modulated allpasses per loop, 3-band decay filter</td><td>Dense chorused hall, long smooth tails</td></tr>
+<tr><td><b>Classic Plate</b></td><td>Figure-eight tank after Dattorro (1997), stereo-fed, modulated tank allpasses</td><td>Bright diffuse plate</td></tr>
+<tr><td><b>Warm Chamber</b></td><td>Short 8-line network, 22 early reflection taps</td><td>Intimate room</td></tr>
+<tr><td><b>Deep Space</b></td><td>16-line network, three-stage input smear, 85% random modulation</td><td>Slow-building stereo wash</td></tr>
+<tr><td><b>Dream Cloud</b></td><td>8-line network, deep modulation on delays and allpasses</td><td>Ultra-smooth atmospheric tails</td></tr>
+<tr><td><b>Nonlinear Gate</b></td><td>48-tap diffused burst under a gate or reverse envelope</td><td>80s gated snare, reverse swells</td></tr>
+</tbody></table></div>
+<p>Color modes change the signal path. <b>Early</b> band-limits to 7 kHz and adds a 10-bit gain-ranged quantizer, 31.25 kHz sample-and-hold, signal-following hiss and unstable modulation. <b>Classic</b> runs at 11.5 kHz with 13-bit grain and gentle saturation. <b>Modern</b> is full bandwidth and clean.</p>
+
+<h2 id="measure">Measurements</h2>
+<div class="tw"><table>
+<thead><tr><th>Measure</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Decay accuracy at 2 s, 60 renders (6 reverbs, 3 colors, 44.1 to 96 kHz)</td><td class="num">-10.7% to +1.7%</td></tr>
+<tr><td>Decay accuracy 0.5 to 10 s, Modern color</td><td class="num">-6.2% to +6.6%; plate at 0.5 s -21.6%</td></tr>
+<tr><td>Stereo correlation of the tail</td><td class="num">-0.02 to +0.05</td></tr>
+<tr><td>Largest DC offset</td><td class="num">3.9e-10</td></tr>
+<tr><td>Random automation of every parameter, 20 s per algorithm</td><td class="num">finite, bounded by the 2.0 soft limit</td></tr>
+<tr><td>Residual 15 s after the input stops</td><td class="num">below 1e-28</td></tr>
+<tr><td>State restore into a fresh instance</td><td class="num">sample-identical audio</td></tr>
+<tr><td>CPU, 48 kHz, one core of an i5-7500</td><td class="num">18x to 54x realtime (2 to 6% of a core)</td></tr>
+<tr><td>Loudness across algorithms, 2 s impulse, Classic color</td><td class="num">matched to 0.500 ±0.001 (gate 0.350)</td></tr>
+</tbody></table></div>
+
+<h2 id="reference">Reference comparison</h2>
+<p>VintageVerb is not installed on this Mac. Valhalla Supermassive is, so its impulse response (Gemini, Delay 40 ms, Feedback 75%, Density 100%) was measured with the same code as EpochVerb at 2 s decay. Tail ringing is the tallest narrow peak in the tail spectrum above a third-octave average. Pure decaying noise scores 9.1 dB, the smooth ideal.</p>
+<div class="chart" role="img" aria-label="Bar chart of tail ringing in decibels. Dream Cloud 8.7, ideal floor 9.1, Supermassive 9.1, Deep Space 10.3, Plate 11.0, Hall 11.6, Chamber 13.7.">
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="Menlo,ui-monospace,monospace" font-size="13">
+  <g fill="#8fd3b6" opacity=".25"><rect x="210" y="14" width="1" height="262"/><rect x="343" y="14" width="1" height="262"/><rect x="477" y="14" width="1" height="262"/><rect x="610" y="14" width="1" height="262"/></g>
+  <g fill="#8fd3b6" font-size="11"><text x="206" y="292">0</text><text x="335" y="292">5</text><text x="467" y="292">10</text><text x="600" y="292">15 dB</text></g>
+  <g>
+    <text x="0" y="34" fill="#fbf6ea">Dream Cloud</text><rect x="210" y="22" width="232" height="16" rx="3" fill="#e39b32"/><text x="450" y="35" fill="#e39b32">8.7</text>
+    <text x="0" y="72" fill="#fbf6ea">Ideal floor</text><rect x="210" y="60" width="243" height="16" rx="3" fill="#8fd3b6"/><text x="461" y="73" fill="#8fd3b6">9.1</text>
+    <text x="0" y="110" fill="#fbf6ea">Valhalla Supermassive</text><rect x="210" y="98" width="243" height="16" rx="3" fill="#5f9e9b"/><text x="461" y="111" fill="#5f9e9b">9.1</text>
+    <text x="0" y="148" fill="#fbf6ea">Deep Space</text><rect x="210" y="136" width="275" height="16" rx="3" fill="#e39b32"/><text x="493" y="149" fill="#e39b32">10.3</text>
+    <text x="0" y="186" fill="#fbf6ea">Classic Plate</text><rect x="210" y="174" width="293" height="16" rx="3" fill="#e39b32"/><text x="511" y="187" fill="#e39b32">11.0</text>
+    <text x="0" y="224" fill="#fbf6ea">Vintage Hall</text><rect x="210" y="212" width="309" height="16" rx="3" fill="#e39b32"/><text x="527" y="225" fill="#e39b32">11.6</text>
+    <text x="0" y="262" fill="#fbf6ea">Warm Chamber</text><rect x="210" y="250" width="365" height="16" rx="3" fill="#c8553d"/><text x="583" y="263" fill="#c8553d">13.7</text>
+  </g>
+</svg>
+</div>
+<div class="tw" style="margin-top:12px"><table>
+<thead><tr><th>Source</th><th>Ringing</th><th>Bins over 11 dB</th><th>Dense after</th><th>L/R corr</th></tr></thead>
+<tbody>
+<tr><td>Ideal floor, decaying noise</td><td class="num">9.1 dB</td><td class="num">0</td><td class="num">n/a</td><td class="num">0.00</td></tr>
+<tr><td>Valhalla Supermassive</td><td class="num">9.1 dB</td><td class="num">0</td><td class="num">90 ms</td><td class="num">0.02</td></tr>
+<tr><td>EpochVerb Dream Cloud</td><td class="num">8.7 dB</td><td class="num">0</td><td class="num">75 ms</td><td class="num">0.02</td></tr>
+<tr><td>EpochVerb Deep Space</td><td class="num">10.3 dB</td><td class="num">0</td><td class="num">130 ms</td><td class="num">0.01</td></tr>
+<tr><td>EpochVerb Classic Plate</td><td class="num">11.0 dB</td><td class="num">0</td><td class="num">255 ms</td><td class="num">-0.01</td></tr>
+<tr><td>EpochVerb Vintage Hall</td><td class="num">11.6 dB</td><td class="num">1</td><td class="num">60 ms</td><td class="num">0.01</td></tr>
+<tr><td>EpochVerb Warm Chamber</td><td class="num">13.7 dB</td><td class="num">9</td><td class="num">25 ms</td><td class="num">0.03</td></tr>
+</tbody></table></div>
+<p class="cap">Dream Cloud and Deep Space sit at the noise floor, level with the Valhalla reference. Hall shows a single stray bin. Chamber has real modal peaks at a 2 s decay.</p>
+
+<h2 id="verified">Verified</h2>
+<div class="tw"><table>
+<thead><tr><th>Check</th><th>Result</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Steinberg VST3 validator, built from the official SDK</td><td class="ok">47 passed, 0 failed</td><td><code>tests/validation/steinberg_validator.txt</code></td></tr>
+<tr><td>pluginval strictness 10: editor, state, automation, fuzzing, threads, 44.1/48/96 kHz, blocks 64 to 1024</td><td class="ok">SUCCESS</td><td><code>tests/validation/pluginval_strict10.txt</code></td></tr>
+<tr><td>Installed VST3 in a host: every algorithm audible, automation, 12 programs, state, bypass, mono in, 88.2 kHz, odd blocks</td><td class="ok">69 of 69</td><td><code>tests/validation/host_test.txt</code></td></tr>
+<tr><td>Preset files load; user presets save, reload and list</td><td class="ok">6 of 6</td><td><code>tests/validation/preset_test.txt</code></td></tr>
+<tr><td>Live 11.3.43 plug-in scan</td><td class="ok">found, drwu EpochVerb 1.0.0, Fx|Reverb</td><td>Live <code>PluginScanner.txt</code> 16:33:50</td></tr>
+<tr><td>Live 11.3.43 loads it on an audio track from a set</td><td class="ok">"Restored: EpochVerb", 20 parameters</td><td>Live <code>Log.txt</code> 16:44:48</td></tr>
+</tbody></table></div>
+
+<h2 id="open">Still to check in Live</h2>
+<p>This session does not take control of the Mac's screen, so these need you at Live. Open <code>tests/live/EpochVerb_LiveTest.als</code>, where EpochVerb already sits on the "EpochVerb Test" track, and drop in any audio clip.</p>
+<ol class="check">
+<li><span class="open">Open</span> Audio passes through and you hear the reverb.</li>
+<li><span class="open">Open</span> Each of the six algorithms sounds distinct.</li>
+<li><span class="open">Open</span> Each knob moves its own parameter in Live's device view.</li>
+<li><span class="open">Open</span> The editor opens and stays responsive in Live's window.</li>
+<li><span class="open">Open</span> Factory presets load from the menu.</li>
+<li><span class="open">Open</span> A drawn automation lane plays back.</li>
+<li><span class="open">Open</span> Save the set, reopen it, settings return.</li>
+<li><span class="open">Open</span> Live's device on/off behaves.</li>
+<li><span class="open">Open</span> No crash in a long session.</li>
+<li><span class="open">Open</span> Export Audio/Video renders the reverb.</li>
+</ol>
+<p class="cap">No listening tests were run in this session. Every quality claim above is an objective measurement.</p>
+
+<h2 id="limits">Limitations</h2>
+<ul>
+<li><b>Warm Chamber rings at long decays.</b> Its loops total about 0.18 s, which gives few modes per hertz. It is tuned for 0.3 to 1.5 s rooms.</li>
+<li><b>Classic Plate fills in late.</b> Full echo density arrives at 255 ms.</li>
+<li><b>Intel build only.</b> This Mac is x86_64. The README has the flag for an Apple Silicon or universal build.</li>
+<li><b>No REA analysis.</b> No VintageVerb binary is on this Mac, and the DSP is original.</li>
+<li><b>Ad-hoc signed.</b> Fine on this Mac. Another Mac needs Developer ID signing.</li>
+</ul>
+
+<h2 id="files">Files</h2>
+<ul class="files">
+<li>Plug-in: <code>~/Library/Audio/Plug-Ins/VST3/EpochVerb.vst3</code></li>
+<li>Project, source and build: <code>~/Projects/EpochVerb/</code></li>
+<li>User manual: <code>~/Projects/EpochVerb/docs/USER_MANUAL.md</code></li>
+<li>Verification report: <code>~/Projects/EpochVerb/docs/VERIFICATION.md</code></li>
+<li>Measurements workbook: <code>~/Projects/EpochVerb/tests/out/EpochVerb_measurements.xlsx</code></li>
+<li>Live test set: <code>~/Projects/EpochVerb/tests/live/EpochVerb_LiveTest.als</code></li>
+<li>Rerun every check: <code>~/Projects/EpochVerb/tests/run_all.sh</code></li>
+</ul>
+<footer>EpochVerb 1.0.0 · JUCE 8.0.4 · built and measured 2026-11-03 on an Intel iMac, macOS 13.7.8. Original DSP. Valhalla, VintageVerb and Supermassive are products of Valhalla DSP, used here as a named reference only.</footer>
+</main>
+</body>
+</html>
