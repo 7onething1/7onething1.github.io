@@ -494,6 +494,34 @@ Equipment version is too low</pre>
   field. Master set: <code>~/Projects/_outputs/ge150/mo-pro-final/</code>.</p>
 </div>
 
+<div class="card good">
+  <span class="tag t-good">2026-11-03 &middot; the other twelve, and a reverb correction</span>
+  <p>Twelve was one pack, not the whole ask. A scan of every GE150 conversation shows ChatGPT generated exactly one
+  file, <code>GE150_Appleseed_Pavement_Tape_Presets.zip</code>. Everything else it wrote out as settings tables and
+  never packaged: six Mayer presets, a Pantera rhythm patch with three album variants, and a block-by-block Appleseed
+  Cast patch with a Low Level Owl variant. Those twelve are now built and on the pedal too.</p>
+  <p><strong>Model numbers were read from the editor, not guessed.</strong> AMP: 65 US DX 0, 65 US TW 1, PV 5050 DS 36,
+  CAROL CL 40, CAROL OD 41. CAB: US BASS 410 is 2, PV 5050 412 is 18. DS/OD: 808 is 1, PURE BOOST 2, FULL DRV 12,
+  GOLD CLON 19. DELAY: TAPE is 3. REVERB: SPRING is 4.</p>
+  <p><strong>A defect in the first twelve, now fixed.</strong> They inherited REVERB TYPE 3 from the reference preset,
+  which is PLATE. ChatGPT specified SPRING for the El Capistan character. All twelve were rebuilt on TYPE 4 and
+  re-written to the pedal. A readback of TAPE SLAP from slot 48C returns REVERB TYPE 4 and DELAY TYPE 3 with
+  DECAY 22, LEVEL 12, P.DELAY 12, TONE 52 and TIME 118, F.BACK 13, matching what was sent.</p>
+  <p><strong>Two things left as the pedal's defaults, on purpose.</strong> The graphic EQ curve was given in decibels
+  and the Pro's EQ scale is not established, so EQ stays switched off. Where ChatGPT said &ldquo;subtle delay&rdquo;
+  without numbers, delay level and feedback keep the reference values rather than invented ones.</p>
+  <table>
+    <tr><td>45A APPLESEED</td><td>45B MAYER BIG LEAD</td><td>45C MAYER BELIEF</td><td>45D MAYER GRAVITY</td></tr>
+    <tr><td>46A MAYER DEAD</td><td>46B MAYER CONTINUUM</td><td>46C PANTERA COWBOYS</td><td>46D MAYER SOB ROCK</td></tr>
+    <tr><td>47A PANTERA VULGAR</td><td>47B PANTERA RHYTHM</td><td>47C PANTERA FARBEYOND</td><td>47D LOW LEVEL OWL</td></tr>
+    <tr><td>48A TAPE HUGE</td><td>48B TAPE DUB</td><td>48C TAPE SLAP</td><td>48D BUILT TAPE</td></tr>
+    <tr><td>49A MODEST TAPE</td><td>49B PAVE CROOK</td><td>49C PAVE GROUND</td><td>49D PAVE SLANT</td></tr>
+    <tr><td>50A CAST SKY</td><td>50B CAST SWELL</td><td>50C CAST LOWOWL</td><td>50D CAST MARE</td></tr>
+  </table>
+  <p>Masters: <code>~/Projects/_outputs/ge150/mo-pro-final/</code> (the tape pack) and
+  <code>~/Projects/_outputs/ge150/mo-pro-rest/</code> (Mayer, Pantera, Appleseed).</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-03. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
