@@ -522,6 +522,32 @@ Equipment version is too low</pre>
   <code>~/Projects/_outputs/ge150/mo-pro-rest/</code> (Mayer, Pantera, Appleseed).</p>
 </div>
 
+<div class="card good">
+  <span class="tag t-good">2026-11-03 &middot; the format is now extracted, not inferred</span>
+  <p>The editor carries its own parameter dictionary. The model names are not plain strings anywhere in the 32 MB
+  binary, in any encoding, because they sit in a zlib-compressed Qt resource. Decompressing the stream at offset
+  13,722,184 yields 21,425 bytes of XML that defines every chain, every model, and every parameter's range.</p>
+  <p><strong>Validation first.</strong> Nine model indices had already been read off the editor by eye. The extracted
+  table agrees with all nine: 65 US TW 1, PV 5050 DS 36, CAROL CL 40, 808 1, GOLD CLON 19, TAPE 3, SPRING 4,
+  PV 5050 412 18, ANA-CHORUS 11.</p>
+  <ul>
+    <li><strong>210 models across 9 chains</strong>, with 139 parameter definitions: 75 amps, 46 cabs, 28 drives,
+    25 mods, 12 comps, 9 delays, 8 reverbs, 4 EQs, 3 gates.</li>
+    <li><strong>The SUB-D enum, which had been a guess:</strong> OFF, 1/4, 1/4T, 1/4D, 1/8, 1/8T, 1/8D, 1/16, 1/16T,
+    1/16D, indexed 0 through 9.</li>
+    <li><strong>Ranges:</strong> delay LEVEL and F.BACK are 0 to 100, TIME is 40 to 2500 ms, reverb P.DELAY is
+    0 to 500, EQ bands run -16 to +16 dB with step 1 and default 0.</li>
+    <li><strong>DUAL DELAY does not have a TIME field.</strong> It uses TIME A, SUB A, TIME B and SUB B.</li>
+  </ul>
+  <p><strong>It immediately caught six wrong files.</strong> Three El Capistan Fixed presets had no subdivision set,
+  and the three Multi presets were written with a TIME field that Dual Delay does not accept. All six were rebuilt
+  against the extracted definitions and re-verified in the COMPUTER list.</p>
+  <p>Reference: <code>~/Projects/_outputs/ge150/GE150PRO-model-definitions.xml</code> and
+  <code>GE150PRO-model-index.json</code>. This is the app's own declarative description of its interface, which is a
+  different thing from reconstructing an audio algorithm. For the USB wire protocol or the pedal firmware, static
+  reading of this kind gets you nothing and a real disassembler would be the tool.</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-03. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
