@@ -648,22 +648,41 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   should read &ldquo;65 US DLX&rdquo;, <code>US BASS 410</code> should read &ldquo;US Bass 410&rdquo;,
   <code>FULL DRV</code> should read &ldquo;Full Drv&rdquo;, and &ldquo;Yellow Comp&rdquo; should read
   &ldquo;Yellow comp&rdquo;.</p>
-  <p><strong>Three of the four are wrong, measured against the editor's own model definitions.</strong> The
-  decompressed Qt resource prints <code>AMP 01: 65 US DX</code>, <code>CAB 03: US BASS 410</code> and
-  <code>DS 13: FULL DRV</code>, in those exact spellings and that exact case. The blueprint already agreed with the
-  editor on all three, and the audit's proposed corrections would have moved them away from it.</p>
-  <p><strong>The fourth is real, and it points the other way.</strong> The editor prints
-  <code>FX 07: YELLOW COMP</code>. This page had written it &ldquo;Yellow Comp&rdquo; in two preset rows, which is
-  neither the editor's casing nor the audit's. Both rows now read <code>YELLOW COMP</code>.</p>
+  <p><strong>All four proposed corrections are wrong, measured against the editor's own model definitions.</strong>
+  Counted in the decompressed Qt resource, each form the editor prints appears exactly once and each form the audit
+  proposed appears zero times.</p>
+  <table>
+    <thead><tr><th>Audit said Mooer prints</th><th>Hits in the table</th><th>The editor prints</th><th>Hits</th></tr></thead>
+    <tbody>
+    <tr><td>65 US DLX</td><td class="n">0</td><td><code>AMP 01: 65 US DX</code></td><td class="n">1</td></tr>
+    <tr><td>US Bass 410</td><td class="n">0</td><td><code>CAB 03: US BASS 410</code></td><td class="n">1</td></tr>
+    <tr><td>Full Drv</td><td class="n">0</td><td><code>DS 13: FULL DRV</code></td><td class="n">1</td></tr>
+    <tr><td>Yellow comp</td><td class="n">0</td><td><code>FX 07: YELLOW COMP</code></td><td class="n">1</td></tr>
+    </tbody>
+  </table>
+  <p>The audit's two columns were reversed. The first three labels already matched the editor, so acting on it
+  would have replaced three correct labels with the blueprint's own spellings, which is where they came from: the
+  20-preset blueprint on disk contains &ldquo;65 US DLX&rdquo; four times, &ldquo;Full Drv&rdquo; four times and
+  &ldquo;Yellow comp&rdquo; twenty times, and <code>YELLOW COMP</code> never.</p>
+  <p><strong>The fourth finding was real, and its proposed fix was wrong too.</strong> This page had written
+  &ldquo;Yellow Comp&rdquo; in two preset rows, matching neither the editor's casing nor the audit's. Both rows
+  now read <code>YELLOW COMP</code>.</p>
   <p><strong>Every model number on this page was re-checked in the same pass.</strong> Thirteen claims, each matched
   to the extracted table by converting its one-based display number to the zero-based index the <code>.mo</code>
   files store: 65 US DX 0, 65 US TW 1, PV 5050 DS 36, CAROL CL 40, CAROL OD 41, US BASS 410 2, PV 5050 412 18,
   808 1, PURE BOOST 2, FULL DRV 12, GOLD CLON 19, TAPE 3, SPRING 4. Thirteen of thirteen agree.</p>
-  <p><strong>The blueprint pack stopped changing before the loop stopped running.</strong> Its ninth pass reported
-  all 55 designs byte-for-byte unchanged, the tenth reported them byte-identical to the ninth, and passes eleven
-  through fourteen reported defects only in their own paperwork, each version bump leaving the previous pass's
-  handoff stale. Nothing after the ninth pass moves a tone, so the presets on this pedal need no rewrite on that
-  account. Loop data: <code>~/Projects/_outputs/chatgpt-nudge-loop/LOOP-DATA-2026-11-04.md</code>.</p>
+  <p><strong>The blueprint pack probably stopped changing at its ninth pass, and that is a self-report, not a
+  measurement.</strong> The claim that all 55 designs went byte-for-byte unchanged at V9 and stayed identical
+  through V14 comes from the generator asserting it about its own output. Nothing was diffed. The packs exist only
+  as attachments in the conversation, and a search of <code>~/Downloads</code> and
+  <code>~/Projects/_outputs/ge150</code> for any V9 to V14 artifact, changelog, slot audit or parameter dump
+  returns nothing, so there is no local file to check it against.</p>
+  <p>What holds without trusting the generator is weaker and still useful: from the eleventh pass on, the defects
+  it reported stopped naming the pack and started naming its own earlier paperwork, each version bump leaving the
+  previous handoff stale. That is a structural tell rather than a claim about bytes. Treat V9 as the last version
+  where a tone plausibly changed, with &ldquo;plausibly&rdquo; carrying real weight. Settling it needs V9 and V14
+  downloaded and diffed by someone with the thread open. Loop data:
+  <code>~/Projects/_outputs/chatgpt-nudge-loop/LOOP-DATA-2026-11-04.md</code>.</p>
 </div>
 
 <div class="card bad">
@@ -680,7 +699,7 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   above 16 are legal and Mooer uses them.</p>
   <p>The extracted table defines each band as <code>-16_16_1_0_</code>, meaning &minus;16 to +16 dB, step 1,
   default 0, stored with an offset of 16. The conversion applied that offset to zero and negative values and
-  skipped the positive ones. This is a separate matter from the blueprint pack converging at its ninth pass,
+  skipped the positive ones. This is a separate matter from where the blueprint pack converged,
   which concerns the designs rather than their conversion.</p>
   <p><strong>Fixed, and now on the pedal.</strong> The twenty masters were rebuilt as
   <code>~/Projects/_outputs/ge150/mo-pro-new20-v4/</code>: 46 bands corrected, 46 field changes in total, none

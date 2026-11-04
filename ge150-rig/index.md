@@ -80,13 +80,28 @@ one-based display number to the zero-based index the `.mo` files store: 65 US DX
 PV 5050 DS 36, CAROL CL 40, CAROL OD 41, US BASS 410 2, PV 5050 412 18, 808 1, PURE BOOST 2,
 FULL DRV 12, GOLD CLON 19, TAPE 3, SPRING 4.
 
-A peer session's audit of the ChatGPT blueprints proposed four label corrections. Three contradict
-the extracted table, which prints `AMP 01: 65 US DX`, `CAB 03: US BASS 410` and `DS 13: FULL DRV`.
-The fourth is real in the opposite direction: the editor prints `FX 07: YELLOW COMP`, and two preset
-rows on this page had written it "Yellow Comp". Both rows were corrected.
+A peer session's audit of the ChatGPT blueprints proposed four label corrections. **All four are
+wrong.** Counted in the extracted table, each form the editor prints appears exactly once and each
+proposed replacement appears zero times:
 
-The blueprint pack itself converged at its ninth pass, with all 55 designs byte-for-byte unchanged
-from there through the fourteenth. Nothing after the ninth moves a tone.
+| audit said Mooer prints | hits | the editor prints | hits |
+|---|---|---|---|
+| 65 US DLX | 0 | `AMP 01: 65 US DX` | 1 |
+| US Bass 410 | 0 | `CAB 03: US BASS 410` | 1 |
+| Full Drv | 0 | `DS 13: FULL DRV` | 1 |
+| Yellow comp | 0 | `FX 07: YELLOW COMP` | 1 |
+
+The two columns were reversed. The proposed spellings are the blueprint's own: the 20-preset
+blueprint on disk holds "65 US DLX" four times, "Full Drv" four times and "Yellow comp" twenty times,
+and `YELLOW COMP` never. The fourth finding was real and its proposed fix was wrong too, since this
+page had written "Yellow Comp", matching neither.
+
+**The pack's convergence is a self-report, not a measurement.** That all 55 designs went byte-for-byte
+unchanged from the ninth pass through the fourteenth comes from the generator describing its own
+output; nothing was diffed, and no V9 to V14 artifact exists in `~/Downloads` or
+`~/Projects/_outputs/ge150` to check it against. What holds without trusting it is that from the
+eleventh pass on, the reported defects named its own earlier paperwork rather than the pack. Treat V9
+as the last version where a tone plausibly changed.
 
 ## The EQ defect, found 2026-11-04
 
