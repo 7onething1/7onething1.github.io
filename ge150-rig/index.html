@@ -351,12 +351,12 @@ Equipment version is too low</pre>
 <table>
   <thead><tr><th>Preset</th><th>Amp</th><th class="n">Gain</th><th class="n">Bass</th><th class="n">Mid</th><th class="n">Treble</th><th class="n">Pres</th><th class="n">Mst</th><th>Front end and time based</th></tr></thead>
   <tbody>
-    <tr><td><b>1. Continuum clean</b><br><span style="font-size:.82rem">Slow Dancing territory</span></td><td>CAROL CL</td><td class="n">25</td><td class="n">45</td><td class="n">58</td><td class="n">55</td><td class="n">45</td><td class="n">80</td><td>Yellow Comp light, compression 30, output near unity. Spring reverb 22. Strat position four for the scooped rhythm sound, position five for more neck weight.</td></tr>
+    <tr><td><b>1. Continuum clean</b><br><span style="font-size:.82rem">Slow Dancing territory</span></td><td>CAROL CL</td><td class="n">25</td><td class="n">45</td><td class="n">58</td><td class="n">55</td><td class="n">45</td><td class="n">80</td><td>YELLOW COMP light, compression 30, output near unity. Spring reverb 22. Strat position four for the scooped rhythm sound, position five for more neck weight.</td></tr>
     <tr><td><b>2. Gravity</b><br><span style="font-size:.82rem">warm lead and rhythm</span></td><td>CAROL CL</td><td class="n">32</td><td class="n">48</td><td class="n">64</td><td class="n">50</td><td class="n">40</td><td class="n">80</td><td>808 at Drive 18, Tone 43, Level 68. Roughly 300 ms subtle analog delay, spring reverb 25. Neck pickup for most leads.</td></tr>
     <tr><td><b>3. Belief</b><br><span style="font-size:.82rem">harder attack, bigger mids</span></td><td>CAROL CL</td><td class="n">30</td><td class="n">42</td><td class="n">68</td><td class="n">58</td><td class="n">52</td><td class="n">82</td><td>GOLD CLON at Drive 25, Tone 48, Level 70. The pick attack carries this one.</td></tr>
     <tr><td><b>4. Big live lead</b></td><td>CAROL OD</td><td class="n">38</td><td class="n">45</td><td class="n">62</td><td class="n">52</td><td class="n">48</td><td class="n">78</td><td>808 in front, Drive 20, Level 72. About 380 ms delay with low feedback. Broader and more sustaining.</td></tr>
     <tr><td><b>5. Dead and Company</b></td><td>65 US TW</td><td class="n">24</td><td class="n">40</td><td class="n">62</td><td class="n">58</td><td class="n">55</td><td class="n">85</td><td>PURE BOOST with very little added gain, enough output to push the amp model. Reverb restrained.</td></tr>
-    <tr><td><b>6. Sob Rock</b><br><span style="font-size:.82rem">polished clean</span></td><td>65 US DX</td><td class="n">24</td><td class="n">46</td><td class="n">55</td><td class="n">57</td><td class="n">47</td><td class="n">78</td><td>Yellow Comp 25, subtle chorus 15, about 420 ms delay with low feedback, restrained reverb. Wider and softer in the upper mids than preset 1.</td></tr>
+    <tr><td><b>6. Sob Rock</b><br><span style="font-size:.82rem">polished clean</span></td><td>65 US DX</td><td class="n">24</td><td class="n">46</td><td class="n">55</td><td class="n">57</td><td class="n">47</td><td class="n">78</td><td>YELLOW COMP 25, subtle chorus 15, about 420 ms delay with low feedback, restrained reverb. Wider and softer in the upper mids than preset 1.</td></tr>
   </tbody>
 </table>
 
@@ -639,10 +639,35 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   reading of this kind gets you nothing and a real disassembler would be the tool.</p>
 </div>
 
+<div class="card good">
+  <span class="tag t-good">2026-11-04 &middot; a peer audit's label findings, checked against the extracted table</span>
+  <p>A separate session ran a ten-minute nudge loop against the ChatGPT conversation that authored the tone
+  blueprints. Its final pass reported four model labels as wrong against Mooer's printing: <code>65 US DX</code>
+  should read &ldquo;65 US DLX&rdquo;, <code>US BASS 410</code> should read &ldquo;US Bass 410&rdquo;,
+  <code>FULL DRV</code> should read &ldquo;Full Drv&rdquo;, and &ldquo;Yellow Comp&rdquo; should read
+  &ldquo;Yellow comp&rdquo;.</p>
+  <p><strong>Three of the four are wrong, measured against the editor's own model definitions.</strong> The
+  decompressed Qt resource prints <code>AMP 01: 65 US DX</code>, <code>CAB 03: US BASS 410</code> and
+  <code>DS 13: FULL DRV</code>, in those exact spellings and that exact case. The blueprint already agreed with the
+  editor on all three, and the audit's proposed corrections would have moved them away from it.</p>
+  <p><strong>The fourth is real, and it points the other way.</strong> The editor prints
+  <code>FX 07: YELLOW COMP</code>. This page had written it &ldquo;Yellow Comp&rdquo; in two preset rows, which is
+  neither the editor's casing nor the audit's. Both rows now read <code>YELLOW COMP</code>.</p>
+  <p><strong>Every model number on this page was re-checked in the same pass.</strong> Thirteen claims, each matched
+  to the extracted table by converting its one-based display number to the zero-based index the <code>.mo</code>
+  files store: 65 US DX 0, 65 US TW 1, PV 5050 DS 36, CAROL CL 40, CAROL OD 41, US BASS 410 2, PV 5050 412 18,
+  808 1, PURE BOOST 2, FULL DRV 12, GOLD CLON 19, TAPE 3, SPRING 4. Thirteen of thirteen agree.</p>
+  <p><strong>The blueprint pack stopped changing before the loop stopped running.</strong> Its ninth pass reported
+  all 55 designs byte-for-byte unchanged, the tenth reported them byte-identical to the ninth, and passes eleven
+  through fourteen reported defects only in their own paperwork, each version bump leaving the previous pass's
+  handoff stale. Nothing after the ninth pass moves a tone, so the presets on this pedal need no rewrite on that
+  account. Loop data: <code>~/Projects/_outputs/chatgpt-nudge-loop/LOOP-DATA-2026-11-04.md</code>.</p>
+</div>
+
 <footer>
-  Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-03. Preset files at
+  Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
-  Three faults observed on this Mac, twelve presets rebuilt and validated, one question left for you.
+  Three faults observed on this Mac, 55 presets written to the pedal, two read back byte-identical to their masters. The listening test needs a guitar in the instrument jack.
 </footer>
 
 </div>

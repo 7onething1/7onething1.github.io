@@ -2,7 +2,7 @@
 
 Live: https://7onething1.github.io/ge150-rig/
 
-Built 2026-11-02 on Jacks-iMac. Why the editor saw nothing, which update is the right one,
+Built 2026-11-02 on Jacks-iMac, updated 2026-11-04. Why the editor saw nothing, which update is the right one,
 and every GE150 preset recovered out of ChatGPT.
 
 ## The headline
@@ -57,10 +57,10 @@ Pro runs V2.1.4, Plus V2.1.3, Max V2.1.6.
 - **Pantera**, PV5050 DS + PV 5050 412, variants for Cowboys, Vulgar, Far Beyond Driven.
 - **El Capistan to GE150 map**, 12 rows, one documented gap (crinkle/bias/head wear).
 
-**These `.mo` files will not import into a Pro.** They declare `"device": "MOOER GE150"` and
-Mooer states the original and the Plus/Pro/Max family do not share a preset format. Every value
-still transfers by hand. Check model names against the Pro's own list, since it ships a larger
-model set than the original GE150 these settings were written for.
+**The original `.mo` files would not import into a Pro.** They declare `"device": "MOOER GE150"`,
+and Mooer states the original and the Plus/Pro/Max family do not share a preset format. Pro-format
+files were built from the editor's own extracted model table and written to the pedal, which is what
+slots 37B through 44D now hold.
 
 ## Artifacts
 
@@ -69,8 +69,28 @@ model set than the original GE150 these settings were written for.
 - Pro installer: `~/Downloads/GE150_Pro_V2.1.4_Mac_2026-11-02/`
 - English Plus copy: `~/Projects/_outputs/ge150/GE150PLUS-EN.app`
 
+## Model names, settled 2026-11-04
+
+The editor's model definitions sit in a zlib-compressed Qt resource inside the 32 MB binary, which is
+why no plain string search finds them. Decompressed, they give 210 models across 9 chains with 139
+parameter definitions, saved as `~/Projects/_outputs/ge150/GE150PRO-model-definitions.xml`.
+
+**Thirteen of thirteen model numbers on this page match that table.** Checked by converting each
+one-based display number to the zero-based index the `.mo` files store: 65 US DX 0, 65 US TW 1,
+PV 5050 DS 36, CAROL CL 40, CAROL OD 41, US BASS 410 2, PV 5050 412 18, 808 1, PURE BOOST 2,
+FULL DRV 12, GOLD CLON 19, TAPE 3, SPRING 4.
+
+A peer session's audit of the ChatGPT blueprints proposed four label corrections. Three contradict
+the extracted table, which prints `AMP 01: 65 US DX`, `CAB 03: US BASS 410` and `DS 13: FULL DRV`.
+The fourth is real in the opposite direction: the editor prints `FX 07: YELLOW COMP`, and two preset
+rows on this page had written it "Yellow Comp". Both rows were corrected.
+
+The blueprint pack itself converged at its ninth pass, with all 55 designs byte-for-byte unchanged
+from there through the fourteenth. Nothing after the ninth moves a tone.
+
 ## Stated limits
 
-No preset tested on hardware. Tone values carry ChatGPT's own citations and were not re-verified
-against the Mooer manual. The Pro's model-name list has not yet been checked against the settings
-on this page.
+No preset has been listened to through a guitar. Tone values carry ChatGPT's own citations and were
+not re-verified against the Mooer manual. Two of the twenty, slots 40A and 42B, were read back off
+the device and are byte-identical to their masters; the rest are verified by name in the device list
+rather than by readback.
