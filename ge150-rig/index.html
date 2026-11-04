@@ -496,10 +496,12 @@ Equipment version is too low</pre>
 
 <div class="card good">
   <span class="tag t-good">2026-11-03 &middot; the other twelve, and a reverb correction</span>
-  <p>Twelve was one pack, not the whole ask. A scan of every GE150 conversation shows ChatGPT generated exactly one
-  file, <code>GE150_Appleseed_Pavement_Tape_Presets.zip</code>. Everything else it wrote out as settings tables and
-  never packaged: six Mayer presets, a Pantera rhythm patch with three album variants, and a block-by-block Appleseed
-  Cast patch with a Low Level Owl variant. Those twelve are now built and on the pedal too.</p>
+  <p>Twelve was one pack out of the whole ask. ChatGPT had packaged one file,
+  <code>GE150_Appleseed_Pavement_Tape_Presets.zip</code>, and written everything else out as settings tables it never
+  packaged: six Mayer presets, a Pantera rhythm patch with three album variants, and a block-by-block Appleseed Cast
+  patch with a Low Level Owl variant. Those twelve are now built and on the pedal too.</p>
+  <p><strong>This count was wrong when it was written.</strong> A second zip existed and this page missed it. The
+  correction, and the twenty presets inside it, are in the card above.</p>
   <p><strong>Model numbers were read from the editor, not guessed.</strong> AMP: 65 US DX 0, 65 US TW 1, PV 5050 DS 36,
   CAROL CL 40, CAROL OD 41. CAB: US BASS 410 is 2, PV 5050 412 is 18. DS/OD: 808 is 1, PURE BOOST 2, FULL DRV 12,
   GOLD CLON 19. DELAY: TAPE is 3. REVERB: SPRING is 4.</p>
@@ -507,19 +509,59 @@ Equipment version is too low</pre>
   which is PLATE. ChatGPT specified SPRING for the El Capistan character. All twelve were rebuilt on TYPE 4 and
   re-written to the pedal. A readback of TAPE SLAP from slot 48C returns REVERB TYPE 4 and DELAY TYPE 3 with
   DECAY 22, LEVEL 12, P.DELAY 12, TONE 52 and TIME 118, F.BACK 13, matching what was sent.</p>
-  <p><strong>Two things left as the pedal's defaults, on purpose.</strong> The graphic EQ curve was given in decibels
-  and the Pro's EQ scale is not established, so EQ stays switched off. Where ChatGPT said &ldquo;subtle delay&rdquo;
-  without numbers, delay level and feedback keep the reference values rather than invented ones.</p>
+  <p><strong>Where ChatGPT gave no numbers</strong>, delay level and feedback keep the reference values rather than
+  invented ones. The EQ question that held this section open is now settled, below.</p>
   <table>
-    <tr><td>45A APPLESEED</td><td>45B MAYER BIG LEAD</td><td>45C MAYER BELIEF</td><td>45D MAYER GRAVITY</td></tr>
-    <tr><td>46A MAYER DEAD</td><td>46B MAYER CONTINUUM</td><td>46C PANTERA COWBOYS</td><td>46D MAYER SOB ROCK</td></tr>
-    <tr><td>47A PANTERA VULGAR</td><td>47B PANTERA RHYTHM</td><td>47C PANTERA FARBEYOND</td><td>47D LOW LEVEL OWL</td></tr>
-    <tr><td>48A TAPE HUGE</td><td>48B TAPE DUB</td><td>48C TAPE SLAP</td><td>48D BUILT TAPE</td></tr>
-    <tr><td>49A MODEST TAPE</td><td>49B PAVE CROOK</td><td>49C PAVE GROUND</td><td>49D PAVE SLANT</td></tr>
-    <tr><td>50A CAST SKY</td><td>50B CAST SWELL</td><td>50C CAST LOWOWL</td><td>50D CAST MARE</td></tr>
+    <tr><td>37B CAP MULTI C</td><td>37C CAP MULTI B</td><td>37D CAP MULTI A</td><td>38A CAP FIXED C</td></tr>
+    <tr><td>38B CAP FIXED B</td><td>38C CAP FIXED A</td><td>38D CAP WORN TAPE</td><td>39A CAP SOUND ON SND</td></tr>
+    <tr><td>39B CAP RUNAWAY</td><td>39C CAP TAPE SPRING</td><td>39D CAP DARK AGED</td><td>40A VOLTA TETRA</td></tr>
+    <tr><td>40B ZEP ACHILLES</td><td>40C ZEP KASHMIR</td><td>40D TOOL PNEUMA RHY</td><td>41A VOLTA CYGNUS</td></tr>
+    <tr><td>41B SHINER EGG</td><td>41C TOE GOODBYE</td><td>41D TOOL PNEUMA CLN</td><td>42A RH WEIRD FISH</td></tr>
+    <tr><td>42B RUSH LIMELIGHT</td><td>42C RUSH YYZ</td><td>42D KC SCHIZOID</td><td>43A RH PARANOID</td></tr>
+    <tr><td>43B FAILURE SPACE</td><td>43C KC FRACTURE</td><td>43D DEFT DIG BATH</td><td>44A DT PULL UNDER</td></tr>
+    <tr><td>44B EITS BIRTH</td><td>44C APC JUDITH</td><td>44D APC 3 LIBRAS</td><td>45A APPLESEED</td></tr>
+    <tr><td>45B MAYER BIG LEAD</td><td>45C MAYER BELIEF</td><td>45D MAYER GRAVITY</td><td>46A MAYER DEAD</td></tr>
+    <tr><td>46B MAYER CONTINUUM</td><td>46C PANTERA COWBOYS</td><td>46D MAYER SOB ROCK</td><td>47A PANTERA VULGAR</td></tr>
+    <tr><td>47B PANTERA RHYTHM</td><td>47C PANTERA FARBEYOND</td><td>47D LOW LEVEL OWL</td><td>48A TAPE HUGE</td></tr>
+    <tr><td>48B TAPE DUB</td><td>48C TAPE SLAP</td><td>48D BUILT TAPE</td><td>49A MODEST TAPE</td></tr>
+    <tr><td>49B PAVE CROOK</td><td>49C PAVE GROUND</td><td>49D PAVE SLANT</td><td>50A CAST SKY</td></tr>
+    <tr><td>50B CAST SWELL</td><td>50C CAST LOWOWL</td><td>50D CAST MARE</td><td>&nbsp;</td></tr>
   </table>
   <p>Masters: <code>~/Projects/_outputs/ge150/mo-pro-final/</code> (the tape pack) and
   <code>~/Projects/_outputs/ge150/mo-pro-rest/</code> (Mayer, Pantera, Appleseed).</p>
+</div>
+
+<div class="card good">
+  <span class="tag t-good">2026-11-03 &middot; 31 more presets written, 55 now on the pedal</span>
+  <p>The twenty that were missing were in the most recent ChatGPT conversation, packaged as
+  <code>GE150PRO_20_New_Tone_Designs_2026-11-03.zip</code> and never converted. ChatGPT had shipped them as JSON
+  tone recipes rather than <code>.mo</code> files, on purpose, so as not to repeat the invalid-format problem.
+  With the parameter dictionary extracted, converting them is mechanical.</p>
+  <p><strong>Every model name resolved against the extracted table,</strong> with one spelling correction:
+  ChatGPT's &ldquo;65 US DLX&rdquo; is the editor's <code>65 US DX</code>. The rest matched on normalised names.</p>
+  <ul>
+    <li><strong>paraPos is the inheritance key.</strong> A model with no parameters of its own uses the parameters of
+    the model that defines that paraPos. TRI-CHORUS carries paraPos 12, so it takes ANA-CHORUS's RATE, MIX, TONE and
+    DEPTH; RING MOD carries paraPos 6, so it takes TREMOLO's RATE, MIX and TONE. Neither was guessed.</li>
+    <li><strong>Rate was given in hertz, the pedal wants a 0 to 100 knob.</strong> Every design asked for 0.25 to
+    1.2 Hz, so they are mapped at ten times the hertz figure, landing between 3 and 12. Stated here so the figure stays traceable, and the hertz-to-knob curve is the one thing in this batch
+    that is derived rather than read.</li>
+    <li><strong>Three parameters ChatGPT specified do not exist on the model it chose:</strong> PHASER has no MIX,
+    RING MOD has no DEPTH, FLANGER has no DEPTH. Those are left at the model's own default rather than forced onto a
+    neighbouring knob.</li>
+    <li><strong>Byte format matters.</strong> The pedal's own files are four-space indented with sorted keys and a
+    trailing newline. The reference preset round-trips byte-identical under those settings, and the generated files
+    now match at 2,381 to 2,420 bytes against the pedal's 2,440.</li>
+  </ul>
+  <p><strong>The EQ scale is resolved.</strong> The definition reads -16 to +16 with default 0. The pedal's own
+  reference preset stores 16 in every band. Stored value is decibels plus 16, so flat is 16. Written into
+  APC 3 LIBRAS as 14, 15, 16, 16, 16 and read back in the editor as <strong>-2, -1, 0, 0, 0</strong>. EQ is now on in
+  all twenty.</p>
+  <p><strong>Read back off the hardware.</strong> RUSH YYZ was dragged back off slot 42C and APC 3 LIBRAS
+  off 44D. Both files the pedal returned are byte-identical to the files that were sent, so every parameter survived
+  the round trip.</p>
+  <p>Masters: <code>~/Projects/_outputs/ge150/mo-pro-new20/</code> (the twenty) and
+  <code>~/Projects/_outputs/ge150/mo-pro-cap/</code> (the eleven El Capistan modes, now at 37B&ndash;39D).</p>
 </div>
 
 <div class="card good">
