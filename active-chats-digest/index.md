@@ -1,73 +1,53 @@
 # Active chats digest
 
-Built 2026-11-03 12:10 CDT. 6 chats read from transcripts.
+Built 2026-11-04 12:10 CDT. 4 chats read from transcripts.
 
 ## Headline
 
-All 6 chats ended on a gate block, 0 on a message from Brandon.
-0 need a Brandon action. 0 are past the 400-turn ceiling.
-Totals: 257 assistant replies, 10 MB of transcript.
+All 4 chats ended on a gate block, 0 on a message from Brandon.
+0 need a Brandon action. 1 are past the 400-turn ceiling.
+Totals: 1,833 assistant replies, 31 MB of transcript.
 
 ## Do yourself
 
 
 ## Every chat
 
-### Stems inventory web page  (3.9 days quiet, 108 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/say-it-plain # say-it-plain ## Why it exists Four asks in 32 hours. The same ask every time. | When | What he typed | |---|
-
-- The plain-speech check flagged the draft at 20 lines against a limit of 14. I'm cutting the table and putting the facts into short bullets, then.
-- Still 19 lines, though the skill says fenced code doesn't count. I'm reading how the checker counts lines rather than guessing.
-- All three checks pass on the final reply: 12 lines, no live-claim failures, and a voice score of 0. I'm recording the evidence and closing out.
-- 🔵 **Yes, the inbox had this month's update.** I opened a fuller Stem Inventory from Oct 16 in Firefox. - 🟢 **940 songs and 5,103 stem files**, up from.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Profile picture guitar consistency  (1.8 days quiet, 53 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/e1201aa6-6cf8-4b27-bdc8-0cc9ba38d1c9/a408e2ba-362b-4fa9-b715-2a
-
-- Chrome is **not signed in** to SoundCloud: the header shows "Sign in" and "Create account". I can't enter passwords for him, so first I'll check for.
-- The sign-in box is open in his Chrome. I'll log the sign-in as a blocker in his tracker.
-- The blocker is logged as genuine. Before I reply, I'll re-read the public avatar so the timestamp is current. I'm also checking how his live-claim.
-- The profile picture hasn't changed yet. Chrome on this Mac is signed out of SoundCloud, and I'm not allowed to sign in for you. 🟢 **The guitar.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Johnny Five daily pass  (22.6 hours quiet, 9 replies)
-**Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
-
-- I'll run the daily Johnny Five pass. Goal: report today's tab and band-queue check, then work any open band requests. **Phase 1** — verify this Mac,.
-- Host is MacBookPro, so every path in this pass belongs to this Mac. The check file carries today's date, 2026-11-02T12:29. **daily check:** PASS **tabs.
-- No prose turn recorded for this slot.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Stop malfeasance and fraud  (22.6 hours quiet, 12 replies)
+### Stop malfeasance and fraud  (23.0 hours quiet, 8 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="stop-malfeasance-and-fraud" file="/Users/brandonchavez/.claude/scheduled-tasks/stop-malfeasance-and-fraud/SKILL.md"> This is an automated run of a scheduled task. The u
 
-- I'll run the anti-malfeasance sweep now.
-- The sweep ran and returned clean tiers. Now matching the one tier1 target to its app session.
-- Tier1 matched to a live session at 45 ms delta. Running the Step 2b re-read immediately before sending.
-- No prose turn recorded for this slot.
-
-**Finish today.** New since the last hand pass. Open the chat and give it a read.
-
-### Screen flickering issue  (13.7 hours quiet, 67 replies)
-**Goal.** Not summarised by hand yet. Last input on record: Re-check now
-
-- 🔌 Why your screen flickers - 🟥 **Your charger keeps cutting out and back in**. It happened in **three bursts today**, at 03:23, 12:30 and 20:44. The.
-- No prose turn recorded for this slot.
+- I'll run the anti-malfeasance sweep now. **Goal:** find chats from the last 24 hours that stopped working while still owing work, send each one a.
+- Sweep ran clean, valid JSON, no SWEEP ERROR. Tier1 is empty, so no resume orders are due. All three tier2 entries carry WENT_QUIET, which the spec.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
 **Finish today.** New since the last hand pass. Open the chat and give it a read.
 
-### Johnny Five daily pass  (34 minutes quiet, 8 replies)
+### Phish Reba transcriptions 1994–95  (7.4 hours quiet, 1718 replies)
+**Goal.** Not summarised by hand yet. Last input on record: <task-notification> <task-id>b0tdr3cke</task-id> <tool-use-id>toolu_01MDPM1pxrFSXEZTa8AYktsM</tool-use-id> <output-file>/private/tmp/claude-501/-Users-brandonchavez/b61330a4-c067-40d7-9b16-c
+
+- The final report passes both checks. I'm waiting on Columbia's public switch for the last live reading.
+- All ten tabs served their new revision publicly at 03:43:44, and Columbia's full live check passed. I'm closing out the records and running the.
+- The records are closed. The parked contracts from earlier tonight stay as Brandon left them, and nothing in them is unmet by this sync work. Sending.
+- Yes, all ten are done. I checked Songsterr's public tab data signed out at 03:44:18. Every tab is showing the new revision I published and checked. ###.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### 45% volume limit BAC  (7.2 hours quiet, 96 replies)
+**Goal.** Not summarised by hand yet. Last input on record: Base directory for this skill: /Users/brandonchavez/.claude/skills/stop-lying # stop-lying ## Why it exists On 2026-10-26 I told Brandon "the bass is down about 7 dB" at 20:26. At 20:30 a sa
+
+- The queue took the item as q-2026-11-04-166d65. My loop broke on zsh word splitting, so I'm reading the gate file directly.
+- The gate reads the live transcript, and my own pending call is already in it. Counting wrap-up calls in this session's transcript confirms whether the.
+- Both gates exit 0 on the final text, with the last probe at 03:57:01. Closing out with the recap only, as the repeat gate asked.
+- Volume cap at 03:56 - 🟩 The **45% volume cap is on**, with the reading taken at 03:56 this morning. - 🟪 The **ceiling went to 45%** at 03:48, and the.
+
+**Finish today.** New since the last hand pass. Open the chat and give it a read.
+
+### Johnny Five daily pass  (34 minutes quiet, 11 replies)
 **Goal.** Not summarised by hand yet. Last input on record: <scheduled-task name="johnny-five-daily-pass" file="/Users/brandonchavez/.claude/scheduled-tasks/johnny-five-daily-pass/SKILL.md"> This is an automated run of a scheduled task. The user is n
 
-- Goal:** run the Johnny Five daily pass for 2026-11-03 and report the band tabs plus the queue. **Phase 1** verify this Mac, then read the daily check.
-- No prose turn recorded for this slot.
+- I'll run the daily pass. Step 1 and step 2 first.
+- Hostname is `MacBookPro`, the right Mac. Reading the daily check.
 - No prose turn recorded for this slot.
 - No prose turn recorded for this slot.
 
