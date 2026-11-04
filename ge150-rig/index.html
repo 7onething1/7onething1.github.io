@@ -532,6 +532,27 @@ Equipment version is too low</pre>
 </div>
 
 <div class="card good">
+  <span class="tag t-good">2026-11-03 &middot; the 20 measured against the pedal's own factory presets</span>
+  <p>ChatGPT scored its own pack 6 out of 10 and asked for gain staging, gates, effect levels and modulation speed to be checked. Three of those are stored numbers, so they were checked against a baseline pulled off the pedal: <strong>15 factory presets dragged out of banks 01 to 15</strong>, one per amp model, covering every one of the nine amps the twenty use.</p>
+  <p><strong>Finding 1, the cabinet was never specified.</strong> All twenty blueprints left CAB empty, so all twenty inherited the reference preset's EL34 power tube, SM57 and mic distance 10. The factory presets assign a tube per amp and run the mic at 25 to 100. <strong>Seven had the wrong power tube.</strong> The two Jazz 120 presets were running an EL34 on an amp that is solid state and whose factory preset sets TUBE to OFF.</p>
+  <table><tr><th>Amp</th><th>Was</th><th>Now</th><th>Mic</th><th>Distance</th><th>Factory source</th></tr>
+    <tr><td>UK30 CL</td><td>EL34</td><td><strong>EL84</strong></td><td>MD441</td><td>10 &rarr; <strong>25</strong></td><td>UK 30 A</td></tr>
+    <tr><td>TRI REC DS</td><td>EL34</td><td><strong>6L6</strong></td><td>MD441</td><td>10 &rarr; <strong>50</strong></td><td>Tri Rect Lead</td></tr>
+    <tr><td>JAZZ 120</td><td>EL34</td><td><strong>OFF</strong></td><td>SM57</td><td>10 &rarr; <strong>100</strong></td><td>Jazz 120</td></tr>
+    <tr><td>MARKV DS</td><td>EL34</td><td><strong>6L6</strong></td><td>SM57</td><td>10 &rarr; <strong>64</strong></td><td>Mark4 Lead</td></tr>
+    <tr><td>HWT 103</td><td>EL34</td><td><strong>EL34</strong></td><td>SM57</td><td>10 &rarr; <strong>46</strong></td><td>HWT 103</td></tr>
+    <tr><td>PLX100</td><td>EL34</td><td><strong>EL34</strong></td><td>MD421</td><td>10 &rarr; <strong>50</strong></td><td>Brit Plexi Dist</td></tr>
+    <tr><td>J800</td><td>EL34</td><td><strong>EL34</strong></td><td>SM57</td><td>10 &rarr; <strong>44</strong></td><td>Brit 800 Drive</td></tr>
+    <tr><td>65 US DX</td><td>EL34</td><td><strong>6V6</strong></td><td>SM57</td><td>10 &rarr; <strong>39</strong></td><td>65 Deluxe</td></tr>
+    <tr><td>HUGEN DS</td><td>EL34</td><td><strong>EL34</strong></td><td>SM57</td><td>10 &rarr; <strong>55</strong></td><td>Hugen HiGain</td></tr>
+  </table>
+  <p><strong>Finding 2, one master level for all twenty.</strong> Every blueprint wrote AMP master 65, identically. The factory presets run master 52 to 100 against gain 16 to 100, with no formula tying the two, so the factory is balancing output by ear rather than by rule. <strong>This one is still open,</strong> because the honest way to set it is to measure each preset's output and level-match, rather than invent a number.</p>
+  <p><strong>Finding 3, there is no guitar plugged in.</strong> Recording the pedal's own USB output with a gain-100, gate-off factory preset loaded returns -91 dBFS, which is digital silence. Nothing can be said about how the noise gates behave on a real signal until there is a real signal. The pedal does present itself as a full duplex Core Audio device at 44.1 kHz, so re-amping a dry track through each preset and measuring the return is the route to both the master levels and the gate check.</p>
+  <p><strong>What was corrected and re-written.</strong> All twenty were rebuilt with the factory tube, mic, centre and distance for their amp, and all twenty re-written to slots 40A to 44D. Readbacks of 43D DEFT DIG BATH and 44D APC 3 LIBRAS come back byte-identical, with TUBE OFF and TUBE EL84 respectively.</p>
+  <p>Masters: <code>~/Projects/_outputs/ge150/mo-pro-new20-v2/</code>. Baseline: <code>~/Projects/_outputs/ge150/factory-baseline/</code> (15 factory presets).</p>
+</div>
+
+<div class="card good">
   <span class="tag t-good">2026-11-03 &middot; 31 more presets written, 55 now on the pedal</span>
   <p>The twenty that were missing were in the most recent ChatGPT conversation, packaged as
   <code>GE150PRO_20_New_Tone_Designs_2026-11-03.zip</code> and never converted. ChatGPT had shipped them as JSON
