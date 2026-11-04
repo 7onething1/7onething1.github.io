@@ -60,7 +60,7 @@ footer{margin-top:48px;font-size:13px;color:var(--ink-soft)}
 <header class="top"><div class="in"><h1>EPOCHVERB</h1><span class="tag">VINTAGE DIGITAL REVERBERATOR · VST3 · ABLETON LIVE 11</span></div></header>
 <main>
 <nav class="toc" aria-label="Contents">
-  <a href="#listen">Listen</a><a href="#engines">Engines</a><a href="#measure">Measurements</a><a href="#reference">Reference</a><a href="#verified">Verified</a><a href="#open">Still to check in Live</a><a href="#limits">Limitations</a><a href="#files">Files</a>
+  <a href="#listen">Listen</a><a href="#engines">Engines</a><a href="#measure">Measurements</a><a href="#reference">vs VintageVerb</a><a href="#verified">Verified</a><a href="#open">Still to check in Live</a><a href="#limits">Limitations</a><a href="#files">Files</a>
 </nav>
 
 <p class="lede"><b>EpochVerb is a compiled, installed 64-bit VST3 reverb</b> with six original algorithms and three converter color modes. Ableton Live 11.3.43 scans it and loads it on an audio track.</p>
@@ -119,35 +119,34 @@ footer{margin-top:48px;font-size:13px;color:var(--ink-soft)}
 <tr><td>Loudness across algorithms, 2 s impulse, Classic color</td><td class="num">matched to 0.500 ±0.001 (gate 0.350)</td></tr>
 </tbody></table></div>
 
-<h2 id="reference">Reference comparison</h2>
-<p>VintageVerb is not installed on this Mac. Valhalla Supermassive is, so its impulse response (Gemini, Delay 40 ms, Feedback 75%, Density 100%) was measured with the same code as EpochVerb at 2 s decay. Tail ringing is the tallest narrow peak in the tail spectrum above a third-octave average. Pure decaying noise scores 9.1 dB, the smooth ideal.</p>
-<div class="chart" role="img" aria-label="Bar chart of tail ringing in decibels. Dream Cloud 8.7, ideal floor 9.1, Supermassive 9.1, Deep Space 10.3, Plate 11.0, Hall 11.6, Chamber 13.7.">
+<h2 id="reference">Against Valhalla VintageVerb</h2>
+<p>VintageVerb 4.0.5, unpacked from its demo installer and loaded by path in the same test host, so nothing was installed. Both plug-ins got the same settings: Decay 2 s, Size 60%, Attack 0, Diffusion 80%, Mod 0.5 Hz at 40%, no damping or high cut, predelay 0. VintageVerb ran its 80s color, EpochVerb its Classic color. All 22 VintageVerb modes were measured with the same code. Tail ringing is the tallest narrow peak in the tail spectrum above a third-octave average, and pure decaying noise scores 9.1 dB. Amber is EpochVerb, teal is VintageVerb.</p>
+<div class="chart" role="img" aria-label="Paired bar chart of tail ringing in decibels, EpochVerb against the closest VintageVerb mode. Vintage Hall 11.6 against Concert Hall 10.9, Classic Plate 11.0 against Plate 12.6, Warm Chamber 13.7 against Chamber 11.7, Deep Space 10.3 against Random Space 9.5, Dream Cloud 8.7 against Chorus Space 10.7, Nonlinear Gate 9.9 against Nonlin 12.7. Decaying-noise floor 9.1.">
 <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="Menlo,ui-monospace,monospace" font-size="13">
-  <g fill="#8fd3b6" opacity=".25"><rect x="210" y="14" width="1" height="262"/><rect x="343" y="14" width="1" height="262"/><rect x="477" y="14" width="1" height="262"/><rect x="610" y="14" width="1" height="262"/></g>
-  <g fill="#8fd3b6" font-size="11"><text x="206" y="292">0</text><text x="335" y="292">5</text><text x="467" y="292">10</text><text x="600" y="292">15 dB</text></g>
+  <g fill="#8fd3b6" opacity=".25"><rect x="210" y="10" width="1" height="266"/><rect x="343" y="10" width="1" height="266"/><rect x="477" y="10" width="1" height="266"/><rect x="610" y="10" width="1" height="266"/></g>
+  <rect x="453" y="10" width="2" height="266" fill="#8fd3b6" opacity=".8"/><text x="459" y="284" fill="#8fd3b6" font-size="11">noise floor 9.1</text>
+  <g fill="#8fd3b6" font-size="11"><text x="206" y="296">0</text><text x="335" y="296">5</text><text x="467" y="296">10</text><text x="600" y="296">15 dB</text></g>
   <g>
-    <text x="0" y="34" fill="#fbf6ea">Dream Cloud</text><rect x="210" y="22" width="232" height="16" rx="3" fill="#e39b32"/><text x="450" y="35" fill="#e39b32">8.7</text>
-    <text x="0" y="72" fill="#fbf6ea">Ideal floor</text><rect x="210" y="60" width="243" height="16" rx="3" fill="#8fd3b6"/><text x="461" y="73" fill="#8fd3b6">9.1</text>
-    <text x="0" y="110" fill="#fbf6ea">Valhalla Supermassive</text><rect x="210" y="98" width="243" height="16" rx="3" fill="#5f9e9b"/><text x="461" y="111" fill="#5f9e9b">9.1</text>
-    <text x="0" y="148" fill="#fbf6ea">Deep Space</text><rect x="210" y="136" width="275" height="16" rx="3" fill="#e39b32"/><text x="493" y="149" fill="#e39b32">10.3</text>
-    <text x="0" y="186" fill="#fbf6ea">Classic Plate</text><rect x="210" y="174" width="293" height="16" rx="3" fill="#e39b32"/><text x="511" y="187" fill="#e39b32">11.0</text>
-    <text x="0" y="224" fill="#fbf6ea">Vintage Hall</text><rect x="210" y="212" width="309" height="16" rx="3" fill="#e39b32"/><text x="527" y="225" fill="#e39b32">11.6</text>
-    <text x="0" y="262" fill="#fbf6ea">Warm Chamber</text><rect x="210" y="250" width="365" height="16" rx="3" fill="#c8553d"/><text x="583" y="263" fill="#c8553d">13.7</text>
+    <text x="0" y="31" fill="#fbf6ea">Vintage Hall</text><text x="0" y="46" fill="#5f9e9b" font-size="11">VV Concert Hall</text><rect x="210" y="20" width="309" height="12" rx="3" fill="#e39b32"/><text x="527" y="31" fill="#e39b32">11.6</text><rect x="210" y="35" width="291" height="12" rx="3" fill="#5f9e9b"/><text x="509" y="46" fill="#5f9e9b">10.9</text>
+    <text x="0" y="75" fill="#fbf6ea">Classic Plate</text><text x="0" y="90" fill="#5f9e9b" font-size="11">VV Plate</text><rect x="210" y="64" width="293" height="12" rx="3" fill="#e39b32"/><text x="511" y="75" fill="#e39b32">11.0</text><rect x="210" y="79" width="336" height="12" rx="3" fill="#5f9e9b"/><text x="554" y="90" fill="#5f9e9b">12.6</text>
+    <text x="0" y="119" fill="#fbf6ea">Warm Chamber</text><text x="0" y="134" fill="#5f9e9b" font-size="11">VV Chamber</text><rect x="210" y="108" width="365" height="12" rx="3" fill="#c8553d"/><text x="583" y="119" fill="#e39b32">13.7</text><rect x="210" y="123" width="312" height="12" rx="3" fill="#5f9e9b"/><text x="530" y="134" fill="#5f9e9b">11.7</text>
+    <text x="0" y="163" fill="#fbf6ea">Deep Space</text><text x="0" y="178" fill="#5f9e9b" font-size="11">VV Random Space</text><rect x="210" y="152" width="275" height="12" rx="3" fill="#e39b32"/><text x="493" y="163" fill="#e39b32">10.3</text><rect x="210" y="167" width="253" height="12" rx="3" fill="#5f9e9b"/><text x="471" y="178" fill="#5f9e9b">9.5</text>
+    <text x="0" y="207" fill="#fbf6ea">Dream Cloud</text><text x="0" y="222" fill="#5f9e9b" font-size="11">VV Chorus Space</text><rect x="210" y="196" width="232" height="12" rx="3" fill="#e39b32"/><text x="450" y="207" fill="#e39b32">8.7</text><rect x="210" y="211" width="285" height="12" rx="3" fill="#5f9e9b"/><text x="503" y="222" fill="#5f9e9b">10.7</text>
+    <text x="0" y="251" fill="#fbf6ea">Nonlinear Gate</text><text x="0" y="266" fill="#5f9e9b" font-size="11">VV Nonlin</text><rect x="210" y="240" width="264" height="12" rx="3" fill="#e39b32"/><text x="482" y="251" fill="#e39b32">9.9</text><rect x="210" y="255" width="339" height="12" rx="3" fill="#5f9e9b"/><text x="557" y="266" fill="#5f9e9b">12.7</text>
   </g>
 </svg>
 </div>
 <div class="tw" style="margin-top:12px"><table>
-<thead><tr><th>Source</th><th>Ringing</th><th>Bins over 11 dB</th><th>Dense after</th><th>L/R corr</th></tr></thead>
+<thead><tr><th>EpochVerb</th><th>VintageVerb mode</th><th>T60, set 2 s</th><th>Ringing dB</th><th>Bins over 11 dB</th><th>Dense after, ms</th></tr></thead>
 <tbody>
-<tr><td>Ideal floor, decaying noise</td><td class="num">9.1 dB</td><td class="num">0</td><td class="num">n/a</td><td class="num">0.00</td></tr>
-<tr><td>Valhalla Supermassive</td><td class="num">9.1 dB</td><td class="num">0</td><td class="num">90 ms</td><td class="num">0.02</td></tr>
-<tr><td>EpochVerb Dream Cloud</td><td class="num">8.7 dB</td><td class="num">0</td><td class="num">75 ms</td><td class="num">0.02</td></tr>
-<tr><td>EpochVerb Deep Space</td><td class="num">10.3 dB</td><td class="num">0</td><td class="num">130 ms</td><td class="num">0.01</td></tr>
-<tr><td>EpochVerb Classic Plate</td><td class="num">11.0 dB</td><td class="num">0</td><td class="num">255 ms</td><td class="num">-0.01</td></tr>
-<tr><td>EpochVerb Vintage Hall</td><td class="num">11.6 dB</td><td class="num">1</td><td class="num">60 ms</td><td class="num">0.01</td></tr>
-<tr><td>EpochVerb Warm Chamber</td><td class="num">13.7 dB</td><td class="num">9</td><td class="num">25 ms</td><td class="num">0.03</td></tr>
+<tr><td>Vintage Hall</td><td>Concert Hall</td><td class="num">1.85 / 2.16</td><td class="num">11.6 / 10.9</td><td class="num">1 / 0</td><td class="num">60 / 280</td></tr>
+<tr><td>Classic Plate</td><td>Plate</td><td class="num">1.97 / 1.73</td><td class="num">11.0 / 12.6</td><td class="num">0 / 1</td><td class="num">255 / 175</td></tr>
+<tr><td>Warm Chamber</td><td>Chamber</td><td class="num">1.87 / 2.03</td><td class="num">13.7 / 11.7</td><td class="num">9 / 1</td><td class="num">25 / 40</td></tr>
+<tr><td>Deep Space</td><td>Random Space</td><td class="num">1.87 / 2.17</td><td class="num">10.3 / 9.5</td><td class="num">0 / 0</td><td class="num">130 / 670</td></tr>
+<tr><td>Dream Cloud</td><td>Chorus Space</td><td class="num">1.85 / 2.00</td><td class="num">8.7 / 10.7</td><td class="num">0 / 0</td><td class="num">75 / 280</td></tr>
+<tr><td>Nonlinear Gate</td><td>Nonlin</td><td class="num">0.53 / 0.77</td><td class="num">9.9 / 12.7</td><td class="num">0 / 9</td><td class="num">60 / 525</td></tr>
 </tbody></table></div>
-<p class="cap">Dream Cloud and Deep Space sit at the noise floor, level with the Valhalla reference. Hall shows a single stray bin. Chamber has real modal peaks at a 2 s decay.</p>
+<p class="cap">Each cell reads EpochVerb / VintageVerb. VintageVerb's 20 long-tail modes ring between 8.8 and 12.6 dB. Four EpochVerb engines land inside that range, Dream Cloud lands just under it, and Warm Chamber is the one engine above it. VintageVerb's long modes run long on decay (median 2.18 s at a 2 s setting), and EpochVerb runs a little short (1.85 to 1.97 s). VintageVerb also builds echo density slowly in most modes, a trait of its character. No demo noise bursts appeared in any render. Valhalla Supermassive, measured earlier with the same code, scores 9.1 dB.</p>
 
 <h2 id="verified">Verified</h2>
 <div class="tw"><table>
@@ -157,6 +156,7 @@ footer{margin-top:48px;font-size:13px;color:var(--ink-soft)}
 <tr><td>pluginval strictness 10: editor, state, automation, fuzzing, threads, 44.1/48/96 kHz, blocks 64 to 1024</td><td class="ok">SUCCESS</td><td><code>tests/validation/pluginval_strict10.txt</code></td></tr>
 <tr><td>Installed VST3 in a host: every algorithm audible, automation, 12 programs, state, bypass, mono in, 88.2 kHz, odd blocks</td><td class="ok">69 of 69</td><td><code>tests/validation/host_test.txt</code></td></tr>
 <tr><td>Preset files load; user presets save, reload and list</td><td class="ok">6 of 6</td><td><code>tests/validation/preset_test.txt</code></td></tr>
+<tr><td>A/B against Valhalla VintageVerb 4.0.5, 22 modes, same settings and code</td><td class="ok">measured, no demo artifacts</td><td><code>tests/reference/vintageverb.json</code></td></tr>
 <tr><td>Live 11.3.43 plug-in scan</td><td class="ok">found, drwu EpochVerb 1.0.0, Fx|Reverb</td><td>Live <code>PluginScanner.txt</code> 16:33:50</td></tr>
 <tr><td>Live 11.3.43 loads it on an audio track from a set</td><td class="ok">"Restored: EpochVerb", 20 parameters</td><td>Live <code>Log.txt</code> 16:44:48</td></tr>
 </tbody></table></div>
@@ -179,10 +179,10 @@ footer{margin-top:48px;font-size:13px;color:var(--ink-soft)}
 
 <h2 id="limits">Limitations</h2>
 <ul>
-<li><b>Warm Chamber rings at long decays.</b> Its loops total about 0.18 s, which gives few modes per hertz. It is tuned for 0.3 to 1.5 s rooms.</li>
-<li><b>Classic Plate fills in late.</b> Full echo density arrives at 255 ms.</li>
+<li><b>Warm Chamber rings at long decays.</b> At 13.7 dB it is the one engine outside VintageVerb's range. Its loops total about 0.18 s, which gives few modes per hertz. It is tuned for 0.3 to 1.5 s rooms.</li>
+<li><b>Classic Plate fills in late.</b> Full echo density arrives at 255 ms, against 175 ms for VintageVerb's Plate.</li>
 <li><b>Intel build only.</b> This Mac is x86_64. The README has the flag for an Apple Silicon or universal build.</li>
-<li><b>No REA analysis.</b> No VintageVerb binary is on this Mac, and the DSP is original.</li>
+<li><b>Black-box comparison only.</b> VintageVerb was measured through its audio output. Its binary was not analysed, and the EpochVerb DSP is original.</li>
 <li><b>Ad-hoc signed.</b> Fine on this Mac. Another Mac needs Developer ID signing.</li>
 </ul>
 

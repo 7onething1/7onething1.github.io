@@ -94,35 +94,20 @@ Color modes change the signal path. **Early** band-limits to 7 kHz and adds a 10
 | Loudness across algorithms, 2 s impulse, Classic color | matched to 0.500 ±0.001 (gate 0.350) |
 |---|---|
 
-## Reference comparison
+## Against Valhalla VintageVerb
 
-VintageVerb is not installed on this Mac. Valhalla Supermassive is, so its impulse response (Gemini, Delay 40 ms, Feedback 75%, Density 100%) was measured with the same code as EpochVerb at 2 s decay. Tail ringing is the tallest narrow peak in the tail spectrum above a third-octave average. Pure decaying noise scores 9.1 dB, the smooth ideal.
+VintageVerb 4.0.5, unpacked from its demo installer and loaded by path in the same test host, so nothing was installed. Both plug-ins got the same settings: Decay 2 s, Size 60%, Attack 0, Diffusion 80%, Mod 0.5 Hz at 40%, no damping or high cut, predelay 0. VintageVerb ran its 80s color, EpochVerb its Classic color. All 22 VintageVerb modes were measured with the same code. Pure decaying noise scores 9.1 dB of ringing.
 
-| Source | Ringing | Bins over 11 dB | Dense after | L/R corr |
-|---|---|---|---|---|
+| EpochVerb | VintageVerb mode | T60, set 2 s | Ringing dB | Bins over 11 dB | Dense after, ms |
+|---|---|---|---|---|---|
+| Vintage Hall | Concert Hall | 1.85 / 2.16 | 11.6 / 10.9 | 1 / 0 | 60 / 280 |
+| Classic Plate | Plate | 1.97 / 1.73 | 11.0 / 12.6 | 0 / 1 | 255 / 175 |
+| Warm Chamber | Chamber | 1.87 / 2.03 | 13.7 / 11.7 | 9 / 1 | 25 / 40 |
+| Deep Space | Random Space | 1.87 / 2.17 | 10.3 / 9.5 | 0 / 0 | 130 / 670 |
+| Dream Cloud | Chorus Space | 1.85 / 2.00 | 8.7 / 10.7 | 0 / 0 | 75 / 280 |
+| Nonlinear Gate | Nonlin | 0.53 / 0.77 | 9.9 / 12.7 | 0 / 9 | 60 / 525 |
 
-| Ideal floor, decaying noise | 9.1 dB | 0 | n/a | 0.00 |
-|---|---|---|---|---|
-
-| Valhalla Supermassive | 9.1 dB | 0 | 90 ms | 0.02 |
-|---|---|---|---|---|
-
-| EpochVerb Dream Cloud | 8.7 dB | 0 | 75 ms | 0.02 |
-|---|---|---|---|---|
-
-| EpochVerb Deep Space | 10.3 dB | 0 | 130 ms | 0.01 |
-|---|---|---|---|---|
-
-| EpochVerb Classic Plate | 11.0 dB | 0 | 255 ms | -0.01 |
-|---|---|---|---|---|
-
-| EpochVerb Vintage Hall | 11.6 dB | 1 | 60 ms | 0.01 |
-|---|---|---|---|---|
-
-| EpochVerb Warm Chamber | 13.7 dB | 9 | 25 ms | 0.03 |
-|---|---|---|---|---|
-
-Dream Cloud and Deep Space sit at the noise floor, level with the Valhalla reference. Hall shows a single stray bin. Chamber has real modal peaks at a 2 s decay.
+Each cell reads EpochVerb / VintageVerb. VintageVerb's 20 long-tail modes ring between 8.8 and 12.6 dB. Four EpochVerb engines land inside that range, Dream Cloud lands just under it, and Warm Chamber is the one engine above it. VintageVerb's long modes run long on decay (median 2.18 s at a 2 s setting), and EpochVerb runs a little short (1.85 to 1.97 s). VintageVerb also builds echo density slowly in most modes, a trait of its character. No demo noise bursts appeared in any render. Valhalla Supermassive, measured earlier with the same code, scores 9.1 dB.
 
 ## Verified
 
@@ -181,7 +166,7 @@ No listening tests were run in this session. Every quality claim above is an obj
 
 - **Intel build only.** This Mac is x86_64. The README has the flag for an Apple Silicon or universal build.
 
-- **No REA analysis.** No VintageVerb binary is on this Mac, and the DSP is original.
+- **Black-box comparison only.** VintageVerb was measured through its audio output. Its binary was not analysed, and the EpochVerb DSP is original.
 
 - **Ad-hoc signed.** Fine on this Mac. Another Mac needs Developer ID signing.
 
