@@ -442,6 +442,8 @@ Equipment version is too low</pre>
     <li>The original sandbox zip is gone. What you have is a rebuild from the generator, matching value for value.</li>
     <li>Whether the <code>.mo</code> files import at all depends on section 3.</li>
   </ul>
+  <p><strong>Superseded 2026-11-03.</strong> The pedal is connected, Pro-format files were built, and 55 presets
+  are on it. The last card on this page carries the current state, including an EQ defect found on 2026-11-04.</p>
 </div>
 
 <div class="card bad">
@@ -664,10 +666,35 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   account. Loop data: <code>~/Projects/_outputs/chatgpt-nudge-loop/LOOP-DATA-2026-11-04.md</code>.</p>
 </div>
 
+<div class="card bad">
+  <span class="tag t-bad">2026-11-04 &middot; every EQ boost in the twenty was dropped</span>
+  <p>The blueprints were checked against the twenty masters field by field, 20 presets across 9 chains.
+  Model indices: 150 of 150 correct. Amp knobs including the master at 93: 120 of 120 correct.
+  <strong>EQ: all 46 of the requested boosts were missing.</strong></p>
+  <p><strong>The split is exact.</strong> Of the EQ values the blueprints asked for, 29 negative cuts landed,
+  25 zeros landed, and 0 of 46 positive boosts landed. All 46 sat at 16, which is the stored value for 0 dB.
+  Every one of the twenty presets is affected, between one and three bands each.</p>
+  <p><strong>The cuts landing is what proves the reading.</strong> A wrong band mapping would misplace a cut as
+  readily as a boost, and every cut is in its right band: a &minus;1 dB low mid reads 15 at 250 Hz. Factory
+  presets are the second control, spanning 13 to 21 with 58 of their 79 values sitting exactly on 16, so values
+  above 16 are legal and Mooer uses them.</p>
+  <p>The extracted table defines each band as <code>-16_16_1_0_</code>, meaning &minus;16 to +16 dB, step 1,
+  default 0, stored with an offset of 16. The conversion applied that offset to zero and negative values and
+  skipped the positive ones. This is a separate matter from the blueprint pack converging at its ninth pass,
+  which concerns the designs rather than their conversion.</p>
+  <p><strong>State, by layer.</strong> The twenty masters are rebuilt as
+  <code>~/Projects/_outputs/ge150/mo-pro-new20-v4/</code>: 46 bands corrected, 46 field changes in total, none
+  outside the EQ block, and the blueprint check now returns 20 of 20 clean. The editor's COMPUTER library holds
+  those twenty, sha256-verified on all twenty. <strong>The pedal still holds the old files.</strong> Writing them
+  needs the Mac unlocked, and the resume kit is <code>v4_probe.sh</code> then <code>v4_write.sh</code> in the
+  same folder. The probe measures and writes nothing; the writer checks the lock before every drag, because the
+  earlier pass returned fourteen false results after the saver fired.</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
-  Three faults observed on this Mac, 55 presets written to the pedal, two read back byte-identical to their masters. The listening test needs a guitar in the instrument jack.
+  Three faults observed on this Mac, 55 presets written to the pedal, two read back byte-identical to their masters, which proves the transfer path rather than the contents. The twenty new presets carry an EQ defect, corrected in the masters and not yet written to the pedal.
 </footer>
 
 </div>

@@ -88,9 +88,30 @@ rows on this page had written it "Yellow Comp". Both rows were corrected.
 The blueprint pack itself converged at its ninth pass, with all 55 designs byte-for-byte unchanged
 from there through the fourteenth. Nothing after the ninth moves a tone.
 
+## The EQ defect, found 2026-11-04
+
+Checking the twenty masters against their blueprints field by field gave 150 of 150 model indices
+correct and 120 of 120 amp knobs correct, including the master at 93. **Every one of the 46 requested
+EQ boosts was missing**, sitting at 16, the stored value for 0 dB.
+
+The split is exact: 29 negative cuts landed, 25 zeros landed, 0 of 46 positive boosts landed. The cuts
+landing in their correct bands is what proves the band mapping, and factory presets are the second
+control, spanning 13 to 21 with 58 of 79 values on exactly 16. The extracted table defines each band
+as `-16_16_1_0_`, so the storage offset is 16 and values above it are legal.
+
+| layer | state |
+|---|---|
+| masters | rebuilt as `~/Projects/_outputs/ge150/mo-pro-new20-v4/`, 46 bands corrected, 20 of 20 clean |
+| editor COMPUTER library | holds the v4 twenty, sha256-verified on all twenty |
+| the pedal | still holds the old files, needs the Mac unlocked to write |
+
+Resume kit in the same folder: `v4_probe.sh` measures and writes nothing, then `v4_write.sh` performs
+the drags and checks the lock state before each one.
+
 ## Stated limits
 
 No preset has been listened to through a guitar. Tone values carry ChatGPT's own citations and were
 not re-verified against the Mooer manual. Two of the twenty, slots 40A and 42B, were read back off
-the device and are byte-identical to their masters; the rest are verified by name in the device list
+the device and are byte-identical to their masters, which proves the transfer path and not the
+contents, since those masters carried the EQ defect. The rest are verified by name in the device list
 rather than by readback.
