@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPT Nudge Loop</title><style>
+:root{--c1:#E0A472;--c2:#6FB1A6;--c3:#A86E3F;--c4:#EAD9B0;--c5:#F3C969;
+--c6:#9FB382;--ink:#111111;--bg:#fbf7ee;--card:#fffdf7;--line:#e7ddc7;}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 -apple-system,Inter,Segoe UI,
+Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px 80px}
+header.hero{background:linear-gradient(135deg,var(--c1),var(--c2));
+padding:30px 18px 22px;border-bottom:6px solid var(--c5)}
+header.hero .inner{max-width:1040px;margin:0 auto}
+h1{margin:0 0 4px;font-size:30px;letter-spacing:.3px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;
+border-bottom:2px solid var(--line)}
+.meta{font-size:13px;color:#3a352b}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:12px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:14px}
+.card .big{font-size:28px;font-weight:700;line-height:1}
+.card .lab{font-size:12px;color:#5a5244;margin-top:5px}
+table{width:100%;border-collapse:collapse;background:var(--card);
+border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.t{white-space:nowrap;color:#5a5244;font-variant-numeric:tabular-nums}
+td.o{font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.chip{color:#fff;border-radius:20px;padding:2px 9px;font-size:11px;
+font-weight:700;white-space:nowrap}
+ol.angles{padding-left:0;list-style:none}
+ol.angles li{background:var(--card);border:1px solid var(--line);
+border-left:5px solid var(--c4);border-radius:8px;padding:10px 12px;
+margin-bottom:8px;font-size:13.5px}
+ol.angles li.now{border-left-color:var(--c5);background:#fffaec}
+ul.t{padding-left:0;list-style:none}
+ul.t li{background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:9px 12px;margin-bottom:7px}
+code{background:#f1e9d6;padding:1px 5px;border-radius:4px;font-size:12.5px}
+.note{background:var(--card);border:1px solid var(--line);
+border-left:5px solid var(--c6);border-radius:8px;padding:12px 14px;
+margin:14px 0;font-size:14px}
+a{color:#8a5a2b}
+</style></head><body>
+<header class="hero"><div class="inner">
+<h1>ChatGPT Nudge Loop</h1>
+<div class="meta">Every ten minutes, a launchd job types one audit instruction into a
+ChatGPT conversation in Chrome and presses Send. No tokens, no Claude session needed.</div>
+<div class="meta">Page regenerated 2026-11-04 15:48:17 from <code>_state/chatgpt_next.log</code>.
+launchd: <code>-	0	com.drwu.chatgpt-next</code></div>
+</div></header><div class="wrap">
+
+<div class="cards">
+<div class="card"><div class="big">47</div>
+<div class="lab">real sends logged</div></div>
+<div class="card"><div class="big">43</div>
+<div class="lab">of 46 gaps on a 9 to 11 min cadence</div></div>
+<div class="card"><div class="big">13</div>
+<div class="lab">skipped while ChatGPT was writing</div></div>
+<div class="card"><div class="big">493</div>
+<div class="lab">failures, nearly all one dead thread</div></div>
+<div class="card"><div class="big">8</div>
+<div class="lab">rotating audit angles</div></div>
+</div>
+
+<div class="note"><b>Why the rotation exists.</b> One identical sentence sent fifty times
+makes ChatGPT restate its last answer. Each fire takes the next angle in the list, so the
+loop keeps asking a different question of the same work. The counter sits at
+<b>6</b>, so the next fire sends angle <b>7</b>.</div>
+
+<h2>The ten-minute instruction, in rotation</h2>
+<ol class="angles"><li class=""><b>1/8</b><br>fix anything else that&#x27;s wrong, and search online where you have questions.</li><li class=""><b>2/8</b><br>fix anything else that&#x27;s wrong. This pass, re-check every parameter value against the manual&#x27;s actual range for that control, and list any you cannot source.</li><li class=""><b>3/8</b><br>fix anything else that&#x27;s wrong. This pass, audit slot assignment and ordering end to end, and name every slot whose mapping you cannot verify.</li><li class=""><b>4/8</b><br>fix anything else that&#x27;s wrong. This pass, verify every claimed amp and effect model name against Mooer&#x27;s own documentation, and flag each one you inferred.</li><li class=""><b>5/8</b><br>fix anything else that&#x27;s wrong. This pass, attack the file format itself: schema, encoding, byte layout, and whether the pedal would actually accept the pack.</li><li class=""><b>6/8</b><br>fix anything else that&#x27;s wrong. This pass, find what the regression suite does not cover, then add the missing checks and show them failing before they pass.</li><li class="now"><b>7/8</b> &larr; next<br>fix anything else that&#x27;s wrong. This pass, reconcile the handoff document against the shipped pack and fix every place they disagree.</li><li class=""><b>8/8</b><br>fix anything else that&#x27;s wrong, and search online where you have questions. If you have run out of defects you can verify without hardware, say so plainly in one line and then re-audit your three least-certain claims instead of restating the hardware caveat.</li></ol>
+
+<h2>Targets, in order</h2>
+<div class="note"><b>Why there is a list.</b> A ChatGPT conversation eventually refuses
+new messages with "you have reached the maximum length for this conversation." The first
+build of this job pointed at one thread, that thread filled up, and the job logged 90
+failures in a day while still exiting 0, so launchd read a healthy service. Now a maxed
+thread is recorded dead and the job walks to the next id in the list.</div>
+<ul class="t"><li><code>6aea3179-3f68-83e8-b516-d0e5bd0ec13e</code> <span class="chip" style="background:#2e7d32">live</span></li></ul>
+
+<h2>Last 26 fires</h2>
+<table><tr><td class="t">2026-11-04 15:46:47</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 15:46:46</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 15:46:45</td><td><span class="chip" style="background:#8c3b2f">DEAD</span></td><td class="o">DEAD 6ae64fd3 at max length, advancing</td></tr><tr><td class="t">2026-11-04 15:46:16</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 15:45:07</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=9 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 15:34:59</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=8 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 15:24:52</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=7 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 15:14:44</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=6 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 15:04:37</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=5 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 14:54:30</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:54:06</td><td><span class="chip" style="background:#2e7d32">SENT</span></td><td class="o">SENT button:Send | composerLeft=&quot;&quot; userBubbles=5 lastUser=&quot;fix anything else that&#x27;s wrong, and sear&quot; status=&quot;Loading profile&quot;</td></tr><tr><td class="t">2026-11-04 14:53:38</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:53:17</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:52:57</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:52:36</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:52:15</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:51:54</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:51:33</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:51:08</td><td><span class="chip" style="background:#8a7a3f">SKIP</span></td><td class="o">SKIP busy (stop control present)</td></tr><tr><td class="t">2026-11-04 14:50:54</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 14:40:54</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 14:30:54</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 14:20:53</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 14:10:53</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 14:00:53</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr><tr><td class="t">2026-11-04 13:50:53</td><td><span class="chip" style="background:#8c3b2f">FAIL</span></td><td class="o">FAIL conversation is at max length - retarget needed</td></tr></table>
+
+<h2>Files</h2>
+<ul class="t">
+<li><code>~/.claude/skills/_shared/chatgpt_next.sh</code> the job</li>
+<li><code>~/.claude/skills/_shared/chatgpt_next_msgs.txt</code> the rotation</li>
+<li><code>~/.claude/skills/_shared/chatgpt_next_targets.txt</code> the target list</li>
+<li><code>~/.claude/skills/_shared/_state/chatgpt_next.log</code> every fire</li>
+<li><code>~/Library/LaunchAgents/com.drwu.chatgpt-next.plist</code> the ten minutes</li>
+<li><code>~/.claude/skills/_shared/chatgpt_nudge_page.py</code> regenerates this page</li>
+</ul>
+</div></body></html>
