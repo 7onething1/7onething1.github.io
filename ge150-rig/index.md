@@ -103,15 +103,24 @@ as `-16_16_1_0_`, so the storage offset is 16 and values above it are legal.
 |---|---|
 | masters | rebuilt as `~/Projects/_outputs/ge150/mo-pro-new20-v4/`, 46 bands corrected, 20 of 20 clean |
 | editor COMPUTER library | holds the v4 twenty, sha256-verified on all twenty |
-| the pedal | still holds the old files, needs the Mac unlocked to write |
+| the pedal | all 20 written to 40A-44D, every write confirmed, 3 read back matching by sha256 |
 
-Resume kit in the same folder: `v4_probe.sh` measures and writes nothing, then `v4_write.sh` performs
-the drags and checks the lock state before each one.
+Readbacks, each with a fresh file mtime proving the bytes came off the device:
+
+| slot | preset | EQ stored | dB | sha256 |
+|---|---|---|---|---|
+| 43C | KC FRACTURE | 14, 16, 18, 18, 17 | -2, 0, +2, +2, +1 | `7bc1e038...` |
+| 44D | APC 3 LIBRAS | 14, 15, 16, 17, 18 | -2, -1, 0, +1, +2 | `9898501a...` |
+| 42C | RUSH YYZ | 16, 15, 19, 18, 17 | 0, -1, +3, +2, +1 | `19d84e50...` |
+
+Scripts in the same folder: `v4_probe.sh` measures and writes nothing, `v4_write.sh` performs the
+drags, `v4_readback.sh` proves a slot against its master. All three are window-relative and re-read
+the editor's position before every action, after the window moved 1316 points mid-pass and sent one
+drag into another application.
 
 ## Stated limits
 
 No preset has been listened to through a guitar. Tone values carry ChatGPT's own citations and were
-not re-verified against the Mooer manual. Two of the twenty, slots 40A and 42B, were read back off
-the device and are byte-identical to their masters, which proves the transfer path and not the
-contents, since those masters carried the EQ defect. The rest are verified by name in the device list
-rather than by readback.
+not re-verified against the Mooer manual. Three of the twenty were read back off the device against
+corrected masters; the other seventeen are verified by their confirmed write and by name in the
+device list rather than by readback.
