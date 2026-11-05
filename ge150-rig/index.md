@@ -120,6 +120,29 @@ as `-16_16_1_0_`, so the storage offset is 16 and values above it are legal.
 | editor COMPUTER library | holds the v4 twenty, sha256-verified on all twenty |
 | the pedal | all 20 written to 40A-44D, all 20 read back, 20 of 20 matching by sha256 |
 
+## The other 35, read back 2026-11-04
+
+They had never been read back. Doing all of them found defects in three of the four sets.
+
+| set | found | state |
+|---|---|---|
+| 12 tape echo | 9 of 12 still on REVERB TYPE 3 (PLATE) where the master says 4 (SPRING); this page had claimed all twelve were rewritten, and the readback it cited was one of the two that had landed | all 9 rewritten, 12 of 12 verified |
+| 12 Mayer/Pantera/Appleseed | the builder left EQ off with the note "the Pro scale is unknown"; that blocker is gone. APPLESEED's EQ is documented on this page and was restored to it and its Low Level Owl variant. Pantera's EQ is prose with no numbers, so it stays off | 12 of 12 verified |
+| 11 El Capistan | CAP WORN TAPE's ANA-CHORUS block carried F.BACK and no TONE or DEPTH, so the pedal rejected it and ran its own defaults: MIX 50 where 8 was intended | rebuilt, 8 of 11 verified |
+
+**The pedal truncates preset names to 16 characters.** "PANTERA FARBEYOND" became "PANTERA FARBEYON";
+master renamed, builder now truncates and reports it.
+
+**Still wrong, deliberately not guessed:** CAP MULTI A, B and C each read back with Dual Delay TIME B
+exactly 40 ms above the master. A round-trip test showed the bias compounds on every write, and the
+parameter's range starts at 40 ms. Which side of the conversion carries it cannot be told from the
+files, so no compensation was applied.
+
+**A mistake of mine:** during the tape rewrite the preset list auto-scrolled one row and the last drag
+overwrote CAST MARE at 50D with CAST LOWOWL. Both were restored from masters and verified.
+
+**Totals:** 55 written, 55 read back, 52 matching their masters by sha256.
+
 All twenty were read back, each with a fresh file mtime proving the bytes came off the device.
 Nineteen matched on the first pass. **ZEP KASHMIR differed in one field**, the MOD block's `PITCH`,
 device 0 against master 0.1: the converter had a special case inserting `PITCH = 0.1` for any DETUNE

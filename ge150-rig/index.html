@@ -804,10 +804,65 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   the data sounds right, which needs a guitar in the instrument jack.</p>
 </div>
 
+<div class="card bad">
+  <span class="tag t-bad">2026-11-04 &middot; the other 35 read back, and what that found</span>
+  <p>The twenty had been read back off the hardware; the other 35 never had. Reading all of them found
+  <strong>defects in three of the four sets</strong>, none of which a sample would have caught.</p>
+
+  <h3>The 12 tape presets: a fix this page already claimed</h3>
+  <p>This page said the twelve were rebuilt on REVERB TYPE 4 and re-written to the pedal.
+  <strong>Nine of the twelve were still on TYPE 3, which is PLATE rather than SPRING.</strong> The masters were
+  right all along; the write had not landed. The readback this page cited as proof was TAPE SLAP, which happens
+  to be one of the two that did land. All nine have been rewritten and all twelve now read back matching.</p>
+
+  <h3>The 12 Mayer, Pantera and Appleseed presets: EQ dropped on purpose, then forgotten</h3>
+  <p>The builder carried the line <code>EQ: ChatGPT gave dB offsets, the Pro scale is unknown, left off</code>.
+  That blocker was removed when the model table was extracted: every band is <code>-16_16_1_0_</code> with a
+  storage offset of 16. <strong>The Appleseed Cast patch's EQ is documented on this page</strong>, 100 Hz
+  &minus;2, 250 Hz 0, 630 Hz +1, 1.6 kHz +2, 4 kHz +1 dB, so APPLESEED and its Low Level Owl variant were
+  rebuilt with it and both verify off the device. The Pantera EQ is described in prose only, &ldquo;pull the
+  middle down a long way&rdquo;, with no numbers, so it stays off rather than guessed.</p>
+  <p><strong>The pedal truncates a preset name to 16 characters.</strong> &ldquo;PANTERA FARBEYOND&rdquo; is 17
+  and came back as &ldquo;PANTERA FARBEYON&rdquo;, so a readback wrote a differently named file and the
+  comparison silently read a stale one. The master is renamed to 16 characters and the builder now truncates and
+  says so.</p>
+
+  <h3>The 11 El Capistan presets: a block the pedal threw away</h3>
+  <p><strong>CAP WORN TAPE's chorus was not running at the setting it was given.</strong> Its MOD block is
+  ANA-CHORUS, which takes RATE, MIX, TONE and DEPTH. The master carried F.BACK, inherited from the reference
+  preset, and no TONE or DEPTH. The pedal rejected the malformed block and substituted its own defaults, so a
+  chorus intended at <code>MIX 8, RATE 6</code> was running at <code>MIX 50, RATE 50</code>. Rebuilt with the
+  correct fields and verified: the device now reports MIX 8, RATE 6.</p>
+  <p>A parameter validator now checks every value in all 55 masters against the extracted table, resolving
+  <code>paraPos</code> inheritance, with the 15 factory presets as the control. The factory set shows zero stray
+  fields, which is what makes a stray field a defect rather than a quirk. All 55 masters are now clean.</p>
+
+  <h3>What is still wrong, and why it is not being guessed at</h3>
+  <p>Three presets do not match: <strong>CAP MULTI A, B and C each read back with TIME B exactly 40 ms higher
+  than the master.</strong> A round-trip test settled that it is not a one-off: writing the value the device
+  reported produced another +40, so the bias compounds on every write cycle. The parameter's range starts at 40
+  ms, which points at a minimum being added on one side of the conversion and not subtracted on the other.
+  Whether the device is sounding the written value and misreporting it, or sounding the inflated value, cannot be
+  told apart from the files. The test preset was restored to its master so all three sit in the same state they
+  started in, and no compensation was applied, since guessing the direction would be a coin flip on a 40 ms
+  delay.</p>
+
+  <h3>A mistake of mine, and the repair</h3>
+  <p>During the tape rewrite the PRESET list auto-scrolled by one row near the bottom edge, and the last drag of
+  the batch landed on 50D, <strong>overwriting CAST MARE with a copy of CAST LOWOWL.</strong> The master was
+  safe on disk. 50C was rewritten with the correct CAST LOWOWL and CAST MARE was restored to 50D, both verified
+  by readback. The write script already re-reads the window origin before each drag; it does not yet re-read the
+  list's scroll position, which is the hole this went through. Single writes are now followed by a screenshot
+  check before the next one.</p>
+
+  <p><strong>Where the 55 stand.</strong> 52 of 55 read back off the hardware byte-identical to their masters.
+  The three exceptions are the TIME B behaviour above. Nothing here says how any of it sounds.</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
-  Three faults observed on this Mac, 55 presets written to the pedal. The twenty new presets had every EQ boost missing; all twenty were rebuilt, rewritten, and read back off the hardware, and twenty of twenty match their masters by sha256. ZEP KASHMIR's Detune is switched off rather than guessed. No preset has been listened to through a guitar.
+  Three faults observed on this Mac, 55 presets written to the pedal and all 55 read back off it. 52 of 55 match their masters by sha256; the 3 exceptions are a +40 ms bias on Dual Delay TIME B. No preset has been listened to through a guitar.
 </footer>
 
 </div>
