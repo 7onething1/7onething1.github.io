@@ -128,9 +128,17 @@ value was invented. It never reached the pedal either, since every other value i
 integer and the editor coerced the float to 0. The special case is removed from `convert20.py` and
 the master set to 0, so all twenty now match and no further write was needed.
 
-**Left open on purpose:** ZEP KASHMIR's Detune is on with pitch 0, doing nothing audible. The
-blueprint never gave a detune amount, and its `depth 9` has no home in a block whose parameters are
-PITCH, MIX and TONE. That one number is a listening decision no source supplies.
+**Resolved 2026-11-04 by switching the block off.** The blueprint gave no detune amount, and
+`depth 9` has no home in a block whose parameters are PITCH, MIX and TONE. Enabled at zero is not
+neutral either: the block still runs at `MIX 16`, and a time-domain pitch shifter passing a 16
+percent wet copy through its buffer comb-filters against the dry signal regardless of the pitch
+offset. One field changed, `effectModule 6 SWITCH` 1 to 0, written to 40C and read back matching at
+`bcdae2e84fe8`. A SWITCH check across all twenty now reports 179 of 180 blocks agreeing with their
+blueprints and exactly one divergence, this one, so it is visible to a test.
+
+The recommendation to disable rather than guess came through Brandon from a ChatGPT pass, which also
+argued for leaning on the Danelectro in DADGAD and the amp, and noted that the phasing often cited on
+that recording is on the drums. Those historical claims were not checked here.
 
 Three of the readbacks in detail:
 

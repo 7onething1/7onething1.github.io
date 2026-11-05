@@ -747,17 +747,29 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   <code>~/Projects/_outputs/ge150/convert20.py</code>, which now leaves the parameter at its range default and
   reports it as unspecified instead of filling it. The master was set to 0 to agree with the hardware, so no
   further write to the pedal was needed, and all twenty now match.</p>
-  <p><strong>What this leaves open, stated rather than filled.</strong> ZEP KASHMIR's Detune block is switched on
-  with a pitch of 0, which means it is doing nothing audible. The blueprint never said how much detune it wanted.
-  Its <code>depth 9</code> has no home in a DETUNE block, whose only parameters are PITCH, MIX and TONE, and
-  reading depth as the detune amount would be a guess. That value is a listening decision, and it is the one
-  number in these twenty presets that no source supplies.</p>
+  <p><strong>What this left open.</strong> ZEP KASHMIR's Detune block was switched on with a pitch of 0, and the
+  blueprint never said how much detune it wanted. Its <code>depth 9</code> has no home in a DETUNE block, whose
+  only parameters are PITCH, MIX and TONE, and reading depth as the detune amount would be a guess.</p>
+  <p><strong>Resolved by switching the block off, 2026-11-04.</strong> Enabled at zero is not the neutral state it
+  looks like: the block still runs at <code>MIX 16</code>, and a time-domain pitch shifter passing a 16 percent wet
+  copy through its buffer comb-filters against the dry signal whether or not the pitch offset is zero. That is the
+  expected behaviour of the algorithm class rather than something measured on this unit. Switching MOD off removes
+  the colouring without substituting another invented number.</p>
+  <p>One field changed, <code>effectModule 6 SWITCH</code> from 1 to 0. Every other block is untouched, written to
+  40C and read back matching at <code>bcdae2e84fe8</code> with a fresh mtime. A SWITCH check across all twenty
+  presets now reports <strong>179 of 180 blocks agreeing with their blueprints and exactly one divergence</strong>,
+  this one, so the deliberate change is visible to a test rather than hidden inside a passing total.</p>
+  <p><strong>Where the recommendation came from, and what it rests on.</strong> The call to disable rather than
+  guess came through Brandon from a ChatGPT pass that also argued the part should lean on the Danelectro in DADGAD
+  and the amp rather than modulation, and noted that the phasing often cited on that recording sits on the drums.
+  Those are its historical claims and they were not checked here. The reason the block is off is the one above:
+  no source gives a detune amount, and zero with the block live is not reliably neutral.</p>
 </div>
 
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
-  Three faults observed on this Mac, 55 presets written to the pedal. The twenty new presets had every EQ boost missing; all twenty were rebuilt, rewritten, and read back off the hardware, and twenty of twenty match their masters by sha256. No preset has been listened to through a guitar.
+  Three faults observed on this Mac, 55 presets written to the pedal. The twenty new presets had every EQ boost missing; all twenty were rebuilt, rewritten, and read back off the hardware, and twenty of twenty match their masters by sha256. ZEP KASHMIR's Detune is switched off rather than guessed. No preset has been listened to through a guitar.
 </footer>
 
 </div>
