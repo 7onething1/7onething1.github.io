@@ -766,6 +766,44 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   no source gives a detune amount, and zero with the block live is not reliably neutral.</p>
 </div>
 
+<div class="card good">
+  <span class="tag t-good">2026-11-04 &middot; all twenty hashes, so the claim is checkable</span>
+  <p>Saying twenty of twenty match is a report. These are the numbers behind it, so anyone holding the masters can
+  check it instead of taking the report's word. Each row is one slot: the sha256 of the master in
+  <code>~/Projects/_outputs/ge150/mo-pro-new20-v4/</code>, and whether the copy read back off the pedal has the
+  same digest.</p>
+  <p>Reproduce with <code>shasum -a 256 ~/Projects/_outputs/ge150/mo-pro-new20-v4/*.mo</code>.</p>
+  <table>
+    <thead><tr><th>Slot</th><th>Preset</th><th>Bytes</th><th>sha256 of the master</th><th>Device readback</th></tr></thead>
+    <tbody>
+    <tr><td class="n">40A</td><td>VOLTA TETRA</td><td class="n">2384</td><td><code>67db5e7b37cc2614fb634601f7bcc30a89cd9614623bb246ad94168fa6c0f09b</code></td><td>match</td></tr>
+    <tr><td class="n">40B</td><td>ZEP ACHILLES</td><td class="n">2384</td><td><code>85c9080f54db504484be62091351cc2e9a65f24fbb584c8c421318eaba7a69a6</code></td><td>match</td></tr>
+    <tr><td class="n">40C</td><td>ZEP KASHMIR</td><td class="n">2381</td><td><code>bcdae2e84fe8b7de88819c3cc3edd272538c13d5df160dd0854c6d9124c289c3</code></td><td>match</td></tr>
+    <tr><td class="n">40D</td><td>TOOL PNEUMA RHY</td><td class="n">2388</td><td><code>81cb93c94021abdef48d71b8533c21e4c54a4d2c5af268120c06d9bdd8ad09d9</code></td><td>match</td></tr>
+    <tr><td class="n">41A</td><td>VOLTA CYGNUS</td><td class="n">2383</td><td><code>90599567745b39ff588c483da40804d56ce745c45d89d818aab368ef6eb0c51c</code></td><td>match</td></tr>
+    <tr><td class="n">41B</td><td>SHINER EGG</td><td class="n">2381</td><td><code>212b7dff00dec06ec421f7d2d2fea89afffdf19c2ca3f33a077e355ef8664519</code></td><td>match</td></tr>
+    <tr><td class="n">41C</td><td>TOE GOODBYE</td><td class="n">2411</td><td><code>3243e66f5ed2ad30431339e532f91edc5fce0f0001a0a0beb604d8b27fafe62d</code></td><td>match</td></tr>
+    <tr><td class="n">41D</td><td>TOOL PNEUMA CLN</td><td class="n">2417</td><td><code>f513f74f2c813f65cb4c2393acf5d0d436cfa7cda9a2ba5dccc2c708e8d62927</code></td><td>match</td></tr>
+    <tr><td class="n">42A</td><td>RH WEIRD FISH</td><td class="n">2414</td><td><code>8ed987e28a88b733b465b7322ebfe164c0a3a5d57e576a18093d592d4d06af1b</code></td><td>match</td></tr>
+    <tr><td class="n">42B</td><td>RUSH LIMELIGHT</td><td class="n">2412</td><td><code>34ac1417a6a241d412cde8a85f23c97f37006280632aadab5bfe87c22a507669</code></td><td>match</td></tr>
+    <tr><td class="n">42C</td><td>RUSH YYZ</td><td class="n">2382</td><td><code>19d84e50433d2a7769e39443f3b41dbc4786d6228b3716c9a60dacf49d8fae20</code></td><td>match</td></tr>
+    <tr><td class="n">42D</td><td>KC SCHIZOID</td><td class="n">2382</td><td><code>3da10ea075597bcab9e111f79b0afa67c66b9c9f61478988b730e551a9ffd5b5</code></td><td>match</td></tr>
+    <tr><td class="n">43A</td><td>RH PARANOID</td><td class="n">2382</td><td><code>512993442d21533fd713fb1e83e946b5c5f91ad4ad13ae280b42a2d8ddc126fb</code></td><td>match</td></tr>
+    <tr><td class="n">43B</td><td>FAILURE SPACE</td><td class="n">2412</td><td><code>4e6735096d803142f624ece544a9fc0eecf4e182df9a45405eebe38a2ad5c817</code></td><td>match</td></tr>
+    <tr><td class="n">43C</td><td>KC FRACTURE</td><td class="n">2384</td><td><code>7bc1e038590125d031c037cddef0183c8b31f32ba2148db66e0a51edd7662473</code></td><td>match</td></tr>
+    <tr><td class="n">43D</td><td>DEFT DIG BATH</td><td class="n">2412</td><td><code>933d817de5c3974c8936813839dbf592b4666a8951133c5eeb21c2dc814fa0c2</code></td><td>match</td></tr>
+    <tr><td class="n">44A</td><td>DT PULL UNDER</td><td class="n">2383</td><td><code>7cf4f60cab85708b349332f69708afa9dd92ad40dd4cc532b18adc9d13dd3820</code></td><td>match</td></tr>
+    <tr><td class="n">44B</td><td>EITS BIRTH</td><td class="n">2420</td><td><code>5e048fcdc52e96ce0352346e6424f681b3634d955a5f95ce359e79f58708b9bc</code></td><td>match</td></tr>
+    <tr><td class="n">44C</td><td>APC JUDITH</td><td class="n">2381</td><td><code>28c322769103377f73f4a73361f41b6e35fd76c52322cc02ac76187fd42b7dd9</code></td><td>match</td></tr>
+    <tr><td class="n">44D</td><td>APC 3 LIBRAS</td><td class="n">2413</td><td><code>9898501a3227aa8b41778c6758da40fbe0de61d22f35e87b6426bc90b7508b90</code></td><td>match</td></tr>
+    </tbody>
+  </table>
+  <p><strong>What these twenty rows do not cover.</strong> They are the twenty presets in 40A to 44D. The other 35
+  on the pedal were written in earlier passes and have never been read back, so there is no hash evidence for them
+  and none is claimed. And a matching digest says the pedal holds the intended data; it says nothing about whether
+  the data sounds right, which needs a guitar in the instrument jack.</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
