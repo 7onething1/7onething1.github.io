@@ -118,9 +118,21 @@ as `-16_16_1_0_`, so the storage offset is 16 and values above it are legal.
 |---|---|
 | masters | rebuilt as `~/Projects/_outputs/ge150/mo-pro-new20-v4/`, 46 bands corrected, 20 of 20 clean |
 | editor COMPUTER library | holds the v4 twenty, sha256-verified on all twenty |
-| the pedal | all 20 written to 40A-44D, every write confirmed, 3 read back matching by sha256 |
+| the pedal | all 20 written to 40A-44D, all 20 read back, 20 of 20 matching by sha256 |
 
-Readbacks, each with a fresh file mtime proving the bytes came off the device:
+All twenty were read back, each with a fresh file mtime proving the bytes came off the device.
+Nineteen matched on the first pass. **ZEP KASHMIR differed in one field**, the MOD block's `PITCH`,
+device 0 against master 0.1: the converter had a special case inserting `PITCH = 0.1` for any DETUNE
+block arriving without a pitch, commented "unit unverified". The blueprint specifies no pitch, so the
+value was invented. It never reached the pedal either, since every other value in a `.mo` is an
+integer and the editor coerced the float to 0. The special case is removed from `convert20.py` and
+the master set to 0, so all twenty now match and no further write was needed.
+
+**Left open on purpose:** ZEP KASHMIR's Detune is on with pitch 0, doing nothing audible. The
+blueprint never gave a detune amount, and its `depth 9` has no home in a block whose parameters are
+PITCH, MIX and TONE. That one number is a listening decision no source supplies.
+
+Three of the readbacks in detail:
 
 | slot | preset | EQ stored | dB | sha256 |
 |---|---|---|---|---|

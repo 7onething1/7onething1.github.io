@@ -705,8 +705,9 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   <code>~/Projects/_outputs/ge150/mo-pro-new20-v4/</code>: 46 bands corrected, 46 field changes in total, none
   outside the EQ block, and the blueprint check returns 20 of 20 clean. All twenty were written to slots
   40A&ndash;44D, every write confirmed by the editor's own dialog.</p>
-  <p><strong>Three slots read back off the hardware match their masters by sha256,</strong> each with a fresh
-  file mtime proving the bytes came from the device rather than from the copy already on disk.</p>
+  <p><strong>All twenty were then read back off the hardware. Twenty of twenty match their masters by sha256,</strong>
+  each with a fresh file mtime proving the bytes came from the device rather than from the copy already on disk.
+  Nineteen matched on the first pass; the twentieth is below.</p>
   <table>
     <thead><tr><th>Slot</th><th>Preset</th><th>EQ off the device, stored</th><th>sha256</th></tr></thead>
     <tbody>
@@ -729,10 +730,34 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   needs its own evidence that it ran.</p>
 </div>
 
+<div class="card good">
+  <span class="tag t-good">2026-11-04 &middot; the twentieth preset, and an invented value</span>
+  <p>Reading all twenty back rather than a sample turned up one disagreement. <strong>ZEP KASHMIR came off the
+  pedal differing from its master in exactly one field:</strong> the MOD block's <code>PITCH</code>, device 0
+  against master 0.1. Everything else in the file was identical.</p>
+  <p><strong>The master was the wrong one.</strong> The converter contained a special case that inserted
+  <code>PITCH = 0.1</code> whenever a DETUNE block arrived without a pitch, carrying the comment
+  &ldquo;smallest audible detune; unit unverified&rdquo;. The blueprint for ZEP KASHMIR specifies
+  <code>rate_hz 0, depth 9, mix 16</code> and no pitch at all, so 0.1 was invented rather than derived.</p>
+  <p>It never reached the pedal either. Every other value in a <code>.mo</code> is an integer, the editor coerced
+  the float to 0, and the hardware has held 0 all along. The extracted table defines DETUNE's pitch as
+  <code>-20_20_0.1_1_</code>, a &minus;20 to +20 range in steps of 0.1, which the file almost certainly stores as
+  an integer count of those steps.</p>
+  <p><strong>Fixed at the source.</strong> The special case is gone from
+  <code>~/Projects/_outputs/ge150/convert20.py</code>, which now leaves the parameter at its range default and
+  reports it as unspecified instead of filling it. The master was set to 0 to agree with the hardware, so no
+  further write to the pedal was needed, and all twenty now match.</p>
+  <p><strong>What this leaves open, stated rather than filled.</strong> ZEP KASHMIR's Detune block is switched on
+  with a pitch of 0, which means it is doing nothing audible. The blueprint never said how much detune it wanted.
+  Its <code>depth 9</code> has no home in a DETUNE block, whose only parameters are PITCH, MIX and TONE, and
+  reading depth as the detune amount would be a guess. That value is a listening decision, and it is the one
+  number in these twenty presets that no source supplies.</p>
+</div>
+
 <footer>
   Mooer GE150 Rig Sheet, 2026-11-02, updated 2026-11-04. Preset files at
   <code>~/Projects/_outputs/ge150/GE150_Tape_Echo_Pack_2026-11-02/</code>.
-  Three faults observed on this Mac, 55 presets written to the pedal. The twenty new presets had every EQ boost missing; all twenty were rebuilt and rewritten, and three read back off the hardware match their masters by sha256. No preset has been listened to through a guitar.
+  Three faults observed on this Mac, 55 presets written to the pedal. The twenty new presets had every EQ boost missing; all twenty were rebuilt, rewritten, and read back off the hardware, and twenty of twenty match their masters by sha256. No preset has been listened to through a guitar.
 </footer>
 
 </div>
