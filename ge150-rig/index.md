@@ -133,10 +133,18 @@ They had never been read back. Doing all of them found defects in three of the f
 **The pedal truncates preset names to 16 characters.** "PANTERA FARBEYOND" became "PANTERA FARBEYON";
 master renamed, builder now truncates and reports it.
 
-**Still wrong, deliberately not guessed:** CAP MULTI A, B and C each read back with Dual Delay TIME B
-exactly 40 ms above the master. A round-trip test showed the bias compounds on every write, and the
-parameter's range starts at 40 ms. Which side of the conversion carries it cannot be told from the
-files, so no compensation was applied.
+**Still wrong, and the range is now sourced:** CAP MULTI A, B and C each read back with Dual Delay
+TIME B exactly 40 ms above the master. A round-trip test showed the bias compounds on every write.
+Dual Delay TIME B is `40_2500_1_0_ ms` in the extracted Pro model index, so an earlier version of this
+page was wrong to say no source gives the range. TIME A carries that identical range and does not
+drift, and these three are the only El Capistan patches built on Dual Delay, so they are the only ones
+with a TIME B field at all.
+
+A write-side addition of the minimum and a readback-side addition of the minimum each predict a
+compounding +40, so the round trip does not separate them. Writing TIME B at 2500, the top of the
+range, does: a write-side addition would need 2540 and clamps to 2500, while a readback-side addition
+reports 2540, which the range forbids. No compensation is applied until that write runs. It needs the
+pedal attached, and CoreMIDI currently reports zero destinations and zero sources.
 
 **A mistake of mine:** during the tape rewrite the preset list auto-scrolled one row and the last drag
 overwrote CAST MARE at 50D with CAST LOWOWL. Both were restored from masters and verified.

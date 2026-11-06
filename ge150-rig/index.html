@@ -837,15 +837,22 @@ row(n) = centre + (n - anchor_index) * 26.9</pre>
   <code>paraPos</code> inheritance, with the 15 factory presets as the control. The factory set shows zero stray
   fields, which is what makes a stray field a defect rather than a quirk. All 55 masters are now clean.</p>
 
-  <h3>What is still wrong, and why it is not being guessed at</h3>
+  <h3>What is still wrong, and what is now sourced</h3>
   <p>Three presets do not match: <strong>CAP MULTI A, B and C each read back with TIME B exactly 40 ms higher
-  than the master.</strong> A round-trip test settled that it is not a one-off: writing the value the device
-  reported produced another +40, so the bias compounds on every write cycle. The parameter's range starts at 40
-  ms, which points at a minimum being added on one side of the conversion and not subtracted on the other.
-  Whether the device is sounding the written value and misreporting it, or sounding the inflated value, cannot be
-  told apart from the files. The test preset was restored to its master so all three sit in the same state they
-  started in, and no compensation was applied, since guessing the direction would be a coin flip on a 40 ms
-  delay.</p>
+  than the master.</strong> A round-trip test showed the bias compounds, since writing the value the device
+  reported produced another +40. The test preset was restored to its master, so all three sit in the state they
+  started in.</p>
+  <p><strong>The range is now sourced.</strong> DUAL DELAY TIME B is <code>40_2500_1_0_ ms</code> in the
+  extracted Pro model index, so an earlier version of this page was wrong to say no source gives it. TIME A
+  carries that identical range and does not drift. The three CAP MULTI presets are also the only ones of the
+  eleven El Capistan patches built on DUAL DELAY, which is why they are the only three holding a TIME B field
+  that can disagree with anything.</p>
+  <p><strong>The compounding does not identify which side carries the bias.</strong> A write that adds the
+  minimum and a readback that adds the minimum each predict a compounding +40, so the round trip cannot separate
+  them, and an earlier version of this page implied more than the test showed. One write does separate them. Set
+  TIME B to 2500, the top of the range. A write-side addition would need 2540, so the pedal clamps and reads back
+  2500. A readback-side addition reads back 2540, which the range does not allow. No compensation is applied
+  until that write has been run, and it needs the pedal attached, which it is not.</p>
 
   <h3>A mistake of mine, and the repair</h3>
   <p>During the tape rewrite the PRESET list auto-scrolled by one row near the bottom edge, and the last drag of
