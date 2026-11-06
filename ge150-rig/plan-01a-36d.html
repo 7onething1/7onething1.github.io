@@ -91,6 +91,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   <h2>On this page</h2>
   <ol>
     <li><a href="#ask">The ask, in Brandon's words</a></li>
+    <li><a href="#conflict">Phase 0: a live conflict over the same slots</a></li>
     <li><a href="#state">What already exists</a></li>
     <li><a href="#measure">What the validation measured</a></li>
     <li><a href="#names">The model names are spelling, not invention</a></li>
@@ -121,7 +122,55 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   matches the preset name.</div>
 </div>
 
-<h2 id="state">2. What already exists</h2>
+<h2 id="conflict">2. Phase 0: a live conflict over the same slots</h2>
+<div class="card bad">
+  <span class="tag t-bad">another run is writing here</span>
+  <p><code>overwrite_factory.py</code> carries this docstring:
+  <b>&ldquo;Overwrite 01A..37A with our 55, in rig-page order, cycling.&rdquo;</b>
+  Its <code>overwrite_order.json</code> is the list of the 55 audited names.
+  <code>overwrite_log.txt</code> records how far it got:</p>
+  <pre>  1 01A CAP MULTI C OK
+  2 01B CAP MULTI B OK
+RUN END
+ABORT 01C CAP MULTI A: selection moved 223.25-&gt;580.25, list scrolled or write off row</pre>
+  <p><b>01A and 01B now hold copies of 37B and 37C.</b> The run stopped at 01C when the
+  scroll detector caught the preset list moving, which is the guard working exactly as the
+  how-to doc describes.</p>
+</div>
+
+<div class="card ask">
+  <span class="tag t-ask">the decision this plan takes</span>
+  <p>A queued item asks to resume that run from 01C through 37A. <b>Resuming it works against
+  the ask.</b> Cycling the same 55 presets across 144 slots yields 144 slots holding 55
+  distinct sounds, which is the opposite of &ldquo;a full complement of sounds&rdquo; and of
+  the variety of clean, dirt, fuzz and speakers that was asked for.</p>
+  <p>So: <b>the 144 design supersedes the cycling fill for 01A through 36D.</b> The cycling run
+  stays available for any slot the design does not cover, which right now is 37A alone. Two
+  slots need unwinding, 01A and 01B, and the material to unwind them exists.</p>
+</div>
+
+<h3>The backup position is better than the workbook states</h3>
+<div class="card ok">
+  <span class="tag t-ok">already covered</span>
+  <p>The workbook's QA sheet says <code>Native .mo backed up? NO</code> for all 144 slots.
+  That is out of date. <code>backups/GE150PRO-device-backup-2026-11-02.backup</code> and its
+  index <code>GE150PRO-preset-list-2026-11-02.tsv</code> cover <b>all 144 slots in 01A through
+  36D</b>, 206 slots in total, dated 2026-11-02, which predates the 01A and 01B overwrite. The
+  index records what those slots held beforehand:</p>
+  <table>
+    <thead><tr><th>Slot</th><th>Held on 2026-11-02</th></tr></thead>
+    <tbody>
+      <tr><td>01A</td><td><code>V1.0.6</code></td></tr>
+      <tr><td>01B</td><td><code>BUFF</code></td></tr>
+      <tr><td>01C</td><td><code>GE150PRO_PRESET</code></td></tr>
+    </tbody>
+  </table>
+  <p>What is missing is not the backup. It is a per-slot <code>.mo</code> extraction from that
+  backup, using the offsets the index already carries. That is smaller work than the workbook
+  implies.</p>
+</div>
+
+<h2 id="state">3. What already exists</h2>
 <table>
   <thead><tr><th>Artifact</th><th>State</th></tr></thead>
   <tbody>
@@ -147,7 +196,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
   <code>NOT STARTED</code>. The design is honest about being a design.</p>
 </div>
 
-<h2 id="measure">3. What the validation measured</h2>
+<h2 id="measure">4. What the validation measured</h2>
 <p><code>validate_144_design.py</code> resolved all 1,296 rows of the <code>9 BLOCK MATRIX</code>
 sheet against the model table extracted from the editor binary.</p>
 
@@ -167,7 +216,7 @@ sheet against the model table extracted from the editor binary.</p>
   on everything. Phase 1 therefore hardens the validator before it is trusted.</p>
 </div>
 
-<h2 id="names">4. The model names are spelling, not invention</h2>
+<h2 id="names">5. The model names are spelling, not invention</h2>
 <p>Every failing name is a near miss on a model that genuinely exists.
 <code>build_alias_map.py</code> matched 14 of the 17 distinct names uniquely, by stripping
 punctuation and spaces, covering 61 of the 75 rows. It refused to guess the other three.</p>
@@ -211,7 +260,7 @@ punctuation and spaces, covering 61 of the 75 rows. It refused to guess the othe
   A misspelled model does not fail loudly. It just plays something else.</p>
 </div>
 
-<h2 id="vocab">5. The parameters are a vocabulary mismatch</h2>
+<h2 id="vocab">6. The parameters are a vocabulary mismatch</h2>
 <p>The design describes parameters in prose labels. The pedal has fixed names.</p>
 
 <table>
@@ -246,7 +295,7 @@ punctuation and spaces, covering 61 of the 75 rows. It refused to guess the othe
   Speaker variety was named in the ask, and the speaker controls are the ones left blank.</p>
 </div>
 
-<h2 id="phases">6. The three phases</h2>
+<h2 id="phases">7. The three phases</h2>
 
 <div class="phase">
   <span class="pnum">Phase 1</span>
@@ -289,12 +338,14 @@ punctuation and spaces, covering 61 of the 75 rows. It refused to guess the othe
   <span class="pnum">Phase 3</span>
   <h3>Write to hardware and prove it.</h3>
   <ol start="11">
-    <li><b>Back up first.</b> All 144 target slots currently hold something. The workbook&rsquo;s own
-    rule reads &ldquo;Create only in approved backed-up destination&rdquo; and its QA sheet says
-    <code>Native .mo backed up? NO</code> for all 144. Read all 144 existing slots off the device
-    and archive them before any write.</li>
+    <li><b>Extract the backup per slot.</b> The 2026-11-02 device backup already covers all 144
+    target slots, so the archive exists. Split it into per-slot <code>.mo</code> files using the
+    offsets in <code>GE150PRO-preset-list-2026-11-02.tsv</code>, so one slot can be restored
+    without replaying the whole device image. Restore 01A and 01B from it, since the cycling run
+    overwrote them with duplicates.</li>
     <li>Confirm 37A. The old audit starts at 37B, so 37A&rsquo;s occupant is unknown and is not
-    assumed free.</li>
+    assumed free. 37A is also the one slot the cycling run may still own, since the 144 design
+    does not reach it.</li>
     <li>Per bank: <code>v4_probe.sh</code>, then <code>v4_write.sh</code> with a mapping built from
     the probe screenshot, then <code>v4_readback.sh</code>, then sha256 against the master.</li>
     <li>Carry the known traps: window-relative coordinates re-read before every drag, float math
@@ -311,7 +362,7 @@ punctuation and spaces, covering 61 of the 75 rows. It refused to guess the othe
   sha256-identical or explained by the documented TIME B read-path offset.</div>
 </div>
 
-<h2 id="notclaim">7. What this plan does not claim</h2>
+<h2 id="notclaim">8. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>

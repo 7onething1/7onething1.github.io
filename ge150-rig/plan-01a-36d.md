@@ -22,6 +22,59 @@ Three separate requirements live in that sentence:
 2. Set **all** of the various parameters, which is the named failure of the prior pass.
 3. Use real variety across clean, dirt, fuzz and **speakers**, so the sound matches the preset name.
 
+## Phase 0, a live conflict over the same slots
+
+Another GE150 run is already writing into this plan's target range, and it is
+writing different content.
+
+`~/Projects/_outputs/ge150/overwrite_factory.py` carries this docstring:
+
+> "Overwrite 01A..37A with our 55, in rig-page order, cycling."
+
+Its `overwrite_order.json` is the list of the 55 audited preset names, and
+`overwrite_log.txt` records how far it reached:
+
+```
+  1 01A CAP MULTI C OK
+  2 01B CAP MULTI B OK
+RUN END
+ABORT 01C CAP MULTI A: selection moved 223.25->580.25, list scrolled or write off row
+```
+
+So **01A and 01B now hold copies of 37B and 37C**, and the run stopped at 01C
+when the scroll detector caught the preset list moving. The guard worked exactly
+as the how-to doc describes.
+
+A queued item asks to resume that run from 01C through 37A. **Resuming it works
+against the ask.** Cycling the same 55 presets across 144 slots produces 144
+slots holding 55 distinct sounds, which is the opposite of "a full complement of
+sounds" and of the variety of clean, dirt, fuzz and speakers Brandon asked for.
+The 144-preset design is the content that answers the ask for that range.
+
+The decision this plan takes: **the 144 design supersedes the cycling fill for
+01A through 36D.** The cycling run stays available for any slot the design does
+not cover, which at present is 37A alone.
+
+Two slots need unwinding, 01A and 01B, and the material to unwind them exists.
+
+### The backup position is better than the workbook states
+
+The workbook's QA sheet says `Native .mo backed up? NO` for all 144 slots. That
+is out of date. `backups/GE150PRO-device-backup-2026-11-02.backup` plus its
+index `GE150PRO-preset-list-2026-11-02.tsv` cover **all 144 slots in 01A through
+36D**, 206 slots in total, dated 2026-11-02, which predates the 01A and 01B
+overwrite. The index records what those two held before they were written:
+
+| Slot | Held on 2026-11-02 |
+|---|---|
+| 01A | `V1.0.6` |
+| 01B | `BUFF` |
+| 01C | `GE150PRO_PRESET` |
+
+What is missing is not the backup. It is a per-slot `.mo` extraction from that
+backup file, using the offsets the index already carries. That extraction is
+Phase 3 step 11, and it is smaller work than the workbook implies.
+
 ## What already exists
 
 | Artifact | State |
@@ -151,12 +204,14 @@ internal name, and each block's parameter set matches the model table exactly.
 
 ### Phase 3, write to hardware and prove it.
 
-11. **Back up first.** Every one of the 144 target slots currently holds
-    something. The workbook's own rule reads "Create only in approved backed-up
-    destination" and its QA sheet says `Native .mo backed up? NO` for all 144.
-    Read all 144 existing slots off the device and archive them before any write.
+11. **Extract the backup per slot.** The device backup from 2026-11-02 already
+    covers all 144 target slots, so the archive exists. Split it into per-slot
+    `.mo` files using the offsets in `GE150PRO-preset-list-2026-11-02.tsv`, so a
+    single slot can be restored without replaying the whole device image. Restore
+    01A and 01B from it, since the cycling run overwrote them with duplicates.
 12. Confirm 37A. The old audit starts at 37B, so 37A's occupant is unknown and is
-    not assumed free.
+    not assumed free. 37A is also the one slot the cycling run may still own,
+    since the 144 design does not reach it.
 13. Per bank: `v4_probe.sh`, then `v4_write.sh` with a mapping built from the
     probe screenshot, then `v4_readback.sh`, then sha256 against the master.
 14. Carry the known traps: window-relative coordinates re-read before every drag,
