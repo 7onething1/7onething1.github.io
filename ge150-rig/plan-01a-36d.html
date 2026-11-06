@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GE150 Pro — 144 Presets for 01A–36D: Build Plan</title>
+<style>
+:root{
+  --cream:#F6EFE2; --paper:#FBF6EC; --ink:#1A1A1A;
+  --mustard:#E8B64C; --rose:#D4846F; --teal:#4A7C7E;
+  --red:#A8403A; --olive:#8A8B5C; --navy:#2E4057;
+  --line:#D8CDB8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);
+  font-family:"Futura","Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.6;padding:0 16px}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 0 80px}
+header{border-bottom:5px solid var(--navy);padding-bottom:18px;margin-bottom:28px}
+h1{font-size:2.5rem;letter-spacing:.02em;line-height:1.1}
+.sub{color:var(--navy);font-size:1.05rem;margin-top:8px;font-weight:600}
+.meta{font-size:.82rem;color:#6b6250;margin-top:10px}
+h2{font-size:1.5rem;margin:44px 0 14px;padding:8px 14px;background:var(--navy);color:var(--paper);
+  border-radius:3px}
+h3{font-size:1.1rem;margin:26px 0 8px;color:var(--red);border-bottom:2px solid var(--line);padding-bottom:4px}
+p{margin:10px 0}
+b,strong{font-weight:700}
+a{color:var(--teal)}
+ul,ol{margin:10px 0 10px 22px}
+li{margin:6px 0}
+.toc{background:var(--paper);border:2px solid var(--line);border-radius:4px;padding:18px 22px}
+.toc h2{all:unset;display:block;font-weight:700;font-size:1.1rem;margin-bottom:10px;
+  font-family:inherit;color:var(--navy)}
+.toc ol{margin-left:20px}
+.toc a{text-decoration:none;color:var(--ink);font-weight:600}
+.toc a:hover{color:var(--red)}
+.card{background:var(--paper);border-left:7px solid var(--mustard);
+  border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 20px;margin:16px 0;border-radius:0 4px 4px 0}
+.card.bad{border-left-color:var(--red)}
+.card.ok{border-left-color:var(--olive)}
+.card.ask{border-left-color:var(--teal)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 9px;border-radius:2px;color:var(--paper);margin-bottom:8px}
+.t-bad{background:var(--red)} .t-ok{background:var(--olive)}
+.t-fix{background:var(--mustard);color:var(--ink)} .t-ask{background:var(--teal)}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.9rem;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:var(--paper);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+tbody tr:nth-child(even){background:#F3ECDD}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+code{background:#EFE6D2;padding:1px 5px;border-radius:2px;font-size:.88em;
+  font-family:"SF Mono",Menlo,Consolas,monospace}
+pre{background:#EFE6D2;border:1px solid var(--line);padding:12px 14px;border-radius:3px;
+  overflow-x:auto;font-size:.82rem;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.blk{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--teal);
+  padding:12px 14px;border-radius:0 0 3px 3px}
+.blk h4{font-size:.95rem;color:var(--navy);margin-bottom:6px;letter-spacing:.04em}
+.score{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.pill{background:var(--paper);border:2px solid var(--line);border-radius:3px;padding:8px 14px;
+  font-size:.85rem;font-weight:600}
+.pill b{color:var(--red);font-size:1.15rem;display:block}
+.pill.good b{color:var(--olive)}
+.phase{background:var(--paper);border:1px solid var(--line);border-left:7px solid var(--navy);
+  padding:18px 22px;margin:18px 0;border-radius:0 4px 4px 0}
+.phase .pnum{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--paper);background:var(--navy);padding:3px 10px;border-radius:2px;display:inline-block}
+.phase h3{margin-top:10px;color:var(--navy);border-bottom:2px solid var(--line)}
+.done{background:#EFE6D2;border:1px dashed var(--olive);padding:10px 14px;margin-top:12px;
+  font-size:.88rem;border-radius:3px}
+.done b{color:var(--olive)}
+blockquote{background:var(--paper);border-left:5px solid var(--rose);padding:14px 18px;
+  margin:14px 0;font-size:.95rem;border-radius:0 3px 3px 0}
+footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-size:.82rem;color:#6b6250}
+@media (max-width:640px){h1{font-size:1.7rem} .wrap{padding:24px 0 50px} table{font-size:.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>144 Presets for 01A&ndash;36D</h1>
+  <div class="sub">A build plan for the Mooer GE150 Pro, measured against the real model table</div>
+  <div class="meta">2026-11-06 &middot; sources: ChatGPT threads <code>Preset library design</code> and
+  <code>Dual Pedal Optimization Plan</code>, plus <code>GE150PRO_Complete_01A-36D_144Preset_Design.xlsx</code>
+  &middot; validated by <code>validate_144_design.py</code></div>
+</header>
+
+<div class="toc">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#ask">The ask, in Brandon's words</a></li>
+    <li><a href="#state">What already exists</a></li>
+    <li><a href="#measure">What the validation measured</a></li>
+    <li><a href="#names">The model names are spelling, not invention</a></li>
+    <li><a href="#vocab">The parameters are a vocabulary mismatch</a></li>
+    <li><a href="#phases">The three phases</a></li>
+    <li><a href="#notclaim">What this plan does not claim</a></li>
+  </ol>
+</div>
+
+<h2 id="ask">1. The ask, in Brandon's words</h2>
+<blockquote>
+  &ldquo;H made 1 through 55 presets, which turns out being 37 A through 50 D. Look at what
+  that has and what would be best for me, and let&rsquo;s make presets for 1A through 36D,
+  so we have a full complement of sounds. Learn from the mistakes of the other chat,
+  which is, like, not setting all of the various parameters and using a variety of clean
+  and dirt and fuzz and speakers, and, like, really utilizing all the possible settings
+  to find the sound that matches the name.&rdquo;
+  <div class="meta">gpt-preset-library-design, turn 1, verbatim</div>
+</blockquote>
+
+<p>Three separate requirements live in that sentence:</p>
+<div class="grid">
+  <div class="blk"><h4>1. Fill the slots</h4>144 presets into 01A&ndash;36D, preserving the
+  audited 55 at 37B&ndash;50D.</div>
+  <div class="blk"><h4>2. Set all the parameters</h4>The named failure of the prior pass.
+  This is the requirement the validation found broken again.</div>
+  <div class="blk"><h4>3. Real variety</h4>Clean, dirt, fuzz and <b>speakers</b>, so the sound
+  matches the preset name.</div>
+</div>
+
+<h2 id="state">2. What already exists</h2>
+<table>
+  <thead><tr><th>Artifact</th><th>State</th></tr></thead>
+  <tbody>
+    <tr><td><code>GE150PRO_Complete_01A-36D_144Preset_Design.xlsx</code></td>
+        <td>7 sheets, 144 slots, 1,296 module rows, on disk</td></tr>
+    <tr><td><code>&hellip;_144Preset_Design 2.xlsx</code></td>
+        <td>Byte-identical duplicate, md5 <code>c49eed2ca1ba4a9c7ed8574d520d0b12</code>. Ignore it.</td></tr>
+    <tr><td><code>GE150PRO_01A-36D_144_Tone_Blueprints.json</code></td>
+        <td><b>Promised in the thread, never downloaded.</b> Not on this Mac. The workbook
+        carries the same content, so it is a convenience rather than a blocker.</td></tr>
+    <tr><td><code>PEDALBOARD1_V25_SOUND_REVIEW.xlsx</code></td>
+        <td>The 55 audited presets, 37B&ndash;50D. Separate scope, preserved.</td></tr>
+    <tr><td><code>GE150PRO-model-definitions.xml</code></td>
+        <td>The authoritative table. 210 elements, 170 real models plus 40 <code>EMPTY</code>.</td></tr>
+  </tbody>
+</table>
+
+<div class="card">
+  <span class="tag t-fix">the workbook's own verdict</span>
+  <p>Its <code>START HERE</code> sheet reads &ldquo;DESIGN DOCUMENT ONLY, not installed, not
+  .mo native exports, not audio-verified.&rdquo; Its <code>IMPLEMENTATION QA</code> sheet holds
+  144 rows where every gate column reads <code>NO</code> and every implementation column reads
+  <code>NOT STARTED</code>. The design is honest about being a design.</p>
+</div>
+
+<h2 id="measure">3. What the validation measured</h2>
+<p><code>validate_144_design.py</code> resolved all 1,296 rows of the <code>9 BLOCK MATRIX</code>
+sheet against the model table extracted from the editor binary.</p>
+
+<div class="score">
+  <div class="pill good">module rows ON<b>891</b></div>
+  <div class="pill good">rows OFF<b>405</b></div>
+  <div class="pill">model names that do not exist<b>75</b></div>
+  <div class="pill">parameter names that do not exist<b>1,868</b></div>
+  <div class="pill">values outside the real range<b>0</b></div>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">that zero is vacuous</span>
+  <p>The range check only runs on a parameter name that resolved, and <b>1,868 names never
+  resolved</b>, so almost nothing reached the range comparison. Reading that zero as a clean
+  bill of health would be the exact gate failure where a check written against nothing passes
+  on everything. Phase 1 therefore hardens the validator before it is trusted.</p>
+</div>
+
+<h2 id="names">4. The model names are spelling, not invention</h2>
+<p>Every failing name is a near miss on a model that genuinely exists.
+<code>build_alias_map.py</code> matched 14 of the 17 distinct names uniquely, by stripping
+punctuation and spaces, covering 61 of the 75 rows. It refused to guess the other three.</p>
+
+<table>
+  <thead><tr><th>As designed</th><th>Real model in the table</th><th class="n">Slots</th></tr></thead>
+  <tbody>
+    <tr><td><code>UK 30 CL</code></td><td><code>33: UK30 CL</code></td><td class="n">13</td></tr>
+    <tr><td><code>PLX 100</code></td><td><code>09: PLX100</code></td><td class="n">10</td></tr>
+    <tr><td><code>Ana Chorus</code></td><td><code>12: ANA-CHORUS</code></td><td class="n">9</td></tr>
+    <tr><td><code>Tri Chorus</code></td><td><code>13: TRI-CHORUS</code></td><td class="n">7</td></tr>
+    <tr><td><code>UK 30 OD</code></td><td><code>34: UK30 OD</code></td><td class="n">4</td></tr>
+    <tr><td><code>Dr Zee 112</code></td><td><code>14: DR.ZEE 112</code></td><td class="n">4</td></tr>
+    <tr><td><code>DR ZEE Reck</code></td><td><code>29: DR.ZEE RECK</code></td><td class="n">3</td></tr>
+    <tr><td><code>MARK III CL</code> / <code>MARK III DS</code></td>
+        <td><code>16: MARKIII CL</code> / <code>17: MARKIII DS</code></td><td class="n">2 each</td></tr>
+    <tr><td><code>MARK V CL</code> / <code>MARK V DS</code></td>
+        <td><code>18: MARKV CL</code> / <code>19: MARKV DS</code></td><td class="n">2 each</td></tr>
+    <tr><td><code>DR ZEE 18 JR</code></td><td><code>28: DR.ZEE 18 JR</code></td><td class="n">1</td></tr>
+    <tr><td><code>Powerbell DS</code></td><td><code>13: POWER BELL DS</code></td><td class="n">1</td></tr>
+    <tr><td><code>D-Drive</code></td><td><code>05: DDRIVE</code></td><td class="n">1</td></tr>
+  </tbody>
+</table>
+
+<div class="card ask">
+  <span class="tag t-ask">three left unresolved, never guessed</span>
+  <ul>
+    <li><code>65 US DLX</code>, <b>12 slots</b>. The table holds <code>01: 65 US DX</code>. The
+    how-to doc already settled this spelling once, where a ChatGPT audit proposed
+    <code>65 US DLX</code> and the proposed form was counted in the XML zero times.</li>
+    <li><code>Rock Verb DS</code>, 1 slot. The table holds <code>23: ROCK VRB DS</code>.</li>
+    <li><code>Accoustic 112</code>, 1 slot. The table holds CAB <code>26: ACOUSTIC112</code>.</li>
+  </ul>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">why a wrong name is not cosmetic</span>
+  <p>The how-to doc records that a block carrying wrong or missing parameter names is
+  <b>silently rejected and replaced with the pedal&rsquo;s own defaults</b>. A chorus specified
+  at MIX 8 once ran at MIX 50, with exit codes, dialogs and file contents all looking fine.
+  A misspelled model does not fail loudly. It just plays something else.</p>
+</div>
+
+<h2 id="vocab">5. The parameters are a vocabulary mismatch</h2>
+<p>The design describes parameters in prose labels. The pedal has fixed names.</p>
+
+<table>
+  <thead><tr><th>Chain</th><th class="n">Failures</th><th>Designed label</th><th>Real parameter names</th></tr></thead>
+  <tbody>
+    <tr><td>EQ</td><td class="n">680</td><td><code>BAND LOW TARGET DB</code>, 5 bands</td>
+        <td><code>100Hz 250Hz 630Hz 1.6KHz 4KHz</code> on MOOER G, stored as dB plus 16</td></tr>
+    <tr><td>DELAY</td><td class="n">289</td><td><code>TIME MS</code>, <code>FEEDBACK TARGET %</code></td>
+        <td><code>TIME</code> <code>F.BACK</code> <code>LEVEL</code> <code>SUB-D</code></td></tr>
+    <tr><td>CAB</td><td class="n">278</td><td><code>CAB</code>, <code>SOURCE</code></td>
+        <td><code>TUBE</code> <code>MIC</code> <code>CENTER</code> <code>DISTANCE</code></td></tr>
+    <tr><td>REVERB</td><td class="n">244</td><td><code>DECAY TARGET %</code>, <code>WET TARGET %</code></td>
+        <td><code>P.DELAY</code> <code>LEVEL</code> <code>DECAY</code> <code>TONE</code></td></tr>
+    <tr><td>MOD</td><td class="n">177</td><td><code>RATE TARGET %</code>, <code>DEPTH TARGET %</code></td>
+        <td><code>RATE</code> <code>MIX</code> <code>DEPTH</code> <code>TONE</code>, per paraPos</td></tr>
+    <tr><td>DS/OD</td><td class="n">124</td><td><code>DRIVE</code>, <code>LEVEL</code></td>
+        <td><code>VOLUME</code> <code>TONE</code> <code>GAIN</code></td></tr>
+    <tr><td>NS GATE</td><td class="n">70</td><td><code>RELEASE</code></td>
+        <td>Exists only on <code>03: NOISE GATE</code>, absent from the other two</td></tr>
+    <tr><td>FX/COMP</td><td class="n">6</td><td>assorted</td><td>per paraPos, mostly already correct</td></tr>
+    <tr><td><b>AMP</b></td><td class="n"><b>0</b></td><td><code>GAIN BASS MID TREBLE PRES MST</code></td>
+        <td>Identical. The AMP vocabulary is right.</td></tr>
+  </tbody>
+</table>
+
+<div class="card bad">
+  <span class="tag t-bad">the finding that answers requirement 2</span>
+  <p>Of 139 CAB rows, <b>not one sets <code>TUBE</code>, <code>MIC</code>, <code>CENTER</code>
+  or <code>DISTANCE</code></b>. The four controls that shape the speaker are untouched across
+  all 144 presets. That is precisely the &ldquo;not setting all of the various parameters&rdquo;
+  mistake Brandon asked to avoid repeating, reappearing inside the document meant to fix it.
+  Speaker variety was named in the ask, and the speaker controls are the ones left blank.</p>
+</div>
+
+<h2 id="phases">6. The three phases</h2>
+
+<div class="phase">
+  <span class="pnum">Phase 1</span>
+  <h3>Make the design installable. Desk work, no pedal, no risk.</h3>
+  <ol>
+    <li>Apply the 14 resolved aliases. Record the 3 judgment calls with their XML evidence, then apply them.</li>
+    <li>Build the parameter translation table chain by chain, from the XML rather than from the prose
+    labels. EQ carries the dB plus 16 encoding, so a flat band is 16.</li>
+    <li><b>Fill the four CAB parameters for all 139 CAB rows.</b> This is real design work with a
+    stated rationale per preset, since speaker, mic and distance are part of matching sound to name.</li>
+    <li>Resolve the NS GATE mismatch, which is a model choice. A preset that wants <code>RELEASE</code>
+    needs <code>03: NOISE GATE</code>.</li>
+    <li>Re-run the validator until bad-model is 0 and bad-param is 0.</li>
+    <li>Harden the validator so its range check cannot pass vacuously. It must assert that resolved
+    parameter names equal parameters present, and hard-fail when a row contributes nothing.</li>
+  </ol>
+  <div class="done"><b>Done when:</b> 0 bad models, 0 bad parameters, a non-zero count of range
+  comparisons actually performed, and every one of them in range.</div>
+</div>
+
+<div class="phase">
+  <span class="pnum">Phase 2</span>
+  <h3>Emit <code>.mo</code> files and gate them, one bank at a time.</h3>
+  <ol start="7">
+    <li>Write the emitter from design rows to <code>.mo</code> JSON, nine <code>effectModule</code>
+    keys <code>"0"</code> through <code>"8"</code>, canonical bytes
+    <code>json.dumps(d, indent=4, sort_keys=True, ensure_ascii=False) + "\n"</code>.</li>
+    <li>Enforce both filename rules: filename equals <code>fileInfo.preset_name</code> exactly, and
+    names truncate to 16 characters on the pedal. Any design name over 16 gets shortened at the
+    source, so a readback cannot report a false MATCH against an untruncated name.</li>
+    <li>Diff every emitted block against a factory preset using the same model, to catch a parameter
+    set the pedal would silently reject.</li>
+    <li>Work <b>one bank of four at a time</b>, 36 banks. Never a bulk pass.</li>
+  </ol>
+  <div class="done"><b>Done when:</b> 144 <code>.mo</code> files exist, each filename matches its
+  internal name, and each block&rsquo;s parameter set matches the model table exactly.</div>
+</div>
+
+<div class="phase">
+  <span class="pnum">Phase 3</span>
+  <h3>Write to hardware and prove it.</h3>
+  <ol start="11">
+    <li><b>Back up first.</b> All 144 target slots currently hold something. The workbook&rsquo;s own
+    rule reads &ldquo;Create only in approved backed-up destination&rdquo; and its QA sheet says
+    <code>Native .mo backed up? NO</code> for all 144. Read all 144 existing slots off the device
+    and archive them before any write.</li>
+    <li>Confirm 37A. The old audit starts at 37B, so 37A&rsquo;s occupant is unknown and is not
+    assumed free.</li>
+    <li>Per bank: <code>v4_probe.sh</code>, then <code>v4_write.sh</code> with a mapping built from
+    the probe screenshot, then <code>v4_readback.sh</code>, then sha256 against the master.</li>
+    <li>Carry the known traps: window-relative coordinates re-read before every drag, float math
+    through python, <code>caffeinate</code> inside the batch, the <code>list_fingerprint.py</code>
+    scroll detector at threshold 97, a fresh mtime as the only witness that bytes came off the
+    device, and the frontmost-process check.</li>
+    <li>Expect Dual Delay <code>TIME B</code> to read back 40 ms above what was written, and do not
+    write readback files back.</li>
+    <li>Write all 144, read back all 144, compare all 144. <b>A sample is not proof.</b> The prior
+    pass recorded 9 of 12 tape presets still on the wrong reverb type while a single readback was
+    cited as evidence.</li>
+  </ol>
+  <div class="done"><b>Done when:</b> 144 written, 144 read back, and every mismatch is either
+  sha256-identical or explained by the documented TIME B read-path offset.</div>
+</div>
+
+<h2 id="notclaim">7. What this plan does not claim</h2>
+<div class="card">
+  <span class="tag t-fix">limits, stated</span>
+  <ul>
+    <li><b>No preset in this design has been heard through a guitar.</b> Every statement on this
+    page is about bytes, names and ranges.</li>
+    <li>The numeric targets are design proposals. The <code>9 BLOCK MATRIX</code> sheet labels all
+    891 ON rows <code>UNVERIFIED EDITOR VALUES</code>, and that label is accurate.</li>
+    <li>The dual-pedal architecture, the second GE150 Pro and the Eventide Space routing live in the
+    128-turn <code>Dual Pedal Optimization Plan</code> thread, which is staged to disk and has
+    <b>not been read in full</b> for this plan. Nothing here depends on it. Banks 35 and 36 are the
+    ones the design assigns to dual-rig voices, so they need that thread read before they are built.</li>
+  </ul>
+</div>
+
+<h3>Scripts this plan added</h3>
+<table>
+  <thead><tr><th>File</th><th>Does</th></tr></thead>
+  <tbody>
+    <tr><td><code>validate_144_design.py</code></td><td>Resolves all 1,296 rows against the model table</td></tr>
+    <tr><td><code>build_alias_map.py</code></td><td>Proposes model renames, refuses to guess an ambiguous one</td></tr>
+    <tr><td><code>validate_144_design_report.json</code></td><td>The full failure list, per slot</td></tr>
+    <tr><td><code>model_alias_map_PROPOSED.json</code></td><td>14 resolved, 3 unresolved, nothing applied</td></tr>
+    <tr><td><code>chatgpt-threads/*.md</code></td><td>Both source threads, linearized</td></tr>
+  </tbody>
+</table>
+
+<footer>
+  Mooer GE150 Pro &middot; plan written 2026-11-06 &middot; all counts produced by
+  <code>~/Projects/_outputs/ge150/validate_144_design.py</code> against
+  <code>GE150PRO-model-definitions.xml</code>.<br>
+  Rig sheet: <a href="./">GE150 Rig Sheet</a> &middot;
+  procedure: <code>~/Projects/_outputs/ge150/HOW-TO-UPDATE-GE150PRO.md</code>
+</footer>
+
+</div>
+</body>
+</html>
