@@ -97,6 +97,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#names">The model names are spelling, not invention</a></li>
     <li><a href="#vocab">The parameters are a vocabulary mismatch</a></li>
     <li><a href="#phases">The three phases</a></li>
+    <li><a href="#reverb">The reverb block, finished</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
   </ol>
 </div>
@@ -362,7 +363,80 @@ punctuation and spaces, covering 61 of the 75 rows. It refused to guess the othe
   sha256-identical or explained by the documented TIME B read-path offset.</div>
 </div>
 
-<h2 id="notclaim">8. What this plan does not claim</h2>
+<h2 id="reverb">8. The reverb block, finished</h2>
+<p>Done 2026-11-06. It matters beyond reverb, because it settles how the remaining 1,868
+parameter mismatches get resolved: by mining real preset files rather than authoring values.</p>
+
+<div class="card ok">
+  <span class="tag t-ok">a donor corpus already exists on this Mac</span>
+  <p><code>mine_reverb_donors.py</code> read <b>393 real <code>.mo</code> files</b>, zero
+  unreadable: the presets written to the pedal, the reference pack, the backups, a
+  <code>factory-baseline</code> set, and the GE150PRO editor's own library folder. For each
+  reverb model it produced observed min, median and max with the source file for each value.
+  <b>The same corpus can supply real values for DS/OD, MOD, DELAY, FX/COMP, NS GATE and CAB.</b></p>
+</div>
+
+<table>
+  <thead><tr><th>Model</th><th class="n">ON observations</th><th>Envelope</th></tr></thead>
+  <tbody>
+    <tr><td>SPRING</td><td class="n">107</td><td>binding</td></tr>
+    <tr><td>PLATE</td><td class="n">83</td><td>binding</td></tr>
+    <tr><td>ROOM</td><td class="n">51</td><td>binding</td></tr>
+    <tr><td>HALL</td><td class="n">33</td><td>binding</td></tr>
+    <tr><td><b>CAVE</b></td><td class="n"><b>12</b></td><td>binding, so the CAVE gap is closed</td></tr>
+    <tr><td>MOD</td><td class="n">11</td><td>binding</td></tr>
+    <tr><td>CHURCH</td><td class="n">3</td><td>too thin to bind</td></tr>
+    <tr><td>SHIMMER</td><td class="n">2</td><td>too thin to bind</td></tr>
+  </tbody>
+</table>
+
+<p>A pattern worth recording: across hundreds of real presets, <code>P.DELAY</code> and
+<code>TONE</code> sit at <b>30 and 60</b>. That is the factory resting pair, and it is why those
+two controls looked unset in the design while every real preset carries them.</p>
+
+<h3>The arc, measured</h3>
+<table>
+  <thead><tr><th>Measure</th><th class="n">Original</th><th class="n">REV2</th><th class="n">REV3</th></tr></thead>
+  <tbody>
+    <tr><td>Distinct reverb settings</td><td class="n">17</td><td class="n">29</td><td class="n"><b>53</b></td></tr>
+    <tr><td>Biggest identical cluster</td><td class="n">46</td><td class="n">38</td><td class="n"><b>14</b></td></tr>
+    <tr><td>Presets setting <code>P.DELAY</code></td><td class="n">0</td><td class="n">13</td><td class="n"><b>125</b></td></tr>
+    <tr><td>Presets setting <code>TONE</code></td><td class="n">0</td><td class="n">13</td><td class="n"><b>125</b></td></tr>
+  </tbody>
+</table>
+<p>Also: 0 blocks missing any control, 0 prose values left, 0 values outside the pedal's declared
+range, and 0 off-target cell changes across all 7 sheets compared cell by cell.</p>
+
+<div class="card">
+  <span class="tag t-fix">two encodings now documented</span>
+  <p>EQ stores dB plus 16, already known. <b>MOD pitch stores (semitones plus the absolute
+  minimum) times 10</b>, derived from the reference pack and confirmed three independent ways
+  against its README's own stated intent. That unblocks the ZEP KASHMIR detune the how-to doc
+  left switched off for want of a number.</p>
+</div>
+
+<div class="card ask">
+  <span class="tag t-ask">an envelope needs enough observations to bind</span>
+  <p><code>SHIMMER</code> has 2 observations, and its <code>LEVEL</code> envelope is the single
+  value 55 seen twice. Treating that as a constraint would pin every shimmer preset to a
+  showcase level. The rule used a binding threshold of 10 observations. <b>Zero authored values
+  violate a binding envelope.</b> Nine sit outside a non-binding one, on CHURCH and SHIMMER, and
+  are named rather than hidden.</p>
+  <p>The biggest remaining cluster, 14 clean presets on a neutral small room, is left alone
+  deliberately. Splitting it further would be gaming the measure.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">new finding, unresolved</span>
+  <p><b>33 of the design's own <code>DECAY</code> and <code>LEVEL</code> values</b> sit outside a
+  binding observed envelope, untouched by this pass. The worst are
+  <code>SPRING DECAY=20</code> on <b>14 presets</b> where 107 real springs span 21 to 62, and
+  <code>CAVE DECAY=73</code> on 4 presets where 12 real caves span 35 to 64. They are legal
+  values, since all sit inside the pedal's declared range. No real preset on this Mac is set that
+  way, so this wants an ear rather than a silent correction.</p>
+</div>
+
+<h2 id="notclaim">9. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>
