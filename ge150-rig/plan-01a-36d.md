@@ -1040,7 +1040,7 @@ rather than factory, so I flagged them before any write:
 
 | Slot | Held | Replaced by |
 |---|---|---|
-| 34C | `WholeLottaLove` | `TAP SWELL` |
+| 34C | `WholeLottaLove` | `EXP PHASER` |
 | 35D | `NovemberRain` | `A DRY ANCHOR` |
 | 36A | `CoveredInRain` | `CLEAN SAFE` |
 | 36B | `Gravity` | `EDGE SAFE` |
