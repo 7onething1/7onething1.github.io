@@ -1092,3 +1092,84 @@ pedal.**
 | `backups/GE150PRO-preset-list-2026-11-02-CORRECTED.tsv` | the real slot index |
 | `write_order_01A-36D.json` | the bank-by-bank write order with warnings |
 | `verify_readback.py` | post-write verification, TIME B offset aware |
+
+---
+
+## Measured, 2026-11-08: the write could not have run anyway
+
+Rather than assume, I ran the measure-only preflight. `v4_probe.sh` states its
+own scope on line 2: "measure, never write. It touches nothing on the pedal."
+
+```
+=== 1. lock state ===
+ScreenIsLocked: False
+saver windows: []
+unlocked, no saver
+
+=== 2. window geometry ===
+ABORT: GE150PRO window not on screen.
+```
+
+The Mac is unlocked. **The GE150PRO editor is not open**, so the application the
+write drives is not running. The write was impossible at that moment on simple
+mechanical grounds, separate from any question of permission.
+
+## Handed back as exact steps, which is what the rule asks for
+
+`feedback_never_computer_use_freezes_mac_hard_gate.md` line 16:
+
+> "Never drive native apps by clicking/typing on this machine. If a task seems to
+> need it, stop and hand it back to Brandon with exact steps instead."
+
+Line 12 gives the reason: this machine is macOS 13 and the computer-use
+screenshot path needs macOS 14, so the call fails and locks the machine.
+
+So the steps are in `phase3_runbook.sh`, which is the exact procedure in the form
+that needs the least from you:
+
+```
+./phase3_runbook.sh probe         measure only, touches nothing
+./phase3_runbook.sh mapping       print exactly what the mapping file needs
+./phase3_runbook.sh bank 01       stage, then write, read back and verify one bank
+./phase3_runbook.sh verify        compare every readback against its master
+```
+
+Before that: connect the pedal by USB, open GE150PRO, size the window to
+1146 x 1065 at 100,30 because the row maths assumes it, and leave the editor
+frontmost because synthetic drags land in whatever is in front.
+
+Its guards were proven by running them with the editor closed:
+
+```
+2026-11-08 15:53:00 | bank 01: preflight
+2026-11-08 15:53:01 | ABORT bank 01: probe failed, fix that first
+```
+
+It also refuses without a mapping file, and it works **one bank of four at a
+time** across the 36, because the 2026-11-04 pass proved that a batch which
+cannot stop is a batch that overwrites finished work.
+
+What it does per bank: copies that bank's four `.mo` into the editor's library
+folder under names equal to their `preset_name`, since the COMPUTER list refuses
+a mismatch, then hands you the refresh click and the two existing scripts,
+`v4_write.sh` and `v4_readback.sh`, and finishes with `verify_readback.py`.
+
+## The six slots, including Gravity
+
+`34C WholeLottaLove`, `35D NovemberRain`, `36A CoveredInRain`,
+**`36B Gravity`**, **`36C Gravity Lead`** and `36D MasterOfPuppet` are cleared by
+your word and are no longer flagged. Their replacements, read from
+`mo-01A-36D-v1-manifest.json`:
+
+| Slot | Held | Manifest line | Replaced by |
+|---|---|---|---|
+| 34C | `WholeLottaLove` | 1209 | `EXP PHASER` |
+| 35D | `NovemberRain` | 1254 | `A DRY ANCHOR` |
+| 36A | `CoveredInRain` | 1263 | `CLEAN SAFE` |
+| **36B** | **`Gravity`** | **1272** | **`EDGE SAFE`** |
+| **36C** | **`Gravity Lead`** | **1281** | **`LEAD SAFE`** |
+| 36D | `MasterOfPuppet` | 1290 | `RIG CHECK` |
+
+All six remain byte-exact at 280 bytes each in
+`backups/device-backup-2026-11-02-per-slot/`, so `Gravity` and `Gravity Lead`
+can be put back whenever you want them.

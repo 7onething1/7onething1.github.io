@@ -723,15 +723,17 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
   factory, so they were flagged before any write. <b>Brandon, 2026-11-08: "i don't care about
   these; and ones like these its backed up."</b> The <code>hand_built_warning</code> flag is
   removed from all six rows of the write order, with his decision recorded verbatim beside each.
-  <b>No slot in 01A through 36D is held back on content grounds.</b></p>
+  <b>No slot in 01A through 36D is held back on content grounds</b>, including
+  <code>Gravity</code> at 36B and <code>Gravity Lead</code> at 36C. All six stay byte-exact at
+  280 bytes each in the per-slot backup, so any of them goes back whenever you want it.</p>
   <table>
     <thead><tr><th>Slot</th><th>Holds</th><th>Would be replaced by</th></tr></thead>
     <tbody>
       <tr><td>34C</td><td><code>WholeLottaLove</code></td><td>EXP PHASER</td></tr>
       <tr><td>35D</td><td><code>NovemberRain</code></td><td>A DRY ANCHOR</td></tr>
       <tr><td>36A</td><td><code>CoveredInRain</code></td><td>CLEAN SAFE</td></tr>
-      <tr><td>36B</td><td><code>Gravity</code></td><td>EDGE SAFE</td></tr>
-      <tr><td>36C</td><td><code>Gravity Lead</code></td><td>LEAD SAFE</td></tr>
+      <tr><td><b>36B</b></td><td><b><code>Gravity</code></b></td><td><b>EDGE SAFE</b></td></tr>
+      <tr><td><b>36C</b></td><td><b><code>Gravity Lead</code></b></td><td><b>LEAD SAFE</b></td></tr>
       <tr><td>36D</td><td><code>MasterOfPuppet</code></td><td>RIG CHECK</td></tr>
     </tbody>
   </table>
@@ -754,6 +756,42 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
   <p>Not done and not guessed: converting a 280-byte binary record into a <code>.mo</code>. That
   mapping is not established, so the records are exact bytes for comparison and the restore path
   stays the editor's own.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">measured: the write could not have run anyway</span>
+  <p>Rather than assume, the measure-only preflight was run. <code>v4_probe.sh</code> states its
+  own scope on line 2, "measure, never write. It touches nothing on the pedal."</p>
+  <pre>=== 1. lock state ===
+ScreenIsLocked: False
+saver windows: []
+unlocked, no saver
+
+=== 2. window geometry ===
+ABORT: GE150PRO window not on screen.</pre>
+  <p>The Mac is unlocked. <b>The GE150PRO editor is not open</b>, so the application the write
+  drives is not running. The write was impossible at that moment on mechanical grounds, separate
+  from any question of permission.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">handed back as exact steps</span>
+  <p>The standing rule's own instruction, at
+  <code>feedback_never_computer_use_freezes_mac_hard_gate.md</code> line 16, is "Never drive
+  native apps by clicking/typing on this machine. If a task seems to need it, stop and hand it
+  back to Brandon with exact steps instead." Line 12 gives the reason: this machine is macOS 13
+  and the computer-use screenshot path needs macOS 14.</p>
+  <p>So the steps are <code>phase3_runbook.sh</code>:</p>
+  <pre>./phase3_runbook.sh probe      measure only, touches nothing
+./phase3_runbook.sh mapping    print exactly what the mapping file needs
+./phase3_runbook.sh bank 01    stage, write, read back and verify one bank
+./phase3_runbook.sh verify     compare every readback against its master</pre>
+  <p>First connect the pedal by USB, open GE150PRO, size the window to 1146 x 1065 at 100,30
+  because the row maths assumes it, and leave the editor frontmost because synthetic drags land in
+  whatever is in front. Its guards were proven by running them with the editor closed:
+  <code>ABORT bank 01: probe failed, fix that first</code>. It works <b>one bank of four at a time
+  across the 36</b>, because the 2026-11-04 pass proved a batch that cannot stop is a batch that
+  overwrites finished work.</p>
 </div>
 
 <div class="card ask">
