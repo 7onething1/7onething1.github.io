@@ -807,3 +807,146 @@ by cell, and every pass kept all 7 sheets, 144 detail rows and 1,296 matrix rows
 | `fix_expression_targets.py` | remaps expression targets to controls that exist |
 | `validate_144_hardened.py` | the gate that cannot pass vacuously |
 | `chatgpt-sources/MANUFACTURER_MODEL_NAME_AUDIT_ALL.ORIGINAL.csv` | the uncorrected audit, kept |
+# Phase 2 complete: 144 `.mo` files emitted and gated
+
+2026-11-08. `mo-01A-36D-v1/` holds 144 preset files built from the gated
+workbook, and every one passes a byte-level and value-level gate. Packaged as
+`GE150PRO_01A-36D_144_presets_v1.zip`, sha256 begins `e29ebc43196f`.
+
+Nothing has been written to the pedal. Phase 3 is untouched.
+
+## What was emitted
+
+```
+presets                 144
+ON blocks               894
+OFF blocks              402
+expression mapped       144
+duplicate names           0
+names over 16 chars       0   (longest is 13)
+value checks performed 4989
+RESULT                 PASS
+```
+
+Format taken from real `.mo` files rather than assumed: `Exp`, `effectModule`
+with keys `"0"` through `"8"`, each block `{"TYPE": <zero-based model index>,
+"SWITCH": 0|1, "Data": {...}}`, enumerated values stored as their **integer
+index** rather than their label, canonical bytes
+`json.dumps(d, indent=4, sort_keys=True, ensure_ascii=False) + "\n"`, and
+filename equal to `fileInfo.preset_name`.
+
+A switched-off block still carries a model and values in every real preset, so
+the 402 OFF blocks were written with the chain's most-observed model and its
+observed values, `SWITCH` 0.
+
+## The control test earned its keep
+
+Running the new pack gate against two known-good packs, the reference pack and
+the 55 already written to this pedal, found **three bugs and one real defect in
+the pack**. The 55 passed clean. The reference pack did not, and the reasons
+split three ways.
+
+### 1. A real defect in the reference pack
+
+All 10 files are named `01 Eterna Choir.mo` while their `preset_name` is
+`Eterna Choir`. The how-to doc records the consequence: **the COMPUTER list
+silently refuses any file whose name differs from `fileInfo.preset_name`.** The
+pack's own README says to drag them in, and as shipped they would be refused
+without an error.
+
+Fixed copies are in `refpack-importable/`, named to match their `preset_name`
+and written canonically. That directory passes the gate, 10 files and 359 value
+checks. The originals are untouched in `refpack-unzip/`.
+
+### 2. Two bugs in my own validator
+
+- **EQ.** I had applied a blanket "EQ stores dB plus 16, so 0..32" rule, which
+  is wrong for `CUSTOM EQ`, whose `FREQ1 FREQ2 FREQ3` are frequencies in Hz, not
+  dB. It flagged `FREQ1=200` as out of range.
+- **PITCH.** I compared a stored value against the displayed range, so the
+  pack's legitimate `PITCH=280` read as "not in -20..20".
+
+Both came from treating EQ and PITCH as two separate special cases. They are
+one rule.
+
+### 3. A bug in my own filler, and the rule that fixes it
+
+**stored = (displayed - min) / step.**
+
+That single rule covers both. EQ bands have min -16 and step 1, so stored is
+dB plus 16. `PITCH SHIFT` has min -12 and step 0.1, so +12 semitones stores as
+240. `DETUNE` has min -20 and step 0.1, so +8 stores as 280. Every other
+parameter in the table has min 0 and step 1, where stored equals displayed.
+Exactly **19 parameter definitions** are affected: every EQ dB band, the three
+`CUSTOM EQ` gains, and the two `PITCH` controls.
+
+My filler clamped stored values against the **displayed** range, which silently
+destroyed the encoding on 10 presets:
+
+| | Before the fix | Decodes to | After |
+|---|---|---|---|
+| `PITCH SHIFT` wanting +12 | stored 12 | **-10.8 semitones**, nearly an octave down | stored 240, +12.0 |
+| `DETUNE` | stored 0 | **-20.0 semitones** | stored 280, +8.0 |
+
+An octave-up shimmer would have played nearly an octave down, and six detunes
+would have been pitched down twenty semitones. Nothing in the workbook looked
+wrong, because 12 is a perfectly plausible number for a parameter whose
+displayed range is -12 to 12.
+
+## Two contamination problems found and closed
+
+### My own output had entered the evidence
+
+The donor roots included `mo-01A-36D-v1`, the directory this pass writes. After
+the first emit, re-mining counted **6 of my own emitted DETUNE blocks as 6
+independent observations** of `PITCH=0`. That is a closed loop: this pass's
+inferences becoming the next pass's evidence. The miners now exclude generated
+output and retired `delete/` folders, which took the corpus from an inflated
+count down to **361 genuinely independent files**.
+
+### A known invented value was being averaged in
+
+`HOW-TO-UPDATE-GE150PRO.md` records a converter special case that wrote an
+invented `PITCH: 0.1`. Two `ZEP KASHMIR` blocks carry it, and it was pulling the
+DETUNE median toward zero. It is not a measurement, so the miner now drops it by
+name. With it gone, the only real DETUNE evidence is the reference pack at
+stored 280, which is +8.0 semitones and matches its README, corroborated by
+factory `65 Deluxe` at stored 275, which is +7.5.
+
+That DETUNE figure rests on **n=1**, below the binding threshold of 10, and is
+tagged accordingly rather than presented as settled.
+
+## The expression block
+
+All 277 presets already written to this pedal carry one identical `Exp` block:
+`FUN_SWITCH 1, MODULE_CTRL 0, PARA_CTRL 0`. That is an untouched default, not a
+per-preset mapping, so **the 55 on the pedal have no real expression assignment**
+despite the V25 document recording an expression policy per slot.
+
+For the 144 there is real intent per slot, so the emitter writes `MODULE_CTRL` as
+the chain index and `PARA_CTRL` as the control's position in that model's
+parameter list. No corpus example confirms what `PARA_CTRL` indexes, since every
+observation sits at 0, so the manifest tags this `INFERRED` for a Phase 3
+readback to confirm or correct. All 144 mapped.
+
+## Files
+
+| File | Holds |
+|---|---|
+| `mo-01A-36D-v1/` | the 144 `.mo` files |
+| `mo-01A-36D-v1-manifest.json` | per preset: slot, name, bytes, expression mapping, provenance tag |
+| `GE150PRO_01A-36D_144_presets_v1.zip` | the pack, 146 files |
+| `refpack-importable/` | the reference pack with filenames the editor will accept |
+| `emit_mo.py` | the emitter, `--dry` supported |
+| `validate_mo_pack.py` | the pack gate: canonical bytes, filename, TYPE, enum indices, stored ranges, unset controls |
+
+## Phase 3, not started
+
+Writing to hardware needs the pedal and the editor GUI, and it needs the Phase 0
+decision about the cycling fill, which is still yours. The order when it runs:
+extract the 2026-11-02 backup per slot, restore 01A and 01B, confirm 37A, then
+per bank of four run probe, write, readback and sha256, carrying the documented
+traps including the Dual Delay `TIME B` plus-40 ms read offset.
+
+**No preset in this pack has been heard through a guitar.** Every claim here is
+about bytes, names, ranges and encodings.

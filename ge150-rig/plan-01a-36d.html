@@ -100,6 +100,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#reverb">The reverb block, finished</a></li>
     <li><a href="#cab">The CAB block, filled</a></li>
     <li><a href="#phase1done">Phase 1 complete: the design is installable</a></li>
+    <li><a href="#phase2done">Phase 2 complete: 144 .mo files emitted</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
   </ol>
 </div>
@@ -620,7 +621,78 @@ chosen for that slot. 101 were already valid, <b>0 unresolved</b>.</p>
   thin to bind. <b>No preset has been heard.</b></p>
 </div>
 
-<h2 id="notclaim">11. What this plan does not claim</h2>
+<h2 id="phase2done">11. Phase 2 complete: 144 <code>.mo</code> files emitted</h2>
+<div class="score">
+  <div class="pill good">presets emitted<b>144</b></div>
+  <div class="pill good">value checks<b>4,989</b></div>
+  <div class="pill good">failures<b>0</b></div>
+  <div class="pill">expression mapped<b>144</b></div>
+  <div class="pill">names over 16 chars<b>0</b></div>
+</div>
+<p>Format taken from real <code>.mo</code> files rather than assumed: <code>TYPE</code> is the
+zero-based model index, enumerated values store as their <b>integer index</b> rather than their
+label, bytes are canonical, and the filename equals <code>fileInfo.preset_name</code>. The 402
+switched-off blocks carry a model and values like every real preset does.</p>
+
+<h3>The control test earned its keep</h3>
+<p>Running the new pack gate against two known-good packs found <b>three bugs and one real defect
+in the reference pack</b>. The 55 already on the pedal passed clean.</p>
+
+<div class="card bad">
+  <span class="tag t-bad">a real defect in the reference pack</span>
+  <p>All 10 files are named <code>01 Eterna Choir.mo</code> while their <code>preset_name</code>
+  is <code>Eterna Choir</code>. The how-to doc records the consequence: <b>the COMPUTER list
+  silently refuses any file whose name differs from <code>fileInfo.preset_name</code>.</b> The
+  pack's README says to drag them in, and as shipped they would be refused with no error.
+  Fixed copies are in <code>refpack-importable/</code>, which passes the gate at 10 files and
+  359 checks. The originals are untouched.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">a bug in my own filler, and the rule that fixes it</span>
+  <p>I had been treating EQ and PITCH as two separate encodings. They are one rule:
+  <b>stored = (displayed &minus; min) / step.</b> EQ bands have min &minus;16 and step 1, so
+  stored is dB plus 16. <code>PITCH SHIFT</code> has min &minus;12 and step 0.1, so +12 semitones
+  stores as 240. Every other parameter has min 0 and step 1, where stored equals displayed.
+  Exactly <b>19 parameter definitions</b> are affected.</p>
+  <p>My filler clamped stored values against the <b>displayed</b> range, which silently destroyed
+  the encoding on 10 presets:</p>
+  <table>
+    <thead><tr><th>Intent</th><th>Was stored</th><th>Which decodes to</th><th>Now</th></tr></thead>
+    <tbody>
+      <tr><td><code>PITCH SHIFT</code> +12</td><td class="n">12</td><td><b>&minus;10.8 semitones</b>, nearly an octave down</td><td class="n">240, +12.0</td></tr>
+      <tr><td><code>DETUNE</code></td><td class="n">0</td><td><b>&minus;20.0 semitones</b></td><td class="n">280, +8.0</td></tr>
+    </tbody>
+  </table>
+  <p>An octave-up shimmer would have played nearly an octave down. Nothing in the workbook looked
+  wrong, because 12 is a plausible number for a control whose displayed range is &minus;12 to 12.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">two contamination problems, found and closed</span>
+  <p><b>My own output had entered the evidence.</b> The donor roots included the directory this
+  pass writes, so after the first emit, re-mining counted <b>6 of my own emitted DETUNE blocks as
+  6 independent observations</b>. That is this pass's inferences becoming the next pass's
+  evidence. The miners now exclude generated output and retired <code>delete/</code> folders,
+  leaving <b>361 genuinely independent files</b>.</p>
+  <p><b>A known invented value was being averaged in.</b> The how-to doc records a converter
+  special case that wrote an invented <code>PITCH: 0.1</code>; two blocks carry it and it was
+  pulling the DETUNE median toward zero. The miner now drops it by name. With it gone the only
+  real evidence is the pack at stored 280, which is +8.0 and matches its README, corroborated by
+  factory <code>65 Deluxe</code> at 275. That rests on <b>n=1</b> and is tagged as such.</p>
+</div>
+
+<div class="card ask">
+  <span class="tag t-ask">the expression block</span>
+  <p>All 277 presets already written to this pedal carry one identical <code>Exp</code> block,
+  <code>MODULE_CTRL 0, PARA_CTRL 0</code>. That is an untouched default, so <b>the 55 on the pedal
+  have no real expression assignment</b> despite the V25 document recording a policy per slot. For
+  the 144 the emitter writes the chain index and the control's position in the model's parameter
+  list, tagged <code>INFERRED</code> in the manifest because every observation sits at 0. All 144
+  mapped.</p>
+</div>
+
+<h2 id="notclaim">12. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>
