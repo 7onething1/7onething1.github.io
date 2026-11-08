@@ -1033,12 +1033,12 @@ is about 2,400 bytes of JSON. That mapping is not established, so the per-slot
 records are exact bytes for comparison and the restore path remains the editor's
 own backup restore.
 
-## A safety finding that changes the stakes
+## The six song-named presets: cleared by you
 
-Six slots inside the target range hold song-named presets that look hand-built
-rather than factory:
+Six slots inside the target range held song-named presets that looked hand-built
+rather than factory, so I flagged them before any write:
 
-| Slot | Holds | Would be replaced by |
+| Slot | Held | Replaced by |
 |---|---|---|
 | 34C | `WholeLottaLove` | `TAP SWELL` |
 | 35D | `NovemberRain` | `A DRY ANCHOR` |
@@ -1047,29 +1047,38 @@ rather than factory:
 | 36C | `Gravity Lead` | `LEAD SAFE` |
 | 36D | `MasterOfPuppet` | `RIG CHECK` |
 
-Writing 01A through 36D destroys those. They are preserved in the per-slot
-backup, and they are flagged `hand_built_warning` in the write order, so nothing
-can overwrite them silently. Whether to keep them, move them, or let them go is
-yours.
+**Brandon, 2026-11-08: "i don't care about these; and ones like these its backed
+up."** So they are cleared. The `hand_built_warning` flag is removed from all six
+rows of the write order, with his decision recorded verbatim beside each. **No
+slot in 01A through 36D is now held back on content grounds.**
+
+All 200 slots remain extracted at
+`backups/device-backup-2026-11-02-per-slot/`, 280 bytes each, so every one of
+them is recoverable whatever happens.
 
 ## Why the write has not run
 
-1. **It needs synthetic mouse control of your Mac.** There is no USB API and no
-   file-drop import, so a write means driving the editor GUI with synthetic
-   drags. Your standing rule is no computer-use and no taking control of the Mac
-   without your say-so.
-2. **The Phase 0 decision is still open.** Whether the 144 design supersedes the
-   cycling fill for 01A through 36D is your call, recorded as blocked rather than
-   assumed. The run also overwrites six hand-built presets, which you had not
-   been told about until now.
+One blocker is left, and it is the standing rule rather than anything about this
+work.
 
-When you give the word, the order is: restore 01A and 01B from their records,
-then per bank of four run `v4_probe.sh`, `v4_write.sh` with a mapping built from
-the probe screenshot, `v4_readback.sh`, then `verify_readback.py`, carrying the
-documented traps, window-relative coordinates re-read before every drag, float
-math through python, `caffeinate` inside the batch, the `list_fingerprint.py`
-scroll detector at threshold 97, and a fresh mtime as the only witness that
-bytes came off the device.
+**A write needs synthetic mouse control of your Mac.** There is no USB API and no
+file-drop import, so the only path is driving the GE150PRO editor's GUI with
+synthetic drags, over 144 slots. Your standing rule is no computer-use and no
+taking control of the Mac, and this is also a destructive write to the physical
+pedal. That is the one case the finish-the-work rule reserves for your word, so I
+have prepared everything and stopped at the edge of it.
+
+The content question is settled. The six song-named presets are cleared, the
+cycling fill is superseded for 01A through 36D, and every target slot is backed
+up.
+
+When you say go, the order is: restore 01A and 01B from their records, then per
+bank of four run `v4_probe.sh`, `v4_write.sh` with a mapping built from the probe
+screenshot, `v4_readback.sh`, then `verify_readback.py`. The documented traps
+carry: window-relative coordinates re-read before every drag, float math through
+python, `caffeinate` inside the batch, the `list_fingerprint.py` scroll detector
+at threshold 97, a fresh mtime as the only witness that bytes came off the
+device, and the frontmost-process check.
 
 **No preset has been heard through a guitar, and nothing has been written to the
 pedal.**

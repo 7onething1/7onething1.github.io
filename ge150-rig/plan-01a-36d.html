@@ -717,10 +717,13 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
   the index claimed.</p>
 </div>
 
-<div class="card bad">
-  <span class="tag t-bad">a safety finding that changes the stakes</span>
-  <p>Six slots inside the target range hold song-named presets that look hand-built rather than
-  factory. Writing 01A through 36D destroys them.</p>
+<div class="card ok">
+  <span class="tag t-ok">the six song-named presets: cleared by Brandon</span>
+  <p>Six slots inside the target range held song-named presets that looked hand-built rather than
+  factory, so they were flagged before any write. <b>Brandon, 2026-11-08: "i don't care about
+  these; and ones like these its backed up."</b> The <code>hand_built_warning</code> flag is
+  removed from all six rows of the write order, with his decision recorded verbatim beside each.
+  <b>No slot in 01A through 36D is held back on content grounds.</b></p>
   <table>
     <thead><tr><th>Slot</th><th>Holds</th><th>Would be replaced by</th></tr></thead>
     <tbody>
@@ -732,8 +735,8 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
       <tr><td>36D</td><td><code>MasterOfPuppet</code></td><td>RIG CHECK</td></tr>
     </tbody>
   </table>
-  <p>All six are preserved in the per-slot backup and flagged
-  <code>hand_built_warning</code> in the write order, so nothing can overwrite them silently.</p>
+  <p>All 200 slots remain extracted at 280 bytes each, so every one of them is recoverable
+  whatever happens.</p>
 </div>
 
 <div class="card ok">
@@ -754,11 +757,14 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
 </div>
 
 <div class="card ask">
-  <span class="tag t-ask">why the write has not run</span>
-  <p>It needs <b>synthetic mouse control of the Mac</b>, since there is no USB API and no
-  file-drop import, and the standing rule is no computer-use without a say-so. And the
-  <b>Phase 0 decision is still open</b>, now with six hand-built presets in the balance. The step
-  is recorded as blocked rather than assumed.</p>
+  <span class="tag t-ask">one blocker left, and it is the standing rule</span>
+  <p>A write needs <b>synthetic mouse control of the Mac</b>, since there is no USB API and no
+  file-drop import, so the only path is driving the editor's GUI with synthetic drags across 144
+  slots. The standing rule is no computer-use and no taking control of the Mac, and this is also
+  a destructive write to the physical pedal. That is the one case the finish-the-work rule
+  reserves for Brandon's word, so everything is prepared and stopped at the edge of it.</p>
+  <p><b>The content question is settled.</b> The six song-named presets are cleared, the cycling
+  fill is superseded for 01A through 36D, and every target slot is backed up.</p>
 </div>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
