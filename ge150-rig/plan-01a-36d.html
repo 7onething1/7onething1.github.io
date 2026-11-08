@@ -101,6 +101,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#cab">The CAB block, filled</a></li>
     <li><a href="#phase1done">Phase 1 complete: the design is installable</a></li>
     <li><a href="#phase2done">Phase 2 complete: 144 .mo files emitted</a></li>
+    <li><a href="#phase3">Phase 3 prepared, and stopped before the hardware</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
   </ol>
 </div>
@@ -161,17 +162,24 @@ ABORT 01C CAP MULTI A: selection moved 223.25-&gt;580.25, list scrolled or write
   index <code>GE150PRO-preset-list-2026-11-02.tsv</code> cover <b>all 144 slots in 01A through
   36D</b>, 206 slots in total, dated 2026-11-02, which predates the 01A and 01B overwrite. The
   index records what those slots held beforehand:</p>
+  <p><b>Correction, 2026-11-08.</b> This section first reported
+  <code>01A = V1.0.6</code> and <code>01B = BUFF</code>, taken from the shipped index
+  <code>GE150PRO-preset-list-2026-11-02.tsv</code>. Those are <b>header strings, not presets</b>,
+  and a string-scan took them for slots 01A to 01C, pushing every real preset three slots late.
+  <b>The shipped index is wrong on all 200 slots</b>, so restoring from its offsets would have
+  written the wrong preset. Decoding the backup directly gives:</p>
   <table>
-    <thead><tr><th>Slot</th><th>Held on 2026-11-02</th></tr></thead>
+    <thead><tr><th>Slot</th><th>Really held on 2026-11-02</th><th>The shipped index claimed</th></tr></thead>
     <tbody>
-      <tr><td>01A</td><td><code>V1.0.6</code></td></tr>
-      <tr><td>01B</td><td><code>BUFF</code></td></tr>
-      <tr><td>01C</td><td><code>GE150PRO_PRESET</code></td></tr>
+      <tr><td>01A</td><td><code>65 Deluxe</code></td><td><code>V1.0.6</code></td></tr>
+      <tr><td>01B</td><td><code>65 Twin</code></td><td><code>BUFF</code></td></tr>
+      <tr><td>01C</td><td><code>59 Bassguy</code></td><td><code>GE150PRO_PRESET</code></td></tr>
+      <tr><td>37A</td><td><code>Time Lead</code></td><td><code>CoveredInRain</code></td></tr>
     </tbody>
   </table>
-  <p>What is missing is not the backup. It is a per-slot <code>.mo</code> extraction from that
-  backup, using the offsets the index already carries. That is smaller work than the workbook
-  implies.</p>
+  <p>The backup is a binary MOOER file: a 1,034-byte header, then 280-byte records, record 0
+  named <code>RESET</code> and records 1 to 200 being slots 01A to 50D. All 200 are now extracted
+  per slot, and 37A's occupant is answered.</p>
 </div>
 
 <h2 id="state">3. What already exists</h2>
@@ -692,7 +700,68 @@ in the reference pack</b>. The 55 already on the pedal passed clean.</p>
   mapped.</p>
 </div>
 
-<h2 id="notclaim">12. What this plan does not claim</h2>
+<h2 id="phase3">12. Phase 3 prepared, and stopped before the hardware</h2>
+<p>Everything Phase 3 needs that does not touch the pedal is done. The write itself is not.</p>
+
+<div class="card bad">
+  <span class="tag t-bad">following my own plan would have restored the wrong preset</span>
+  <p>Phase 3 step 14 read "extract the backup per slot using the offsets in that index". The
+  shipped index is <b>wrong on all 200 slots</b>, offset by three, because a string-scan took
+  three header strings as presets 01A to 01C. Decoding the backup directly gives the real layout:
+  a 1,034-byte header, then 280-byte records, record 0 named <code>RESET</code> and records 1 to
+  200 being slots 01A to 50D. Checked against content: record 1 is <code>65 Deluxe</code>,
+  record 2 <code>65 Twin</code>, record 200 <code>Dual Lead</code>, which are genuine factory
+  names in factory order.</p>
+  <p><b>37A is answered.</b> The old audit started at 37B and 37A's occupant was unknown. As of
+  2026-11-02 it held the factory preset <code>Time Lead</code>, not <code>CoveredInRain</code> as
+  the index claimed.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">a safety finding that changes the stakes</span>
+  <p>Six slots inside the target range hold song-named presets that look hand-built rather than
+  factory. Writing 01A through 36D destroys them.</p>
+  <table>
+    <thead><tr><th>Slot</th><th>Holds</th><th>Would be replaced by</th></tr></thead>
+    <tbody>
+      <tr><td>34C</td><td><code>WholeLottaLove</code></td><td>TAP SWELL</td></tr>
+      <tr><td>35D</td><td><code>NovemberRain</code></td><td>A DRY ANCHOR</td></tr>
+      <tr><td>36A</td><td><code>CoveredInRain</code></td><td>CLEAN SAFE</td></tr>
+      <tr><td>36B</td><td><code>Gravity</code></td><td>EDGE SAFE</td></tr>
+      <tr><td>36C</td><td><code>Gravity Lead</code></td><td>LEAD SAFE</td></tr>
+      <tr><td>36D</td><td><code>MasterOfPuppet</code></td><td>RIG CHECK</td></tr>
+    </tbody>
+  </table>
+  <p>All six are preserved in the per-slot backup and flagged
+  <code>hand_built_warning</code> in the write order, so nothing can overwrite them silently.</p>
+</div>
+
+<div class="card ok">
+  <span class="tag t-ok">done, with no hardware touched</span>
+  <ul>
+    <li><b>All 200 slots extracted</b> per slot, 280 bytes each. All 144 targets covered.</li>
+    <li><b>A corrected index</b>, carrying the real name, the offset, and what the old index
+    wrongly claimed. The shipped index is left unmodified for comparison.</li>
+    <li><b>A write order</b>: 144 presets bank by bank, four at a time, each row naming the new
+    preset, its <code>.mo</code>, what the slot currently holds, and its backup record.</li>
+    <li><b>A readback verifier</b> that compares field by field and treats a Dual Delay
+    <code>TIME B</code> of exactly master plus 40 ms as the documented read-path offset rather
+    than a mismatch.</li>
+  </ul>
+  <p>Not done and not guessed: converting a 280-byte binary record into a <code>.mo</code>. That
+  mapping is not established, so the records are exact bytes for comparison and the restore path
+  stays the editor's own.</p>
+</div>
+
+<div class="card ask">
+  <span class="tag t-ask">why the write has not run</span>
+  <p>It needs <b>synthetic mouse control of the Mac</b>, since there is no USB API and no
+  file-drop import, and the standing rule is no computer-use without a say-so. And the
+  <b>Phase 0 decision is still open</b>, now with six hand-built presets in the balance. The step
+  is recorded as blocked rather than assumed.</p>
+</div>
+
+<h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>

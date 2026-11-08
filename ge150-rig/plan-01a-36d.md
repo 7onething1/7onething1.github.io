@@ -64,14 +64,24 @@ index `GE150PRO-preset-list-2026-11-02.tsv` cover **all 144 slots in 01A through
 36D**, 206 slots in total, dated 2026-11-02, which predates the 01A and 01B
 overwrite. The index records what those slots held before they were written:
 
-| Slot | Held on 2026-11-02 |
-|---|---|
-| 01A | `V1.0.6` |
-| 01B | `BUFF` |
-| 01C | `GE150PRO_PRESET` |
+**Correction, 2026-11-08.** This table first read `01A = V1.0.6`,
+`01B = BUFF`, `01C = GE150PRO_PRESET`, taken from the shipped index
+`GE150PRO-preset-list-2026-11-02.tsv`. Those three are **header strings**, not
+presets, and a string-scan took them for slots 01A through 01C, pushing every
+real preset three slots late. **The shipped index is wrong on all 200 slots.**
+Decoding the backup directly gives:
 
-What is missing is not the backup. It is a per-slot `.mo` extraction from that
-backup file, using the offsets the index already carries.
+| Slot | Really held on 2026-11-02 | The shipped index claimed |
+|---|---|---|
+| 01A | `65 Deluxe` | `V1.0.6` |
+| 01B | `65 Twin` | `BUFF` |
+| 01C | `59 Bassguy` | `GE150PRO_PRESET` |
+| 37A | `Time Lead` | `CoveredInRain` |
+
+Restoring a slot from the shipped offsets would have written the wrong preset.
+The backup is a binary MOOER file: a 1,034-byte header, then 280-byte records,
+record 0 named `RESET` and records 1 to 200 being slots 01A to 50D.
+`split_device_backup.py` extracts all 200 and writes a corrected index.
 
 ## The thread's working files, now recovered
 
@@ -950,3 +960,126 @@ traps including the Dual Delay `TIME B` plus-40 ms read offset.
 
 **No preset in this pack has been heard through a guitar.** Every claim here is
 about bytes, names, ranges and encodings.
+# Phase 3 prepared, and stopped before the hardware
+
+2026-11-08. Everything Phase 3 needs that does not touch the pedal is done. The
+write itself is not, and will not be until you say so, for two reasons given
+plainly at the end.
+
+## A correction to something I published
+
+The live page and the plan said slot 01A held `V1.0.6` and 01B held `BUFF`
+before the cycling run overwrote them. **That was wrong.** Both came from the
+shipped index `GE150PRO-preset-list-2026-11-02.tsv`, which was built by scanning
+the backup for printable strings and took three header strings as presets:
+
+```
+offset   47  'V1.0.6'           -> called 01A
+offset   72  'BUFF'             -> called 01B
+offset 1024  'GE150PRO_PRESET'  -> called 01C
+```
+
+Every real preset was therefore pushed three slots late. **The shipped index is
+wrong on all 200 slots.** Phase 3 step 14 was "extract the backup per slot using
+the offsets in that index", so following my own plan would have restored the
+wrong preset to every slot.
+
+## The real layout, decoded
+
+```
+0 .. 1033        header: MOOER, MOOER_GE150PRO, firmware versions, BUFF,
+                 and the section marker GE150PRO_PRESET at 1024
+1034             record 0, named 'RESET'
+1034 + 280*k     record k, 280 bytes, name null-terminated at the record start
+records 1..200   slots 01A .. 50D, four per bank
+```
+
+Established by finding the stride that puts 201 of 205 record starts on a name,
+then checked against content: record 1 is `65 Deluxe`, record 2 `65 Twin`,
+record 3 `59 Bassguy`, record 4 `Sonic Drive`, record 200 `Dual Lead`. Those are
+genuine GE150 Pro factory preset names in factory order.
+
+| Slot | Really held | Shipped index said |
+|---|---|---|
+| 01A | `65 Deluxe` | `V1.0.6` |
+| 01B | `65 Twin` | `BUFF` |
+| 01C | `59 Bassguy` | `GE150PRO_PRESET` |
+| 36D | `MasterOfPuppet` | `NovemberRain` |
+| **37A** | **`Time Lead`** | `CoveredInRain` |
+| 37B | `Stairway Lead` | `Gravity` |
+
+**37A is answered.** The old audit started at 37B and 37A's occupant was
+unknown. As of 2026-11-02 it held the factory preset `Time Lead`.
+
+## Done, with no hardware touched
+
+- **All 200 slots extracted** to `backups/device-backup-2026-11-02-per-slot/`,
+  280 bytes each. All 144 target slots covered, none missing.
+- **A corrected index** at `GE150PRO-preset-list-2026-11-02-CORRECTED.tsv`,
+  carrying the real name, offset and what the old index wrongly claimed. The
+  shipped index is left in place, unmodified, for comparison.
+- **A write order** at `write_order_01A-36D.json`: 144 presets, bank by bank,
+  four at a time, each row naming the new preset, its `.mo` file, what the slot
+  currently holds, and its backup record.
+- **A readback verifier** at `verify_readback.py`. It compares each readback
+  against its master field by field, and treats a Dual Delay `TIME B` that is
+  exactly master plus 40 ms as the documented read-path offset rather than a
+  mismatch. It also re-checks the 16-character name truncation, because a
+  readback compared against an untruncated name once reported a false MATCH.
+
+What is **not** done and is not guessed: converting a 280-byte binary record
+into a `.mo` file. A record is 280 bytes of the pedal's own format and a `.mo`
+is about 2,400 bytes of JSON. That mapping is not established, so the per-slot
+records are exact bytes for comparison and the restore path remains the editor's
+own backup restore.
+
+## A safety finding that changes the stakes
+
+Six slots inside the target range hold song-named presets that look hand-built
+rather than factory:
+
+| Slot | Holds | Would be replaced by |
+|---|---|---|
+| 34C | `WholeLottaLove` | `TAP SWELL` |
+| 35D | `NovemberRain` | `A DRY ANCHOR` |
+| 36A | `CoveredInRain` | `CLEAN SAFE` |
+| 36B | `Gravity` | `EDGE SAFE` |
+| 36C | `Gravity Lead` | `LEAD SAFE` |
+| 36D | `MasterOfPuppet` | `RIG CHECK` |
+
+Writing 01A through 36D destroys those. They are preserved in the per-slot
+backup, and they are flagged `hand_built_warning` in the write order, so nothing
+can overwrite them silently. Whether to keep them, move them, or let them go is
+yours.
+
+## Why the write has not run
+
+1. **It needs synthetic mouse control of your Mac.** There is no USB API and no
+   file-drop import, so a write means driving the editor GUI with synthetic
+   drags. Your standing rule is no computer-use and no taking control of the Mac
+   without your say-so.
+2. **The Phase 0 decision is still open.** Whether the 144 design supersedes the
+   cycling fill for 01A through 36D is your call, recorded as blocked rather than
+   assumed. The run also overwrites six hand-built presets, which you had not
+   been told about until now.
+
+When you give the word, the order is: restore 01A and 01B from their records,
+then per bank of four run `v4_probe.sh`, `v4_write.sh` with a mapping built from
+the probe screenshot, `v4_readback.sh`, then `verify_readback.py`, carrying the
+documented traps, window-relative coordinates re-read before every drag, float
+math through python, `caffeinate` inside the batch, the `list_fingerprint.py`
+scroll detector at threshold 97, and a fresh mtime as the only witness that
+bytes came off the device.
+
+**No preset has been heard through a guitar, and nothing has been written to the
+pedal.**
+
+## Files
+
+| File | Holds |
+|---|---|
+| `split_device_backup.py` | decodes the backup and extracts all 200 records |
+| `backups/device-backup-2026-11-02-per-slot/` | 200 per-slot records, 280 bytes each |
+| `backups/GE150PRO-preset-list-2026-11-02-CORRECTED.tsv` | the real slot index |
+| `write_order_01A-36D.json` | the bank-by-bank write order with warnings |
+| `verify_readback.py` | post-write verification, TIME B offset aware |
