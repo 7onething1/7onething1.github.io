@@ -1303,3 +1303,40 @@ all 36 banks one bank at a time.
 
 **Still true: nothing has been written to the pedal and no preset has been
 heard.**
+
+### The editor window came up, and the last manual step is removed
+
+Rechecking after the launch, GE150PRO now has **two** windows:
+
+```
+X=503 Y=290 W=520  H=278     a dialog
+X=200 Y=72  W=1146 H=767     the main editor window
+```
+
+The width is already 1146. The height and position are not what the row maths
+needs, which is 1146 x 1065 at 100,30. The screen is still locked, with a saver
+window up, so nothing can run yet.
+
+So that hand-measured step is gone too. `set_editor_window.sh` sets the geometry
+exactly, reports any dialog sitting over the lists, verifies the result against
+what `v4_probe.sh` requires, and **refuses while the screen is locked or a saver
+window is present.** Proven by running it just now:
+
+```
+ABORT: screen is locked. Unlock it first.
+```
+
+It moves and resizes a window. It clicks nothing inside the app.
+
+### So the whole remaining sequence is
+
+```
+1. unlock the Mac
+2. dismiss the GE150PRO dialog at 503,290
+3. cd ~/Projects/_outputs/ge150
+4. ./set_editor_window.sh      sets 1146x1065 at 100,30 and verifies it
+5. ./phase3_runbook.sh probe   goes green instead of aborting
+```
+
+Then bank 01 first, since 01A and 01B hold only the cycling run's duplicates,
+verified by readback and sha256 before any further bank.
