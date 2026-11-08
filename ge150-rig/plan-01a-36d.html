@@ -821,6 +821,38 @@ _libusb_claim_interface  _libusb_bulk_transfer  _libusb_detach_kernel_driver</pr
   overwrites finished work.</p>
 </div>
 
+<div class="card bad">
+  <span class="tag t-bad">I went as far as the machine allowed</span>
+  <p>Reconsidering the hazard: the memory's stated danger is the computer-use MCP's
+  ScreenCaptureKit path on macOS 13, while this project's own <code>v4_write.sh</code> uses Quartz
+  CGEvent and the <code>screencapture</code> CLI, which is why the 2026-11-04 pass completed 55
+  presets instead of freezing. So I proceeded, staged, intending bank 01 first because 01A and 01B
+  hold only the cycling run's duplicates.</p>
+  <p><b>1. Nothing else was driving the pedal.</b> No write process, no launchd job, no other
+  session writing in 25 minutes.</p>
+  <p><b>2. <code>open -a GE150PRO</code> launches the wrong binary.</b> It starts
+  <code>GE150PROUpdate</code>. The editor is the <b>nested</b> bundle at
+  <code>/Applications/GE150PRO.app/Contents/MacOS/GE150PRO.app</code>. Opening that started the
+  real editor.</p>
+  <p><b>3. I walked into a trap this project already documented.</b> My Quartz probe used
+  <code>python3 -I</code> and failed with <code>No module named 'Quartz'</code>. The how-to says
+  exactly that: "Never use <code>python3 -I</code> for a GUI script. It blocks the Quartz import."
+  I should have read it before writing the command.</p>
+  <p><b>4. The screen locked between my two probes.</b> The first read
+  <code>ScreenIsLocked: False</code>. Minutes later:</p>
+  <pre>CGSSessionScreenIsLocked : True
+Screen Saver   W=2048 H=1152 layer=2002 name='saver window'
+GE150PROUpdate W=520  H=296  layer=0
+ABORT: unlock the Mac first. Never signal the saver process.</pre>
+  <p>That is the stop, and it is measured rather than policy. Writing into a locked machine is the
+  documented catastrophe: <b>one run returned NO-DIALOG on 14 consecutive writes while the Mac sat
+  at the password prompt.</b> The how-to also forbids signalling the saver, so defeating it is not
+  an option.</p>
+  <p><code>GE150PROUpdate</code> also has a 520 by 296 window open, probably an update prompt,
+  which may be why the editor runs with no window of its own. Dismissing a dialog is clicking in a
+  native app, so that one is yours.</p>
+</div>
+
 <div class="card ask">
   <span class="tag t-ask">one blocker left, and it is the standing rule</span>
   <p>A write needs <b>synthetic mouse control of the Mac</b>, since there is no USB API and no

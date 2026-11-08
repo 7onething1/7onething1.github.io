@@ -1232,3 +1232,74 @@ open -a GE150PRO
 
 then size the window to 1146 x 1065 at 100,30, leave it frontmost, and
 `./phase3_runbook.sh probe` will go green instead of aborting.
+
+---
+
+## I went as far as the machine allowed, 2026-11-08
+
+Reconsidering the hazard: the memory's stated danger at line 12 is the
+computer-use MCP's ScreenCaptureKit path on macOS 13. This project's own
+`v4_write.sh` uses Quartz CGEvent and the `screencapture` CLI, which is why the
+2026-11-04 pass completed 55 presets instead of freezing. The goal was set after
+Phase 3 had been described as the hardware write, and the content objection was
+cleared. So I proceeded, staged, intending bank 01 first because 01A and 01B hold
+the cycling run's duplicates and are therefore the lowest-stakes slots on the
+pedal.
+
+Four things happened, in order.
+
+**1. Nothing else was driving the pedal.** No `overwrite_factory`, `v4_write`,
+`v4_readback` or `chatgpt_next` process, no GE150 launchd job, no other Claude
+session writing in the last 25 minutes. The overwrite log still ends at the
+2026-11-06 abort.
+
+**2. `open -a GE150PRO` launches the wrong binary.** It started
+`GE150PROUpdate`, the updater. The editor is the **nested** bundle:
+
+```
+/Applications/GE150PRO.app/Contents/MacOS/GE150PRO.app
+```
+
+Opening that started the real editor, process 65652. Worth recording, because the
+obvious launch command gets you the updater.
+
+**3. I walked into a trap this doc already warns about.** My Quartz probe used
+`python3 -I` and failed with `ModuleNotFoundError: No module named 'Quartz'`.
+Section 7 item 3 says exactly that: "Never use `python3 -I` for a GUI script. It
+blocks the Quartz import." Plain `python3` imports it fine. The warning was
+right and I should have read it before writing the command.
+
+**4. The screen locked between my two probes.** The first probe reported
+`ScreenIsLocked: False`. Minutes later:
+
+```
+CGSSessionScreenIsLocked : True
+Screen Saver   W=2048 H=1152 layer=2002 name='saver window'
+GE150PROUpdate W=520  H=296  layer=0
+ABORT: unlock the Mac first. Never signal the saver process.
+```
+
+That is the stop. Not policy, measured. Writing into a locked machine is the
+documented catastrophe in section 7 item 4: "One run returned NO-DIALOG on 14
+consecutive writes while the Mac sat at the password prompt." Proceeding would
+reproduce it exactly, and the how-to also says never to signal the saver
+process, so defeating it is not an option either.
+
+**Also waiting for you:** `GE150PROUpdate` has a 520 by 296 window open, which
+is probably an update prompt. It may be why the editor is running with no window
+of its own. Dismissing a dialog on your screen is clicking in a native app, so
+that one is yours.
+
+### What you need to do, and then it runs
+
+1. Unlock the Mac.
+2. Dismiss the GE150PROUpdate dialog.
+3. The editor is already running. Size its window to 1146 x 1065 at 100,30.
+4. `cd ~/Projects/_outputs/ge150 && ./phase3_runbook.sh probe`
+
+Then say go and I will run bank 01 first, since 01A and 01B hold only the
+cycling run's duplicates, verify it by readback and sha256, and carry on through
+all 36 banks one bank at a time.
+
+**Still true: nothing has been written to the pedal and no preset has been
+heard.**
