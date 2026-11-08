@@ -1340,3 +1340,110 @@ It moves and resizes a window. It clicks nothing inside the app.
 
 Then bank 01 first, since 01A and 01B hold only the cycling run's duplicates,
 verified by readback and sha256 before any further bank.
+
+### Armed: a watcher that measures on unlock and refuses to write
+
+Rather than hand the remaining steps back and stop, `await_unlock_then_probe.sh`
+is running in the background. When the screen unlocks and no saver window is up,
+it runs `set_editor_window.sh` and then the measure-only `v4_probe.sh`, writes
+the result to `await_unlock_then_probe.out`, and exits.
+
+It **cannot write to the pedal**. The only mention of `v4_write` in the file is
+the comment saying it will not call it, verified by grep. That is deliberate: an
+unattended write is the documented catastrophe, one run returned NO-DIALOG on 14
+consecutive writes while the Mac sat at a password prompt. So the watcher takes
+the rig all the way to measured-and-ready and stops exactly where a human
+decision belongs.
+
+It also stops early and says so if the editor has no window, or if a GE150PRO
+dialog is still covering the lists, since a dialog over the PRESET list is how a
+drag lands on the wrong row.
+
+So the remaining human steps are down to two:
+
+1. unlock the Mac
+2. dismiss the GE150PRO dialog at 503,290
+
+and the watcher does the rest of the measuring by itself. The write stays a
+deliberate decision, one bank of four at a time, starting with bank 01 because
+01A and 01B hold only the cycling run's duplicates.
+
+### The watcher ran its full window. Locked on all 40 samples.
+
+```
+2026-11-08 16:08:52 | waiting for unlock, up to 40 checks every 60s. This never writes.
+2026-11-08 16:08:53 | check 1:  still locked=True saver=True
+2026-11-08 16:13:56 | check 6:  still locked=True saver=True
+...
+2026-11-08 16:44:12 | check 36: still locked=True saver=True
+2026-11-08 16:49:14 | gave up after 40 checks, still locked. Nothing was written.
+```
+
+Forty samples at sixty-second intervals across forty-one minutes, locked on
+every one. Exit 1 is the script's designed give-up path, not a fault. It did its
+job and wrote nothing.
+
+So the blocker is not an assumption, a policy reading, or a single unlucky
+reading. It is a measured, continuous state of the machine over forty-one
+minutes: nobody is at the screen.
+
+**I am not re-arming it on a longer timer.** Polling indefinitely for a window in
+which to perform 144 destructive writes on hardware, while the evidence says
+nobody is watching the screen, is the opposite of what the project's own history
+asks for. The rig is staged, measured and one command from running. It waits for
+you to be at it.
+
+### Final state of Phase 3
+
+| | |
+|---|---|
+| Pedal | attached, `0x0483` / `0x5703`, USB 3.0 |
+| Editor | launched from the nested bundle, main window up |
+| Editor window | `1146x767` at `200,72`, needs `1146x1065` at `100,30`, which `set_editor_window.sh` does |
+| Blocking dialog | GE150PRO, `520x278` at `503,290`, yours to dismiss |
+| Screen | **locked on 40 of 40 samples over 41 minutes** |
+| Library folder | writable, 72 files present, zero name collisions with our 144 |
+| The 144 `.mo` | emitted and gated, 4,989 value checks, 0 failures |
+| Backups | 200 per-slot records, 280 bytes each |
+| Written to pedal | **nothing** |
+| Heard through a guitar | **nothing** |
+
+### The mapping now builds itself
+
+The last manual step was reading row positions off the probe screenshot by eye.
+That is gone. `build_mapping.py` asks System Events for every table in the
+GE150PRO window with each row's y position and its static text, which is the
+route the probe's own comment calls the one that "removes pixel guessing
+entirely".
+
+It matches each staged preset to its COMPUTER row by name, and each target slot
+to its PRESET row by the name the device currently shows for it, taken from the
+corrected backup index. Then it writes the mapping and prints it.
+
+**It never writes to the pedal.** Its only subprocess call is the read-only
+enumeration, grep-verified. The mapping stays reviewable before `v4_write.sh`
+touches anything, which keeps the project's rule auditable: nothing invents a
+row.
+
+It refuses rather than guesses on every ambiguity: locked screen, saver up, no
+window, a dialog covering the lists, no tables enumerated, fewer than two
+tables, a preset name missing from the COMPUTER list, a slot whose current name
+does not match exactly one PRESET row, a row pitch not within 2.5 points of the
+documented 26.9, or y values that are not strictly increasing. Proven by running
+it now: `REFUSING: the screen is locked. Unlock it first.`
+
+`phase3_runbook.sh bank NN` now calls it, so a bank is: stage the four files,
+refresh the list, build the mapping by enumeration, review, write.
+
+### Everything that can be automated, is
+
+| Step | Who |
+|---|---|
+| Unlock the Mac | **you** |
+| Dismiss the GE150PRO dialog at 503,290 | **you** |
+| Set the editor window to 1146x1065 at 100,30 | `set_editor_window.sh` |
+| Measure-only preflight | `v4_probe.sh` |
+| Stage a bank's four files into the library | `phase3_runbook.sh bank NN` |
+| Build the mapping from enumerated rows | `build_mapping.py` |
+| Write the four presets | `v4_write.sh`, after review |
+| Read back and compare sha256 | `v4_readback.sh`, `verify_readback.py` |

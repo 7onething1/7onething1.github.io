@@ -875,6 +875,38 @@ X=200 Y=72  W=1146 H=767     the main editor window</pre>
   readback and sha256 before any further bank.</p>
 </div>
 
+<div class="card ok">
+  <span class="tag t-ok">the mapping now builds itself, and the watcher measured 40 of 40 locked</span>
+  <p>A watcher ran for 41 minutes, 40 checks at 60-second intervals, and the screen was locked on
+  every one. It wrote nothing, which is what it was built to guarantee. So the blocker is a
+  measured continuous state of the machine, not a policy reading.</p>
+  <p>Meanwhile the last manual step is gone. Reading row positions off the probe screenshot by eye
+  is replaced by <code>build_mapping.py</code>, which asks System Events for every table in the
+  window with each row's y position and static text. That is the route the probe's own comment
+  calls the one that "removes pixel guessing entirely". It matches each staged preset to its
+  COMPUTER row by name, and each target slot to its PRESET row by the name the device currently
+  shows, taken from the corrected backup index.</p>
+  <p><b>It never writes to the pedal.</b> Its only subprocess call is the read-only enumeration.
+  It refuses rather than guesses on every ambiguity: locked screen, saver up, no window, a dialog
+  covering the lists, no tables enumerated, a preset name missing from the COMPUTER list, a slot
+  whose current name does not match exactly one PRESET row, a pitch outside 2.5 points of the
+  documented 26.9, or y values not strictly increasing. Proven by running it:
+  <code>REFUSING: the screen is locked. Unlock it first.</code></p>
+  <table>
+    <thead><tr><th>Step</th><th>Who does it</th></tr></thead>
+    <tbody>
+      <tr><td>Unlock the Mac</td><td><b>you</b></td></tr>
+      <tr><td>Dismiss the GE150PRO dialog at 503,290</td><td><b>you</b></td></tr>
+      <tr><td>Set the window to 1146x1065 at 100,30</td><td><code>set_editor_window.sh</code></td></tr>
+      <tr><td>Measure-only preflight</td><td><code>v4_probe.sh</code></td></tr>
+      <tr><td>Stage a bank's four files</td><td><code>phase3_runbook.sh bank NN</code></td></tr>
+      <tr><td>Build the mapping from enumerated rows</td><td><code>build_mapping.py</code></td></tr>
+      <tr><td>Write the four presets</td><td><code>v4_write.sh</code>, after review</td></tr>
+      <tr><td>Read back and compare sha256</td><td><code>verify_readback.py</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="card ask">
   <span class="tag t-ask">one blocker left, and it is the standing rule</span>
   <p>A write needs <b>synthetic mouse control of the Mac</b>, since there is no USB API and no
