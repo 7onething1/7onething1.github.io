@@ -772,6 +772,33 @@ ABORT: GE150PRO window not on screen.</pre>
   <p>The Mac is unlocked. <b>The GE150PRO editor is not open</b>, so the application the write
   drives is not running. The write was impossible at that moment on mechanical grounds, separate
   from any question of permission.</p>
+  <p>Checking further, <b>the pedal itself is already attached.</b>
+  <code>system_profiler SPUSBDataType</code> shows <code>GE150Pro</code> on the USB 3.0 bus,
+  Vendor ID <code>0x0483</code>, Product ID <code>0x5703</code>, at 480 Mb/s, while
+  <code>pgrep -lf GE150PRO</code> returns nothing. So the single gap between the staged work and
+  a write is <b>one application launch</b>. Nothing needs plugging in.</p>
+  <pre>open -a GE150PRO</pre>
+</div>
+
+<div class="card">
+  <span class="tag t-fix">the transport is USB HID, not MIDI</span>
+  <p>The how-to doc says "There is no USB API and no file-drop import", which is true of a
+  published API and not of the transport. The editor links two bundled libraries and calls them
+  directly:</p>
+  <pre>libusb-1.0.0.dylib   libhidapi.0.dylib
+
+_hid_init  _hid_enumerate  _hid_open  _hid_write  _hid_read_timeout  _hid_close
+_libusb_claim_interface  _libusb_bulk_transfer  _libusb_detach_kernel_driver</pre>
+  <p>It contains <b>zero</b> references to CoreMIDI, SysEx, <code>MIDIClient</code> or
+  <code>MIDISend</code>. Presets move over raw USB HID reports and bulk transfers against
+  <code>0x0483</code> / <code>0x5703</code>.</p>
+  <p><b>Why that matters.</b> A programmatic write path exists in principle, and it would remove
+  the synthetic-drag dependency completely: no window geometry, no row pitch, no scroll detector,
+  no screensaver race. That is a materially better Phase 3 than driving the GUI.</p>
+  <p><b>What was not done.</b> No HID was spoken to the pedal. Reverse-engineering a write
+  protocol and exercising it on the hardware risks the device and sits far outside "write the
+  presets we designed". It is recorded as a route to take deliberately, proved on one spare slot
+  first, rather than improvised.</p>
 </div>
 
 <div class="card ok">

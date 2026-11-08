@@ -1173,3 +1173,62 @@ your word and are no longer flagged. Their replacements, read from
 All six remain byte-exact at 280 bytes each in
 `backups/device-backup-2026-11-02-per-slot/`, so `Gravity` and `Gravity Lead`
 can be put back whenever you want them.
+
+## Measured further: the pedal is attached, only the app is missing
+
+Before accepting the GUI as the only path, I checked the transport. Two
+read-only measurements:
+
+**The pedal is connected right now.** `system_profiler SPUSBDataType`:
+
+```
+GE150Pro:
+  Product ID: 0x5703
+  Vendor ID:  0x0483  (STMicroelectronics)
+  Speed:      Up to 480 Mb/s
+  Location ID: 0x14800000 / 6
+```
+
+**The editor is not running.** `pgrep -lf GE150PRO` returns nothing.
+
+So the single gap between the staged work and a write is **one application
+launch**. Nothing needs plugging in.
+
+### The transport is USB HID, not MIDI
+
+`HOW-TO-UPDATE-GE150PRO.md` says "There is no USB API and no file-drop import",
+which is true of a published API. It is not true of the transport. The editor
+binary links two bundled libraries and calls them directly:
+
+```
+@executable_path/../Frameworks/libusb-1.0.0.dylib
+@executable_path/../Frameworks/libhidapi.0.dylib
+
+_hid_init  _hid_enumerate  _hid_open  _hid_open_path  _hid_write
+_hid_read_timeout  _hid_close  _hid_exit
+_libusb_claim_interface  _libusb_bulk_transfer  _libusb_detach_kernel_driver
+```
+
+and it contains **zero** references to CoreMIDI, SysEx, `MIDIClient`,
+`MIDIPacket` or `MIDISend`. So presets move over raw USB HID reports and bulk
+transfers, against VID `0x0483` / PID `0x5703`.
+
+**What that means.** A programmatic write path exists in principle, and it would
+remove the synthetic-drag dependency completely: no window geometry, no row
+pitch, no scroll detector, no screensaver race. That is a materially better
+Phase 3 than driving the GUI.
+
+**What I did not do.** I did not speak HID to the pedal. Reverse-engineering a
+write protocol and then exercising it on your hardware risks the device, and it
+is far outside "write the presets we designed". The finding is recorded as a
+route worth taking deliberately, with its own small-scale proof on one spare slot
+before anything else, not something to improvise inside this pass.
+
+### So the unblock is now one line
+
+```
+open -a GE150PRO
+```
+
+then size the window to 1146 x 1065 at 100,30, leave it frontmost, and
+`./phase3_runbook.sh probe` will go green instead of aborting.
