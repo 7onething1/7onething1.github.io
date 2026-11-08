@@ -468,3 +468,179 @@ sha256-identical or explained by the documented TIME B read-path offset.
 - `~/Projects/_outputs/ge150/HOW-TO-UPDATE-GE150PRO.md`, the hardware procedure
 - `/Users/drwu/Documents/V25_FULL_55_REVIEW_AND_RECONCILIATION.md`, the 55 audited
 - Live site: https://7onething1.github.io/ge150-rig/
+# The CAB block, filled
+
+Done 2026-11-08. This was the largest remaining gap in the 144-preset design: of
+144 CAB blocks, **not one set any of the four controls the pedal actually gives
+you.** All 144 carried `CAB=<the cabinet name again>` and
+`SOURCE=built-in factory cab`, which restates the model and sets nothing.
+
+Output `GE150PRO_Complete_01A-36D_144Preset_Design_REV4.xlsx`, then
+`REV5.xlsx` after the reverb reconciliation below. Original untouched at
+`backups/refpack-reverb-apply-2026-11-06/`, sha256 beginning `71ffd69cac17785f`.
+
+## The discovery that made this worth doing
+
+`TUBE` and `MIC` are **enumerated selectors, not numbers.** The XML holds their
+option lists in the range field, which my earlier validator read as a numeric
+min and max and therefore skipped entirely:
+
+| Control | Raw range field | Means |
+|---|---|---|
+| `TUBE` | `OFF_EL34_EL84_6L6_6V6` | 5 power-tube options, index 0 to 4 |
+| `MIC` | `SM57_U47_U87_NT1_MD421_MD441_MXL2001_MXL2003_C3000_C4000B` | **10 microphones**, index 0 to 9 |
+| `CENTER` | `0_100_1_0_` | 0 to 100 |
+| `DISTANCE` | `0_100_1_0_` | 0 to 100 |
+
+So the CAB block is a power-tube choice plus a mic choice plus mic placement.
+That is a real part of "really utilizing all the possible settings", and the
+design set none of it.
+
+Decoding the reference pack confirms the reading, and shows the author knew the
+gear: `TUBE=6V6` on a US DLX 112 (a Deluxe is 6V6), `EL34` on a 1960 412 (a
+Marshall is EL34), `EL84` on a UK 212 (an AC30 is EL84), and **`TUBE=OFF` on the
+JAZZ 212**, which is correct because a JC-120 is solid state and has no power
+tubes at all.
+
+## Grounding
+
+`mine_cab_donors.py` read the CAB block out of the same **393 real `.mo` files**.
+
+| Measure | Value |
+|---|---|
+| Cabinets with observations | **17 of 26** |
+| Cabinets with zero observations | 9 |
+| `TUBE` options ever observed | EL34 244, OFF 27, 6L6 18, EL84 17, 6V6 14 |
+| `MIC` options ever observed | **SM57 278**, MD441 21, MD421 17, U47 2, U87 2 |
+| `CENTER` observed, corpus-wide | 0 to 60 |
+| `DISTANCE` observed, corpus-wide | 10 to 100 |
+
+The corpus gives a clean modal power tube per cabinet, and it matches the real
+gear: 1960 412 is EL34 on **172 of 172** observations, HWT 412 EL34 on 33 of 33,
+PV 5050 412 EL34 on 16 of 16, UK 212 EL84 on 13 of 15, JAZZ 212 OFF on 13 of 15,
+US DLX 112 6V6 on 11 of 15.
+
+### Rules used
+
+1. **`TUBE` is a property of the amp's power section, so it is not varied per
+   preset.** Each cabinet gets its observed mode. Varying it by slot would be
+   wrong, not creative.
+2. **9 cabinets had no observation.** Each was inferred from an observed sibling
+   or from the real power section of the amp the design pairs it with, and every
+   such row is tagged `FAMILY-INFERRED` rather than passed off as observed:
+
+| Cabinet | Inferred | Basis |
+|---|---|---|
+| CITRUS 212 | EL84 | sibling CITRUS 412 observed EL84; Orange-style amps are EL84 |
+| BLUES 112 | 6V6 | paired with US BLUES CL/OD; sibling US DLX 112 observed 6V6 on 11 of 15 |
+| EAGLE P412 | EL34 | paired with E650 DS and Powerbell DS, ENGL-style; sibling PV 5050 412 EL34 on 16 of 16 |
+| EAGLE S412 | EL34 | paired with Blacknight DS, same 412 family |
+| EV 5050 412 | EL34 | paired with EV 5050 DS; sibling PV 5050 412 EL34 on 16 of 16 |
+| SLOW 412 | 6L6 | paired with Slow 100 DS, Soldano-style, stock power section is 6L6 |
+| ACOUSTIC112 | OFF | paired with Acoustic 1, a model with no power section; matches JAZZ 212 observed OFF |
+| SONIC 112 | 6L6 | paired with US SONIC, Fender-style |
+| DR.ZEE 212 | EL84 | sibling DR.ZEE 112 observed EL84 |
+
+3. **`MIC` is restricted to the five options ever seen in the corpus**: SM57,
+   MD441, MD421, U47, U87. SM57 stays the default because real presets use it on
+   278 of 320 blocks. MD421 and MD441 are only ever observed on 412 cabinets, so
+   they stay there. U47 and U87 appear twice each, so they are reserved for
+   presets whose own Purpose text asks for that character rather than used as a
+   lane default.
+4. **`CENTER` and `DISTANCE`** sit inside the cabinet's observed min to max where
+   that spans a range, else inside the corpus-wide observed bounds, moved closer
+   for aggressive or articulate parts and further for ambient ones, by the slot's
+   own lane and Purpose.
+
+### A correction I made to my own first pass
+
+My first mic rule used U47 as the default for clean and edge presets on combo
+cabinets, which put U47 on **59 presets** when the corpus uses it twice. That
+inverted the evidence. The rule was rewritten so the spread mirrors the observed
+shape.
+
+| MIC | First pass | Corrected | Corpus |
+|---|---|---|---|
+| SM57 | 37 | **99** | 278 |
+| MD441 | 28 | 28 | 21 |
+| MD421 | 8 | 8 | 17 |
+| U87 | 11 | 7 | 2 |
+| U47 | **59** | **2** | 2 |
+
+### One name resolved rather than guessed
+
+The script refused `04C`'s cabinet, spelled `Accoustic 112` with a doubled C,
+because no such model exists. That is one of the three names the plan had already
+settled against the XML, which holds `26: ACOUSTIC112` exactly once. The recorded
+decision was applied as an explicit alias, so the refusal became a resolution
+instead of a gap.
+
+## Proof
+
+```
+CAB rows filled                 144 of 144
+unresolved                        0
+provenance                      131 OBSERVED, 13 FAMILY-INFERRED
+invalid values                    0   (enum options checked by name, positions 0..100)
+cabinet names verbatim-correct   22 of 22 distinct names
+off-target cell changes           0   across all 7 sheets, cell by cell
+```
+
+| Measure | Original | REV5 |
+|---|---|---|
+| Distinct CAB settings | **1** | **49** |
+| Presets with `TUBE` set | **0** | **144** |
+| Biggest identical CAB cluster | 144 | 16 |
+| `TUBE` options in use | none | all 5: EL34 55, EL84 28, OFF 26, 6V6 22, 6L6 13 |
+| `MIC` options in use | none | all 5 observed: SM57 99, MD441 28, MD421 8, U87 7, U47 2 |
+
+Normalising the cabinet names also **fixed 5 of the 75 bad model names** the plan
+counted, since `Dr Zee 112`, `Accoustic 112`, `Mark 112`, `Rec 412` and the rest
+are now the table's verbatim spellings.
+
+## The reverb outliers are reconciled too
+
+`reconcile_reverb_outliers.py` closed the 33 values I had flagged as outside a
+binding observed envelope. Each moved by the smallest amount that brings it
+inside what a real preset has been seen to hold, across 30 rows:
+
+| Model | Change | Observed | Presets |
+|---|---|---|---|
+| SPRING | `DECAY 20 -> 21` | 21 to 62, from 107 real springs | 14 |
+| ROOM | `LEVEL 3 -> 8` | 8 to 50, from 51 | 6 |
+| CAVE | `DECAY 73 -> 64` | 35 to 64, from 12 | 4 |
+| ROOM | `LEVEL 6 -> 8`, `DECAY 11 -> 14` | 8 to 50, 14 to 50 | 2 each |
+| HALL | `LEVEL 14 -> 19`, `LEVEL 18 -> 19` | 19 to 52, from 33 | 3 |
+| SPRING | `LEVEL 6 -> 12` | 12 to 36 | 1 |
+| CAVE | `LEVEL 18 -> 21` | 21 to 39 | 1 |
+
+Values on CHURCH (n=3) and SHIMMER (n=2) were left exactly as they were, since
+an envelope that thin cannot bind. **Every original figure is recorded in
+`reverb_outliers_RECONCILED.json`**, so any of these goes back by ear.
+
+Reverb now reports: 125 ON, 53 distinct settings, 0 missing a control, 0 outside
+the pedal's declared range, **0 outside a binding observed envelope.**
+
+## Still open, honestly
+
+- **Nothing has been heard through a guitar.** Every figure here is bytes,
+  names and ranges.
+- Seven chains remain on prose or unverified values: FX/COMP, DS/OD, AMP, NS
+  GATE, EQ, MOD and DELAY. The `AMP / MST = 50 START` string still sits on all
+  144, and `DS/OD / LEVEL = MATCH TO DS BYPASS` on 63. The same 393-file corpus
+  can supply all of them by the method proven here twice.
+- The 13 FAMILY-INFERRED tube choices are reasoned, not observed. They are
+  tagged as such in the workbook so a readback can confirm or correct them.
+- The 30 expression targets naming a control the pedal lacks (`DS DRIVE`,
+  `DELAY FEEDBACK`, `FX WAH`, `MOD CUTOFF`) are untouched by this pass.
+
+## Files
+
+| File | Does |
+|---|---|
+| `GE150PRO_Complete_01A-36D_144Preset_Design_REV5.xlsx` | CAB filled and reverb reconciled |
+| `mine_cab_donors.py` | mines 393 real .mo files for observed CAB values |
+| `cab_donors_OBSERVED.json` | observed tube and mic counts, positions, per cabinet |
+| `fill_cab_controls.py` | the grounded CAB fill, supports `--dry` |
+| `reconcile_reverb_outliers.py` | moves out-of-envelope values to the nearest observed bound |
+| `reverb_outliers_RECONCILED.json` | every original value, for reverting by ear |

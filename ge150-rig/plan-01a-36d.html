@@ -98,6 +98,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#vocab">The parameters are a vocabulary mismatch</a></li>
     <li><a href="#phases">The three phases</a></li>
     <li><a href="#reverb">The reverb block, finished</a></li>
+    <li><a href="#cab">The CAB block, filled</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
   </ol>
 </div>
@@ -436,7 +437,95 @@ range, and 0 off-target cell changes across all 7 sheets compared cell by cell.<
   way, so this wants an ear rather than a silent correction.</p>
 </div>
 
-<h2 id="notclaim">9. What this plan does not claim</h2>
+<h2 id="cab">9. The CAB block, filled</h2>
+<p>Done 2026-11-08, the largest remaining gap. Of 144 CAB blocks, <b>not one set any of the four
+controls the pedal gives you.</b> All 144 carried <code>CAB=&lt;the cabinet name again&gt;</code>
+and <code>SOURCE=built-in factory cab</code>, which restates the model and sets nothing.</p>
+
+<div class="card bad">
+  <span class="tag t-bad">the discovery that made this worth doing</span>
+  <p><code>TUBE</code> and <code>MIC</code> are <b>enumerated selectors, not numbers.</b> The XML
+  holds their option lists in the range field, which my earlier validator read as a numeric min
+  and max and therefore skipped entirely.</p>
+  <table>
+    <thead><tr><th>Control</th><th>Raw range field</th><th>Means</th></tr></thead>
+    <tbody>
+      <tr><td><code>TUBE</code></td><td><code>OFF_EL34_EL84_6L6_6V6</code></td><td>5 power-tube options</td></tr>
+      <tr><td><code>MIC</code></td><td><code>SM57_U47_U87_NT1_MD421_MD441_MXL2001_MXL2003_C3000_C4000B</code></td><td><b>10 microphones</b></td></tr>
+      <tr><td><code>CENTER</code> / <code>DISTANCE</code></td><td><code>0_100_1_0_</code></td><td>mic placement, 0 to 100</td></tr>
+    </tbody>
+  </table>
+  <p>So the CAB block is a power tube, a microphone and its placement. The design set none of it.
+  Decoding the reference pack confirms the reading and shows its author knew the gear:
+  <code>6V6</code> on a Deluxe cab, <code>EL34</code> on a 1960, <code>EL84</code> on a UK 212,
+  and <b><code>TUBE=OFF</code> on the JAZZ 212</b>, correct because a JC-120 is solid state.</p>
+</div>
+
+<h3>Grounding, from the same 393 files</h3>
+<div class="score">
+  <div class="pill good">cabinets with observations<b>17 of 26</b></div>
+  <div class="pill">cabinets with none<b>9</b></div>
+  <div class="pill good">1960 412 is EL34 on<b>172 of 172</b></div>
+  <div class="pill good">MIC is SM57 on<b>278 of 320</b></div>
+</div>
+<p>The corpus gives a clean modal power tube per cabinet and it matches the real gear: HWT 412
+EL34 on 33 of 33, PV 5050 412 EL34 on 16 of 16, UK 212 EL84 on 13 of 15, JAZZ 212 OFF on 13 of
+15, US DLX 112 6V6 on 11 of 15. <b><code>TUBE</code> is a property of the amp's power section, so
+it is not varied per preset.</b> Varying it by slot would be wrong, not creative.</p>
+
+<div class="card ask">
+  <span class="tag t-ask">nine cabinets had no observation</span>
+  <p>Each was inferred from an observed sibling or from the real power section of the amp the
+  design pairs it with, and every such row is tagged <code>FAMILY-INFERRED</code> in the workbook
+  rather than passed off as observed. For example CITRUS 212 takes EL84 from CITRUS 412, EV 5050
+  412 takes EL34 from PV 5050 412 at 16 of 16, and ACOUSTIC112 takes OFF because an acoustic
+  model has no power section.</p>
+</div>
+
+<div class="card">
+  <span class="tag t-fix">a correction to my own first pass</span>
+  <p>My first mic rule made U47 the default for clean and edge presets on combo cabinets, putting
+  it on <b>59 presets</b> when the corpus uses it twice. That inverted the evidence. Rewritten so
+  the spread mirrors the observed shape: SM57 went from 37 to <b>99</b>, U47 from 59 to <b>2</b>.</p>
+</div>
+
+<h3>Proof</h3>
+<table>
+  <thead><tr><th>Measure</th><th class="n">Original</th><th class="n">REV5</th></tr></thead>
+  <tbody>
+    <tr><td>Distinct CAB settings</td><td class="n">1</td><td class="n"><b>49</b></td></tr>
+    <tr><td>Presets with <code>TUBE</code> set</td><td class="n">0</td><td class="n"><b>144</b></td></tr>
+    <tr><td>Biggest identical CAB cluster</td><td class="n">144</td><td class="n"><b>16</b></td></tr>
+    <tr><td><code>TUBE</code> options in use</td><td class="n">none</td><td><b>all 5</b>: EL34 55, EL84 28, OFF 26, 6V6 22, 6L6 13</td></tr>
+    <tr><td><code>MIC</code> options in use</td><td class="n">none</td><td><b>all 5 observed</b>: SM57 99, MD441 28, MD421 8, U87 7, U47 2</td></tr>
+  </tbody>
+</table>
+<p>144 of 144 filled, 0 unresolved, 131 OBSERVED and 13 FAMILY-INFERRED, 0 invalid values, and 0
+off-target cell changes across all 7 sheets. Normalising the cabinet names also <b>fixed 5 of the
+75 bad model names</b>, since <code>Dr Zee 112</code>, <code>Accoustic 112</code>,
+<code>Mark 112</code> and <code>Rec 412</code> now carry the table's verbatim spellings.</p>
+
+<div class="card ok">
+  <span class="tag t-ok">the reverb outliers are reconciled too</span>
+  <p>The 33 values flagged as outside a binding observed envelope are closed, across 30 rows, each
+  moved by the smallest amount that brings it inside what a real preset has been seen to hold:
+  <code>SPRING DECAY 20 to 21</code> on 14 presets against 107 real springs,
+  <code>ROOM LEVEL 3 to 8</code> on 6, <code>CAVE DECAY 73 to 64</code> on 4. CHURCH and SHIMMER
+  were left alone, since an envelope of 3 and 2 observations cannot bind. <b>Every original figure
+  is recorded in <code>reverb_outliers_RECONCILED.json</code></b>, so any of these goes back by
+  ear. Reverb now reports 0 values outside a binding envelope.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">still open</span>
+  <p><b>Nothing has been heard through a guitar.</b> Seven chains remain on prose or unverified
+  values: FX/COMP, DS/OD, AMP, NS GATE, EQ, MOD and DELAY. <code>AMP / MST = 50 START</code> still
+  sits on all 144 and <code>DS/OD / LEVEL = MATCH TO DS BYPASS</code> on 63. The same corpus can
+  supply all of them by the method now proven twice. The 30 expression targets naming a control
+  the pedal lacks are also untouched.</p>
+</div>
+
+<h2 id="notclaim">10. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>
