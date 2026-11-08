@@ -99,6 +99,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#phases">The three phases</a></li>
     <li><a href="#reverb">The reverb block, finished</a></li>
     <li><a href="#cab">The CAB block, filled</a></li>
+    <li><a href="#phase1done">Phase 1 complete: the design is installable</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
   </ol>
 </div>
@@ -525,7 +526,101 @@ off-target cell changes across all 7 sheets. Normalising the cabinet names also 
   the pedal lacks are also untouched.</p>
 </div>
 
-<h2 id="notclaim">10. What this plan does not claim</h2>
+<h2 id="phase1done">10. Phase 1 complete: the design is installable</h2>
+<p>2026-11-08. All nine chains now name a real model and set every real control that model has,
+with a number or a valid option, and no prose anywhere. <b>Nothing has been heard through a
+guitar and no <code>.mo</code> has been written.</b> What is proven is that the design is now
+expressible on the pedal.</p>
+
+<h3>The gate, and the proof it bites</h3>
+<p><code>validate_144_hardened.py</code> replaces the first validator, which reported "0 values
+outside range" while 1,868 names had failed to resolve. It compares names verbatim, rejects a
+value that is not wholly numeric or a valid enum option rather than reading a leading integer out
+of prose, requires every real control to be set, and <b>hard-fails if the comparisons it performed
+do not equal the parameters present.</b></p>
+<table>
+  <thead><tr><th>Check</th><th class="n">ORIGINAL</th><th class="n">REV7</th></tr></thead>
+  <tbody>
+    <tr><td>Parameters present</td><td class="n">2,720</td><td class="n">3,676</td></tr>
+    <tr><td><b>Comparisons performed</b></td><td class="n"><b>759</b></td><td class="n"><b>3,676</b></td></tr>
+    <tr><td>Model name not in table, verbatim</td><td class="n">75</td><td class="n"><b>0</b></td></tr>
+    <tr><td>Parameter not on the chosen model</td><td class="n">1,868</td><td class="n"><b>0</b></td></tr>
+    <tr><td>Value prose rather than a number</td><td class="n">93</td><td class="n"><b>0</b></td></tr>
+    <tr><td>ON row missing a real control</td><td class="n">612</td><td class="n"><b>0</b></td></tr>
+    <tr><td>ON row contributing no comparison</td><td class="n">550</td><td class="n"><b>0</b></td></tr>
+    <tr><td>Non-vacuity</td><td class="n"><b>FAIL</b></td><td class="n"><b>PASS</b></td></tr>
+  </tbody>
+</table>
+<p>The original's "0 outside range" and REV7's "0 outside range" are the same number meaning
+opposite things. On the original only 759 of 2,720 parameters were ever compared.</p>
+
+<div class="card bad">
+  <span class="tag t-bad">two catches that changed the result</span>
+  <p><b>ON-only.</b> A switched-off block stores factory defaults. MOD <code>JET-FLANGER</code>
+  has 192 observations and <b>zero switched on</b>, so mining everything gave it
+  <code>RATE=50 MIX=50 F.BACK=50</code>, the resting default rather than a tone anyone chose.
+  Mining ON-only moved DS/OD drive from <code>GAIN=50</code> to an observed <code>GAIN=20</code>,
+  and chorus from 50/50 to <code>RATE=5 MIX=18 DEPTH=27</code>.</p>
+  <p><b>Pooled by paraPos.</b> Models sharing a paraPos share an identical parameter set, the
+  editor's own inheritance. 90 models have their own ON observations, 66 more are covered by
+  their siblings, and the rest fall back to the chain-pooled control, each tagged MODEL, GROUP,
+  CHAIN or DECLARED so the source stays visible.</p>
+</div>
+
+<h3>Four encodings now documented</h3>
+<table>
+  <thead><tr><th>Where</th><th>Encoding</th></tr></thead>
+  <tbody>
+    <tr><td>EQ</td><td>stored = dB + 16, flat is 16</td></tr>
+    <tr><td>MOD pitch</td><td>stored = (semitones + |min|) &times; 10</td></tr>
+    <tr><td>CAB <code>TUBE</code> / <code>MIC</code></td><td>enumerated: 5 power tubes, 10 microphones</td></tr>
+    <tr><td>DELAY <code>SUB-D</code></td><td>enumerated note divisions, and <code>OFF</code> means free-running ms</td></tr>
+  </tbody>
+</table>
+<p><code>SUB-D</code> matters more than it looks. The design gives explicit millisecond times and
+a subdivision would override them, so every row with an explicit ms time got
+<code>SUB-D=OFF</code>. That keeps the design's own timing rather than silently re-timing 93
+delays.</p>
+
+<h3>What each chain needed</h3>
+<table>
+  <thead><tr><th>Chain</th><th class="n">Rows</th><th>What was wrong, and what it became</th></tr></thead>
+  <tbody>
+    <tr><td>AMP</td><td class="n">144</td><td><code>MST = 50 START; LEVEL-MATCH BEFORE SAVE</code> on every preset, now <code>MST=93</code>, the observed median of 315 real amps. <b>Zero real amps sit at 50</b>, the minimum is 52</td></tr>
+    <tr><td>EQ</td><td class="n">136</td><td><code>BAND LOW TARGET DB</code> and friends, now the real band names with dB plus 16</td></tr>
+    <tr><td>DELAY</td><td class="n">93</td><td><code>TIME MS</code>, <code>FEEDBACK TARGET %</code>, <code>NOTE</code> prose, now <code>TIME F.BACK LEVEL SUB-D</code> with the design's own times preserved</td></tr>
+    <tr><td>MOD</td><td class="n">72</td><td>one generic <code>RATE / DEPTH / WET</code> triplet applied to 15 models; each now takes only the controls it has, so a flanger's depth is its <code>F.BACK</code> and an octave speaks in <code>SUB</code></td></tr>
+    <tr><td>NS GATE</td><td class="n">70</td><td><code>RELEASE</code> on every row while all 70 name <code>Noise Killer</code>, whose only control is <code>THRES</code>. The design attached a control its own chosen model lacks, so RELEASE was dropped</td></tr>
+    <tr><td>DS/OD</td><td class="n">63</td><td><code>DRIVE</code> and a prose <code>LEVEL</code>, now <code>GAIN TONE VOLUME</code></td></tr>
+    <tr><td>FX/COMP</td><td class="n">47</td><td>43 already correct; 4 wah rows carried <code>OTHER CONTROLS</code> prose, now each wah's real controls</td></tr>
+  </tbody>
+</table>
+
+<h3>Expression pedal</h3>
+<p>43 of the 144 assignments named a control the chosen model does not have, while the design's
+own check had reported <code>Invalid mapping []</code>. <code>DS DRIVE</code> to
+<code>DS GAIN</code> on 21, <code>MOD DEPTH</code> to <code>MOD MIX</code> on 12,
+<code>DELAY FEEDBACK</code> to <code>DELAY F.BACK</code> on 5, plus <code>FX WAH</code> to
+<code>FX RANGE</code> on Talk Wah which has no POSITION, and <code>MOD MIX</code> to
+<code>MOD DRY</code> on Octave which has no MIX. Each was checked against the model actually
+chosen for that slot. 101 were already valid, <b>0 unresolved</b>.</p>
+
+<div class="card ok">
+  <span class="tag t-ok">the upstream source is corrected too</span>
+  <p><code>MANUFACTURER_MODEL_NAME_AUDIT_ALL.csv</code> is where the wrong spellings came from.
+  Measured verbatim it was <b>236 correct and 35 wrong</b>; it is now <b>271 and 0</b>, with the
+  corrected rows marked and the original kept beside it, so the next pass cannot inherit them.</p>
+</div>
+
+<div class="card bad">
+  <span class="tag t-bad">still open</span>
+  <p>Phase 2 and Phase 3 are untouched: emitting <code>.mo</code> files and writing them to the
+  pedal, one bank of four at a time. 13 CAB power-tube choices are FAMILY-INFERRED rather than
+  observed and are tagged as such. Nine values on CHURCH and SHIMMER sit outside envelopes too
+  thin to bind. <b>No preset has been heard.</b></p>
+</div>
+
+<h2 id="notclaim">11. What this plan does not claim</h2>
 <div class="card">
   <span class="tag t-fix">limits, stated</span>
   <ul>

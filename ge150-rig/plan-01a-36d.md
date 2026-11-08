@@ -644,3 +644,166 @@ the pedal's declared range, **0 outside a binding observed envelope.**
 | `fill_cab_controls.py` | the grounded CAB fill, supports `--dry` |
 | `reconcile_reverb_outliers.py` | moves out-of-envelope values to the nearest observed bound |
 | `reverb_outliers_RECONCILED.json` | every original value, for reverting by ear |
+# Phase 1 complete: the 144-preset design is installable
+
+2026-11-08. `GE150PRO_Complete_01A-36D_144Preset_Design_REV7.xlsx` passes the
+hardened gate. Every one of the nine effect chains now names a real model and
+sets every real control that model has, with a number or a valid option, and no
+prose anywhere.
+
+Nothing has been heard through a guitar. No `.mo` has been written. No hardware
+has been touched. What is proven here is that the design is now expressible on
+the pedal.
+
+## The gate, and the proof it bites
+
+`validate_144_hardened.py` replaces the first validator, which reported
+"0 values outside range" while 1,868 parameter names had failed to resolve. It
+compares names verbatim, rejects a value that is not wholly numeric or a valid
+enum option rather than reading a leading integer out of prose, requires every
+real control to be set, and **hard-fails if the number of comparisons it
+performed does not equal the number of parameters present.**
+
+Run against the original design and against REV7:
+
+| Check | ORIGINAL | REV7 |
+|---|---|---|
+| ON module rows | 891 | 894 |
+| Parameters present | 2,720 | 3,676 |
+| **Comparisons performed** | **759** | **3,676** |
+| Model name not in table, verbatim | 75 | **0** |
+| Parameter not on the chosen model | 1,868 | **0** |
+| Value prose rather than a number | 93 | **0** |
+| Value outside its real range | 0 | **0** |
+| ON row missing a real control | 612 | **0** |
+| ON row contributing no comparison | 550 | **0** |
+| Non-vacuity | **FAIL** | **PASS** |
+
+The original's "0 outside range" and REV7's "0 outside range" are the same
+number meaning opposite things. On the original only 759 of 2,720 parameters
+were ever compared. On REV7 all 3,676 were.
+
+## Where the values came from
+
+`mine_all_donors.py` read all nine modules out of **393 real `.mo` files**, zero
+unreadable: the presets written to the pedal, the reference pack, the backups,
+the `factory-baseline` set, and the GE150PRO editor's own library folder.
+
+**Two methodological catches changed the result.**
+
+1. **ON-only.** A switched-off block still stores values, and they are the
+   factory defaults. MOD `JET-FLANGER` has 192 observations and **zero**
+   switched on, so mining everything gave it `RATE=50 MIX=50 F.BACK=50`, the
+   resting default rather than a tone anyone chose. DS/OD `DDRIVE` had 166
+   observations and 6 on. Mining ON-only moved DS/OD drive from a default-looking
+   `GAIN=50` to an observed `GAIN=20`, and chorus from `50/50` to
+   `RATE=5 MIX=18 DEPTH=27`.
+2. **Pooled by paraPos.** Models sharing a paraPos share an identical parameter
+   set, which is the inheritance the editor itself uses. 90 models have their own
+   ON observations, 66 more are covered by their paraPos siblings, and the
+   remaining handful fall back to the same-named control pooled across the chain,
+   each tagged MODEL, GROUP, CHAIN or DECLARED so the source stays visible.
+
+## Four encodings now documented
+
+| Where | Encoding | How it was established |
+|---|---|---|
+| EQ | stored = dB + 16, flat is 16 | already in the how-to doc; the design's figures are true dB in -3..+2 |
+| MOD pitch | stored = (semitones + abs(min)) x 10 | derived from the reference pack, confirmed three ways against its README |
+| CAB `TUBE` and `MIC` | enumerated selectors, 5 power tubes and 10 microphones | their option lists sit in the XML range field, where a numeric parser skips them |
+| DELAY `SUB-D` | enumerated note divisions, and `OFF` means free-running ms | option list `OFF_1/4_1/4T_1/4D_1/8...` |
+
+`SUB-D` matters more than it looks. The design gives explicit millisecond times,
+and a subdivision would override them, so every row carrying an explicit ms time
+got `SUB-D=OFF`. That keeps the design's own timing rather than silently
+re-timing 93 delays.
+
+## What each chain needed
+
+| Chain | Rows | What was wrong | What it became |
+|---|---|---|---|
+| AMP | 144 | names right, but `MST = 50 START; LEVEL-MATCH BEFORE SAVE` on every preset | `MST=93`, the observed median of 315 real amps. **Zero real amps sit at 50**, min is 52. The level-match instruction moved to the engineering note, where it belongs |
+| EQ | 136 | 5 bands named `BAND LOW TARGET DB` and so on | `100Hz 250Hz 630Hz 1.6KHz 4KHz` on MOOER G, stored as dB plus 16 |
+| DELAY | 93 | `TIME MS`, `FEEDBACK TARGET %`, `LEVEL TARGET %`, `NOTE` prose | `TIME`, `F.BACK`, `LEVEL`, `SUB-D`, with the design's own ms times preserved |
+| MOD | 72 | a generic `RATE / DEPTH / WET` triplet applied to 15 different models | each model takes only the controls it has: a flanger's depth is its `F.BACK`, a phaser's wet is its `LEVEL`, lo-fi speaks in `SAMPLE` and `BIT`, an octave in `SUB` and `UPPER` |
+| NS GATE | 70 | `RELEASE` on every row, while all 70 name `Noise Killer` | `RELEASE` dropped, since Noise Killer's only control is `THRES`. The design attached a control its own chosen model does not have |
+| DS/OD | 63 | `DRIVE` and `LEVEL`, and `LEVEL = MATCH TO DS BYPASS` | `GAIN`, `TONE`, `VOLUME`, the last from observed |
+| FX/COMP | 47 | 43 rows already correct; 4 wah rows carried `OTHER CONTROLS` prose | each wah's real controls, per its own paraPos |
+| CAB | 144 | none of the four controls set, on any preset | `TUBE`, `MIC`, `CENTER`, `DISTANCE`, done in the previous pass |
+| REVERB | 125 | `P.DELAY` and `TONE` set on zero presets | all four set on all 125, done in the previous pass |
+
+## Expression pedal
+
+All 144 slots carry one assignment. 43 named a control the chosen model does not
+have, and the design's own check had reported `Invalid mapping []`.
+
+| Was | Became | Slots |
+|---|---|---|
+| `DS DRIVE` | `DS GAIN` | 21 |
+| `MOD DEPTH` | `MOD MIX` | 12 |
+| `DELAY FEEDBACK` | `DELAY F.BACK` | 5 |
+| `FX WAH` | `FX POSITION` | 2 |
+| `FX WAH` | `FX RANGE` on Talk Wah, which has no POSITION | 1 |
+| `MOD CUTOFF` | `MOD RANGE` on Low Pass | 1 |
+| `MOD MIX` | `MOD DRY` on Octave, which has no MIX | 1 |
+
+Each rename was checked against the model actually chosen for that slot, so a
+target is written only when that model really has the control. 101 were already
+valid. **0 unresolved.**
+
+## The upstream source is corrected too
+
+`MANUFACTURER_MODEL_NAME_AUDIT_ALL.csv` is where the design's wrong spellings
+came from. It labels all 271 rows `EXACT_MANUFACTURER_NAME` while labelling all
+271 `native_model_id_verified = NO`. Measured verbatim it was **236 correct and
+35 wrong** across 6 names. Those 35 rows are now corrected against the binary
+model table and marked `CORRECTED_2026-11-08_AGAINST_BINARY_MODEL_TABLE`, so the
+next pass cannot inherit them.
+
+| | Verbatim correct | Wrong |
+|---|---|---|
+| Before | 236 | **35** |
+| After | **271** | **0** |
+
+The original is kept beside it as `...ORIGINAL.csv`. 176 rows still differ in
+letter case alone, which does not affect whether a model resolves.
+
+## Version lineage, nothing overwritten
+
+| File | Change |
+|---|---|
+| `...ORIGINAL.xlsx` in `backups/refpack-reverb-apply-2026-11-06/` | untouched, sha256 begins `71ffd69cac17785f` |
+| `REV2` | 13 reverb placements from the reference pack, tuned per slot |
+| `REV3` | reverb finished, all 125 blocks, `CAVE` gap closed |
+| `REV4` | CAB filled, all 144 blocks |
+| `REV5` | 33 reverb outliers reconciled to observed bounds |
+| `REV6` | the remaining seven chains translated and filled |
+| `REV7` | expression targets remapped. **Passes the hardened gate** |
+
+Every pass verified 0 off-target cell changes across all 7 sheets, compared cell
+by cell, and every pass kept all 7 sheets, 144 detail rows and 1,296 matrix rows.
+
+## What is still open
+
+- **No preset has been heard.** Phase 2 and Phase 3 of the plan are untouched:
+  emitting `.mo` files and writing them to the pedal, one bank of four at a time.
+- 13 CAB power-tube choices are FAMILY-INFERRED from a sibling cabinet or the
+  paired amp, not observed. They are tagged in the workbook so a readback can
+  confirm or correct them.
+- Nine values on CHURCH and SHIMMER sit outside envelopes too thin to bind,
+  n=3 and n=2, and are named in the reverb record.
+- The handful of controls filled from a chain-pooled or declared-range fallback
+  are tagged CHAIN or DECLARED rather than presented as observed.
+- `PARAMETER_VALUES_ALL.csv` carries `manual_min` and `manual_max` from the owner
+  manual. Those have not been reconciled against the binary's ranges.
+
+## Files added in this pass
+
+| File | Does |
+|---|---|
+| `mine_all_donors.py` | mines all 9 modules, ON-only, pooled by paraPos |
+| `donors_ALL_OBSERVED.json` | the observed corpus, per model and per group |
+| `fill_remaining_chains.py` | translates and fills the seven chains, `--dry` supported |
+| `fix_expression_targets.py` | remaps expression targets to controls that exist |
+| `validate_144_hardened.py` | the gate that cannot pass vacuously |
+| `chatgpt-sources/MANUFACTURER_MODEL_NAME_AUDIT_ALL.ORIGINAL.csv` | the uncorrected audit, kept |
