@@ -1329,6 +1329,24 @@ left on volume or wah. Measured across all 144:</p>
 <tr><td>REVERB LEVEL</td><td>10</td><td>FX/COMP RANGE, FX/COMP SENS</td><td>1 each</td></tr>
 </table>
 
+<p><b>Why it looked like a wah, and it did.</b> Brandon opened the editor and said the
+expression looked like wah. He was reading the screen correctly, and the cause was not
+the expression pedal at all. <b>97 of 144 presets carried the FX/COMP block switched OFF
+but parked on <code>01: CRY WAH</code></b>, because the emitter fills every bypassed
+block with that chain's most-observed model and the factory corpus is full of wahs.
+Click the FX/COMP tab on almost any preset and the editor draws a wah with Q, POSITION
+and PEAK, bypassed or not.</p>
+
+<p>Nothing about it was audible, since <code>SWITCH</code> is 0. It was still wrong
+twice over: it misreads at a glance, and switching the block on by hand handed you a
+wah instead of the compressor the patch wants. Every bypassed FX/COMP block is now
+parked on <code>08: BLUE COMP</code> carrying the same per-preset values the compressor
+tuner derives, <b>85 distinct settings across the 97</b>, so flicking it on gives a
+compressor already set for that patch. After the repair, <b>four presets show a wah
+model and all four have the block switched ON</b>: <code>20A VOLTA LVIA</code>,
+<code>32A CRY BABY WAH</code>, <code>32B HEIL TALK BOX</code> and
+<code>32C MU-TRON III</code>.</p>
+
 <p><b>The inference is now confirmed on hardware.</b> The emitter recorded
 <code>PARA_CTRL</code> as INFERRED, because every one of the 277 presets previously on
 this pedal carried an untouched <code>MODULE_CTRL 0 / PARA_CTRL 0</code>, so no example
