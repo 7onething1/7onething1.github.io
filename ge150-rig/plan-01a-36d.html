@@ -1271,6 +1271,26 @@ worse than he said. <b>BLUE COMP is on 42 presets with 3 distinct parameter sets
 covering 124. <b>ROOM is on 46 with 14 sharing one identical setting</b>. Counting every
 block, <b>109 groups of presets share one parameter set</b>. That is the open work.</p>
 
+<p><b>The copied parameter sets, tuned.</b> Every value below is derived from the
+preset it sits in rather than assigned from a bucket. How much compression a patch
+needs falls as the amp gets hotter and falls again when delay and reverb are running,
+because squeezing a long tail pumps it. The EQ answers what the amp model is voiced
+like, what size cab it is going through and how hard it is driven, after deriving it
+from the amp's own knobs collapsed: <code>BASS 46 / MID 60 / TREBLE 55 / PRES 51</code>
+repeats across dozens of presets. The room answers how driven the patch is and how
+bright the amp is. The gate threshold tracks the noise the chain actually makes.</p>
+
+<table>
+<tr><th>Block</th><th>Presets with it on</th><th>Distinct settings before</th><th>After</th><th>Largest identical group before</th><th>After</th></tr>
+<tr><td>FX/COMP</td><td>46</td><td>3 on BLUE COMP</td><td><b>40</b></td><td>35</td><td><b>4</b></td></tr>
+<tr><td>EQ</td><td>137</td><td>11</td><td><b>81</b></td><td>42</td><td><b>9</b></td></tr>
+<tr><td>REVERB</td><td>126</td><td>59</td><td><b>82</b></td><td>14</td><td><b>6</b></td></tr>
+<tr><td>NS GATE</td><td>71</td><td>7</td><td><b>17</b></td><td>24</td><td><b>9</b></td></tr>
+</table>
+
+<p>The three reference presets and the eleven repaired in the review pass are excluded
+from every tuner, because those values were chosen rather than copied.</p>
+
 <p><b>Three presets are marked do not normalize.</b> <code>36A MAYER CLARITY</code>,
 <code>36B RH HIGH AND DRY</code> and <code>36C RUSH ANALOG KID</code> each have a
 coherent reason for every choice, and they stay as the reference for amp-driven clean,
