@@ -109,6 +109,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#exp">The expression pedal, measured and confirmed</a></li>
     <li><a href="#audit2">A second audit, scored against the files</a></li>
     <li><a href="#audit3">The review workbook, opened and worked</a></li>
+    <li><a href="#verify">The verification was wrong, and what replaced it</a></li>
   </ol>
 </div>
 
@@ -1478,6 +1479,69 @@ per-preset routing cannot be invented. Its own note says not to.</p>
 EQ, reverb, master-level and FX-park passes. So it reports 2 unmatched amp and cab
 pairings where <b>there are 7</b>, and 395 blank switches where the masters themselves
 have <b>0 of 1296</b> blocks without an explicit 0 or 1.</p>
+
+<h2 id="verify">19. The verification was wrong, and what replaced it</h2>
+
+<p>Everything above this section was checked by a method that could not work.
+<code>v4_readback.sh</code> drags back <b>the same row the write targeted</b> and compares
+it to the master of that name. A write that lands on the wrong row is therefore read
+from that wrong row, matches its own bytes, and reports MATCH. <b>The check and the
+write shared one coordinate assumption, so the check could never catch the failure the
+coordinates cause.</b></p>
+
+<p>It had already happened. Read off the editor's own preset list:</p>
+
+<table>
+<tr><th>Slot</th><th>Held</th><th>Belongs at</th></tr>
+<tr><td><code>01B</code></td><td>MAYER LAST TRAIN</td><td>05D</td></tr>
+<tr><td><code>01C</code></td><td>MAYER QUEEN CALI</td><td>05C</td></tr>
+<tr><td><code>01D</code></td><td>CAST SUNSET KING</td><td>04D</td></tr>
+<tr><td><code>06D</code>, <code>07A</code></td><td>SLIDE TUBE, PLEXI GLASS</td><td>never written, still v1</td></tr>
+<tr><td><code>07B</code> to <code>08B</code></td><td>a clean three-row shift</td><td>06C through 07C</td></tr>
+</table>
+
+<p>Every one of those had logged a readback MATCH. All 27 sha256 receipts built on top
+of it were void and were moved to <code>verified/invalid-slot-unproven/</code>.</p>
+
+<h3>What replaced it</h3>
+
+<p>The proof now comes from a different source than the write. After each drag the
+editor's own preset list is read through <b>macOS Vision</b>, and the row labelled with
+the target slot must carry the target name. The editor publishes no accessibility tree,
+so an <code>entire contents</code> dump returns nothing and the label has to come from
+pixels. Six things had to be solved to make that trustworthy:</p>
+
+<table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td>Vision returns the label as <code>O3A</code>, a letter O for the zero and a <b>Cyrillic А</b></td><td>normalise confusable glyphs before matching; this alone was why rows kept reading as missing</td></tr>
+<tr><td>The selected row's label is truncated, and Vision renders the ellipsis as <code>...</code> or a single <code>.</code></td><td>a cut label passes only when <b>exactly one</b> of the 144 names starts with what is visible; ten names share a six-character prefix, so six characters was never enough</td></tr>
+<tr><td>Spaces get dropped, <code>RH LET DOWN</code> reading as <code>RHLET DOWN</code></td><td>compare without spacing, after checking all 144 names stay distinct that way</td></tr>
+<tr><td>The list repaints after the drag, so a check 0.6 s later sees the OLD content</td><td>poll until the row settles; a stale read becomes OK, a wrong slot never does</td></tr>
+<tr><td>A drag near the list's bottom edge makes it auto-scroll and the write misses</td><td>write band pulled in from 462 to 408, two rows of margin</td></tr>
+<tr><td>One misread row voted a position of 1223 and unanimity threw the reading away</td><td>cluster the estimates, take the majority cluster, drop outliers</td></tr>
+</table>
+
+<h3>The result</h3>
+
+<p>All 144 slots were rewritten and each one verified against the list before it counted.
+Then the whole device was swept independently, reading every row and comparing it to the
+write order rather than trusting the receipts:</p>
+
+<pre>device sweep: 144 of 144 slots read
+
+no mismatches
+
+6 matched on a truncated label
+
+144 confirmed correct, 0 wrong, 0 unread</pre>
+
+<p>Writing only what changed is now real rather than a claim. The fingerprint is the
+sha256 of each slot's <code>.mo</code>, which holds device fields only, and the manifest
+in <code>verified/</code> is written only after a slot passes the list check. The four
+regression tests the incremental spec requires all pass: an unchanged bank causes zero
+writes, a one-preset parameter edit causes one, a notes-only edit causes zero, and
+repeating a completed update causes zero. The planner now reports <b>WRITE 0, skip
+144</b>.</p>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">
