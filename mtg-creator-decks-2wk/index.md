@@ -2,27 +2,30 @@
 
 Live: https://7onething1.github.io/mtg-creator-decks-2wk/
 
-Standard deck videos from 11 tracked creators, each with its decklist link,
-colors, archetype, and a spike-or-brew read. Generated 2026-10-30.
+Standard deck videos from 12 tracked creators, each with its decklist link,
+colors, archetype, and a spike-or-brew read. Generated 2026-11-09.
 
 ## Current state
 
 | Measure | Value |
 |---|---|
-| Decks on the page | **66** |
-| With real price and wildcard numbers | **66** |
-| ├ from Moxfield (signed-in browser) | 27 |
-| ├ from Aetherhub (signed-in browser) | 2 |
-| ├ from the video description | 30 |
-| └ from MTGGoldfish | 7 |
-| Decklist walled | **0** |
-| Creators | 11 |
-| Carrying a publish date | 66 |
-| Newest video | 2026-10-30 |
-| Colors counted off the real list | 66 |
-| Colors taken from the creator's title | 0 |
-| Still unlabelled | 0 |
-| Dropped as not Standard | **33** |
+| Decks on the page | **99** |
+| With real price and wildcard numbers | **93** |
+| ├ from Moxfield (signed-in browser) | 48 |
+| ├ from Aetherhub (signed-in browser) | 1 |
+| ├ from the video description | 41 |
+| └ from MTGGoldfish | 3 |
+| Decklist walled | **6** |
+| Creators | 12 |
+| Carrying a publish date | 99 |
+| Newest video | 2026-11-09 |
+| Colors counted off the real list | 92 |
+| Colors taken from the creator's title | 2 |
+| Still unlabelled | 5 |
+| Running a card new in The Hobbit (HOB) | **27** |
+| Running a card new in Star Trek (TRK) | **25** |
+| ├ buildable on 4 rare + 8 mythic | **3** |
+| Dropped as not Standard | **34** |
 | Quarantined by the 2026-08-10 bans | **0** |
 
 ## Quarantined by the 2026-08-10 bans
@@ -31,7 +34,7 @@ Wizards banned 3 cards in Standard on 2026-08-10:
 **Badgermole Cub**, **Stormchaser's Talent**, **Gran-Gran**.
 Source: [Banned and Restricted Announcement, August 10, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-august-10-2026).
 
-**0 of 66 decks on this page run one of them.**
+**0 of 99 decks on this page run one of them.**
 
 | Card | Copies | Decks |
 |---|---|---|
@@ -53,8 +56,8 @@ is banned.
 
 ## What the format gate removed
 
-A title cannot tell you a format. 33 decks were held back because under
-90% of their card copies are Standard-legal per Scryfall: LegenVD 18, CovertGoBlue 6, CROKEYZ 4, d00mwake 3, Strictly Better MtG 2.
+A title cannot tell you a format. 34 decks were held back because under
+90% of their card copies are Standard-legal per Scryfall: LegenVD 18, CovertGoBlue 6, CROKEYZ 4, d00mwake 4, Strictly Better MtG 2.
 Those are Pauper lists, 100-card Brawl decks and Alchemy rebalances published on channels
 whose titles read as Arena Standard. Their prices were real numbers answering the wrong
 question. The split is clean, 182 decks at 97% legal or better against 13 at 58% or
@@ -67,23 +70,23 @@ from this build, so the ledger cannot drift from the page.
 
 | # | Asked | Chat | State |
 |---|---|---|---|
-| 1 | At least 7 decks per creator | 07-11 | 7 of 11 creators clear 7. Capped at the source: CovertGoBlue 6, from 60 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); PowrDragon 4, from 78 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); LegenVD 2, from 45 videos the feed reached (18 fail the Standard-legality gate); 💥ManaMan 1, from 49 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
-| 2 | Read the description for deck links | 07-11 | 30 decks priced straight from the description |
-| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 8 spike, 57 standard, 1 brew |
+| 1 | At least 7 decks per creator | 07-11 | 9 of 12 creators clear 7. Capped at the source: MTG Malone 6, from 39 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); 💥ManaMan 1, from 51 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Arstall 1, from 101 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
+| 2 | Read the description for deck links | 07-11 | 41 decks priced straight from the description |
+| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 11 spike, 85 standard, 3 brew |
 | 4 | Color buttons that work as OFF switches | 07-19 | Done. Every color starts on, clicking one hides every deck needing it |
-| 5 | Link the decklist host | 07-11 | 58 of 66 carry a Moxfield / Aetherhub / Goldfish link |
-| 6 | Sort by price, and by wildcards, off the Arena export | 07-18 | Both sorts live, seeded from the collection export at 2026-10-28 |
-| 7 | Also link into kc-card-finder | 07-19 | 66 of 66 pass their full list to the finder |
-| 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 0 cards still read a generic label |
-| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 66 of 66 |
-| 10 | Creator name on each card when sorted by price | 07-24 | On all 66 cards, revealed the moment a global sort flattens the grid |
-| 11 | Update for Ashlizzle's latest | 07-24 | 9 Ashlizzle decks, newest 2026-10-30 |
-| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 7 of 66 cards carry a measured gameplan, 3 of those also break out the cards past the first 60. 4 list their main cards as well |
+| 5 | Link the decklist host | 07-11 | 81 of 99 carry a Moxfield / Aetherhub / Goldfish link |
+| 6 | Sort by price, and by wildcards, off the Arena export | 07-18 | Both sorts live, seeded from the collection export at 2026-11-03 |
+| 7 | Also link into kc-card-finder | 07-19 | 93 of 99 pass their full list to the finder |
+| 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 5 cards still read a generic label |
+| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 93 of 99 |
+| 10 | Creator name on each card when sorted by price | 07-24 | On all 99 cards, revealed the moment a global sort flattens the grid |
+| 11 | Update for Ashlizzle's latest | 07-24 | 11 Ashlizzle decks, newest 2026-11-08 |
+| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 9 of 99 cards carry a measured gameplan, 0 of those also break out the cards past the first 60. 2 list their main cards as well |
 
 ## What a gameplan says, and what it cannot
 
 Each **Gameplan** block is counted off that deck's own list against Scryfall mana
-value, type line and oracle text (7 of 66 decks; the rest have no
+value, type line and oracle text (9 of 99 decks; the rest have no
 reachable list). It reports the creature and spell split, the land count, the
 average mana value, how many cards cost one or two, where the curve tops out, and
 how many answers the list holds by category.
@@ -95,7 +98,7 @@ Two limits:
 - **The harvested lists are flat.** The board split was discarded when the lists
   were fetched, so no mainboard/sideboard boundary exists in the data. Where a list
   runs past 60, the extra cards are reported as *past the first 60* and labelled
-  inferred. 3 of the 3 such decks have exactly 15 there, which is
+  inferred. 0 of the 0 such decks have exactly 15 there, which is
   the legal sideboard size, and across them the tail holds 39 lands against 2,988
   in the first 60. That pattern is what mainboard-then-sideboard order looks like
   across the corpus. For any one deck it stays an inference, so the page labels it
@@ -109,16 +112,21 @@ Two limits:
   the same basis as the number shown. Lands are identified from the Scryfall type line
   rather than the card name, because a name test calls **Boomerang Basics** a land and
   it is a Sorcery; a double-faced spell is judged by its front face. Across the priced
-  corpus the manabase is 50% of the median deck price, and 397 of
-  700 decks need fewer rare-plus-mythic wildcards without it. The buy link is
+  corpus the manabase is 45% of the median deck price, and 435 of
+  771 decks need fewer rare-plus-mythic wildcards without it. The buy link is
   deliberately left alone: it still carts the complete deck, lands included, because
   that is what you have to own to play it.
 - **Wildcards to build.** What Arena charges after subtracting owned cards, bucketed by
   rarity, sorted on rare-plus-mythic since that is the number that gates a build.
 - **Newest first.** Publish date descending. Undated decks sink, and anything from the
   last 7 days highlights.
-- **Editable wildcard budget** seeded from the collection export at 2026-10-28,
-  so a stale snapshot never blocks the ranking.
+- **Editable wildcard budget, counted per rarity**, seeded from the collection export at
+  2026-11-03 at **4 rare** and **8 mythic**, so a stale snapshot
+  never blocks the ranking. A deck highlights only when it needs no more rares than you
+  hold AND no more mythics, because Arena will not spend a rare wildcard on a mythic.
+  Tested on the rare-plus-mythic total instead, as this page did until 2026-11-09,
+  **41** decks read as affordable where only **15** could be built,
+  so **26** were highlighted green while needing more rares than exist.
 
 ## Where a price comes from
 
@@ -131,7 +139,7 @@ page to see its source.
 
 ## How the walled decks were opened
 
-Anonymous HTTP is the closed layer. The data behind it stays reachable. Verified 2026-10-30:
+Anonymous HTTP is the closed layer. The data behind it stays reachable. Verified 2026-11-09:
 Moxfield answers 403 behind Cloudflare on both its API host and its public page after the
 301, and Aetherhub answers 403 to curl host-wide, including its own /Docs pages. The
 signed-in browser reaches both. Moxfield's own `api2` endpoint returns 200 when called from
@@ -141,10 +149,10 @@ those nodes. That pass closed the last 74 decks on 2026-07-19.
 
 | Host | Links | Reached by |
 |---|---|---|
-| moxfield | 40 | signed-in browser |
+| moxfield | 63 | signed-in browser |
 | aetherhub | 18 | signed-in browser |
-| untapped | 7 | video description |
 | mtggoldfish | 7 | anonymous HTTP |
+| untapped | 7 | video description |
 
 ## Build chain
 
