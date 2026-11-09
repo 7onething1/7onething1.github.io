@@ -1514,7 +1514,28 @@ HARD FAIL: 4988 values present but only 4987 compared, the gate would be vacuous
 
 ### What is on the pedal right now
 
-All 144 slots hold the **v1 names**, the ones he rejected. The chains underneath them are the correct, verified ones. The rename is staged on disk and gated, and has not been written to the hardware. The writer is already pointed at v2: `GE150_ORDER` and `GE150_MO` default to the v2 order and masters, so `phase3_run.sh 1 36` writes the new names with the same per-bank readback and comparison that proved v1.
+All 144 slots hold the **v1 names**, the ones he rejected. The chains underneath them are the correct, verified ones. The rename is staged on disk, gated, and pre-flighted, and has not been written to the hardware.
+
+**Why it is not written.** There is no USB API and no file-drop import on this pedal, which section 1 of the how-to records from the session that wrote the first 55. A `.mo` in the library folder does not reach the device. The only write path drives the editor GUI with synthetic drags, which takes the screen, mouse and keyboard for roughly 90 minutes across 36 banks. He said stop to exactly that, so it waits on his word rather than starting itself.
+
+**One command when he says go.**
+
+```
+./write_v2_names.sh              # both gates, writes nothing
+./write_v2_names.sh --go 1 36    # writes all 36 banks
+./write_v2_names.sh --go 5 9     # writes banks 5 through 9 only
+```
+
+It refuses the pedal unless both gates pass first, because the v1 run proved a bad row silently overwrites a finished slot. Pre-flight, run just now:
+
+```
+gate 1: presets 144   blocks 1296   values present 4987   values compared 4987
+        errors: 0   PASS
+gate 2: rows 144, banks 36, rollback records present, no collision with 37B-50D
+        both gates pass. Nothing written.
+```
+
+**Rollback.** Every one of the 144 slots has a 280-byte record under `backups/device-backup-2026-11-02-per-slot/`, checked present, and the v1 masters stay in `mo-01A-36D-v1`. A bad bank is recoverable either way.
 
 ### All 144, slot by slot
 

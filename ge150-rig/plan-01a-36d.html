@@ -1008,11 +1008,27 @@ HARD FAIL: 4988 values present but only 4987 compared, the gate would be vacuous
 <div class="card ask">
   <span class="tag t-ask">state</span>
   <p>All 144 slots hold the <b>v1 names</b>, the ones he rejected. The chains underneath
-  them are the correct, verified ones. The rename is staged on disk and gated, and has
-  not been written to the hardware. The writer is already pointed at v2:
-  <code>GE150_ORDER</code> and <code>GE150_MO</code> default to the v2 order and
-  masters, so <code>phase3_run.sh 1 36</code> writes the new names with the same
-  per-bank readback and comparison that proved v1.</p>
+  them are the correct, verified ones. The rename is staged on disk, gated, and
+  pre-flighted, and has not been written to the hardware.</p>
+  <p><b>Why it is not written.</b> There is no USB API and no file-drop import on this
+  pedal, which section 1 of the how-to records from the session that wrote the first 55.
+  A <code>.mo</code> in the library folder does not reach the device. The only write path
+  drives the editor GUI with synthetic drags, which takes the screen, mouse and keyboard
+  for roughly 90 minutes across 36 banks. He said stop to exactly that, so it waits on
+  his word rather than starting itself.</p>
+  <p><b>One command when he says go.</b></p>
+  <pre>./write_v2_names.sh              # both gates, writes nothing
+./write_v2_names.sh --go 1 36    # writes all 36 banks
+./write_v2_names.sh --go 5 9     # writes banks 5 through 9 only</pre>
+  <p>It refuses the pedal unless both gates pass first, because the v1 run proved a bad
+  row silently overwrites a finished slot. Pre-flight, run just now:</p>
+  <pre>gate 1: presets 144   blocks 1296   values present 4987   values compared 4987
+        errors: 0   PASS
+gate 2: rows 144, banks 36, rollback records present, no collision with 37B-50D
+        both gates pass. Nothing written.</pre>
+  <p><b>Rollback.</b> Every one of the 144 slots has a 280-byte record under
+  <code>backups/device-backup-2026-11-02-per-slot/</code>, checked present, and the v1
+  masters stay in <code>mo-01A-36D-v1</code>. A bad bank is recoverable either way.</p>
 </div>
 
 <h3>All 144, slot by slot</h3>
