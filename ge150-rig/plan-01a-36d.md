@@ -1475,9 +1475,9 @@ The spreadsheet that drove the build read his 55 for amp and drive data, never a
 
 | Count | What |
 |---:|---|
-| 112 | band and song slots |
+| 116 | band and song slots |
 | 28 | real pedal slots |
-| 4 | dry reference slots |
+| 0 | slots outside the two conventions |
 | 0 | chains altered |
 
 Per artist, from his own roster: ZEP 13, TOOL 10, KC 9, MAYER 7, BUILT 7, DT 7, RH 6, PAVE 6, PANTERA 6, DEFT 6, PORT 5, EITS 5, FAILURE 4, RUSH 4, VOLTA 4, APC 4, MODEST 3, CAST 3, SHINER 2, TOE 1.
@@ -1716,8 +1716,8 @@ gate 2: rows 144, banks 36, rollback records present, no collision with 37B-50D
 | `35B` | A SUB RIGHT | **PAVE HERE** | 59 US BASS dry |
 | `35C` | A RISE STACK | **EITS GREET DEATH** | HWT 103, SLOW GEAR, MOD, HALL |
 | `35D` | A DRY ANCHOR | **PANTERA BROKEN** | J800 dry |
-| **Bank 36** | | | *dry reference slots* |
-| `36A` | CLEAN SAFE | **REF 65DX DRY** | 65 US DX, nothing else. Level and tone reference. |
-| `36B` | EDGE SAFE | **REF UK30 EDGE** | UK30 CL, ROOM. Edge-of-break reference. |
-| `36C` | LEAD SAFE | **REF LEAD DRY** | 808, J800, DIGITAL, ROOM. Lead level reference. |
-| `36D` | RIG CHECK | **RIG CHECK** | JAZZ 120 flat. The slot that proves a write landed. |
+| **Bank 36** | | | *four different signal-chain architectures, rebuilt 2026-11-09* |
+| `36A` | CLEAN SAFE | **MAYER CLARITY** | Amp-driven clean. 65 US DX at GAIN 16 against MST 88 for headroom, MID 56 and no scoop. Twin 212 cab with a U87 off-axis at 42, chosen over the Deluxe 112 for size and a polished top. Nothing else on. |
+| `36B` | EDGE SAFE | **RH HIGH AND DRY** | Amp-driven breakup, one gain stage. DS/OD off. The harshness was the mic: CENTER 5 and DISTANCE 25 become 45 and 42 with an MD421. TREBLE 50, PRES 44, EQ cuts 1.6k and 4k. Plate at LEVEL 16. |
+| `36C` | LEAD SAFE | **RUSH ANALOG KID** | Pedal-driven amp distortion. 808 set to push, GAIN 22 at VOLUME 80; J800 drops from GAIN 55 to 44. Mic at 35 and 30 instead of 10 and 10. Chorus at MIX 30 and a 390 ms quarter into a short hall. |
+| `36D` | RIG CHECK | **DEFT TEENAGER** | High gain built on a clean platform. JC-120 flat at GAIN 14, all dirt from the Muff. Recto 412 for the speaker colour a JC 212 will not give. Custom EQ at 95, 700 and 3200. Gate on, analog delay and a long hall as the layer. |

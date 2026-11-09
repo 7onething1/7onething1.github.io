@@ -105,6 +105,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#phase3">Phase 3 prepared, and stopped before the hardware</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
     <li><a href="#naming">The names were wrong, and why</a></li>
+    <li><a href="#review2">Brandon's review pass, and what it changed</a></li>
   </ol>
 </div>
 
@@ -971,9 +972,9 @@ answering a question he had not asked.</p>
 </div>
 
 <div class="score">
-  <div class="pill good"><b>112</b>band and song slots</div>
+  <div class="pill good"><b>116</b>band and song slots</div>
   <div class="pill good"><b>28</b>real pedal slots</div>
-  <div class="pill"><b>4</b>dry reference slots</div>
+  <div class="pill good"><b>0</b>slots outside the two conventions</div>
   <div class="pill good"><b>0</b>chains altered</div>
 </div>
 <p><b>Per artist, from his own roster:</b> ZEP&nbsp;13, TOOL&nbsp;10, KC&nbsp;9, MAYER&nbsp;7, BUILT&nbsp;7, DT&nbsp;7, RH&nbsp;6, PAVE&nbsp;6, PANTERA&nbsp;6, DEFT&nbsp;6, PORT&nbsp;5, EITS&nbsp;5, FAILURE&nbsp;4, RUSH&nbsp;4, VOLTA&nbsp;4, APC&nbsp;4, MODEST&nbsp;3, CAST&nbsp;3, SHINER&nbsp;2, TOE&nbsp;1.</p>
@@ -1210,13 +1211,75 @@ gate 2: rows 144, banks 36, rollback records present, no collision with 37B-50D
 <tr><td><code>35B</code></td><td>A SUB RIGHT</td><td><b>PAVE HERE</b></td><td>59 US BASS dry</td></tr>
 <tr><td><code>35C</code></td><td>A RISE STACK</td><td><b>EITS GREET DEATH</b></td><td>HWT 103, SLOW GEAR, MOD, HALL</td></tr>
 <tr><td><code>35D</code></td><td>A DRY ANCHOR</td><td><b>PANTERA BROKEN</b></td><td>J800 dry</td></tr>
-<tr class="bankhead"><td colspan="5"><b>Bank 36</b> &middot; dry reference slots</td></tr>
-<tr><td><code>36A</code></td><td>CLEAN SAFE</td><td><b>REF 65DX DRY</b></td><td>65 US DX, nothing else. Level and tone reference.</td></tr>
-<tr><td><code>36B</code></td><td>EDGE SAFE</td><td><b>REF UK30 EDGE</b></td><td>UK30 CL, ROOM. Edge-of-break reference.</td></tr>
-<tr><td><code>36C</code></td><td>LEAD SAFE</td><td><b>REF LEAD DRY</b></td><td>808, J800, DIGITAL, ROOM. Lead level reference.</td></tr>
-<tr><td><code>36D</code></td><td>RIG CHECK</td><td><b>RIG CHECK</b></td><td>JAZZ 120 flat. The slot that proves a write landed.</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 36</b> &middot; four different signal-chain architectures, rebuilt 2026-11-09</td></tr>
+<tr><td><code>36A</code></td><td>CLEAN SAFE</td><td><b>MAYER CLARITY</b></td><td>Amp-driven clean. 65 US DX at GAIN 16 against MST 88 for headroom, MID 56 and no scoop. Twin 212 cab with a U87 off-axis at 42, chosen over the Deluxe 112 for size and a polished top. Nothing else on.</td></tr>
+<tr><td><code>36B</code></td><td>EDGE SAFE</td><td><b>RH HIGH AND DRY</b></td><td>Amp-driven breakup, one gain stage. DS/OD off. The harshness was the mic: CENTER 5 and DISTANCE 25 become 45 and 42 with an MD421. TREBLE 50, PRES 44, EQ cuts 1.6k and 4k. Plate at LEVEL 16.</td></tr>
+<tr><td><code>36C</code></td><td>LEAD SAFE</td><td><b>RUSH ANALOG KID</b></td><td>Pedal-driven amp distortion. 808 set to push, GAIN 22 at VOLUME 80; J800 drops from GAIN 55 to 44. Mic at 35 and 30 instead of 10 and 10. Chorus at MIX 30 and a 390 ms quarter into a short hall.</td></tr>
+<tr><td><code>36D</code></td><td>RIG CHECK</td><td><b>DEFT TEENAGER</b></td><td>Delicate clean on the JC-120, which is what the song is. The Muff that was here contradicted both the flat clean amp and the song, so it came out and the high-gain architecture moved to 25B.</td></tr>
   </tbody>
 </table>
+
+<h2 id="review2">15. Brandon's review pass, and what it changed</h2>
+
+<p>He read the settings workbook and returned six defects. Five were real, one was
+my spreadsheet, and writing his reasoning down as a rule found five more.</p>
+
+<p><b>The one that was mine.</b> He flagged <code>21D</code>, <code>27C</code> and
+<code>30B</code> for Dual Delay blocks with empty <code>TIME</code> and
+<code>SUB-D</code>. The presets are correct: they hold <b>TIME A 420 and TIME B 630</b>,
+and <code>30B</code> holds <b>500 and 750</b>. Dual Delay has no parameter called
+<code>TIME</code>, so a sheet with fixed column names printed blanks on a correct
+preset. Every block now prints its own parameters.</p>
+
+<p><b>The rule his findings became.</b> A preset named for an effect must have that
+block switched on, running a model that matches the name. Run across all 28 pedal
+presets it failed nine times:</p>
+
+<table>
+<tr><th>Preset</th><th>Was</th><th>Now</th></tr>
+<tr><td><code>AVALANCHE RUN</code></td><td>delay OFF</td><td>TAPE on, 520 ms, F.BACK 46</td></tr>
+<tr><td><code>RASTER DETUNE</code></td><td>delay OFF</td><td>ANALOG on, 300 ms</td></tr>
+<tr><td><code>THERMAE OCT DN</code></td><td>delay OFF</td><td>ANALOG on, 340 ms</td></tr>
+<tr><td><code>THERMAE OCT UP</code></td><td>DIGITAL</td><td>ANALOG, 360 ms</td></tr>
+<tr><td><code>THERMAE FIFTHS</code></td><td>DIGITAL</td><td>ANALOG, 320 ms</td></tr>
+<tr><td><code>NEMESIS TAPE</code></td><td>DIGITAL</td><td>TAPE, 320 ms</td></tr>
+<tr><td><code>BELLE EPOCH DLX</code></td><td>ANALOG</td><td>TAPE, 380 ms</td></tr>
+<tr><td><code>BLUESKY MOD</code></td><td>HALL</td><td>MOD, DECAY 56</td></tr>
+<tr><td><code>SLO DREAM</code></td><td>PLATE</td><td>HALL, P.DELAY 60, DECAY 72</td></tr>
+</table>
+
+<p>The gate now reads <b>35 of 35 requirements met, 0 failures</b>.</p>
+
+<p><b>The two Deftones presets traded places.</b> He said the Muff at GAIN 68
+contradicted the flat clean JC-120 and the delicate song it was named for, and that
+a clean JC with a compressor and a tri-chorus would never deliver the central riff on
+<code>25B DEFT DIAMOND EYE</code>. Both were right. The fuzz came out of
+<code>36D</code>, and the constructed high-gain architecture moved to <code>25B</code>,
+rebuilt on a <b>Rectifier into an Orange 412</b>, pairing the amp Deftones are
+documented on with the cab they are documented to use rather than one matched set.</p>
+
+<p><b>He also corrected what the audit was counting.</b> The first workbook carried
+123 mic-placement and 117 cabinet suggestions and <b>zero musical ones</b>, which is
+backwards: a matched amp and cab is often right, and a low-gain 808 pushing a hot amp
+is a deliberate metal technique. Of the 15 stacked-gain flags, <b>11 run pedal GAIN 18
+to 25</b> and are now left alone. Only four are genuinely two distortions, led by
+<code>13A TOOL AENEMA</code> with a Muff at GAIN 81 into an amp at 55.</p>
+
+<p><b>The repetition that does matter.</b> His three numbers checked out and two were
+worse than he said. <b>BLUE COMP is on 42 presets with 3 distinct parameter sets</b>,
+35 of them identical. <b>EQ is on 137 presets with 11 distinct curves</b>, the top four
+covering 124. <b>ROOM is on 46 with 14 sharing one identical setting</b>. Counting every
+block, <b>109 groups of presets share one parameter set</b>. That is the open work.</p>
+
+<p><b>Three presets are marked do not normalize.</b> <code>36A MAYER CLARITY</code>,
+<code>36B RH HIGH AND DRY</code> and <code>36C RUSH ANALOG KID</code> each have a
+coherent reason for every choice, and they stay as the reference for amp-driven clean,
+amp-driven breakup and pedal-driven distortion.</p>
+
+<p><b>The pedal was paused mid-write and has not been touched since.</b> Banks 1 through
+4 are written and byte-verified, <code>05A MAYER WILD BLUE</code> landed but was stopped
+before its compare, and <code>05B</code> through <code>36D</code> still hold the v1
+names.</p>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">
