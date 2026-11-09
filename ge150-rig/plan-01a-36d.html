@@ -106,6 +106,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#notclaim">What this plan does not claim</a></li>
     <li><a href="#naming">The names were wrong, and why</a></li>
     <li><a href="#review2">Brandon's review pass, and what it changed</a></li>
+    <li><a href="#exp">The expression pedal, measured and confirmed</a></li>
   </ol>
 </div>
 
@@ -1300,6 +1301,43 @@ amp-driven breakup and pedal-driven distortion.</p>
 4 are written and byte-verified, <code>05A MAYER WILD BLUE</code> landed but was stopped
 before its compare, and <code>05B</code> through <code>36D</code> still hold the v1
 names.</p>
+
+<h2 id="exp">16. The expression pedal, measured and confirmed</h2>
+
+<p>Brandon asked whether the expression pedal is set to something useful rather than
+left on volume or wah. Measured across all 144:</p>
+
+<table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Presets where the expression acts as a volume pedal</td><td><b>0 of 144</b>, <code>VOL_SWITCH</code> is 0 on every one</td></tr>
+<tr><td>Presets where it sweeps a wah</td><td><b>4 of 144</b>, and they are the four wah presets by name</td></tr>
+<tr><td>Mappings pointing at a block that is switched off</td><td><b>0</b></td></tr>
+<tr><td><code>PARA_CTRL</code> past the end of the model's parameter list</td><td><b>0</b></td></tr>
+<tr><td>Distinct things the pedal controls</td><td><b>15</b></td></tr>
+</table>
+
+<p>What it controls, across the library:</p>
+
+<table>
+<tr><th>Target</th><th>Presets</th><th>Target</th><th>Presets</th></tr>
+<tr><td>DELAY LEVEL</td><td>28</td><td>AMP MST</td><td>7</td></tr>
+<tr><td>DS/OD GAIN</td><td>21</td><td>DELAY F.BACK</td><td>5</td></tr>
+<tr><td>MOD MIX</td><td>20</td><td>FX/COMP LEVEL</td><td>2</td></tr>
+<tr><td>MOD DEPTH</td><td>18</td><td>FX/COMP POSITION</td><td>2</td></tr>
+<tr><td>AMP GAIN</td><td>16</td><td>DS/OD TONE</td><td>2</td></tr>
+<tr><td>MOD RATE</td><td>10</td><td>MOD RANGE</td><td>1</td></tr>
+<tr><td>REVERB LEVEL</td><td>10</td><td>FX/COMP RANGE, FX/COMP SENS</td><td>1 each</td></tr>
+</table>
+
+<p><b>The inference is now confirmed on hardware.</b> The emitter recorded
+<code>PARA_CTRL</code> as INFERRED, because every one of the 277 presets previously on
+this pedal carried an untouched <code>MODULE_CTRL 0 / PARA_CTRL 0</code>, so no example
+in the corpus showed what the field indexes. With bank 4 written and loaded, the
+editor's own header reads <code>EXP:DLY - LEVEL</code> for
+<code>04D CAST SUNSET KING</code>, and that preset's file holds
+<code>MODULE_CTRL 7, PARA_CTRL 0</code>, which is the DELAY chain and the first entry
+in its parameter list. <b>PARA_CTRL is the parameter's index in the model's own list,
+and the mapping survives the write.</b></p>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">

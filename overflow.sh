@@ -34,7 +34,16 @@ for route in "$@"; do
   fi
   rm -rf "$OV/$route"
   mkdir -p "$OV/$route"
-  cp -R "$SRC/$route/." "$OV/$route/"
+  # Copy only what GitHub Pages will SERVE. Every script in the mtga pipeline writes
+  # a timestamped .bak-* beside the page it edits, and the page is ~9MB, so the mardu
+  # route carried about ninety of them: 817M for one route against a per-site cap of
+  # 1GB. Those snapshots are not lost by being skipped here, they stay in
+  # ~/Projects/drwu-htmls/public/<route>/ where they were written. rsync excludes them
+  # on the way in so a route cannot bloat the host again.
+  rsync -a --delete-excluded \
+        --exclude '*.bak-*' --exclude '*.bak' --exclude '.DS_Store' \
+        --exclude '__pycache__/' \
+        "$SRC/$route/" "$OV/$route/"
   echo "copied  $route  ($(du -sh "$OV/$route" | cut -f1))"
   paths+=("$route/")
 done
