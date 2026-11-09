@@ -1447,3 +1447,256 @@ refresh the list, build the mapping by enumeration, review, write.
 | Build the mapping from enumerated rows | `build_mapping.py` |
 | Write the four presets | `v4_write.sh`, after review |
 | Read back and compare sha256 | `v4_readback.sh`, `verify_readback.py` |
+
+---
+
+## 14. The names were wrong, and why
+
+Brandon: **"its supposed to have either exisiting delay or reverb names and designs like mr black, or band songs that are my taste."** Neither held. Not one of the 144 was a real pedal name, and where the list reached for a band it guessed at a title instead of naming a song.
+
+### His own 55 presets already set the convention
+
+`overwrite_order.json` holds the 55 presets at 37B-50D, and they split two ways.
+
+- **Eleven are one real pedal.** The `CAP` block is the Strymon El Capistan, named by that pedal's own controls: `CAP FIXED A/B/C`, `CAP MULTI A/B/C`, `CAP WORN TAPE`, `CAP SOUND ON SND`, `CAP RUNAWAY`, `CAP TAPE SPRING`, `CAP DARK AGED`.
+- **Forty-four are band and song.** `ZEP KASHMIR`, `RUSH YYZ`, `TOOL PNEUMA RHY`, `KC SCHIZOID`, `APC JUDITH`, `PANTERA COWBOYS`, `MAYER GRAVITY`, `RH WEIRD FISH`, `DT PULL UNDER`, `EITS BIRTH`, `FAILURE SPACE`, `DEFT DIG BATH`, `TOE GOODBYE`, `SHINER EGG`, `APPLESEED`, `PAVE SLANT`, `MODEST TAPE`, `BUILT TAPE`, `CAST MARE`, `VOLTA TETRA`.
+
+The second source was in hand too. The Reference Pedal Pack README names ten real pedals verbatim: Mr. Black Eterna and SuperMoon Eclipse, Strymon NightSky, Cloudburst, Volante and DIG V2, Death By Audio ROOMS, OBNE Dark Star, Chase Bliss Thermae, Walrus Audio Fable MKII.
+
+### Why the first list missed both
+
+The spreadsheet that drove the build read his 55 for amp and drive data, never as a naming template, then laid a 36-bank tone-coverage scheme over the top. Every pass after that validated the scheme against itself, which it satisfied. The scheme was answering a question he had not asked.
+
+### The rule used to rebuild the list
+
+- **Bands:** only the twenty artists his own 55 already name. No new artist invented. Real song titles.
+- **Pedals:** real delay and reverb pedals, named by that pedal's own mode or control, the way the `CAP` block is named.
+- **Fit:** every name matched to the chain that slot already runs, read out of the emitted `.mo`.
+
+| Count | What |
+|---:|---|
+| 112 | band and song slots |
+| 28 | real pedal slots |
+| 4 | dry reference slots |
+| 0 | chains altered |
+
+Per artist, from his own roster: ZEP 13, TOOL 10, KC 9, MAYER 7, BUILT 7, DT 7, RH 6, PAVE 6, PANTERA 6, DEFT 6, PORT 5, EITS 5, FAILURE 4, RUSH 4, VOLTA 4, APC 4, MODEST 3, CAST 3, SHINER 2, TOE 1.
+
+### The rename changes nothing about the sound, and that is proven
+
+`naming/apply_names_v2.py` writes a new directory, `mo-01A-36D-v2`, and leaves the verified v1 set untouched. For every slot it sets the new name, then puts the old name back and requires the bytes to come back identical.
+
+```
+v2 rename: 144 slots, 141 names changed, 3 unchanged
+chain-identity failures: 0
+all 144 chains byte-identical to v1 apart from the name
+```
+
+A second gate, `naming/gate_mo_v2.py`, reads the `.mo` files themselves rather than the spreadsheet they came from, and reports how many values it compared so a pass cannot be vacuous.
+
+```
+gate on mo-01A-36D-v2
+presets 144   blocks 1296   values present 4987   values compared 4987
+errors: 0
+PASS: 144 presets, every value compared, nothing out of range
+```
+
+Run against a copy with three defects planted, it fails on all three and refuses the vacuous pass:
+
+```
+planted 3 defects: out-of-range value, invented parameter, name/filename mismatch
+errors: 3
+   RIG CHECK.mo: fileInfo.preset_name is 'SOMETHING ELSE'
+   TOOL SCHISM DS/OD/06: BLACK RAT: 'PROSE LABEL' is not a parameter
+   ZEP BLACK DOG AMP/09: PLX100 BASS=9999 outside stored 0..100
+HARD FAIL: 4988 values present but only 4987 compared, the gate would be vacuous
+```
+
+### What is on the pedal right now
+
+All 144 slots hold the **v1 names**, the ones he rejected. The chains underneath them are the correct, verified ones. The rename is staged on disk and gated, and has not been written to the hardware. The writer is already pointed at v2: `GE150_ORDER` and `GE150_MO` default to the v2 order and masters, so `phase3_run.sh 1 36` writes the new names with the same per-bank readback and comparison that proved v1.
+
+### All 144, slot by slot
+
+| Slot | Was | Now | Chain it is named for |
+|---|---|---|---|
+| **Bank 01** | | | *band and song* |
+| `01A` | DELUXE AIR | **MAYER SLOW DANCE** | BLUE COMP, 65 US DX, ROOM |
+| `01B` | TWIN GLASS | **MAYER NEON** | 65 US TW bare |
+| `01C` | JAZZ ICE | **RH NO SURPRISES** | JAZZ 120, TRI-CHORUS, PLATE |
+| `01D` | HIWATT PIANO | **KC MATTE KUDASAI** | HWT 103, DIGITAL, ROOM |
+| **Bank 02** | | | *band and song* |
+| `02A` | TWEED WARM | **PAVE SUMMER BABE** | 59 US BASS, SPRING |
+| `02B` | FALCON MINI | **PAVE GOLD SOUNDZ** | REGAL TONE OD1, ANALOG, SPRING |
+| `02C` | BROWN SUGAR | **MODEST TRAILER** | GOLD CLON, 65 US DX, TREMOLO, SPRING |
+| `02D` | DR Z SPARK | **MODEST 3RD PLNT** | DR.ZEE 18 JR, TAPE, ROOM |
+| **Bank 03** | | | *band and song* |
+| `03A` | UK30 CHIME | **BUILT TWIN FALLS** | UK30 CL, ANA-CHORUS, ROOM |
+| `03B` | RICK JANGLE | **RH LET DOWN** | UK30 CL, DETUNE, DIGITAL, PLATE |
+| `03C` | UK EDGE | **BUILT ELSE** | UK30 OD, ANALOG, ROOM |
+| `03D` | GTR BELL | **CAST FISHING SKY** | DR.ZEE RECK, TRI-CHORUS, MOD, PLATE |
+| **Bank 04** | | | *band and song* |
+| `04A` | STUDIO DYN | **MAYER IN REPAIR** | CAROL CL, ROOM |
+| `04B` | DRY DIAG | **TOE TWO MOONS** | JAZZ 120 dry |
+| `04C` | ACOUST SIM | **ZEP BRON Y AUR** | ACOUSTIC 1, ROOM |
+| `04D` | WIDE CLEAN | **CAST SUNSET KING** | 65 US TW, DETUNE, PINGPONG, HALL |
+| **Bank 05** | | | *band and song* |
+| `05A` | SOUL SILK | **MAYER WILD BLUE** | CAROL CL, ANA-CHORUS, ROOM |
+| `05B` | RNB PULSE | **PORT GLORY BOX** | JIMMY OD, REGAL TONE CL, TREMOLO, ANALOG, PLATE |
+| `05C` | BLUES GLASS | **MAYER QUEEN CALI** | GOLD CLON, US BLUES CL, SPRING |
+| `05D` | SWEET FILLS | **MAYER LAST TRAIN** | CAROL OD, DIGITAL, ROOM |
+| **Bank 06** | | | *band and song* |
+| `06A` | TEXAS SNAP | **ZEP SINCE IVE** | 808, 59 US BASS, ANALOG, SPRING |
+| `06B` | CHICAGO RASP | **MAYER BOLD LOVE** | TUBE DR, US BLUES OD, SPRING |
+| `06C` | BRIT BLUES | **ZEP HEARTBREAK** | JIMMY OD, PLX100, TAPE, ROOM |
+| `06D` | SLIDE TUBE | **ZEP IN MY TIME** | REGAL TONE OD2, ANALOG, PLATE |
+| **Bank 07** | | | *band and song* |
+| `07A` | PLEXI GLASS | **ZEP BLACK DOG** | PLX100, ROOM |
+| `07B` | PLEXI ROAR | **ZEP WHOLE LOTTA** | PLX100, ANALOG, SPRING |
+| `07C` | LEAD BOOST | **ZEP TEN YEARS** | FLEX BOOST, PLX100, DIGITAL, PLATE |
+| `07D` | SUNSET 4X12 | **ZEP NO QUARTER** | CITRUS 50, ROTARY, ROOM |
+| **Bank 08** | | | *band and song* |
+| `08A` | J800 RHYTHM | **PANTERA WALK** | J800, ROOM |
+| `08B` | J900 SOLO | **PANTERA CEM GATE** | 808, J900, DIGITAL, PLATE |
+| `08C` | BLACKMORE | **DEFT HEXAGRAM** | BLACKNIGHT DS, PHASER, ANALOG, ROOM |
+| `08D` | RIOT RIG | **PANTERA DOMINATE** | RIET, E650 DS |
+| **Bank 09** | | | *band and song* |
+| `09A` | SEATTLE CLEAN | **FAILURE NURSE** | BLUE COMP, 65 US DX, ANA-CHORUS, ROOM |
+| `09B` | SEATTLE DIRTY | **FAILURE STUCK ON** | BLACK RAT, J800, ROOM |
+| `09C` | DIRT BLOOM | **FAILURE MAGNIFY** | MUFFY, CITRUS 30, ANALOG, ROOM |
+| `09D` | QUIET LOUD | **FAILURE SATURDAY** | OBSESSIVE DIST, J900 |
+| **Bank 10** | | | *band and song* |
+| `10A` | GARAGE 112 | **PAVE CUT HAIR** | BLACK RAT, US BLUES OD |
+| `10B` | PUNK 4X12 | **PAVE TRIGGER CUT** | J800 bare |
+| `10C` | LOFI DRIVE | **PAVE SILENCE KIT** | DDRIVE, HT CLUB DS, LOFI, ANALOG, ROOM |
+| `10D` | SURF VIB | **MODEST COWBOY** | 65 US DX, VIBRATO, TAPE, SPRING |
+| **Bank 11** | | | *band and song* |
+| `11A` | JANGLE INDIE | **BUILT CARRY ZERO** | UK30 CL, ANA-CHORUS, DIGITAL, ROOM |
+| `11B` | CHIME BREAK | **BUILT BIG DIPPER** | HUSTLE DRIVE, DR.ZEE RECK, ANALOG, ROOM |
+| `11C` | ANGULAR CUT | **SHINER SIDEWAYS** | BLACK RAT, HWT 103 |
+| `11D` | MIDWEST GLOW | **CAST MARIONETTE** | REGAL TONE OD1, TREMOLO, TAPE, ROOM |
+| **Bank 12** | | | *band and song* |
+| `12A` | GERMANIUM | **ZEP DAZED** | GREY FAZE, 59 US BASS |
+| `12B` | BIG MUFF | **SHINER THE EGG** | MUFFY, HWT 103, ANALOG, ROOM |
+| `12C` | FUZZ BITE | **BUILT GOIN AGNST** | GREY FAZE, UK30 CL, PHASER |
+| `12D` | RAT COLLAPSE | **BUILT TIME TRAP** | BLACK RAT, J800, LOFI, REVERSE, PLATE |
+| **Bank 13** | | | *band and song* |
+| `13A` | ORANGE WALL | **TOOL AENEMA** | MUFFY, CITRUS 50, ROOM |
+| `13B` | DESERT FUZZ | **TOOL JAMBI** | GREY FAZE, CITRUS 30, PHASER, ANALOG, SPRING |
+| `13C` | DOOM RITUAL | **TOOL THE GRUDGE** | BLACK RAT, ROCK VRB DS, CAVE |
+| `13D` | DRONE FEED | **TOOL DESCENDING** | MUFFY, HWT 103, VIBRATO, MOD, HALL |
+| **Bank 14** | | | *band and song* |
+| `14A` | MESA PRECIS | **PANTERA MOUTH** | 808, TRI REC DS |
+| `14B` | 5150 EDGE | **DEFT OWN SUMMER** | TIGHT METAL, EV 5050 DS, ROOM |
+| `14C` | ENGEL RAZOR | **PANTERA NEWLEVEL** | 808, POWER BELL DS |
+| `14D` | SL0 SOLO | **DT GLASS PRISON** | PURE BOOST, SLOW 100 DS, DIGITAL, PLATE |
+| **Bank 15** | | | *band and song* |
+| `15A` | ODD METER | **TOOL TICKS LEECH** | 808, MARKV DS |
+| `15B` | MODERN LEAD | **DT METROPOLIS** | BEEBEE PRE, MARKIII DS, DIGITAL, HALL |
+| `15C` | POLYRHYTHM | **TOOL VICARIOUS** | TIGHT DS, HUGEN DS, ROOM |
+| `15D` | PROG CLEAN | **DT SPIRIT CARRY** | HWT 103, TRI-CHORUS, PINGPONG, PLATE |
+| **Bank 16** | | | *band and song* |
+| `16A` | FRIPP SUST | **KC LARKS** | BEEBEE PRE, HWT 103, DIGITAL, HALL |
+| `16B` | TARKUS LEAD | **KC RED** | BLACK RAT, PLX100, RING MOD, ROOM |
+| `16C` | FUSION RUN | **KC EASY MONEY** | JIMMY OD, MARKIII CL, ANALOG, PLATE |
+| `16D` | ODD TIME CLN | **KC FRAME BY FRM** | JAZZ 120, TREMOLO, DIGITAL, ROOM |
+| **Bank 17** | | | *band and song* |
+| `17A` | LATERAL EDGE | **TOOL LATERALUS** | HWT 103, FLANGER, DIGITAL, ROOM |
+| `17B` | SCHISM BITE | **TOOL SCHISM** | BLACK RAT, HUGEN OD |
+| `17C` | FORTY SIX | **TOOL FORTY SIX** | 808, HUGEN DS, FLANGER, ROOM |
+| `17D` | TOOL SWELL | **TOOL PARABOLA** | SLOW GEAR, MOD, CAVE |
+| **Bank 18** | | | *band and song* |
+| `18A` | DT CLEAN CHR | **DT ANOTHER DAY** | MARKV CL, TRI-CHORUS, DIGITAL, PLATE |
+| `18B` | DT RHYTHM | **DT AS I AM** | 808, MARKV DS |
+| `18C` | DT SOLO SING | **DT HOLLOW YEARS** | GOLD CLON, MARKIII DS, DIGITAL, HALL |
+| `18D` | DT HARMONY | **DT ETERNITY** | BEEBEE PRE, MARKIII CL, PITCH SHIFT, DIGITAL, PLATE |
+| **Bank 19** | | | *band and song* |
+| `19A` | RUSH CLEAN 70 | **RUSH SUBDIVISION** | HWT 103, ANA-CHORUS, ANALOG, PLATE |
+| `19B` | RUSH HEMIS | **RUSH BARCHETTA** | PLX100, FLANGER, TAPE, ROOM |
+| `19C` | RUSH MOVING | **RUSH TOM SAWYER** | GOLD CLON, UK30 CL, TRI-CHORUS, DIGITAL, PLATE |
+| `19D` | RUSH GRACE | **RUSH VITAL SIGNS** | JAZZ 120, DETUNE, PINGPONG, HALL |
+| **Bank 20** | | | *band and song* |
+| `20A` | VOLTA WAH | **VOLTA LVIA** | 535 WAH, BLACK RAT, HWT 103, ANALOG, ROOM |
+| `20B` | VOLTA RING | **VOLTA ERIATARKA** | SHRED, CITRUS 50, RING MOD, REVERSE, PLATE |
+| `20C` | VOLTA CLEAN | **VOLTA TELEVATOR** | 65 US DX, VIBRATO, TAPE, SPRING |
+| `20D` | VOLTA SCREAM | **VOLTA INERTIATIC** | RIET, J800, FLANGER, DIGITAL, PLATE |
+| **Bank 21** | | | *band and song* |
+| `21A` | CRIMSON CLN | **KC STARLESS** | HWT 103, DIGITAL, CHURCH |
+| `21B` | CRIMSON RED | **KC ONE MORE RED** | BLACK RAT, PLX100, ROOM |
+| `21C` | CRIMSON SKY | **KC SLEEPLESS** | UK30 CL, VIBRATO, REVERSE, HALL |
+| `21D` | CRIMSON WARP | **KC THELA HUN** | GREY FAZE, HWT 103, RING MOD, DUAL DELAY, CAVE |
+| **Bank 22** | | | *band and song* |
+| `22A` | ZEP CLEAN | **ZEP RAIN SONG** | PLX100, ANALOG, SPRING |
+| `22B` | ZEP HEAVY | **ZEP IMMIGRANT** | PLX100, ROOM |
+| `22C` | ZEP PSYCH | **ZEP FOUR STICKS** | GREY FAZE, UK30 OD, PHASER, TAPE, PLATE |
+| `22D` | ZEP SLIDE | **ZEP NOBODY FAULT** | TUBE DR, REGAL TONE OD2, ANALOG, SPRING |
+| **Bank 23** | | | *band and song* |
+| `23A` | RH NO SURPRS | **RH PYRAMID SONG** | JAZZ 120, ANA-CHORUS, DIGITAL, SHIMMER |
+| `23B` | RH RECKONER | **RH RECKONER** | 65 US TW, VIBRATO, ANALOG, PLATE |
+| `23C` | RH BODYSNCH | **RH BODYSNATCH** | OBSESSIVE DIST, HWT 103, PLATE |
+| `23D` | RH EVERYTHING | **RH EVERYTHING** | JAZZ 120, RING MOD, PINGPONG, CAVE |
+| **Bank 24** | | | *band and song* |
+| `24A` | DUMMY SMOKE | **PORT WANDER STAR** | 65 US DX, LOFI, TAPE, PLATE |
+| `24B` | SOUR TIMES | **PORT SOUR TIMES** | JIMMY OD, REGAL TONE OD1, VIBRATO, ANALOG, MOD rev |
+| `24C` | ROADS ECHO | **PORT ROADS** | JAZZ 120, SLOW GEAR, MOD, HALL |
+| `24D` | MACHINE DUB | **PORT MACHINE GUN** | BLACK RAT, CITRUS 30, RING MOD, REVERSE, CAVE |
+| **Bank 25** | | | *band and song* |
+| `25A` | MY BLOODY | **DEFT CHERRY WAVE** | MUFFY, UK30 CL, VIBRATO, REVERSE, HALL |
+| `25B` | SLOWDIVE AIR | **DEFT DIAMOND EYE** | JAZZ 120, TRI-CHORUS, MOD, CAVE |
+| `25C` | RIDE JANGLE | **DEFT CHANGE** | GOLD CLON, UK30 OD, ANA-CHORUS, DIGITAL, PLATE |
+| `25D` | GAZE FEEDBACK | **DEFT BE QUIET** | GREY FAZE, HWT 103, FLANGER, ANALOG, HALL |
+| **Bank 26** | | | *band and song* |
+| `26A` | MATH CLEAN | **APC ORESTES** | 65 US DX, DIGITAL, ROOM |
+| `26B` | TWIN HANDS | **APC MAGDALENA** | JAZZ 120, DETUNE, PLATE |
+| `26C` | EMO EDGE | **APC WEAK POWER** | JIMMY OD, UK30 CL, TREMOLO, ANALOG, ROOM |
+| `26D` | MATH ANGLE | **APC THE OUTSIDER** | BLACK RAT, DR.ZEE RECK, DIGITAL |
+| **Bank 27** | | | *band and song* |
+| `27A` | POST DAWN | **EITS YOUR HAND** | HWT 103, SLOW GEAR, MOD, HALL |
+| `27B` | POST TREM | **EITS SO LONG** | 65 US DX, TREMOLO, DIGITAL, HALL |
+| `27C` | POST CRESC | **EITS CATASTROPHE** | OBSESSIVE DIST, PLX100, DUAL DELAY, HALL |
+| `27D` | POST AFTER | **EITS MEMORIAL** | JAZZ 120, DETUNE, REVERSE, CAVE |
+| **Bank 28** | | | *real delay or reverb pedal* |
+| `28A` | SHIMMER BED | **BIGSKY SHIMMER** | Strymon BigSky, Shimmer machine: PITCH SHIFT, MOD dly, SHIMMER |
+| `28B` | GLACIER | **BLACKHOLE GRAV** | Eventide Blackhole, Gravity: SLOW GEAR, PINGPONG, CAVE |
+| `28C` | MOD ECHO PAD | **BLUESKY MOD** | Strymon blueSky, Mod type: TRI-CHORUS, MOD dly, HALL |
+| `28D` | DRONE FLOAT | **BIGSKY CHORALE** | Strymon BigSky, Chorale machine: ROTARY, ANALOG, CHURCH |
+| **Bank 29** | | | *real delay or reverb pedal* |
+| `29A` | DUB ECHO | **RE20 SPACE DUB** | Boss RE-20 Space Echo: 59 US BASS, TAPE, SPRING |
+| `29B` | CASSETTE | **MICROCOSM GRAIN** | Hologram Microcosm, Granules: LOFI, TAPE, SHIMMER |
+| `29C` | REVERSE HIT | **FABLE REVERSE** | Walrus Fable MKII, reverse program: STUTTER, REVERSE, CAVE |
+| `29D` | WORN VIBES | **BELLE EPOCH DLX** | Catalinbread Belle Epoch Deluxe: TUBE DR, VIBRATO, ANALOG, SPRING |
+| **Bank 30** | | | *real delay or reverb pedal* |
+| `30A` | EIGHTH NOTE | **TIMELINE DIGITAL** | Strymon Timeline, Digital machine: UK30 CL, DIGITAL, ROOM |
+| `30B` | DUAL PULSE | **TIMELINE DUAL** | Strymon Timeline, Dual machine: HWT 103, DUAL DELAY, PLATE |
+| `30C` | SLAP ROOTS | **DM2 SLAPBACK** | Boss DM-2: 59 US BASS, short ANALOG, SPRING |
+| `30D` | PING WIDE | **DIG PING PONG** | Strymon DIG V2, ping-pong: ANA-CHORUS, PINGPONG, HALL |
+| **Bank 31** | | | *real delay or reverb pedal* |
+| `31A` | OCTAVE LOW | **THERMAE OCT DN** | Chase Bliss Thermae, octave down: HUGEN CL, PITCH SHIFT, ROOM |
+| `31B` | OCTAVE HIGH | **THERMAE OCT UP** | Chase Bliss Thermae, octave up: 65 US TW, PITCH SHIFT, DIGITAL, PLATE |
+| `31C` | HARMONIC 5 | **THERMAE FIFTHS** | Chase Bliss Thermae, fifths: MARKV CL, PITCH SHIFT, DIGITAL, HALL |
+| `31D` | DETUNE WIDTH | **RASTER DETUNE** | Red Panda Raster 2: JAZZ 120, DETUNE, ROOM |
+| **Bank 32** | | | *real delay or reverb pedal* |
+| `32A` | WAH FUNK | **CRY BABY WAH** | Dunlop Cry Baby: CRY WAH, JAZZ 120, ROOM |
+| `32B` | TALKING AMP | **HEIL TALK BOX** | Heil Talk Box: TALK WAH AH, BLACK RAT, UK30 OD, ANALOG |
+| `32C` | AUTO QUACK | **MU-TRON III** | Mu-Tron III envelope filter: TOUCH WAH, 65 US DX, SPRING |
+| `32D` | LPF SWEEP | **POLYMOON FILTER** | Meris Polymoon, filtered multi-tap: LOW PASS, DIGITAL, CAVE |
+| **Bank 33** | | | *real delay or reverb pedal* |
+| `33A` | FUNK CHOP | **BLUESKY ROOM** | Strymon blueSky, Room type: JAZZ 120, ROOM |
+| `33B` | NILE SPARK | **SLO DREAM** | Walrus Slo, Dream mode: 65 US TW, TREMOLO, PLATE |
+| `33C` | NEW WAVE | **NEMESIS TAPE** | Source Audio Nemesis, tape engine: UK30 CL, ANA-CHORUS, DIGITAL |
+| `33D` | SYNTH POP | **MERCURY7 CATHED** | Meris Mercury7, Cathedra: ROTARY, PINGPONG, HALL |
+| **Bank 34** | | | *real delay or reverb pedal* |
+| `34A` | EXP ECHO | **TIMEFACTOR DIG** | Eventide TimeFactor, Digital: 65 US DX, DIGITAL, ROOM, EXP on delay |
+| `34B` | EXP SAT | **AVALANCHE RUN** | EarthQuaker Avalanche Run: OBSESSIVE DIST, J800, ROOM, EXP on drive |
+| `34C` | EXP PHASER | **PHASE 90 SWEEP** | MXR Phase 90: PHASER, ANALOG, ROOM, EXP on rate |
+| `34D` | EXP SWELL | **CLOUDBURST SWELL** | Strymon Cloudburst: SLOW GEAR, MOD dly, HALL, EXP on swell |
+| **Bank 35** | | | *band and song* |
+| `35A` | A BELL LEFT | **BUILT RANDY** | UK30 CL, DIGITAL, ROOM |
+| `35B` | A SUB RIGHT | **PAVE HERE** | 59 US BASS dry |
+| `35C` | A RISE STACK | **EITS GREET DEATH** | HWT 103, SLOW GEAR, MOD, HALL |
+| `35D` | A DRY ANCHOR | **PANTERA BROKEN** | J800 dry |
+| **Bank 36** | | | *dry reference slots* |
+| `36A` | CLEAN SAFE | **REF 65DX DRY** | 65 US DX, nothing else. Level and tone reference. |
+| `36B` | EDGE SAFE | **REF UK30 EDGE** | UK30 CL, ROOM. Edge-of-break reference. |
+| `36C` | LEAD SAFE | **REF LEAD DRY** | 808, J800, DIGITAL, ROOM. Lead level reference. |
+| `36D` | RIG CHECK | **RIG CHECK** | JAZZ 120 flat. The slot that proves a write landed. |

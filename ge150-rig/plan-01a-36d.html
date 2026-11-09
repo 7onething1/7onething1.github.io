@@ -48,6 +48,7 @@ table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.9rem;backgrou
 th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
 th{background:var(--navy);color:var(--paper);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
 tbody tr:nth-child(even){background:#F3ECDD}
+tr.bankhead td{background:var(--navy);color:var(--paper);font-size:.82rem;letter-spacing:.05em}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
 code{background:#EFE6D2;padding:1px 5px;border-radius:2px;font-size:.88em;
   font-family:"SF Mono",Menlo,Consolas,monospace}
@@ -103,6 +104,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#phase2done">Phase 2 complete: 144 .mo files emitted</a></li>
     <li><a href="#phase3">Phase 3 prepared, and stopped before the hardware</a></li>
     <li><a href="#notclaim">What this plan does not claim</a></li>
+    <li><a href="#naming">The names were wrong, and why</a></li>
   </ol>
 </div>
 
@@ -917,6 +919,288 @@ X=200 Y=72  W=1146 H=767     the main editor window</pre>
   <p><b>The content question is settled.</b> The six song-named presets are cleared, the cycling
   fill is superseded for 01A through 36D, and every target slot is backed up.</p>
 </div>
+
+<h2 id="naming">14. The names were wrong, and why</h2>
+
+<div class="card bad">
+  <span class="tag t-bad">his correction</span>
+  <p><b>&ldquo;its supposed to have either exisiting delay or reverb names and designs
+  like mr black, or band songs that are my taste.&rdquo;</b> Neither held. Not one of the
+  144 was a real pedal name, and where the list reached for a band it guessed at a
+  title instead of naming a song.</p>
+</div>
+
+<h3>His own 55 presets already set the convention</h3>
+<p>The evidence was on the pedal the whole time. <code>overwrite_order.json</code>
+holds the 55 presets at 37B&ndash;50D, and they split two ways.</p>
+<ul>
+  <li><b>Eleven are one real pedal.</b> The <code>CAP</code> block is the Strymon
+  El Capistan, and each one is named by that pedal&rsquo;s own controls:
+  <code>CAP FIXED A/B/C</code>, <code>CAP MULTI A/B/C</code>,
+  <code>CAP WORN TAPE</code>, <code>CAP SOUND ON SND</code>,
+  <code>CAP RUNAWAY</code>, <code>CAP TAPE SPRING</code>, <code>CAP DARK AGED</code>.</li>
+  <li><b>Forty-four are band and song.</b> <code>ZEP KASHMIR</code>,
+  <code>RUSH YYZ</code>, <code>TOOL PNEUMA RHY</code>, <code>KC SCHIZOID</code>,
+  <code>APC JUDITH</code>, <code>PANTERA COWBOYS</code>, <code>MAYER GRAVITY</code>,
+  <code>RH WEIRD FISH</code>, <code>DT PULL UNDER</code>, <code>EITS BIRTH</code>,
+  <code>FAILURE SPACE</code>, <code>DEFT DIG BATH</code>, <code>TOE GOODBYE</code>,
+  <code>SHINER EGG</code>, <code>APPLESEED</code>, <code>PAVE SLANT</code>,
+  <code>MODEST TAPE</code>, <code>BUILT TAPE</code>, <code>CAST MARE</code>,
+  <code>VOLTA TETRA</code>.</li>
+</ul>
+<p>The second source was already in hand too. The Reference Pedal Pack README names
+ten real pedals verbatim: Mr.&nbsp;Black Eterna and SuperMoon Eclipse, Strymon
+NightSky, Cloudburst, Volante and DIG&nbsp;V2, Death By Audio ROOMS, OBNE Dark Star,
+Chase Bliss Thermae, Walrus Audio Fable MKII.</p>
+
+<h3>Why the first list missed both</h3>
+<p>The spreadsheet that drove the build read his 55 for amp and drive data, never as a
+naming template, then laid a 36-bank tone-coverage scheme over the top. Every pass
+after that validated the scheme against itself, which it satisfied. The scheme was
+answering a question he had not asked.</p>
+
+<h3>The rule used to rebuild the list</h3>
+<div class="grid">
+  <div class="blk"><h4>Bands</h4><p>Only the twenty artists his own 55 already name.
+  No new artist invented. Real song titles.</p></div>
+  <div class="blk"><h4>Pedals</h4><p>Real delay and reverb pedals, named by that
+  pedal&rsquo;s own mode or control, the way the <code>CAP</code> block is named.</p></div>
+  <div class="blk"><h4>Fit</h4><p>Every name matched to the chain that slot already
+  runs, read out of the emitted <code>.mo</code>, so a name describes the sound rather
+  than sitting on top of it.</p></div>
+</div>
+
+<div class="score">
+  <div class="pill good"><b>112</b>band and song slots</div>
+  <div class="pill good"><b>28</b>real pedal slots</div>
+  <div class="pill"><b>4</b>dry reference slots</div>
+  <div class="pill good"><b>0</b>chains altered</div>
+</div>
+<p><b>Per artist, from his own roster:</b> ZEP&nbsp;13, TOOL&nbsp;10, KC&nbsp;9, MAYER&nbsp;7, BUILT&nbsp;7, DT&nbsp;7, RH&nbsp;6, PAVE&nbsp;6, PANTERA&nbsp;6, DEFT&nbsp;6, PORT&nbsp;5, EITS&nbsp;5, FAILURE&nbsp;4, RUSH&nbsp;4, VOLTA&nbsp;4, APC&nbsp;4, MODEST&nbsp;3, CAST&nbsp;3, SHINER&nbsp;2, TOE&nbsp;1.</p>
+
+<h3>The rename changes nothing about the sound, and that is proven</h3>
+<p><code>naming/apply_names_v2.py</code> writes a new directory, <code>mo-01A-36D-v2</code>,
+and leaves the verified v1 set untouched. For every slot it sets the new name, then puts
+the old name back and requires the bytes to come back identical. Any other difference is
+a hard fail, because a rename has no business changing a sound.</p>
+<pre>v2 rename: 144 slots, 141 names changed, 3 unchanged
+chain-identity failures: 0
+all 144 chains byte-identical to v1 apart from the name</pre>
+
+<p>A second gate, <code>naming/gate_mo_v2.py</code>, reads the <code>.mo</code> files
+themselves rather than the spreadsheet they came from, and reports how many values it
+compared so a pass cannot be vacuous.</p>
+<pre>gate on mo-01A-36D-v2
+presets 144   blocks 1296   values present 4987   values compared 4987
+errors: 0
+PASS: 144 presets, every value compared, nothing out of range</pre>
+
+<p>Run against a copy with three defects planted, it fails on all three and refuses the
+vacuous pass:</p>
+<pre>planted 3 defects: out-of-range value, invented parameter, name/filename mismatch
+errors: 3
+   RIG CHECK.mo: fileInfo.preset_name is 'SOMETHING ELSE'
+   TOOL SCHISM DS/OD/06: BLACK RAT: 'PROSE LABEL' is not a parameter
+   ZEP BLACK DOG AMP/09: PLX100 BASS=9999 outside stored 0..100
+HARD FAIL: 4988 values present but only 4987 compared, the gate would be vacuous</pre>
+
+<h3>What is on the pedal right now</h3>
+<div class="card ask">
+  <span class="tag t-ask">state</span>
+  <p>All 144 slots hold the <b>v1 names</b>, the ones he rejected. The chains underneath
+  them are the correct, verified ones. The rename is staged on disk and gated, and has
+  not been written to the hardware. The writer is already pointed at v2:
+  <code>GE150_ORDER</code> and <code>GE150_MO</code> default to the v2 order and
+  masters, so <code>phase3_run.sh 1 36</code> writes the new names with the same
+  per-bank readback and comparison that proved v1.</p>
+</div>
+
+<h3>All 144, slot by slot</h3>
+<table>
+  <thead><tr><th>Slot</th><th>Was</th><th>Now</th><th>Chain it is named for</th></tr></thead>
+  <tbody>
+<tr class="bankhead"><td colspan="5"><b>Bank 01</b> &middot; band and song</td></tr>
+<tr><td><code>01A</code></td><td>DELUXE AIR</td><td><b>MAYER SLOW DANCE</b></td><td>BLUE COMP, 65 US DX, ROOM</td></tr>
+<tr><td><code>01B</code></td><td>TWIN GLASS</td><td><b>MAYER NEON</b></td><td>65 US TW bare</td></tr>
+<tr><td><code>01C</code></td><td>JAZZ ICE</td><td><b>RH NO SURPRISES</b></td><td>JAZZ 120, TRI-CHORUS, PLATE</td></tr>
+<tr><td><code>01D</code></td><td>HIWATT PIANO</td><td><b>KC MATTE KUDASAI</b></td><td>HWT 103, DIGITAL, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 02</b> &middot; band and song</td></tr>
+<tr><td><code>02A</code></td><td>TWEED WARM</td><td><b>PAVE SUMMER BABE</b></td><td>59 US BASS, SPRING</td></tr>
+<tr><td><code>02B</code></td><td>FALCON MINI</td><td><b>PAVE GOLD SOUNDZ</b></td><td>REGAL TONE OD1, ANALOG, SPRING</td></tr>
+<tr><td><code>02C</code></td><td>BROWN SUGAR</td><td><b>MODEST TRAILER</b></td><td>GOLD CLON, 65 US DX, TREMOLO, SPRING</td></tr>
+<tr><td><code>02D</code></td><td>DR Z SPARK</td><td><b>MODEST 3RD PLNT</b></td><td>DR.ZEE 18 JR, TAPE, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 03</b> &middot; band and song</td></tr>
+<tr><td><code>03A</code></td><td>UK30 CHIME</td><td><b>BUILT TWIN FALLS</b></td><td>UK30 CL, ANA-CHORUS, ROOM</td></tr>
+<tr><td><code>03B</code></td><td>RICK JANGLE</td><td><b>RH LET DOWN</b></td><td>UK30 CL, DETUNE, DIGITAL, PLATE</td></tr>
+<tr><td><code>03C</code></td><td>UK EDGE</td><td><b>BUILT ELSE</b></td><td>UK30 OD, ANALOG, ROOM</td></tr>
+<tr><td><code>03D</code></td><td>GTR BELL</td><td><b>CAST FISHING SKY</b></td><td>DR.ZEE RECK, TRI-CHORUS, MOD, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 04</b> &middot; band and song</td></tr>
+<tr><td><code>04A</code></td><td>STUDIO DYN</td><td><b>MAYER IN REPAIR</b></td><td>CAROL CL, ROOM</td></tr>
+<tr><td><code>04B</code></td><td>DRY DIAG</td><td><b>TOE TWO MOONS</b></td><td>JAZZ 120 dry</td></tr>
+<tr><td><code>04C</code></td><td>ACOUST SIM</td><td><b>ZEP BRON Y AUR</b></td><td>ACOUSTIC 1, ROOM</td></tr>
+<tr><td><code>04D</code></td><td>WIDE CLEAN</td><td><b>CAST SUNSET KING</b></td><td>65 US TW, DETUNE, PINGPONG, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 05</b> &middot; band and song</td></tr>
+<tr><td><code>05A</code></td><td>SOUL SILK</td><td><b>MAYER WILD BLUE</b></td><td>CAROL CL, ANA-CHORUS, ROOM</td></tr>
+<tr><td><code>05B</code></td><td>RNB PULSE</td><td><b>PORT GLORY BOX</b></td><td>JIMMY OD, REGAL TONE CL, TREMOLO, ANALOG, PLATE</td></tr>
+<tr><td><code>05C</code></td><td>BLUES GLASS</td><td><b>MAYER QUEEN CALI</b></td><td>GOLD CLON, US BLUES CL, SPRING</td></tr>
+<tr><td><code>05D</code></td><td>SWEET FILLS</td><td><b>MAYER LAST TRAIN</b></td><td>CAROL OD, DIGITAL, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 06</b> &middot; band and song</td></tr>
+<tr><td><code>06A</code></td><td>TEXAS SNAP</td><td><b>ZEP SINCE IVE</b></td><td>808, 59 US BASS, ANALOG, SPRING</td></tr>
+<tr><td><code>06B</code></td><td>CHICAGO RASP</td><td><b>MAYER BOLD LOVE</b></td><td>TUBE DR, US BLUES OD, SPRING</td></tr>
+<tr><td><code>06C</code></td><td>BRIT BLUES</td><td><b>ZEP HEARTBREAK</b></td><td>JIMMY OD, PLX100, TAPE, ROOM</td></tr>
+<tr><td><code>06D</code></td><td>SLIDE TUBE</td><td><b>ZEP IN MY TIME</b></td><td>REGAL TONE OD2, ANALOG, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 07</b> &middot; band and song</td></tr>
+<tr><td><code>07A</code></td><td>PLEXI GLASS</td><td><b>ZEP BLACK DOG</b></td><td>PLX100, ROOM</td></tr>
+<tr><td><code>07B</code></td><td>PLEXI ROAR</td><td><b>ZEP WHOLE LOTTA</b></td><td>PLX100, ANALOG, SPRING</td></tr>
+<tr><td><code>07C</code></td><td>LEAD BOOST</td><td><b>ZEP TEN YEARS</b></td><td>FLEX BOOST, PLX100, DIGITAL, PLATE</td></tr>
+<tr><td><code>07D</code></td><td>SUNSET 4X12</td><td><b>ZEP NO QUARTER</b></td><td>CITRUS 50, ROTARY, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 08</b> &middot; band and song</td></tr>
+<tr><td><code>08A</code></td><td>J800 RHYTHM</td><td><b>PANTERA WALK</b></td><td>J800, ROOM</td></tr>
+<tr><td><code>08B</code></td><td>J900 SOLO</td><td><b>PANTERA CEM GATE</b></td><td>808, J900, DIGITAL, PLATE</td></tr>
+<tr><td><code>08C</code></td><td>BLACKMORE</td><td><b>DEFT HEXAGRAM</b></td><td>BLACKNIGHT DS, PHASER, ANALOG, ROOM</td></tr>
+<tr><td><code>08D</code></td><td>RIOT RIG</td><td><b>PANTERA DOMINATE</b></td><td>RIET, E650 DS</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 09</b> &middot; band and song</td></tr>
+<tr><td><code>09A</code></td><td>SEATTLE CLEAN</td><td><b>FAILURE NURSE</b></td><td>BLUE COMP, 65 US DX, ANA-CHORUS, ROOM</td></tr>
+<tr><td><code>09B</code></td><td>SEATTLE DIRTY</td><td><b>FAILURE STUCK ON</b></td><td>BLACK RAT, J800, ROOM</td></tr>
+<tr><td><code>09C</code></td><td>DIRT BLOOM</td><td><b>FAILURE MAGNIFY</b></td><td>MUFFY, CITRUS 30, ANALOG, ROOM</td></tr>
+<tr><td><code>09D</code></td><td>QUIET LOUD</td><td><b>FAILURE SATURDAY</b></td><td>OBSESSIVE DIST, J900</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 10</b> &middot; band and song</td></tr>
+<tr><td><code>10A</code></td><td>GARAGE 112</td><td><b>PAVE CUT HAIR</b></td><td>BLACK RAT, US BLUES OD</td></tr>
+<tr><td><code>10B</code></td><td>PUNK 4X12</td><td><b>PAVE TRIGGER CUT</b></td><td>J800 bare</td></tr>
+<tr><td><code>10C</code></td><td>LOFI DRIVE</td><td><b>PAVE SILENCE KIT</b></td><td>DDRIVE, HT CLUB DS, LOFI, ANALOG, ROOM</td></tr>
+<tr><td><code>10D</code></td><td>SURF VIB</td><td><b>MODEST COWBOY</b></td><td>65 US DX, VIBRATO, TAPE, SPRING</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 11</b> &middot; band and song</td></tr>
+<tr><td><code>11A</code></td><td>JANGLE INDIE</td><td><b>BUILT CARRY ZERO</b></td><td>UK30 CL, ANA-CHORUS, DIGITAL, ROOM</td></tr>
+<tr><td><code>11B</code></td><td>CHIME BREAK</td><td><b>BUILT BIG DIPPER</b></td><td>HUSTLE DRIVE, DR.ZEE RECK, ANALOG, ROOM</td></tr>
+<tr><td><code>11C</code></td><td>ANGULAR CUT</td><td><b>SHINER SIDEWAYS</b></td><td>BLACK RAT, HWT 103</td></tr>
+<tr><td><code>11D</code></td><td>MIDWEST GLOW</td><td><b>CAST MARIONETTE</b></td><td>REGAL TONE OD1, TREMOLO, TAPE, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 12</b> &middot; band and song</td></tr>
+<tr><td><code>12A</code></td><td>GERMANIUM</td><td><b>ZEP DAZED</b></td><td>GREY FAZE, 59 US BASS</td></tr>
+<tr><td><code>12B</code></td><td>BIG MUFF</td><td><b>SHINER THE EGG</b></td><td>MUFFY, HWT 103, ANALOG, ROOM</td></tr>
+<tr><td><code>12C</code></td><td>FUZZ BITE</td><td><b>BUILT GOIN AGNST</b></td><td>GREY FAZE, UK30 CL, PHASER</td></tr>
+<tr><td><code>12D</code></td><td>RAT COLLAPSE</td><td><b>BUILT TIME TRAP</b></td><td>BLACK RAT, J800, LOFI, REVERSE, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 13</b> &middot; band and song</td></tr>
+<tr><td><code>13A</code></td><td>ORANGE WALL</td><td><b>TOOL AENEMA</b></td><td>MUFFY, CITRUS 50, ROOM</td></tr>
+<tr><td><code>13B</code></td><td>DESERT FUZZ</td><td><b>TOOL JAMBI</b></td><td>GREY FAZE, CITRUS 30, PHASER, ANALOG, SPRING</td></tr>
+<tr><td><code>13C</code></td><td>DOOM RITUAL</td><td><b>TOOL THE GRUDGE</b></td><td>BLACK RAT, ROCK VRB DS, CAVE</td></tr>
+<tr><td><code>13D</code></td><td>DRONE FEED</td><td><b>TOOL DESCENDING</b></td><td>MUFFY, HWT 103, VIBRATO, MOD, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 14</b> &middot; band and song</td></tr>
+<tr><td><code>14A</code></td><td>MESA PRECIS</td><td><b>PANTERA MOUTH</b></td><td>808, TRI REC DS</td></tr>
+<tr><td><code>14B</code></td><td>5150 EDGE</td><td><b>DEFT OWN SUMMER</b></td><td>TIGHT METAL, EV 5050 DS, ROOM</td></tr>
+<tr><td><code>14C</code></td><td>ENGEL RAZOR</td><td><b>PANTERA NEWLEVEL</b></td><td>808, POWER BELL DS</td></tr>
+<tr><td><code>14D</code></td><td>SL0 SOLO</td><td><b>DT GLASS PRISON</b></td><td>PURE BOOST, SLOW 100 DS, DIGITAL, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 15</b> &middot; band and song</td></tr>
+<tr><td><code>15A</code></td><td>ODD METER</td><td><b>TOOL TICKS LEECH</b></td><td>808, MARKV DS</td></tr>
+<tr><td><code>15B</code></td><td>MODERN LEAD</td><td><b>DT METROPOLIS</b></td><td>BEEBEE PRE, MARKIII DS, DIGITAL, HALL</td></tr>
+<tr><td><code>15C</code></td><td>POLYRHYTHM</td><td><b>TOOL VICARIOUS</b></td><td>TIGHT DS, HUGEN DS, ROOM</td></tr>
+<tr><td><code>15D</code></td><td>PROG CLEAN</td><td><b>DT SPIRIT CARRY</b></td><td>HWT 103, TRI-CHORUS, PINGPONG, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 16</b> &middot; band and song</td></tr>
+<tr><td><code>16A</code></td><td>FRIPP SUST</td><td><b>KC LARKS</b></td><td>BEEBEE PRE, HWT 103, DIGITAL, HALL</td></tr>
+<tr><td><code>16B</code></td><td>TARKUS LEAD</td><td><b>KC RED</b></td><td>BLACK RAT, PLX100, RING MOD, ROOM</td></tr>
+<tr><td><code>16C</code></td><td>FUSION RUN</td><td><b>KC EASY MONEY</b></td><td>JIMMY OD, MARKIII CL, ANALOG, PLATE</td></tr>
+<tr><td><code>16D</code></td><td>ODD TIME CLN</td><td><b>KC FRAME BY FRM</b></td><td>JAZZ 120, TREMOLO, DIGITAL, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 17</b> &middot; band and song</td></tr>
+<tr><td><code>17A</code></td><td>LATERAL EDGE</td><td><b>TOOL LATERALUS</b></td><td>HWT 103, FLANGER, DIGITAL, ROOM</td></tr>
+<tr><td><code>17B</code></td><td>SCHISM BITE</td><td><b>TOOL SCHISM</b></td><td>BLACK RAT, HUGEN OD</td></tr>
+<tr><td><code>17C</code></td><td>FORTY SIX</td><td><b>TOOL FORTY SIX</b></td><td>808, HUGEN DS, FLANGER, ROOM</td></tr>
+<tr><td><code>17D</code></td><td>TOOL SWELL</td><td><b>TOOL PARABOLA</b></td><td>SLOW GEAR, MOD, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 18</b> &middot; band and song</td></tr>
+<tr><td><code>18A</code></td><td>DT CLEAN CHR</td><td><b>DT ANOTHER DAY</b></td><td>MARKV CL, TRI-CHORUS, DIGITAL, PLATE</td></tr>
+<tr><td><code>18B</code></td><td>DT RHYTHM</td><td><b>DT AS I AM</b></td><td>808, MARKV DS</td></tr>
+<tr><td><code>18C</code></td><td>DT SOLO SING</td><td><b>DT HOLLOW YEARS</b></td><td>GOLD CLON, MARKIII DS, DIGITAL, HALL</td></tr>
+<tr><td><code>18D</code></td><td>DT HARMONY</td><td><b>DT ETERNITY</b></td><td>BEEBEE PRE, MARKIII CL, PITCH SHIFT, DIGITAL, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 19</b> &middot; band and song</td></tr>
+<tr><td><code>19A</code></td><td>RUSH CLEAN 70</td><td><b>RUSH SUBDIVISION</b></td><td>HWT 103, ANA-CHORUS, ANALOG, PLATE</td></tr>
+<tr><td><code>19B</code></td><td>RUSH HEMIS</td><td><b>RUSH BARCHETTA</b></td><td>PLX100, FLANGER, TAPE, ROOM</td></tr>
+<tr><td><code>19C</code></td><td>RUSH MOVING</td><td><b>RUSH TOM SAWYER</b></td><td>GOLD CLON, UK30 CL, TRI-CHORUS, DIGITAL, PLATE</td></tr>
+<tr><td><code>19D</code></td><td>RUSH GRACE</td><td><b>RUSH VITAL SIGNS</b></td><td>JAZZ 120, DETUNE, PINGPONG, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 20</b> &middot; band and song</td></tr>
+<tr><td><code>20A</code></td><td>VOLTA WAH</td><td><b>VOLTA LVIA</b></td><td>535 WAH, BLACK RAT, HWT 103, ANALOG, ROOM</td></tr>
+<tr><td><code>20B</code></td><td>VOLTA RING</td><td><b>VOLTA ERIATARKA</b></td><td>SHRED, CITRUS 50, RING MOD, REVERSE, PLATE</td></tr>
+<tr><td><code>20C</code></td><td>VOLTA CLEAN</td><td><b>VOLTA TELEVATOR</b></td><td>65 US DX, VIBRATO, TAPE, SPRING</td></tr>
+<tr><td><code>20D</code></td><td>VOLTA SCREAM</td><td><b>VOLTA INERTIATIC</b></td><td>RIET, J800, FLANGER, DIGITAL, PLATE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 21</b> &middot; band and song</td></tr>
+<tr><td><code>21A</code></td><td>CRIMSON CLN</td><td><b>KC STARLESS</b></td><td>HWT 103, DIGITAL, CHURCH</td></tr>
+<tr><td><code>21B</code></td><td>CRIMSON RED</td><td><b>KC ONE MORE RED</b></td><td>BLACK RAT, PLX100, ROOM</td></tr>
+<tr><td><code>21C</code></td><td>CRIMSON SKY</td><td><b>KC SLEEPLESS</b></td><td>UK30 CL, VIBRATO, REVERSE, HALL</td></tr>
+<tr><td><code>21D</code></td><td>CRIMSON WARP</td><td><b>KC THELA HUN</b></td><td>GREY FAZE, HWT 103, RING MOD, DUAL DELAY, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 22</b> &middot; band and song</td></tr>
+<tr><td><code>22A</code></td><td>ZEP CLEAN</td><td><b>ZEP RAIN SONG</b></td><td>PLX100, ANALOG, SPRING</td></tr>
+<tr><td><code>22B</code></td><td>ZEP HEAVY</td><td><b>ZEP IMMIGRANT</b></td><td>PLX100, ROOM</td></tr>
+<tr><td><code>22C</code></td><td>ZEP PSYCH</td><td><b>ZEP FOUR STICKS</b></td><td>GREY FAZE, UK30 OD, PHASER, TAPE, PLATE</td></tr>
+<tr><td><code>22D</code></td><td>ZEP SLIDE</td><td><b>ZEP NOBODY FAULT</b></td><td>TUBE DR, REGAL TONE OD2, ANALOG, SPRING</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 23</b> &middot; band and song</td></tr>
+<tr><td><code>23A</code></td><td>RH NO SURPRS</td><td><b>RH PYRAMID SONG</b></td><td>JAZZ 120, ANA-CHORUS, DIGITAL, SHIMMER</td></tr>
+<tr><td><code>23B</code></td><td>RH RECKONER</td><td><b>RH RECKONER</b></td><td>65 US TW, VIBRATO, ANALOG, PLATE</td></tr>
+<tr><td><code>23C</code></td><td>RH BODYSNCH</td><td><b>RH BODYSNATCH</b></td><td>OBSESSIVE DIST, HWT 103, PLATE</td></tr>
+<tr><td><code>23D</code></td><td>RH EVERYTHING</td><td><b>RH EVERYTHING</b></td><td>JAZZ 120, RING MOD, PINGPONG, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 24</b> &middot; band and song</td></tr>
+<tr><td><code>24A</code></td><td>DUMMY SMOKE</td><td><b>PORT WANDER STAR</b></td><td>65 US DX, LOFI, TAPE, PLATE</td></tr>
+<tr><td><code>24B</code></td><td>SOUR TIMES</td><td><b>PORT SOUR TIMES</b></td><td>JIMMY OD, REGAL TONE OD1, VIBRATO, ANALOG, MOD rev</td></tr>
+<tr><td><code>24C</code></td><td>ROADS ECHO</td><td><b>PORT ROADS</b></td><td>JAZZ 120, SLOW GEAR, MOD, HALL</td></tr>
+<tr><td><code>24D</code></td><td>MACHINE DUB</td><td><b>PORT MACHINE GUN</b></td><td>BLACK RAT, CITRUS 30, RING MOD, REVERSE, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 25</b> &middot; band and song</td></tr>
+<tr><td><code>25A</code></td><td>MY BLOODY</td><td><b>DEFT CHERRY WAVE</b></td><td>MUFFY, UK30 CL, VIBRATO, REVERSE, HALL</td></tr>
+<tr><td><code>25B</code></td><td>SLOWDIVE AIR</td><td><b>DEFT DIAMOND EYE</b></td><td>JAZZ 120, TRI-CHORUS, MOD, CAVE</td></tr>
+<tr><td><code>25C</code></td><td>RIDE JANGLE</td><td><b>DEFT CHANGE</b></td><td>GOLD CLON, UK30 OD, ANA-CHORUS, DIGITAL, PLATE</td></tr>
+<tr><td><code>25D</code></td><td>GAZE FEEDBACK</td><td><b>DEFT BE QUIET</b></td><td>GREY FAZE, HWT 103, FLANGER, ANALOG, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 26</b> &middot; band and song</td></tr>
+<tr><td><code>26A</code></td><td>MATH CLEAN</td><td><b>APC ORESTES</b></td><td>65 US DX, DIGITAL, ROOM</td></tr>
+<tr><td><code>26B</code></td><td>TWIN HANDS</td><td><b>APC MAGDALENA</b></td><td>JAZZ 120, DETUNE, PLATE</td></tr>
+<tr><td><code>26C</code></td><td>EMO EDGE</td><td><b>APC WEAK POWER</b></td><td>JIMMY OD, UK30 CL, TREMOLO, ANALOG, ROOM</td></tr>
+<tr><td><code>26D</code></td><td>MATH ANGLE</td><td><b>APC THE OUTSIDER</b></td><td>BLACK RAT, DR.ZEE RECK, DIGITAL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 27</b> &middot; band and song</td></tr>
+<tr><td><code>27A</code></td><td>POST DAWN</td><td><b>EITS YOUR HAND</b></td><td>HWT 103, SLOW GEAR, MOD, HALL</td></tr>
+<tr><td><code>27B</code></td><td>POST TREM</td><td><b>EITS SO LONG</b></td><td>65 US DX, TREMOLO, DIGITAL, HALL</td></tr>
+<tr><td><code>27C</code></td><td>POST CRESC</td><td><b>EITS CATASTROPHE</b></td><td>OBSESSIVE DIST, PLX100, DUAL DELAY, HALL</td></tr>
+<tr><td><code>27D</code></td><td>POST AFTER</td><td><b>EITS MEMORIAL</b></td><td>JAZZ 120, DETUNE, REVERSE, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 28</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>28A</code></td><td>SHIMMER BED</td><td><b>BIGSKY SHIMMER</b></td><td>Strymon BigSky, Shimmer machine: PITCH SHIFT, MOD dly, SHIMMER</td></tr>
+<tr><td><code>28B</code></td><td>GLACIER</td><td><b>BLACKHOLE GRAV</b></td><td>Eventide Blackhole, Gravity: SLOW GEAR, PINGPONG, CAVE</td></tr>
+<tr><td><code>28C</code></td><td>MOD ECHO PAD</td><td><b>BLUESKY MOD</b></td><td>Strymon blueSky, Mod type: TRI-CHORUS, MOD dly, HALL</td></tr>
+<tr><td><code>28D</code></td><td>DRONE FLOAT</td><td><b>BIGSKY CHORALE</b></td><td>Strymon BigSky, Chorale machine: ROTARY, ANALOG, CHURCH</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 29</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>29A</code></td><td>DUB ECHO</td><td><b>RE20 SPACE DUB</b></td><td>Boss RE-20 Space Echo: 59 US BASS, TAPE, SPRING</td></tr>
+<tr><td><code>29B</code></td><td>CASSETTE</td><td><b>MICROCOSM GRAIN</b></td><td>Hologram Microcosm, Granules: LOFI, TAPE, SHIMMER</td></tr>
+<tr><td><code>29C</code></td><td>REVERSE HIT</td><td><b>FABLE REVERSE</b></td><td>Walrus Fable MKII, reverse program: STUTTER, REVERSE, CAVE</td></tr>
+<tr><td><code>29D</code></td><td>WORN VIBES</td><td><b>BELLE EPOCH DLX</b></td><td>Catalinbread Belle Epoch Deluxe: TUBE DR, VIBRATO, ANALOG, SPRING</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 30</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>30A</code></td><td>EIGHTH NOTE</td><td><b>TIMELINE DIGITAL</b></td><td>Strymon Timeline, Digital machine: UK30 CL, DIGITAL, ROOM</td></tr>
+<tr><td><code>30B</code></td><td>DUAL PULSE</td><td><b>TIMELINE DUAL</b></td><td>Strymon Timeline, Dual machine: HWT 103, DUAL DELAY, PLATE</td></tr>
+<tr><td><code>30C</code></td><td>SLAP ROOTS</td><td><b>DM2 SLAPBACK</b></td><td>Boss DM-2: 59 US BASS, short ANALOG, SPRING</td></tr>
+<tr><td><code>30D</code></td><td>PING WIDE</td><td><b>DIG PING PONG</b></td><td>Strymon DIG V2, ping-pong: ANA-CHORUS, PINGPONG, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 31</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>31A</code></td><td>OCTAVE LOW</td><td><b>THERMAE OCT DN</b></td><td>Chase Bliss Thermae, octave down: HUGEN CL, PITCH SHIFT, ROOM</td></tr>
+<tr><td><code>31B</code></td><td>OCTAVE HIGH</td><td><b>THERMAE OCT UP</b></td><td>Chase Bliss Thermae, octave up: 65 US TW, PITCH SHIFT, DIGITAL, PLATE</td></tr>
+<tr><td><code>31C</code></td><td>HARMONIC 5</td><td><b>THERMAE FIFTHS</b></td><td>Chase Bliss Thermae, fifths: MARKV CL, PITCH SHIFT, DIGITAL, HALL</td></tr>
+<tr><td><code>31D</code></td><td>DETUNE WIDTH</td><td><b>RASTER DETUNE</b></td><td>Red Panda Raster 2: JAZZ 120, DETUNE, ROOM</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 32</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>32A</code></td><td>WAH FUNK</td><td><b>CRY BABY WAH</b></td><td>Dunlop Cry Baby: CRY WAH, JAZZ 120, ROOM</td></tr>
+<tr><td><code>32B</code></td><td>TALKING AMP</td><td><b>HEIL TALK BOX</b></td><td>Heil Talk Box: TALK WAH AH, BLACK RAT, UK30 OD, ANALOG</td></tr>
+<tr><td><code>32C</code></td><td>AUTO QUACK</td><td><b>MU-TRON III</b></td><td>Mu-Tron III envelope filter: TOUCH WAH, 65 US DX, SPRING</td></tr>
+<tr><td><code>32D</code></td><td>LPF SWEEP</td><td><b>POLYMOON FILTER</b></td><td>Meris Polymoon, filtered multi-tap: LOW PASS, DIGITAL, CAVE</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 33</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>33A</code></td><td>FUNK CHOP</td><td><b>BLUESKY ROOM</b></td><td>Strymon blueSky, Room type: JAZZ 120, ROOM</td></tr>
+<tr><td><code>33B</code></td><td>NILE SPARK</td><td><b>SLO DREAM</b></td><td>Walrus Slo, Dream mode: 65 US TW, TREMOLO, PLATE</td></tr>
+<tr><td><code>33C</code></td><td>NEW WAVE</td><td><b>NEMESIS TAPE</b></td><td>Source Audio Nemesis, tape engine: UK30 CL, ANA-CHORUS, DIGITAL</td></tr>
+<tr><td><code>33D</code></td><td>SYNTH POP</td><td><b>MERCURY7 CATHED</b></td><td>Meris Mercury7, Cathedra: ROTARY, PINGPONG, HALL</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 34</b> &middot; real delay or reverb pedal</td></tr>
+<tr><td><code>34A</code></td><td>EXP ECHO</td><td><b>TIMEFACTOR DIG</b></td><td>Eventide TimeFactor, Digital: 65 US DX, DIGITAL, ROOM, EXP on delay</td></tr>
+<tr><td><code>34B</code></td><td>EXP SAT</td><td><b>AVALANCHE RUN</b></td><td>EarthQuaker Avalanche Run: OBSESSIVE DIST, J800, ROOM, EXP on drive</td></tr>
+<tr><td><code>34C</code></td><td>EXP PHASER</td><td><b>PHASE 90 SWEEP</b></td><td>MXR Phase 90: PHASER, ANALOG, ROOM, EXP on rate</td></tr>
+<tr><td><code>34D</code></td><td>EXP SWELL</td><td><b>CLOUDBURST SWELL</b></td><td>Strymon Cloudburst: SLOW GEAR, MOD dly, HALL, EXP on swell</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 35</b> &middot; band and song</td></tr>
+<tr><td><code>35A</code></td><td>A BELL LEFT</td><td><b>BUILT RANDY</b></td><td>UK30 CL, DIGITAL, ROOM</td></tr>
+<tr><td><code>35B</code></td><td>A SUB RIGHT</td><td><b>PAVE HERE</b></td><td>59 US BASS dry</td></tr>
+<tr><td><code>35C</code></td><td>A RISE STACK</td><td><b>EITS GREET DEATH</b></td><td>HWT 103, SLOW GEAR, MOD, HALL</td></tr>
+<tr><td><code>35D</code></td><td>A DRY ANCHOR</td><td><b>PANTERA BROKEN</b></td><td>J800 dry</td></tr>
+<tr class="bankhead"><td colspan="5"><b>Bank 36</b> &middot; dry reference slots</td></tr>
+<tr><td><code>36A</code></td><td>CLEAN SAFE</td><td><b>REF 65DX DRY</b></td><td>65 US DX, nothing else. Level and tone reference.</td></tr>
+<tr><td><code>36B</code></td><td>EDGE SAFE</td><td><b>REF UK30 EDGE</b></td><td>UK30 CL, ROOM. Edge-of-break reference.</td></tr>
+<tr><td><code>36C</code></td><td>LEAD SAFE</td><td><b>REF LEAD DRY</b></td><td>808, J800, DIGITAL, ROOM. Lead level reference.</td></tr>
+<tr><td><code>36D</code></td><td>RIG CHECK</td><td><b>RIG CHECK</b></td><td>JAZZ 120 flat. The slot that proves a write landed.</td></tr>
+  </tbody>
+</table>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">
