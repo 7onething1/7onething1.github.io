@@ -1397,6 +1397,34 @@ undocumented amp for another undocumented amp is lateral. The fourth, putting
 choice: it sits on an Orange 412 because Deftones are documented on Orange cabs, which is
 the independent cab decision rather than the matched pair.</p>
 
+<p><b>The expression items in that audit, each one.</b> It proposes adding 108
+parameter-based assignments: <b>all 144 are already parameter-based</b>, with
+<code>FUN_SWITCH 1</code> and <code>VOL_SWITCH 0</code> on every preset, so there is
+nothing to add. It proposes 33 volume assignments: those would move a third of the
+library onto the behaviour Brandon asked about and this design has at zero, so they are
+not applied. It proposes 3 deliberately unassigned reference controls: the three
+reference presets currently map to <code>36A</code> amp master, <code>36B</code> amp
+master and <code>36C</code> delay level, all on live blocks, which is useful rather than
+unassigned, so they stay.</p>
+
+<p><b>One refinement to the earlier answer, and it matters.</b> Zero presets use the
+dedicated volume function. <b>Seven ride AMP MST</b>, which is a master sweep and so
+behaves like a volume swell even with <code>VOL_SWITCH</code> off:
+<code>01B MAYER NEON</code>, <code>04B TOE TWO MOONS</code>,
+<code>10B PAVE TRIGGER CUT</code>, <code>35D PANTERA BROKEN</code>,
+<code>36A MAYER CLARITY</code>, <code>36B RH HIGH AND DRY</code> and
+<code>36D DEFT TEENAGER</code>. The EXPRESSION sheet now says so on each of those rows.</p>
+
+<p><b>On the 14 Eventide Space handoffs.</b> A <code>.mo</code> has no send, no return,
+no wet-dry, no external loop and no per-preset output field. A handoff to an outboard
+Space cannot be written into a preset at all. The only part of it this unit can express
+is switching its own reverb off so the Space does the reverb, and that is a rig decision
+rather than a preset field.</p>
+
+<p><b>On the regression sheet and listening notes.</b> The workbook now carries a
+LISTENING sheet, one row per preset, naming what changed in that preset and what to
+listen for, with an empty note column and a keep / change / revisit column.</p>
+
 <p><b>On the 33 proposed volume assignments.</b> Those would put a third of the library
 back on the expression-as-volume behaviour that Brandon asked about and that this design
 deliberately has at zero. They are not applied.</p>
