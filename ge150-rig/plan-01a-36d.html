@@ -107,6 +107,7 @@ footer{margin-top:50px;border-top:3px solid var(--navy);padding-top:16px;font-si
     <li><a href="#naming">The names were wrong, and why</a></li>
     <li><a href="#review2">Brandon's review pass, and what it changed</a></li>
     <li><a href="#exp">The expression pedal, measured and confirmed</a></li>
+    <li><a href="#audit2">A second audit, scored against the files</a></li>
   </ol>
 </div>
 
@@ -1356,6 +1357,49 @@ editor's own header reads <code>EXP:DLY - LEVEL</code> for
 <code>MODULE_CTRL 7, PARA_CTRL 0</code>, which is the DELAY chain and the first entry
 in its parameter list. <b>PARA_CTRL is the parameter's index in the model's own list,
 and the mapping survives the write.</b></p>
+
+<h2 id="audit2">17. A second audit, scored against the files</h2>
+
+<p>Brandon pasted an audit from another tool. Its workbook is not on this machine, so
+every checkable claim in it was run against the masters instead of taken.</p>
+
+<table>
+<tr><th>Claim</th><th>Verdict</th><th>What the files say</th></tr>
+<tr><td>All 97 active delay patches have tap subdivisions disabled</td><td><b>HOLDS</b></td><td>97 active delays, 94 with <code>SUB-D = OFF</code> and 3 Dual Delays with <code>SUB A</code> and <code>SUB B</code> both OFF</td></tr>
+<tr><td>94 presets use amp master 93</td><td><b>HOLDS</b></td><td>exactly 94, then 18 at 78, 11 at 100, 5 at 60, 4 at 58, 3 at 55</td></tr>
+<tr><td>The workbook omits the expression assignments</td><td><b>HOLDS</b></td><td>it did, and there is now an EXPRESSION sheet</td></tr>
+<tr><td>395 blank effect switches need standardizing to OFF</td><td><b>DOES NOT HOLD</b></td><td><b>0 of 1296</b> blocks lack an explicit 0 or 1 <code>SWITCH</code>. That count belongs to a different file, not these masters</td></tr>
+<tr><td>Only two presets pair an amp with a cab that is not its own</td><td><b>DOES NOT HOLD</b></td><td><b>7 do</b>: 14C, 15B, 18B, 18C, 20B, 25B and 36A</td></tr>
+<tr><td>The workbook omits signal-chain order and output routing</td><td><b>NOT APPLICABLE</b></td><td>a <code>.mo</code> carries only <code>Exp</code>, <code>effectModule</code> and <code>fileInfo</code>, and <code>effectModule</code> is a fixed set of keys 0 to 8. The format stores no order and no routing, and the reporting on the GE150 and GE300 describes a fixed chain</td></tr>
+</table>
+
+<p><b>Why the subdivisions stay off.</b> Switching a delay to a note value ties it to the
+unit's tempo, and a <code>.mo</code> carries no BPM field, so the tempo is global rather
+than per preset. Every delay time here was set in milliseconds for its own song. Turning
+subdivisions on would hand all 97 of them one shared tempo and throw away the per-song
+timing, which is a worse library, not a better one.</p>
+
+<p><b>The master level finding was right and half of it is now fixed.</b> One master on
+94 presets means the library jumps in volume as you step through it. Only one direction
+is certain without hearing it: a high-gain patch is louder than a clean one at the same
+master. <b>63 presets came down</b>, scaled by preamp gain plus the pedal in front of it,
+and the spread is now 25 distinct values from 60 to 100. Raising the cleans to meet them
+is the other half, and it is the half arithmetic cannot settle, because MST also drives
+power-amp saturation on this model and a clean pushed to 100 stops being clean. That half
+is a LEVEL sheet in the workbook with the fully-matched number beside the current one.</p>
+
+<p><b>On the four proposed revisions.</b> Three of them move a Pantera or Tool preset onto
+another modern high-gain amp. That does not close the gap the research opened: Dimebag is
+documented on solid-state Randall, which this unit does not model, and Adam Jones on
+Ænima is documented on a Marshall Super Bass with a Diezel, not a Hiwatt. Swapping one
+undocumented amp for another undocumented amp is lateral. The fourth, putting
+<code>25B DEFT DIAMOND EYE</code> back on the Rectifier cabinet, would undo a sourced
+choice: it sits on an Orange 412 because Deftones are documented on Orange cabs, which is
+the independent cab decision rather than the matched pair.</p>
+
+<p><b>On the 33 proposed volume assignments.</b> Those would put a third of the library
+back on the expression-as-volume behaviour that Brandon asked about and that this design
+deliberately has at zero. They are not applied.</p>
 
 <h2 id="notclaim">13. What this plan does not claim</h2>
 <div class="card">
