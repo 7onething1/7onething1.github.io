@@ -76,7 +76,7 @@ ChatGPT flagged all Portishead settings as Portishead-inspired treatments, not c
 
 Starting values for the string rigs come from Thread B: attack 100 to 250 ms, release 1.5 to 3 s, high pass near 120 Hz, gentle wide chorus, moderate reverb. They are ChatGPT's treatment. Macro labels are text only and unverified. Both `(EMPTY)` suffixes are gone, because real samples now sit in those two folders. 58 zones across the six Portishead presets, every sample path resolving, no key-range gaps or overlaps.
 
-Two defects found while building, both worth fixing at source. pedalboard renders these Arturia plugins as pure silence at its default `buffer_size` of 8192, so `buffer_size=512` with `num_channels=2` is required. And `build_simpler_adv.py` returns "no zones" silently for any sample path holding an apostrophe, which is why the `VP330_Male_8'_Clean` set needed its files copied in under clean names.
+Two defects surfaced during the build, both worth fixing at source. pedalboard renders these Arturia plugins as pure silence at its default `buffer_size` of 8192, so `buffer_size=512` with `num_channels=2` is required. And `build_simpler_adv.py` returns "no zones" silently for any sample path holding an apostrophe, which is why the `VP330_Male_8'_Clean` set needed its files copied in under clean names.
 
 ## The new .adv writer, measured
 
