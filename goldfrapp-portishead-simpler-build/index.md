@@ -69,12 +69,14 @@ ChatGPT flagged all Portishead settings as Portishead-inspired treatments, not c
 | Seventh Tree Crumar Bed | Puremagnetik Crumar Orchestrator | Same envelope, chorus wide and gentle | Preset written, Live load untested |
 | Seventh Tree VP330 Choir Air | Puremagnetik Roland VP-330 | Same, 8 to 12 dB under the strings | Preset written, Live load untested |
 | Seventh Tree RS09 Wash | Puremagnetik Roland RS-09 | Hi and Lo on two tracks, panned apart | Preset written, Live load untested |
-| Seventh Tree Tape Flutes | Arturia Mellotron V | track_selector 1.00, clip written one octave low | Instructions only |
-| Seventh Tree Wurli Intimate | Arturia Wurli V2 | Velocity 50 to 80, HP 120 Hz | Instructions only |
-| Dummy Vintage Multisample Sampler (EMPTY) | RS-09 and VP-330 beds, Mini V3 render for bass | 90 BPM A minor, macro labels kept | Local route written, no renders written |
-| Third Vintage Multisample Sampler (EMPTY) | ARP 2600 V3 and Modular V3 renders, RS-09 bed | 104 BPM D minor, macro labels kept | Local route written, no renders written |
+| Seventh Tree Tape Flutes | Arturia Mellotron V | track_selector 1.00, clip written one octave low | Printed 2026-11-09, preview WAV 14.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISMLTNProc`, Live load untested |
+| Seventh Tree Wurli Intimate | Arturia Wurli V2 | Velocity 50 to 80, HP 120 Hz | Printed 2026-11-09, preview WAV 13.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISWUR2Proc`, Live load untested |
+| Dummy Vintage Multisample Sampler | RS-09 and VP-330 beds, Mini V3 render for bass | 90 BPM A minor, macro labels kept | Built 2026-11-09, 22 WAVs and 3 presets, 31 zones, all paths resolve |
+| Third Vintage Multisample Sampler | ARP 2600 V3 and Modular V3 renders, RS-09 bed | 104 BPM D minor, macro labels kept | Built 2026-11-09, 18 WAVs and 3 presets, 27 zones, all paths resolve |
 
-Starting values for the string rigs come from Thread B: attack 100 to 250 ms, release 1.5 to 3 s, high pass near 120 Hz, gentle wide chorus, moderate reverb. They are ChatGPT's treatment. Macro labels are text only and unverified. The `(EMPTY)` suffix stays until samples land in those two folders.
+Starting values for the string rigs come from Thread B: attack 100 to 250 ms, release 1.5 to 3 s, high pass near 120 Hz, gentle wide chorus, moderate reverb. They are ChatGPT's treatment. Macro labels are text only and unverified. Both `(EMPTY)` suffixes are gone, because real samples now sit in those two folders. 58 zones across the six Portishead presets, every sample path resolving, no key-range gaps or overlaps.
+
+Two defects found while building, both worth fixing at source. pedalboard renders these Arturia plugins as pure silence at its default `buffer_size` of 8192, so `buffer_size=512` with `num_channels=2` is required. And `build_simpler_adv.py` returns "no zones" silently for any sample path holding an apostrophe, which is why the `VP330_Male_8'_Clean` set needed its files copied in under clean names.
 
 ## The new .adv writer, measured
 
