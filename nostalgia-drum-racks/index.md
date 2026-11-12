@@ -24,12 +24,15 @@ referenced in place by absolute path, so the folder is 9.5 MB and nothing was co
 - The onset counts for the 29 excluded files come from the `ableton-rack-builder` skill's
   own `_count_onsets_in_file`, run over all 1,171 WAVs with 0 errors.
 
-## Honest limits
+## Live load test, 2026-11-12
 
-Whether Live opens any of these is untested. No headless route can confirm it, so it needs
-the DAW. The installed app is Live 11.3.43 against the 11.3.30 named in the preset headers,
-which is the same schema family. Pads resolve by absolute path, so the Black drive has to be
-mounted when loading.
+Every rack has since been loaded by Live 11.3.43 itself, five to a Live Set, and each saved
+set was read back to count the Drum Racks Live actually wrote. Live's own log recorded no
+load error on any of them. The sets are listed at https://7onething1.github.io/nostalgia-live-sets/
+
+Pads still resolve by absolute path, so the Black drive has to be mounted when loading.
+
+## Honest limits
 
 Pad order inside a role comes from a naming rule. No sample was auditioned. Nothing was
 sliced, levelled, modified or deleted.
