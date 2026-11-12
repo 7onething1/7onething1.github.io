@@ -400,7 +400,7 @@ python3 ~/Projects/_outputs/mtga-mardu/recount_observed_play.py --dry-run
 - Collection **11,836** distinct cards
 - Common WC **1,062**, Uncommon WC **870**, which is why neither rarity is ranked
 - Gems **45**, Gold **11,660**, Vault progress **97.7%**
-- Mardu rows on the ranking: **316**
+- Mardu rows on the ranking: **318**
 
 
 ## Standard bans
@@ -424,8 +424,8 @@ The trigger is the announcement, never Scryfall legality, which lags by hours on
 | 5 | Godless ShrineStar Trek2028 or later | WB | Rare | TRK | 4 | 0 | Land — Plains Swamp | 0 |
 | 6 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
 | 7 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
-| 8 | Blazemire VergeDuskmourn: House of Horrorrotates early 2027 | BR | Rare | DSK | 4 | 0 | Land | 0 |
-| 9 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 8 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 9 | Blazemire VergeDuskmourn: House of Horrorrotates early 2027 | BR | Rare | DSK | 4 | 0 | Land | 0 |
 | 10 | ErodeSecrets of Strixhaven2028 or later | W | Rare | SOS | 4 | 0 | Instant | 1 |
 | 11 | Bleachbone VergeAetherdrift2028 or later | WB | Rare | DFT | 4 | 0 | Land | 0 |
 | 12 | Cavern of SoulsThe Lost Caverns of Ixalanrotates early 2027Arstall: rotating | C | Mythic | LCI | 4 | 0 | Land | 0 |
