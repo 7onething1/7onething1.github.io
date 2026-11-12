@@ -17,6 +17,7 @@ Sets live in `~/Music/Ableton/Nostalgia Live Sets/`.
 | Sample references | 5,842 |
 | Distinct samples within a set | 4,151 |
 | Sets clean in the independent sweep | 99 of 99 |
+| Sets Live opened with no load error | 99 of 99 |
 | On disk | 9.7 MB |
 
 ## Two routes

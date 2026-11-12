@@ -44,6 +44,7 @@ ol li,ul li{margin:.3rem 0}
 <div class="stat"><b>4,151</b><span>distinct samples</span></div>
 <div class="stat"><b>1,142</b><span>drum pads</span></div>
 <div class="stat"><b>99</b><span>swept clean</span></div>
+<div class="stat"><b>99</b><span>opened in live</span></div>
 <div class="stat"><b>9.7 MB</b><span>on disk</span></div>
 </div>
 <h2>How a set gets built</h2>
@@ -59,6 +60,14 @@ through untouched, and the generated file matches Live's own line for line.</p>
 rack has in a set, so Live performs that conversion. Each drum set was written out empty at
 its final path first, so Live could open it with a path attached and a plain Cmd+S
 would write in place. That sidesteps the Save As dialog, which is the one step that failed.</p>
+<h2>Live opened every one</h2>
+<div class="note ok"><b>All 99 sets were opened in Live 11.3.43,
+one at a time.</b> Each was checked three ways: Live's window title carried the set's name,
+Live's own log recorded <code>Loading document</code> for that exact path, and the log between
+the request and the load held no <code>error:</code>, no <code>corrupt</code> and no
+<code>PointeeId</code> line. 99 of 99
+passed all three. Writing a set that parses is not the same as Live accepting it, which the
+rejection below shows plainly.</div>
 <h2>What Live said</h2>
 <div class="note"><b>The first generated set was rejected.</b> Live drew
 “the document is corrupt (non-unique Pointee IDs)” and its log printed the five offenders:
@@ -81,7 +90,8 @@ rack, so they measure Live's conversion rather than the preset.</li>
 <li>Every sample path in every set was checked to exist on disk and to be larger than
 zero bytes. The sets hold 5,842 sample references between them, 4,151 of them
 distinct within their own set.</li>
-<li>Live's own log was read after each drum set for load errors.</li>
+<li>Live's own log was read after each drum set for load errors, and again after opening
+every one of the 99 finished sets.</li>
 </ul>
 <h2>Honest limits</h2>
 <div class="note warn"><b>OriginalCrc is written as 0.</b> Live stores a
