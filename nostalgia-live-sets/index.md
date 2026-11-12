@@ -15,7 +15,8 @@ Sets live in `~/Music/Ableton/Nostalgia Live Sets/`.
 | Drum Racks loaded | 51 |
 | Drum pads | 1,142 |
 | Sample references | 5,842 |
-| Sets verified by reading the saved file back | 99 |
+| Distinct samples within a set | 4,151 |
+| Sets clean in the independent sweep | 99 of 99 |
 | On disk | 9.7 MB |
 
 ## Two routes

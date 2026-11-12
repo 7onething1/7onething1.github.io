@@ -41,9 +41,9 @@ ol li,ul li{margin:.3rem 0}
 <div class="grid">
 <div class="stat"><b>99</b><span>live sets</span></div>
 <div class="stat"><b>486</b><span>instruments loaded</span></div>
-<div class="stat"><b>5,842</b><span>sample references</span></div>
+<div class="stat"><b>4,151</b><span>distinct samples</span></div>
 <div class="stat"><b>1,142</b><span>drum pads</span></div>
-<div class="stat"><b>99</b><span>verified</span></div>
+<div class="stat"><b>99</b><span>swept clean</span></div>
 <div class="stat"><b>9.7 MB</b><span>on disk</span></div>
 </div>
 <h2>How a set gets built</h2>
@@ -78,7 +78,9 @@ survive before any of these were written.</div>
 ElementTree, rather than from what the builder believed it wrote.</li>
 <li>Drum rack and pad counts are counted in the file <b>Live</b> saved, after Live loaded the
 rack, so they measure Live's conversion rather than the preset.</li>
-<li>Every sample path in every set was checked to exist on disk.</li>
+<li>Every sample path in every set was checked to exist on disk and to be larger than
+zero bytes. The sets hold 5,842 sample references between them, 4,151 of them
+distinct within their own set.</li>
 <li>Live's own log was read after each drum set for load errors.</li>
 </ul>
 <h2>Honest limits</h2>
