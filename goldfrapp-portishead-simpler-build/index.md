@@ -5,7 +5,7 @@ Build sheet, 2026-11-09. Local rigs for Live 11.3.30 on Jacks-iMac. Sources are 
 ## Two-band build spec
 
 - **Band 1, Portishead (built 2026-11-05).** 12 rigs in 2 album sets. Dummy 1994 at 90 BPM A minor, Third 2008 at 104 BPM D minor. Ten rigs are printed, two were empty. Source: the Portishead Era Rigs README, measured by the earlier build.
-- **Band 2, Goldfrapp (built 2026-11-09).** 6 rigs for Seventh Tree 2008 at 96 BPM E minor, plus 8 Simpler presets. Tempo and key are my choice, not sourced.
+- **Band 2, Goldfrapp (built 2026-11-09).** 6 rigs for Seventh Tree 2008 at 96 BPM E minor, plus 8 Simpler presets. Tempo and key are my own choice, with no source behind them.
 - **Source of both rankings is ChatGPT.** Thread A, Plugin List Clarification (Portishead) and Thread B, Goldfrapp Plugin List (Seventh Tree). Reported to me, never verified against how either record was made.
 - **Every starter clip is an original phrase.** No melody, chord progression, lyric or sample from either band is reproduced.
 - **Nobody has listened to any of it.** No listening test was run, and no target spectrum was measured because no Goldfrapp or Portishead audio is on this Mac.
@@ -65,12 +65,12 @@ ChatGPT flagged all Portishead settings as Portishead-inspired treatments, not c
 
 | Rig | Source | Key settings | Status |
 |---|---|---|---|
-| Seventh Tree Solina Ensemble | Puremagnetik ARP Solina | Attack 150 ms, release 2 s, HP 120 Hz | Preset written, Live load untested |
-| Seventh Tree Crumar Bed | Puremagnetik Crumar Orchestrator | Same envelope, chorus wide and gentle | Preset written, Live load untested |
-| Seventh Tree VP330 Choir Air | Puremagnetik Roland VP-330 | Same, 8 to 12 dB under the strings | Preset written, Live load untested |
-| Seventh Tree RS09 Wash | Puremagnetik Roland RS-09 | Hi and Lo on two tracks, panned apart | Preset written, Live load untested |
-| Seventh Tree Tape Flutes | Arturia Mellotron V | track_selector 1.00, clip written one octave low | Printed 2026-11-09, preview WAV 14.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISMLTNProc`, Live load untested |
-| Seventh Tree Wurli Intimate | Arturia Wurli V2 | Velocity 50 to 80, HP 120 Hz | Printed 2026-11-09, preview WAV 13.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISWUR2Proc`, Live load untested |
+| Seventh Tree Solina Ensemble | Puremagnetik ARP Solina | Attack 150 ms, release 2 s, HP 120 Hz | Preset written, Live opens it (2026-11-12) |
+| Seventh Tree Crumar Bed | Puremagnetik Crumar Orchestrator | Same envelope, chorus wide and gentle | Preset written, Live opens it (2026-11-12) |
+| Seventh Tree VP330 Choir Air | Puremagnetik Roland VP-330 | Same, 8 to 12 dB under the strings | Preset written, Live opens it (2026-11-12) |
+| Seventh Tree RS09 Wash | Puremagnetik Roland RS-09 | Hi and Lo on two tracks, panned apart | Preset written, Live opens it (2026-11-12) |
+| Seventh Tree Tape Flutes | Arturia Mellotron V | track_selector 1.00, clip written one octave low | Printed 2026-11-09, preview WAV 14.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISMLTNProc`. The `.adv` opens in Live (2026-11-12); the `.vstpreset` is still untested |
+| Seventh Tree Wurli Intimate | Arturia Wurli V2 | Velocity 50 to 80, HP 120 Hz | Printed 2026-11-09, preview WAV 13.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISWUR2Proc`. The `.adv` opens in Live (2026-11-12); the `.vstpreset` is still untested |
 | Dummy Vintage Multisample Sampler | RS-09 and VP-330 beds, Mini V3 render for bass | 90 BPM A minor, macro labels kept | Built 2026-11-09, 21 WAVs and 5 presets, 56 zones, all paths resolve |
 | Third Vintage Multisample Sampler | ARP 2600 V3 and Modular V3 renders, RS-09 bed | 104 BPM D minor, macro labels kept | Built 2026-11-09, 19 WAVs and 4 presets, 37 zones, all paths resolve |
 
@@ -93,7 +93,7 @@ Two defects surfaced during the build, both worth fixing at source. pedalboard r
 | Root keys from filename versus Live-written roots | 64 of 64 agree |
 | Index-form roots (Crumar) taken from the Live-written preset | 34 of 34 |
 
-The CRC-16 algorithm (poly 0x8005, init 0, over the first 16384 bytes) reproduced 3 of 3 Live-written values before I used it. A negative test skipped 2 files with a stated reason and the zone count still equalled inputs minus skipped. `ableton-version-fitter` applies to `.adv` and classed all 8 as NATIVE, which is a header check only. **Whether Live itself opens these presets is UNTESTED and needs Brandon at the DAW.**
+The CRC-16 algorithm (poly 0x8005, init 0, over the first 16384 bytes) reproduced 3 of 3 Live-written values before I used it. A negative test skipped 2 files with a stated reason and the zone count still equalled inputs minus skipped. `ableton-version-fitter` applies to `.adv` and classed all 8 as NATIVE, which is a header check only. **Live 11.3.43 opens all 8, tested 2026-11-12.** Every one of them was loaded into a Live Set by Live: all 99 sets of this build were opened one at a time, with the window title checked, Live's log checked for `Loading document` on that exact path, and that stretch of log checked for errors. 99 of 99 passed. See https://7onething1.github.io/nostalgia-live-sets/
 
 ## The one genuine gap
 

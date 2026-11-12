@@ -40,12 +40,15 @@ mixers. The id space was then derived from a set Live wrote, where 18 ids are sh
 tags and every one pairs a structural tag against a target tag. The corrected check passes
 Live's own file and fails the file Live rejected.
 
-## Honest limits
+## A claim on this page that was wrong
 
-`OriginalCrc` is written as 0. Live's checksum matched none of 24 CRC-16 and zlib variants over
-six byte spans of a sample whose true value Live had written, so there is no way to
-compute it here. Zero is Live's value for unknown and what the source presets carry;
-Live fills it on first save.
+An earlier build wrote `OriginalCrc` as 0 and said Live's checksum could not be computed, after
+24 CRC and zlib variants failed to reproduce a value Live had written. The algorithm was in this
+build's own preset writer the whole time: CRC-16, polynomial 0x8005, init 0, not reflected, over
+the first 16384 bytes. It reproduces all 46 checksums in the template set. Every set was rebuilt
+with real checksums, 6,984 of them, none left at zero.
+
+## Honest limits
 
 Sample paths are absolute, so the Black drive must be mounted. Each set carries Live's default
 empty audio and return tracks beside its five instruments. Nothing was auditioned.
