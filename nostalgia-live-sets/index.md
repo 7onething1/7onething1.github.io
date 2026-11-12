@@ -31,6 +31,19 @@ has in a set, so Live performs that conversion. Each drum set was written empty 
 path first, so Live opens it with a path and a plain Cmd+S saves in place, which avoids the
 Save As dialog that wrecked the first attempt.
 
+## The two routes compared
+
+Nostalgia Sampler 010 was rebuilt by hand through Live, five presets loaded from the browser
+onto tracks and saved with Cmd+S, then diffed against the generated file for the same five.
+Same element tree on all five devices. Of 2,385 value paths, 25 differ, every one of them Live
+rewriting a float through its engine (`50` as `50.0000153`, `1200` as `1200.00037`).
+
+That diff also found the one field left blank, `BrowserContentPath`. Live writes
+`query:Find#FileId_NNNNNN` there, where the number is the preset's row id in Live's browser
+index, a WAL-mode SQLite database that has to be read with its `-wal` companion. All 486
+presets resolve to exactly one id, the derived values match 10 of 10 Live had written, and the
+sets now carry 591 of them with none blank.
+
 ## What Live rejected, and the fix
 
 Live refused the first generated set: "non-unique Pointee IDs". Its log printed
