@@ -400,13 +400,13 @@ python3 ~/Projects/_outputs/mtga-mardu/recount_observed_play.py --dry-run
 - Collection **11,836** distinct cards
 - Common WC **1,062**, Uncommon WC **870**, which is why neither rarity is ranked
 - Gems **45**, Gold **11,660**, Vault progress **97.7%**
-- Mardu rows on the ranking: **318**
+- Mardu rows on the ranking: **323**
 
 
 ## Standard bans
 
-Wizards banned 3 cards in Standard on **2026-08-10**: **Badgermole Cub**, **Stormchaser's Talent**, **Gran-Gran**.
-Source: [Banned and Restricted Announcement, August 10, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-august-10-2026).
+Wizards banned 0 cards in Standard on **2026-10-12**: .
+Source: [Banned and Restricted Announcement, October 12, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-october-12-2026).
 
 A banned card can never be the right wildcard, so those rows are dropped from both pools rather than greyed, and the ones that were candidates are named in a strip above the table. The decks that ran them are quarantined on [the creator page](https://drwu-htmls.vercel.app/mtg-creator-decks), kept and badged rather than deleted.
 
@@ -423,8 +423,8 @@ The trigger is the announcement, never Scryfall legality, which lags by hours on
 | 4 | Blood CryptStar Trek2028 or later | BR | Rare | TRK | 4 | 0 | Land — Swamp Mountain | 0 |
 | 5 | Godless ShrineStar Trek2028 or later | WB | Rare | TRK | 4 | 0 | Land — Plains Swamp | 0 |
 | 6 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
-| 7 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
-| 8 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 7 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 8 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
 | 9 | Blazemire VergeDuskmourn: House of Horrorrotates early 2027 | BR | Rare | DSK | 4 | 0 | Land | 0 |
 | 10 | ErodeSecrets of Strixhaven2028 or later | W | Rare | SOS | 4 | 0 | Instant | 1 |
 | 11 | Bleachbone VergeAetherdrift2028 or later | WB | Rare | DFT | 4 | 0 | Land | 0 |
