@@ -46,6 +46,12 @@ border-top:1px solid var(--line);padding-top:7px;margin-top:9px}
 .have{color:var(--olive)} .need{color:var(--hot)} .unk{color:var(--dim)}
 .trk{font:500 10px "JetBrains Mono",monospace;background:var(--teal);color:var(--card);
 border-radius:4px;padding:1px 4px}
+.ownbar{position:relative;height:17px;background:#e7d9bd;border:1px solid var(--line);border-radius:5px;
+overflow:hidden;margin-bottom:8px}
+.ownbar i{position:absolute;inset:0 auto 0 0;background:var(--olive);opacity:.42}
+.ownbar u{position:relative;text-decoration:none;font:500 11px "JetBrains Mono",monospace;
+line-height:17px;padding-left:7px}
+.stats .owned b{color:var(--olive)}
 footer{margin-top:34px;color:var(--dim);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
 a{color:var(--teal)}
 @media(max-width:640px){.wrap{padding:20px 16px 60px}h1{font-size:32px}}
@@ -55,7 +61,7 @@ a{color:var(--teal)}
 <p class="sub">Seventeen Standard decks worked out across one long Magic conversation, scored against the Arena collection as it actually stands.</p>
 
 <div class="prov">
-Source: the ChatGPT conversation <b>White Liliana Preview</b>, read on <b>2026-11-13</b>
+Scored against <b>your Arena collection</b>, snapshot <b>2026-11-03</b>: 11,836 distinct cards, <b>4</b> rare and <b>8</b> mythic wildcards. Every card below is checked against it, counting all Arena printings of a name, and basics are treated as free.<br><br>Source: the ChatGPT conversation <b>White Liliana Preview</b>, read on <b>2026-11-13</b>
 (<a href="https://chatgpt.com/c/6a5a5d07-d328-83e8-8b2c-971402bcf890">open the chat</a>). Decklists are transcribed from that thread and nothing is added to them.
 Ownership, wildcards and prices come from the Arena collection snapshot <b>2026-11-03</b>
 (11,836 distinct cards) and the Scryfall index, resolving every printing of a name.
@@ -67,7 +73,8 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
 <div class="kpi"><b>10</b><span>complete at 60 cards</span></div>
 <div class="kpi"><b>7</b><span>partial in the source</span></div>
 <div class="kpi"><b>3</b><span>fit the wildcards on hand</span></div>
-<div class="kpi"><b>$3</b><span>cheapest to finish, #4</span></div>
+<div class="kpi"><b>73%</b><span>of all 988 maindeck cards already owned</span></div>
+<div class="kpi"><b>97%</b><span>most complete, #4</span></div>
 </div>
 
 <div class="bar">
@@ -79,19 +86,24 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
 <span style="flex:1"></span>
 <button data-s="kn" aria-pressed="true">Chat order</button>
 <button data-s="kr" aria-pressed="false">Fewest rares</button>
+<button data-s="kown" aria-pressed="false">Most owned</button>
 <button data-s="kusd" aria-pressed="false">Cheapest</button>
 </div>
 
 <div class="grid" id="g">
 <article class="deck" data-complete="1" data-trek="0" data-fit="1"
-  data-kr="2" data-km="8" data-kusd="86.07" data-kmain="60" data-kn="1">
+  data-kr="2" data-km="8" data-kusd="86.07" data-kmain="60" data-kown="-87" data-kn="1">
   <header>
     <span class="num">1</span>
     <h3>Orzhov Crusher Lifegain</h3>
     <span class="pips"><i class="p" style="background:#efe6cf" title="Plains"></i><i class="p" style="background:#4a4038" title="Swamp"></i></span>
   </header>
+  <div class="ownbar" title="52 of 60 maindeck cards already in the collection">
+    <i style="width:87%"></i><u>87% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>52</b> of <b>60</b> cards owned</span>
+    <span><b>8</b> to get</span><span><b>15</b> side</span>
     <span class="ok"><b>2</b>R <b>8</b>M wildcards</span>
     <span><b>$86.07</b> to finish</span>
     
@@ -100,14 +112,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Hinterland Sanctifier <em class="have">have</em></li><li><span class="q">2</span> Liliana the Faultless <em class="need">need 2R</em></li><li><span class="q">1</span> Aunt May <em class="have">have</em></li><li><span class="q">4</span> Amalia Benavides Aguirre <em class="have">have</em></li><li><span class="q">4</span> Enlightened Confidant <em class="need">need 4M</em></li><li><span class="q">3</span> Essence Channeler <em class="have">have</em></li><li><span class="q">1</span> Starscape Cleric <em class="have">have</em></li><li><span class="q">2</span> Dr. Beverly Crusher <em class="need">need 2M</em></li><li><span class="q">3</span> Haliya, Guided by Light <em class="have">have</em></li><li><span class="q">2</span> Moseo, Vein&#x27;s New Dean <em class="have">have</em></li></ul><div class="sec">Other spells <span class="n">12</span></div><ul class="cl"><li><span class="q">4</span> Erode <em class="have">have</em></li><li><span class="q">4</span> Case of the Uneaten Feast <em class="have">have</em></li><li><span class="q">4</span> Lunar Convocation <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">22</span></div><ul class="cl"><li><span class="q">4</span> Godless Shrine <em class="have">have</em></li><li><span class="q">4</span> Concealed Courtyard <em class="have">have</em></li><li><span class="q">4</span> Starting Town <em class="have">have</em></li><li><span class="q">4</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">3</span> Bleachbone Verge <em class="have">have</em></li><li><span class="q">3</span> Plains <em class="unk">not in index</em></li></ul><div class="sec">Sideboard <span class="n">15</span></div><ul class="cl"><li><span class="q">3</span> Seam Rip <em class="have">have</em></li><li><span class="q">2</span> Strategic Betrayal <em class="have">have</em></li><li><span class="q">2</span> Pyrrhic Strike <em class="have">have</em></li><li><span class="q">2</span> Duress <em class="have">have</em></li><li><span class="q">2</span> Curious Farm Animals <em class="have">have</em></li><li><span class="q">2</span> Starscape Cleric <em class="have">have</em></li><li><span class="q">1</span> Decorum Dissertation <em class="need">need 1M</em></li><li><span class="q">1</span> Bloodthirsty Conqueror <em class="need">need 1M</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="0" data-fit="0"
-  data-kr="5" data-km="1" data-kusd="20.04" data-kmain="60" data-kn="2">
+  data-kr="5" data-km="1" data-kusd="20.04" data-kmain="60" data-kown="-73" data-kn="2">
   <header>
     <span class="num">2</span>
     <h3>Dimir Jett Midrange</h3>
     <span class="pips"><i class="p" style="background:#5B8C8A" title="Island"></i><i class="p" style="background:#4a4038" title="Swamp"></i></span>
   </header>
+  <div class="ownbar" title="44 of 60 maindeck cards already in the collection">
+    <i style="width:73%"></i><u>73% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>23</b> side</span>
+    <span class="owned"><b>44</b> of <b>60</b> cards owned</span>
+    <span><b>16</b> to get</span><span><b>23</b> side</span>
     <span class="no"><b>5</b>R <b>1</b>M wildcards</span>
     <span><b>$20.04</b> to finish</span>
     
@@ -116,14 +132,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures / threats <span class="n">25</span></div><ul class="cl"><li><span class="q">4</span> Spyglass Siren <em class="have">have</em></li><li><span class="q">4</span> Dream Beavers <em class="need">need 4U</em></li><li><span class="q">4</span> Floodpits Drowner <em class="have">have</em></li><li><span class="q">3</span> Jett Reno, Problem Solver <em class="need">need 3U</em></li><li><span class="q">2</span> The Wondrous Wasp <em class="need">need 1R</em></li><li><span class="q">3</span> Enduring Curiosity <em class="have">have</em></li><li><span class="q">4</span> Kaito, Bane of Nightmares <em class="need">need 1M</em></li><li><span class="q">1</span> Tishana&#x27;s Tidebinder <em class="have">have</em></li></ul><div class="sec">Interaction <span class="n">12</span></div><ul class="cl"><li><span class="q">4</span> Theorix Charm <em class="need">need 4U</em></li><li><span class="q">2</span> Three Steps Ahead <em class="have">have</em></li><li><span class="q">2</span> Archenemy&#x27;s Charm <em class="have">have</em></li><li><span class="q">2</span> Requiting Hex <em class="have">have</em></li><li><span class="q">2</span> Bitter Triumph <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">23</span></div><ul class="cl"><li><span class="q">4</span> Watery Grave <em class="have">have</em></li><li><span class="q">4</span> Gloomlake Verge <em class="have">have</em></li><li><span class="q">3</span> Shipwreck Marsh <em class="have">have</em></li><li><span class="q">3</span> The Unicomplex <em class="need">need 3R</em></li><li><span class="q">2</span> Restless Reef <em class="have">have</em></li><li><span class="q">1</span> Soulstone Sanctuary <em class="have">have</em></li><li><span class="q">1</span> Hidden Lair <em class="have">have</em></li><li><span class="q">4</span> Swamp <em class="unk">not in index</em></li><li><span class="q">1</span> Island <em class="unk">not in index</em></li></ul><div class="sec">Sideboard <span class="n">23</span></div><ul class="cl"><li><span class="q">3</span> Duress <em class="have">have</em></li><li><span class="q">2</span> Strategic Betrayal <em class="have">have</em></li><li><span class="q">2</span> Day of Black Sun <em class="need">need 1R</em></li><li><span class="q">2</span> Flashfreeze <em class="need">need 2U</em></li><li><span class="q">1</span> Negate <em class="have">have</em></li><li><span class="q">1</span> Tishana&#x27;s Tidebinder <em class="have">have</em></li><li><span class="q">1</span> Wan Shi Tong, Librarian <em class="have">have</em></li><li><span class="q">1</span> Ghost Vacuum <em class="have">have</em></li><li><span class="q">1</span> Terminal Criticism <em class="need">need 1U</em></li><li><span class="q">1</span> Vren, the Relentless <em class="have">have</em></li><li><span class="q">4</span> Theorix Charm <em class="need">need 4U</em></li><li><span class="q">2</span> Three Steps Ahead <em class="have">have</em></li><li><span class="q">2</span> Archenemy&#x27;s Charm <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="0" data-fit="0"
-  data-kr="14" data-km="0" data-kusd="29.99" data-kmain="53" data-kn="3">
+  data-kr="14" data-km="0" data-kusd="29.99" data-kmain="53" data-kown="-74" data-kn="3">
   <header>
     <span class="num">3</span>
     <h3>Gruul Landfall, but built from the 12–1 runner-up Standard deck</h3>
     <span class="pips"><i class="p" style="background:#B85450" title="Mountain"></i><i class="p" style="background:#8A8F4F" title="Forest"></i></span>
   </header>
+  <div class="ownbar" title="39 of 53 maindeck cards already in the collection">
+    <i style="width:74%"></i><u>74% owned</u>
+  </div>
   <div class="stats">
-    <span><b>53</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>39</b> of <b>53</b> cards owned</span>
+    <span><b>14</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>14</b>R <b>0</b>M wildcards</span>
     <span><b>$29.99</b> to finish</span>
     
@@ -132,14 +152,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">24</span></div><ul class="cl"><li><span class="q">4</span> Llanowar Elves <em class="have">have</em></li><li><span class="q">4</span> Sazh&#x27;s Chocobo <em class="have">have</em></li><li><span class="q">4</span> Carnivorous Cultivator <em class="need">need 4R</em></li><li><span class="q">4</span> Mossborn Hydra <em class="have">have</em></li><li><span class="q">4</span> Icetill Explorer <em class="have">have</em></li><li><span class="q">3</span> Mightform Harmonizer <em class="have">have</em></li><li><span class="q">1</span> Dal R&#x27;El, Augment Orphan <em class="need">need 1U</em></li></ul><div class="sec">Other spells <span class="n">9</span></div><ul class="cl"><li><span class="q">4</span> Earthbender Ascension <em class="need">need 1R</em></li><li><span class="q">3</span> Hit It! <em class="need">need 3R</em></li><li><span class="q">2</span> Sapling Nursery <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">20</span></div><ul class="cl"><li><span class="q">1</span> Mountain <em class="unk">not in index</em></li><li><span class="q">4</span> Stomping Ground <em class="have">have</em></li><li><span class="q">4</span> Fabled Passage <em class="have">have</em></li><li><span class="q">4</span> Elven Passage <em class="need">need 2R</em></li><li><span class="q">3</span> Ba Sing Se <em class="need">need 3R</em></li><li><span class="q">2</span> Starting Town <em class="have">have</em></li><li><span class="q">1</span> Escape Tunnel <em class="have">have</em></li><li><span class="q">1</span> Demolition Field <em class="have">have</em></li></ul><div class="sec">Sideboard <span class="n">15</span></div><ul class="cl"><li><span class="q">4</span> Meltstrider&#x27;s Resolve <em class="have">have</em></li><li><span class="q">3</span> Hard-Hitting Question <em class="have">have</em></li><li><span class="q">2</span> Torpor Orb <em class="have">have</em></li><li><span class="q">2</span> Surrak, Elusive Hunter <em class="need">need 1R</em></li><li><span class="q">2</span> Pick Your Poison <em class="have">have</em></li><li><span class="q">1</span> Soul-Guide Lantern <em class="have">have</em></li><li><span class="q">1</span> Keen-Eyed Curator <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="0" data-fit="1"
-  data-kr="3" data-km="0" data-kusd="2.84" data-kmain="60" data-kn="4">
+  data-kr="3" data-km="0" data-kusd="2.84" data-kmain="60" data-kown="-97" data-kn="4">
   <header>
     <span class="num">4</span>
     <h3>Boros Kira Mobilize</h3>
     <span class="pips"><i class="p" style="background:#B85450" title="Mountain"></i><i class="p" style="background:#efe6cf" title="Plains"></i></span>
   </header>
+  <div class="ownbar" title="58 of 60 maindeck cards already in the collection">
+    <i style="width:97%"></i><u>97% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>58</b> of <b>60</b> cards owned</span>
+    <span><b>2</b> to get</span><span><b>15</b> side</span>
     <span class="ok"><b>3</b>R <b>0</b>M wildcards</span>
     <span><b>$2.84</b> to finish</span>
     
@@ -148,14 +172,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">14</span></div><ul class="cl"><li><span class="q">4</span> Stadium Headliner <em class="have">have</em></li><li><span class="q">4</span> Belladonna Took <em class="have">have</em></li><li><span class="q">4</span> Voice of Victory <em class="have">have</em></li><li><span class="q">2</span> Kira Nerys, Firebrand <em class="need">need 2R</em></li></ul><div class="sec">Spells <span class="n">23</span></div><ul class="cl"><li><span class="q">3</span> Torch the Tower <em class="have">have</em></li><li><span class="q">4</span> Frontline Rush <em class="have">have</em></li><li><span class="q">4</span> The Last Ronin&#x27;s Technique <em class="have">have</em></li><li><span class="q">4</span> Song of Totentanz <em class="have">have</em></li><li><span class="q">4</span> Political Triumph <em class="have">have</em></li><li><span class="q">4</span> Warleader&#x27;s Call <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">23</span></div><ul class="cl"><li><span class="q">4</span> Inspiring Vantage <em class="have">have</em></li><li><span class="q">4</span> Sacred Foundry <em class="have">have</em></li><li><span class="q">4</span> Sunbillow Verge <em class="have">have</em></li><li><span class="q">4</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">3</span> Mountain <em class="unk">not in index</em></li><li><span class="q">2</span> Dalkovan Encampment <em class="have">have</em></li><li><span class="q">1</span> Plains <em class="unk">not in index</em></li><li><span class="q">1</span> Fountainport <em class="have">have</em></li></ul><div class="sec">Sideboard <span class="n">15</span></div><ul class="cl"><li><span class="q">4</span> Seam Rip <em class="have">have</em></li><li><span class="q">3</span> Rest in Peace <em class="have">have</em></li><li><span class="q">2</span> Erode <em class="have">have</em></li><li><span class="q">2</span> Pyrrhic Strike <em class="have">have</em></li><li><span class="q">2</span> Elspeth, Storm Slayer <em class="have">have</em></li><li><span class="q">2</span> Sunspine Lynx <em class="need">need 1R</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="0" data-fit="0"
-  data-kr="13" data-km="5" data-kusd="111.23" data-kmain="60" data-kn="5">
+  data-kr="13" data-km="5" data-kusd="111.23" data-kmain="60" data-kown="-70" data-kn="5">
   <header>
     <span class="num">5</span>
     <h3>Azorius Spacecraft Artifacts</h3>
     <span class="pips"><i class="p" style="background:#efe6cf" title="Plains"></i><i class="p" style="background:#5B8C8A" title="Island"></i></span>
   </header>
+  <div class="ownbar" title="42 of 60 maindeck cards already in the collection">
+    <i style="width:70%"></i><u>70% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>42</b> of <b>60</b> cards owned</span>
+    <span><b>18</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>13</b>R <b>5</b>M wildcards</span>
     <span><b>$111.23</b> to finish</span>
     
@@ -164,14 +192,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">ARTIFACTS / SPELLS <span class="n">36</span></div><ul class="cl"><li><span class="q">2</span> Candy Trail <em class="have">have</em></li><li><span class="q">1</span> Braided Net <em class="need">need 1R</em></li><li><span class="q">4</span> Simulacrum Synthesizer <em class="need">need 3M</em></li><li><span class="q">4</span> Perilous Snare <em class="have">have</em></li><li><span class="q">4</span> Cryogen Relic <em class="have">have</em></li><li><span class="q">3</span> Repurposing Bay <em class="need">need 3R</em></li><li><span class="q">2</span> The Mind Stone <em class="have">have</em></li><li><span class="q">1</span> The Irencrag <em class="have">have</em></li><li><span class="q">1</span> The Fire Crystal <em class="have">have</em></li><li><span class="q">1</span> White Auracite <em class="have">have</em></li><li><span class="q">1</span> Spring-Loaded Sawblades <em class="need">need 1U</em></li><li><span class="q">2</span> Pinnacle Starcage <em class="have">have</em></li><li><span class="q">2</span> Romulan Bird-of-Prey <em class="need">need 2R</em></li><li><span class="q">2</span> U.S.S. Enterprise-D, Galaxy-Class <em class="need">need 2R</em></li><li><span class="q">4</span> United Battlefront <em class="have">have</em></li><li><span class="q">1</span> Erode <em class="have">have</em></li><li><span class="q">1</span> Seam Rip <em class="have">have</em></li></ul><div class="sec">LANDS <span class="n">24</span></div><ul class="cl"><li><span class="q">4</span> Hallowed Fountain <em class="have">have</em></li><li><span class="q">4</span> Floodfarm Verge <em class="have">have</em></li><li><span class="q">4</span> Castle Doom <em class="need">need 2R</em></li><li><span class="q">3</span> Meticulous Archive <em class="need">need 2R</em></li><li><span class="q">2</span> Starting Town <em class="have">have</em></li><li><span class="q">2</span> Plains <em class="unk">not in index</em></li><li><span class="q">1</span> Island <em class="unk">not in index</em></li><li><span class="q">1</span> Fomori Vault <em class="need">need 1M</em></li><li><span class="q">1</span> Adagia, Windswept Bastion <em class="have">have</em></li><li><span class="q">1</span> Steam Vents <em class="have">have</em></li><li><span class="q">1</span> Petrified Hamlet <em class="need">need 1R</em></li></ul><div class="sec">SIDEBOARD <span class="n">15</span></div><ul class="cl"><li><span class="q">2</span> Negate <em class="have">have</em></li><li><span class="q">2</span> Torpor Orb <em class="have">have</em></li><li><span class="q">2</span> Spell Snare <em class="have">have</em></li><li><span class="q">2</span> Authority of the Consuls <em class="have">have</em></li><li><span class="q">2</span> Rest in Peace <em class="have">have</em></li><li><span class="q">1</span> Seam Rip <em class="have">have</em></li><li><span class="q">1</span> Erode <em class="have">have</em></li><li><span class="q">1</span> Day of Judgment <em class="have">have</em></li><li><span class="q">1</span> Pinnacle Starcage <em class="have">have</em></li><li><span class="q">1</span> Chandra, Chill of Compliance <em class="need">need 1M</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="0" data-fit="0"
-  data-kr="9" data-km="3" data-kusd="26.69" data-kmain="60" data-kn="6">
+  data-kr="9" data-km="3" data-kusd="26.69" data-kmain="60" data-kown="-52" data-kn="6">
   <header>
     <span class="num">6</span>
     <h3>Orzhov Borg Artifact Aggro</h3>
     <span class="pips"><i class="p" style="background:#efe6cf" title="Plains"></i><i class="p" style="background:#4a4038" title="Swamp"></i></span>
   </header>
+  <div class="ownbar" title="31 of 60 maindeck cards already in the collection">
+    <i style="width:52%"></i><u>52% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>31</b> of <b>60</b> cards owned</span>
+    <span><b>29</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>9</b>R <b>3</b>M wildcards</span>
     <span><b>$26.69</b> to finish</span>
     
@@ -180,14 +212,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Nesting Bot <em class="have">have</em></li><li><span class="q">4</span> Collation Trimatrix <em class="need">need 4R</em></li><li><span class="q">4</span> Locutus, the One Who Speaks <em class="need">need 4U</em></li><li><span class="q">4</span> Collective Drone <em class="need">need 4U</em></li><li><span class="q">3</span> Wreckage Wickerfolk <em class="need">need 3C</em></li><li><span class="q">2</span> Umbral Collar Zealot <em class="have">have</em></li><li><span class="q">3</span> Overflow Submatrix <em class="need">need 3R</em></li><li><span class="q">2</span> Primary Unimatrix Adjunct <em class="need">need 2R</em></li></ul><div class="sec">Other spells / artifacts <span class="n">10</span></div><ul class="cl"><li><span class="q">3</span> Borg Cube <em class="need">need 3M</em></li><li><span class="q">4</span> Resistance Is Futile <em class="need">need 4U</em></li><li><span class="q">2</span> Conquest Mission <em class="need">need 2U</em></li><li><span class="q">1</span> Erode <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">24</span></div><ul class="cl"><li><span class="q">4</span> Godless Shrine <em class="have">have</em></li><li><span class="q">4</span> Concealed Courtyard <em class="have">have</em></li><li><span class="q">4</span> Bleachbone Verge <em class="have">have</em></li><li><span class="q">4</span> Starting Town <em class="have">have</em></li><li><span class="q">2</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">3</span> Plains <em class="unk">not in index</em></li><li><span class="q">3</span> Swamp <em class="unk">not in index</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="0" data-fit="0"
-  data-kr="6" data-km="5" data-kusd="37.81" data-kmain="61" data-kn="7">
+  data-kr="6" data-km="5" data-kusd="37.81" data-kmain="61" data-kown="-79" data-kn="7">
   <header>
     <span class="num">7</span>
     <h3>Simic Strange New Worlds / Landfall</h3>
     <span class="pips"><i class="p" style="background:#8A8F4F" title="Forest"></i><i class="p" style="background:#5B8C8A" title="Island"></i></span>
   </header>
+  <div class="ownbar" title="48 of 61 maindeck cards already in the collection">
+    <i style="width:79%"></i><u>79% owned</u>
+  </div>
   <div class="stats">
-    <span><b>61</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>48</b> of <b>61</b> cards owned</span>
+    <span><b>13</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>6</b>R <b>5</b>M wildcards</span>
     <span><b>$37.81</b> to finish</span>
     
@@ -196,14 +232,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Llanowar Elves <em class="have">have</em></li><li><span class="q">4</span> Sazh&#x27;s Chocobo <em class="have">have</em></li><li><span class="q">3</span> Avatar of Burgeoning Echoes <em class="need">need 3M</em></li><li><span class="q">3</span> Captain Pike, Fullness of Time <em class="need">need 3R</em></li><li><span class="q">2</span> The Traveler <em class="need">need 2U</em></li><li><span class="q">2</span> Seven of Nine, Unassimilated <em class="need">need 2M</em></li><li><span class="q">4</span> Icetill Explorer <em class="have">have</em></li><li><span class="q">2</span> Mossborn Hydra <em class="have">have</em></li><li><span class="q">2</span> Mightform Harmonizer <em class="have">have</em></li></ul><div class="sec">Spells <span class="n">7</span></div><ul class="cl"><li><span class="q">4</span> Earthbender Ascension <em class="need">need 1R</em></li><li><span class="q">2</span> Shared Roots <em class="have">have</em></li><li><span class="q">1</span> Meltstrider&#x27;s Resolve <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">28</span></div><ul class="cl"><li><span class="q">4</span> Breeding Pool <em class="have">have</em></li><li><span class="q">3</span> Botanical Sanctum <em class="have">have</em></li><li><span class="q">2</span> Hedge Maze <em class="need">need 1R</em></li><li><span class="q">2</span> Restless Vinestalk <em class="have">have</em></li><li><span class="q">4</span> Forest <em class="unk">not in index</em></li><li><span class="q">1</span> Island <em class="unk">not in index</em></li><li><span class="q">1</span> Stomping Ground <em class="have">have</em></li><li><span class="q">1</span> Temple Garden <em class="have">have</em></li><li><span class="q">1</span> Overgrown Tomb <em class="have">have</em></li><li><span class="q">1</span> Steam Vents <em class="have">have</em></li><li><span class="q">1</span> Hallowed Fountain <em class="have">have</em></li><li><span class="q">1</span> Watery Grave <em class="have">have</em></li><li><span class="q">1</span> Starting Town <em class="have">have</em></li><li><span class="q">1</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">1</span> Ba Sing Se <em class="need">need 1R</em></li><li><span class="q">1</span> Fabled Passage <em class="have">have</em></li><li><span class="q">1</span> Elven Passage <em class="have">have</em></li><li><span class="q">1</span> Escape Tunnel <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="0" data-fit="0"
-  data-kr="12" data-km="5" data-kusd="92.44" data-kmain="60" data-kn="8">
+  data-kr="12" data-km="5" data-kusd="92.44" data-kmain="60" data-kown="-77" data-kn="8">
   <header>
     <span class="num">8</span>
     <h3>Sultai Reanimator + Nog</h3>
     <span class="pips"><i class="p" style="background:#4a4038" title="Swamp"></i><i class="p" style="background:#8A8F4F" title="Forest"></i><i class="p" style="background:#5B8C8A" title="Island"></i></span>
   </header>
+  <div class="ownbar" title="46 of 60 maindeck cards already in the collection">
+    <i style="width:77%"></i><u>77% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>46</b> of <b>60</b> cards owned</span>
+    <span><b>14</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>12</b>R <b>5</b>M wildcards</span>
     <span><b>$92.44</b> to finish</span>
     
@@ -212,14 +252,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Bringer of the Last Gift <em class="have">have</em></li><li><span class="q">4</span> Terror of the Peaks <em class="need">need 1M</em></li><li><span class="q">4</span> Superior Spider-Man <em class="need">need 2R</em></li><li><span class="q">4</span> Overlord of the Balemurk <em class="need">need 2M</em></li><li><span class="q">4</span> Formidable Speaker <em class="need">need 1R</em></li><li><span class="q">1</span> Uldaros Theorix <em class="need">need 1M</em></li><li><span class="q">1</span> Ardyn, the Usurper <em class="have">have</em></li><li><span class="q">1</span> Iron-Shield Elf <em class="have">have</em></li><li><span class="q">1</span> Seasoned Cryomancer <em class="need">need 1M</em></li><li><span class="q">1</span> Dark Matter Manipulator <em class="need">need 1R</em></li><li><span class="q">1</span> Nog, Ambitious Cadet <em class="need">need 1R</em></li></ul><div class="sec">Spells <span class="n">8</span></div><ul class="cl"><li><span class="q">4</span> Something Worth Saving <em class="need">need 4C</em></li><li><span class="q">4</span> Requiting Hex <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Overgrown Tomb <em class="have">have</em></li><li><span class="q">4</span> Blooming Marsh <em class="have">have</em></li><li><span class="q">4</span> Starting Town <em class="have">have</em></li><li><span class="q">4</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">4</span> Cavern of Souls <em class="have">have</em></li><li><span class="q">2</span> Breeding Pool <em class="have">have</em></li><li><span class="q">2</span> Watery Grave <em class="have">have</em></li><li><span class="q">1</span> Forest <em class="unk">not in index</em></li><li><span class="q">1</span> Swamp <em class="unk">not in index</em></li></ul><div class="sec">Sideboard <span class="n">15</span></div><ul class="cl"><li><span class="q">3</span> Guerrilla Gorilla <em class="have">have</em></li><li><span class="q">4</span> Vicious Rivalry <em class="need">need 4R</em></li><li><span class="q">3</span> Iron-Shield Elf <em class="have">have</em></li><li><span class="q">1</span> Null Summoner <em class="need">need 1R</em></li><li><span class="q">4</span> Leyline of the Void <em class="need">need 2R</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="0" data-fit="0"
-  data-kr="10" data-km="6" data-kusd="30.09" data-kmain="54" data-kn="9">
+  data-kr="10" data-km="6" data-kusd="30.09" data-kmain="54" data-kown="-61" data-kn="9">
   <header>
     <span class="num">9</span>
     <h3>Izzet Scotty Prowess</h3>
     <span class="pips"><i class="p" style="background:#5B8C8A" title="Island"></i><i class="p" style="background:#B85450" title="Mountain"></i></span>
   </header>
+  <div class="ownbar" title="33 of 54 maindeck cards already in the collection">
+    <i style="width:61%"></i><u>61% owned</u>
+  </div>
   <div class="stats">
-    <span><b>54</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>33</b> of <b>54</b> cards owned</span>
+    <span><b>21</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>10</b>R <b>6</b>M wildcards</span>
     <span><b>$30.09</b> to finish</span>
     
@@ -228,14 +272,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">18</span></div><ul class="cl"><li><span class="q">4</span> Pompous Battlemage <em class="need">need 4R</em></li><li><span class="q">4</span> Elusive Otter <em class="need">need 4R</em></li><li><span class="q">4</span> Slickshot Show-Off <em class="have">have</em></li><li><span class="q">3</span> Stingcaster Mage <em class="need">need 3M</em></li><li><span class="q">3</span> Scotty, Miracle Worker <em class="need">need 3M</em></li></ul><div class="sec">Spells <span class="n">21</span></div><ul class="cl"><li><span class="q">4</span> Opt <em class="have">have</em></li><li><span class="q">4</span> Sleight of Hand <em class="have">have</em></li><li><span class="q">4</span> Burst Lightning <em class="have">have</em></li><li><span class="q">3</span> Flow State <em class="need">need 3U</em></li><li><span class="q">2</span> Wild Ride <em class="have">have</em></li><li><span class="q">2</span> Secret Identity <em class="have">have</em></li><li><span class="q">2</span> Prismari Charm <em class="need">need 2U</em></li></ul><div class="sec">Lands <span class="n">15</span></div><ul class="cl"><li><span class="q">4</span> Steam Vents <em class="have">have</em></li><li><span class="q">4</span> Spirebluff Canal <em class="have">have</em></li><li><span class="q">4</span> Riverpyre Verge <em class="have">have</em></li><li><span class="q">2</span> Great Hall of the Biblioplex <em class="need">need 2R</em></li><li><span class="q">1</span> Multiversal Passage <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="1" data-fit="0"
-  data-kr="9" data-km="7" data-kusd="50.67" data-kmain="58" data-kn="10">
+  data-kr="9" data-km="7" data-kusd="50.67" data-kmain="58" data-kown="-59" data-kn="10">
   <header>
     <span class="num">10</span>
     <h3>Selesnya Jadzia Counters</h3>
     <span class="pips"><i class="p" style="background:#8A8F4F" title="Forest"></i><i class="p" style="background:#efe6cf" title="Plains"></i></span>
   </header>
+  <div class="ownbar" title="34 of 58 maindeck cards already in the collection">
+    <i style="width:59%"></i><u>59% owned</u>
+  </div>
   <div class="stats">
-    <span><b>58</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>34</b> of <b>58</b> cards owned</span>
+    <span><b>24</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>9</b>R <b>7</b>M wildcards</span>
     <span><b>$50.67</b> to finish</span>
     <span><b>8</b> marked TRK</span>
@@ -244,14 +292,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">29</span></div><ul class="cl"><li><span class="q">4</span> Llanowar Elves <em class="have">have</em></li><li><span class="q">4</span> Ambitious Augmenter <em class="need">need 4R</em></li><li><span class="q">1</span> Pawpatch Recruit <em class="have">have</em></li><li><span class="q">1</span> Emergency Medical Hologram <b class="trk">TRK</b><em class="need">need 1C</em></li><li><span class="q">4</span> Jadzia Dax, Living Legacy <b class="trk">TRK</b><em class="need">need 4M</em></li><li><span class="q">3</span> Mikey &amp; Leo, Chaos &amp; Order <em class="need">need 3R</em></li><li><span class="q">1</span> Kutzil, Malamet Exemplar <em class="have">have</em></li><li><span class="q">1</span> Michelangelo, Weirdness to 11 <em class="have">have</em></li><li><span class="q">3</span> Dyadrine, Synthesis Amalgam <em class="need">need 1R</em></li><li><span class="q">3</span> Ouroboroid <em class="have">have</em></li><li><span class="q">3</span> Brightglass Gearhulk <em class="need">need 3M</em></li><li><span class="q">1</span> Lumbering Worldwagon <em class="have">have</em></li></ul><div class="sec">Spells <span class="n">8</span></div><ul class="cl"><li><span class="q">3</span> Test of Conviction <b class="trk">TRK</b><em class="need">need 3U</em></li><li><span class="q">2</span> Practiced Offense <em class="have">have</em></li><li><span class="q">2</span> Seam Rip <em class="have">have</em></li><li><span class="q">1</span> Meltstrider&#x27;s Resolve <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">17</span></div><ul class="cl"><li><span class="q">4</span> Temple Garden <em class="have">have</em></li><li><span class="q">4</span> Hushwood Verge <em class="have">have</em></li><li><span class="q">2</span> Plains <em class="unk">not in index</em></li><li><span class="q">2</span> Starting Town <em class="have">have</em></li><li><span class="q">2</span> Abandoned Air Temple <em class="have">have</em></li><li><span class="q">1</span> Overgrown Farmland <em class="have">have</em></li><li><span class="q">1</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">1</span> Ba Sing Se <em class="need">need 1R</em></li></ul><div class="sec">Artifact Creature, 0/1 <span class="n">4</span></div><ul class="cl"><li><span class="q">3</span> Test of Conviction <em class="need">need 3U</em></li><li><span class="q">1</span> Emergency Medical Hologram <em class="need">need 1C</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="1" data-fit="0"
-  data-kr="9" data-km="10" data-kusd="71.67" data-kmain="58" data-kn="11">
+  data-kr="9" data-km="10" data-kusd="71.67" data-kmain="58" data-kown="-53" data-kn="11">
   <header>
     <span class="num">11</span>
     <h3>Selesnya M’Benga / Ouroboroid</h3>
     <span class="pips"><i class="p" style="background:#8A8F4F" title="Forest"></i><i class="p" style="background:#efe6cf" title="Plains"></i></span>
   </header>
+  <div class="ownbar" title="31 of 58 maindeck cards already in the collection">
+    <i style="width:53%"></i><u>53% owned</u>
+  </div>
   <div class="stats">
-    <span><b>58</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>31</b> of <b>58</b> cards owned</span>
+    <span><b>27</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>9</b>R <b>10</b>M wildcards</span>
     <span><b>$71.67</b> to finish</span>
     <span><b>11</b> marked TRK</span>
@@ -260,14 +312,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">31</span></div><ul class="cl"><li><span class="q">4</span> Llanowar Elves <em class="have">have</em></li><li><span class="q">4</span> Ambitious Augmenter <em class="need">need 4R</em></li><li><span class="q">2</span> Pawpatch Recruit <em class="have">have</em></li><li><span class="q">4</span> Jadzia Dax, Living Legacy <b class="trk">TRK</b><em class="need">need 4M</em></li><li><span class="q">3</span> Dr. Joseph M&#x27;Benga <b class="trk">TRK</b><em class="need">need 3M</em></li><li><span class="q">3</span> Mikey &amp; Leo, Chaos &amp; Order <em class="need">need 3R</em></li><li><span class="q">3</span> Dyadrine, Synthesis Amalgam <em class="need">need 1R</em></li><li><span class="q">3</span> Ouroboroid <em class="have">have</em></li><li><span class="q">3</span> Brightglass Gearhulk <em class="need">need 3M</em></li><li><span class="q">1</span> Emergency Medical Hologram <b class="trk">TRK</b><em class="need">need 1C</em></li><li><span class="q">1</span> Kutzil, Malamet Exemplar <em class="have">have</em></li></ul><div class="sec">Spells <span class="n">6</span></div><ul class="cl"><li><span class="q">3</span> Test of Conviction <b class="trk">TRK</b><em class="need">need 3U</em></li><li><span class="q">2</span> Practiced Offense <em class="have">have</em></li><li><span class="q">1</span> Seam Rip <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">21</span></div><ul class="cl"><li><span class="q">4</span> Temple Garden <em class="have">have</em></li><li><span class="q">4</span> Hushwood Verge <em class="have">have</em></li><li><span class="q">2</span> Plains <em class="unk">not in index</em></li><li><span class="q">2</span> Starting Town <em class="have">have</em></li><li><span class="q">2</span> Abandoned Air Temple <em class="have">have</em></li><li><span class="q">1</span> Overgrown Farmland <em class="have">have</em></li><li><span class="q">1</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">1</span> Ba Sing Se <em class="need">need 1R</em></li><li><span class="q">3</span> Test of Conviction <em class="need">need 3U</em></li><li><span class="q">1</span> Emergency Medical Hologram <em class="need">need 1C</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="1" data-fit="1"
-  data-kr="3" data-km="3" data-kusd="22.24" data-kmain="60" data-kn="12">
+  data-kr="3" data-km="3" data-kusd="22.24" data-kmain="60" data-kown="-72" data-kn="12">
   <header>
     <span class="num">12</span>
     <h3>Izzet Q Spellementals</h3>
     <span class="pips"><i class="p" style="background:#5B8C8A" title="Island"></i><i class="p" style="background:#B85450" title="Mountain"></i></span>
   </header>
+  <div class="ownbar" title="43 of 60 maindeck cards already in the collection">
+    <i style="width:72%"></i><u>72% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>43</b> of <b>60</b> cards owned</span>
+    <span><b>17</b> to get</span><span><b>0</b> side</span>
     <span class="ok"><b>3</b>R <b>3</b>M wildcards</span>
     <span><b>$22.24</b> to finish</span>
     <span><b>7</b> marked TRK</span>
@@ -276,14 +332,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">CREATURES <span class="n">16</span></div><ul class="cl"><li><span class="q">4</span> Eddymurk Crab <em class="have">have</em></li><li><span class="q">3</span> Hearth Elemental <em class="need">need 3U</em></li><li><span class="q">4</span> Ravenous Cosmozoan <b class="trk">TRK</b><em class="need">need 4U</em></li><li><span class="q">2</span> Sunderflock <em class="need">need 1R</em></li><li><span class="q">3</span> Q, Stacking the Deck <b class="trk">TRK</b><em class="need">need 3M</em></li></ul><div class="sec">SPELLS <span class="n">22</span></div><ul class="cl"><li><span class="q">4</span> Opt <em class="have">have</em></li><li><span class="q">4</span> Sleight of Hand <em class="have">have</em></li><li><span class="q">3</span> Burst Lightning <em class="have">have</em></li><li><span class="q">4</span> Prismari Charm <em class="need">need 4U</em></li><li><span class="q">3</span> Traumatic Critique <em class="need">need 2R</em></li><li><span class="q">2</span> Spell Snare <em class="have">have</em></li><li><span class="q">2</span> Spell Pierce <em class="have">have</em></li></ul><div class="sec">LANDS <span class="n">22</span></div><ul class="cl"><li><span class="q">4</span> Steam Vents <em class="have">have</em></li><li><span class="q">4</span> Spirebluff Canal <em class="have">have</em></li><li><span class="q">4</span> Riverpyre Verge <em class="have">have</em></li><li><span class="q">2</span> Multiversal Passage <em class="have">have</em></li><li><span class="q">6</span> Island <em class="unk">not in index</em></li><li><span class="q">2</span> Mountain <em class="unk">not in index</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="1" data-fit="0"
-  data-kr="9" data-km="2" data-kusd="68.38" data-kmain="60" data-kn="13">
+  data-kr="9" data-km="2" data-kusd="68.38" data-kmain="60" data-kown="-82" data-kn="13">
   <header>
     <span class="num">13</span>
     <h3>Golgari Sela Roots</h3>
     <span class="pips"><i class="p" style="background:#4a4038" title="Swamp"></i><i class="p" style="background:#8A8F4F" title="Forest"></i></span>
   </header>
+  <div class="ownbar" title="49 of 60 maindeck cards already in the collection">
+    <i style="width:82%"></i><u>82% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>49</b> of <b>60</b> cards owned</span>
+    <span><b>11</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>9</b>R <b>2</b>M wildcards</span>
     <span><b>$68.38</b> to finish</span>
     <span><b>4</b> marked TRK</span>
@@ -292,14 +352,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">CREATURES <span class="n">25</span></div><ul class="cl"><li><span class="q">4</span> Rubblebelt Maverick <em class="have">have</em></li><li><span class="q">4</span> Molt Tender <em class="have">have</em></li><li><span class="q">4</span> Timeline Culler <em class="have">have</em></li><li><span class="q">3</span> Scavenging Ooze <em class="need">need 1R</em></li><li><span class="q">3</span> Town Greeter <em class="have">have</em></li><li><span class="q">4</span> Overlord of the Balemurk <em class="need">need 2M</em></li><li><span class="q">3</span> Sela, Tal Shiar Paradox <b class="trk">TRK</b><em class="need">need 3R</em></li></ul><div class="sec">ENGINE / INTERACTION <span class="n">15</span></div><ul class="cl"><li><span class="q">4</span> Insidious Roots <em class="have">have</em></li><li><span class="q">4</span> Dredger&#x27;s Insight <em class="have">have</em></li><li><span class="q">2</span> Agatha&#x27;s Soul Cauldron <em class="have">have</em></li><li><span class="q">3</span> Cache Grab <em class="have">have</em></li><li><span class="q">2</span> Tragic Trajectory <em class="have">have</em></li></ul><div class="sec">LANDS <span class="n">20</span></div><ul class="cl"><li><span class="q">4</span> Blooming Marsh <em class="have">have</em></li><li><span class="q">4</span> Overgrown Tomb <em class="have">have</em></li><li><span class="q">4</span> Wastewood Verge <em class="need">need 4R</em></li><li><span class="q">2</span> Underground Mortuary <em class="have">have</em></li><li><span class="q">2</span> Forest <em class="unk">not in index</em></li><li><span class="q">2</span> Swamp <em class="unk">not in index</em></li><li><span class="q">1</span> Great Arashin City <em class="have">have</em></li><li><span class="q">1</span> Q Continuum <b class="trk">TRK</b><em class="need">need 1R</em></li></ul><div class="sec">SIDEBOARD <span class="n">15</span></div><ul class="cl"><li><span class="q">3</span> Duress <em class="have">have</em></li><li><span class="q">2</span> Disruptive Stormbrood <em class="need">need 2U</em></li><li><span class="q">2</span> Haywire Mite <em class="have">have</em></li><li><span class="q">2</span> Ghost Vacuum <em class="have">have</em></li><li><span class="q">2</span> Witherbloom Charm <em class="have">have</em></li><li><span class="q">2</span> Poison the Waters <em class="have">have</em></li><li><span class="q">2</span> Tragic Trajectory <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="1" data-fit="0"
-  data-kr="14" data-km="0" data-kusd="27.36" data-kmain="52" data-kn="14">
+  data-kr="14" data-km="0" data-kusd="27.36" data-kmain="52" data-kown="-73" data-kn="14">
   <header>
     <span class="num">14</span>
     <h3>Golgari Sela Landfall</h3>
     <span class="pips"><i class="p" style="background:#4a4038" title="Swamp"></i><i class="p" style="background:#8A8F4F" title="Forest"></i></span>
   </header>
+  <div class="ownbar" title="38 of 52 maindeck cards already in the collection">
+    <i style="width:73%"></i><u>73% owned</u>
+  </div>
   <div class="stats">
-    <span><b>52</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>38</b> of <b>52</b> cards owned</span>
+    <span><b>14</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>14</b>R <b>0</b>M wildcards</span>
     <span><b>$27.36</b> to finish</span>
     <span><b>4</b> marked TRK</span>
@@ -308,14 +372,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Llanowar Elves <em class="have">have</em></li><li><span class="q">4</span> Sazh&#x27;s Chocobo <em class="have">have</em></li><li><span class="q">4</span> Carnivorous Cultivator <em class="need">need 4R</em></li><li><span class="q">4</span> Icetill Explorer <em class="have">have</em></li><li><span class="q">4</span> Mossborn Hydra <em class="have">have</em></li><li><span class="q">3</span> Mightform Harmonizer <em class="have">have</em></li><li><span class="q">3</span> Sela, Tal Shiar Paradox <b class="trk">TRK</b><em class="need">need 3R</em></li></ul><div class="sec">Other spells <span class="n">7</span></div><ul class="cl"><li><span class="q">4</span> Earthbender Ascension <em class="need">need 1R</em></li><li><span class="q">2</span> Sapling Nursery <em class="have">have</em></li><li><span class="q">1</span> Hard-Hitting Question <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">19</span></div><ul class="cl"><li><span class="q">1</span> Swamp <em class="unk">not in index</em></li><li><span class="q">4</span> Overgrown Tomb <em class="have">have</em></li><li><span class="q">4</span> Fabled Passage <em class="have">have</em></li><li><span class="q">4</span> Elven Passage <em class="need">need 2R</em></li><li><span class="q">3</span> Ba Sing Se <em class="need">need 3R</em></li><li><span class="q">1</span> Escape Tunnel <em class="have">have</em></li><li><span class="q">1</span> Pit of Offerings <em class="have">have</em></li><li><span class="q">1</span> Q Continuum <b class="trk">TRK</b><em class="need">need 1R</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="1" data-fit="0"
-  data-kr="9" data-km="0" data-kusd="5.73" data-kmain="60" data-kn="15">
+  data-kr="9" data-km="0" data-kusd="5.73" data-kmain="60" data-kown="-85" data-kn="15">
   <header>
     <span class="num">15</span>
     <h3>Jund Tasha Sacrifice</h3>
     <span class="pips"><i class="p" style="background:#4a4038" title="Swamp"></i><i class="p" style="background:#B85450" title="Mountain"></i><i class="p" style="background:#8A8F4F" title="Forest"></i></span>
   </header>
+  <div class="ownbar" title="51 of 60 maindeck cards already in the collection">
+    <i style="width:85%"></i><u>85% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>0</b> side</span>
+    <span class="owned"><b>51</b> of <b>60</b> cards owned</span>
+    <span><b>9</b> to get</span><span><b>0</b> side</span>
     <span class="no"><b>9</b>R <b>0</b>M wildcards</span>
     <span><b>$5.73</b> to finish</span>
     <span><b>4</b> marked TRK</span>
@@ -324,14 +392,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">26</span></div><ul class="cl"><li><span class="q">4</span> Greedy Freebooter <em class="have">have</em></li><li><span class="q">4</span> Gene Pollinator <em class="have">have</em></li><li><span class="q">4</span> Biotech Specialist <em class="need">need 2R</em></li><li><span class="q">4</span> The Sackville-Bagginses <em class="need">need 1R</em></li><li><span class="q">4</span> Tasha Yar, Out of Time <b class="trk">TRK</b><em class="need">need 4R</em></li><li><span class="q">3</span> Umbral Collar Zealot <em class="have">have</em></li><li><span class="q">2</span> Callous Inspector <em class="have">have</em></li><li><span class="q">1</span> Smaug the Magnificent <em class="have">have</em></li></ul><div class="sec">Other spells <span class="n">11</span></div><ul class="cl"><li><span class="q">4</span> Obsessive Pursuit <em class="need">need 2R</em></li><li><span class="q">4</span> Lively Dirge <em class="have">have</em></li><li><span class="q">2</span> Requiting Hex <em class="have">have</em></li><li><span class="q">1</span> Deadly Precision <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">23</span></div><ul class="cl"><li><span class="q">4</span> Blooming Marsh <em class="have">have</em></li><li><span class="q">4</span> Overgrown Tomb <em class="have">have</em></li><li><span class="q">4</span> Starting Town <em class="have">have</em></li><li><span class="q">3</span> Stomping Ground <em class="have">have</em></li><li><span class="q">3</span> Blood Crypt <em class="have">have</em></li><li><span class="q">2</span> Blazemire Verge <em class="have">have</em></li><li><span class="q">1</span> Forest <em class="unk">not in index</em></li><li><span class="q">1</span> Swamp <em class="unk">not in index</em></li><li><span class="q">1</span> Mountain <em class="unk">not in index</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="0" data-trek="1" data-fit="0"
-  data-kr="11" data-km="2" data-kusd="31.88" data-kmain="52" data-kn="16">
+  data-kr="11" data-km="2" data-kusd="31.88" data-kmain="52" data-kown="-75" data-kn="16">
   <header>
     <span class="num">16</span>
     <h3>Azorius Picard / Momo</h3>
     <span class="pips"><i class="p" style="background:#efe6cf" title="Plains"></i><i class="p" style="background:#5B8C8A" title="Island"></i></span>
   </header>
+  <div class="ownbar" title="39 of 52 maindeck cards already in the collection">
+    <i style="width:75%"></i><u>75% owned</u>
+  </div>
   <div class="stats">
-    <span><b>52</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>39</b> of <b>52</b> cards owned</span>
+    <span><b>13</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>11</b>R <b>2</b>M wildcards</span>
     <span><b>$31.88</b> to finish</span>
     <span><b>5</b> marked TRK</span>
@@ -340,14 +412,18 @@ Wildcards on hand: <b>4</b> rare, <b>8</b> mythic.
   <details><summary>Decklist</summary><div class="list"><div class="sec">Creatures <span class="n">23</span></div><ul class="cl"><li><span class="q">4</span> Momo, Friendly Flier <em class="have">have</em></li><li><span class="q">4</span> Sage of the Skies <em class="need">need 4R</em></li><li><span class="q">4</span> Starfield Shepherd <em class="have">have</em></li><li><span class="q">4</span> Quantum Riddler <em class="have">have</em></li><li><span class="q">3</span> Steamcore Scholar <em class="have">have</em></li><li><span class="q">2</span> Captain Jean-Luc Picard <b class="trk">TRK</b><em class="need">need 2M</em></li><li><span class="q">1</span> Nurturing Pixie <em class="have">have</em></li><li><span class="q">1</span> Guiding Hydra <em class="need">need 1R</em></li></ul><div class="sec">Spells <span class="n">12</span></div><ul class="cl"><li><span class="q">4</span> Daydream <em class="have">have</em></li><li><span class="q">3</span> There&#x27;s Coffee in that Nebula <b class="trk">TRK</b><em class="need">need 3U</em></li><li><span class="q">3</span> Practiced Offense <em class="have">have</em></li><li><span class="q">2</span> Erode <em class="have">have</em></li></ul><div class="sec">Artifacts <span class="n">4</span></div><ul class="cl"><li><span class="q">4</span> Springleaf Drum <em class="have">have</em></li></ul><div class="sec">Lands <span class="n">13</span></div><ul class="cl"><li><span class="q">4</span> Hallowed Fountain <em class="have">have</em></li><li><span class="q">4</span> Floodfarm Verge <em class="have">have</em></li><li><span class="q">3</span> Gleaming Bastion <em class="need">need 3R</em></li><li><span class="q">1</span> Abandoned Air Temple <em class="have">have</em></li><li><span class="q">1</span> Island <em class="unk">not in index</em></li></ul><div class="sec">Sideboard <span class="n">15</span></div><ul class="cl"><li><span class="q">3</span> Clarion Conqueror <em class="need">need 3R</em></li><li><span class="q">3</span> Rest in Peace <em class="have">have</em></li><li><span class="q">2</span> Disdainful Stroke <em class="have">have</em></li><li><span class="q">1</span> Aven Interrupter <em class="have">have</em></li><li><span class="q">1</span> Curious Farm Animals <em class="have">have</em></li><li><span class="q">1</span> Erode <em class="have">have</em></li><li><span class="q">1</span> Flashfreeze <em class="need">need 1U</em></li><li><span class="q">1</span> Seam Rip <em class="have">have</em></li><li><span class="q">1</span> Spider-Sense <em class="have">have</em></li><li><span class="q">1</span> Avatar&#x27;s Wrath <em class="have">have</em></li></ul></div></details>
 </article>
 <article class="deck" data-complete="1" data-trek="1" data-fit="0"
-  data-kr="18" data-km="0" data-kusd="38.67" data-kmain="60" data-kn="17">
+  data-kr="18" data-km="0" data-kusd="38.67" data-kmain="60" data-kown="-72" data-kn="17">
   <header>
     <span class="num">17</span>
     <h3>Gruul Genesis Landfall Combo</h3>
     <span class="pips"><i class="p" style="background:#B85450" title="Mountain"></i><i class="p" style="background:#8A8F4F" title="Forest"></i></span>
   </header>
+  <div class="ownbar" title="43 of 60 maindeck cards already in the collection">
+    <i style="width:72%"></i><u>72% owned</u>
+  </div>
   <div class="stats">
-    <span><b>60</b> main</span><span><b>15</b> side</span>
+    <span class="owned"><b>43</b> of <b>60</b> cards owned</span>
+    <span><b>17</b> to get</span><span><b>15</b> side</span>
     <span class="no"><b>18</b>R <b>0</b>M wildcards</span>
     <span><b>$38.67</b> to finish</span>
     <span><b>7</b> marked TRK</span>
