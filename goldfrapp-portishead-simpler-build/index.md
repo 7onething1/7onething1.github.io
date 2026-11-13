@@ -93,7 +93,7 @@ Two defects surfaced during the build, both worth fixing at source. pedalboard r
 | Root keys from filename versus Live-written roots | 64 of 64 agree |
 | Index-form roots (Crumar) taken from the Live-written preset | 34 of 34 |
 
-The CRC-16 algorithm (poly 0x8005, init 0, over the first 16384 bytes) reproduced 3 of 3 Live-written values before I used it. A negative test skipped 2 files with a stated reason and the zone count still equalled inputs minus skipped. `ableton-version-fitter` applies to `.adv` and classed all 8 as NATIVE, which is a header check only. **Live 11.3.43 opens all 8, tested 2026-11-12.** Every one of them was loaded into a Live Set by Live: all 99 sets of this build were opened one at a time, with the window title checked, Live's log checked for `Loading document` on that exact path, and that stretch of log checked for errors. 99 of 99 passed. See https://7onething1.github.io/nostalgia-live-sets/
+The CRC-16 algorithm (poly 0x8005, init 0, over the first 16384 bytes) reproduced 3 of 3 Live-written values before I used it. A negative test skipped 2 files with a stated reason and the zone count still equalled inputs minus skipped. `ableton-version-fitter` applies to `.adv` and classed all 8 as NATIVE, which is a header check only. **Live 11.3.43 opens all 8, tested 2026-11-12.** Every one of them was loaded into a Live Set by Live: all 55 sets of this build were opened one at a time, with the window title checked, Live's log checked for `Loading document` on that exact path, and that stretch of log checked for errors. 55 of 55 passed. See https://7onething1.github.io/nostalgia-live-sets/
 
 ## The one genuine gap
 

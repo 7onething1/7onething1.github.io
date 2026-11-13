@@ -2,69 +2,67 @@
 
 Live URL: https://7onething1.github.io/nostalgia-live-sets/
 
-99 ready-to-play Ableton Live 11 Sets built 2026-11-12 on Jacks-iMac,
-five instruments to a set, covering every Zero-G Nostalgia preset in the build.
-Sets live in `~/Music/Ableton/Nostalgia Live Sets/`.
+55 ready-to-play Ableton Live 11 Sets built 2026-11-12 on Jacks-iMac, ten instruments to a
+pitched set and five racks to a drum set, covering every Zero-G Nostalgia preset in the build.
+Live 11.3.43 loaded every preset itself. Sets live in `~/Music/Ableton/Nostalgia Live Sets/`.
 
 ## Counts
 
 | | |
 |---|---|
-| Live Sets | 99 |
+| Live Sets | 55 |
+| Pitched sets, ten instruments each | 44 |
+| Drum sets, five racks each | 11 |
 | Pitched instruments loaded | 435 |
 | Drum Racks loaded | 51 |
 | Drum pads | 1,142 |
-| Sample references | 5,842 |
-| Distinct samples within a set | 4,151 |
-| Sets clean in the independent sweep | 99 of 99 |
-| Sets Live opened with no load error | 99 of 99 |
-| On disk | 9.7 MB |
+| Sample references, distinct within a set | 4,107 |
+| Sets clean in the independent sweep | 55 of 55 |
+| Sets Live opened with no load error | 55 of 55 |
+| Presets on disk, on a track, never placed, placed twice | 486, 486, 0, 0 |
+| On disk | 9.3 MB |
 
-## Two routes
+## How a set is built
 
-Pitched presets are written into the set's XML directly. The transformation was taken from a set
-Live itself wrote, and the generated file matches it line for line: 1,612 of a Sampler device's
-1,635 lines copy through untouched.
+Each set is written out empty at its final path first, so the save needs no dialog. Live opens
+it, a MIDI track goes in per preset, the preset file is handed to Live by absolute path, and one
+Cmd+S saves the set at that same path.
 
-Drum racks store pads as `BranchPresets`, a different shape from the `Branches` a loaded rack
-has in a set, so Live performs that conversion. Each drum set was written empty at its final
-path first, so Live opens it with a path and a plain Cmd+S saves in place, which avoids the
-Save As dialog that wrecked the first attempt.
+The path is what makes it work. All 209 pitched families ship twice under the same file name,
+once as a Simpler and once as a Sampler twin, and a browser-search probe for five Simpler names
+returned five Sampler twins, two of them the same wrong preset, because a search for
+`Nostalgia 303Growler` also matches `Nostalgia 303Growler Stab`. Drum racks need Live for a
+second reason: a `.adg` stores pads as `BranchPresets`, a different shape from the `Branches` a
+loaded rack has in a set, and only Live converts between them.
 
-## The two routes compared
+## What the retired XML route taught
 
-Nostalgia Sampler 010 was rebuilt by hand through Live, five presets loaded from the browser
-onto tracks and saved with Cmd+S, then diffed against the generated file for the same five.
-Same element tree on all five devices. Of 2,385 value paths, 25 differ, every one of them Live
-rewriting a float through its engine (`50` as `50.0000153`, `1200` as `1200.00037`).
+The first build wrote pitched sets straight into the set XML, where 1,612 of a Sampler device's
+1,635 lines copy through untouched. Live refused the first one: "non-unique Pointee IDs", with
+`PointeeId 23286` through `23290` each used twice. The renumbering had taken its ceiling from
+the three tags it rewrote and missed the `VolumeModulationTarget` family in the track mixers.
+The shared id space is the automation and modulation target family alone.
 
-That diff also found the one field left blank, `BrowserContentPath`. Live writes
-`query:Find#FileId_NNNNNN` there, where the number is the preset's row id in Live's browser
-index, a WAL-mode SQLite database that has to be read with its `-wal` companion. All 486
-presets resolve to exactly one id, the derived values match 10 of 10 Live had written, and the
-sets now carry 591 of them with none blank.
+A hand-built Live set was then diffed against the generated file for the same five presets: same
+element tree on all five devices, and of 2,385 value paths, 25 differ, every one of them Live
+rewriting a float through its engine (`50` as `50.0000153`). That diff found the one field left
+blank, `BrowserContentPath`, which Live fills with `query:Find#FileId_NNNNNN` from its own
+browser index, a WAL-mode SQLite database that has to be copied with its `-wal` companion.
 
-## What Live rejected, and the fix
+## A checksum claim this page used to make
 
-Live refused the first generated set: "non-unique Pointee IDs". Its log printed
-`PointeeId 23286` through `23290`, each used twice. The renumbering had taken its ceiling from
-the three tags it was rewriting and missed the `VolumeModulationTarget` family in the track
-mixers. The id space was then derived from a set Live wrote, where 18 ids are shared across
-tags and every one pairs a structural tag against a target tag. The corrected check passes
-Live's own file and fails the file Live rejected.
-
-## A claim on this page that was wrong
-
-An earlier build wrote `OriginalCrc` as 0 and said Live's checksum could not be computed, after
-24 CRC and zlib variants failed to reproduce a value Live had written. The algorithm was in this
-build's own preset writer the whole time: CRC-16, polynomial 0x8005, init 0, not reflected, over
-the first 16384 bytes. It reproduces all 46 checksums in the template set. Every set was rebuilt
-with real checksums, 6,984 of them, none left at zero.
+An earlier version called a zero `OriginalCrc` a defective file. The algorithm turned out to be
+CRC-16, polynomial 0x8005, init 0, not reflected, over the first 16384 bytes, which reproduces
+all 46 checksums in the template set. Live then wrote every set on this page, and Live's own
+output carries 3,092 zeros among 10,076 `OriginalCrc` values, so a zero there is
+Live's own behaviour. The sweep runs the check that decides whether a sample will play: every
+sample path exists on disk and is larger than zero bytes.
 
 ## Honest limits
 
 Sample paths are absolute, so the Black drive must be mounted. Each set carries Live's default
-empty audio and return tracks beside its five instruments. Nothing was auditioned.
+empty audio and return tracks beside its instruments. Nothing was auditioned, and no set has
+been played.
 
 ## Local paths
 

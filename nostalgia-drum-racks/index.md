@@ -27,7 +27,7 @@ referenced in place by absolute path, so the folder is 9.5 MB and nothing was co
 ## Live load test, 2026-11-12
 
 Every rack has since been loaded by Live 11.3.43 itself, five to a Live Set, and each saved
-set was read back to count the Drum Racks Live actually wrote. Live's own log recorded no
+set was read back to count the Drum Racks Live wrote. Live's own log recorded no
 load error on any of them. The sets are listed at https://7onething1.github.io/nostalgia-live-sets/
 
 Pads still resolve by absolute path, so the Black drive has to be mounted when loading.
