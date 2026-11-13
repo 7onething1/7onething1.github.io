@@ -1,149 +1,164 @@
-# Trek Standard Brews
+# Trek Standard Decks
 
-Seventeen Standard decks from the ChatGPT conversation *White Liliana Preview*, costed in rare and mythic
-wildcards against the Arena collection snapshot 2026-11-03 (11,836 distinct cards).
+Live: https://7onething1.github.io/trek-standard-decks/
 
-Each row is what is still missing after your own cards are subtracted.
+Standard deck videos from 15 tracked creators, each with its decklist link,
+colors, archetype, and a spike-or-brew read. Generated 2026-11-13.
 
-| # | Deck | Rares to finish | Mythics to finish | Owned |
-|---|---|---|---|---|
-| 4 | Boros Kira Mobilize | 2 | 0 | 58/60 |
-| 1 | Orzhov Crusher Lifegain | 2 | 6 | 52/60 |
-| 12 | Izzet Q Spellementals | 3 | 3 | 43/60 |
-| 2 | Dimir Jett Midrange | 4 | 1 | 44/60 |
-| 8 | Sultai Reanimator + Nog | 5 | 5 | 46/60 |
-| 7 | Simic Strange New Worlds / Landfall | 6 | 5 | 48/61 |
-| 16 | Azorius Picard / Momo | 8 | 2 | 39/52 |
-| 15 | Jund Tasha Sacrifice | 9 | 0 | 51/60 |
-| 13 | Golgari Sela Roots | 9 | 2 | 49/60 |
-| 6 | Orzhov Borg Artifact Aggro | 9 | 3 | 31/60 |
-| 10 | Selesnya Jadzia Counters | 9 | 7 | 34/58 |
-| 11 | Selesnya M’Benga / Ouroboroid | 9 | 10 | 31/58 |
-| 9 | Izzet Scotty Prowess | 10 | 6 | 33/54 |
-| 3 | Gruul Landfall, but built from the 12–1 runner-up Standard deck | 13 | 0 | 39/53 |
-| 5 | Azorius Spacecraft Artifacts | 13 | 4 | 42/60 |
-| 14 | Golgari Sela Landfall | 14 | 0 | 38/52 |
-| 17 | Gruul Genesis Landfall Combo | 17 | 0 | 43/60 |
+## Current state
 
-## What to craft, per deck
+| Measure | Value |
+|---|---|
+| Decks on the page | **41** |
+| With real price and wildcard numbers | **41** |
+| ├ from Moxfield (signed-in browser) | 16 |
+| ├ from Aetherhub (signed-in browser) | 0 |
+| ├ from the video description | 21 |
+| └ from MTGGoldfish | 0 |
+| Decklist walled | **0** |
+| Creators | 15 |
+| Carrying a publish date | 41 |
+| Newest video | 2026-11-13 |
+| Colors counted off the real list | 40 |
+| Colors taken from the creator's title | 0 |
+| Still unlabelled | 1 |
+| Running a card new in The Hobbit (HOB) | **12** |
+| Running a card new in Star Trek (TRK) | **41** |
+| ├ rares+mythics still needed, cheapest | **5** |
+| ├ rares+mythics still needed, median | **15** |
+| Dropped as not Standard | **34** |
+| Quarantined by the 2026-10-12 bans | **0** |
 
-**#4 Boros Kira Mobilize** (2R 0M)
-- 2 Kira Nerys, Firebrand (rare)
+## Quarantined by the 2026-10-12 bans
 
-**#1 Orzhov Crusher Lifegain** (2R 6M)
-- 2 Liliana the Faultless (rare)
-- 4 Enlightened Confidant (mythic)
-- 2 Dr. Beverly Crusher (mythic)
+Wizards banned 0 cards in Standard on 2026-10-12:
+.
+Source: [Banned and Restricted Announcement, October 12, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-october-12-2026).
 
-**#12 Izzet Q Spellementals** (3R 3M)
-- 2 Traumatic Critique (rare)
-- 1 Sunderflock (rare)
-- 3 Q, Stacking the Deck (mythic)
+**0 of 41 decks on this page run one of them.**
 
-**#2 Dimir Jett Midrange** (4R 1M)
-- 3 The Unicomplex (rare)
-- 1 The Wondrous Wasp (rare)
-- 1 Kaito, Bane of Nightmares (mythic)
+| Card | Copies | Decks |
+|---|---|---|
 
-**#8 Sultai Reanimator + Nog** (5R 5M)
-- 2 Superior Spider-Man (rare)
-- 1 Formidable Speaker (rare)
-- 1 Dark Matter Manipulator (rare)
-- 1 Nog, Ambitious Cadet (rare)
-- 2 Overlord of the Balemurk (mythic)
-- 1 Terror of the Peaks (mythic)
-- 1 Uldaros Theorix (mythic)
-- 1 Seasoned Cryomancer (mythic)
 
-**#7 Simic Strange New Worlds / Landfall** (6R 5M)
-- 3 Captain Pike, Fullness of Time (rare)
-- 1 Earthbender Ascension (rare)
-- 1 Hedge Maze (rare)
-- 1 Ba Sing Se (rare)
-- 3 Avatar of Burgeoning Echoes (mythic)
-- 2 Seven of Nine, Unassimilated (mythic)
+A quarantined deck is hidden from the default view and stays on the page behind the
+**Show quarantined** button, carrying its price, its wildcards and its gameplan. It is
+not deleted and not rewritten. Each of these was legal when its creator published it,
+and the useful thing to know is which card took it out, so every quarantined card names
+the banned cards it runs and how many copies.
 
-**#16 Azorius Picard / Momo** (8R 2M)
-- 4 Sage of the Skies (rare)
-- 3 Gleaming Bastion (rare)
-- 1 Guiding Hydra (rare)
-- 2 Captain Jean-Luc Picard (mythic)
+The trigger is the announcement, not card legality. Scryfall lags on B&R day: when this
+page was built it had propagated 0 of the 0 bans,
+so a quarantine reading legality would have missed most of it. The list lives in `standard_bans.json` with its source URL, and both
+this page and the craft ranking import `bans.py`, so the two cannot disagree about what
+is banned.
 
-**#15 Jund Tasha Sacrifice** (9R 0M)
-- 4 Tasha Yar, Out of Time (rare)
-- 2 Biotech Specialist (rare)
-- 2 Obsessive Pursuit (rare)
-- 1 The Sackville-Bagginses (rare)
+## What the format gate removed
 
-**#13 Golgari Sela Roots** (9R 2M)
-- 4 Wastewood Verge (rare)
-- 3 Sela, Tal Shiar Paradox (rare)
-- 1 Scavenging Ooze (rare)
-- 1 Q Continuum (rare)
-- 2 Overlord of the Balemurk (mythic)
+A title cannot tell you a format. 34 decks were held back because under
+90% of their card copies are Standard-legal per Scryfall: LegenVD 18, CovertGoBlue 6, CROKEYZ 4, d00mwake 4, Strictly Better MtG 2.
+Those are Pauper lists, 100-card Brawl decks and Alchemy rebalances published on channels
+whose titles read as Arena Standard. Their prices were real numbers answering the wrong
+question. The split is clean, 182 decks at 97% legal or better against 13 at 58% or
+worse, so a wide gap separates the two groups and the threshold falls inside it.
 
-**#6 Orzhov Borg Artifact Aggro** (9R 3M)
-- 4 Collation Trimatrix (rare)
-- 3 Overflow Submatrix (rare)
-- 2 Primary Unimatrix Adjunct (rare)
-- 3 Borg Cube (mythic)
+## The ask ledger
 
-**#10 Selesnya Jadzia Counters** (9R 7M)
-- 4 Ambitious Augmenter (rare)
-- 3 Mikey & Leo, Chaos & Order (rare)
-- 1 Dyadrine, Synthesis Amalgam (rare)
-- 1 Ba Sing Se (rare)
-- 4 Jadzia Dax, Living Legacy (mythic)
-- 3 Brightglass Gearhulk (mythic)
+Every request made against this page in other chats, and where it stands. Counts come
+from this build, so the ledger cannot drift from the page.
 
-**#11 Selesnya M’Benga / Ouroboroid** (9R 10M)
-- 4 Ambitious Augmenter (rare)
-- 3 Mikey & Leo, Chaos & Order (rare)
-- 1 Dyadrine, Synthesis Amalgam (rare)
-- 1 Ba Sing Se (rare)
-- 4 Jadzia Dax, Living Legacy (mythic)
-- 3 Dr. Joseph M'Benga (mythic)
-- 3 Brightglass Gearhulk (mythic)
+| # | Asked | Chat | State |
+|---|---|---|---|
+| 1 | At least 7 decks per creator | 07-11 | 1 of 15 creators clear 7. Capped at the source: d00mwake 6, from 81 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); MTG Malone 5, from 41 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Swayze 4, from 71 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Sloth 4, from 74 videos the feed reached (74 post no decklist link); Ashlizzle 3, from 69 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); LegenVD 2, from 54 videos the feed reached (18 fail the Standard-legality gate); Shahar Shenhar 2, from 60 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); CROKEYZ 2, from 38 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Arstall 1, from 101 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); CovertGoBlue 1, from 72 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Kellen Pastore 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Javier Dominguez 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); January Adams 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Noah Michaud 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
+| 2 | Read the description for deck links | 07-11 | 21 decks priced straight from the description |
+| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 7 spike, 34 standard, 0 brew |
+| 4 | Color buttons that work as OFF switches | 07-19 | Done. Every color starts on, clicking one hides every deck needing it |
+| 5 | Link the decklist host | 07-11 | 32 of 41 carry a Moxfield / Aetherhub / Goldfish link |
+| 6 | Sort by price, and by wildcards, off the Arena export | 07-18 | Both sorts live, seeded from the collection export at 2026-11-03 |
+| 7 | Also link into kc-card-finder | 07-19 | 41 of 41 pass their full list to the finder |
+| 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 1 card still reads a generic label |
+| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 41 of 41 |
+| 10 | Creator name on each card when sorted by price | 07-24 | On all 41 cards, revealed the moment a global sort flattens the grid |
+| 11 | Update for Ashlizzle's latest | 07-24 | 3 Ashlizzle decks, newest 2026-11-07 |
+| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 1 of 41 cards carry a measured gameplan, 1 of those also break out the cards past the first 60. 0 list their main cards as well |
 
-**#9 Izzet Scotty Prowess** (10R 6M)
-- 4 Pompous Battlemage (rare)
-- 4 Elusive Otter (rare)
-- 2 Great Hall of the Biblioplex (rare)
-- 3 Stingcaster Mage (mythic)
-- 3 Scotty, Miracle Worker (mythic)
+## What a gameplan says, and what it cannot
 
-**#3 Gruul Landfall, but built from the 12–1 runner-up Standard deck** (13R 0M)
-- 4 Carnivorous Cultivator (rare)
-- 3 Hit It! (rare)
-- 3 Ba Sing Se (rare)
-- 2 Elven Passage (rare)
-- 1 Earthbender Ascension (rare)
+Each **Gameplan** block is counted off that deck's own list against Scryfall mana
+value, type line and oracle text (1 of 41 decks; the rest have no
+reachable list). It reports the creature and spell split, the land count, the
+average mana value, how many cards cost one or two, where the curve tops out, and
+how many answers the list holds by category.
 
-**#5 Azorius Spacecraft Artifacts** (13R 4M)
-- 3 Repurposing Bay (rare)
-- 2 Romulan Bird-of-Prey (rare)
-- 2 U.S.S. Enterprise-D, Galaxy-Class (rare)
-- 2 Castle Doom (rare)
-- 2 Meticulous Archive (rare)
-- 1 Braided Net (rare)
-- 1 Petrified Hamlet (rare)
-- 3 Simulacrum Synthesizer (mythic)
-- 1 Fomori Vault (mythic)
+Two limits:
 
-**#14 Golgari Sela Landfall** (14R 0M)
-- 4 Carnivorous Cultivator (rare)
-- 3 Sela, Tal Shiar Paradox (rare)
-- 3 Ba Sing Se (rare)
-- 2 Elven Passage (rare)
-- 1 Earthbender Ascension (rare)
-- 1 Q Continuum (rare)
+- **Answer counts read oracle text**, so they catch the ordinary wordings and will
+  undercount a card that phrases the same effect unusually.
+- **The harvested lists are flat.** The board split was discarded when the lists
+  were fetched, so no mainboard/sideboard boundary exists in the data. Where a list
+  runs past 60, the extra cards are reported as *past the first 60* and labelled
+  inferred. 1 of the 1 such decks have exactly 15 there, which is
+  the legal sideboard size, and across them the tail holds 39 lands against 2,988
+  in the first 60. That pattern is what mainboard-then-sideboard order looks like
+  across the corpus. For any one deck it stays an inference, so the page labels it
+  as one.
 
-**#17 Gruul Genesis Landfall Combo** (17R 0M)
-- 4 Carnivorous Cultivator (rare)
-- 4 Hit It! (rare)
-- 3 Genesis Device (rare)
-- 3 Ba Sing Se (rare)
-- 2 Elven Passage (rare)
-- 1 Earthbender Ascension (rare)
+## Sorts
 
-Counts subtract copies already owned across all Arena printings of a name. Basics are free. Sideboards excluded.
+- **Price to build.** Paper USD for the full list, cheapest Scryfall printing, basics excluded.
+- **Lands off.** Switches the price and wildcard badges to the non-land cards only, and
+  the sorting and the wildcard-budget highlight follow it, so the ranking is always on
+  the same basis as the number shown. Lands are identified from the Scryfall type line
+  rather than the card name, because a name test calls **Boomerang Basics** a land and
+  it is a Sorcery; a double-faced spell is judged by its front face. Across the priced
+  corpus the manabase is 46% of the median deck price, and 448 of
+  801 decks need fewer rare-plus-mythic wildcards without it. The buy link is
+  deliberately left alone: it still carts the complete deck, lands included, because
+  that is what you have to own to play it.
+- **Wildcards to build.** What Arena charges after subtracting owned cards, bucketed by
+  rarity, sorted on rare-plus-mythic since that is the number that gates a build.
+- **Newest first.** Publish date descending. Undated decks sink, and anything from the
+  last 7 days highlights.
+- **Wildcards are what is still needed from the collection**, counted per rarity against
+  the export stamped 2026-11-03, because Arena will not spend a rare wildcard
+  on a mythic. The figure is per deck and after subtracting the cards already owned. It is
+  NOT compared against the wildcard balance and no deck is hidden for costing too much:
+  more wildcards can be bought, so the cost is the answer rather than a pass or a fail.
+  The two boxes in the bar are an optional highlight and start blank.
+
+## Where a price comes from
+
+Four sources, in the order the build tries them: a Moxfield list held from a signed-in
+browser pass, then an Aetherhub list from the same pass, then MTGGoldfish, then the video
+description itself. A description list is only accepted when it validates against Scryfall,
+at least 40 cards with at least 85% of the distinct names resolving to real printings, so a
+stray numbered line in free text can never fabricate a price. Hover any price badge on the
+page to see its source.
+
+## How the walled decks were opened
+
+Anonymous HTTP is the closed layer. The data behind it stays reachable. Verified 2026-11-13:
+Moxfield answers 403 behind Cloudflare on both its API host and its public page after the
+301, and Aetherhub answers 403 to curl host-wide, including its own /Docs pages. The
+signed-in browser reaches both. Moxfield's own `api2` endpoint returns 200 when called from
+inside the page origin with the user's session, and an Aetherhub deck page renders fully,
+carrying each copy of a card as a repeated `.cardLink` node, so quantities come from counting
+those nodes. That pass closed the last 74 decks on 2026-07-19.
+
+| Host | Links | Reached by |
+|---|---|---|
+| moxfield | 22 | signed-in browser |
+| untapped | 4 | video description |
+| magic.gg | 4 | video description |
+| aetherhub | 2 | signed-in browser |
+
+## Build chain
+
+```
+harvest_incremental.py   # RSS -> descriptions via the polite gate, newest first,
+                         # checkpoints master_decks.json after EVERY fetch
+build_costs.py           # -> deck_costs.json (price + wildcards per deck)
+build_page.py            # -> this page AND this .md
+```
+
+Source dir: `~/Projects/_outputs/creator-winrate-db/`
