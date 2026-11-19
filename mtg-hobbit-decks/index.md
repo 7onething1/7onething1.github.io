@@ -9,24 +9,24 @@ colors, archetype, and a spike-or-brew read. Generated 2026-11-19.
 
 | Measure | Value |
 |---|---|
-| Decks on the page | **212** |
-| With real price and wildcard numbers | **212** |
+| Decks on the page | **215** |
+| With real price and wildcard numbers | **215** |
 | ├ from Moxfield (signed-in browser) | 113 |
-| ├ from Aetherhub (signed-in browser) | 3 |
+| ├ from Aetherhub (signed-in browser) | 6 |
 | ├ from the video description | 79 |
 | └ from MTGGoldfish | 11 |
 | Decklist walled | **0** |
 | Creators | 42 |
-| Carrying a publish date | 212 |
+| Carrying a publish date | 215 |
 | Newest video | 2026-11-19 |
-| Colors counted off the real list | 211 |
+| Colors counted off the real list | 214 |
 | Colors taken from the creator's title | 0 |
 | Still unlabelled | 1 |
-| Running a card new in The Hobbit (HOB) | **212** |
-| Running a card new in Star Trek (TRK) | **22** |
+| Running a card new in The Hobbit (HOB) | **215** |
+| Running a card new in Star Trek (TRK) | **23** |
 | ├ rares+mythics still needed, cheapest | **2** |
 | ├ rares+mythics still needed, median | **9** |
-| Dropped as not Standard | **35** |
+| Dropped as not Standard | **45** |
 | Quarantined by the 2026-10-12 bans | **0** |
 
 ## Quarantined by the 2026-10-12 bans
@@ -35,7 +35,7 @@ Wizards banned 0 cards in Standard on 2026-10-12:
 .
 Source: [Banned and Restricted Announcement, October 12, 2026](https://magic.wizards.com/en/news/announcements/banned-and-restricted-october-12-2026).
 
-**0 of 212 decks on this page run one of them.**
+**0 of 215 decks on this page run one of them.**
 
 | Card | Copies | Decks |
 |---|---|---|
@@ -55,8 +55,8 @@ is banned.
 
 ## What the format gate removed
 
-A title cannot tell you a format. 35 decks were held back because under
-90% of their card copies are Standard-legal per Scryfall: LegenVD 18, CovertGoBlue 6, CROKEYZ 5, d00mwake 4, Strictly Better MtG 2.
+A title cannot tell you a format. 45 decks were held back because under
+90% of their card copies are Standard-legal per Scryfall: LegenVD 27, CovertGoBlue 6, CROKEYZ 6, d00mwake 4, Strictly Better MtG 2.
 Those are Pauper lists, 100-card Brawl decks and Alchemy rebalances published on channels
 whose titles read as Arena Standard. Their prices were real numbers answering the wrong
 question. The split is clean, 182 decks at 97% legal or better against 13 at 58% or
@@ -69,23 +69,23 @@ from this build, so the ledger cannot drift from the page.
 
 | # | Asked | Chat | State |
 |---|---|---|---|
-| 1 | At least 7 decks per creator | 07-11 | 12 of 42 creators clear 7. Capped at the source: Strictly Better MtG 5, from 55 videos the feed reached (45 post no decklist link); LegenVD 3, from 59 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); multimedia 3, from 3 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); MythicMike 2, from 4 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); TheHolyPally Gaming 2, from 28 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Brandon (ChatGPT brew) 2, from 7 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); SBMTG Dev 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); PapaPrimal 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); the_golden_gunman 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Panterino777 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Hayabusa341 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Boideux 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Giltz 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); lasersnail 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); jayvillain 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); HarryWang 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); blammazoids 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Byletwin2 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); CaPolsky 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); cbaseball119 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); corytc 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Saleen66 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); umotivo 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Avusui 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); MTG Joe 1, from 8 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Arstall 1, from 107 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Javier Dominguez 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Derrick Davis 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Isael Feitosa 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Noah Michaud 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
+| 1 | At least 7 decks per creator | 07-11 | 12 of 42 creators clear 7. Capped at the source: LegenVD 6, from 59 videos the feed reached (27 fail the Standard-legality gate); Strictly Better MtG 5, from 55 videos the feed reached (45 post no decklist link); multimedia 3, from 3 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); MythicMike 2, from 4 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); TheHolyPally Gaming 2, from 28 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Brandon (ChatGPT brew) 2, from 7 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); SBMTG Dev 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); PapaPrimal 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); the_golden_gunman 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Panterino777 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Hayabusa341 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Boideux 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Giltz 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); lasersnail 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); jayvillain 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); HarryWang 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); blammazoids 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Byletwin2 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); CaPolsky 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); cbaseball119 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); corytc 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Saleen66 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); umotivo 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Avusui 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); MTG Joe 1, from 8 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Arstall 1, from 107 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Javier Dominguez 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Derrick Davis 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Isael Feitosa 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach); Noah Michaud 1, from 1 videos the feed reached (RSS serves only the latest 15 uploads, so older decks are out of reach) |
 | 2 | Read the description for deck links | 07-11 | 79 decks priced straight from the description |
-| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 23 spike, 184 standard, 5 brew |
+| 3 | Popular / spike vs jank-or-brew categories | 07-11 | 23 spike, 187 standard, 5 brew |
 | 4 | Color buttons that work as OFF switches | 07-19 | Done. Every color starts on, clicking one hides every deck needing it |
-| 5 | Link the decklist host | 07-11 | 190 of 212 carry a Moxfield / Aetherhub / Goldfish link |
+| 5 | Link the decklist host | 07-11 | 193 of 215 carry a Moxfield / Aetherhub / Goldfish link |
 | 6 | Sort by price, and by wildcards, off the Arena export | 07-18 | Both sorts live, seeded from the collection export at 2026-11-19 |
-| 7 | Also link into kc-card-finder | 07-19 | 212 of 212 pass their full list to the finder |
+| 7 | Also link into kc-card-finder | 07-19 | 215 of 215 pass their full list to the finder |
 | 8 | Replace "Standard brew" with colors and archetype | 07-19 | Done. 1 card still reads a generic label |
-| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 212 of 212 |
-| 10 | Creator name on each card when sorted by price | 07-24 | On all 212 cards, revealed the moment a global sort flattens the grid |
+| 9 | Show price and wildcards on the page | 07-19 | On every priced card, 215 of 215 |
+| 10 | Creator name on each card when sorted by price | 07-24 | On all 215 cards, revealed the moment a global sort flattens the grid |
 | 11 | Update for Ashlizzle's latest | 07-24 | 15 Ashlizzle decks, newest 2026-11-08 |
-| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 18 of 212 cards carry a measured gameplan, 10 of those also break out the cards past the first 60. 10 list their main cards as well |
+| 12 | Deck tech, gameplan, sideboard plan | 07-18 | 19 of 215 cards carry a measured gameplan, 10 of those also break out the cards past the first 60. 10 list their main cards as well |
 
 ## What a gameplan says, and what it cannot
 
 Each **Gameplan** block is counted off that deck's own list against Scryfall mana
-value, type line and oracle text (18 of 212 decks; the rest have no
+value, type line and oracle text (19 of 215 decks; the rest have no
 reachable list). It reports the creature and spell split, the land count, the
 average mana value, how many cards cost one or two, where the curve tops out, and
 how many answers the list holds by category.
@@ -111,8 +111,8 @@ Two limits:
   the same basis as the number shown. Lands are identified from the Scryfall type line
   rather than the card name, because a name test calls **Boomerang Basics** a land and
   it is a Sorcery; a double-faced spell is judged by its front face. Across the priced
-  corpus the manabase is 47% of the median deck price, and 492 of
-  877 decks need fewer rare-plus-mythic wildcards without it. The buy link is
+  corpus the manabase is 47% of the median deck price, and 507 of
+  898 decks need fewer rare-plus-mythic wildcards without it. The buy link is
   deliberately left alone: it still carts the complete deck, lands included, because
   that is what you have to own to play it.
 - **Wildcards to build.** What Arena charges after subtracting owned cards, bucketed by
@@ -148,7 +148,7 @@ those nodes. That pass closed the last 74 decks on 2026-07-19.
 | Host | Links | Reached by |
 |---|---|---|
 | moxfield | 136 | signed-in browser |
-| aetherhub | 39 | signed-in browser |
+| aetherhub | 42 | signed-in browser |
 | untapped | 22 | video description |
 | mtggoldfish | 12 | anonymous HTTP |
 | magic.gg | 4 | video description |

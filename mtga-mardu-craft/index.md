@@ -400,7 +400,7 @@ python3 ~/Projects/_outputs/mtga-mardu/recount_observed_play.py --dry-run
 - Collection **12,058** distinct cards
 - Common WC **1,071**, Uncommon WC **874**, which is why neither rarity is ranked
 - Gems **615**, Gold **1,035**, Vault progress **3.6%**
-- Mardu rows on the ranking: **330**
+- Mardu rows on the ranking: **335**
 
 
 ## Standard bans
