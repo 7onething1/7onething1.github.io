@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T22:03:27Z",
+ "updated": "2026-11-19T23:20:01Z",
  "meta_period_id": 722,
  "source": "Untapped.gg archetypes_by_event_scope_and_rank_v2",
  "color_bitmask": "WUBRG: W=1,U=2,B=4,R=8,G=16",
@@ -17,7 +17,7 @@
   "gems": 615,
   "gold": 1035,
   "vault_progress": 3.6,
-  "collection_last_updated": "2026-11-19T16:06:09Z"
+  "collection_last_updated": "2026-11-19T23:14:49Z"
  },
  "archetypes": [
   {

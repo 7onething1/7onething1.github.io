@@ -6,12 +6,12 @@ Read against the live Arena collection, snapshot 2026-11-19.
 
 | Measure | Value |
 |---|---|
-| Decks you can build | **340** |
-| Need zero rare or mythic wildcards | **15** |
+| Decks you can build | **353** |
+| Need zero rare or mythic wildcards | **16** |
 | Running at least one card new in The Hobbit | **130** |
-| Decks checked | 646 |
-| Rejected for needing more than 10 wildcards | 152 |
-| Rejected for more than 4 rotating cards | 154 |
+| Decks checked | 670 |
+| Rejected for needing more than 10 wildcards | 159 |
+| Rejected for more than 4 rotating cards | 158 |
 
 ## The rules
 
@@ -25,10 +25,10 @@ Read against the live Arena collection, snapshot 2026-11-19.
 
 ## Excluded before scoring
 
-- **177** no list
+- **184** no list
 - **70** banned card
 - **11** roundup parent
-- **152** folded re-posting
+- **159** folded re-posting
 - **19** card not in index
 
 ## Grounding
