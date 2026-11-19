@@ -419,16 +419,16 @@ The trigger is the announcement, never Scryfall legality, which lags by hours on
 |---:|---|---|---|---|---:|---|---:|---:|
 | 1 | Sacred FoundryStar Trek2028 or later | WR | Rare | TRK | 4 | 0 | Land — Mountain Plains | 0 |
 | 2 | Starting TownFinal Fantasy2028 or later | C | Rare | FIN | 4 | 0 | Land — Town | 0 |
-| 3 | Sunbillow VergeAetherdrift2028 or later | WR | Rare | DFT | 4 | 0 | Land | 0 |
-| 4 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
-| 5 | Godless ShrineStar Trek2028 or later | WB | Rare | TRK | 4 | 0 | Land — Plains Swamp | 0 |
-| 6 | Blood CryptStar Trek2028 or later | BR | Rare | TRK | 5 | 0 | Land — Swamp Mountain | 0 |
-| 7 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
-| 8 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 3 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
+| 4 | Sunbillow VergeAetherdrift2028 or later | WR | Rare | DFT | 4 | 0 | Land | 0 |
+| 5 | Blood CryptStar Trek2028 or later | BR | Rare | TRK | 5 | 0 | Land — Swamp Mountain | 0 |
+| 6 | Godless ShrineStar Trek2028 or later | WB | Rare | TRK | 4 | 0 | Land — Plains Swamp | 0 |
+| 7 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
+| 8 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
 | 9 | Blazemire VergeDuskmourn: House of Horrorrotates early 2027 | BR | Rare | DSK | 4 | 0 | Land | 0 |
 | 10 | ErodeSecrets of Strixhaven2028 or later | W | Rare | SOS | 4 | 0 | Instant | 1 |
 | 11 | Bleachbone VergeAetherdrift2028 or later | WB | Rare | DFT | 4 | 0 | Land | 0 |
-| 12 | Cavern of SoulsThe Lost Caverns of Ixalanrotates early 2027Arstall: rotating | C | Mythic | LCI | 4 | 0 | Land | 0 |
+| 12 | Concealed CourtyardOutlaws of Thunder Junctionrotates early 2027 | WB | Rare | OTJ | 8 | 0 | Land | 0 |
 
 Bold means you do not own a playset yet. Read straight off the tbody this build wrote, so the table here and the table on the page are the same rows.
 
