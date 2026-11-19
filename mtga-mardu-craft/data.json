@@ -1,23 +1,23 @@
 {
- "updated": "2026-11-13T20:45:22Z",
+ "updated": "2026-11-19T20:34:22Z",
  "meta_period_id": 722,
  "source": "Untapped.gg archetypes_by_event_scope_and_rank_v2",
  "color_bitmask": "WUBRG: W=1,U=2,B=4,R=8,G=16",
  "resources": {
-  "rare_wc": 4,
-  "mythic_wc": 8,
+  "rare_wc": 7,
+  "mythic_wc": 10,
   "deck_count": 17,
   "best_mardu_wr": 61.89,
   "best_mardu_deck": "Mardu Discard",
   "best_mardu_matches": 900,
   "best_all_wr": 61.89,
   "best_all_deck": "Mardu Discard",
-  "collection_owned": 11836,
-  "collection_copies": 34567,
-  "gems": 45,
-  "gold": 11660,
-  "vault_progress": 97.7,
-  "collection_last_updated": "2026-11-03T01:27:55Z"
+  "collection_owned": 12058,
+  "collection_copies": 35031,
+  "gems": 615,
+  "gold": 1035,
+  "vault_progress": 3.6,
+  "collection_last_updated": "2026-11-19T16:06:09Z"
  },
  "archetypes": [
   {

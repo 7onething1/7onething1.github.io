@@ -2,16 +2,16 @@
 
 Live: https://drwu-htmls.vercel.app/mtga-buildable-decks
 
-Read against the live Arena collection, snapshot 2026-10-29.
+Read against the live Arena collection, snapshot 2026-11-19.
 
 | Measure | Value |
 |---|---|
-| Decks you can build | **230** |
-| Need zero rare or mythic wildcards | **13** |
-| Running at least one card new in The Hobbit | **99** |
-| Decks checked | 433 |
-| Rejected for needing more than 10 wildcards | 90 |
-| Rejected for more than 4 rotating cards | 113 |
+| Decks you can build | **317** |
+| Need zero rare or mythic wildcards | **15** |
+| Running at least one card new in The Hobbit | **123** |
+| Decks checked | 597 |
+| Rejected for needing more than 10 wildcards | 141 |
+| Rejected for more than 4 rotating cards | 139 |
 
 ## The rules
 
@@ -25,11 +25,11 @@ Read against the live Arena collection, snapshot 2026-10-29.
 
 ## Excluded before scoring
 
-- **168** no list
+- **231** no list
 - **69** banned card
-- **6** roundup parent
-- **119** folded re-posting
-- **14** card not in index
+- **11** roundup parent
+- **145** folded re-posting
+- **17** card not in index
 
 ## Grounding
 

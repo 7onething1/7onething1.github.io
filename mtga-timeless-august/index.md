@@ -3,13 +3,13 @@
 Live: https://drwu-htmls.vercel.app/mtga-timeless-august
 
 37 decklists from 4 creators who are not in the Standard corpus,
-scored against the live Arena collection. Built 2026-10-29.
+scored against the live Arena collection. Built 2026-11-19.
 
 | Measure | Without lands | With lands |
 |---|---|---|
-| Median rare/mythic wildcards | **14** | **22** |
+| Median rare/mythic wildcards | **12** | **21** |
 | Most expensive | 25 | 34 |
-| Fitting a 10-wildcard budget | **4 of 37** | **2 of 37** |
+| Fitting a 10-wildcard budget | **11 of 37** | **2 of 37** |
 
 Creators: Chestheir, Griffin MTG, Priority Holder, Takobyte
 

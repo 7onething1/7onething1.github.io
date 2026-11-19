@@ -2,7 +2,7 @@
 
 Live: https://drwu-htmls.vercel.app/mtga-mardu-craft/
 
-Standard, snapshot **2026-11-03**. Ranks every white, black or red Standard card by how
+Standard, snapshot **2026-11-19**. Ranks every white, black or red Standard card by how
 many published Mardu-color decklists actually run it, so a wildcard spent near the top of
 the list does the most work.
 
@@ -394,13 +394,13 @@ Reproduce:
 python3 ~/Projects/_outputs/mtga-mardu/recount_observed_play.py --dry-run
 ```
 
-## Headline numbers, from the collection pull of 2026-11-03
+## Headline numbers, from the collection pull of 2026-11-19
 
-- Rare WC **4**, Mythic WC **8**, so a **12**-wildcard budget for the rows that gate a build
-- Collection **11,836** distinct cards
-- Common WC **1,062**, Uncommon WC **870**, which is why neither rarity is ranked
-- Gems **45**, Gold **11,660**, Vault progress **97.7%**
-- Mardu rows on the ranking: **323**
+- Rare WC **7**, Mythic WC **10**, so a **17**-wildcard budget for the rows that gate a build
+- Collection **12,058** distinct cards
+- Common WC **1,071**, Uncommon WC **874**, which is why neither rarity is ranked
+- Gems **615**, Gold **1,035**, Vault progress **3.6%**
+- Mardu rows on the ranking: **330**
 
 
 ## Standard bans
@@ -420,11 +420,11 @@ The trigger is the announcement, never Scryfall legality, which lags by hours on
 | 1 | Sacred FoundryStar Trek2028 or later | WR | Rare | TRK | 4 | 0 | Land — Mountain Plains | 0 |
 | 2 | Starting TownFinal Fantasy2028 or later | C | Rare | FIN | 4 | 0 | Land — Town | 0 |
 | 3 | Sunbillow VergeAetherdrift2028 or later | WR | Rare | DFT | 4 | 0 | Land | 0 |
-| 4 | Blood CryptStar Trek2028 or later | BR | Rare | TRK | 4 | 0 | Land — Swamp Mountain | 0 |
+| 4 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
 | 5 | Godless ShrineStar Trek2028 or later | WB | Rare | TRK | 4 | 0 | Land — Plains Swamp | 0 |
-| 6 | Multiversal PassageMarvel&#x27;s Spider-Man2028 or later | C | Rare | SPM | 4 | 0 | Land | 0 |
-| 7 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
-| 8 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
+| 6 | Blood CryptStar Trek2028 or later | BR | Rare | TRK | 5 | 0 | Land — Swamp Mountain | 0 |
+| 7 | Voice of VictoryTarkir: Dragonstorm2028 or later | W | Rare | TDM | 4 | 0 | Creature — Human Bard | 2 |
+| 8 | Inspiring VantageOutlaws of Thunder Junctionrotates early 2027 | WR | Rare | OTJ | 8 | 0 | Land | 0 |
 | 9 | Blazemire VergeDuskmourn: House of Horrorrotates early 2027 | BR | Rare | DSK | 4 | 0 | Land | 0 |
 | 10 | ErodeSecrets of Strixhaven2028 or later | W | Rare | SOS | 4 | 0 | Instant | 1 |
 | 11 | Bleachbone VergeAetherdrift2028 or later | WB | Rare | DFT | 4 | 0 | Land | 0 |
