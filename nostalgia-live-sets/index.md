@@ -69,3 +69,8 @@ been played.
 - Sets: `/Users/drwu/Music/Ableton/Nostalgia Live Sets/`
 - Builders: `/Users/drwu/Projects/_outputs/ableton-rack-builder/Nostalgia Ableton Build/tools/`
 - Page source: `/Users/drwu/Projects/drwu-htmls/public/nostalgia-live-sets/index.html`
+
+## Goldfrapp and Portishead .als files
+
+- [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als): `open "/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Goldfrapp 001 Project/Nostalgia Goldfrapp 001.als"`
+- [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als): `open "/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Portishead 001 Project/Nostalgia Portishead 001.als"`

@@ -10,6 +10,14 @@ Build sheet, 2026-11-09. Local rigs for Live 11.3.30 on Jacks-iMac. Sources are 
 - **Every starter clip is an original phrase.** No melody, chord progression, lyric or sample from either band is reproduced.
 - **Nobody has listened to any of it.** No listening test was run, and no target spectrum was measured because no Goldfrapp or Portishead audio is on this Mac.
 
+## The two Live Sets
+
+Both sets were written 2026-11-12 and opened in Live 11.3.43. Every rig below lives in one of them. Links open on this Mac only.
+
+- **Nostalgia Goldfrapp 001**, 8 instrument tracks: [/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Goldfrapp 001 Project/Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als). Run `open "/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Goldfrapp 001 Project/Nostalgia Goldfrapp 001.als"`
+- **Nostalgia Portishead 001**, 9 instrument tracks: [/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Portishead 001 Project/Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als). Run `open "/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Portishead 001 Project/Nostalgia Portishead 001.als"`
+- Set index: https://7onething1.github.io/nostalgia-live-sets/
+
 ## Headline local resource
 
 **Puremagnetik String Machines (Legacy) replaces the Kontakt string layer.** Measured on this Mac: 348 WAVs (all 44.1 kHz, 24-bit), 229 MB, 30 presets in four families. The presets are Instrument Racks that wrap native Simpler devices, so no Kontakt is needed. I confirmed this by unzipping `Solina String Section.adg`: 3 Simplers.
@@ -44,16 +52,16 @@ Source for the left column: ChatGPT, Thread B. Middle and right columns: measure
 
 | ChatGPT rank and pick | What is installed | Verdict |
 |---|---|---|
-| 1 Nostalgia SH-101, the Mysterons lead | No SH-101 model. Jun-6 V is the nearest architecture | Stand-in only (Dummy Ghost Lead) |
+| 1 Nostalgia SH-101, the Mysterons lead | No SH-101 model. Nearest track in Nostalgia Portishead 001: Third ARP2600 Lead Multisample | Stand-in only, my mapping |
 | 2 Waves Electric 88 Rhodes | Electric Grand 80 present, 88 not confirmed | Unresolved |
 | 3 Nostalgia Mellotron and Chamberlin | Mellotron V | Covered, octave fault |
-| 4 Nostalgia Vox Continental | Not installed | GAP |
+| 4 Nostalgia Vox Continental | No Vox model. Nearest track in Nostalgia Portishead 001: Dummy RS09 Organ Bed | Stand-in only, my mapping |
 | 5 Nostalgia Minimoog and Taurus | Mini V3 | Direct model match for the Minimoog |
 | 6 Nostalgia ARP 2600 and Odyssey | ARP 2600 V3 | 2600 matches, Odyssey does not |
 | 7 Nostalgia Prophet-5 | Prophet V3 | Direct model match |
-| 8 Nostalgia Fairlight and Emulator II | Not installed | GAP |
+| 8 Nostalgia Fairlight and Emulator II | No Fairlight or Emulator model, and no track for it in Nostalgia Portishead 001 | GAP |
 | 9 Nostalgia old drum machines | DM ARP 2600 Drums by Flatpack (Legacy), relevance unchecked | Unresolved |
-| 10 TAL-BassLine-101 | Not installed | GAP |
+| 10 TAL-BassLine-101 | No TAL plugin. Bass in Nostalgia Portishead 001: Dummy MiniV3 Bass Multisample | Stand-in only, my mapping |
 
 ChatGPT flagged all Portishead settings as Portishead-inspired treatments, not claims about the records.
 
@@ -63,16 +71,27 @@ ChatGPT flagged all Portishead settings as Portishead-inspired treatments, not c
 
 ## Per-rig settings
 
-| Rig | Source | Key settings | Status |
-|---|---|---|---|
-| Seventh Tree Solina Ensemble | Puremagnetik ARP Solina | Attack 150 ms, release 2 s, HP 120 Hz | Preset written, Live opens it (2026-11-12) |
-| Seventh Tree Crumar Bed | Puremagnetik Crumar Orchestrator | Same envelope, chorus wide and gentle | Preset written, Live opens it (2026-11-12) |
-| Seventh Tree VP330 Choir Air | Puremagnetik Roland VP-330 | Same, 8 to 12 dB under the strings | Preset written, Live opens it (2026-11-12) |
-| Seventh Tree RS09 Wash | Puremagnetik Roland RS-09 | Hi and Lo on two tracks, panned apart | Preset written, Live opens it (2026-11-12) |
-| Seventh Tree Tape Flutes | Arturia Mellotron V | track_selector 1.00, clip written one octave low | Printed 2026-11-09, preview WAV 14.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISMLTNProc`. The `.adv` opens in Live (2026-11-12); the `.vstpreset` is still untested |
-| Seventh Tree Wurli Intimate | Arturia Wurli V2 | Velocity 50 to 80, HP 120 Hz | Printed 2026-11-09, preview WAV 13.00 s peak -3.00 dBFS plus `.vstpreset` class `ArtuAVISWUR2Proc`. The `.adv` opens in Live (2026-11-12); the `.vstpreset` is still untested |
-| Dummy Vintage Multisample Sampler | RS-09 and VP-330 beds, Mini V3 render for bass | 90 BPM A minor, macro labels kept | Built 2026-11-09, 21 WAVs and 5 presets, 56 zones, all paths resolve |
-| Third Vintage Multisample Sampler | ARP 2600 V3 and Modular V3 renders, RS-09 bed | 104 BPM D minor, macro labels kept | Built 2026-11-09, 19 WAVs and 4 presets, 37 zones, all paths resolve |
+The track list is read from the two .als files on 2026-11-24. Earlier rig names (Tape Flutes, Wurli Intimate, Dummy Ghost Lead) are not tracks in either set; their presets still sit in the build folders.
+
+| Track | Source | Live Set |
+|---|---|---|
+| ST Crumar Cello | Puremagnetik Crumar Orchestrator | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST Crumar Violin | Puremagnetik Crumar Orchestrator | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST RS09 Str Hi Ens | Puremagnetik Roland RS-09 | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST RS09 Str Lo Ens | Puremagnetik Roland RS-09 | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST Solina Viola | Puremagnetik ARP Solina | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST Solina Violin | Puremagnetik ARP Solina | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST VP330 Female 4ft Ens | Puremagnetik Roland VP-330 | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| ST VP330 Voice Layered Ens | Puremagnetik Roland VP-330 | [Nostalgia Goldfrapp 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Goldfrapp%20001%20Project/Nostalgia%20Goldfrapp%20001.als) |
+| Dummy MiniV3 Bass Multisample | Mini V3 render | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Dummy RS09 Dust Bed | Puremagnetik Roland RS-09 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Dummy RS09 Organ Bed | Puremagnetik Roland RS-09 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Dummy VP330 Dark Strings Bed | Puremagnetik Roland VP-330 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Dummy VP330 Male Air | Puremagnetik Roland VP-330 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Third ARP2600 Lead Multisample | ARP 2600 V3 render | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Third Modular Drone Multisample | Modular V3 render | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Third RS09 High Bed | Puremagnetik Roland RS-09 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
+| Third RS09 Str Lo Bed | Puremagnetik Roland RS-09 | [Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als) |
 
 Starting values for the string rigs come from Thread B: attack 100 to 250 ms, release 1.5 to 3 s, high pass near 120 Hz, gentle wide chorus, moderate reverb. They are ChatGPT's treatment. Macro labels are text only and unverified. Both `(EMPTY)` suffixes are gone, because real samples now sit in those two folders. 93 zones across the nine Portishead presets, every sample path resolving, no key-range gaps or overlaps. A first pass of mine was archived into each album's delete/ folder, because its Arturia renders sat 12 semitones below their filename tokens. The replacements render from Arturia factory presets and carry 76 to 89 percent of their energy at the token pitch. None of the rendered samples carries loop points, so a held note stops at the end of the file.
 
