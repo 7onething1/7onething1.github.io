@@ -28,6 +28,7 @@ Built from the ChatGPT V2 order of 2026-11-24. V1 files are untouched. Every num
 | Plastic Helicopter V2 | ARP 2600 V3 | noise plus low osc, 8 to 12 Hz cyclic modulation | chop 9.99 Hz, 15 dB deep, tempo-free; round trip 9.99 Hz | ARP 2600 V3 created, no errors |
 | The Rip Pulse V2 | Mini V3 | saw plus pulse, 1/16 arpeggio, dark cutoff | 8.0 notes/s at 120 BPM (1/16, synced, so 9.9/s at 149 BPM); centroid about 1.5 kHz; round trip identical | Mini V3 created, no errors |
 | Machine Gun Percussion V2 | Live Drum Rack | metallic kick, snare, noise hits, 40 to 150 ms, clean and crushed | 6 synthesized one-shots, 48 kHz 24-bit, -1 dBFS peak, C1 to A1; crushed versions are separate pads, no Saturator or Phaser-Flanger yet | opened, no errors; sample load on a track not confirmed |
+| Dummy Dusty Break V2 | Live Drum Rack | dusty resampled break kit (critique P1, Portishead percussion) | 6 synthesized one-shots (soft kick, dusty snare, rim, closed and open hat, 12-bit vinyl kick), 48 kHz 24-bit, -1 dBFS, C1 to A1 | opened, no errors; load on a track not confirmed |
 | Monster Love Dream Choir V2 | Live Simpler x2 in a rack | VP-330 female and layered voice, attack 300 ms, release 2.5 s, HP 150 Hz, chorus, 3 s reverb, blend macro | 5 + 9 zones, every path resolves; envelope reads 300 / 2500 ms; rack has EQ Eight 150 Hz low cut, Chorus, Reverb 3 s in each chain; **no blend macro**, both voices sound together | opened, no errors; load on a track not confirmed |
 
 Native-device files (the Drum Rack and the Simpler presets) give no "Created" line in Live's log, so the log shows only that Live received the file, not that it loaded.
@@ -42,6 +43,9 @@ Native-device files (the Drum Rack and the Simpler presets) give no "Created" li
 
 ### Round-trip test by synth
 Exact: Mini V3, ARP 2600 V3, Modular V3. Values change on reload: Jun-6 V, Prophet V3, Wurli V2, Mellotron V, Jup-8 V4.
+
+### Builder hard-fail (critique P0)
+`build_simpler_adv.py` now stops with exit code 1 and states the reason when any input WAV is skipped or missing. Before, it dropped skipped files without a word and exited only when no zones were built at all. A negative test (a WAV with no derivable note, and a missing WAV) fails as intended. The positive rebuild of the MiniV3 Bass set still writes all 12 zones. Backup: `build_simpler_adv.py.bak-hardfail-2026-11-25`.
 
 ### Sustain loops (critique P0)
 Forward sustain loops with a 7.5 percent crossfade now sit on all 40 zones of the 4 rendered Portishead presets: Dummy MiniV3 Bass, Dummy VP330 Male Air, Third ARP2600 Lead and Third Modular Drone. Each zone passes three checks on a 20 s numeric render:
