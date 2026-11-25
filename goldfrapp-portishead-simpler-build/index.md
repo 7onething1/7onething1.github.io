@@ -18,6 +18,39 @@ Both sets were written 2026-11-12 and opened in Live 11.3.43. Every rig below li
 - **Nostalgia Portishead 001**, 9 instrument tracks: [/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Portishead 001 Project/Nostalgia Portishead 001.als](file:///Users/drwu/Music/Ableton/Nostalgia%20Live%20Sets/Nostalgia%20Portishead%20001%20Project/Nostalgia%20Portishead%20001.als). Run `open "/Users/drwu/Music/Ableton/Nostalgia Live Sets/Nostalgia Portishead 001 Project/Nostalgia Portishead 001.als"`
 - Set index: https://7onething1.github.io/nostalgia-live-sets/
 
+## V2 song racks, first batch (2026-11-25)
+
+Built from the ChatGPT V2 order of 2026-11-24. V1 files are untouched. Every number below was measured from an offline render with pedalboard at 48 kHz. A round trip means the state was written into the .adg, read back, reloaded into a fresh plugin and measured again. **Nobody has listened to any of these yet**, and nothing has been compared against the records.
+
+| Rack | Synth | Spec target | Measured | Live 11.3.43 load |
+|---|---|---|---|---|
+| Mysterons Ghost Lead V2 | Mini V3 | triangle, mono, glide 100 to 150 ms, vibrato 5 to 6 Hz subtle | pitch within 1.6 cents on A3, A4 and E5; glide 140 ms; vibrato 5.57 Hz at 13 cents; round trip identical | Mini V3 created, no errors |
+| Plastic Helicopter V2 | ARP 2600 V3 | noise plus low osc, 8 to 12 Hz cyclic modulation | chop 9.99 Hz, 15 dB deep, tempo-free; round trip 9.99 Hz | ARP 2600 V3 created, no errors |
+| The Rip Pulse V2 | Mini V3 | saw plus pulse, 1/16 arpeggio, dark cutoff | 8.0 notes/s at 120 BPM (1/16, synced, so 9.9/s at 149 BPM); centroid about 1.5 kHz; round trip identical | Mini V3 created, no errors |
+| Machine Gun Percussion V2 | Live Drum Rack | metallic kick, snare, noise hits, 40 to 150 ms, clean and crushed | 6 synthesized one-shots, 48 kHz 24-bit, -1 dBFS peak, C1 to A1; crushed versions are separate pads, no Saturator or Phaser-Flanger yet | opened, no errors; sample load on a track not confirmed |
+| Monster Love Dream Choir V2 | Live Simpler x2 in a rack | VP-330 female and layered voice, attack 300 ms, release 2.5 s, HP 150 Hz, chorus, 3 s reverb, blend macro | 5 + 9 zones, every path resolves; envelope reads 300 / 2500 ms; rack has EQ Eight 150 Hz low cut, Chorus, Reverb 3 s in each chain; **no blend macro**, both voices sound together | opened, no errors; load on a track not confirmed |
+
+Native-device files (the Drum Rack and the Simpler presets) give no "Created" line in Live's log, so the log shows only that Live received the file, not that it loaded.
+
+### Changed from the spec
+- **The Rip moved from Jun-6 V to Mini V3.** Jun-6 V state written by the script reloads with every continuous value at its minimum (volume -60 dB), so that rack was moved to `delete/` and rebuilt on Mini V3, which round-trips exactly. It uses the Mysterons rack's EQ, Echo and Reverb chain.
+- **The Plastic chop comes from the ARP 2600 sequencer, not its LFO.** The LFO to VCA route had no measurable effect in the default patch. The sequencer, set to one flat pitch in Free mode, retriggers the envelope at 10 Hz.
+
+### Not built, needs hands-on programming in Live
+- **Threads (Modular V3):** its patch cables are not exposed as parameters, and tuning and VCA changes had no measurable effect on the default patch.
+- **Roads (Wurli V2) and Little Bird (Mellotron V plus Prophet V3):** these synths do not survive a scripted state round trip (Wurli V2: 18 of the first 40 values changed; Prophet V3: 12; Mellotron V: 12), so a scripted patch could not be verified.
+
+### Round-trip test by synth
+Exact: Mini V3, ARP 2600 V3, Modular V3. Values change on reload: Jun-6 V, Prophet V3, Wurli V2, Mellotron V, Jup-8 V4.
+
+### Sustain loops (critique P0)
+Forward sustain loops with a 7.5 percent crossfade now sit on all 40 zones of the 4 rendered Portishead presets: Dummy MiniV3 Bass, Dummy VP330 Male Air, Third ARP2600 Lead and Third Modular Drone. Each zone passes three checks on a 20 s numeric render:
+- **Seam jump:** at most 2.94 times the median.
+- **Level drift:** at most 0.43 dB.
+- **Silence:** none.
+
+MiniV3 C0 is the weakest loop, with a 5.8 dB level range. The other 5 presets use Puremagnetik samples that already looped. The existing Nostalgia Portishead 001 set saved its own copy of each device, so the loops apply only when a preset is loaded fresh. Backups end in `.bak-sustainloop-20261125-094403`. Nobody has listened to the loops.
+
 ## Headline local resource
 
 **Puremagnetik String Machines (Legacy) replaces the Kontakt string layer.** Measured on this Mac: 348 WAVs (all 44.1 kHz, 24-bit), 229 MB, 30 presets in four families. The presets are Instrument Racks that wrap native Simpler devices, so no Kontakt is needed. I confirmed this by unzipping `Solina String Section.adg`: 3 Simplers.
